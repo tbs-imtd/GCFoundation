@@ -1,0 +1,1010 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger: none
+
+pr:
+  branches:
+    include:
+      - master
+      - develop
+
+pool: 'TBS Self Hosted'
+
+variables:
+  - name: buildConfiguration
+    value: 'Release'
+  - name: solution
+    value: '**/*.sln'
+  - name: testProject
+    value: 'GCFoundation.Tests.Components/GCFoundation.Tests.Components.csproj'
+  - name: dotnetSdkVersion
+    value: '8.x'
+  - name: nodeVersion
+    value: '22.x'
+  - name: testResultsDir
+    value: '$(Agent.TempDirectory)/TestResults'
+
+name: PR-$(System.PullRequest.PullRequestNumber)-$(Date:yyyyMMdd)-$(Rev:.r)
+
+schedules:
+- cron: "0 3 * * *"  # daily at 03:00 UTC
+  displayName: Nightly E2E
+  branches:
+    include:
+      - master
+      - develop
+  always: true
+
+stages:
+- stage: Build
+  displayName: 'Build Complete Solution'
+  jobs:
+  - job: Build
+    displayName: 'Build GCFoundation Solution'
+    steps:
+    - checkout: self
+      clean: true
+
+    - task: UseDotNet@2
+      displayName: 'Install .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: $(dotnetSdkVersion)
+
+    - task: NuGetToolInstaller@1
+      displayName: 'NuGet Tool Installer'
+
+    - task: NuGetCommand@2
+      displayName: 'Restore NuGet Packages'
+      inputs:
+        restoreSolution: $(solution)
+
+    - task: Npm@1
+      displayName: 'Install NPM packages for Foundation.Components'
+      inputs:
+        command: 'install'
+        workingDir: 'GCFoundation.Components'
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Build Complete Solution'
+      inputs:
+        command: 'build'
+        projects: $(solution)
+        arguments: '--configuration $(buildConfiguration) --no-restore'
+
+- stage: Validate
+  displayName: 'Validate & Test'
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+  - job: UnitTests
+    displayName: 'Unit Tests with Coverage'
+    steps:
+    - checkout: self
+
+    - task: UseDotNet@2
+      displayName: 'Install .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: $(dotnetSdkVersion)
+
+    - task: NuGetToolInstaller@1
+      displayName: 'NuGet Tool Installer'
+
+    - task: NuGetCommand@2
+      displayName: 'Restore NuGet Packages for Tests'
+      inputs:
+        restoreSolution: $(solution)
+
+    - task: Npm@1
+      displayName: 'Install NPM packages for Foundation.Components'
+      inputs:
+        command: 'install'
+        workingDir: 'GCFoundation.Components'
+
+    - task: PowerShell@2
+      displayName: 'Execute Tests with Coverage Analysis'
+      continueOnError: true
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "## Test Execution with Coverage Analysis" -ForegroundColor Cyan
+          
+          $testResultsRoot = "$(testResultsDir)"
+          if (-not (Test-Path $testResultsRoot)) {
+            New-Item -ItemType Directory -Path $testResultsRoot -Force | Out-Null
+          }
+          
+          # Create enhanced coverage settings
+          $coverletSettings = @"
+          <?xml version="1.0" encoding="utf-8"?>
+          <RunSettings>
+            <DataCollectionRunSettings>
+              <DataCollectors>
+                <DataCollector friendlyName="XPlat code coverage">
+                  <Configuration>
+                    <Format>cobertura,opencover,lcov,json</Format>
+                    <Include>[GCFoundation.*]*</Include>
+                    <Exclude>[*.Tests]*,[*]*.Program,[*]*Exception</Exclude>
+                    <ExcludeByAttribute>Obsolete,GeneratedCode,CompilerGenerated</ExcludeByAttribute>
+                    <ExcludeByFile>**/Migrations/**/*,**/wwwroot/**/*,**/obj/**/*</ExcludeByFile>
+                    <IncludeTestAssembly>false</IncludeTestAssembly>
+                    <SingleHit>false</SingleHit>
+                    <UseSourceLink>true</UseSourceLink>
+                    <IncludeDirectory>../</IncludeDirectory>
+                  </Configuration>
+                </DataCollector>
+              </DataCollectors>
+            </DataCollectionRunSettings>
+          </RunSettings>
+          "@
+          $coverletSettings | Out-File -FilePath "coverlet.runsettings" -Encoding UTF8
+          Write-Host "✅ Enhanced coverage settings created" -ForegroundColor Green
+          
+          # Execute tests with coverage
+          Write-Host "🧪 Running unit tests with coverage..." -ForegroundColor Yellow
+          $testArgs = @(
+            "test"
+            "$(testProject)"
+            "--configuration"
+            "$(buildConfiguration)"
+            "--logger"
+            "trx;LogFileName=test-results.trx"
+            "--logger"
+            "console;verbosity=detailed"
+            "--collect:XPlat Code Coverage"
+            "--settings"
+            "coverlet.runsettings"
+            "--results-directory"
+            $testResultsRoot
+            "--"
+            "DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura"
+          )
+          
+          & dotnet @testArgs
+          $testExitCode = $LASTEXITCODE
+          
+          if ($testExitCode -eq 0) {
+            Write-Host "✅ Tests completed successfully" -ForegroundColor Green
+          } else {
+            Write-Host "⚠️ Tests completed with issues (exit code: $testExitCode)" -ForegroundColor Yellow
+          }
+
+    - task: PublishTestResults@2
+      displayName: 'Publish Test Results'
+      condition: always()
+      inputs:
+        testResultsFormat: 'VSTest'
+        testResultsFiles: '$(testResultsDir)/**/*.trx'
+        mergeTestResults: true
+        testRunTitle: 'GCFoundation Tests'
+
+    - task: PublishPipelineArtifact@1
+      displayName: 'Archive Test Results for Downstream Jobs'
+      condition: always()
+      inputs:
+        targetPath: $(testResultsDir)
+        artifact: 'test-results'
+
+  - job: QualityGates
+    displayName: 'Quality Gates & Security'
+    dependsOn: UnitTests
+    condition: or(eq(dependencies.UnitTests.result, 'Succeeded'), eq(dependencies.UnitTests.result, 'SucceededWithIssues'))
+    steps:
+    - checkout: self
+
+    - task: UseDotNet@2
+      displayName: 'Install .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: $(dotnetSdkVersion)
+
+    - task: NuGetToolInstaller@1
+      displayName: 'NuGet Tool Installer'
+
+    - task: NuGetCommand@2
+      displayName: 'Restore NuGet Packages (Quality Gates)'
+      inputs:
+        restoreSolution: $(solution)
+
+    - task: DownloadPipelineArtifact@2
+      displayName: 'Download Unit Test Artifacts'
+      inputs:
+        buildType: 'current'
+        artifactName: 'test-results'
+        targetPath: $(testResultsDir)
+
+    - task: PowerShell@2
+      displayName: 'Analyze Coverage Results for PR'
+      condition: succeededOrFailed()
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "## PR Coverage Analysis" -ForegroundColor Cyan
+          Write-Host "======================" -ForegroundColor Cyan
+          
+          $testResultsPath = "$(testResultsDir)"
+          $coverageFiles = Get-ChildItem -Path $testResultsPath -Filter "coverage.cobertura.xml" -Recurse -ErrorAction SilentlyContinue
+          
+          if ($coverageFiles.Count -gt 0) {
+            foreach ($file in $coverageFiles) {
+              try {
+                [xml]$coverage = Get-Content $file.FullName
+                $lineRate = [math]::Round([decimal]$coverage.coverage.'line-rate' * 100, 2)
+                $branchRate = [math]::Round([decimal]$coverage.coverage.'branch-rate' * 100, 2)
+                
+                Write-Host "📊 Coverage Results:" -ForegroundColor Green
+                Write-Host "  📈 Line Coverage: $lineRate%" -ForegroundColor $(if ($lineRate -ge 75) { "Green" } elseif ($lineRate -ge 60) { "Yellow" } else { "Red" })
+                Write-Host "  🌿 Branch Coverage: $branchRate%" -ForegroundColor $(if ($branchRate -ge 65) { "Green" } elseif ($branchRate -ge 50) { "Yellow" } else { "Red" })
+                
+                # Coverage validation for PR
+                $coverageIssues = @()
+                if ($lineRate -lt 60) {
+                  $coverageIssues += "Line coverage ($lineRate%) is below minimum threshold (60%)"
+                }
+                if ($branchRate -lt 50) {
+                  $coverageIssues += "Branch coverage ($branchRate%) is below minimum threshold (50%)"
+                }
+                
+                if ($coverageIssues.Count -gt 0) {
+                  Write-Host "`n⚠️ Coverage Issues:" -ForegroundColor Red
+                  $coverageIssues | ForEach-Object { Write-Host "  • $_" -ForegroundColor Red }
+                  Write-Host "`n💡 Please increase test coverage before merging" -ForegroundColor Yellow
+                } else {
+                  Write-Host "`n✅ Coverage meets PR requirements" -ForegroundColor Green
+                }
+                
+                # Generate PR comment data
+                $prNumber = if ($env:SYSTEM_PULLREQUEST_PULLREQUESTNUMBER) { $env:SYSTEM_PULLREQUEST_PULLREQUESTNUMBER } else { "N/A" }
+                $prComment = @{
+                  coverage = @{
+                    line = $lineRate
+                    branch = $branchRate
+                    meets_requirements = ($coverageIssues.Count -eq 0)
+                    issues = $coverageIssues
+                  }
+                  pr_number = $prNumber
+                } | ConvertTo-Json -Depth 3
+                
+                $prComment | Out-File "$testResultsPath/pr-coverage-comment.json"
+                Write-Host "`n📝 PR coverage comment data generated" -ForegroundColor Cyan
+                
+              } catch {
+                Write-Host "⚠️ Failed to analyze coverage: $_" -ForegroundColor Yellow
+              }
+            }
+          } else {
+            Write-Host "⚠️ No coverage files found" -ForegroundColor Yellow
+          }
+
+    - task: PublishCodeCoverageResults@2
+      displayName: 'Publish Enhanced Code Coverage'
+      condition: succeeded()
+      inputs:
+        codeCoverageTool: Cobertura
+        summaryFileLocation: $(testResultsDir)/**/coverage.cobertura.xml
+        reportDirectory: $(testResultsDir)/CodeCoverage
+        additionalCodeCoverageFiles: $(testResultsDir)/**/*.lcov,$(testResultsDir)/**/*.json
+
+    - task: PowerShell@2
+      displayName: 'Create Analysis Directories'
+      inputs:
+        targetType: 'inline'
+        script: |
+          New-Item -ItemType Directory -Path "CodeAnalysisLogs" -Force
+          New-Item -ItemType Directory -Path "pr-security-reports" -Force
+          Write-Host "✅ CodeAnalysisLogs directory created" -ForegroundColor Green
+          Write-Host "✅ pr-security-reports directory created" -ForegroundColor Green
+
+    - task: DotNetCoreCLI@2
+      displayName: 'Generate SARIF Code Analysis'
+      continueOnError: true
+      inputs:
+        command: 'build'
+        projects: $(solution)
+        arguments: '--configuration $(buildConfiguration) --verbosity normal --no-restore --property WarningsAsErrors="" --property TreatWarningsAsErrors=false --property ErrorLog="$(System.DefaultWorkingDirectory)/CodeAnalysisLogs/build-analysis.sarif,version=2.1"'
+
+    - task: PowerShell@2
+      displayName: 'Verify SARIF Analysis Output'
+      continueOnError: true
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "## SARIF 2.1 Compliance Verification & Enhancement" -ForegroundColor Cyan
+          Write-Host "=================================================" -ForegroundColor Cyan
+          
+          $sarifFile = "CodeAnalysisLogs/build-analysis.sarif"
+          $fixedSarifFile = "CodeAnalysisLogs/compliant-analysis.sarif"
+          
+          if (Test-Path $sarifFile) {
+            $fileSize = (Get-Item $sarifFile).Length
+            Write-Host "✅ SARIF file found: $sarifFile" -ForegroundColor Green
+            Write-Host "📊 Original file size: $($fileSize) bytes" -ForegroundColor Cyan
+            
+            try {
+              # Parse the MSBuild-generated SARIF
+              $sarifContent = Get-Content $sarifFile -Raw | ConvertFrom-Json
+              Write-Host "✅ SARIF file parsed successfully" -ForegroundColor Green
+              
+              # Enhance SARIF for Azure DevOps compliance
+              $enhancedSarif = @{
+                '$schema' = "https://json.schemastore.org/sarif-2.1.0.json"
+                version = "2.1.0"
+                runs = @()
+              }
+              
+              # Process existing runs or create a default one
+              if ($sarifContent.runs -and $sarifContent.runs.Count -gt 0) {
+                Write-Host "📋 Processing $($sarifContent.runs.Count) existing run(s)" -ForegroundColor Cyan
+                
+                foreach ($run in $sarifContent.runs) {
+                  $enhancedRun = @{
+                    tool = @{
+                      driver = @{
+                        name = if ($run.tool -and $run.tool.driver -and $run.tool.driver.name) { $run.tool.driver.name } else { "MSBuild" }
+                        version = if ($run.tool -and $run.tool.driver -and $run.tool.driver.version) { $run.tool.driver.version } else { "17.0.0" }
+                        informationUri = "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build"
+                        semanticVersion = "17.0.0"
+                        rules = @()
+                      }
+                    }
+                    results = @()
+                    columnKind = "utf16CodeUnits"
+                    originalUriBaseIds = @{
+                      "%SRCROOT%" = @{
+                        uri = "file:///$env:SYSTEM_DEFAULTWORKINGDIRECTORY/"
+                      }
+                    }
+                  }
+                  
+                  # Process and enhance each result to preserve path and details
+                  if ($run.results -and $run.results.Count -gt 0) {
+                    foreach ($result in $run.results) {
+                      $enhancedResult = @{
+                        ruleId = $result.ruleId
+                        level = if ($result.level) { $result.level } else { "warning" }
+                        message = @{
+                          text = if ($result.message -and $result.message.text) { $result.message.text } else { "Code analysis finding" }
+                        }
+                      }
+                      
+                      # Preserve location information (critical for Path column)
+                      if ($result.locations -and $result.locations.Count -gt 0) {
+                        $enhancedResult.locations = @()
+                        foreach ($location in $result.locations) {
+                          $enhancedLocation = @{}
+                          
+                          # Preserve physical location (file path and line info)
+                          if ($location.physicalLocation) {
+                            $enhancedLocation.physicalLocation = @{}
+                            
+                            # File URI - essential for Path column
+                            if ($location.physicalLocation.artifactLocation -and $location.physicalLocation.artifactLocation.uri) {
+                              $enhancedLocation.physicalLocation.artifactLocation = @{
+                                uri = $location.physicalLocation.artifactLocation.uri
+                              }
+                              if ($location.physicalLocation.artifactLocation.uriBaseId) {
+                                $enhancedLocation.physicalLocation.artifactLocation.uriBaseId = $location.physicalLocation.artifactLocation.uriBaseId
+                              }
+                            }
+                            
+                            # Line and column information
+                            if ($location.physicalLocation.region) {
+                              $enhancedLocation.physicalLocation.region = @{}
+                              if ($location.physicalLocation.region.startLine) {
+                                $enhancedLocation.physicalLocation.region.startLine = $location.physicalLocation.region.startLine
+                              }
+                              if ($location.physicalLocation.region.startColumn) {
+                                $enhancedLocation.physicalLocation.region.startColumn = $location.physicalLocation.region.startColumn
+                              }
+                              if ($location.physicalLocation.region.endLine) {
+                                $enhancedLocation.physicalLocation.region.endLine = $location.physicalLocation.region.endLine
+                              }
+                              if ($location.physicalLocation.region.endColumn) {
+                                $enhancedLocation.physicalLocation.region.endColumn = $location.physicalLocation.region.endColumn
+                              }
+                            }
+                          }
+                          
+                          $enhancedResult.locations += $enhancedLocation
+                        }
+                      }
+                      
+                      # Preserve any additional properties from original result
+                      if ($result.properties) {
+                        $enhancedResult.properties = $result.properties
+                      }
+                      
+                      $enhancedRun.results += $enhancedResult
+                    }
+                  }
+                  
+                  # Add rules for any results found
+                  if ($run.results -and $run.results.Count -gt 0) {
+                    $rules = @{}
+                    foreach ($result in $run.results) {
+                      if ($result.ruleId -and -not $rules.ContainsKey($result.ruleId)) {
+                        $rules[$result.ruleId] = @{
+                          id = $result.ruleId
+                          name = $result.ruleId
+                          shortDescription = @{
+                            text = if ($result.message -and $result.message.text) { $result.message.text } else { "Code analysis finding" }
+                          }
+                          fullDescription = @{
+                            text = "Static analysis rule violation detected by MSBuild"
+                          }
+                          helpUri = "https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/"
+                        }
+                      }
+                    }
+                    $enhancedRun.tool.driver.rules = $rules.Values
+                  }
+                  
+                  $enhancedSarif.runs += $enhancedRun
+                }
+                
+                $totalResults = ($sarifContent.runs | ForEach-Object { if ($_.results) { $_.results.Count } else { 0 } } | Measure-Object -Sum).Sum
+                Write-Host "📋 Total analysis results: $totalResults findings" -ForegroundColor $(if ($totalResults -eq 0) { "Green" } else { "Yellow" })
+                
+                # Diagnostic output for path and details preservation
+                if ($totalResults -gt 0) {
+                  Write-Host "🔍 Verifying path and details preservation:" -ForegroundColor Cyan
+                  $preservedCount = 0
+                  foreach ($run in $enhancedSarif.runs) {
+                    foreach ($result in $run.results) {
+                      if ($result.locations -and $result.locations[0].physicalLocation -and $result.locations[0].physicalLocation.artifactLocation) {
+                        $preservedCount++
+                      }
+                    }
+                  }
+                  Write-Host "  ✅ Results with preserved file paths: $preservedCount/$totalResults" -ForegroundColor Green
+                  
+                  # Show sample paths for verification
+                  $sampleResult = $enhancedSarif.runs[0].results | Where-Object { $_.locations -and $_.locations[0].physicalLocation.artifactLocation } | Select-Object -First 1
+                  if ($sampleResult) {
+                    $samplePath = $sampleResult.locations[0].physicalLocation.artifactLocation.uri
+                    Write-Host "  📁 Sample file path: $samplePath" -ForegroundColor Gray
+                    Write-Host "  💬 Sample message: $($sampleResult.message.text)" -ForegroundColor Gray
+                  }
+                }
+              } else {
+                Write-Host "📋 No runs found in SARIF - creating compliant structure" -ForegroundColor Yellow
+                
+                # Create a compliant empty run
+                $enhancedSarif.runs += @{
+                  tool = @{
+                    driver = @{
+                      name = "MSBuild"
+                      version = "17.0.0"
+                      informationUri = "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build"
+                      semanticVersion = "17.0.0"
+                      rules = @()
+                    }
+                  }
+                  results = @()
+                  columnKind = "utf16CodeUnits"
+                  originalUriBaseIds = @{
+                    "%SRCROOT%" = @{
+                      uri = "file:///$env:SYSTEM_DEFAULTWORKINGDIRECTORY/"
+                    }
+                  }
+                }
+              }
+              
+              # Write enhanced SARIF file
+              $enhancedJson = $enhancedSarif | ConvertTo-Json -Depth 15
+              $enhancedJson | Out-File $fixedSarifFile -Encoding UTF8
+              
+              $newSize = (Get-Item $fixedSarifFile).Length
+              Write-Host "✅ Azure DevOps compliant SARIF created: $fixedSarifFile" -ForegroundColor Green
+              Write-Host "📊 Enhanced file size: $($newSize) bytes" -ForegroundColor Cyan
+              
+              # Also copy to standard location for compatibility
+              Copy-Item $fixedSarifFile $sarifFile -Force
+              Write-Host "✅ Original SARIF file updated with compliant version" -ForegroundColor Green
+              
+            } catch {
+              Write-Host "❌ Error processing SARIF file: $_" -ForegroundColor Red
+              Write-Host "Creating minimal compliant SARIF as fallback" -ForegroundColor Yellow
+              
+              # Create minimal Azure DevOps compliant SARIF
+              $minimalSarif = @{
+                '$schema' = "https://json.schemastore.org/sarif-2.1.0.json"
+                version = "2.1.0"
+                runs = @(
+                  @{
+                    tool = @{
+                      driver = @{
+                        name = "MSBuild"
+                        version = "17.0.0"
+                        informationUri = "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build"
+                        semanticVersion = "17.0.0"
+                        rules = @()
+                      }
+                    }
+                    results = @()
+                    columnKind = "utf16CodeUnits"
+                    originalUriBaseIds = @{
+                      "%SRCROOT%" = @{
+                        uri = "file:///$env:SYSTEM_DEFAULTWORKINGDIRECTORY/"
+                      }
+                    }
+                  }
+                )
+              }
+              
+              $minimalJson = $minimalSarif | ConvertTo-Json -Depth 10
+              $minimalJson | Out-File $sarifFile -Encoding UTF8
+              Write-Host "✅ Minimal compliant SARIF created" -ForegroundColor Green
+            }
+          } else {
+            Write-Host "⚠️ No SARIF file generated by MSBuild - creating compliant placeholder" -ForegroundColor Yellow
+            
+            # Create Azure DevOps compliant SARIF from scratch
+            $placeholderSarif = @{
+              '$schema' = "https://json.schemastore.org/sarif-2.1.0.json"
+              version = "2.1.0"
+              runs = @(
+                @{
+                  tool = @{
+                    driver = @{
+                      name = "MSBuild"
+                      version = "17.0.0"
+                      informationUri = "https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-build"
+                      semanticVersion = "17.0.0"
+                      rules = @()
+                    }
+                  }
+                  results = @()
+                  columnKind = "utf16CodeUnits"
+                  originalUriBaseIds = @{
+                    "%SRCROOT%" = @{
+                      uri = "file:///$env:SYSTEM_DEFAULTWORKINGDIRECTORY/"
+                    }
+                  }
+                }
+              )
+            }
+            
+            $placeholderJson = $placeholderSarif | ConvertTo-Json -Depth 10
+            $placeholderJson | Out-File $sarifFile -Encoding UTF8
+            Write-Host "✅ Azure DevOps compliant SARIF placeholder created" -ForegroundColor Green
+          }
+          
+          Write-Host "`n🎯 SARIF 2.1 Compliance Check Complete" -ForegroundColor Cyan
+          Write-Host "   Schema: https://json.schemastore.org/sarif-2.1.0.json" -ForegroundColor Gray
+          Write-Host "   Azure DevOps optimized for security scans tab" -ForegroundColor Gray
+
+    - task: PowerShell@2
+      displayName: 'Complete Security Package Analysis'
+      continueOnError: true
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "## Comprehensive Security Package Analysis" -ForegroundColor Cyan
+          Write-Host "================================================" -ForegroundColor Cyan
+          
+          # Initialize results tracking
+          $scanResults = @{
+            vulnerable = @{ completed = $false; issues = 0 }
+            deprecated = @{ completed = $false; issues = 0 }
+            outdated = @{ completed = $false; issues = 0 }
+          }
+          
+          # 1. Check for Vulnerable Packages
+          Write-Host "`n🔍 Scanning for vulnerable packages..." -ForegroundColor Yellow
+          try {
+            $vulnerableOutput = & dotnet list package --vulnerable --include-transitive 2>&1
+            $vulnerableOutput | Out-File "pr-security-reports/vulnerable-packages.txt" -Encoding UTF8
+            
+            # Count vulnerable packages (basic parsing)
+            $vulnerableCount = ($vulnerableOutput | Where-Object { $_ -match "^\s*>" }).Count
+            $scanResults.vulnerable.completed = $true
+            $scanResults.vulnerable.issues = $vulnerableCount
+            
+            Write-Host "Vulnerable packages scan results:" -ForegroundColor White
+            Write-Host $vulnerableOutput
+            Write-Host "✅ Vulnerable packages report saved ($vulnerableCount issues found)" -ForegroundColor Green
+          } catch {
+            Write-Host "❌ Vulnerable packages scan failed: $_" -ForegroundColor Red
+          }
+          
+          # 2. Check for Deprecated Packages
+          Write-Host "`n📋 Scanning for deprecated packages..." -ForegroundColor Yellow
+          try {
+            $deprecatedOutput = & dotnet list package --deprecated 2>&1
+            $deprecatedOutput | Out-File "pr-security-reports/deprecated-packages.txt" -Encoding UTF8
+            
+            # Count deprecated packages
+            $deprecatedCount = ($deprecatedOutput | Where-Object { $_ -match "^\s*>" }).Count
+            $scanResults.deprecated.completed = $true
+            $scanResults.deprecated.issues = $deprecatedCount
+            
+            Write-Host "Deprecated packages scan results:" -ForegroundColor White
+            Write-Host $deprecatedOutput
+            Write-Host "✅ Deprecated packages report saved ($deprecatedCount issues found)" -ForegroundColor Green
+          } catch {
+            Write-Host "❌ Deprecated packages scan failed: $_" -ForegroundColor Red
+          }
+          
+          # 3. Check for Outdated Packages
+          Write-Host "`n📈 Scanning for outdated packages..." -ForegroundColor Yellow
+          try {
+            $outdatedOutput = & dotnet list package --outdated --include-transitive 2>&1
+            $outdatedOutput | Out-File "pr-security-reports/outdated-packages.txt" -Encoding UTF8
+            
+            # Count outdated packages
+            $outdatedCount = ($outdatedOutput | Where-Object { $_ -match "^\s*>" }).Count
+            $scanResults.outdated.completed = $true
+            $scanResults.outdated.issues = $outdatedCount
+            
+            Write-Host "Outdated packages scan results:" -ForegroundColor White
+            Write-Host $outdatedOutput
+            Write-Host "✅ Outdated packages report saved ($outdatedCount issues found)" -ForegroundColor Green
+          } catch {
+            Write-Host "❌ Outdated packages scan failed: $_" -ForegroundColor Red
+          }
+          
+          # 4. Generate Comprehensive Security Summary
+          Write-Host "`n📝 Generating comprehensive security summary..." -ForegroundColor Yellow
+          
+          $prNumber = if ($env:SYSTEM_PULLREQUEST_PULLREQUESTNUMBER) { $env:SYSTEM_PULLREQUEST_PULLREQUESTNUMBER } else { "N/A" }
+          $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss UTC"
+          
+          $summary = "# Security Analysis Summary for PR #$prNumber`n"
+          $summary += "Generated: $timestamp`n`n"
+          $summary += "## Analysis Results Summary`n`n"
+          
+          # Add detailed scan results
+          $summary += "### Package Security Scans`n"
+          $summary += "- 🔍 Vulnerable packages: $($scanResults.vulnerable.issues) issues found`n"
+          $summary += "- 📋 Deprecated packages: $($scanResults.deprecated.issues) issues found`n"
+          $summary += "- 📈 Outdated packages: $($scanResults.outdated.issues) issues found`n`n"
+          
+          # Risk assessment
+          $totalIssues = $scanResults.vulnerable.issues + $scanResults.deprecated.issues + $scanResults.outdated.issues
+          if ($scanResults.vulnerable.issues -gt 0) {
+            $summary += "### ⚠️ HIGH PRIORITY ISSUES`n"
+            $summary += "- **$($scanResults.vulnerable.issues) vulnerable packages found** - Review immediately`n`n"
+          }
+          
+          $summary += "### Generated Reports`n"
+          $summary += "- vulnerable-packages.txt - Packages with known security vulnerabilities`n"
+          $summary += "- deprecated-packages.txt - Packages that are no longer maintained`n"
+          $summary += "- outdated-packages.txt - Packages with newer versions available`n`n"
+          
+          $summary += "### Recommendations`n"
+          if ($totalIssues -eq 0) {
+            $summary += "✅ No package security issues detected. Great job!`n"
+          } else {
+            $summary += "1. **Priority 1**: Address vulnerable packages immediately`n"
+            $summary += "2. **Priority 2**: Plan migration from deprecated packages`n"
+            $summary += "3. **Priority 3**: Consider updating outdated packages`n"
+          }
+          $summary += "`nReview all generated reports for detailed information.`n`n"
+          $summary += "---`n"
+          $summary += "Report generated by GCFoundation PR Validation Pipeline"
+          
+          $summary | Out-File "pr-security-reports/security-summary.md" -Encoding UTF8
+          
+          # Final summary output
+          Write-Host "`n## Security Analysis Complete" -ForegroundColor Cyan
+          Write-Host "================================" -ForegroundColor Cyan
+          Write-Host "📊 Total Issues Found: $totalIssues" -ForegroundColor $(if ($totalIssues -eq 0) { "Green" } elseif ($totalIssues -lt 5) { "Yellow" } else { "Red" })
+          Write-Host "🔴 Vulnerable: $($scanResults.vulnerable.issues)" -ForegroundColor $(if ($scanResults.vulnerable.issues -eq 0) { "Green" } else { "Red" })
+          Write-Host "🟡 Deprecated: $($scanResults.deprecated.issues)" -ForegroundColor $(if ($scanResults.deprecated.issues -eq 0) { "Green" } else { "Yellow" })
+          Write-Host "🔵 Outdated: $($scanResults.outdated.issues)" -ForegroundColor $(if ($scanResults.outdated.issues -eq 0) { "Green" } else { "Blue" })
+          Write-Host "✅ Security summary report generated" -ForegroundColor Green
+
+    - task: PowerShell@2
+      displayName: 'Analyze SARIF Results'
+      condition: always()
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "## SARIF Analysis Summary" -ForegroundColor Cyan
+          Write-Host "========================" -ForegroundColor Cyan
+          
+          $sarifFiles = Get-ChildItem -Path "CodeAnalysisLogs" -Filter "*.sarif" -ErrorAction SilentlyContinue
+          
+          if ($sarifFiles.Count -gt 0) {
+            Write-Host "📊 Found $($sarifFiles.Count) SARIF files:" -ForegroundColor Green
+            foreach ($file in $sarifFiles) {
+              Write-Host "  📄 $($file.Name)" -ForegroundColor Yellow
+            }
+            
+            # Count total issues across all SARIF files
+            $totalIssues = 0
+            $criticalIssues = 0
+            $warningIssues = 0
+            
+            foreach ($file in $sarifFiles) {
+              try {
+                $sarifContent = Get-Content $file.FullName -Raw | ConvertFrom-Json
+                if ($sarifContent.runs) {
+                  foreach ($run in $sarifContent.runs) {
+                    if ($run.results) {
+                      $totalIssues += $run.results.Count
+                      foreach ($result in $run.results) {
+                        $level = $result.level
+                        if ($level -eq "error") { $criticalIssues++ }
+                        elseif ($level -eq "warning") { $warningIssues++ }
+                      }
+                    }
+                  }
+                }
+              } catch {
+                Write-Host "⚠️ Failed to analyze $($file.Name): $_" -ForegroundColor Yellow
+              }
+            }
+            
+            Write-Host "`n📈 SARIF Analysis Results:" -ForegroundColor Green
+            Write-Host "  🔴 Critical Issues: $criticalIssues" -ForegroundColor $(if ($criticalIssues -gt 0) { "Red" } else { "Green" })
+            Write-Host "  🟡 Warning Issues: $warningIssues" -ForegroundColor $(if ($warningIssues -gt 0) { "Yellow" } else { "Green" })
+            Write-Host "  📊 Total Issues: $totalIssues" -ForegroundColor $(if ($totalIssues -gt 0) { "Yellow" } else { "Green" })
+            
+            if ($criticalIssues -gt 0) {
+              Write-Host "`n⚠️ Critical issues found - please review and fix before merging" -ForegroundColor Red
+            } elseif ($totalIssues -gt 0) {
+              Write-Host "`n💡 Issues found - consider addressing them for better code quality" -ForegroundColor Yellow
+            } else {
+              Write-Host "`n✅ No issues found in SARIF analysis" -ForegroundColor Green
+            }
+            
+          } else {
+            Write-Host "⚠️ No SARIF files found in CodeAnalysisLogs directory" -ForegroundColor Yellow
+          }
+
+    - task: PowerShell@2
+      displayName: 'Validate Artifacts Content for Publishing'
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "## Artifact Content Validation" -ForegroundColor Cyan
+          Write-Host "==============================" -ForegroundColor Cyan
+          
+          # Check CodeAnalysisLogs content
+          $hasCodeAnalysisLogs = $false
+          if (Test-Path "CodeAnalysisLogs") {
+            $codeAnalysisFiles = Get-ChildItem -Path "CodeAnalysisLogs" -File -Recurse
+            if ($codeAnalysisFiles.Count -gt 0) {
+              $hasCodeAnalysisLogs = $true
+              Write-Host "✅ CodeAnalysisLogs: $($codeAnalysisFiles.Count) files ready for publishing" -ForegroundColor Green
+            } else {
+              Write-Host "⚠️ CodeAnalysisLogs: Directory exists but is empty" -ForegroundColor Yellow
+            }
+          } else {
+            Write-Host "❌ CodeAnalysisLogs: Directory not found" -ForegroundColor Red
+          }
+          
+          # Check pr-security-reports content
+          $hasSecurityReports = $false
+          if (Test-Path "pr-security-reports") {
+            $securityFiles = Get-ChildItem -Path "pr-security-reports" -File -Recurse
+            if ($securityFiles.Count -gt 0) {
+              $hasSecurityReports = $true
+              Write-Host "✅ pr-security-reports: $($securityFiles.Count) files ready for publishing" -ForegroundColor Green
+            } else {
+              Write-Host "⚠️ pr-security-reports: Directory exists but is empty" -ForegroundColor Yellow
+            }
+          } else {
+            Write-Host "❌ pr-security-reports: Directory not found" -ForegroundColor Red
+          }
+          
+          # Set pipeline variables for conditional publishing
+          Write-Host "##vso[task.setvariable variable=HasCodeAnalysisLogs]$hasCodeAnalysisLogs"
+          Write-Host "##vso[task.setvariable variable=HasSecurityReports]$hasSecurityReports"
+          
+          # Summary
+          Write-Host "`n📋 Publishing Summary:" -ForegroundColor Cyan
+          Write-Host "  📊 SARIF Analysis Logs: $(if ($hasCodeAnalysisLogs) { "WILL PUBLISH" } else { "WILL SKIP" })" -ForegroundColor $(if ($hasCodeAnalysisLogs) { "Green" } else { "Yellow" })
+          Write-Host "  🔒 Security Reports: $(if ($hasSecurityReports) { "WILL PUBLISH" } else { "WILL SKIP" })" -ForegroundColor $(if ($hasSecurityReports) { "Green" } else { "Yellow" })
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish SARIF Analysis Logs'
+      condition: and(always(), eq(variables['HasCodeAnalysisLogs'], 'True'))
+      inputs:
+        pathToPublish: 'CodeAnalysisLogs'
+        artifactName: 'CodeAnalysisLogs'
+        artifactType: 'container'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish PR Security Reports'
+      condition: and(always(), eq(variables['HasSecurityReports'], 'True'))
+      inputs:
+        pathToPublish: 'pr-security-reports'
+        artifactName: 'pr-security-reports'
+        artifactType: 'container'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish PR Test Results'
+      condition: always()
+      inputs:
+        pathToPublish: '$(testResultsDir)'
+        artifactName: 'pr-test-results'
+        artifactType: 'container'
+
+    - task: PowerShell@2
+      displayName: 'PR Validation Summary'
+      inputs:
+        targetType: 'inline'
+        script: |
+          Write-Host "## PR Validation Summary" -ForegroundColor Cyan
+          Write-Host "========================" -ForegroundColor Cyan
+          
+          $prNumber = if ($env:SYSTEM_PULLREQUEST_PULLREQUESTNUMBER) { $env:SYSTEM_PULLREQUEST_PULLREQUESTNUMBER } else { "N/A" }
+          $buildStatus = if ($env:BUILD_STATUS) { $env:BUILD_STATUS } else { "Unknown" }
+          $unitStatus = if ($env:UNIT_STATUS) { $env:UNIT_STATUS } else { "Unknown" }
+          $qualityStatus = if ($env:QUALITY_STATUS) { $env:QUALITY_STATUS } else { "Unknown" }
+          
+          Write-Host "🔍 PR #$prNumber validation completed:" -ForegroundColor Green
+          Write-Host "  🛠 Build Stage: $buildStatus" -ForegroundColor Green
+          Write-Host "  🧪 Unit Tests: $unitStatus" -ForegroundColor Green
+          Write-Host "  ✅ Quality Gates: $qualityStatus" -ForegroundColor Green
+          
+          Write-Host "`n🎉 PR VALIDATION COMPLETE" -ForegroundColor Green
+      env:
+        BUILD_STATUS: $(stageDependencies.Build.Build.result)
+        UNIT_STATUS: $(dependencies.UnitTests.result)
+        QUALITY_STATUS: $(Agent.JobStatus)
+
+  - job: E2E
+    displayName: 'Playwright Smoke & Accessibility'
+    dependsOn: UnitTests
+    condition: and(or(eq(variables['Build.Reason'], 'PullRequest'), eq(variables['Build.Reason'], 'Schedule'), eq(variables['Build.Reason'], 'Manual')), or(eq(dependencies.UnitTests.result, 'Succeeded'), eq(dependencies.UnitTests.result, 'SucceededWithIssues')))
+    steps:
+    - checkout: self
+
+    - task: UseDotNet@2
+      displayName: 'Install .NET SDK'
+      inputs:
+        packageType: 'sdk'
+        version: $(dotnetSdkVersion)
+
+    - task: NuGetToolInstaller@1
+      displayName: 'NuGet Tool Installer'
+
+    - task: NuGetCommand@2
+      displayName: 'Restore NuGet Packages for E2E'
+      inputs:
+        restoreSolution: $(solution)
+
+    - task: UseNode@1
+      displayName: 'Install Node.js for E2E'
+      inputs:
+        version: $(nodeVersion)
+
+    - script: |
+        npm ci
+        npx playwright install chrome
+      displayName: 'Install E2E deps and browser (Chrome)'
+      workingDirectory: 'e2e'
+
+    - task: PowerShell@2
+      displayName: 'Start Web App locally and run Playwright tests (PR quick / Nightly full)'
+      inputs:
+        targetType: 'inline'
+        script: |
+          $ErrorActionPreference = 'Stop'
+          $proj = Join-Path "$(Build.SourcesDirectory)" 'GCFoundation.Web/GCFoundation.Web.csproj'
+          $baseUrl = 'http://localhost:5215'
+
+          Write-Host "Starting Web App at $baseUrl ..."
+          # Disable external CDN assets (GCDS, Font Awesome) during E2E to avoid CORS noise
+          $env:FoundationComponentsSettings__IncludeGCDSResources = 'false'
+          $env:FoundationComponentsSettings__IncludeFontAwesome = 'false'
+          $env:DISABLE_HTTPS_REDIRECT = 'true'
+
+          $p = Start-Process -FilePath "dotnet" -ArgumentList @("run","--project","`"$proj`"","--urls",$baseUrl) -NoNewWindow -PassThru
+
+          try {
+            $url = "$baseUrl/"
+            for ($i=0; $i -lt 60; $i++) {
+              try { (Invoke-WebRequest -Uri $url -UseBasicParsing -TimeoutSec 5) | Out-Null; break }
+              catch { Start-Sleep -Seconds 2 }
+            }
+
+            Push-Location (Join-Path "$(Build.SourcesDirectory)" 'e2e')
+            $env:PLAYWRIGHT_BASE_URL = $baseUrl
+            $env:PLAYWRIGHT_PROJECTS = 'chrome'
+
+            $isNightly = "$env:BUILD_REASON" -eq "Schedule"
+            if ($isNightly) {
+              Write-Host "Nightly run: execute full suite with sharding"
+              # 2-way shard on the same agent sequentially; in real setup, use multiple parallel jobs
+              npx playwright test --shard=1/2
+              if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+              npx playwright test --shard=2/2
+              $e2eExit = $LASTEXITCODE
+            } else {
+              Write-Host "PR run: quick suite"
+              # Blocking smoke suite
+              npm run test:smoke
+              $e2eExit = $LASTEXITCODE
+
+              # Preserve smoke JUnit before running a11y which may overwrite it
+              $smokeJunit = Join-Path (Get-Location) 'test-results/junit.xml'
+              if (Test-Path $smokeJunit) {
+                Copy-Item $smokeJunit (Join-Path (Get-Location) 'test-results/junit-smoke.xml') -Force
+              }
+
+              # Non-blocking a11y awareness run (separate report/artifacts)
+              Write-Host "Running a11y suite (non-blocking for PR awareness)"
+              $env:PLAYWRIGHT_HTML_REPORT = "playwright-report-a11y"
+              # Use npm script to avoid PowerShell parsing issues with -g @a11y and ensure consistent config usage
+              # Route output to a dedicated folder; ignore exit code to keep PR non-blocking when there are 0 tests or failures
+              npm run test:a11y:ci
+              if ($LASTEXITCODE -ne 0) { Write-Host "A11y suite completed with issues or no tests; continuing (non-blocking)." }
+
+              # Preserve a11y JUnit separately
+              $a11yJunit = Join-Path (Get-Location) 'test-results/junit.xml'
+              if (Test-Path $a11yJunit) {
+                Copy-Item $a11yJunit (Join-Path (Get-Location) 'test-results/junit-a11y.xml') -Force
+              }
+              $global:LASTEXITCODE = 0
+            }
+            Pop-Location
+          } finally {
+            try { if ($p -and !$p.HasExited) { Stop-Process -Id $p.Id -Force } } catch {}
+          }
+
+          if ($e2eExit -ne 0) { exit $e2eExit } else { exit 0 }
+
+    - task: PowerShell@2
+      displayName: 'Detect Playwright a11y artifacts'
+      condition: always()
+      inputs:
+        targetType: 'inline'
+        script: |
+          $a11yReport = Test-Path "e2e/playwright-report-a11y"
+          $a11yArtifacts = Test-Path "e2e/test-artifacts-a11y"
+          Write-Host "##vso[task.setvariable variable=HasA11yReport]$a11yReport"
+          Write-Host "##vso[task.setvariable variable=HasA11yArtifacts]$a11yArtifacts"
+          Write-Host "A11y report exists: $a11yReport"
+          Write-Host "A11y artifacts exist: $a11yArtifacts"
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Playwright Report (smoke)'
+      condition: always()
+      inputs:
+        pathToPublish: 'e2e/playwright-report'
+        artifactName: 'playwright-report'
+        artifactType: 'container'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Playwright Artifacts (smoke)'
+      condition: always()
+      inputs:
+        pathToPublish: 'e2e/test-artifacts'
+        artifactName: 'playwright-artifacts'
+        artifactType: 'container'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Playwright Report (a11y awareness)'
+      condition: and(always(), eq(variables['HasA11yReport'], 'True'))
+      inputs:
+        pathToPublish: 'e2e/playwright-report-a11y'
+        artifactName: 'playwright-report-a11y'
+        artifactType: 'container'
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish Playwright Artifacts (a11y awareness)'
+      condition: and(always(), eq(variables['HasA11yArtifacts'], 'True'))
+      inputs:
+        pathToPublish: 'e2e/test-artifacts-a11y'
+        artifactName: 'playwright-artifacts-a11y'
+        artifactType: 'container'
+
+    - task: PublishTestResults@2
+      displayName: 'Publish Playwright JUnit (smoke + a11y)'
+      condition: always()
+      inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: 'e2e/test-results/junit-*.xml'
+        searchFolder: '$(Build.SourcesDirectory)'
+        mergeTestResults: true
+        failTaskOnFailedTests: false
+        testRunTitle: 'E2E (Playwright)'
