@@ -89,3 +89,21 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
         }
     }
 }
+
+// On small screens, hide step labels and status pills to prevent text crowding.
+@media only screen and (width < 20em) {
+    .fdcp-stepper {
+        .fdcp-step-label,
+        .fdcp-badge {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+    }
+}
