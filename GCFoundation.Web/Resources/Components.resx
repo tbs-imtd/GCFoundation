@@ -1097,6 +1097,9 @@
   <data name="Stepper_Notes_4" xml:space="preserve">
     <value>Steps without labels will be skipped during rendering</value>
   </data>
+  <data name="Stepper_Notes_5" xml:space="preserve">
+    <value>On very narrow viewports (below 20em), step labels and status pills are visually hidden to reduce crowding while keeping the step circles visible. This supports responsive reflow behavior aligned with WCAG 2.2 Success Criterion 1.4.10 (Level AA).</value>
+  </data>
   <data name="Stepper_Overview" xml:space="preserve">
     <value>The &lt;code&gt;&amp;lt;fdcp-stepper&amp;gt;&lt;/code&gt; component helps users track their progress in multi-step processes. It provides visual feedback about completed, current, and upcoming steps, supporting both numeric and icon-based display modes.</value>
   </data>

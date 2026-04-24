@@ -582,7 +582,8 @@ namespace GCFoundation.Web.Controllers
                 Resources.Components.Stepper_Notes_1,
                 Resources.Components.Stepper_Notes_2,
                 Resources.Components.Stepper_Notes_3,
-                Resources.Components.Stepper_Notes_4
+                Resources.Components.Stepper_Notes_4,
+                Resources.Components.Stepper_Notes_5
             };
             vm.Overview = Resources.Components.Stepper_Overview;
             vm.Properties = new List<ComponentPropertyViewModel>()

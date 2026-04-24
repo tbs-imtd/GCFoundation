@@ -1101,6 +1101,9 @@
   <data name="Stepper_Notes_4" xml:space="preserve">
     <value>Les étapes sans étiquette/nom ne seront pas affichées</value>
   </data>
+  <data name="Stepper_Notes_5" xml:space="preserve">
+    <value>Dans les affichages très étroits (moins de 20em), les étiquettes d'étapes et les pastilles d'état sont masquées visuellement pour réduire l'encombrement, tout en conservant les cercles d'étape visibles. Ce comportement favorise le réajustement adaptatif conforme au critère WCAG 2.2 1.4.10 (niveau AA).</value>
+  </data>
   <data name="Stepper_Overview" xml:space="preserve">
     <value>Le composant &lt;code&gt;&amp;lt;fdcp-stepper&amp;gt;&lt;/code&gt; aide les utilisateurs à suivre leur progrès dans un processus à plusieurs étapes. Ce composant permet d'avoir un aperçu rapide de l'étape en cours, des étapes suivantes et/ou complétées supportant à la fois un mode d'affichage numérique ou avec icônes.</value>
   </data>

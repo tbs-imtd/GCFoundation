@@ -2488,6 +2488,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to On very narrow viewports (below 20em), step labels and status pills are visually hidden to reduce crowding while keeping the step circles visible. This supports responsive reflow behavior aligned with WCAG 2.2 Success Criterion 1.4.10 (Level AA)..
+        /// </summary>
+        public static string Stepper_Notes_5 {
+            get {
+                return ResourceManager.GetString("Stepper_Notes_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-stepper&amp;gt;&lt;/code&gt; component helps users track their progress in multi-step processes. It provides visual feedback about completed, current, and upcoming steps, supporting both numeric and icon-based display modes..
         /// </summary>
         public static string Stepper_Overview {
