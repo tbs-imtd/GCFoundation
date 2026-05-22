@@ -1,4 +1,6 @@
-﻿namespace GCFoundation.Components.Attributes
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GCFoundation.Components.Attributes
 {
     /// <summary>
     /// Specifies the format for a date property in a class.
@@ -10,13 +12,14 @@
         /// <summary>
         /// Gets the date format string.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.DateTimeFormat)]
         public string Format { get; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DateFormatAttribute"/> class with the specified date format.
         /// </summary>
         /// <param name="format">The date format string to be applied to the property.</param>
-        public DateFormatAttribute(string format)
+        public DateFormatAttribute([StringSyntax(StringSyntaxAttribute.DateTimeFormat)]string format)
         {
             Format = format;
         }

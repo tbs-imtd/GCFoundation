@@ -1,4 +1,6 @@
-﻿namespace GCFoundation.Components.Models.TableGridJs
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GCFoundation.Components.Models.TableGridJs
 {
     /// <summary>
     /// Represents the configuration of a Grid.js table.
@@ -18,6 +20,7 @@
         /// <summary>
         /// (Optional) Url of the API endpoint that will be queried to return the data.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
 #pragma warning disable CA1056 // URI-like properties should not be strings
         public string? DataUrl { get; set; }
 #pragma warning restore CA1056 // URI-like properties should not be strings

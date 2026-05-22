@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using GCFoundation.Common.Utilities;
 
 namespace GCFoundation.Common.Models
@@ -28,16 +29,19 @@ namespace GCFoundation.Common.Models
         /// The footer link URL, or the language-neutral fallback when
         /// <see cref="LinkEn"/> / <see cref="LinkFr"/> are used.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string? Link { get; set; }
 
         /// <summary>
         /// English URL when the UI culture is English. Falls back to <see cref="Link"/> when unset.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string? LinkEn { get; set; }
 
         /// <summary>
         /// French URL when the UI culture is French. Falls back to <see cref="Link"/> when unset.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string? LinkFr { get; set; }
 
         /// <summary>

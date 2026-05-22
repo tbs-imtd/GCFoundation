@@ -1,4 +1,5 @@
-﻿using GCFoundation.Components.Enums;
+﻿using System.Diagnostics.CodeAnalysis;
+using GCFoundation.Components.Enums;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Components.TagHelpers.GCDS
@@ -37,6 +38,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Gets or sets the hyperlink reference for the "Previous" button.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string PreviousHref { get; set; } = "#previous";
 
         /// <summary>

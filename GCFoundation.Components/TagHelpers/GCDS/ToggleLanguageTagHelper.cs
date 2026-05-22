@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Components.TagHelpers.GCDS
 {
@@ -13,6 +14,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// Gets or sets the hyperlink reference for the language toggle.
         /// This should point to the alternate-language version of the current page.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public required string Href { get; set; }
 
         /// <summary>

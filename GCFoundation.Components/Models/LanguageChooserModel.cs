@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 
 namespace GCFoundation.Components.Models
 {
@@ -30,11 +31,13 @@ namespace GCFoundation.Components.Models
         /// <summary>
         /// Link to the term of service of the application in english
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string TermLinkEn { get; set; } = string.Empty;
 
         /// <summary>
         /// Link to the term of service of the application in french
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string TermLinkFr { get; set; } = string.Empty;
 
         /// <summary>

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Components.TagHelpers.GCDS
 {
@@ -12,6 +13,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// Gets or sets the URL that the navigation link points to.
         /// </summary>
         /// <value>The URL to navigate to when the link is clicked.</value>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public required string Href { get; set; }
 
         /// <summary>

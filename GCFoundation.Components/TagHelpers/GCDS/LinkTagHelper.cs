@@ -1,4 +1,5 @@
-﻿using GCFoundation.Components.Enums;
+﻿using System.Diagnostics.CodeAnalysis;
+using GCFoundation.Components.Enums;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Components.TagHelpers.GCDS
@@ -27,6 +28,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Gets or sets the href attribute, which is the destination URL of the link.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public required string Href { get; set; } = "";
 
         /// <summary>

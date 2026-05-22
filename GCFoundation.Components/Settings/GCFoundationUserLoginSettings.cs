@@ -1,3 +1,5 @@
+using System.Diagnostics.CodeAnalysis;
+
 namespace GCFoundation.Components.Settings
 {
     /// <summary>
@@ -54,6 +56,7 @@ namespace GCFoundation.Components.Settings
         /// Default points to /authentication/logout.
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "String is more suitable for configuration and view helpers")]
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string LogoutUrl { get; set; } = "/authentication/logout";
 
         /// <summary>
@@ -61,6 +64,7 @@ namespace GCFoundation.Components.Settings
         /// Default points to /authentication/login.
         /// </summary>
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "String is more suitable for configuration and view helpers")]
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string LoginUrl { get; set; } = "/authentication/login";
 
         /// <summary>

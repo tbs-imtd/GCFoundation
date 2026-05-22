@@ -1,4 +1,6 @@
-﻿namespace GCFoundation.Components.Models
+﻿using System.Diagnostics.CodeAnalysis;
+
+namespace GCFoundation.Components.Models
 {
     /// <summary>
     /// Represents an error link that contains a URL (Href) and an associated error message.
@@ -10,6 +12,7 @@
         /// This URL may be used to navigate to more information about the error.
         /// </summary>
         /// <value>A string representing the URL for the error link.</value>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public required string Href { get; set; }
 
         /// <summary>

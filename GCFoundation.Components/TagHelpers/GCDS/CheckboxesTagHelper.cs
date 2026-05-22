@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Components.TagHelpers.GCDS
 {
@@ -16,6 +17,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Gets or sets the options for the checkboxes, provided as a JSON string.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Json)]
         public required string Options { get; set; }
 
         /// <inheritdoc/>

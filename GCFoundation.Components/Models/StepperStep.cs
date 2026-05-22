@@ -1,4 +1,5 @@
-﻿using GCFoundation.Components.Enums;
+﻿using System.Diagnostics.CodeAnalysis;
+using GCFoundation.Components.Enums;
 using System.Globalization;
 
 namespace GCFoundation.Components.Models
@@ -13,6 +14,7 @@ namespace GCFoundation.Components.Models
         /// Gets or sets the HTML for the FontAwesome icon to display when the step is completed.
         /// Example: "&lt;i class='fa fa-check'&gt;&lt;/i&gt;"
         /// </summary>
+        [StringSyntax("Html")]
         public string? CompletedIconHtml { get; set; }
 
         /// <summary>
@@ -24,6 +26,7 @@ namespace GCFoundation.Components.Models
         /// <summary>
         /// Gets or sets the HTML for the FontAwesome icon to display when the step is in progress.
         /// </summary>
+        [StringSyntax("Html")]
         public string? InProgressIconHtml { get; set; }
 
         /// <summary>
@@ -44,6 +47,7 @@ namespace GCFoundation.Components.Models
         /// <summary>
         /// Gets or sets the URL for navigation when the step is clicked.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
 #pragma warning disable CA1056 // URI-like properties should not be strings
         public string? LinkUrl { get; set; }
 #pragma warning restore CA1056 // URI-like properties should not be strings
@@ -51,11 +55,13 @@ namespace GCFoundation.Components.Models
         /// <summary>
         /// Gets or sets the HTML for the FontAwesome icon to display when the step hasn't been started.
         /// </summary>
+        [StringSyntax("Html")]
         public string? NotStartedIconHtml { get; set; }
 
         /// <summary>
         /// Gets or sets the text of the badge describing the status of the step.
         /// </summary>
+        [StringSyntax("Html")]
         public string? StatusBadgeLabel { get; set; }
 
         /// <summary>

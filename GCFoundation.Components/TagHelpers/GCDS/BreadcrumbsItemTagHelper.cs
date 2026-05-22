@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Components.TagHelpers.GCDS
 {
@@ -11,6 +12,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// The href (link) for the breadcrumb item.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string? Href { get; set; }
 
         /// <inheritdoc/>

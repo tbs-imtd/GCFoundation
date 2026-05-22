@@ -1,4 +1,5 @@
-﻿using GCFoundation.Components.Enums;
+﻿using System.Diagnostics.CodeAnalysis;
+using GCFoundation.Components.Enums;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Components.TagHelpers.GCDS
@@ -23,6 +24,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Gets or sets the hyperlink URL that the card should link to.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public required string Href { get; set; }
 
         /// <summary>
@@ -43,6 +45,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Gets or sets the source URL for the image displayed on the card.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string? ImgSrc { get; set; }
 
         /// <summary>

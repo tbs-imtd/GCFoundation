@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models;
 using GCFoundation.Components.Models.TableGridJs;
@@ -40,6 +41,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// </summary>
         [HtmlAttributeName("ajax-url")]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1056:URI-like properties should not be strings", Justification = "Endpoint path")] 
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public string AjaxUrl { get; set; } = string.Empty;
 
         /// <summary>

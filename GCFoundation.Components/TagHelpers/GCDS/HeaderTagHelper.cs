@@ -1,4 +1,5 @@
-﻿using GCFoundation.Components.Enums;
+﻿using System.Diagnostics.CodeAnalysis;
+using GCFoundation.Components.Enums;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace GCFoundation.Components.TagHelpers.GCDS
@@ -13,16 +14,19 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Gets or sets the URL for the language toggle link. This is typically used for switching between languages.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public required string LangHref { get; set; }
 
         /// <summary>
         /// Gets or sets the URL for the "skip to content" link. This allows users to quickly jump to the main content of the page.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public required string SkipToHref { get; set; }
 
         /// <summary>
         /// Gets or sets a flag indicating whether the signature has a link. Default is <c>true</c>.
         /// </summary>
+        [StringSyntax(StringSyntaxAttribute.Uri)]
         public bool SignatureHasLink { get; set; } = true;
 
         /// <summary>
