@@ -5,6 +5,7 @@ using GCFoundation.Web.Models;
 using GCFoundation.Web.Models.Components;
 using GCFoundation.Web.Resources;
 using Microsoft.AspNetCore.Mvc;
+using System.Globalization;
 
 namespace GCFoundation.Web.Controllers
 {
@@ -25,7 +26,7 @@ namespace GCFoundation.Web.Controllers
         {
             SetPageTitle(Menu.Menu_Components);
 
-            var vm = BuildIndexComponentViewModel();
+            var vm = BuildComponentsIndexPageViewModel();
             return View(vm);
         }
 
@@ -440,7 +441,15 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private List<ComponentIndexViewModel> BuildIndexComponentViewModel()
+        private ComponentsIndexPageViewModel BuildComponentsIndexPageViewModel()
+        {
+            return new ComponentsIndexPageViewModel()
+            {
+                FeaturedComponents = BuildFeaturedComponentCards(),
+                TagHelperGroups = BuildTagHelperReferenceGroups()
+            };
+        }
+        private List<ComponentIndexViewModel> BuildFeaturedComponentCards()
         {
             var vm = new List<ComponentIndexViewModel>()
             {
@@ -457,6 +466,74 @@ namespace GCFoundation.Web.Controllers
                 new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
             };
             return vm;
+        }
+        private static List<TagHelperReferenceGroupViewModel> BuildTagHelperReferenceGroups()
+        {
+            return new List<TagHelperReferenceGroupViewModel>()
+            {
+                new TagHelperReferenceGroupViewModel()
+                {
+                    Title = GetComponentResourceString("Index_TagHelpers_Group_FDCP_Title"),
+                    Items = BuildFdcpTagHelperReferences()
+                },
+                new TagHelperReferenceGroupViewModel()
+                {
+                    Title = GetComponentResourceString("Index_TagHelpers_Group_GCDS_Title"),
+                    Items = BuildGcdsTagHelperReferences()
+                }
+            };
+        }
+        private static List<TagHelperReferenceViewModel> BuildFdcpTagHelperReferences()
+        {
+            return new List<TagHelperReferenceViewModel>()
+            {
+                new() { Title = "<fdcp-checkbox>", Description = GetComponentResourceString("Index_TagHelpers_Description_FDCP_CheckboxSingle"), KeyProperties = new List<string>() { "for", "name", "label", "required" }, UsageSnippet = "<fdcp-checkbox for=\"Model.AcceptTerms\" label=\"Accept terms\" />" },
+                new() { Title = "<fdcp-checkboxes>", Description = GetComponentResourceString("Index_TagHelpers_Description_FDCP_CheckboxGroup"), KeyProperties = new List<string>() { "for", "items", "name", "legend" }, UsageSnippet = "<fdcp-checkboxes for=\"Model.SelectedValues\" items=\"Model.AvailableOptions\" />" },
+                new() { Title = "<fdcp-error-summary>", Description = GetComponentResourceString("Index_TagHelpers_Description_FDCP_Feedback"), KeyProperties = new List<string>() { "for", "title", "compact" }, UsageSnippet = "<fdcp-error-summary for=\"Model\" />" },
+                new() { Title = "<fdcp-input>", Description = GetComponentResourceString("Index_TagHelpers_Description_FDCP_FormField"), KeyProperties = new List<string>() { "for", "name", "label", "type" }, UsageSnippet = "<fdcp-input for=\"Model.Email\" type=\"email\" />" },
+                new() { Title = "<fdcp-radios>", Description = GetComponentResourceString("Index_TagHelpers_Description_FDCP_FormField"), KeyProperties = new List<string>() { "for", "items", "name", "legend" }, UsageSnippet = "<fdcp-radios for=\"Model.Selection\" items=\"Model.Options\" />" },
+                new() { Title = "<fdcp-rich-text>", Description = GetComponentResourceString("Index_TagHelpers_Description_FDCP_Editor"), KeyProperties = new List<string>() { "for", "name", "height", "toolbar" }, UsageSnippet = "<fdcp-rich-text for=\"Model.ProjectSummary\" height=\"260px\" />" },
+                new() { Title = "<fdcp-select>", Description = GetComponentResourceString("Index_TagHelpers_Description_FDCP_FormField"), KeyProperties = new List<string>() { "for", "items", "name", "label" }, UsageSnippet = "<fdcp-select for=\"Model.Province\" items=\"Model.ProvinceOptions\" />" },
+                new() { Title = "<fdcp-session-modal>", Description = GetComponentResourceString("Index_TagHelpers_Description_FDCP_Session"), KeyProperties = new List<string>() { "id", "logout-url", "refresh-url", "session-timeout" }, UsageSnippet = "<fdcp-session-modal id=\"session-timeout-modal\" session-timeout=\"900\" />" },
+                new() { Title = "<fdcp-table-gridjs>", Description = GetComponentResourceString("Index_TagHelpers_Description_FDCP_Data"), KeyProperties = new List<string>() { "id", "src", "caption", "columns" }, UsageSnippet = "<fdcp-table-gridjs id=\"employees-grid\" src=\"/api/employees\" />" }
+            };
+        }
+        private static List<TagHelperReferenceViewModel> BuildGcdsTagHelperReferences()
+        {
+            return new List<TagHelperReferenceViewModel>()
+            {
+                new() { Title = "<gcds-breadcrumbs>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Navigation"), KeyProperties = new List<string>() { "label", "hide-on-mobile" }, UsageSnippet = "<gcds-breadcrumbs label=\"Breadcrumb navigation\"></gcds-breadcrumbs>" },
+                new() { Title = "<gcds-button>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Content"), KeyProperties = new List<string>() { "type", "button-role", "size", "variant" }, UsageSnippet = "<gcds-button type=\"submit\">Submit</gcds-button>" },
+                new() { Title = "<gcds-checkboxes>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_FormField"), KeyProperties = new List<string>() { "name", "legend", "hint", "required" }, UsageSnippet = "<gcds-checkboxes name=\"topics\" legend=\"Select topics\"></gcds-checkboxes>" },
+                new() { Title = "<gcds-container>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Layout"), KeyProperties = new List<string>() { "size", "centered", "padding" }, UsageSnippet = "<gcds-container size=\"xl\">Content</gcds-container>" },
+                new() { Title = "<gcds-date-input>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_FormField"), KeyProperties = new List<string>() { "name", "legend", "hint", "required" }, UsageSnippet = "<gcds-date-input name=\"birth-date\" legend=\"Date of birth\"></gcds-date-input>" },
+                new() { Title = "<gcds-date-modified>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_DateModified"), KeyProperties = new List<string>() { "type", "display-date" }, UsageSnippet = "<gcds-date-modified>2026-07-22</gcds-date-modified>" },
+                new() { Title = "<gcds-details>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Details"), KeyProperties = new List<string>() { "details-title", "open", "name" }, UsageSnippet = "<gcds-details details-title=\"More information\">Content</gcds-details>" },
+                new() { Title = "<gcds-error-message>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Feedback"), KeyProperties = new List<string>() { "message", "id" }, UsageSnippet = "<gcds-error-message message=\"Field is required\"></gcds-error-message>" },
+                new() { Title = "<gcds-error-summary>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Feedback"), KeyProperties = new List<string>() { "heading", "message" }, UsageSnippet = "<gcds-error-summary heading=\"Please fix the following\"></gcds-error-summary>" },
+                new() { Title = "<gcds-fieldset>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_FormField"), KeyProperties = new List<string>() { "legend", "hint", "required" }, UsageSnippet = "<gcds-fieldset legend=\"Contact information\"></gcds-fieldset>" },
+                new() { Title = "<gcds-file-upload>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_FormField"), KeyProperties = new List<string>() { "name", "label", "accept", "multiple" }, UsageSnippet = "<gcds-file-upload name=\"attachments\" label=\"Upload files\"></gcds-file-upload>" },
+                new() { Title = "<gcds-grid>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Layout"), KeyProperties = new List<string>() { "columns", "columns-tablet", "columns-desktop", "equal-row-height" }, UsageSnippet = "<gcds-grid columns=\"1fr\" columns-desktop=\"repeat(2, 1fr)\"></gcds-grid>" },
+                new() { Title = "<gcds-heading>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Typography"), KeyProperties = new List<string>() { "tag", "character-limit", "margin-top", "margin-bottom" }, UsageSnippet = "<gcds-heading tag=\"h2\">Section title</gcds-heading>" },
+                new() { Title = "<gcds-icon>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Content"), KeyProperties = new List<string>() { "name", "margin-right", "margin-left" }, UsageSnippet = "<gcds-icon name=\"checkmark\"></gcds-icon>" },
+                new() { Title = "<gcds-input>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_FormField"), KeyProperties = new List<string>() { "for", "label", "hint", "required" }, UsageSnippet = "<gcds-input for=\"Model.FirstName\"></gcds-input>" },
+                new() { Title = "<gcds-lang-toggle>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Navigation"), KeyProperties = new List<string>() { "lang", "href" }, UsageSnippet = "<gcds-lang-toggle href=\"/fr/components\"></gcds-lang-toggle>" },
+                new() { Title = "<gcds-link>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Content"), KeyProperties = new List<string>() { "href", "display", "size" }, UsageSnippet = "<gcds-link href=\"/help\">Help</gcds-link>" },
+                new() { Title = "<gcds-notice>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Feedback"), KeyProperties = new List<string>() { "notice-type", "notice-title" }, UsageSnippet = "<gcds-notice notice-type=\"info\" notice-title=\"Heads up\"></gcds-notice>" },
+                new() { Title = "<gcds-pagination>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Navigation"), KeyProperties = new List<string>() { "total-pages", "current-page", "url-template" }, UsageSnippet = "<gcds-pagination total-pages=\"10\" current-page=\"1\"></gcds-pagination>" },
+                new() { Title = "<gcds-radios>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_FormField"), KeyProperties = new List<string>() { "name", "legend", "hint", "required" }, UsageSnippet = "<gcds-radios name=\"contact-method\" legend=\"Preferred contact method\"></gcds-radios>" },
+                new() { Title = "<gcds-search>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Search"), KeyProperties = new List<string>() { "action", "method", "label" }, UsageSnippet = "<gcds-search action=\"/search\" method=\"get\"></gcds-search>" },
+                new() { Title = "<gcds-select>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_FormField"), KeyProperties = new List<string>() { "name", "label", "hint", "required" }, UsageSnippet = "<gcds-select name=\"province\" label=\"Province\"></gcds-select>" },
+                new() { Title = "<gcds-signature>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Content"), KeyProperties = new List<string>() { "type", "variant", "lang" }, UsageSnippet = "<gcds-signature type=\"organization\"></gcds-signature>" },
+                new() { Title = "<gcds-sr-only>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Utilities"), KeyProperties = new List<string>() { "tag" }, UsageSnippet = "<gcds-sr-only>Screen-reader only text</gcds-sr-only>" },
+                new() { Title = "<gcds-text>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Typography"), KeyProperties = new List<string>() { "size", "character-limit", "margin-top", "margin-bottom" }, UsageSnippet = "<gcds-text>Body copy content.</gcds-text>" },
+                new() { Title = "<gcds-textarea>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_FormField"), KeyProperties = new List<string>() { "name", "label", "hint", "required" }, UsageSnippet = "<gcds-textarea name=\"comments\" label=\"Comments\"></gcds-textarea>" },
+                new() { Title = "<gcds-topic-menu>", Description = GetComponentResourceString("Index_TagHelpers_Description_GCDS_Navigation"), KeyProperties = new List<string>() { "menu-title" }, UsageSnippet = "<gcds-topic-menu menu-title=\"On this page\"></gcds-topic-menu>" }
+            };
+        }
+        private static string GetComponentResourceString(string key)
+        {
+            return Resources.Components.ResourceManager.GetString(key, CultureInfo.CurrentUICulture) ?? key;
         }
         private static ComponentViewModel BuildModalComponentViewModel()
         {

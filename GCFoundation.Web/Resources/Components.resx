@@ -1628,4 +1628,73 @@
   <data name="Table_WithLink_Anchor" xml:space="preserve">
     <value>with-slots-link</value>
   </data>
+  <data name="Index_TagHelpers_Section_Title" xml:space="preserve">
+    <value>Tag Helpers</value>
+  </data>
+  <data name="Index_TagHelpers_Section_Description" xml:space="preserve">
+    <value>Quick reference for non-featured FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet.</value>
+  </data>
+  <data name="Index_TagHelpers_Group_FDCP_Title" xml:space="preserve">
+    <value>FDCP Tag Helpers</value>
+  </data>
+  <data name="Index_TagHelpers_Group_GCDS_Title" xml:space="preserve">
+    <value>GCDS Tag Helpers</value>
+  </data>
+  <data name="Index_TagHelpers_KeyProperties_Label" xml:space="preserve">
+    <value>Key properties</value>
+  </data>
+  <data name="Index_TagHelpers_Usage_Label" xml:space="preserve">
+    <value>Usage</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_FormField" xml:space="preserve">
+    <value>Renders a GCFoundation form field helper with built-in validation and styling support.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_CheckboxSingle" xml:space="preserve">
+    <value>Renders a single checkbox helper bound to a model value, using GCFoundation form behavior.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_CheckboxGroup" xml:space="preserve">
+    <value>Renders a checkbox group from provided items, with GCFoundation binding and validation behavior.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Feedback" xml:space="preserve">
+    <value>Displays form-level validation feedback for GCFoundation forms.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Editor" xml:space="preserve">
+    <value>Provides a rich-text editing input integrated with the GCFoundation form pattern.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Session" xml:space="preserve">
+    <value>Provides a session-timeout modal flow for expiring authenticated sessions.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Data" xml:space="preserve">
+    <value>Renders an enhanced data table experience powered by Grid.js.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_FormField" xml:space="preserve">
+    <value>Wraps a GC Design System form control for Razor-based pages.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Feedback" xml:space="preserve">
+    <value>Adds user feedback and validation messaging using GC Design System patterns.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Layout" xml:space="preserve">
+    <value>Provides page layout structure using GC Design System components.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Typography" xml:space="preserve">
+    <value>Applies consistent GC Design System typography and text rendering.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Navigation" xml:space="preserve">
+    <value>Supports navigation UI patterns from the GC Design System.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Content" xml:space="preserve">
+    <value>Renders commonly used GC Design System content and interactive elements.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Search" xml:space="preserve">
+    <value>Renders a GC Design System search component with configurable action, method, and input settings.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Utilities" xml:space="preserve">
+    <value>Provides utility helpers for accessibility and metadata display.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Details" xml:space="preserve">
+    <value>Renders a collapsible details section with a title and optional default open state.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_DateModified" xml:space="preserve">
+    <value>Renders date-modified metadata and supports date or version display types.</value>
+  </data>
 </root>

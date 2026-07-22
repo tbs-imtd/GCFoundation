@@ -1,18 +1,40 @@
 ﻿@using GCFoundation.Web.Models.Components
 @using GCFoundation.Web.Resources
-@model List<ComponentIndexViewModel>
+@model ComponentsIndexPageViewModel
 
 <gcds-heading tag="h1" margin-bottom="400">@Components.Index_Page_Title</gcds-heading>
 
 <gcds-grid columns="1fr" columns-desktop="repeat(3, 1fr)" columns-tablet="repeat(2, 1fr)" equal-row-height>
-@foreach (var component in Model.OrderBy(c => c.Name))
+@foreach (var component in Model.FeaturedComponents.OrderBy(c => c.Name))
 {
-    <gcds-card  card-title="@component.Name"
-                description="@component.ShortDescription"
-                href="@component.Href"
-                img-alt="@string.Format(Components.Index_Card_ImgAlt_Template, component.Name)"
-                img-src="@component.ImgSrc">
+    <gcds-card card-title="@component.Name"
+               description="@component.ShortDescription"
+               href="@component.Href"
+               img-alt="@string.Format(Components.Index_Card_ImgAlt_Template, component.Name)"
+               img-src="@component.ImgSrc">
         @Html.Raw(component.Description)
     </gcds-card>
 }
 </gcds-grid>
+
+<section class="mt-400">
+    <gcds-heading tag="h2" margin-bottom="300">@Components.ResourceManager.GetString("Index_TagHelpers_Section_Title")</gcds-heading>
+    <gcds-text margin-bottom="300">@Components.ResourceManager.GetString("Index_TagHelpers_Section_Description")</gcds-text>
+
+    @foreach (var tagHelperGroup in Model.TagHelperGroups)
+    {
+        <gcds-heading tag="h3" margin-bottom="200">@tagHelperGroup.Title</gcds-heading>
+
+        @foreach (var tagHelperReference in tagHelperGroup.Items.OrderBy(t => t.Title))
+        {
+            <gcds-details details-title="@tagHelperReference.Title" class="mb-300">
+                <gcds-text margin-bottom="100">@tagHelperReference.Description</gcds-text>
+                <gcds-text margin-bottom="100">
+                    <strong>@Components.ResourceManager.GetString("Index_TagHelpers_KeyProperties_Label"):</strong>
+                    @string.Join(", ", tagHelperReference.KeyProperties)
+                </gcds-text>
+                <pre><code class="language-cshtml">@Html.Raw(Html.Encode(tagHelperReference.UsageSnippet))</code></pre>
+            </gcds-details>
+        }
+    }
+</section>

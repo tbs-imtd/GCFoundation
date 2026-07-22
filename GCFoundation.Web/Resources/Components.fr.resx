@@ -1761,4 +1761,73 @@
   <data name="Table_WithLink_Anchor" xml:space="preserve">
     <value>avec-emplacements-lien</value>
   </data>
+  <data name="Index_TagHelpers_Section_Title" xml:space="preserve">
+    <value>Tag helpers</value>
+  </data>
+  <data name="Index_TagHelpers_Section_Description" xml:space="preserve">
+    <value>Référence rapide pour les tag helpers FDCP et GCDS non présentés dans les cartes vedettes, incluant le rôle de chaque helper, ses propriétés clés et un exemple d'utilisation minimal.</value>
+  </data>
+  <data name="Index_TagHelpers_Group_FDCP_Title" xml:space="preserve">
+    <value>Tag helpers FDCP</value>
+  </data>
+  <data name="Index_TagHelpers_Group_GCDS_Title" xml:space="preserve">
+    <value>Tag helpers GCDS</value>
+  </data>
+  <data name="Index_TagHelpers_KeyProperties_Label" xml:space="preserve">
+    <value>Propriétés clés</value>
+  </data>
+  <data name="Index_TagHelpers_Usage_Label" xml:space="preserve">
+    <value>Utilisation</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_FormField" xml:space="preserve">
+    <value>Affiche un champ de formulaire GCFoundation avec prise en charge intégrée de la validation et du style.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_CheckboxSingle" xml:space="preserve">
+    <value>Affiche un helper de case à cocher unique lié à une valeur du modèle, avec le comportement de formulaire GCFoundation.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_CheckboxGroup" xml:space="preserve">
+    <value>Affiche un groupe de cases à cocher à partir des éléments fournis, avec liaison et validation GCFoundation.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Feedback" xml:space="preserve">
+    <value>Affiche la rétroaction de validation au niveau du formulaire GCFoundation.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Editor" xml:space="preserve">
+    <value>Fournit un éditeur de texte enrichi intégré au modèle de formulaire GCFoundation.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Session" xml:space="preserve">
+    <value>Fournit un flux de fenêtre modale d'expiration de session pour les sessions authentifiées.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Data" xml:space="preserve">
+    <value>Affiche une expérience de tableau de données enrichie basée sur Grid.js.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_FormField" xml:space="preserve">
+    <value>Encapsule un contrôle de formulaire du système de design GC pour les pages Razor.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Feedback" xml:space="preserve">
+    <value>Ajoute des messages de rétroaction et de validation avec les modèles du système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Layout" xml:space="preserve">
+    <value>Fournit une structure de mise en page à l'aide des composants du système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Typography" xml:space="preserve">
+    <value>Applique une typographie et un rendu de texte cohérents du système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Navigation" xml:space="preserve">
+    <value>Prend en charge les modèles d'interface de navigation du système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Content" xml:space="preserve">
+    <value>Affiche des éléments de contenu et d'interaction courants du système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Search" xml:space="preserve">
+    <value>Affiche un composant de recherche du système de design GC avec action, méthode et paramètres d'entrée configurables.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Utilities" xml:space="preserve">
+    <value>Fournit des utilitaires pour l'accessibilité et l'affichage de métadonnées.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Details" xml:space="preserve">
+    <value>Affiche une section de détails repliable avec un titre et un état ouvert par défaut optionnel.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_DateModified" xml:space="preserve">
+    <value>Affiche les métadonnées de date de modification et prend en charge les types date ou version.</value>
+  </data>
 </root>
