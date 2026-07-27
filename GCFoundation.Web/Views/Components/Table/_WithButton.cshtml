@@ -1,4 +1,5 @@
 @using GCFoundation.Web.Models.Table
+@using GCFoundation.Web.Resources
 
 @{
     var rows = new List<TableRowButtonTestViewModel>
@@ -9,21 +10,32 @@
     };
 }
 
-<fdcp-table caption="Table with button" rows="@rows">
+<fdcp-table caption="@Components.Table_WithButton_Caption" rows="@rows">
     <template slot="cell:action">
-        <gcds-button button-role="danger" data-bind-button-id="{submissionId}" size="small">Delete</gcds-button>
+        <gcds-button button-role="danger" class="delete" data-bind-button-id="{submissionId}" size="small">@Components.Table_WithButton_Label</gcds-button>
     </template>
 </fdcp-table>
 
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-table caption=""Table with button"" rows=""@Model.Rows"">
-    <template slot=""cell:action"">
-        <gcds-button button-role=""danger""
-                     data-bind-button-id=""{submissionId}""
-                     size=""small"">Delete</gcds-button>
-    </template>
-</fdcp-table>"))</code></pre>
+<gcds-text class="mt-200">@Html.Raw(@Components.Table_WithButton_Note)</gcds-text>
 
-<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Display(Name = ""Table_Actions_Header"", ResourceType = typeof(Resources.Components))]
-[TableColumnDefinition(Slotted = true)]
-public string Action { get; set; }
-"))</code></pre>
+<div class="code-container">
+    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithButton_Caption)}"" rows=""@Model.Rows""&gt;
+    &lt;template slot=""cell:action""&gt;
+        &lt;gcds-button button-role=""danger""
+                     data-bind-button-id=""{{submissionId}}""
+                     size=""small""&gt;{Html.Encode(Components.Table_WithButton_Label)}&lt;/gcds-button&gt;
+    &lt;/template&gt;
+&lt;/fdcp-table&gt;")</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+</div>
+<div class="code-container">
+    <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"public string SubmissionId { get; set; } = string.Empty;
+
+[TableColumnDefinition(Name = ""Table_Actions_Header"",
+                       ResourceType = typeof(Resources.Components),
+                       Slotted = true)]
+public string Action { get; set; } = string.Empty;
+"))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+</div>
+<div class="code-container">
+    <pre><code class="language-javascript">@Html.Raw(Html.Encode(@"console.log(""Delete clicked for row:"", deleteBtn.row, ""submissionId:"", deleteBtn.row?.submissionId);"))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+</div>

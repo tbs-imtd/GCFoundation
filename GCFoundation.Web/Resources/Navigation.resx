@@ -270,4 +270,7 @@
   <data name="Nav_Components_GCFoundation" xml:space="preserve">
     <value>GCFoundation Components</value>
   </data>
+  <data name="Nav_Components_Tabs" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
 </root>

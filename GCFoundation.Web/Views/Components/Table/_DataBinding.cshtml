@@ -1,0 +1,42 @@
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h3" id="@Components.Table_DataBinding_Anchor">@Components.Table_DataBinding_Title</gcds-heading>
+@Html.Raw(Components.Table_DataBinding_Text)
+<div class="fdcp-table-responsive">
+    <table class="fdcp-table fdcp-table-striped fdcp-table-hover fdcp-table-condensed">
+        <thead>
+            <tr>
+                <th scope="col">@Components.Table_DataBinding_Col_Attribute</th>
+                <th scope="col">@Components.Table_DataBinding_Col_Value</th>
+                <th scope="col">@Components.Table_DataBinding_Col_Effect</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"><code>{fieldName}</code></th>
+                <td>—</td>
+                <td>@Html.Raw(Components.Table_DataBinding_FieldName_Desc)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>data-bind</code></th>
+                <td><code>{fieldName}</code></td>
+                <td>@Components.Table_DataBinding_Bind_Desc</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>data-bind-template</code></th>
+                <td><code>text {fieldName} text</code></td>
+                <td>@Html.Raw(Components.Table_DataBinding_Template_Desc)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>data-bind-{attribute}</code></th>
+                <td><code>{fieldName}</code></td>
+                <td>@Html.Raw(Components.Table_DataBinding_Attr_Desc)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>data-bind-template-{attribute}</code></th>
+                <td><code>text {fieldName} text</code></td>
+                <td>@Html.Raw(Components.Table_DataBinding_TemplateAttr_Desc)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

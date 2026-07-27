@@ -91,6 +91,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereAction(nameof(ComponentsController.Stepper))
                 .TranslateAction("etapes");
 
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.Tabs))
+                .TranslateAction("onglets");
+
                 // Template Controller
                 setup.UseCulture("fr")
                 .WhereController(nameof(TemplateController))

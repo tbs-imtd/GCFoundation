@@ -394,6 +394,7 @@ class FDCPSearchableSelect {
 
         if (nextOption) {
             this.selectSingleOption(nextOption, false);
+            nextOption.scrollIntoView({ block: 'nearest', inline: 'nearest' });
 
             if (focusOption) {
                 nextOption.focus();

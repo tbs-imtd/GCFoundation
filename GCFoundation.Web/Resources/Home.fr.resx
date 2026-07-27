@@ -152,6 +152,12 @@
   <data name="Index_Releases_Description" xml:space="preserve">
     <value>Consultez les dernières versions préliminaires, leurs principaux changements et les détails d'installation.</value>
   </data>
+  <data name="Index_Releases_Preview4_Date" xml:space="preserve">
+    <value>15 juillet 2026</value>
+  </data>
+  <data name="Index_Releases_Preview4_Description" xml:space="preserve">
+    <value>Actualise la page d'accueil de l'application prototype et ajoute un composant de tableau ainsi qu'une liste déroulante avec recherche.</value>
+  </data>
   <data name="Index_Releases_Preview3_Date" xml:space="preserve">
     <value>9 juillet 2026</value>
   </data>

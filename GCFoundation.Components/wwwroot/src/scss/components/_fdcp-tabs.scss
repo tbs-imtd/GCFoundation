@@ -1,0 +1,72 @@
+.fdcp-tabs {
+    margin: var(--gcds-spacing-300) 0;
+
+    &__tablist {
+        align-items: flex-start;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gcds-spacing-200);
+        border-bottom: 0.25rem solid var(--gcds-color-grayscale-100);
+    }
+
+    &__tab {
+        appearance: none;
+        background: transparent;
+        background-clip: padding-box;
+        border: 0;
+        color: var(--gcds-text-primary);
+        cursor: pointer;
+        font-family: var(--gcds-font-families-body);
+        font-size: var(--gcds-font-sizes-text);
+        font-weight: var(--gcds-font-weights-bold);
+        line-height: var(--gcds-line-heights-text);
+        margin: 0 0 var(--gcds-spacing-75);
+        padding: var(--gcds-spacing-150) var(--gcds-spacing-100);
+        position: relative;
+
+        &:hover {
+            background: var(--gcds-color-grayscale-50);
+            color: var(--gcds-color-grayscale-1000);
+        }
+
+        &[aria-selected='true'] {
+            color: var(--gcds-color-grayscale-1000);
+
+            &::after {
+                background: var(--gcds-color-blue-700);
+                bottom: calc(-1 * (var(--gcds-spacing-75) + 0.25rem));
+                content: '';
+                height: 0.25rem;
+                left: 0;
+                position: absolute;
+                right: 0;
+            }
+        }
+
+        &:focus-visible {
+            background: var(--gcds-button-shared-focus-background);
+            border-color: var(--gcds-button-shared-focus-background);
+            border-radius: var(--gcds-button-border-radius);
+            box-shadow: var(--gcds-button-shared-focus-box-shadow);
+            color: var(--gcds-button-shared-focus-text);
+            outline: var(--gcds-button-shared-focus-outline-width) solid var(--gcds-button-shared-focus-background);
+            outline-offset: var(--gcds-button-border-width);
+            z-index: 1;
+        }
+    }
+
+    &__panel {
+        margin-top: var(--gcds-spacing-300);
+
+        &:focus-visible {
+            outline: 0.25rem solid var(--gcds-focus-border);
+            outline-offset: var(--gcds-spacing-25);
+        }
+    }
+}
+
+@media (forced-colors: active) {
+    .fdcp-tabs__tab:focus-visible {
+        outline-color: Highlight;
+    }
+}

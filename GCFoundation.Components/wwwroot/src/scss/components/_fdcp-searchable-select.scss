@@ -47,23 +47,25 @@
         box-sizing: border-box;
         width: 100%;
         max-width: 100%;
-        min-height: 3.5rem;
+        min-height: var(--gcds-select-min-width-and-height);
         align-items: center;
         justify-content: space-between;
-        padding: 0.75rem 3rem 0.75rem 1rem;
+        padding: var(--gcds-select-padding);
         border: var(--gcds-select-border-width, var(--gcds-input-border-width, 0.125rem)) solid currentColor;
         border-radius: var(--gcds-select-border-radius, var(--gcds-input-border-radius, 0.125rem));
         background-color: var(--gcds-select-default-background, var(--gcds-bg-white, #fff));
         color: var(--gcds-select-default-text, var(--gcds-text-primary, #333));
-        font-family: var(--gcds-font-families-body);
-        font-size: var(--gcds-font-sizes-text, 1.25rem);
-        line-height: 1.5;
+        font: var(--gcds-select-font-desktop);
         outline-color: transparent;
         outline-style: solid;
         outline-width: 0;
         text-align: left;
         transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, outline-color 0.15s ease-in-out, outline-offset 0.15s ease-in-out, outline-width 0.15s ease-in-out;
         cursor: pointer;
+
+        @media only screen and (width < 48em) {
+            font: var(--gcds-select-font-mobile);
+        }
 
         &:focus {
             border-color: var(--gcds-input-focus-border, var(--gcds-focus-border));
@@ -85,6 +87,7 @@
     }
 
     &__trigger-text {
+        min-width: 0;
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
@@ -92,14 +95,15 @@
 
     &__trigger-icon {
         position: absolute;
-        right: 1rem;
-        color: var(--gcds-text-primary, #333);
+        top: 50%;
+        right: 0.75rem;
+        width: 1rem;
+        height: 0.625rem;
+        background-image: url("data:image/svg+xml;utf8,<svg width='16' height='10' viewBox='0 0 16 10' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M0.799988 0.900024L7.79999 7.90003L14.8 0.900024' stroke='currentColor' stroke-width='2'/></svg>");
+        background-repeat: no-repeat;
+        background-position: center;
         pointer-events: none;
-        transition: transform 0.2s ease;
-    }
-
-    &__trigger[aria-expanded="true"] &__trigger-icon {
-        transform: rotate(180deg);
+        transform: translateY(-50%);
     }
 
     &__sizer {
@@ -112,12 +116,14 @@
         span {
             display: block;
             box-sizing: border-box;
-            padding: 0.75rem 3rem 0.75rem 1rem;
-            border: var(--gcds-input-border-width, 0.125rem) solid transparent;
-            font-family: var(--gcds-font-families-body);
-            font-size: var(--gcds-font-sizes-text, 1.25rem);
-            line-height: 1.5;
+            padding: var(--gcds-select-padding);
+            border: var(--gcds-select-border-width, var(--gcds-input-border-width, 0.125rem)) solid transparent;
+            font: var(--gcds-select-font-desktop);
             white-space: nowrap;
+
+            @media only screen and (width < 48em) {
+                font: var(--gcds-select-font-mobile);
+            }
         }
     }
 

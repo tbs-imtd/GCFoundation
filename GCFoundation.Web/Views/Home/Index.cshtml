@@ -1,8 +1,6 @@
 ﻿@using GCFoundation.Web.Resources
 
 @{
-    string Resource(string name) => Home.ResourceManager.GetString(name) ?? name;
-
     var installationUrl = Url.Action("Index", "Installation") ?? string.Empty;
     var templatesUrl = Url.Action("Index", "Template") ?? string.Empty;
     var componentsUrl = Url.Action("Index", "Components") ?? string.Empty;
@@ -18,72 +16,72 @@
 <!-- Image credit: John Lee, https://unsplash.com/photos/oMneOBYhJxY?utm_source=unsplash&utm_medium=referral&utm_content=creditShareLink -->
 
 <section aria-labelledby="start-heading" class="mt-500">
-    <gcds-heading tag="h2" id="start-heading">@Resource("Index_Start_Title")</gcds-heading>
-    <gcds-text>@Resource("Index_Start_Description")</gcds-text>
+    <gcds-heading tag="h2" id="start-heading">@Home.Index_Start_Title</gcds-heading>
+    <gcds-text>@Home.Index_Start_Description</gcds-text>
     <div class="d-flex flex-wrap gap-200 mb-500">
-        <gcds-button type="link" href="@installationUrl">@Resource("Index_Start_PrimaryLink")</gcds-button>
-        <gcds-button type="link" button-role="secondary" href="@componentsUrl">@Resource("Index_Start_SecondaryLink")</gcds-button>
+        <gcds-button type="link" href="@installationUrl">@Home.Index_Start_PrimaryLink</gcds-button>
+        <gcds-button type="link" button-role="secondary" href="@componentsUrl">@Home.Index_Start_SecondaryLink</gcds-button>
     </div>
 </section>
 
 <section aria-labelledby="releases-heading" class="mb-500">
-    <gcds-heading tag="h2" id="releases-heading">@Resource("Index_Releases_Title")</gcds-heading>
-    <gcds-text>@Resource("Index_Releases_Description")</gcds-text>
+    <gcds-heading tag="h2" id="releases-heading">@Home.Index_Releases_Title</gcds-heading>
+    <gcds-text>@Home.Index_Releases_Description</gcds-text>
 
     <gcds-grid columns="1fr"
                columns-tablet="repeat(2, 1fr)"
                columns-desktop="repeat(3, 1fr)"
                equal-row-height>
-        <gcds-card badge="@Resource("Index_Releases_Preview3_Date")"
+        <gcds-card badge="@Home.Index_Releases_Preview4_Date"
+                   card-title="v1.1.0-preview.4"
+                   description="@Home.Index_Releases_Preview4_Description"
+                   href="https://github.com/tbs-imtd/GCFoundation/releases/tag/v1.1.0-preview.4">
+        </gcds-card>
+        <gcds-card badge="@Home.Index_Releases_Preview3_Date"
                    card-title="v1.1.0-preview.3"
-                   description="@Resource("Index_Releases_Preview3_Description")"
+                   description="@Home.Index_Releases_Preview3_Description"
                    href="https://github.com/tbs-imtd/GCFoundation/releases/tag/v1.1.0-preview.3">
         </gcds-card>
-        <gcds-card badge="@Resource("Index_Releases_Preview2_Date")"
+        <gcds-card badge="@Home.Index_Releases_Preview2_Date"
                    card-title="v1.1.0-preview.2"
-                   description="@Resource("Index_Releases_Preview2_Description")"
+                   description="@Home.Index_Releases_Preview2_Description"
                    href="https://github.com/tbs-imtd/GCFoundation/releases/tag/v1.1.0-preview.2">
-        </gcds-card>
-        <gcds-card badge="@Resource("Index_Releases_Preview1_Date")"
-                   card-title="v1.1.0-preview.1"
-                   description="@Resource("Index_Releases_Preview1_Description")"
-                   href="https://github.com/tbs-imtd/GCFoundation/releases/tag/v1.1.0-preview.1">
         </gcds-card>
     </gcds-grid>
 </section>
 
 <section aria-labelledby="explore-heading" class="mb-500">
-    <gcds-heading tag="h2" id="explore-heading">@Resource("Index_Explore_Title")</gcds-heading>
-    <gcds-text>@Resource("Index_Explore_Description")</gcds-text>
+    <gcds-heading tag="h2" id="explore-heading">@Home.Index_Explore_Title</gcds-heading>
+    <gcds-text>@Home.Index_Explore_Description</gcds-text>
 
     <gcds-grid columns="1fr"
                columns-tablet="repeat(2, 1fr)"
                columns-desktop="repeat(3, 1fr)"
                equal-row-height>
-        <gcds-card card-title="@Resource("Index_Explore_Installation_Title")"
-                   description="@Resource("Index_Explore_Installation_Description")"
+        <gcds-card card-title="@Home.Index_Explore_Installation_Title"
+                   description="@Home.Index_Explore_Installation_Description"
                    href="@installationUrl">
         </gcds-card>
-        <gcds-card card-title="@Resource("Index_Explore_Templates_Title")"
-                   description="@Resource("Index_Explore_Templates_Description")"
+        <gcds-card card-title="@Home.Index_Explore_Templates_Title"
+                   description="@Home.Index_Explore_Templates_Description"
                    href="@templatesUrl">
         </gcds-card>
-        <gcds-card card-title="@Resource("Index_Explore_Components_Title")"
-                   description="@Resource("Index_Explore_Components_Description")"
+        <gcds-card card-title="@Home.Index_Explore_Components_Title"
+                   description="@Home.Index_Explore_Components_Description"
                    href="@componentsUrl">
         </gcds-card>
-        <gcds-card card-title="@Resource("Index_Explore_Styles_Title")"
-                   description="@Resource("Index_Explore_Styles_Description")"
+        <gcds-card card-title="@Home.Index_Explore_Styles_Title"
+                   description="@Home.Index_Explore_Styles_Description"
                    href="@stylesUrl">
         </gcds-card>
     </gcds-grid>
 </section>
 
 <section aria-labelledby="feedback-heading" class="mb-500">
-    <gcds-heading tag="h2" id="feedback-heading">@Resource("Index_Feedback_Title")</gcds-heading>
-    <gcds-text>@Resource("Index_Feedback_Description")</gcds-text>
+    <gcds-heading tag="h2" id="feedback-heading">@Home.Index_Feedback_Title</gcds-heading>
+    <gcds-text>@Home.Index_Feedback_Description</gcds-text>
     <div class="d-flex flex-wrap gap-200">
-        <gcds-button type="link" href="https://github.com/tbs-imtd/GCFoundation/issues">@Resource("Index_Feedback_PrimaryLink")</gcds-button>
-        <gcds-button type="link" button-role="secondary" href="@accessibilityUrl">@Resource("Index_Feedback_SecondaryLink")</gcds-button>
+        <gcds-button type="link" href="https://github.com/tbs-imtd/GCFoundation/issues">@Home.Index_Feedback_PrimaryLink</gcds-button>
+        <gcds-button type="link" button-role="secondary" href="@accessibilityUrl">@Home.Index_Feedback_SecondaryLink</gcds-button>
     </div>
 </section>

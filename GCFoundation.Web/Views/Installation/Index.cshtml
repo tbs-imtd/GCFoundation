@@ -1,50 +1,55 @@
 ﻿@using GCFoundation.Web.Resources
-@using System.Web
 
 <gcds-heading tag="h1">@Installation.Index_Page_Title</gcds-heading>
 
 <gcds-grid columns="minmax(200px, 300px) minmax(0, 1fr)" align-content="@GCFoundation.Components.Enums.AlignContent.start">
-    <gcds-side-nav label="On this page">
-        <gcds-nav-link href="#prerequisites">Prerequisites</gcds-nav-link>
-        <gcds-nav-link href="#nuget-configuration">NuGet Configuration</gcds-nav-link>
-        <gcds-nav-link href="#package-installation">Package Installation</gcds-nav-link>
-        <gcds-nav-link href="#basic-setup">Basic Setup</gcds-nav-link>
-        <gcds-nav-link href="#components-setup">Components Setup</gcds-nav-link>
-        <gcds-nav-link href="#security-setup">Security Setup</gcds-nav-link>
-        <gcds-nav-link href="#language-setup">Language Setup</gcds-nav-link>
-        <gcds-nav-link href="#breadcrumbs-setup">Breadcrumbs Setup</gcds-nav-link>
-        <gcds-nav-link href="#url-translation">URL Translation</gcds-nav-link>
-        <gcds-nav-link href="#complete-example">Complete Program.cs Example</gcds-nav-link>
+    <gcds-side-nav label="@Installation.Index_SideNav_OnThisPage">
+        <gcds-nav-link href="#prerequisites">@Installation.Index_Prerequisites_Heading</gcds-nav-link>
+        <gcds-nav-link href="#nuget-configuration">@Installation.Index_NuGetConfiguration_Heading</gcds-nav-link>
+        <gcds-nav-link href="#package-installation">@Installation.Index_PackageInstallation_Heading</gcds-nav-link>
+        <gcds-nav-link href="#basic-setup">@Installation.Index_BasicSetup_Heading</gcds-nav-link>
+        <gcds-nav-link href="#components-setup">@Installation.Index_ComponentsSetup_Heading</gcds-nav-link>
+        <gcds-nav-link href="#security-setup">@Installation.Index_SecuritySetup_Heading</gcds-nav-link>
+        <gcds-nav-link href="#language-setup">@Installation.Index_LanguageSetup_Heading</gcds-nav-link>
+        <gcds-nav-link href="#breadcrumbs-setup">@Installation.Index_BreadcrumbsSetup_Heading</gcds-nav-link>
+        <gcds-nav-link href="#menu-setup">@Installation.Index_MenuSetup_Heading</gcds-nav-link>
+        <gcds-nav-link href="#url-translation">@Installation.Index_UrlTranslation_Heading</gcds-nav-link>
+        <gcds-nav-link href="#complete-example">@Installation.Index_CompleteExample_Heading</gcds-nav-link>
     </gcds-side-nav>
     
     <div class="documentation-content">
-        <gcds-heading tag="h2" id="prerequisites">Prerequisites</gcds-heading>
+        <gcds-heading tag="h2" id="prerequisites">@Installation.Index_Prerequisites_Heading</gcds-heading>
         <ul>
-            <li>ASP.NET Core 8.0 or later</li>
-            <li>Visual Studio 2022 or later</li>
+            <li>@Installation.Index_Prerequisites_Item_AspNetCore</li>
+            <li>@Installation.Index_Prerequisites_Item_VisualStudio</li>
         </ul>
 
         <hr />
 
-        <gcds-heading tag="h2" id="nuget-configuration">NuGet Configuration</gcds-heading>
-        <p>GCFoundation packages are published on nuget.org and can be installed directly using the <code>dotnet</code> CLI or the Visual Studio Package Manager Console.</p>
+        <gcds-heading tag="h2" id="nuget-configuration">@Installation.Index_NuGetConfiguration_Heading</gcds-heading>
+        <p>@Html.Raw(Installation.Index_NuGetConfiguration_Intro)</p>
 
         <hr />
 
-        <gcds-heading tag="h2" id="package-installation">Package Installation</gcds-heading>
-        <p>Install the following core NuGet packages (using the <code>dotnet</code> CLI):</p>
+        <gcds-heading tag="h2" id="package-installation">@Installation.Index_PackageInstallation_Heading</gcds-heading>
+        <p>@Html.Raw(Installation.Index_PackageInstallation_CorePackages_Intro)</p>
+<div class="code-container">
 <pre><code class="language-powershell">dotnet add YourApp.Web package GCFoundation.Common
 dotnet add YourApp.Web package GCFoundation.Components
-dotnet add YourApp.Web package GCFoundation.Security</code></pre>
+dotnet add YourApp.Web package GCFoundation.Security</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
-        <p>For navigation, breadcrumbs, and URL translation support, install:</p>
+        <p>@Installation.Index_PackageInstallation_NavigationPackages_Intro</p>
+<div class="code-container">
 <pre><code class="language-powershell">dotnet add YourApp.Web package cloudscribe.Web.Navigation
 dotnet add YourApp.Web package cloudscribe.Web.Localization
 dotnet add YourApp.Web package cloudscribe.Web.SiteMap
 dotnet add YourApp.Web package cloudscribe.Web.SiteMap.FromNavigation
-dotnet add YourApp.Web package RouteLocalization.AspNetCore</code></pre>
+dotnet add YourApp.Web package RouteLocalization.AspNetCore</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
-        <p>If you prefer the Visual Studio Package Manager Console, you can use:</p>
+        <p>@Installation.Index_PackageInstallation_PackageManager_Intro</p>
+<div class="code-container">
 <pre><code class="language-powershell">Install-Package GCFoundation.Common
 Install-Package GCFoundation.Components
 Install-Package GCFoundation.Security
@@ -52,58 +57,66 @@ Install-Package cloudscribe.Web.Navigation
 Install-Package cloudscribe.Web.Localization
 Install-Package cloudscribe.Web.SiteMap
 Install-Package cloudscribe.Web.SiteMap.FromNavigation
-Install-Package RouteLocalization.AspNetCore</code></pre>
+Install-Package RouteLocalization.AspNetCore</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
         <hr />
 
-        <gcds-heading tag="h2" id="basic-setup">Basic Setup</gcds-heading>
-        <p>Add the following services in your <code>Program.cs</code>:</p>
-<pre><code class="language-csharp">// MVC with localization support
+        <gcds-heading tag="h2" id="basic-setup">@Installation.Index_BasicSetup_Heading</gcds-heading>
+        <p>@Html.Raw(Installation.Index_BasicSetup_Intro)</p>
+<div class="code-container">
+<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_MvcLocalization))
 builder.Services.AddControllersWithViews()
     .AddViewLocalization()
     .AddDataAnnotationsLocalization();
 
-// Register GCFoundation services
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_RegisterGCFoundationServices))
 builder.Services.AddGCFoundationComponents(builder.Configuration);
 builder.Services.AddGCFoundationContentPolicies(builder.Configuration);
 builder.Services.AddGCFoundationSession(builder.Configuration);
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
         <hr />
 
-        <gcds-heading tag="h2" id="components-setup">Components Setup</gcds-heading>
-        <p>Enable GCFoundation components and session middleware in <code>Program.cs</code>:</p>
-<pre><code class="language-csharp">// Load GCFoundation components and GCDS dependencies
+        <gcds-heading tag="h2" id="components-setup">@Installation.Index_ComponentsSetup_Heading</gcds-heading>
+        <p>@Html.Raw(Installation.Index_ComponentsSetup_Intro)</p>
+<div class="code-container">
+<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_LoadComponents))
 app.UseGCFoundationComponents();
 app.UseGCFoundationSession();
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
         <hr />
 
-        <gcds-heading tag="h2" id="security-setup">Security Setup</gcds-heading>
-        <p>Add GCFoundation security policies and secure cookie configuration:</p>
-<pre><code class="language-csharp">// Add GCFoundation Content Security Policy (CSP)
+        <gcds-heading tag="h2" id="security-setup">@Installation.Index_SecuritySetup_Heading</gcds-heading>
+        <p>@Installation.Index_SecuritySetup_Intro</p>
+<div class="code-container">
+<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddContentSecurityPolicy))
 app.UseGCFoundationContentPolicies();
 
-// Configure secure cookies
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureSecureCookies))
 app.UseCookiePolicy(new CookiePolicyOptions
 {
     MinimumSameSitePolicy = SameSiteMode.Strict,
     Secure = CookieSecurePolicy.Always,
     HttpOnly = HttpOnlyPolicy.Always
 });
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
         <hr />
 
-        <gcds-heading tag="h2" id="language-setup">Language Setup</gcds-heading>
-        <p>Configure localization, global resources, and culture selection in <code>Program.cs</code>:</p>
-<pre><code class="language-csharp">// Configure global resources (resx)
+        <gcds-heading tag="h2" id="language-setup">@Installation.Index_LanguageSetup_Heading</gcds-heading>
+        <p>@Html.Raw(Installation.Index_LanguageSetup_Configuration_Intro)</p>
+<div class="code-container">
+<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureGlobalResources))
 builder.Services.Configure<GlobalResourceOptions>(builder.Configuration.GetSection("GlobalResourceOptions"));
 builder.Services.AddSingleton<IStringLocalizerFactory, GlobalResourceManagerStringLocalizerFactory>();
 builder.Services.AddLocalization();
 
-// Configure supported cultures (e.g., en-CA, fr-CA)
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureSupportedCultures))
 var supportedCultures = LanguageUtility.GetSupportedCulture();
 var routeSegmentLocalizationProvider = new FirstUrlSegmentRequestCultureProvider(supportedCultures.ToList());
 
@@ -115,44 +128,98 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
     options.RequestCultureProviders.Insert(0, routeSegmentLocalizationProvider);
 });
 
-// Add route localization (translated URLs)
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddRouteLocalization))
 builder.Services.AddCustomRouteLocalization();
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
-        <p>Enable language and localization middleware:</p>
-<pre><code class="language-csharp">// Add GCFoundation language middleware
+        <p>@Installation.Index_LanguageSetup_Middleware_Intro</p>
+<div class="code-container">
+<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddLanguageMiddleware))
 app.UseMiddleware<GCFoundationLanguageMiddleware>();
 
-// Enable ASP.NET Core request localization
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_EnableRequestLocalization))
 var localizationOptions = app.Services.GetRequiredService&lt;IOptions&lt;RequestLocalizationOptions&gt;&gt;().Value;
 app.UseRequestLocalization(localizationOptions);
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
         <hr />
 
-        <gcds-heading tag="h2" id="breadcrumbs-setup">Breadcrumbs Setup</gcds-heading>
-        <p>Configure navigation and breadcrumbs services in <code>Program.cs</code>:</p>
-<pre><code class="language-csharp">// Configure navigation services
+        <gcds-heading tag="h2" id="breadcrumbs-setup">@Installation.Index_BreadcrumbsSetup_Heading</gcds-heading>
+        <p>@Html.Raw(Installation.Index_BreadcrumbsSetup_Intro)</p>
+<div class="code-container">
+<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureNavigationServices))
 builder.Services.AddScoped&lt;ISiteMapNodeService, NavigationTreeSiteMapNodeService&gt;();
 builder.Services.AddCloudscribeNavigation(builder.Configuration.GetSection("NavigationOptions"));
 
-// Configure breadcrumbs localization service
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureBreadcrumbsLocalization))
 builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService),
     typeof(BreadcrumbsLocalizationService&lt;YourApp.Resources.Navigation&gt;));
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
         <hr />
 
-        <gcds-heading tag="h2" id="url-translation">URL Translation</gcds-heading>
-        <p>Configure routing with a culture parameter and translated URLs:</p>
-<pre><code class="language-csharp">// Configure default route with culture parameter
+        <gcds-heading tag="h2" id="menu-setup">@Installation.Index_MenuSetup_Heading <gcds-badge label="@Installation.Index_Optional_Badge" type="info"></gcds-badge></gcds-heading>
+        <p>@Html.Raw(Installation.Index_MenuSetup_Intro)</p>
+<div class="code-container">
+<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureTopNavigationLocalization))
+builder.Services.AddSingleton&lt;ITopNavigationLocalizationService,
+    TopNavigationLocalizationService&lt;YourApp.Resources.Navigation&gt;&gt;();
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
+
+        <gcds-heading tag="h3" id="menu-component-visibility">@Installation.Index_MenuComponentVisibility_Heading</gcds-heading>
+        <p>@Html.Raw(Installation.Index_MenuComponentVisibility_Intro)</p>
+<div class="code-container">
+<pre><code class="language-xml">&lt;!-- @Html.Raw(Html.Encode(Installation.Index_CodeComment_ShownEverywhere)) --&gt;
+&lt;NavNode key="home" controller="Home" action="Index"
+         text="Nav_Home" /&gt;
+
+&lt;!-- @Html.Raw(Html.Encode(Installation.Index_CodeComment_TopNavigationOnly)) --&gt;
+&lt;NavNode key="get-started" text="Nav_GetStarted"
+         componentVisibility="topnav" /&gt;
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
+
+        <gcds-heading tag="h3" id="menu-restrictions">@Installation.Index_MenuRestrictions_Heading <gcds-badge label="@Installation.Index_Optional_Badge" type="info"></gcds-badge></gcds-heading>
+        <p>@Html.Raw(Installation.Index_MenuRestrictions_Rules_Intro)</p>
+<div class="code-container">
+<pre><code class="language-json">"NavigationRules": {
+  "Rules": {
+    "node-key1":  { "type": "Cookie",  "name": "TestCookie",  "value": "true" },
+    "node-key2":  { "type": "Session", "name": "TestSession", "value": "true" },
+    "node-key3": { "type": "Claim",   "name": "role",        "value": "admin" }
+  }
+}
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
+        <p>@Html.Raw(Installation.Index_MenuRestrictions_Program_Intro)</p>
+<div class="code-container">
+<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_BindNavigationRules))
+builder.Services.Configure&lt;NavRulesOptions&gt;(builder.Configuration.GetSection("NavigationRules"));
+
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_EvaluateNavigationRules))
+builder.Services.AddScoped&lt;INavigationNodePermissionResolver, ConfigurableNavPermissionResolver&gt;();
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
+
+        <hr />
+
+        <gcds-heading tag="h2" id="url-translation">@Installation.Index_UrlTranslation_Heading</gcds-heading>
+        <p>@Installation.Index_UrlTranslation_Routing_Intro</p>
+<div class="code-container">
+<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureDefaultRoute))
 app.MapControllerRoute(
     name: "default",
     pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}"
 );
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
-        <p>Configure <code>appsettings.json</code> for navigation and global resources:</p>
+        <p>@Html.Raw(Installation.Index_UrlTranslation_AppSettings_Intro)</p>
+<div class="code-container">
 <pre><code class="language-json">{
   "NavigationOptions": {
     "EnableLocalization": true,
@@ -163,20 +230,22 @@ app.MapControllerRoute(
     "SupportedCultures": [ "en-CA", "fr-CA" ]
   }
 }
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
-        <p>Key features:</p>
+        <p>@Installation.Index_UrlTranslation_KeyFeatures_Heading</p>
         <ul>
-            <li>URL-based culture selection using the first segment (e.g., <code>/fr/home</code>)</li>
-            <li>Default culture is <code>en-CA</code></li>
-            <li>Automatic breadcrumb localization using resource files</li>
-            <li>Support for culture-specific routing and translated routes using <code>RouteLocalization.AspNetCore</code></li>
+            <li>@Html.Raw(Installation.Index_UrlTranslation_KeyFeatures_Item_CultureSegment)</li>
+            <li>@Html.Raw(Installation.Index_UrlTranslation_KeyFeatures_Item_DefaultCulture)</li>
+            <li>@Installation.Index_UrlTranslation_KeyFeatures_Item_BreadcrumbLocalization</li>
+            <li>@Html.Raw(Installation.Index_UrlTranslation_KeyFeatures_Item_RouteLocalization)</li>
         </ul>
 
         <hr />
 
-        <gcds-heading tag="h2" id="complete-example">Complete Program.cs Example</gcds-heading>
-        <p>Here's a complete <code>Program.cs</code> configuration that ties all of the above together for a typical MVC application:</p>
+        <gcds-heading tag="h2" id="complete-example">@Installation.Index_CompleteExample_Heading</gcds-heading>
+        <p>@Html.Raw(Installation.Index_CompleteExample_Intro)</p>
+<div class="code-container">
 <pre><code class="language-csharp">using System.Globalization;
 using cloudscribe.Web.Navigation;
 using cloudscribe.Web.SiteMap;
@@ -185,7 +254,7 @@ using GCFoundation.Components.Middleware;
 using GCFoundation.Components.Services;
 using GCFoundation.Components.Services.Interfaces;
 using GCFoundation.Security.Middlewares;
-using YourApp.Infrastructure.Extensions; // AddCustomRouteLocalization
+using YourApp.Infrastructure.Extensions; // @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddCustomRouteLocalization))
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -194,28 +263,32 @@ using Microsoft.Extensions.Options;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// MVC and localization
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_MvcLocalization))
 builder.Services.AddControllersWithViews()
     .AddViewLocalization()
     .AddDataAnnotationsLocalization();
 
-// Navigation and breadcrumbs
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_NavigationAndBreadcrumbs))
 builder.Services.AddScoped&lt;ISiteMapNodeService, NavigationTreeSiteMapNodeService&gt;();
 builder.Services.AddCloudscribeNavigation(builder.Configuration.GetSection("NavigationOptions"));
 builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService),
     typeof(BreadcrumbsLocalizationService&lt;YourApp.Resources.Navigation&gt;));
 
-// Global resources and localization
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_OptionalLocalizedTopNavigation))
+builder.Services.AddSingleton&lt;ITopNavigationLocalizationService,
+    TopNavigationLocalizationService&lt;YourApp.Resources.Navigation&gt;&gt;();
+
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_GlobalResourcesAndLocalization))
 builder.Services.Configure&lt;GlobalResourceOptions&gt;(builder.Configuration.GetSection("GlobalResourceOptions"));
 builder.Services.AddSingleton&lt;IStringLocalizerFactory, GlobalResourceManagerStringLocalizerFactory&gt;();
 builder.Services.AddLocalization();
 
-// GCFoundation services
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_GCFoundationServices))
 builder.Services.AddGCFoundationComponents(builder.Configuration);
 builder.Services.AddGCFoundationContentPolicies(builder.Configuration);
 builder.Services.AddGCFoundationSession(builder.Configuration);
 
-// Culture and URL-based localization
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_CultureAndUrlLocalization))
 var supportedCultures = new[] { "en-CA", "fr-CA" }
     .Select(x => new CultureInfo(x))
     .ToList();
@@ -230,32 +303,32 @@ builder.Services.Configure&lt;RequestLocalizationOptions&gt;(options =&gt;
     options.RequestCultureProviders.Insert(0, routeSegmentLocalizationProvider);
 });
 
-// Add route localization extensions (translated routes)
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddRouteLocalizationExtensions))
 builder.Services.AddCustomRouteLocalization();
 
 var app = builder.Build();
 
-// Error handling (production)
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ErrorHandlingProduction))
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
     app.UseHsts();
 }
 
-// GCFoundation language middleware
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddLanguageMiddleware))
 app.UseMiddleware&lt;GCFoundationLanguageMiddleware&gt;();
 
-// Security and static files
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_SecurityAndStaticFiles))
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
 
-// Request localization
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_RequestLocalization))
 var localizationOptions = app.Services.GetRequiredService&lt;IOptions&lt;RequestLocalizationOptions&gt;&gt;().Value;
 app.UseRequestLocalization(localizationOptions);
 
-// Secure cookies
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureSecureCookies))
 app.UseCookiePolicy(new CookiePolicyOptions
 {
     MinimumSameSitePolicy = SameSiteMode.Strict,
@@ -263,12 +336,12 @@ app.UseCookiePolicy(new CookiePolicyOptions
     HttpOnly = HttpOnlyPolicy.Always
 });
 
-// GCFoundation components and security
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_GCFoundationComponentsAndSecurity))
 app.UseGCFoundationComponents();
 app.UseGCFoundationContentPolicies();
 app.UseGCFoundationSession();
 
-// Authorization and routing
+// @Html.Raw(Html.Encode(Installation.Index_CodeComment_AuthorizationAndRouting))
 app.UseAuthorization();
 
 app.MapControllerRoute(
@@ -276,9 +349,11 @@ app.MapControllerRoute(
     pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
-        <p>Required <code>appsettings.json</code> configuration:</p>
+        <p>@Html.Raw(Installation.Index_CompleteExample_AppSettings_Intro)</p>
+<div class="code-container">
 <pre><code class="language-json">{
   "NavigationOptions": {
     "EnableLocalization": true,
@@ -289,14 +364,17 @@ app.Run();
     "SupportedCultures": [ "en-CA", "fr-CA" ]
   }
 }
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
 
-        <p>Example project structure for navigation resources:</p>
+        <p>@Installation.Index_CompleteExample_ProjectStructure_Intro</p>
+<div class="code-container">
 <pre><code>YourApp/
   └── Resources/
       ├── Navigation.en-CA.resx
       ├── Navigation.fr-CA.resx
       └── Navigation/   (optional additional navigation resources)
-</code></pre>
+</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
+</div>
     </div>
 </gcds-grid>

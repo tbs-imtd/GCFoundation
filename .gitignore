@@ -380,7 +380,9 @@ e2e/.env.*.local
 *.sln.iml
 
 # Cursor IDE
-.cursor/
+.cursor/*
+!.cursor/skills/
+!.cursor/skills/**
 
 # macOS
 .DS_Store

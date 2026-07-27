@@ -152,6 +152,12 @@
   <data name="Index_Releases_Description" xml:space="preserve">
     <value>Review the latest preview releases, their key changes and installation details.</value>
   </data>
+  <data name="Index_Releases_Preview4_Date" xml:space="preserve">
+    <value>July 15, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview4_Description" xml:space="preserve">
+    <value>Refreshes the prototype home page and adds a table component and searchable dropdown.</value>
+  </data>
   <data name="Index_Releases_Preview3_Date" xml:space="preserve">
     <value>July 9, 2026</value>
   </data>

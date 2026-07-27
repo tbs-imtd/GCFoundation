@@ -1,5 +1,7 @@
 @using GCFoundation.Web.Resources
 
+<partial name="Table/_DataBinding" />
+
 <gcds-heading tag="h3" id="@Components.Table_WithEmail_Anchor">@Components.Table_WithEmail_Title</gcds-heading>
 <gcds-text>@Html.Raw(Components.Table_WithEmail_Text)</gcds-text>
 <partial name="Table/_WithEmail" />
@@ -11,6 +13,7 @@
 <gcds-heading tag="h3" id="@Components.Table_WithButton_Anchor">@Components.Table_WithButton_Title</gcds-heading>
 <gcds-text>@Html.Raw(Components.Table_WithButton_Text)</gcds-text>
 <partial name="Table/_WithButton" />
+<gcds-text class="mt-200">@Html.Raw(Components.Table_WithButton_SlottedCellContext_Text)</gcds-text>
 
 <gcds-heading tag="h3" id="@Components.Table_WithButtonLink_Anchor">@Components.Table_WithButtonLink_Title</gcds-heading>
 <gcds-text>@Html.Raw(Components.Table_WithButtonLink_Text)</gcds-text>

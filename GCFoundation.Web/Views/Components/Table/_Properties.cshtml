@@ -83,6 +83,60 @@
     </table>
 </div>
 
+@* [TableColumnDefinition] attribute *@
+<gcds-heading tag="h3">@Html.Raw(Components.Table_Properties_Annotation_Title)</gcds-heading>
+<gcds-text>@Html.Raw(Components.Table_Properties_Annotation_Text)</gcds-text>
+<div class="fdcp-table-responsive">
+    <table class="fdcp-table fdcp-table-striped fdcp-table-hover fdcp-table-condensed">
+        <thead>
+            <tr>
+                <th scope="col">@Components.Properties_Property</th>
+                <th scope="col">@Components.Properties_DataType</th>
+                <th scope="col">@Components.Properties_DefaultValue</th>
+                <th scope="col">@Components.Properties_Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"><code>Name</code> / <code>ResourceType</code></th>
+                <td><code>string</code> / <code>Type</code></td>
+                <td>null</td>
+                <td>@Components.Table_Properties_Annotation_NameResourceType</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>Alignment</code></th>
+                <td><code>CellAlignment</code></td>
+                <td>start</td>
+                <td>@Html.Raw(Components.Table_Properties_Annotation_Alignment)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>RowHeader</code></th>
+                <td><code>bool</code></td>
+                <td>false</td>
+                <td>@Components.Table_Properties_Annotation_RowHeader</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>Slotted</code></th>
+                <td><code>bool</code></td>
+                <td>false</td>
+                <td>@Components.Table_Properties_Annotation_Slotted</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>Sort</code></th>
+                <td><code>bool</code></td>
+                <td>false</td>
+                <td>@Components.Table_Properties_Annotation_Sort</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>SortDirection</code></th>
+                <td><code>SortDirection</code></td>
+                <td>none</td>
+                <td>@Html.Raw(Components.Table_Properties_Annotation_SortDirection)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
 @* ColumnDefinition properties *@
 <gcds-heading tag="h3">@Html.Raw(Components.Table_Properties_ColumnDef_Title)</gcds-heading>
 <div class="fdcp-table-responsive">
@@ -137,60 +191,6 @@
                 <td><code>SortDirection</code></td>
                 <td>none</td>
                 <td>@Html.Raw(Components.Table_Properties_ColumnDef_SortDirection)</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-
-@* [TableColumnDefinition] attribute *@
-<gcds-heading tag="h3">@Html.Raw(Components.Table_Properties_Annotation_Title)</gcds-heading>
-<gcds-text>@Html.Raw(Components.Table_Properties_Annotation_Text)</gcds-text>
-<div class="fdcp-table-responsive">
-    <table class="fdcp-table fdcp-table-striped fdcp-table-hover fdcp-table-condensed">
-        <thead>
-            <tr>
-                <th scope="col">@Components.Properties_Property</th>
-                <th scope="col">@Components.Properties_DataType</th>
-                <th scope="col">@Components.Properties_DefaultValue</th>
-                <th scope="col">@Components.Properties_Description</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row"><code>Alignment</code></th>
-                <td><code>CellAlignment</code></td>
-                <td>start</td>
-                <td>@Html.Raw(Components.Table_Properties_Annotation_Alignment)</td>
-            </tr>
-            <tr>
-                <th scope="row"><code>IsHidden</code></th>
-                <td><code>bool</code></td>
-                <td>false</td>
-                <td>@Html.Raw(Components.Table_Properties_Annotation_IsHidden)</td>
-            </tr>
-            <tr>
-                <th scope="row"><code>RowHeader</code></th>
-                <td><code>bool</code></td>
-                <td>false</td>
-                <td>@Components.Table_Properties_Annotation_RowHeader</td>
-            </tr>
-            <tr>
-                <th scope="row"><code>Slotted</code></th>
-                <td><code>bool</code></td>
-                <td>false</td>
-                <td>@Components.Table_Properties_Annotation_Slotted</td>
-            </tr>
-            <tr>
-                <th scope="row"><code>Sort</code></th>
-                <td><code>bool</code></td>
-                <td>false</td>
-                <td>@Components.Table_Properties_Annotation_Sort</td>
-            </tr>
-            <tr>
-                <th scope="row"><code>SortDirection</code></th>
-                <td><code>SortDirection</code></td>
-                <td>none</td>
-                <td>@Html.Raw(Components.Table_Properties_Annotation_SortDirection)</td>
             </tr>
         </tbody>
     </table>

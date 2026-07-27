@@ -134,12 +134,7 @@
     <None Remove="Converters\**" />
     <None Remove="wwwroot\scss\**" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Compile Remove="Models\Table\TableColumnsModel.cs" />
-    <Compile Remove="Models\Table\TableDataModel.cs" />
-  </ItemGroup>
-
+  
   <ItemGroup>
     <Content Remove="package-lock.json" />
     <Content Remove="package.json" />    

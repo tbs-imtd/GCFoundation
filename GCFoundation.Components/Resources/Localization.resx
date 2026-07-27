@@ -195,6 +195,15 @@
   <data name="Loading" xml:space="preserve">
     <value>Loading</value>
   </data>
+  <data name="Tabs" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
+  <data name="Tabs_Loading" xml:space="preserve">
+    <value>Loading tab content...</value>
+  </data>
+  <data name="Tabs_LoadError" xml:space="preserve">
+    <value>Unable to load this tab. Please try again.</value>
+  </data>
   <data name="Enabled" xml:space="preserve">
     <value>Enabled</value>
   </data>

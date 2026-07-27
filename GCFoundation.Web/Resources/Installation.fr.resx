@@ -204,6 +204,225 @@
   <data name="Index_Page_Title" xml:space="preserve">
     <value>Installation</value>
   </data>
+  <data name="Index_SideNav_OnThisPage" xml:space="preserve">
+    <value>Sur cette page</value>
+  </data>
+  <data name="Index_Prerequisites_Heading" xml:space="preserve">
+    <value>Conditions préalables</value>
+  </data>
+  <data name="Index_Prerequisites_Item_AspNetCore" xml:space="preserve">
+    <value>ASP.NET Core 10.0 ou une version ultérieure</value>
+  </data>
+  <data name="Index_Prerequisites_Item_VisualStudio" xml:space="preserve">
+    <value>Visual Studio 2022 ou une version ultérieure</value>
+  </data>
+  <data name="Index_NuGetConfiguration_Heading" xml:space="preserve">
+    <value>Configuration de NuGet</value>
+  </data>
+  <data name="Index_NuGetConfiguration_Intro" xml:space="preserve">
+    <value>Les paquets GCFoundation sont publiés sur nuget.org et peuvent être installés directement au moyen de l’interface de ligne de commande &lt;code&gt;dotnet&lt;/code&gt; ou de la console du Gestionnaire de package Visual Studio.</value>
+  </data>
+  <data name="Index_PackageInstallation_Heading" xml:space="preserve">
+    <value>Installation des paquets</value>
+  </data>
+  <data name="Index_PackageInstallation_CorePackages_Intro" xml:space="preserve">
+    <value>Installez les paquets NuGet principaux suivants au moyen de l’interface de ligne de commande &lt;code&gt;dotnet&lt;/code&gt; :</value>
+  </data>
+  <data name="Index_PackageInstallation_NavigationPackages_Intro" xml:space="preserve">
+    <value>Pour prendre en charge la navigation, le fil d’Ariane et la traduction des URL, installez les paquets suivants :</value>
+  </data>
+  <data name="Index_PackageInstallation_PackageManager_Intro" xml:space="preserve">
+    <value>Si vous préférez utiliser la console du Gestionnaire de package Visual Studio, exécutez les commandes suivantes :</value>
+  </data>
+  <data name="Index_BasicSetup_Heading" xml:space="preserve">
+    <value>Configuration de base</value>
+  </data>
+  <data name="Index_BasicSetup_Intro" xml:space="preserve">
+    <value>Ajoutez les services suivants dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
+  </data>
+  <data name="Index_ComponentsSetup_Heading" xml:space="preserve">
+    <value>Configuration des composants</value>
+  </data>
+  <data name="Index_ComponentsSetup_Intro" xml:space="preserve">
+    <value>Activez les composants GCFoundation et l’intergiciel de session dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
+  </data>
+  <data name="Index_SecuritySetup_Heading" xml:space="preserve">
+    <value>Configuration de la sécurité</value>
+  </data>
+  <data name="Index_SecuritySetup_Intro" xml:space="preserve">
+    <value>Ajoutez les politiques de sécurité de GCFoundation et la configuration sécurisée des témoins :</value>
+  </data>
+  <data name="Index_LanguageSetup_Heading" xml:space="preserve">
+    <value>Configuration de la langue</value>
+  </data>
+  <data name="Index_LanguageSetup_Configuration_Intro" xml:space="preserve">
+    <value>Configurez la localisation, les ressources globales et la sélection de la culture dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
+  </data>
+  <data name="Index_LanguageSetup_Middleware_Intro" xml:space="preserve">
+    <value>Activez les intergiciels de langue et de localisation :</value>
+  </data>
+  <data name="Index_BreadcrumbsSetup_Heading" xml:space="preserve">
+    <value>Configuration du fil d’Ariane</value>
+  </data>
+  <data name="Index_BreadcrumbsSetup_Intro" xml:space="preserve">
+    <value>Configurez les services de navigation et de fil d’Ariane dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
+  </data>
+  <data name="Index_Optional_Badge" xml:space="preserve">
+    <value>Facultatif</value>
+  </data>
+  <data name="Index_MenuSetup_Heading" xml:space="preserve">
+    <value>Configuration du menu</value>
+  </data>
+  <data name="Index_MenuSetup_Intro" xml:space="preserve">
+    <value>Si vous voulez que la barre de navigation supérieure affiche dynamiquement des libellés localisés, inscrivez le service de localisation de la barre de navigation supérieure dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
+  </data>
+  <data name="Index_MenuComponentVisibility_Heading" xml:space="preserve">
+    <value>Visibilité des nœuds</value>
+  </data>
+  <data name="Index_MenuComponentVisibility_Intro" xml:space="preserve">
+    <value>Chaque nœud dans &lt;code&gt;navigation.xml&lt;/code&gt; peut préciser les surfaces de navigation sur lesquelles il apparaît au moyen de l’attribut &lt;code&gt;componentVisibility&lt;/code&gt;. Lorsque cet attribut est omis, le nœud apparaît par défaut sur toutes les surfaces.</value>
+  </data>
+  <data name="Index_MenuRestrictions_Heading" xml:space="preserve">
+    <value>Restrictions de visibilité personnalisables</value>
+  </data>
+  <data name="Index_MenuRestrictions_Rules_Intro" xml:space="preserve">
+    <value>Les nœuds de navigation peuvent être affichés ou masqués de façon conditionnelle selon des témoins, des valeurs de session ou des revendications. Définissez les règles dans &lt;code&gt;appsettings.json&lt;/code&gt; en utilisant la clé du nœud de navigation comme clé de règle :</value>
+  </data>
+  <data name="Index_MenuRestrictions_Program_Intro" xml:space="preserve">
+    <value>Inscrivez ensuite les règles et le résolveur d’autorisations dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
+  </data>
+  <data name="Index_UrlTranslation_Heading" xml:space="preserve">
+    <value>Traduction des URL</value>
+  </data>
+  <data name="Index_UrlTranslation_Routing_Intro" xml:space="preserve">
+    <value>Configurez le routage avec un paramètre de culture et des URL traduites :</value>
+  </data>
+  <data name="Index_UrlTranslation_AppSettings_Intro" xml:space="preserve">
+    <value>Configurez &lt;code&gt;appsettings.json&lt;/code&gt; pour la navigation et les ressources globales :</value>
+  </data>
+  <data name="Index_UrlTranslation_KeyFeatures_Heading" xml:space="preserve">
+    <value>Principales caractéristiques :</value>
+  </data>
+  <data name="Index_UrlTranslation_KeyFeatures_Item_CultureSegment" xml:space="preserve">
+    <value>Sélection de la culture selon le premier segment de l’URL (p. ex. &lt;code&gt;/fr/home&lt;/code&gt;)</value>
+  </data>
+  <data name="Index_UrlTranslation_KeyFeatures_Item_DefaultCulture" xml:space="preserve">
+    <value>La culture par défaut est &lt;code&gt;en-CA&lt;/code&gt;</value>
+  </data>
+  <data name="Index_UrlTranslation_KeyFeatures_Item_BreadcrumbLocalization" xml:space="preserve">
+    <value>Localisation automatique du fil d’Ariane au moyen de fichiers de ressources</value>
+  </data>
+  <data name="Index_UrlTranslation_KeyFeatures_Item_RouteLocalization" xml:space="preserve">
+    <value>Prise en charge du routage propre à la culture et des routes traduites au moyen de &lt;code&gt;RouteLocalization.AspNetCore&lt;/code&gt;</value>
+  </data>
+  <data name="Index_CompleteExample_Heading" xml:space="preserve">
+    <value>Exemple complet de Program.cs</value>
+  </data>
+  <data name="Index_CompleteExample_Intro" xml:space="preserve">
+    <value>Voici une configuration complète de &lt;code&gt;Program.cs&lt;/code&gt; qui regroupe tous les éléments précédents pour une application MVC type :</value>
+  </data>
+  <data name="Index_CompleteExample_AppSettings_Intro" xml:space="preserve">
+    <value>Configuration requise dans &lt;code&gt;appsettings.json&lt;/code&gt; :</value>
+  </data>
+  <data name="Index_CompleteExample_ProjectStructure_Intro" xml:space="preserve">
+    <value>Exemple de structure de projet pour les ressources de navigation :</value>
+  </data>
+  <data name="Index_CodeComment_MvcLocalization" xml:space="preserve">
+    <value>MVC avec prise en charge de la localisation</value>
+  </data>
+  <data name="Index_CodeComment_RegisterGCFoundationServices" xml:space="preserve">
+    <value>Inscrire les services GCFoundation</value>
+  </data>
+  <data name="Index_CodeComment_LoadComponents" xml:space="preserve">
+    <value>Charger les composants GCFoundation et les dépendances GCDS</value>
+  </data>
+  <data name="Index_CodeComment_AddContentSecurityPolicy" xml:space="preserve">
+    <value>Ajouter la politique de sécurité du contenu (CSP) de GCFoundation</value>
+  </data>
+  <data name="Index_CodeComment_ConfigureSecureCookies" xml:space="preserve">
+    <value>Configurer des témoins sécurisés</value>
+  </data>
+  <data name="Index_CodeComment_ConfigureGlobalResources" xml:space="preserve">
+    <value>Configurer les ressources globales (resx)</value>
+  </data>
+  <data name="Index_CodeComment_ConfigureSupportedCultures" xml:space="preserve">
+    <value>Configurer les cultures prises en charge (p. ex. en-CA, fr-CA)</value>
+  </data>
+  <data name="Index_CodeComment_AddRouteLocalization" xml:space="preserve">
+    <value>Ajouter la localisation des routes (URL traduites)</value>
+  </data>
+  <data name="Index_CodeComment_AddLanguageMiddleware" xml:space="preserve">
+    <value>Ajouter l’intergiciel de langue de GCFoundation</value>
+  </data>
+  <data name="Index_CodeComment_EnableRequestLocalization" xml:space="preserve">
+    <value>Activer la localisation des requêtes ASP.NET Core</value>
+  </data>
+  <data name="Index_CodeComment_ConfigureNavigationServices" xml:space="preserve">
+    <value>Configurer les services de navigation</value>
+  </data>
+  <data name="Index_CodeComment_ConfigureBreadcrumbsLocalization" xml:space="preserve">
+    <value>Configurer le service de localisation du fil d’Ariane</value>
+  </data>
+  <data name="Index_CodeComment_ConfigureTopNavigationLocalization" xml:space="preserve">
+    <value>Configurer le service de localisation de la barre de navigation supérieure</value>
+  </data>
+  <data name="Index_CodeComment_ShownEverywhere" xml:space="preserve">
+    <value>Affiché partout (topnav, breadcrumbs, sidenav)</value>
+  </data>
+  <data name="Index_CodeComment_TopNavigationOnly" xml:space="preserve">
+    <value>Barre de navigation supérieure seulement</value>
+  </data>
+  <data name="Index_CodeComment_BindNavigationRules" xml:space="preserve">
+    <value>Lier les règles de visibilité de la navigation à la configuration</value>
+  </data>
+  <data name="Index_CodeComment_EvaluateNavigationRules" xml:space="preserve">
+    <value>Évaluer les règles selon la requête actuelle (témoin, session ou revendication)</value>
+  </data>
+  <data name="Index_CodeComment_ConfigureDefaultRoute" xml:space="preserve">
+    <value>Configurer la route par défaut avec un paramètre de culture</value>
+  </data>
+  <data name="Index_CodeComment_AddCustomRouteLocalization" xml:space="preserve">
+    <value>AddCustomRouteLocalization</value>
+  </data>
+  <data name="Index_CodeComment_NavigationAndBreadcrumbs" xml:space="preserve">
+    <value>Navigation et fil d’Ariane</value>
+  </data>
+  <data name="Index_CodeComment_OptionalLocalizedTopNavigation" xml:space="preserve">
+    <value>Facultatif : libellés localisés de la barre de navigation supérieure</value>
+  </data>
+  <data name="Index_CodeComment_GlobalResourcesAndLocalization" xml:space="preserve">
+    <value>Ressources globales et localisation</value>
+  </data>
+  <data name="Index_CodeComment_GCFoundationServices" xml:space="preserve">
+    <value>Services GCFoundation</value>
+  </data>
+  <data name="Index_CodeComment_CultureAndUrlLocalization" xml:space="preserve">
+    <value>Culture et localisation selon l’URL</value>
+  </data>
+  <data name="Index_CodeComment_AddRouteLocalizationExtensions" xml:space="preserve">
+    <value>Ajouter les extensions de localisation des routes (routes traduites)</value>
+  </data>
+  <data name="Index_CodeComment_ErrorHandlingProduction" xml:space="preserve">
+    <value>Gestion des erreurs (production)</value>
+  </data>
+  <data name="Index_CodeComment_SecurityAndStaticFiles" xml:space="preserve">
+    <value>Sécurité et fichiers statiques</value>
+  </data>
+  <data name="Index_CodeComment_RequestLocalization" xml:space="preserve">
+    <value>Localisation des requêtes</value>
+  </data>
+  <data name="Index_CodeComment_GCFoundationComponentsAndSecurity" xml:space="preserve">
+    <value>Composants GCFoundation et sécurité</value>
+  </data>
+  <data name="Index_CodeComment_AuthorizationAndRouting" xml:space="preserve">
+    <value>Autorisation et routage</value>
+  </data>
+  <data name="Index_CopyButton_Text" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="Index_CopyButton_SuccessText" xml:space="preserve">
+    <value>Copié!</value>
+  </data>
   <data name="Translations_Page_Title" xml:space="preserve">
     <value>Traductions standardisées</value>
   </data>

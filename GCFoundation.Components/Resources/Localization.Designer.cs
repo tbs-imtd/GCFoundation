@@ -230,6 +230,33 @@ namespace GCFoundation.Components.Resources {
                 return ResourceManager.GetString("Loading", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Tabs {
+            get {
+                return ResourceManager.GetString("Tabs", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to load this tab. Please try again..
+        /// </summary>
+        public static string Tabs_LoadError {
+            get {
+                return ResourceManager.GetString("Tabs_LoadError", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Loading tab content....
+        /// </summary>
+        public static string Tabs_Loading {
+            get {
+                return ResourceManager.GetString("Tabs_Loading", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Mark as read.

@@ -403,6 +403,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to New.
+        /// </summary>
+        public static string Card_Badge_New {
+            get {
+                return ResourceManager.GetString("Card_Badge_New", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to basic.
         /// </summary>
         public static string Card_Basic_Anchor {
@@ -1441,7 +1450,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Avoid badges when:.
+        ///   Looks up a localized string similar to Avoid this component when:.
         /// </summary>
         public static string Guidance_WhenNotToUse_Intro {
             get {
@@ -1468,7 +1477,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use a badge when:.
+        ///   Looks up a localized string similar to Use this component when:.
         /// </summary>
         public static string Guidance_WhenToUse_Intro {
             get {
@@ -1691,6 +1700,24 @@ namespace GCFoundation.Web.Resources {
         public static string Index_TableGridJs_Title {
             get {
                 return ResourceManager.GetString("Index_TableGridJs_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Organize related in-page content into accessible tab panels..
+        /// </summary>
+        public static string Index_Tabs_Description {
+            get {
+                return ResourceManager.GetString("Index_Tabs_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Index_Tabs_Title {
+            get {
+                return ResourceManager.GetString("Index_Tabs_Title", resourceCulture);
             }
         }
         
@@ -2368,6 +2395,96 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("SearchableSelect_Sample_Country_CA", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Australia.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_AU {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_AU", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Brazil.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_BR {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_BR", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Germany.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_DE {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_DE", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Spain.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_ES {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_ES", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to United Kingdom.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_GB {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_GB", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to India.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_IN {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_IN", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Italy.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_IT {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_IT", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Japan.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_JP {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_JP", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to New Zealand.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_NZ {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_NZ", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to South Africa.
+        /// </summary>
+        public static string SearchableSelect_Sample_Country_ZA {
+            get {
+                return ResourceManager.GetString("SearchableSelect_Sample_Country_ZA", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Select country.
@@ -2478,7 +2595,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;This example uses a multiple searchable select. Set &lt;code&gt;selection-mode=&quot;@FDCPSearchableSelectSelectionMode.Multiple&quot;&lt;/code&gt; to enable multiple selection. Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;.
         /// </summary>
         public static string SearchableSelect_WithSelectedOptions_Text {
             get {
@@ -2487,11 +2604,29 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to With Selected Options Slot.
+        ///   Looks up a localized string similar to Multiple Searchable Select with Selected Options Slot.
         /// </summary>
         public static string SearchableSelect_WithSelectedOptions_Title {
             get {
                 return ResourceManager.GetString("SearchableSelect_WithSelectedOptions_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copied!.
+        /// </summary>
+        public static string Shared_CopyButton_SuccessText {
+            get {
+                return ResourceManager.GetString("Shared_CopyButton_SuccessText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy.
+        /// </summary>
+        public static string Shared_CopyButton_Text {
+            get {
+                return ResourceManager.GetString("Shared_CopyButton_Text", resourceCulture);
             }
         }
         
@@ -3140,7 +3275,16 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;All public properties on the row model are displayed as columns by default — no annotation required. The optional &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; attribute lets you configure column behaviour on individual properties: hide a column, mark it as a row header, enable sorting, or flag it for custom slotted content. Columns can also be supplied explicitly via the &lt;code&gt;column-definitions&lt;/code&gt; attribute.&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to For more examples on filtering and pagination, see the &lt;gcds-link href=&quot;https://design-system.canada.ca/en/components/table/code/&quot; external&gt;GC Design System table documentation&lt;/gcds-link&gt; — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; implements these features the same way..
+        /// </summary>
+        public static string Table_BasicUsage_GCDSNote {
+            get {
+                return ResourceManager.GetString("Table_BasicUsage_GCDSNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Pass a &lt;code&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; of row models to the &lt;code&gt;rows&lt;/code&gt; attribute — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; renders each item as a table row. Decorate properties on the row model with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; to define them as columns. Columns can also be defined explicitly by passing a &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; to &lt;code&gt;column-definitions&lt;/code&gt;.&lt;/gcds-text&gt;&lt;gcds-text&gt;&lt;i&gt;&lt;gcds-link href=&quot;#properties&quot;&gt;See all available properties below&lt;/gcds-link&gt;. For more ex [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Table_BasicUsage_Text {
             get {
@@ -3154,6 +3298,105 @@ namespace GCFoundation.Web.Resources {
         public static string Table_BasicUsage_Title {
             get {
                 return ResourceManager.GetString("Table_BasicUsage_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to data-binding.
+        /// </summary>
+        public static string Table_DataBinding_Anchor {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the named HTML attribute to the value of a row field (e.g. &lt;code&gt;data-bind-button-id=&quot;{submissionId}&quot;&lt;/code&gt;)..
+        /// </summary>
+        public static string Table_DataBinding_Attr_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Attr_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the element&apos;s text content to the value of the named row field..
+        /// </summary>
+        public static string Table_DataBinding_Bind_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Bind_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Attribute.
+        /// </summary>
+        public static string Table_DataBinding_Col_Attribute {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Col_Attribute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Effect.
+        /// </summary>
+        public static string Table_DataBinding_Col_Effect {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Col_Effect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Value.
+        /// </summary>
+        public static string Table_DataBinding_Col_Value {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Col_Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When using &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, this is the camelCase form of the annotated property name (e.g. &lt;code&gt;SubmitterName&lt;/code&gt; → &lt;code&gt;{submitterName}&lt;/code&gt;). Otherwise, it is whatever field name was explicitly set..
+        /// </summary>
+        public static string Table_DataBinding_FieldName_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_FieldName_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Builds the element&apos;s text content from a template string containing one or more &lt;code&gt;{fieldName}&lt;/code&gt; tokens..
+        /// </summary>
+        public static string Table_DataBinding_Template_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Template_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interpolates one or more &lt;code&gt;{fieldName}&lt;/code&gt; tokens into a template string and sets the result as the named HTML attribute (e.g. &lt;code&gt;data-bind-template-href=&quot;mailto:{email}&quot;&lt;/code&gt;)..
+        /// </summary>
+        public static string Table_DataBinding_TemplateAttr_Desc {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_TemplateAttr_Desc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Inside any &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;, use the following attributes to populate elements from the current row&apos;s data.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Table_DataBinding_Text {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data binding.
+        /// </summary>
+        public static string Table_DataBinding_Title {
+            get {
+                return ResourceManager.GetString("Table_DataBinding_Title", resourceCulture);
             }
         }
         
@@ -3212,7 +3455,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; component wraps the GC Design System &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt;. Columns are inferred automatically from the row model&apos;s public properties, or can be customized per-property with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, or supplied explicitly via &lt;code&gt;column-definitions&lt;/code&gt;. Filtering and sorting are supported out of the box. Custom cell content (links, buttons, etc.) is rendered via &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;, with &lt;code&gt;data-bind&lt;/code&gt; an [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; component wraps the GC Design System &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt; by parsing a &lt;code&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; of row models and rendering each item as a table row. Columns are resolved from &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;-annotated properties on the row model. Columns can also be supplied explicitly via &lt;code&gt;column-definitions&lt;/code&gt;. Custom cell content (links, buttons, etc.) is rendered via &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;..
         /// </summary>
         public static string Table_Overview {
             get {
@@ -3230,11 +3473,20 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Hides this column from the rendered table. Without this set to &lt;code&gt;true&lt;/code&gt;, the column is displayed regardless of whether &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is present..
+        ///   Looks up a localized string similar to Explicitly hides this column from the rendered table even when &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is present..
         /// </summary>
         public static string Table_Properties_Annotation_IsHidden {
             get {
                 return ResourceManager.GetString("Table_Properties_Annotation_IsHidden", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the column header text. Provide a resource key as &lt;code&gt;Name&lt;/code&gt; and the resource class as &lt;code&gt;ResourceType&lt;/code&gt; for a localized header..
+        /// </summary>
+        public static string Table_Properties_Annotation_NameResourceType {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_NameResourceType", resourceCulture);
             }
         }
         
@@ -3275,7 +3527,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All public properties on the row model are displayed as columns by default — the annotation is not required for a column to appear. &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is optional and is used only to override default column behaviour. The column header is taken from the &lt;code&gt;[Display(Name = ...)]&lt;/code&gt; attribute on the same property, or falls back to the property name if no &lt;code&gt;[Display]&lt;/code&gt; is present..
+        ///   Looks up a localized string similar to &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is required on every property that should appear as a column. Properties without this annotation are automatically excluded from the rendered table but remain accessible on the row data for &lt;code&gt;data-bind*&lt;/code&gt; bindings and JavaScript via &lt;code&gt;element.row&lt;/code&gt;..
         /// </summary>
         public static string Table_Properties_Annotation_Text {
             get {
@@ -3401,7 +3653,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional explicit column definitions. When omitted, all public properties on the row model are displayed as columns, with headers sourced from &lt;code&gt;[Display]&lt;/code&gt; attributes and behaviour configured via &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;..
+        ///   Looks up a localized string similar to Optional explicit column definitions. When omitted, only properties decorated with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; on the row model are displayed as columns, with the header and behaviour configured directly in the annotation..
         /// </summary>
         public static string Table_Properties_FdcpTable_ColumnDefinitions {
             get {
@@ -3545,7 +3797,16 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All public properties on the row model are rendered as columns by default. Use the &lt;code&gt;[Display]&lt;/code&gt; attribute to set the column header text. Add &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; only when you need to change a property&apos;s default behaviour — for example, mark it as a row header (&lt;code&gt;RowHeader = true&lt;/code&gt;), enable sorting (&lt;code&gt;Sort = true&lt;/code&gt;), use custom slotted cell content (&lt;code&gt;Slotted = true&lt;/code&gt;), or hide it (&lt;code&gt;IsHidden = true&lt;/code&gt;). A property without &lt;code&gt;[TableColumnDefini [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Table using data annotations.
+        /// </summary>
+        public static string Table_WithAnnotations_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithAnnotations_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Decorate each property you want to display with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;. Use &lt;code&gt;Name&lt;/code&gt; and &lt;code&gt;ResourceType&lt;/code&gt; to provide a localized column header. Set &lt;code&gt;RowHeader = true&lt;/code&gt; to mark a column as the row header, &lt;code&gt;Sort = true&lt;/code&gt; to enable sorting, or &lt;code&gt;Slotted = true&lt;/code&gt; for custom cell content..
         /// </summary>
         public static string Table_WithAnnotations_Text {
             get {
@@ -3563,6 +3824,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Properties without the annotation are excluded from the rendered columns but are still serialized into the page&apos;s row data. They remain accessible client-side for &lt;code&gt;data-bind*&lt;/code&gt; bindings and JavaScript via &lt;code&gt;element.row&lt;/code&gt;..
+        /// </summary>
+        public static string Table_WithAnnotations_Warning {
+            get {
+                return ResourceManager.GetString("Table_WithAnnotations_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to with-slots-button.
         /// </summary>
         public static string Table_WithButton_Anchor {
@@ -3572,7 +3842,43 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use &lt;code&gt;data-bind-{attribute}&lt;/code&gt; to bind a row field to any attribute on the slotted element. Here, &lt;code&gt;data-bind-button-id=&quot;{submissionId}&quot;&lt;/code&gt; sets the button&apos;s &lt;code&gt;button-id&lt;/code&gt; to the current row&apos;s ID..
+        ///   Looks up a localized string similar to Table with button.
+        /// </summary>
+        public static string Table_WithButton_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithButton_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete.
+        /// </summary>
+        public static string Table_WithButton_Label {
+            get {
+                return ResourceManager.GetString("Table_WithButton_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, clicking a Delete button logs the row object and its submissionId to the browser console.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithButton_Note {
+            get {
+                return ResourceManager.GetString("Table_WithButton_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For each slotted cell, the table adds &lt;code&gt;.row&lt;/code&gt; and &lt;code&gt;.column&lt;/code&gt; properties to the rendered element. &lt;code&gt;.row&lt;/code&gt; contains the complete data object for the current row, while &lt;code&gt;.column&lt;/code&gt; contains the definition and metadata for the current column..
+        /// </summary>
+        public static string Table_WithButton_SlottedCellContext_Text {
+            get {
+                return ResourceManager.GetString("Table_WithButton_SlottedCellContext_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use &lt;code&gt;data-bind-{attribute}&lt;/code&gt; to bind a row field to any attribute on the slotted element. For example, &lt;code&gt;data-bind-button-id=&quot;{fieldName}&quot;&lt;/code&gt; sets the button&apos;s &lt;code&gt;button-id&lt;/code&gt; from that row field..
         /// </summary>
         public static string Table_WithButton_Text {
             get {
@@ -3595,6 +3901,33 @@ namespace GCFoundation.Web.Resources {
         public static string Table_WithButtonLink_Anchor {
             get {
                 return ResourceManager.GetString("Table_WithButtonLink_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table with button link.
+        /// </summary>
+        public static string Table_WithButtonLink_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Edit.
+        /// </summary>
+        public static string Table_WithButtonLink_Label {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, the button navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href=&quot;/your/route/{fieldName}&quot;&lt;/code&gt; can build the destination URL dynamically from a row value.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithButtonLink_Note {
+            get {
+                return ResourceManager.GetString("Table_WithButtonLink_Note", resourceCulture);
             }
         }
         
@@ -3626,7 +3959,16 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to As an alternative, pass a &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; to &lt;code&gt;column-definitions&lt;/code&gt; to define columns entirely in the controller. This is useful when you need to control the column order independently of the model, reuse one row model across multiple tables with different column sets, or supply headers without adding &lt;code&gt;[Display]&lt;/code&gt; attributes to the model..
+        ///   Looks up a localized string similar to Table using column definitions.
+        /// </summary>
+        public static string Table_WithColumns_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithColumns_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to As an alternative, pass a &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; to &lt;code&gt;column-definitions&lt;/code&gt; to define columns entirely in the controller..
         /// </summary>
         public static string Table_WithColumns_Text {
             get {
@@ -3653,7 +3995,16 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use &lt;code&gt;data-bind-template-href=&quot;mailto:{email}&quot;&lt;/code&gt; to build a &lt;code&gt;mailto:&lt;/code&gt; link from the row&apos;s email address..
+        ///   Looks up a localized string similar to Table with email link.
+        /// </summary>
+        public static string Table_WithEmail_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithEmail_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use &lt;code&gt;data-bind-template-href=&quot;mailto:{fieldName}&quot;&lt;/code&gt; to build a &lt;code&gt;mailto:&lt;/code&gt; link from a row value..
         /// </summary>
         public static string Table_WithEmail_Text {
             get {
@@ -3680,7 +4031,34 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Mix static path segments with &lt;code&gt;{fieldName}&lt;/code&gt; tokens in &lt;code&gt;data-bind-template-href&lt;/code&gt; to build a destination URL from the current row&apos;s data..
+        ///   Looks up a localized string similar to Table with link.
+        /// </summary>
+        public static string Table_WithLink_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to View submission of.
+        /// </summary>
+        public static string Table_WithLink_Label {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, the link navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href=&quot;/your/route/{fieldName}&quot;&lt;/code&gt; can build the destination URL dynamically from a row value.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithLink_Note {
+            get {
+                return ResourceManager.GetString("Table_WithLink_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can use &lt;code&gt;data-bind-template&lt;/code&gt; and &lt;code&gt;data-bind-template-href&lt;/code&gt; with &lt;code&gt;{fieldName}&lt;/code&gt; tokens to build strings from row field values into the link&apos;s text and destination URL..
         /// </summary>
         public static string Table_WithLink_Text {
             get {
@@ -3707,7 +4085,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;Replace any cell&apos;s default text output with custom HTML using a named slot: &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;. Inside the template, use &lt;code&gt;data-bind&lt;/code&gt; to set an element&apos;s text content to the current row value, and &lt;code&gt;data-bind-{attribute}&lt;/code&gt; or &lt;code&gt;data-bind-template-href&lt;/code&gt; to bind row values to any element attribute. Mark the corresponding model property with &lt;code&gt;[TableColumnDefinition(Slotted = true)]&lt;/code&gt; so the component knows to render the slot ins [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Replace any cell&apos;s default text output with custom HTML using a named slot: &lt;code&gt;&amp;lt;template slot=&quot;cell:fieldName&quot;&amp;gt;&lt;/code&gt;. Mark the corresponding model property with &lt;code&gt;[TableColumnDefinition(Slotted = true)]&lt;/code&gt; so the component renders the slot instead of plain text. Use &lt;code&gt;data-bind*&lt;/code&gt; attributes inside the template to bind row values to elements.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Table_WithSlots_Text {
             get {
@@ -3721,6 +4099,330 @@ namespace GCFoundation.Web.Resources {
         public static string Table_WithSlots_Title {
             get {
                 return ResourceManager.GetString("Table_WithSlots_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide a meaningful label on &lt;code&gt;fdcp-tabs&lt;/code&gt; so assistive technologies can describe the tab list..
+        /// </summary>
+        public static string Tabs_Accessibility_Do_1 {
+            get {
+                return ResourceManager.GetString("Tabs_Accessibility_Do_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep tab labels short and unique so people can understand the available panels quickly..
+        /// </summary>
+        public static string Tabs_Accessibility_Do_2 {
+            get {
+                return ResourceManager.GetString("Tabs_Accessibility_Do_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make sure each tab panel has enough context when read on its own, because screen reader users may navigate directly between panels..
+        /// </summary>
+        public static string Tabs_Accessibility_Do_3 {
+            get {
+                return ResourceManager.GetString("Tabs_Accessibility_Do_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic-tabs.
+        /// </summary>
+        public static string Tabs_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Tabs_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use nested &lt;code&gt;fdcp-tab&lt;/code&gt; elements inside &lt;code&gt;fdcp-tabs&lt;/code&gt; to define each tab label and panel content..
+        /// </summary>
+        public static string Tabs_Basic_Text {
+            get {
+                return ResourceManager.GetString("Tabs_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic tabs.
+        /// </summary>
+        public static string Tabs_Basic_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Tabs_DefaultLabel {
+            get {
+                return ResourceManager.GetString("Tabs_DefaultLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This content was loaded from the server when the tab was selected..
+        /// </summary>
+        public static string Tabs_LazyContent {
+            get {
+                return ResourceManager.GetString("Tabs_LazyContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Tabs_Name {
+            get {
+                return ResourceManager.GetString("Tabs_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The component follows the WAI-ARIA tabs pattern. Left Arrow, Right Arrow, Home, and End move focus; Enter or Space activates the focused tab..
+        /// </summary>
+        public static string Tabs_Notes_1 {
+            get {
+                return ResourceManager.GetString("Tabs_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs are for switching content panels in the current page. For page navigation, use GCDS top navigation, side navigation, or links..
+        /// </summary>
+        public static string Tabs_Notes_2 {
+            get {
+                return ResourceManager.GetString("Tabs_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When load-url is set, the panel content is fetched the first time the tab is selected and then cached for later tab changes..
+        /// </summary>
+        public static string Tabs_Notes_3 {
+            get {
+                return ResourceManager.GetString("Tabs_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs let people switch between related panels of content without leaving the current page context..
+        /// </summary>
+        public static string Tabs_Overview {
+            get {
+                return ResourceManager.GetString("Tabs_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Unique ID for the tabs component. Used to generate deterministic tab and panel IDs..
+        /// </summary>
+        public static string Tabs_Properties_Id {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessible label for the tab list..
+        /// </summary>
+        public static string Tabs_Properties_Label {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Zero-based index of the tab selected when the page loads. Overrides child active state when valid..
+        /// </summary>
+        public static string Tabs_Properties_SelectedIndex {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_SelectedIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Selects this tab when the page loads if selected-index is not set..
+        /// </summary>
+        public static string Tabs_Properties_TabActive {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Base ID used to generate the child tab and panel IDs..
+        /// </summary>
+        public static string Tabs_Properties_TabId {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. URL that returns an HTML fragment to lazy-load into the panel when the tab is selected..
+        /// </summary>
+        public static string Tabs_Properties_TabLoadUrl {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabLoadUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required. Text shown in the tab button..
+        /// </summary>
+        public static string Tabs_Properties_TabTitle {
+            get {
+                return ResourceManager.GetString("Tabs_Properties_TabTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use tabs to group peer sections of content where only one section needs to be visible at a time..
+        /// </summary>
+        public static string Tabs_Purpose {
+            get {
+                return ResourceManager.GetString("Tabs_Purpose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the details tab for supporting information that belongs in the same context..
+        /// </summary>
+        public static string Tabs_Sample_Details_Content {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Details_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Details.
+        /// </summary>
+        public static string Tabs_Sample_Details_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Details_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the history tab for related changes or previous activity..
+        /// </summary>
+        public static string Tabs_Sample_History_Content {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_History_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to History.
+        /// </summary>
+        public static string Tabs_Sample_History_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_History_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile sections.
+        /// </summary>
+        public static string Tabs_Sample_Label {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the overview tab for the most important summary content..
+        /// </summary>
+        public static string Tabs_Sample_Overview_Content {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Overview_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overview.
+        /// </summary>
+        public static string Tabs_Sample_Overview_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_Overview_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading server content....
+        /// </summary>
+        public static string Tabs_Sample_ServerData_Loading {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_ServerData_Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server data.
+        /// </summary>
+        public static string Tabs_Sample_ServerData_Title {
+            get {
+                return ResourceManager.GetString("Tabs_Sample_ServerData_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Limit the number of tabs so the tab list remains scannable and works well on small screens..
+        /// </summary>
+        public static string Tabs_UxBestPractices_1 {
+            get {
+                return ResourceManager.GetString("Tabs_UxBestPractices_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Order tabs by importance or the expected user workflow, with the most useful panel first..
+        /// </summary>
+        public static string Tabs_UxBestPractices_2 {
+            get {
+                return ResourceManager.GetString("Tabs_UxBestPractices_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not use tabs for primary site navigation or page-to-page navigation. Use GCDS navigation components for those patterns..
+        /// </summary>
+        public static string Tabs_WhenNotToUse_1 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenNotToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not hide critical tasks, errors, or required instructions in a tab that might not be selected..
+        /// </summary>
+        public static string Tabs_WhenNotToUse_2 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenNotToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use tabs when the sections are closely related and people benefit from comparing or switching between them in place..
+        /// </summary>
+        public static string Tabs_WhenToUse_1 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use tabs when each panel can stand on its own and the first tab provides a sensible default view..
+        /// </summary>
+        public static string Tabs_WhenToUse_2 {
+            get {
+                return ResourceManager.GetString("Tabs_WhenToUse_2", resourceCulture);
             }
         }
         

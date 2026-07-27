@@ -503,10 +503,10 @@
     <value>Un moyen d'afficher des informations dans un tableau</value>
   </data>
   <data name="Table_Name" xml:space="preserve">
-    <value>Tableau de données</value>
+    <value>Tableau</value>
   </data>
   <data name="Table_Overview" xml:space="preserve">
-    <value>Le composant &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; encapsule le composant &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt; du Système de design GC. Les colonnes sont déduites automatiquement des propriétés publiques du modèle de rangée, peuvent être personnalisées propriété par propriété avec &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, ou fournies explicitement via &lt;code&gt;column-definitions&lt;/code&gt;. Le filtrage et le tri sont pris en charge de façon native. Le contenu personnalisé des cellules (liens, boutons, etc.) est rendu via &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;, avec les attributs &lt;code&gt;data-bind&lt;/code&gt; et &lt;code&gt;data-bind-template-*&lt;/code&gt; qui lient les valeurs des rangées au contenu et aux attributs du gabarit.</value>
+    <value>Le composant &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; encapsule le composant &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt; du Système de design GC en analysant une &lt;code&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; de modèles de rangée et en affichant chaque élément comme une rangée du tableau. Les colonnes sont résolues à partir des propriétés annotées avec &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; sur le modèle de rangée. Les colonnes peuvent aussi être fournies explicitement via &lt;code&gt;column-definitions&lt;/code&gt;. Le contenu personnalisé des cellules (liens, boutons, etc.) est rendu via &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;.</value>
   </data>
   <data name="Table_Notes_1" xml:space="preserve">
     <value>Incluez toujours une légende et des en-têtes avec l’attribut scope pour conserver le contexte des lecteurs d’écran.</value>
@@ -1099,10 +1099,10 @@
     <value>avec-options-selectionnees</value>
   </data>
   <data name="SearchableSelect_WithSelectedOptions_Title" xml:space="preserve">
-    <value>Avec emplacement pour les options sélectionnées</value>
+    <value>Liste déroulante à recherche multiple avec emplacement pour les options sélectionnées</value>
   </data>
   <data name="SearchableSelect_WithSelectedOptions_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Utilisez l'emplacement &lt;code&gt;selected-options&lt;/code&gt; pour ajouter une zone inférieure personnalisée, par exemple un compteur de sélections, une action d'effacement ou tout autre balisage propre à l'appelant.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Cet exemple utilise une liste déroulante à recherche avec sélection multiple. Définissez &lt;code&gt;selection-mode="&#64;FDCPSearchableSelectSelectionMode.Multiple"&lt;/code&gt; pour activer la sélection multiple. Utilisez l'emplacement &lt;code&gt;selected-options&lt;/code&gt; pour ajouter une zone inférieure personnalisée, par exemple un compteur de sélections, une action d'effacement ou tout autre balisage propre à l'appelant.&lt;/gcds-text&gt;</value>
   </data>
   <data name="SearchableSelect_Sample_Country_CA" xml:space="preserve">
     <value>Canada</value>
@@ -1118,6 +1118,36 @@
   </data>
   <data name="SearchableSelect_Sample_Country_SV" xml:space="preserve">
     <value>Saint-Vincent-et-les Grenadines</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_GB" xml:space="preserve">
+    <value>Royaume-Uni</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_DE" xml:space="preserve">
+    <value>Allemagne</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_IT" xml:space="preserve">
+    <value>Italie</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_ES" xml:space="preserve">
+    <value>Espagne</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_JP" xml:space="preserve">
+    <value>Japon</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_AU" xml:space="preserve">
+    <value>Australie</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_BR" xml:space="preserve">
+    <value>Brésil</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_IN" xml:space="preserve">
+    <value>Inde</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_ZA" xml:space="preserve">
+    <value>Afrique du Sud</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_NZ" xml:space="preserve">
+    <value>Nouvelle-Zélande</value>
   </data>
   <data name="SearchableSelect_Sample_Country_Label" xml:space="preserve">
     <value>Pays</value>
@@ -1315,7 +1345,7 @@
     <value>quand-utiliser</value>
   </data>
   <data name="Guidance_WhenToUse_Intro" xml:space="preserve">
-    <value>Utilisez un badge lorsque :</value>
+    <value>Utilisez ce composant lorsque :</value>
   </data>
   <data name="Guidance_WhenNotToUse" xml:space="preserve">
     <value>Quand ne pas l'utiliser</value>
@@ -1324,7 +1354,7 @@
     <value>quand-ne-pas-utiliser</value>
   </data>
   <data name="Guidance_WhenNotToUse_Intro" xml:space="preserve">
-    <value>Évitez les badges lorsque :</value>
+    <value>Évitez ce composant lorsque :</value>
   </data>
   <data name="Guidance_Accessibility" xml:space="preserve">
     <value>Exigences d'accessibilité</value>
@@ -1480,19 +1510,25 @@
     <value>utilisation-de-base</value>
   </data>
   <data name="Table_BasicUsage_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Toutes les propriétés publiques du modèle de rangée sont affichées en tant que colonnes par défaut — aucune annotation requise. L'attribut facultatif &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; permet de configurer le comportement des colonnes individuellement : masquer une colonne, la marquer comme en-tête de rangée, activer le tri ou l'indiquer pour un contenu personnalisé. Les colonnes peuvent également être fournies explicitement via l'attribut &lt;code&gt;column-definitions&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Passez une &lt;code&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; de modèles de rangée à l'attribut &lt;code&gt;rows&lt;/code&gt; — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; affiche chaque élément comme une rangée du tableau. Décorez les propriétés du modèle de rangée avec &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; pour les définir comme colonnes. Les colonnes peuvent aussi être définies explicitement en passant une &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; à &lt;code&gt;column-definitions&lt;/code&gt;.&lt;/gcds-text&gt;&lt;gcds-text&gt;&lt;i&gt;&lt;gcds-link href="#properties"&gt;Voir toutes les propriétés disponibles ci-dessous&lt;/gcds-link&gt;. Pour plus d'exemples sur le filtrage et la pagination, consultez la &lt;gcds-link href="https://systeme-design.canada.ca/fr/composants/tableau/code/" external&gt;documentation du tableau du Système de design GC&lt;/gcds-link&gt; — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; implémente ces fonctionnalités de la même façon.&lt;/i&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Table_BasicUsage_GCDSNote" xml:space="preserve">
+    <value>Pour plus d'exemples sur le filtrage et la pagination, consultez la &lt;gcds-link href="https://systeme-design.canada.ca/fr/composants/tableau/code/" external&gt;documentation du tableau du Système de design GC&lt;/gcds-link&gt; — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; implémente ces fonctionnalités de la même façon.</value>
   </data>
   <data name="Table_WithAnnotations_Title" xml:space="preserve">
     <value>Avec les annotations de données</value>
   </data>
   <data name="Table_WithAnnotations_Text" xml:space="preserve">
-    <value>Toutes les propriétés publiques du modèle de rangée sont rendues comme colonnes par défaut. Utilisez l'attribut &lt;code&gt;[Display]&lt;/code&gt; pour définir le texte de l'en-tête de colonne. Ajoutez &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; uniquement lorsque vous souhaitez modifier le comportement par défaut d'une propriété — par exemple, la marquer comme en-tête de rangée (&lt;code&gt;RowHeader = true&lt;/code&gt;), activer le tri (&lt;code&gt;Sort = true&lt;/code&gt;), utiliser un contenu personnalisé (&lt;code&gt;Slotted = true&lt;/code&gt;) ou la masquer (&lt;code&gt;IsHidden = true&lt;/code&gt;). Une propriété sans &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; s'affichera tout de même dans le tableau.</value>
+    <value>Décorez chaque propriété à afficher avec &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;. Utilisez &lt;code&gt;Name&lt;/code&gt; et &lt;code&gt;ResourceType&lt;/code&gt; pour fournir un en-tête de colonne localisé. Définissez &lt;code&gt;RowHeader = true&lt;/code&gt; pour marquer une colonne comme en-tête de rangée, &lt;code&gt;Sort = true&lt;/code&gt; pour activer le tri, ou &lt;code&gt;Slotted = true&lt;/code&gt; pour un contenu personnalisé.</value>
+  </data>
+  <data name="Table_WithAnnotations_Warning" xml:space="preserve">
+    <value>Les propriétés sans l'annotation sont exclues des colonnes affichées, mais sont tout de même sérialisées dans les données de la rangée. Elles restent accessibles côté client pour les liaisons &lt;code&gt;data-bind*&lt;/code&gt; et via JavaScript avec &lt;code&gt;element.row&lt;/code&gt;.</value>
   </data>
   <data name="Table_WithColumns_Title" xml:space="preserve">
     <value>Avec des définitions de colonnes explicites</value>
   </data>
   <data name="Table_WithColumns_Text" xml:space="preserve">
-    <value>Vous pouvez également passer une &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; à &lt;code&gt;column-definitions&lt;/code&gt; pour définir les colonnes entièrement dans le contrôleur. Cette approche est utile lorsque vous devez contrôler l'ordre des colonnes indépendamment du modèle, réutiliser un modèle de rangée dans plusieurs tableaux avec différentes configurations, ou fournir des en-têtes sans ajouter d'attributs &lt;code&gt;[Display]&lt;/code&gt; au modèle.</value>
+    <value>Vous pouvez également passer une &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; à &lt;code&gt;column-definitions&lt;/code&gt; pour définir les colonnes entièrement dans le contrôleur.</value>
   </data>
   <data name="Table_WithSlots_Title" xml:space="preserve">
     <value>Avec des emplacements</value>
@@ -1501,25 +1537,58 @@
     <value>avec-emplacements</value>
   </data>
   <data name="Table_WithSlots_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Remplacez le contenu textuel par défaut d'une cellule par du HTML personnalisé à l'aide d'un emplacement nommé : &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;. Dans le gabarit, utilisez &lt;code&gt;data-bind&lt;/code&gt; pour définir le contenu textuel d'un élément à partir de la valeur de la rangée courante, et &lt;code&gt;data-bind-{attribute}&lt;/code&gt; ou &lt;code&gt;data-bind-template-href&lt;/code&gt; pour lier des valeurs de rangée à n'importe quel attribut. Marquez la propriété correspondante du modèle avec &lt;code&gt;[TableColumnDefinition(Slotted = true)]&lt;/code&gt; afin que le composant affiche l'emplacement plutôt que le texte brut.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Remplacez le contenu textuel par défaut d'une cellule par du HTML personnalisé à l'aide d'un emplacement nommé : &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;. Marquez la propriété correspondante du modèle avec &lt;code&gt;[TableColumnDefinition(Slotted = true)]&lt;/code&gt; afin que le composant affiche l'emplacement plutôt que le texte brut. Utilisez les attributs &lt;code&gt;data-bind*&lt;/code&gt; dans le gabarit pour lier des valeurs de rangée aux éléments.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Table_DataBinding_Title" xml:space="preserve">
+    <value>Liaison de données</value>
+  </data>
+  <data name="Table_DataBinding_Anchor" xml:space="preserve">
+    <value>liaison-de-donnees</value>
+  </data>
+  <data name="Table_DataBinding_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Dans tout &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;, utilisez les attributs suivants pour alimenter les éléments à partir des données de la rangée courante.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Table_DataBinding_FieldName_Desc" xml:space="preserve">
+    <value>Avec &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, il s'agit de la forme camelCase du nom de la propriété annotée (ex. &lt;code&gt;SubmitterName&lt;/code&gt; → &lt;code&gt;{submitterName}&lt;/code&gt;). Sinon, c'est le nom de champ défini explicitement.</value>
+  </data>
+  <data name="Table_DataBinding_Col_Attribute" xml:space="preserve">
+    <value>Attribut</value>
+  </data>
+  <data name="Table_DataBinding_Col_Value" xml:space="preserve">
+    <value>Valeur</value>
+  </data>
+  <data name="Table_DataBinding_Col_Effect" xml:space="preserve">
+    <value>Effet</value>
+  </data>
+  <data name="Table_DataBinding_Bind_Desc" xml:space="preserve">
+    <value>Définit le contenu textuel de l'élément à partir de la valeur du champ de rangée indiqué.</value>
+  </data>
+  <data name="Table_DataBinding_Template_Desc" xml:space="preserve">
+    <value>Construit le contenu textuel de l'élément à partir d'un gabarit de chaîne contenant un ou plusieurs jetons &lt;code&gt;{fieldName}&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_DataBinding_Attr_Desc" xml:space="preserve">
+    <value>Définit l'attribut HTML indiqué à partir de la valeur d'un champ de rangée (ex. &lt;code&gt;data-bind-button-id="{submissionId}"&lt;/code&gt;).</value>
+  </data>
+  <data name="Table_DataBinding_TemplateAttr_Desc" xml:space="preserve">
+    <value>Interpole un ou plusieurs jetons &lt;code&gt;{fieldName}&lt;/code&gt; dans un gabarit de chaîne et définit le résultat comme valeur de l'attribut HTML indiqué (ex. &lt;code&gt;data-bind-template-href="mailto:{email}"&lt;/code&gt;).</value>
   </data>
   <data name="Table_WithEmail_Title" xml:space="preserve">
     <value>Avec un lien courriel</value>
   </data>
   <data name="Table_WithEmail_Text" xml:space="preserve">
-    <value>Utilisez &lt;code&gt;data-bind-template-href="mailto:{email}"&lt;/code&gt; pour créer un lien &lt;code&gt;mailto:&lt;/code&gt; à partir de l'adresse courriel de la rangée.</value>
+    <value>Utilisez &lt;code&gt;data-bind-template-href="mailto:{fieldName}"&lt;/code&gt; pour créer un lien &lt;code&gt;mailto:&lt;/code&gt; à partir d'une valeur de la rangée.</value>
   </data>
   <data name="Table_WithLink_Title" xml:space="preserve">
     <value>Avec un lien</value>
   </data>
   <data name="Table_WithLink_Text" xml:space="preserve">
-    <value>Combinez des segments de chemin statiques avec des jetons &lt;code&gt;{fieldName}&lt;/code&gt; dans &lt;code&gt;data-bind-template-href&lt;/code&gt; pour construire une URL de destination à partir des données de la rangée courante.</value>
+    <value>Vous pouvez utiliser &lt;code&gt;data-bind-template&lt;/code&gt; et &lt;code&gt;data-bind-template-href&lt;/code&gt; avec des jetons &lt;code&gt;{fieldName}&lt;/code&gt; pour construire des chaînes à partir des valeurs des champs de la rangée, dans le texte du lien et l'URL de destination.</value>
   </data>
   <data name="Table_WithButton_Title" xml:space="preserve">
     <value>Avec un bouton</value>
   </data>
   <data name="Table_WithButton_Text" xml:space="preserve">
-    <value>Utilisez &lt;code&gt;data-bind-{attribute}&lt;/code&gt; pour lier un champ de rangée à n'importe quel attribut de l'élément dans l'emplacement. Ici, &lt;code&gt;data-bind-button-id="{submissionId}"&lt;/code&gt; définit le &lt;code&gt;button-id&lt;/code&gt; du bouton à l'identifiant de la rangée courante.</value>
+    <value>Utilisez &lt;code&gt;data-bind-{attribute}&lt;/code&gt; pour lier un champ de rangée à n'importe quel attribut de l'élément dans l'emplacement. Par exemple, &lt;code&gt;data-bind-button-id="{fieldName}"&lt;/code&gt; définit le &lt;code&gt;button-id&lt;/code&gt; du bouton à partir de ce champ de la rangée.</value>
   </data>
   <data name="Table_WithButtonLink_Title" xml:space="preserve">
     <value>Avec un bouton-lien</value>
@@ -1540,7 +1609,7 @@
     <value>Texte descriptif supplémentaire affiché sous la légende.</value>
   </data>
   <data name="Table_Properties_FdcpTable_ColumnDefinitions" xml:space="preserve">
-    <value>Définitions de colonnes explicites optionnelles. Lorsqu'omis, toutes les propriétés publiques du modèle de rangée sont affichées en colonnes, avec les en-têtes provenant des attributs &lt;code&gt;[Display]&lt;/code&gt; et le comportement configuré via &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;.</value>
+    <value>Définitions de colonnes explicites optionnelles. Lorsqu'omis, seules les propriétés décorées avec &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; dans le modèle de rangée sont affichées comme colonnes, avec l'en-tête et le comportement configurés directement dans l'annotation.</value>
   </data>
   <data name="Table_Properties_FdcpTable_Filter" xml:space="preserve">
     <value>Active un champ de filtre par mot-clé au-dessus du tableau pour restreindre les rangées affichées.</value>
@@ -1594,13 +1663,16 @@
     <value>Annotation — &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;</value>
   </data>
   <data name="Table_Properties_Annotation_Text" xml:space="preserve">
-    <value>Toutes les propriétés publiques du modèle de rangée sont affichées en colonnes par défaut — l'annotation n'est pas requise pour qu'une colonne s'affiche. &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; est facultatif et sert uniquement à remplacer le comportement par défaut d'une colonne. L'en-tête de colonne est extrait de l'attribut &lt;code&gt;[Display(Name = ...)]&lt;/code&gt; sur la même propriété, ou utilise le nom de la propriété si aucun attribut &lt;code&gt;[Display]&lt;/code&gt; n'est présent.</value>
+    <value>&lt;code&gt;[TableColumnDefinition]&lt;/code&gt; est obligatoire sur toute propriété devant apparaître comme colonne. Les propriétés sans cette annotation sont automatiquement exclues du tableau rendu, mais restent accessibles dans les données de la rangée pour les liaisons &lt;code&gt;data-bind*&lt;/code&gt; et via JavaScript avec &lt;code&gt;element.row&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_Properties_Annotation_NameResourceType" xml:space="preserve">
+    <value>Définit le texte d'en-tête de la colonne. Fournissez une clé de ressource via &lt;code&gt;Name&lt;/code&gt; et la classe de ressource via &lt;code&gt;ResourceType&lt;/code&gt; pour un en-tête localisé.</value>
   </data>
   <data name="Table_Properties_Annotation_Alignment" xml:space="preserve">
     <value>Contrôle l'alignement horizontal du contenu des cellules. Valeurs : &lt;code&gt;start&lt;/code&gt; (gauche), &lt;code&gt;center&lt;/code&gt;, &lt;code&gt;end&lt;/code&gt; (droite).</value>
   </data>
   <data name="Table_Properties_Annotation_IsHidden" xml:space="preserve">
-    <value>Masque cette colonne du tableau rendu. Sans ce paramètre à &lt;code&gt;true&lt;/code&gt;, la colonne est affichée, qu'un attribut &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; soit présent ou non.</value>
+    <value>Masque explicitement cette colonne du tableau rendu même lorsque &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; est présent.</value>
   </data>
   <data name="Table_Properties_Annotation_RowHeader" xml:space="preserve">
     <value>Marque chaque cellule de cette colonne comme en-tête de rangée.</value>
@@ -1613,6 +1685,183 @@
   </data>
   <data name="Table_Properties_Annotation_SortDirection" xml:space="preserve">
     <value>Définit l'ordre de tri par défaut lors du chargement de la page. Valeurs : &lt;code&gt;asc&lt;/code&gt;, &lt;code&gt;desc&lt;/code&gt;, &lt;code&gt;none&lt;/code&gt;. S'applique uniquement lorsque &lt;code&gt;Sort&lt;/code&gt; est &lt;code&gt;true&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_WithEmail_Anchor" xml:space="preserve">
+    <value>avec-emplacements-courriel</value>
+  </data>
+  <data name="Table_WithAnnotations_Anchor" xml:space="preserve">
+    <value>utilisation-de-base-annotations</value>
+  </data>
+  <data name="Table_WithButtonLink_Anchor" xml:space="preserve">
+    <value>avec-emplacements-bouton-lien</value>
+  </data>
+  <data name="Table_WithButton_Anchor" xml:space="preserve">
+    <value>avec-emplacements-bouton</value>
+  </data>
+  <data name="Table_WithColumns_Anchor" xml:space="preserve">
+    <value>utilisation-de-base-colonnes</value>
+  </data>
+  <data name="Table_WithLink_Anchor" xml:space="preserve">
+    <value>avec-emplacements-lien</value>
+  </data>
+  <data name="Table_WithAnnotations_Caption" xml:space="preserve">
+    <value>Tableau avec annotations de données</value>
+  </data>
+  <data name="Table_WithColumns_Caption" xml:space="preserve">
+    <value>Tableau avec définitions de colonnes</value>
+  </data>
+  <data name="Table_WithEmail_Caption" xml:space="preserve">
+    <value>Tableau avec lien courriel</value>
+  </data>
+  <data name="Table_WithLink_Caption" xml:space="preserve">
+    <value>Tableau avec lien</value>
+  </data>
+  <data name="Table_WithButton_Caption" xml:space="preserve">
+    <value>Tableau avec bouton</value>
+  </data>
+  <data name="Table_WithButtonLink_Caption" xml:space="preserve">
+    <value>Tableau avec bouton-lien</value>
+  </data>
+  <data name="Table_WithLink_Label" xml:space="preserve">
+    <value>Voir la soumission de</value>
+  </data>
+  <data name="Table_WithButtonLink_Label" xml:space="preserve">
+    <value>Modifier</value>
+  </data>
+  <data name="Table_WithButton_Label" xml:space="preserve">
+    <value>Supprimer</value>
+  </data>
+  <data name="Table_WithButton_Note" xml:space="preserve">
+    <value>&lt;i&gt; Note: Dans cette démonstration, cliquer sur un bouton Supprimer consigne l'objet de la ligne et son submissionId dans la console du navigateur. &lt;/i&gt;</value>
+  </data>
+  <data name="Table_WithButton_SlottedCellContext_Text" xml:space="preserve">
+    <value>Pour chaque cellule utilisant un emplacement, le tableau ajoute les propriétés &lt;code&gt;.row&lt;/code&gt; et &lt;code&gt;.column&lt;/code&gt; à l'élément affiché. &lt;code&gt;.row&lt;/code&gt; contient l'objet de données complet de la ligne courante, tandis que &lt;code&gt;.column&lt;/code&gt; contient la définition et les métadonnées de la colonne courante.</value>
+  </data>
+  <data name="Table_WithLink_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note : Dans cette démonstration, le lien navigue vers une ancre de page. Dans une vraie application, &lt;code&gt;data-bind-template-href="/votre/route/{fieldName}"&lt;/code&gt; peut construire l'URL de destination dynamiquement à partir d'une valeur de la rangée.&lt;/i&gt;</value>
+  </data>
+  <data name="Table_WithButtonLink_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note : Dans cette démonstration, le bouton navigue vers une ancre de page. Dans une vraie application, &lt;code&gt;data-bind-template-href="/votre/route/{fieldName}"&lt;/code&gt; peut construire l'URL de destination dynamiquement à partir d'une valeur de la rangée.&lt;/i&gt;</value>
+  </data>
+  <data name="Shared_CopyButton_Text" xml:space="preserve">
+    <value>Copier</value>
+  </data>
+  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
+    <value>Copié!</value>
+  </data>
+  <data name="Index_Tabs_Title" xml:space="preserve">
+    <value>Onglets</value>
+  </data>
+  <data name="Index_Tabs_Description" xml:space="preserve">
+    <value>Organisez le contenu connexe d'une page dans des panneaux d'onglets accessibles.</value>
+  </data>
+  <data name="Tabs_Name" xml:space="preserve">
+    <value>Onglets</value>
+  </data>
+  <data name="Tabs_Overview" xml:space="preserve">
+    <value>Les onglets permettent de passer d'un panneau de contenu connexe à un autre sans quitter le contexte de la page courante.</value>
+  </data>
+  <data name="Tabs_Purpose" xml:space="preserve">
+    <value>Utilisez les onglets pour regrouper des sections de contenu équivalentes lorsqu'une seule section doit être visible à la fois.</value>
+  </data>
+  <data name="Tabs_WhenToUse_1" xml:space="preserve">
+    <value>Utilisez les onglets lorsque les sections sont étroitement liées et que les personnes gagnent à les comparer ou à passer de l'une à l'autre sur place.</value>
+  </data>
+  <data name="Tabs_WhenToUse_2" xml:space="preserve">
+    <value>Utilisez les onglets lorsque chaque panneau peut être compris seul et que le premier onglet fournit une vue par défaut logique.</value>
+  </data>
+  <data name="Tabs_WhenNotToUse_1" xml:space="preserve">
+    <value>N'utilisez pas les onglets pour la navigation principale du site ou la navigation d'une page à l'autre. Utilisez les composants de navigation GCDS pour ces modèles.</value>
+  </data>
+  <data name="Tabs_WhenNotToUse_2" xml:space="preserve">
+    <value>Ne cachez pas des tâches critiques, des erreurs ou des instructions obligatoires dans un onglet qui pourrait ne pas être sélectionné.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_1" xml:space="preserve">
+    <value>Fournissez une étiquette significative sur &lt;code&gt;fdcp-tabs&lt;/code&gt; afin que les technologies d'assistance puissent décrire la liste d'onglets.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_2" xml:space="preserve">
+    <value>Gardez les libellés d'onglets courts et uniques afin que les personnes comprennent rapidement les panneaux disponibles.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_3" xml:space="preserve">
+    <value>Assurez-vous que chaque panneau d'onglet contient assez de contexte lorsqu'il est lu seul, car les utilisateurs de lecteurs d'écran peuvent naviguer directement entre les panneaux.</value>
+  </data>
+  <data name="Tabs_UxBestPractices_1" xml:space="preserve">
+    <value>Limitez le nombre d'onglets afin que la liste demeure facile à parcourir et fonctionne bien sur les petits écrans.</value>
+  </data>
+  <data name="Tabs_UxBestPractices_2" xml:space="preserve">
+    <value>Ordonnez les onglets selon leur importance ou le flux de travail attendu, avec le panneau le plus utile en premier.</value>
+  </data>
+  <data name="Tabs_Notes_1" xml:space="preserve">
+    <value>Le composant suit le modèle d'onglets WAI-ARIA. Flèche gauche, Flèche droite, Début et Fin déplacent le focus; Entrée ou Espace active l'onglet ciblé.</value>
+  </data>
+  <data name="Tabs_Notes_2" xml:space="preserve">
+    <value>Les onglets servent à changer de panneau de contenu dans la page courante. Pour naviguer entre les pages, utilisez la navigation supérieure GCDS, la navigation latérale ou des liens.</value>
+  </data>
+  <data name="Tabs_Notes_3" xml:space="preserve">
+    <value>Lorsque load-url est défini, le contenu du panneau est récupéré la première fois que l'onglet est sélectionné, puis mis en cache pour les changements d'onglet suivants.</value>
+  </data>
+  <data name="Tabs_Properties_Id" xml:space="preserve">
+    <value>Facultatif. Identifiant unique du composant d'onglets. Sert à générer des identifiants déterministes pour les onglets et les panneaux.</value>
+  </data>
+  <data name="Tabs_Properties_Label" xml:space="preserve">
+    <value>Étiquette accessible de la liste d'onglets.</value>
+  </data>
+  <data name="Tabs_DefaultLabel" xml:space="preserve">
+    <value>Onglets</value>
+  </data>
+  <data name="Tabs_Properties_SelectedIndex" xml:space="preserve">
+    <value>Facultatif. Index de base zéro de l'onglet sélectionné au chargement de la page. Remplace l'état actif de l'enfant lorsqu'il est valide.</value>
+  </data>
+  <data name="Tabs_Properties_TabTitle" xml:space="preserve">
+    <value>Obligatoire. Texte affiché dans le bouton d'onglet.</value>
+  </data>
+  <data name="Tabs_Properties_TabId" xml:space="preserve">
+    <value>Facultatif. Identifiant de base utilisé pour générer les identifiants de l'onglet enfant et du panneau.</value>
+  </data>
+  <data name="Tabs_Properties_TabActive" xml:space="preserve">
+    <value>Facultatif. Sélectionne cet onglet au chargement de la page si selected-index n'est pas défini.</value>
+  </data>
+  <data name="Tabs_Properties_TabLoadUrl" xml:space="preserve">
+    <value>Facultatif. URL qui retourne un fragment HTML à charger dans le panneau lorsque l'onglet est sélectionné.</value>
+  </data>
+  <data name="Tabs_Basic_Title" xml:space="preserve">
+    <value>Onglets de base</value>
+  </data>
+  <data name="Tabs_Basic_Anchor" xml:space="preserve">
+    <value>onglets-base</value>
+  </data>
+  <data name="Tabs_Basic_Text" xml:space="preserve">
+    <value>Utilisez des éléments &lt;code&gt;fdcp-tab&lt;/code&gt; imbriqués dans &lt;code&gt;fdcp-tabs&lt;/code&gt; pour définir chaque libellé d'onglet et le contenu de son panneau.</value>
+  </data>
+  <data name="Tabs_Sample_Label" xml:space="preserve">
+    <value>Sections du profil</value>
+  </data>
+  <data name="Tabs_Sample_Overview_Title" xml:space="preserve">
+    <value>Aperçu</value>
+  </data>
+  <data name="Tabs_Sample_Overview_Content" xml:space="preserve">
+    <value>Utilisez l'onglet d'aperçu pour présenter le contenu sommaire le plus important.</value>
+  </data>
+  <data name="Tabs_Sample_Details_Title" xml:space="preserve">
+    <value>Détails</value>
+  </data>
+  <data name="Tabs_Sample_Details_Content" xml:space="preserve">
+    <value>Utilisez l'onglet des détails pour présenter les renseignements complémentaires qui appartiennent au même contexte.</value>
+  </data>
+  <data name="Tabs_Sample_History_Title" xml:space="preserve">
+    <value>Historique</value>
+  </data>
+  <data name="Tabs_Sample_History_Content" xml:space="preserve">
+    <value>Utilisez l'onglet d'historique pour présenter les changements connexes ou l'activité antérieure.</value>
+  </data>
+  <data name="Tabs_Sample_ServerData_Title" xml:space="preserve">
+    <value>Données du serveur</value>
+  </data>
+  <data name="Tabs_Sample_ServerData_Loading" xml:space="preserve">
+    <value>Chargement du contenu du serveur...</value>
+  </data>
+  <data name="Tabs_LazyContent" xml:space="preserve">
+    <value>Ce contenu a été chargé à partir du serveur lorsque l'onglet a été sélectionné.</value>
   </data>
   <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
     <value>Statut d'authentification actuel</value>
@@ -1743,23 +1992,8 @@
   <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
     <value />
   </data>
-  <data name="Table_WithEmail_Anchor" xml:space="preserve">
-    <value>avec-emplacements-courriel</value>
-  </data>
-  <data name="Table_WithAnnotations_Anchor" xml:space="preserve">
-    <value>utilisation-de-base-annotations</value>
-  </data>
-  <data name="Table_WithButtonLink_Anchor" xml:space="preserve">
-    <value>avec-emplacements-bouton-lien</value>
-  </data>
-  <data name="Table_WithButton_Anchor" xml:space="preserve">
-    <value>avec-emplacements-bouton</value>
-  </data>
-  <data name="Table_WithColumns_Anchor" xml:space="preserve">
-    <value>utilisation-de-base-colonnes</value>
-  </data>
-  <data name="Table_WithLink_Anchor" xml:space="preserve">
-    <value>avec-emplacements-lien</value>
+  <data name="Card_Badge_New" xml:space="preserve">
+    <value>Nouveau</value>
   </data>
   <data name="Index_TagHelpers_Section_Title" xml:space="preserve">
     <value>Tag helpers</value>

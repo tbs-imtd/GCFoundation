@@ -59,16 +59,17 @@
 				<NavNode key="components-gcds" controller="Components" action="Gcds" area="" preservedRouteParameters="culture" text="Nav_Components_GCDesign" />
 				<NavNode key="components-foundation" controller="Components" action="Index" area="" preservedRouteParameters="culture" text="Nav_Components_GCFoundation">
 					<Children>
-						<NavNode key="components-form" controller="Components" action="Form" area="" preservedRouteParameters="culture" text="Nav_Components_Form" componentVisibility="breadcrumbs" />
-						<NavNode key="components-formBuilder" controller="Components" action="FormBuilder" area="" preservedRouteParameters="culture" text="Nav_Components_FormBuilder" componentVisibility="breadcrumbs" />
 						<NavNode key="components-badge" controller="Components" action="Badge" area="" preservedRouteParameters="culture" text="Nav_Components_Badge" componentVisibility="breadcrumbs" />
 						<NavNode key="components-card" controller="Components" action="Card" area="" preservedRouteParameters="culture" text="Nav_Components_Card" componentVisibility="breadcrumbs" />
 						<NavNode key="components-filtered-search" controller="Components" action="FilteredSearch" area="" preservedRouteParameters="culture" text="Nav_Components_FilteredSearch" componentVisibility="breadcrumbs" />
-						<NavNode key="components-modal" controller="Components" action="Modal" area="" preservedRouteParameters="culture" text="Nav_Components_Modal" componentVisibility="breadcrumbs" />
+            <NavNode key="components-form" controller="Components" action="Form" area="" preservedRouteParameters="culture" text="Nav_Components_Form" componentVisibility="breadcrumbs" />
+            <NavNode key="components-formBuilder" controller="Components" action="FormBuilder" area="" preservedRouteParameters="culture" text="Nav_Components_FormBuilder" componentVisibility="breadcrumbs" />
+            <NavNode key="components-modal" controller="Components" action="Modal" area="" preservedRouteParameters="culture" text="Nav_Components_Modal" componentVisibility="breadcrumbs" />
 						<NavNode key="components-page-heading" controller="Components" action="PageHeading" area="" preservedRouteParameters="culture" text="Nav_Components_PageHeading" componentVisibility="breadcrumbs" />
             <NavNode key="components-searchable-select" controller="Components" action="SearchableSelect" area="" preservedRouteParameters="culture" text="Nav_Components_SearchableSelect" componentVisibility="breadcrumbs" />
             <NavNode key="components-stepper" controller="Components" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Components_Stepper" componentVisibility="breadcrumbs" />
             <NavNode key="components-table" controller="Components" action="Table" area="" preservedRouteParameters="culture" text="Nav_Components_Table" componentVisibility="breadcrumbs" />
+            <NavNode key="components-tabs" controller="Components" action="Tabs" area="" preservedRouteParameters="culture" text="Nav_Components_Tabs" componentVisibility="breadcrumbs" />
             <NavNode key="components-user-login" controller="Components" action="UserLogin" area="" preservedRouteParameters="culture" text="Nav_Components_UserLogin" componentVisibility="breadcrumbs">
 							<Children>
 								<NavNode key="user-login-examples" controller="UserLoginExample" action="Index" area="" preservedRouteParameters="culture" text="Nav_UserLogin_Examples" />

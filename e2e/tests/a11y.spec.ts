@@ -15,7 +15,7 @@ const routes: Array<{ path: string; name: string }> = [
   { path: '/components/modal', name: 'Components Modal' },
   { path: '/components/page-heading', name: 'Components Page Heading' },
   { path: '/components/stepper', name: 'Components Stepper' },
-  { path: '/en/components/table-grid-js', name: 'Components FDCP Grid Table' },
+  { path: '/components/tabs', name: 'Components Tabs' },
   { path: '/components/user-login', name: 'Components User Login' },
   { path: '/template', name: 'Template' },
   { path: '/installation/global-resources', name: 'Global Resources' }

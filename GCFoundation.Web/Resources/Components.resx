@@ -502,7 +502,7 @@
     <value>Table</value>
   </data>
   <data name="Table_Overview" xml:space="preserve">
-    <value>The &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; component wraps the GC Design System &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt;. Columns are inferred automatically from the row model's public properties, or can be customized per-property with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, or supplied explicitly via &lt;code&gt;column-definitions&lt;/code&gt;. Filtering and sorting are supported out of the box. Custom cell content (links, buttons, etc.) is rendered via &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;, with &lt;code&gt;data-bind&lt;/code&gt; and &lt;code&gt;data-bind-template-*&lt;/code&gt; attributes binding row values into the template's content and attributes.</value>
+    <value>The &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; component wraps the GC Design System &lt;code&gt;&amp;lt;gcds-table&amp;gt;&lt;/code&gt; by parsing a &lt;code&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; of row models and rendering each item as a table row. Columns are resolved from &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;-annotated properties on the row model. Columns can also be supplied explicitly via &lt;code&gt;column-definitions&lt;/code&gt;. Custom cell content (links, buttons, etc.) is rendered via &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;.</value>
   </data>
   <data name="Table_Notes_1" xml:space="preserve">
     <value>Always include a caption and scoped headers so screen reader users retain table context.</value>
@@ -1095,10 +1095,10 @@
     <value>with-selected-options</value>
   </data>
   <data name="SearchableSelect_WithSelectedOptions_Title" xml:space="preserve">
-    <value>With Selected Options Slot</value>
+    <value>Multiple Searchable Select with Selected Options Slot</value>
   </data>
   <data name="SearchableSelect_WithSelectedOptions_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;This example uses a multiple searchable select. Set &lt;code&gt;selection-mode="&#64;FDCPSearchableSelectSelectionMode.Multiple"&lt;/code&gt; to enable multiple selection. Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;</value>
   </data>
   <data name="SearchableSelect_Sample_Country_CA" xml:space="preserve">
     <value>Canada</value>
@@ -1114,6 +1114,36 @@
   </data>
   <data name="SearchableSelect_Sample_Country_SV" xml:space="preserve">
     <value>Saint Vincent and the Grenadines</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_GB" xml:space="preserve">
+    <value>United Kingdom</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_DE" xml:space="preserve">
+    <value>Germany</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_IT" xml:space="preserve">
+    <value>Italy</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_ES" xml:space="preserve">
+    <value>Spain</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_JP" xml:space="preserve">
+    <value>Japan</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_AU" xml:space="preserve">
+    <value>Australia</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_BR" xml:space="preserve">
+    <value>Brazil</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_IN" xml:space="preserve">
+    <value>India</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_ZA" xml:space="preserve">
+    <value>South Africa</value>
+  </data>
+  <data name="SearchableSelect_Sample_Country_NZ" xml:space="preserve">
+    <value>New Zealand</value>
   </data>
   <data name="SearchableSelect_Sample_Country_Label" xml:space="preserve">
     <value>Country</value>
@@ -1311,7 +1341,7 @@
     <value>when-to-use</value>
   </data>
   <data name="Guidance_WhenToUse_Intro" xml:space="preserve">
-    <value>Use a badge when:</value>
+    <value>Use this component when:</value>
   </data>
   <data name="Guidance_WhenNotToUse" xml:space="preserve">
     <value>When Not to Use</value>
@@ -1320,7 +1350,7 @@
     <value>when-not-to-use</value>
   </data>
   <data name="Guidance_WhenNotToUse_Intro" xml:space="preserve">
-    <value>Avoid badges when:</value>
+    <value>Avoid this component when:</value>
   </data>
   <data name="Guidance_Accessibility" xml:space="preserve">
     <value>Accessibility Requirements</value>
@@ -1476,19 +1506,25 @@
     <value>basic-usage</value>
   </data>
   <data name="Table_BasicUsage_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;All public properties on the row model are displayed as columns by default — no annotation required. The optional &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; attribute lets you configure column behaviour on individual properties: hide a column, mark it as a row header, enable sorting, or flag it for custom slotted content. Columns can also be supplied explicitly via the &lt;code&gt;column-definitions&lt;/code&gt; attribute.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Pass a &lt;code&gt;List&amp;lt;T&amp;gt;&lt;/code&gt; of row models to the &lt;code&gt;rows&lt;/code&gt; attribute — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; renders each item as a table row. Decorate properties on the row model with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; to define them as columns. Columns can also be defined explicitly by passing a &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; to &lt;code&gt;column-definitions&lt;/code&gt;.&lt;/gcds-text&gt;&lt;gcds-text&gt;&lt;i&gt;&lt;gcds-link href="#properties"&gt;See all available properties below&lt;/gcds-link&gt;. For more examples on filtering and pagination, see the &lt;gcds-link href="https://design-system.canada.ca/en/components/table/code/" external&gt;GC Design System table documentation&lt;/gcds-link&gt; — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; implements these features the same way.&lt;/i&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Table_BasicUsage_GCDSNote" xml:space="preserve">
+    <value>For more examples on filtering and pagination, see the &lt;gcds-link href="https://design-system.canada.ca/en/components/table/code/" external&gt;GC Design System table documentation&lt;/gcds-link&gt; — &lt;code&gt;&amp;lt;fdcp-table&amp;gt;&lt;/code&gt; implements these features the same way.</value>
   </data>
   <data name="Table_WithAnnotations_Title" xml:space="preserve">
     <value>Using data annotations</value>
   </data>
   <data name="Table_WithAnnotations_Text" xml:space="preserve">
-    <value>All public properties on the row model are rendered as columns by default. Use the &lt;code&gt;[Display]&lt;/code&gt; attribute to set the column header text. Add &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; only when you need to change a property's default behaviour — for example, mark it as a row header (&lt;code&gt;RowHeader = true&lt;/code&gt;), enable sorting (&lt;code&gt;Sort = true&lt;/code&gt;), use custom slotted cell content (&lt;code&gt;Slotted = true&lt;/code&gt;), or hide it (&lt;code&gt;IsHidden = true&lt;/code&gt;). A property without &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; will still appear in the table.</value>
+    <value>Decorate each property you want to display with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;. Use &lt;code&gt;Name&lt;/code&gt; and &lt;code&gt;ResourceType&lt;/code&gt; to provide a localized column header. Set &lt;code&gt;RowHeader = true&lt;/code&gt; to mark a column as the row header, &lt;code&gt;Sort = true&lt;/code&gt; to enable sorting, or &lt;code&gt;Slotted = true&lt;/code&gt; for custom cell content.</value>
+  </data>
+  <data name="Table_WithAnnotations_Warning" xml:space="preserve">
+    <value>Properties without the annotation are excluded from the rendered columns but are still serialized into the page's row data. They remain accessible client-side for &lt;code&gt;data-bind*&lt;/code&gt; bindings and JavaScript via &lt;code&gt;element.row&lt;/code&gt;.</value>
   </data>
   <data name="Table_WithColumns_Title" xml:space="preserve">
     <value>Using explicit column definitions</value>
   </data>
   <data name="Table_WithColumns_Text" xml:space="preserve">
-    <value>As an alternative, pass a &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; to &lt;code&gt;column-definitions&lt;/code&gt; to define columns entirely in the controller. This is useful when you need to control the column order independently of the model, reuse one row model across multiple tables with different column sets, or supply headers without adding &lt;code&gt;[Display]&lt;/code&gt; attributes to the model.</value>
+    <value>As an alternative, pass a &lt;code&gt;List&amp;lt;ColumnDefinition&amp;gt;&lt;/code&gt; to &lt;code&gt;column-definitions&lt;/code&gt; to define columns entirely in the controller.</value>
   </data>
   <data name="Table_WithSlots_Title" xml:space="preserve">
     <value>With slots</value>
@@ -1497,25 +1533,58 @@
     <value>with-slots</value>
   </data>
   <data name="Table_WithSlots_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Replace any cell's default text output with custom HTML using a named slot: &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;. Inside the template, use &lt;code&gt;data-bind&lt;/code&gt; to set an element's text content to the current row value, and &lt;code&gt;data-bind-{attribute}&lt;/code&gt; or &lt;code&gt;data-bind-template-href&lt;/code&gt; to bind row values to any element attribute. Mark the corresponding model property with &lt;code&gt;[TableColumnDefinition(Slotted = true)]&lt;/code&gt; so the component knows to render the slot instead of plain text.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Replace any cell's default text output with custom HTML using a named slot: &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;. Mark the corresponding model property with &lt;code&gt;[TableColumnDefinition(Slotted = true)]&lt;/code&gt; so the component renders the slot instead of plain text. Use &lt;code&gt;data-bind*&lt;/code&gt; attributes inside the template to bind row values to elements.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Table_DataBinding_Title" xml:space="preserve">
+    <value>Data binding</value>
+  </data>
+  <data name="Table_DataBinding_Anchor" xml:space="preserve">
+    <value>data-binding</value>
+  </data>
+  <data name="Table_DataBinding_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Inside any &lt;code&gt;&amp;lt;template slot="cell:fieldName"&amp;gt;&lt;/code&gt;, use the following attributes to populate elements from the current row's data.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Table_DataBinding_FieldName_Desc" xml:space="preserve">
+    <value>When using &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;, this is the camelCase form of the annotated property name (e.g. &lt;code&gt;SubmitterName&lt;/code&gt; → &lt;code&gt;{submitterName}&lt;/code&gt;). Otherwise, it is whatever field name was explicitly set.</value>
+  </data>
+  <data name="Table_DataBinding_Col_Attribute" xml:space="preserve">
+    <value>Attribute</value>
+  </data>
+  <data name="Table_DataBinding_Col_Value" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Table_DataBinding_Col_Effect" xml:space="preserve">
+    <value>Effect</value>
+  </data>
+  <data name="Table_DataBinding_Bind_Desc" xml:space="preserve">
+    <value>Sets the element's text content to the value of the named row field.</value>
+  </data>
+  <data name="Table_DataBinding_Template_Desc" xml:space="preserve">
+    <value>Builds the element's text content from a template string containing one or more &lt;code&gt;{fieldName}&lt;/code&gt; tokens.</value>
+  </data>
+  <data name="Table_DataBinding_Attr_Desc" xml:space="preserve">
+    <value>Sets the named HTML attribute to the value of a row field (e.g. &lt;code&gt;data-bind-button-id="{submissionId}"&lt;/code&gt;).</value>
+  </data>
+  <data name="Table_DataBinding_TemplateAttr_Desc" xml:space="preserve">
+    <value>Interpolates one or more &lt;code&gt;{fieldName}&lt;/code&gt; tokens into a template string and sets the result as the named HTML attribute (e.g. &lt;code&gt;data-bind-template-href="mailto:{email}"&lt;/code&gt;).</value>
   </data>
   <data name="Table_WithEmail_Title" xml:space="preserve">
     <value>With email link</value>
   </data>
   <data name="Table_WithEmail_Text" xml:space="preserve">
-    <value>Use &lt;code&gt;data-bind-template-href="mailto:{email}"&lt;/code&gt; to build a &lt;code&gt;mailto:&lt;/code&gt; link from the row's email address.</value>
+    <value>Use &lt;code&gt;data-bind-template-href="mailto:{fieldName}"&lt;/code&gt; to build a &lt;code&gt;mailto:&lt;/code&gt; link from a row value.</value>
   </data>
   <data name="Table_WithLink_Title" xml:space="preserve">
     <value>With link</value>
   </data>
   <data name="Table_WithLink_Text" xml:space="preserve">
-    <value>Mix static path segments with &lt;code&gt;{fieldName}&lt;/code&gt; tokens in &lt;code&gt;data-bind-template-href&lt;/code&gt; to build a destination URL from the current row's data.</value>
+    <value>You can use &lt;code&gt;data-bind-template&lt;/code&gt; and &lt;code&gt;data-bind-template-href&lt;/code&gt; with &lt;code&gt;{fieldName}&lt;/code&gt; tokens to build strings from row field values into the link's text and destination URL.</value>
   </data>
   <data name="Table_WithButton_Title" xml:space="preserve">
     <value>With button</value>
   </data>
   <data name="Table_WithButton_Text" xml:space="preserve">
-    <value>Use &lt;code&gt;data-bind-{attribute}&lt;/code&gt; to bind a row field to any attribute on the slotted element. Here, &lt;code&gt;data-bind-button-id="{submissionId}"&lt;/code&gt; sets the button's &lt;code&gt;button-id&lt;/code&gt; to the current row's ID.</value>
+    <value>Use &lt;code&gt;data-bind-{attribute}&lt;/code&gt; to bind a row field to any attribute on the slotted element. For example, &lt;code&gt;data-bind-button-id="{fieldName}"&lt;/code&gt; sets the button's &lt;code&gt;button-id&lt;/code&gt; from that row field.</value>
   </data>
   <data name="Table_WithButtonLink_Title" xml:space="preserve">
     <value>With button link</value>
@@ -1536,7 +1605,7 @@
     <value>Additional descriptive text displayed below the caption.</value>
   </data>
   <data name="Table_Properties_FdcpTable_ColumnDefinitions" xml:space="preserve">
-    <value>Optional explicit column definitions. When omitted, all public properties on the row model are displayed as columns, with headers sourced from &lt;code&gt;[Display]&lt;/code&gt; attributes and behaviour configured via &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;.</value>
+    <value>Optional explicit column definitions. When omitted, only properties decorated with &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; on the row model are displayed as columns, with the header and behaviour configured directly in the annotation.</value>
   </data>
   <data name="Table_Properties_FdcpTable_Filter" xml:space="preserve">
     <value>Enables a keyword filter input above the table to narrow displayed rows.</value>
@@ -1590,13 +1659,16 @@
     <value>Annotation — &lt;code&gt;[TableColumnDefinition]&lt;/code&gt;</value>
   </data>
   <data name="Table_Properties_Annotation_Text" xml:space="preserve">
-    <value>All public properties on the row model are displayed as columns by default — the annotation is not required for a column to appear. &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is optional and is used only to override default column behaviour. The column header is taken from the &lt;code&gt;[Display(Name = ...)]&lt;/code&gt; attribute on the same property, or falls back to the property name if no &lt;code&gt;[Display]&lt;/code&gt; is present.</value>
+    <value>&lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is required on every property that should appear as a column. Properties without this annotation are automatically excluded from the rendered table but remain accessible on the row data for &lt;code&gt;data-bind*&lt;/code&gt; bindings and JavaScript via &lt;code&gt;element.row&lt;/code&gt;.</value>
+  </data>
+  <data name="Table_Properties_Annotation_NameResourceType" xml:space="preserve">
+    <value>Sets the column header text. Provide a resource key as &lt;code&gt;Name&lt;/code&gt; and the resource class as &lt;code&gt;ResourceType&lt;/code&gt; for a localized header.</value>
   </data>
   <data name="Table_Properties_Annotation_Alignment" xml:space="preserve">
     <value>Controls horizontal alignment of cell content. Values: &lt;code&gt;start&lt;/code&gt; (left), &lt;code&gt;center&lt;/code&gt;, &lt;code&gt;end&lt;/code&gt; (right).</value>
   </data>
   <data name="Table_Properties_Annotation_IsHidden" xml:space="preserve">
-    <value>Hides this column from the rendered table. Without this set to &lt;code&gt;true&lt;/code&gt;, the column is displayed regardless of whether &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is present.</value>
+    <value>Explicitly hides this column from the rendered table even when &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is present.</value>
   </data>
   <data name="Table_Properties_Annotation_RowHeader" xml:space="preserve">
     <value>Marks each cell in this column as a row header.</value>
@@ -1696,5 +1768,167 @@
   </data>
   <data name="Index_TagHelpers_Description_GCDS_DateModified" xml:space="preserve">
     <value>Renders date-modified metadata and supports date or version display types.</value>
+  </data>
+  <data name="Table_WithAnnotations_Caption" xml:space="preserve">
+    <value>Table using data annotations</value>
+  </data>
+  <data name="Table_WithColumns_Caption" xml:space="preserve">
+    <value>Table using column definitions</value>
+  </data>
+  <data name="Table_WithEmail_Caption" xml:space="preserve">
+    <value>Table with email link</value>
+  </data>
+  <data name="Table_WithLink_Caption" xml:space="preserve">
+    <value>Table with link</value>
+  </data>
+  <data name="Table_WithButton_Caption" xml:space="preserve">
+    <value>Table with button</value>
+  </data>
+  <data name="Table_WithButtonLink_Caption" xml:space="preserve">
+    <value>Table with button link</value>
+  </data>
+  <data name="Table_WithLink_Label" xml:space="preserve">
+    <value>View submission of</value>
+  </data>
+  <data name="Table_WithButtonLink_Label" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Table_WithButton_Label" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Table_WithButton_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note: In this demo, clicking a Delete button logs the row object and its submissionId to the browser console.&lt;/i&gt;</value>
+  </data>
+  <data name="Table_WithButton_SlottedCellContext_Text" xml:space="preserve">
+    <value>For each slotted cell, the table adds &lt;code&gt;.row&lt;/code&gt; and &lt;code&gt;.column&lt;/code&gt; properties to the rendered element. &lt;code&gt;.row&lt;/code&gt; contains the complete data object for the current row, while &lt;code&gt;.column&lt;/code&gt; contains the definition and metadata for the current column.</value>
+  </data>
+  <data name="Table_WithLink_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note: In this demo, the link navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href="/your/route/{fieldName}"&lt;/code&gt; can build the destination URL dynamically from a row value.&lt;/i&gt;</value>
+  </data>
+  <data name="Table_WithButtonLink_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note: In this demo, the button navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href="/your/route/{fieldName}"&lt;/code&gt; can build the destination URL dynamically from a row value.&lt;/i&gt;</value>
+  </data>
+  <data name="Shared_CopyButton_Text" xml:space="preserve">
+    <value>Copy</value>
+  </data>
+  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
+    <value>Copied!</value>
+  </data>
+  <data name="Index_Tabs_Title" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
+  <data name="Index_Tabs_Description" xml:space="preserve">
+    <value>Organize related in-page content into accessible tab panels.</value>
+  </data>
+  <data name="Tabs_Name" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
+  <data name="Tabs_Overview" xml:space="preserve">
+    <value>Tabs let people switch between related panels of content without leaving the current page context.</value>
+  </data>
+  <data name="Tabs_Purpose" xml:space="preserve">
+    <value>Use tabs to group peer sections of content where only one section needs to be visible at a time.</value>
+  </data>
+  <data name="Tabs_WhenToUse_1" xml:space="preserve">
+    <value>Use tabs when the sections are closely related and people benefit from comparing or switching between them in place.</value>
+  </data>
+  <data name="Tabs_WhenToUse_2" xml:space="preserve">
+    <value>Use tabs when each panel can stand on its own and the first tab provides a sensible default view.</value>
+  </data>
+  <data name="Tabs_WhenNotToUse_1" xml:space="preserve">
+    <value>Do not use tabs for primary site navigation or page-to-page navigation. Use GCDS navigation components for those patterns.</value>
+  </data>
+  <data name="Tabs_WhenNotToUse_2" xml:space="preserve">
+    <value>Do not hide critical tasks, errors, or required instructions in a tab that might not be selected.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_1" xml:space="preserve">
+    <value>Provide a meaningful label on &lt;code&gt;fdcp-tabs&lt;/code&gt; so assistive technologies can describe the tab list.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_2" xml:space="preserve">
+    <value>Keep tab labels short and unique so people can understand the available panels quickly.</value>
+  </data>
+  <data name="Tabs_Accessibility_Do_3" xml:space="preserve">
+    <value>Make sure each tab panel has enough context when read on its own, because screen reader users may navigate directly between panels.</value>
+  </data>
+  <data name="Tabs_UxBestPractices_1" xml:space="preserve">
+    <value>Limit the number of tabs so the tab list remains scannable and works well on small screens.</value>
+  </data>
+  <data name="Tabs_UxBestPractices_2" xml:space="preserve">
+    <value>Order tabs by importance or the expected user workflow, with the most useful panel first.</value>
+  </data>
+  <data name="Tabs_Notes_1" xml:space="preserve">
+    <value>The component follows the WAI-ARIA tabs pattern. Left Arrow, Right Arrow, Home, and End move focus; Enter or Space activates the focused tab.</value>
+  </data>
+  <data name="Tabs_Notes_2" xml:space="preserve">
+    <value>Tabs are for switching content panels in the current page. For page navigation, use GCDS top navigation, side navigation, or links.</value>
+  </data>
+  <data name="Tabs_Notes_3" xml:space="preserve">
+    <value>When load-url is set, the panel content is fetched the first time the tab is selected and then cached for later tab changes.</value>
+  </data>
+  <data name="Tabs_Properties_Id" xml:space="preserve">
+    <value>Optional. Unique ID for the tabs component. Used to generate deterministic tab and panel IDs.</value>
+  </data>
+  <data name="Tabs_Properties_Label" xml:space="preserve">
+    <value>Accessible label for the tab list.</value>
+  </data>
+  <data name="Tabs_DefaultLabel" xml:space="preserve">
+    <value>Tabs</value>
+  </data>
+  <data name="Tabs_Properties_SelectedIndex" xml:space="preserve">
+    <value>Optional. Zero-based index of the tab selected when the page loads. Overrides child active state when valid.</value>
+  </data>
+  <data name="Tabs_Properties_TabTitle" xml:space="preserve">
+    <value>Required. Text shown in the tab button.</value>
+  </data>
+  <data name="Tabs_Properties_TabId" xml:space="preserve">
+    <value>Optional. Base ID used to generate the child tab and panel IDs.</value>
+  </data>
+  <data name="Tabs_Properties_TabActive" xml:space="preserve">
+    <value>Optional. Selects this tab when the page loads if selected-index is not set.</value>
+  </data>
+  <data name="Tabs_Properties_TabLoadUrl" xml:space="preserve">
+    <value>Optional. URL that returns an HTML fragment to lazy-load into the panel when the tab is selected.</value>
+  </data>
+  <data name="Tabs_Basic_Title" xml:space="preserve">
+    <value>Basic tabs</value>
+  </data>
+  <data name="Tabs_Basic_Anchor" xml:space="preserve">
+    <value>basic-tabs</value>
+  </data>
+  <data name="Tabs_Basic_Text" xml:space="preserve">
+    <value>Use nested &lt;code&gt;fdcp-tab&lt;/code&gt; elements inside &lt;code&gt;fdcp-tabs&lt;/code&gt; to define each tab label and panel content.</value>
+  </data>
+  <data name="Tabs_Sample_Label" xml:space="preserve">
+    <value>Profile sections</value>
+  </data>
+  <data name="Tabs_Sample_Overview_Title" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Tabs_Sample_Overview_Content" xml:space="preserve">
+    <value>Use the overview tab for the most important summary content.</value>
+  </data>
+  <data name="Tabs_Sample_Details_Title" xml:space="preserve">
+    <value>Details</value>
+  </data>
+  <data name="Tabs_Sample_Details_Content" xml:space="preserve">
+    <value>Use the details tab for supporting information that belongs in the same context.</value>
+  </data>
+  <data name="Tabs_Sample_History_Title" xml:space="preserve">
+    <value>History</value>
+  </data>
+  <data name="Tabs_Sample_History_Content" xml:space="preserve">
+    <value>Use the history tab for related changes or previous activity.</value>
+  </data>
+  <data name="Tabs_Sample_ServerData_Title" xml:space="preserve">
+    <value>Server data</value>
+  </data>
+  <data name="Tabs_Sample_ServerData_Loading" xml:space="preserve">
+    <value>Loading server content...</value>
+  </data>
+  <data name="Tabs_LazyContent" xml:space="preserve">
+    <value>This content was loaded from the server when the tab was selected.</value>
+  </data>
+  <data name="Card_Badge_New" xml:space="preserve">
+    <value>New</value>
   </data>
 </root>

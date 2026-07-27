@@ -7,11 +7,12 @@
 <gcds-grid columns="1fr" columns-desktop="repeat(3, 1fr)" columns-tablet="repeat(2, 1fr)" equal-row-height>
 @foreach (var component in Model.FeaturedComponents.OrderBy(c => c.Name))
 {
-    <gcds-card card-title="@component.Name"
-               description="@component.ShortDescription"
-               href="@component.Href"
-               img-alt="@string.Format(Components.Index_Card_ImgAlt_Template, component.Name)"
-               img-src="@component.ImgSrc">
+    <gcds-card  badge="@(component.IsNew == true ? Components.Card_Badge_New : null)"
+                card-title="@component.Name"
+                description="@component.ShortDescription"
+                href="@component.Href"
+                img-alt="@string.Format(Components.Index_Card_ImgAlt_Template, component.Name)"
+                img-src="@component.ImgSrc">
         @Html.Raw(component.Description)
     </gcds-card>
 }

@@ -167,7 +167,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 aria-controls=""{EncodeAttribute(panelId)}""
                 data-fdcp-searchable-select-trigger{ariaHasPopup}{ariaDescribedBy}{required}{invalid}{disabled}>
                 <span class=""fdcp-searchable-select__trigger-text"" data-fdcp-searchable-select-selected-text>{Encode(selectedSummary)}</span>
-                <gcds-icon class=""fdcp-searchable-select__trigger-icon"" name=""chevron-down"" size=""text"" aria-hidden=""true""></gcds-icon>
+                <span class=""fdcp-searchable-select__trigger-icon"" aria-hidden=""true""></span>
             </button>");
             AppendSizer(sb, items);
 

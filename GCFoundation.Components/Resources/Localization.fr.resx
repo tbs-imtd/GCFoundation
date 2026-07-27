@@ -195,6 +195,15 @@
   <data name="Loading" xml:space="preserve">
     <value>Chargement</value>
   </data>
+  <data name="Tabs" xml:space="preserve">
+    <value>Onglets</value>
+  </data>
+  <data name="Tabs_Loading" xml:space="preserve">
+    <value>Chargement du contenu de l'onglet...</value>
+  </data>
+  <data name="Tabs_LoadError" xml:space="preserve">
+    <value>Impossible de charger cet onglet. Veuillez réessayer.</value>
+  </data>
   <data name="Enabled" xml:space="preserve">
     <value>Activé(e)</value>
   </data>

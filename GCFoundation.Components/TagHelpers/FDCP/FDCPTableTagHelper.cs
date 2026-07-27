@@ -4,10 +4,10 @@ using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.TableBuilder;
 using GCFoundation.Components.TagHelpers.GCDS;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.Extensions.Localization;      
 using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 using System.Text.Json;
-
 
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
@@ -16,9 +16,17 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Use &lt;fdcp-table&gt; in your Razor views to generate a table, either by binding row models
     /// via <c>from</c>, or by supplying explicit <c>columns</c>/<c>data</c> JSON.
     /// </summary>
+    /// <remarks>
+    /// Initializes a new instance of the <see cref="FDCPTableTagHelper"/> class.
+    /// </remarks>
+    /// <param name="localizerFactory">
+    /// The factory used to resolve an <see cref="IStringLocalizer"/> for a column's
+    /// <see cref="TableColumnDefinitionAttribute.ResourceType"/>, so column headers can be
+    /// localized from resource files rather than hardcoded strings.
+    /// </param>
     [HtmlTargetElement("fdcp-table", Attributes = "caption, rows")]
     [HtmlTargetElement("fdcp-table", Attributes = "caption, column-definitions, rows")]
-    public class FDCPTableTagHelper : TableTagHelper
+    public class FDCPTableTagHelper(IStringLocalizerFactory localizerFactory) : TableTagHelper
     {
 
         /// <summary>
@@ -113,7 +121,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                             ColumnDefinitions.Add(new ColumnDefinition()
                             {
                                 Field = JsonNamingPolicy.CamelCase.ConvertName(prop.Name),
-                                Header = ResolveLocalizedHeader(prop),
+                                Header = ResolveLocalizedHeader(attribute, prop),
                                 Slotted = attribute.Slotted,
                                 RowHeader = attribute.RowHeader,
                                 Sort = attribute.Sort,
@@ -122,26 +130,32 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                             });
                         }
                     }
-                    else
-                    {
-                        ColumnDefinitions.Add(new ColumnDefinition()
-                        {
-                            Field = JsonNamingPolicy.CamelCase.ConvertName(prop.Name),
-                            Header = ResolveLocalizedHeader(prop)
-                        });
-                    }
                 }
             }
             return;
         }
 
-        private static string ResolveLocalizedHeader(PropertyInfo property)
+        private string ResolveLocalizedHeader(TableColumnDefinitionAttribute attribute, PropertyInfo property)
         {
-            ArgumentNullException.ThrowIfNull(property, nameof(property));
+            string? name = null;
 
-            var displayAttr = property.GetCustomAttribute<DisplayAttribute>();
-            return displayAttr?.GetName() ?? property.Name;
+            if (!string.IsNullOrEmpty(attribute.Name))
+            {
+                name = attribute.ResourceType == null
+                    ? attribute.Name
+                    : localizerFactory.Create(attribute.ResourceType)[attribute.Name];
+            }
+
+            if (name == null)
+            {
+                ArgumentNullException.ThrowIfNull(property, nameof(property));
+
+                var displayAttr = property.GetCustomAttribute<DisplayAttribute>();
+                name = displayAttr?.GetName() ?? property.Name;
+            }
+
+            return name;
         }
-        #endregion
     }
+        #endregion
 }

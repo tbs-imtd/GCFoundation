@@ -1,13 +1,14 @@
 @using GCFoundation.Components.Models.TableBuilder
 @using GCFoundation.Web.Models.Table
+@using GCFoundation.Web.Resources
 
 @{
     var cols = new List<ColumnDefinition>
     {
-        new() { Field = "submissionId", Header = "ID", RowHeader = true },
-        new() { Field = "submitterName", Header = "Name" },
-        new() { Field = "dateSubmitted", Header = "Date Submitted" },
-        new() { Field = "assignedReviewer", Header = "Reviewer" },
+        new() { Field = "submissionId", Header = Components.Table_Submission_Id_Header, RowHeader = true },
+        new() { Field = "submitterName", Header = Components.Table_Submitter_Name_Header },
+        new() { Field = "dateSubmitted", Header = Components.Table_Date_Submitted_Header, Sort = true },
+        new() { Field = "assignedReviewer", Header = Components.Table_Assigned_Reviewer_Header },
     };
     var rows = new List<TableRowBasicTestViewModel>
     {
@@ -17,18 +18,23 @@
     };
 }
 
-<fdcp-table caption="Table using column definitions" column-definitions="@cols" rows="@rows"></fdcp-table>
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-table caption=""Table using column definitions""
+<fdcp-table caption="@Components.Table_WithColumns_Caption" column-definitions="@cols" rows="@rows"></fdcp-table>
+<div class="code-container">
+    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithColumns_Caption)}""
             column-definitions=""@Model.Cols""
-            rows=""@Model.Rows"">
-</fdcp-table>"))</code></pre>
+            rows=""@Model.Rows""&gt;
+&lt;/fdcp-table&gt;")</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+</div>
+<div class="code-container">
+    <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"using GCFoundation.Components.Models.Table;
 
-<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"vm.Cols = new List<ColumnDefinition>()
+vm.Cols = new List<ColumnDefinition>()
 {
-    new() { Field = ""submissionId"", Header = ""ID"", RowHeader = true },
-    new() { Field = ""submitterName"", Header = ""Name"" },
-    new() { Field = ""dateSubmitted"", Header = ""Date Submitted"" },
-    new() { Field = ""assignedReviewer"", Header = ""Reviewer"" },
+    new() { Field = ""submissionId"", Header = Resources.Components.Table_Submission_Id_Header, RowHeader = true },
+    new() { Field = ""submitterName"", Header = Resources.Components.Table_Submitter_Name_Header },
+    new() { Field = ""dateSubmitted"", Header = Resources.Components.Table_Date_Submitted_Header, Sort = true },
+    new() { Field = ""assignedReviewer"", Header = Resources.Components.Table_Assigned_Reviewer_Header },
 };
 vm.Rows = new List<MyRowViewModel>() { ... };
-"))</code></pre>
+"))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+</div>

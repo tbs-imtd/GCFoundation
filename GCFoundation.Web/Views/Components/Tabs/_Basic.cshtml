@@ -1,0 +1,45 @@
+@using GCFoundation.Web.Resources
+
+@{
+    var label = Components.ResourceManager.GetString("Tabs_Sample_Label")!;
+    var overviewTitle = Components.ResourceManager.GetString("Tabs_Sample_Overview_Title")!;
+    var overviewContent = Components.ResourceManager.GetString("Tabs_Sample_Overview_Content")!;
+    var detailsTitle = Components.ResourceManager.GetString("Tabs_Sample_Details_Title")!;
+    var detailsContent = Components.ResourceManager.GetString("Tabs_Sample_Details_Content")!;
+    var historyTitle = Components.ResourceManager.GetString("Tabs_Sample_History_Title")!;
+    var historyContent = Components.ResourceManager.GetString("Tabs_Sample_History_Content")!;
+    var serverDataTitle = Components.ResourceManager.GetString("Tabs_Sample_ServerData_Title")!;
+    var serverDataLoading = Components.ResourceManager.GetString("Tabs_Sample_ServerData_Loading")!;
+}
+
+<fdcp-tabs id="profile-tabs" label="@label">
+    <fdcp-tab id="overview" title="@overviewTitle" active="true">
+        <gcds-text>@overviewContent</gcds-text>
+    </fdcp-tab>
+    <fdcp-tab id="details" title="@detailsTitle">
+        <gcds-text>@detailsContent</gcds-text>
+    </fdcp-tab>
+    <fdcp-tab id="history" title="@historyTitle">
+        <gcds-text>@historyContent</gcds-text>
+    </fdcp-tab>
+    <fdcp-tab id="server-data" title="@serverDataTitle" load-url="@(new Uri(Url.Action("TabsLazyContent", "Components")!, UriKind.Relative))">
+        <gcds-text>@serverDataLoading</gcds-text>
+    </fdcp-tab>
+</fdcp-tabs>
+
+<pre><code class="language-cshtml">
+&lt;fdcp-tabs id="profile-tabs" label="@label"&gt;
+    &lt;fdcp-tab id="overview" title="@overviewTitle" active="true"&gt;
+        &lt;gcds-text&gt;@overviewContent&lt;/gcds-text&gt;
+    &lt;/fdcp-tab&gt;
+    &lt;fdcp-tab id="details" title="@detailsTitle"&gt;
+        &lt;gcds-text&gt;@detailsContent&lt;/gcds-text&gt;
+    &lt;/fdcp-tab&gt;
+    &lt;fdcp-tab id="history" title="@historyTitle"&gt;
+        &lt;gcds-text&gt;@historyContent&lt;/gcds-text&gt;
+    &lt;/fdcp-tab&gt;
+    &lt;fdcp-tab id="server-data" title="@serverDataTitle" load-url="@@(new Uri(Url.Action("TabsLazyContent", "Components")!, UriKind.Relative))"&gt;
+        &lt;gcds-text&gt;@serverDataLoading&lt;/gcds-text&gt;
+    &lt;/fdcp-tab&gt;
+&lt;/fdcp-tabs&gt;
+</code></pre>

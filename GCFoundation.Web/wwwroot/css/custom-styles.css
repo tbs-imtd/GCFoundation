@@ -40,7 +40,7 @@
 /* Error styling */
 .error-text {
     color: var(--gcds-color-red-900, #822117);
-} 
+}
 
 /* Accessible scroll containers for tables */
 .table-responsive {
@@ -67,4 +67,12 @@ table[tabindex]:focus {
 /* DEPRECATED: Use GCDS text-colour classes instead */
 .text-muted {
     color: var(--gcds-color-grayscale-800, #43474e) !important;
+}
+
+/* Copy button styling override */
+.code-copy-button {
+    --gcds-button-secondary-default-text: var(--gcds-text-light);
+    --gcds-button-small-padding: var(--gcds-spacing-100) var(--gcds-spacing-125);
+    width: fit-content;
+    display: block
 }
