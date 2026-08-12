@@ -13,7 +13,7 @@
 <fdcp-table sort filter caption="@Components.Table_WithAnnotations_Caption" rows="@rows"></fdcp-table>
 
 <div class="code-container">
-    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table sort filter caption=""{Html.Encode(Components.Table_WithAnnotations_Caption)}"" rows=""@Model.Rows""&gt;&lt;/fdcp-table&gt;")</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table sort filter caption=""{Html.Encode(Components.Table_WithAnnotations_Caption)}"" rows=""@Model.Rows""&gt;&lt;/fdcp-table&gt;")</code></pre>
 </div>
 <div class="code-container">
     <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"public class MyRowViewModel
@@ -35,5 +35,5 @@
                                    ResourceType = typeof(Resources.Components))]
             public string AssignedReviewer { get; set; }
         }
-        "))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+        "))</code></pre>
 </div>

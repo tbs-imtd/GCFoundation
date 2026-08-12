@@ -770,6 +770,30 @@
   <data name="Card_Notes_4" xml:space="preserve">
     <value>All cards use GCDS color variables for consistent Government of Canada styling.</value>
   </data>
+  <data name="Card_CompositionExamples_Title" xml:space="preserve">
+    <value>Composition Examples</value>
+  </data>
+  <data name="Card_CompositionExamples_Anchor" xml:space="preserve">
+    <value>composition-examples</value>
+  </data>
+  <data name="Card_ListItem_Title" xml:space="preserve">
+    <value>List Item</value>
+  </data>
+  <data name="Card_ListItem_Anchor" xml:space="preserve">
+    <value>list-item</value>
+  </data>
+  <data name="Card_ListItem_ExampleUse_Title" xml:space="preserve">
+    <value>Example Use</value>
+  </data>
+  <data name="Card_ListItem_CodeComment" xml:space="preserve">
+    <value>List Item content</value>
+  </data>
+  <data name="Card_ListItem_Text" xml:space="preserve">
+    <value>The &lt;strong&gt;List Item&lt;/strong&gt; is a composition pattern that combines &lt;code&gt;&amp;lt;fdcp-card&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;gcds-grid&amp;gt;&lt;/code&gt; to create a structured, selectable row. The columns and content are fully flexible — use this pattern as a starting point and adapt it to your specific needs. See &lt;gcds-link href="https://design-system.canada.ca/en/css-shortcuts/" target="_blank" external&gt;GCDS CSS Shortcuts&lt;/gcds-link&gt; for available utility classes.</value>
+  </data>
+  <data name="Card_ListItemList_Text" xml:space="preserve">
+    <value>Stack multiple List Item cards and add vertical spacing between them using margin utilities. &lt;code&gt;mb-100&lt;/code&gt; is used in this example.</value>
+  </data>
   <data name="Form_Name" xml:space="preserve">
     <value>Form</value>
   </data>
@@ -1098,7 +1122,7 @@
     <value>Multiple Searchable Select with Selected Options Slot</value>
   </data>
   <data name="SearchableSelect_WithSelectedOptions_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;This example uses a multiple searchable select. Set &lt;code&gt;selection-mode="&#64;FDCPSearchableSelectSelectionMode.Multiple"&lt;/code&gt; to enable multiple selection. Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;This example uses a multiple searchable select. Set &lt;code&gt;selection-mode="@FDCPSearchableSelectSelectionMode.Multiple"&lt;/code&gt; to enable multiple selection. Use the &lt;code&gt;selected-options&lt;/code&gt; slot to add a custom bottom section, such as selected counts, clear actions, or any other caller-specific markup.&lt;/gcds-text&gt;</value>
   </data>
   <data name="SearchableSelect_Sample_Country_CA" xml:space="preserve">
     <value>Canada</value>
@@ -1756,12 +1780,6 @@
   </data>
   <data name="Table_WithButtonLink_Note" xml:space="preserve">
     <value>&lt;i&gt;Note: In this demo, the button navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href="/your/route/{fieldName}"&lt;/code&gt; can build the destination URL dynamically from a row value.&lt;/i&gt;</value>
-  </data>
-  <data name="Shared_CopyButton_Text" xml:space="preserve">
-    <value>Copy</value>
-  </data>
-  <data name="Shared_CopyButton_SuccessText" xml:space="preserve">
-    <value>Copied!</value>
   </data>
   <data name="Index_Tabs_Title" xml:space="preserve">
     <value>Tabs</value>

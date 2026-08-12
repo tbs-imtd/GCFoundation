@@ -23,7 +23,7 @@
     <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithColumns_Caption)}""
             column-definitions=""@Model.Cols""
             rows=""@Model.Rows""&gt;
-&lt;/fdcp-table&gt;")</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+&lt;/fdcp-table&gt;")</code></pre>
 </div>
 <div class="code-container">
     <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"using GCFoundation.Components.Models.Table;
@@ -36,5 +36,5 @@ vm.Cols = new List<ColumnDefinition>()
     new() { Field = ""assignedReviewer"", Header = Resources.Components.Table_Assigned_Reviewer_Header },
 };
 vm.Rows = new List<MyRowViewModel>() { ... };
-"))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+    "))</code></pre>
 </div>

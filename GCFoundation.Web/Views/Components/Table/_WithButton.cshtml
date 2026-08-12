@@ -25,7 +25,7 @@
                      data-bind-button-id=""{{submissionId}}""
                      size=""small""&gt;{Html.Encode(Components.Table_WithButton_Label)}&lt;/gcds-button&gt;
     &lt;/template&gt;
-&lt;/fdcp-table&gt;")</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+&lt;/fdcp-table&gt;")</code></pre>
 </div>
 <div class="code-container">
     <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"public string SubmissionId { get; set; } = string.Empty;
@@ -34,8 +34,8 @@
                        ResourceType = typeof(Resources.Components),
                        Slotted = true)]
 public string Action { get; set; } = string.Empty;
-"))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+"))</code></pre>
 </div>
 <div class="code-container">
-    <pre><code class="language-javascript">@Html.Raw(Html.Encode(@"console.log(""Delete clicked for row:"", deleteBtn.row, ""submissionId:"", deleteBtn.row?.submissionId);"))</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Components.Shared_CopyButton_SuccessText">@Components.Shared_CopyButton_Text</gcds-button></pre>
+    <pre><code class="language-javascript">@Html.Raw(Html.Encode(@"console.log(""Delete clicked for row:"", deleteBtn.row, ""submissionId:"", deleteBtn.row?.submissionId);"))</code></pre>
 </div>

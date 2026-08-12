@@ -1,0 +1,6 @@
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Components.ComponentSampleCodeSectionViewModel
+
+<gcds-heading tag="h3" id="@Components.Card_ListItem_Anchor">@Components.Card_ListItem_Title</gcds-heading>
+<gcds-text>@Html.Raw(Components.Card_ListItem_Text)</gcds-text>
+<partial name="Card/_ListItem" />

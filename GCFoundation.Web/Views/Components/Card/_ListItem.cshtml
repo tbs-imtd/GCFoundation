@@ -1,0 +1,111 @@
+@using GCFoundation.Web.Resources
+
+<fdcp-card>
+    <gcds-grid tag="article" align-items="center"
+               columns-desktop="1fr 2fr 12fr 3fr" columns-tablet="1fr 2fr 12fr 3fr" columns="1fr">
+        <div class="d-grid md:justify-items-center justify-items-start">
+            <fdcp-checkbox name="select"></fdcp-checkbox>
+        </div>
+        <div class="d-grid md:justify-items-center justify-items-start">
+            <p class="font-size-h3 mb-0">95%</p>
+            <p class="font-text-small mb-0">match</p>
+        </div>
+        <div class="d-grid justify-items-start">
+            <p class="font-text font-bold mb-0">Senior Policy Analyst, Indigenous Reconciliation</p>
+            <p class="font-text-small font-light mb-0">ISJD · JOB-10499 · Insert · Insert</p>
+            <p class="font-text-small mb-0">...development and consultation activities with First Nations, Inuit, etc. Leads policy and Métis partners. Reports to the Director General, Strategic Policy</p>
+        </div>
+        <div class="d-grid md:justify-items-end justify-items-start">
+            <gcds-button button-role="secondary">View</gcds-button>
+        </div>
+    </gcds-grid>
+</fdcp-card>
+
+<pre><code class="language-html">@Html.Raw(Html.Encode(@"<fdcp-card>
+    <gcds-grid tag=""article"" align-items=""center""
+               columns-desktop=""1fr 2fr 12fr 3fr"" columns-tablet=""1fr 2fr 12fr 3fr"" columns=""1fr"">
+        <div class=""d-grid md:justify-items-center justify-items-start"">
+            <fdcp-checkbox name=""select""></fdcp-checkbox>
+        </div>
+        <div class=""d-grid md:justify-items-center justify-items-start"">
+            <p class=""font-size-h3 mb-0"">95%</p>
+            <p class=""font-text-small mb-0"">match</p>
+        </div>
+        <div class=""d-grid justify-items-start"">
+            <p class=""font-text font-bold mb-0"">Senior Policy Analyst, Indigenous Reconciliation</p>
+            <p class=""font-text-small font-light mb-0"">ISJD · JOB-10499 · Insert · Insert</p>
+            <p class=""font-text-small mb-0"">...development and consultation activities with First Nations, Inuit, etc.</p>
+        </div>
+        <div class=""d-grid md:justify-items-end justify-items-start"">
+            <gcds-button button-role=""secondary"">View</gcds-button>
+        </div>
+    </gcds-grid>
+</fdcp-card>"))</code></pre>
+
+<gcds-heading tag="h4">@Components.Card_ListItem_ExampleUse_Title</gcds-heading>
+<gcds-text>@Html.Raw(Components.Card_ListItemList_Text)</gcds-text>
+
+<gcds-container>
+    <fdcp-card class="mb-100">
+        <gcds-grid tag="article" align-items="center"
+                   columns-desktop="1fr 2fr 12fr 3fr" columns-tablet="1fr 2fr 12fr 3fr" columns="1fr">
+            <div class="d-grid md:justify-items-center justify-items-start">
+                <fdcp-checkbox name="select-1"></fdcp-checkbox>
+            </div>
+            <div class="d-grid md:justify-items-center justify-items-start">
+                <p class="font-size-h3 mb-0">95%</p>
+                <p class="font-text-small mb-0">match</p>
+            </div>
+            <div class="d-grid justify-items-start">
+                <p class="font-text font-bold mb-0">Senior Policy Analyst, Indigenous Reconciliation</p>
+                <p class="font-text-small font-light mb-0">ISJD · JOB-10499 · Insert · Insert</p>
+                <p class="font-text-small mb-0">...development and consultation activities with First Nations, Inuit, etc. Leads policy and Métis partners. Reports to the Director General, Strategic Policy</p>
+            </div>
+            <div class="d-grid md:justify-items-end justify-items-start">
+                <gcds-button button-role="secondary">View</gcds-button>
+            </div>
+        </gcds-grid>
+    </fdcp-card>
+    <fdcp-card class="mb-100">
+        <gcds-grid tag="article" align-items="center"
+                   columns-desktop="1fr 2fr 12fr 3fr" columns-tablet="1fr 2fr 12fr 3fr" columns="1fr">
+            <div class="d-grid md:justify-items-center justify-items-start">
+                <fdcp-checkbox name="select-2"></fdcp-checkbox>
+            </div>
+            <div class="d-grid md:justify-items-center justify-items-start">
+                <p class="font-size-h3 mb-0">87%</p>
+                <p class="font-text-small mb-0">match</p>
+            </div>
+            <div class="d-grid justify-items-start">
+                <p class="font-text font-bold mb-0">Senior Policy Advisor, Climate policy</p>
+                <p class="font-text-small font-light mb-0">ISJD · JOB-101399 · Insert · Insert</p>
+                <p class="font-text-small mb-0">Provides senior policy advice and analysis on a range of climate initiatives.</p>
+            </div>
+            <div class="d-grid md:justify-items-end justify-items-start">
+                <gcds-button button-role="secondary">View</gcds-button>
+            </div>
+        </gcds-grid>
+    </fdcp-card>
+    <fdcp-card class="mb-100">
+        <gcds-grid tag="article" align-items="center"
+                   columns-desktop="1fr 2fr 12fr 3fr" columns-tablet="1fr 2fr 12fr 3fr" columns="1fr">
+            <div class="d-grid md:justify-items-center justify-items-start">
+                <fdcp-checkbox name="select-3"></fdcp-checkbox>
+            </div>
+            <div class="d-grid md:justify-items-center justify-items-start">
+                <p class="font-size-h3 mb-0">74%</p>
+                <p class="font-text-small mb-0">match</p>
+            </div>
+            <div class="d-grid justify-items-start">
+                <p class="font-text font-bold mb-0">Director, Indigenous Engagement</p>
+                <p class="font-text-small font-light mb-0">ISJD · JOB-101399 · Insert · Insert</p>
+                <p class="font-text-small mb-0">Lorem ipsum text policy advice on etc...</p>
+            </div>
+            <div class="d-grid md:justify-items-end justify-items-start">
+                <gcds-button button-role="secondary">View</gcds-button>
+            </div>
+        </gcds-grid>
+    </fdcp-card>
+</gcds-container>
+
+<pre><code class="language-html">@Html.Raw(Html.Encode($"<gcds-container>\n    <fdcp-card class=\"mb-100\">\n        <!-- {Components.Card_ListItem_CodeComment} -->\n    </fdcp-card>\n    <fdcp-card class=\"mb-100\">\n        <!-- {Components.Card_ListItem_CodeComment} -->\n    </fdcp-card>\n</gcds-container>"))</code></pre>

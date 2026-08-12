@@ -78,6 +78,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             if (Horizontal)
                 classes.Append(" fdcp-card-horizontal");
 
+            var existingClass = output.Attributes["class"]?.Value?.ToString();
+            if (!string.IsNullOrWhiteSpace(existingClass))
+                classes.Append(' ').Append(existingClass);
+
             output.Attributes.SetAttribute("class", classes.ToString());
 
             if (!string.IsNullOrEmpty(TagId))
