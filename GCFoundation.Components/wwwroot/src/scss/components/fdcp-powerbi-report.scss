@@ -1,0 +1,10 @@
+.fdcp-powerbi-container {
+    width: 100%;
+    aspect-ratio: 3 / 2; /* approximates 66% padding-top ratio */
+}
+
+    .fdcp-powerbi-container iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
