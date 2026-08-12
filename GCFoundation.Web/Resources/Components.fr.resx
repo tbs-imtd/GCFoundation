@@ -2013,55 +2013,145 @@
   <data name="Index_TagHelpers_Usage_Label" xml:space="preserve">
     <value>Utilisation</value>
   </data>
-  <data name="Index_TagHelpers_Description_FDCP_FormField" xml:space="preserve">
-    <value>Affiche un champ de formulaire GCFoundation avec prise en charge intégrée de la validation et du style.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_FDCP_CheckboxSingle" xml:space="preserve">
-    <value>Affiche un helper de case à cocher unique lié à une valeur du modèle, avec le comportement de formulaire GCFoundation.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_FDCP_CheckboxGroup" xml:space="preserve">
-    <value>Affiche un groupe de cases à cocher à partir des éléments fournis, avec liaison et validation GCFoundation.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_FDCP_Feedback" xml:space="preserve">
-    <value>Affiche la rétroaction de validation au niveau du formulaire GCFoundation.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_FDCP_Editor" xml:space="preserve">
-    <value>Fournit un éditeur de texte enrichi intégré au modèle de formulaire GCFoundation.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_FDCP_Session" xml:space="preserve">
-    <value>Fournit un flux de fenêtre modale d'expiration de session pour les sessions authentifiées.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_FDCP_Data" xml:space="preserve">
-    <value>Affiche une expérience de tableau de données enrichie basée sur Grid.js.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_GCDS_FormField" xml:space="preserve">
-    <value>Encapsule un contrôle de formulaire du système de design GC pour les pages Razor.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_GCDS_Feedback" xml:space="preserve">
-    <value>Ajoute des messages de rétroaction et de validation avec les modèles du système de design GC.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_GCDS_Layout" xml:space="preserve">
-    <value>Fournit une structure de mise en page à l'aide des composants du système de design GC.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_GCDS_Typography" xml:space="preserve">
-    <value>Applique une typographie et un rendu de texte cohérents du système de design GC.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_GCDS_Navigation" xml:space="preserve">
-    <value>Prend en charge les modèles d'interface de navigation du système de design GC.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_GCDS_Content" xml:space="preserve">
-    <value>Affiche des éléments de contenu et d'interaction courants du système de design GC.</value>
-  </data>
   <data name="Index_TagHelpers_Description_GCDS_Search" xml:space="preserve">
     <value>Affiche un composant de recherche du système de design GC avec action, méthode et paramètres d'entrée configurables.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_GCDS_Utilities" xml:space="preserve">
-    <value>Fournit des utilitaires pour l'accessibilité et l'affichage de métadonnées.</value>
   </data>
   <data name="Index_TagHelpers_Description_GCDS_Details" xml:space="preserve">
     <value>Affiche une section de détails repliable avec un titre et un état ouvert par défaut optionnel.</value>
   </data>
   <data name="Index_TagHelpers_Description_GCDS_DateModified" xml:space="preserve">
     <value>Affiche les métadonnées de date de modification et prend en charge les types date ou version.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Input" xml:space="preserve">
+    <value>Affiche un champ FDCP lié au modèle et choisit le contrôle GCDS approprié selon le type de donnée.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Select" xml:space="preserve">
+    <value>Affiche une liste déroulante FDCP liée à partir des éléments fournis.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Radios" xml:space="preserve">
+    <value>Affiche un groupe de boutons radio FDCP lié à partir des éléments fournis.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Checkbox" xml:space="preserve">
+    <value>Affiche une case à cocher FDCP unique liée.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Checkboxes" xml:space="preserve">
+    <value>Affiche un groupe de cases à cocher FDCP lié à partir des éléments fournis.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_ErrorSummary" xml:space="preserve">
+    <value>Affiche un résumé des erreurs de validation du formulaire.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_RichText" xml:space="preserve">
+    <value>Affiche un éditeur de texte enrichi lié avec barre d'outils configurable.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_SessionModal" xml:space="preserve">
+    <value>Affiche un flux de modal d'expiration de session avec actions de rafraîchissement et de déconnexion.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Tab" xml:space="preserve">
+    <value>Définit un panneau d'onglet individuel utilisé dans fdcp-tabs.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_ModalBody" xml:space="preserve">
+    <value>Définit la zone de contenu principal dans un modal FDCP.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_ModalFooter" xml:space="preserve">
+    <value>Définit la zone d'actions de pied dans un modal FDCP.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Breadcrumbs" xml:space="preserve">
+    <value>Affiche un conteneur de fil d'Ariane GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_BreadcrumbsItem" xml:space="preserve">
+    <value>Affiche un élément de fil d'Ariane dans gcds-breadcrumbs.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Button" xml:space="preserve">
+    <value>Affiche un bouton GCDS avec type, rôle et style configurables.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Card" xml:space="preserve">
+    <value>Affiche une carte de contenu GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Checkboxes" xml:space="preserve">
+    <value>Affiche un groupe de cases à cocher GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Container" xml:space="preserve">
+    <value>Affiche un conteneur de mise en page GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_DateInput" xml:space="preserve">
+    <value>Affiche un contrôle de saisie de date GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_ErrorMessage" xml:space="preserve">
+    <value>Affiche un message d'erreur en ligne pour un champ.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_ErrorSummary" xml:space="preserve">
+    <value>Affiche un résumé des erreurs de validation du formulaire.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Fieldset" xml:space="preserve">
+    <value>Affiche un conteneur fieldset avec légende et aide.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Footer" xml:space="preserve">
+    <value>Affiche le composant de pied de page du Système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Grid" xml:space="preserve">
+    <value>Affiche une grille de mise en page GCDS responsive.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Header" xml:space="preserve">
+    <value>Affiche le composant d'en-tête du Système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Heading" xml:space="preserve">
+    <value>Affiche un titre sémantique stylisé par GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Icon" xml:space="preserve">
+    <value>Affiche une icône GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Input" xml:space="preserve">
+    <value>Affiche un champ de saisie texte GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_LangToggle" xml:space="preserve">
+    <value>Affiche un lien de bascule de langue.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Link" xml:space="preserve">
+    <value>Affiche un lien stylisé GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_NavGroup" xml:space="preserve">
+    <value>Affiche une section de navigation groupée dans les composants de navigation GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_NavLink" xml:space="preserve">
+    <value>Affiche un lien de navigation dans les composants de navigation GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Notice" xml:space="preserve">
+    <value>Affiche une bannière d'avis contextuel.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Pagination" xml:space="preserve">
+    <value>Affiche un contrôle de pagination pour des résultats multi-pages.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Radios" xml:space="preserve">
+    <value>Affiche un groupe de boutons radio GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Select" xml:space="preserve">
+    <value>Affiche une liste déroulante GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_SideNav" xml:space="preserve">
+    <value>Affiche un conteneur de navigation latérale.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Signature" xml:space="preserve">
+    <value>Affiche un bloc de signature GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_SrOnly" xml:space="preserve">
+    <value>Affiche du contenu visible uniquement par les technologies d'assistance.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Stepper" xml:space="preserve">
+    <value>Affiche un composant d'indicateur d'étapes.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Table" xml:space="preserve">
+    <value>Affiche un composant de tableau GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Text" xml:space="preserve">
+    <value>Affiche un bloc de texte GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Textarea" xml:space="preserve">
+    <value>Affiche une zone de texte multiligne GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_TopicMenu" xml:space="preserve">
+    <value>Affiche un menu de navigation thématique sur la page.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_TopNav" xml:space="preserve">
+    <value>Affiche le composant de navigation supérieure.</value>
   </data>
 </root>

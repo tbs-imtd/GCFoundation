@@ -6,6 +6,7 @@ using GCFoundation.Components.Services;
 using GCFoundation.Components.Services.Interfaces;
 using GCFoundation.Security.Middlewares;
 using GCFoundation.Web.Infrastructure.Extensions;
+using GCFoundation.Web.Services;
 using Microsoft.AspNetCore.CookiePolicy;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -45,6 +46,7 @@ builder.Services.AddSingleton<IBreadcrumbsLocalizationService, BreadcrumbsLocali
 
 //Configure top nav localization service
 builder.Services.AddSingleton<ITopNavigationLocalizationService, TopNavigationLocalizationService<GCFoundation.Web.Resources.Navigation>>();
+builder.Services.AddSingleton<ITagHelperCatalogService, TagHelperCatalogService>();
 
 // Configure GCFoundation
 builder.Services.AddGCFoundationComponents(builder.Configuration);
