@@ -72,5 +72,9 @@ table[tabindex]:focus {
 /* Copy button styling override */
 .code-copy-button {
     --gcds-button-secondary-default-text: var(--gcds-text-light);
-    display: block
+    display: block;
+    position: sticky;
+    inset-inline-start: 0;
+    width: fit-content;
+    z-index: 1;
 }
