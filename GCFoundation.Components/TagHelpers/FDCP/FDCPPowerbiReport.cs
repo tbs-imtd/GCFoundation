@@ -10,6 +10,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// a bound <see cref="PowerBiEmbedModel"/> (via the <c>for</c> attribute) or from individual
     /// flat attributes. When both are supplied, the bound model takes precedence.
     /// </summary>
+    [HtmlTargetElement("fdcp-powerbi-report", Attributes="embedded-token, embedded-url, report-id")]
     public class PowerBiReportTagHelper : TagHelper
     {
         /// <summary>
