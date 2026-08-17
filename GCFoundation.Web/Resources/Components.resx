@@ -2242,4 +2242,7 @@
   <data name="Accordion_Properties_FdcpAccordion_AlwaysOpen" xml:space="preserve">
     <value>When &lt;code&gt;true&lt;/code&gt;, allows multiple accordion sections to remain open at the same time.</value>
   </data>
+  <data name="Index_FeaturedComponents_Title" xml:space="preserve">
+    <value>Featured components</value>
+  </data>
 </root>

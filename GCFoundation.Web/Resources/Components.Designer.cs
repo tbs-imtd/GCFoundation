@@ -1911,6 +1911,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Featured components.
+        /// </summary>
+        public static string Index_FeaturedComponents_Title {
+            get {
+                return ResourceManager.GetString("Index_FeaturedComponents_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A way to display search with filtered result.
         /// </summary>
         public static string Index_FilteredSearch_Description {
@@ -2096,6 +2105,60 @@ namespace GCFoundation.Web.Resources {
         public static string Index_Tabs_Title {
             get {
                 return ResourceManager.GetString("Index_Tabs_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FDCP Tag Helpers.
+        /// </summary>
+        public static string Index_TagHelpers_Group_FDCP_Title {
+            get {
+                return ResourceManager.GetString("Index_TagHelpers_Group_FDCP_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GCDS Tag Helpers.
+        /// </summary>
+        public static string Index_TagHelpers_Group_GCDS_Title {
+            get {
+                return ResourceManager.GetString("Index_TagHelpers_Group_GCDS_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Key properties.
+        /// </summary>
+        public static string Index_TagHelpers_KeyProperties_Label {
+            get {
+                return ResourceManager.GetString("Index_TagHelpers_KeyProperties_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick reference for non-featured FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet..
+        /// </summary>
+        public static string Index_TagHelpers_Section_Description {
+            get {
+                return ResourceManager.GetString("Index_TagHelpers_Section_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tag Helpers.
+        /// </summary>
+        public static string Index_TagHelpers_Section_Title {
+            get {
+                return ResourceManager.GetString("Index_TagHelpers_Section_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Usage.
+        /// </summary>
+        public static string Index_TagHelpers_Usage_Label {
+            get {
+                return ResourceManager.GetString("Index_TagHelpers_Usage_Label", resourceCulture);
             }
         }
         
