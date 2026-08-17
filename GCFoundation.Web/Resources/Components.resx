@@ -984,28 +984,135 @@
     <value>basic</value>
   </data>
   <data name="Modal_Basic_Title" xml:space="preserve">
-    <value>Basic Usage</value>
+    <value>Basic usage</value>
   </data>
   <data name="Modal_Basic_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Click the buttons below to see the modals in action:&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Modals provide a focused, interruptive space for short, high-priority tasks or confirmations that must be completed before users continue their workflow.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Modal_BasicStructure_Anchor" xml:space="preserve">
+    <value>basic-structure</value>
+  </data>
+  <data name="Modal_BasicStructure_Title" xml:space="preserve">
+    <value>Basic Modal</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_Anchor" xml:space="preserve">
+    <value>button-behaviour</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_Title" xml:space="preserve">
+    <value>Button Behaviour</value>
+  </data>
+  <data name="Modal_Variants_Anchor" xml:space="preserve">
+    <value>modal-variants</value>
+  </data>
+  <data name="Modal_Variants_Title" xml:space="preserve">
+    <value>Variants</value>
+  </data>
+  <data name="Modal_AdditionalProperties_Anchor" xml:space="preserve">
+    <value>additional-properties</value>
+  </data>
+  <data name="Modal_AdditionalProperties_Title" xml:space="preserve">
+    <value>Additional Properties</value>
+  </data>
+  <data name="Modal_Default_Anchor" xml:space="preserve">
+    <value>basic-default</value>
+  </data>
+  <data name="Modal_Default_Title" xml:space="preserve">
+    <value>Regular</value>
+  </data>
+  <data name="Modal_Info_Anchor" xml:space="preserve">
+    <value>basic-info</value>
+  </data>
+  <data name="Modal_Info_Title" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Modal_Warning_Anchor" xml:space="preserve">
+    <value>basic-warning</value>
+  </data>
+  <data name="Modal_Warning_Title" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Modal_WhenToUse_1" xml:space="preserve">
+    <value>The user must make a brief, time-sensitive decision or acknowledgement.</value>
+  </data>
+  <data name="Modal_WhenToUse_2" xml:space="preserve">
+    <value>The task requires 1–2 clear actions and benefits from focused attention.</value>
+  </data>
+  <data name="Modal_WhenToUse_3" xml:space="preserve">
+    <value>Inline content would disrupt the page structure or cause confusion.</value>
+  </data>
+  <data name="Modal_WhenToUse_4" xml:space="preserve">
+    <value>The decision is contextual to the current page and does not require navigation.</value>
+  </data>
+  <data name="Modal_Accessibility_Do_1" xml:space="preserve">
+    <value>&lt;strong&gt;2.4.3 Focus Order:&lt;/strong&gt; Focus moves into the modal and returns to the button or trigger that opened it. Background content cannot be interacted with and is out of focus.</value>
+  </data>
+  <data name="Modal_Accessibility_Do_2" xml:space="preserve">
+    <value>&lt;strong&gt;2.4.7 Focus Visible:&lt;/strong&gt; Every interactive element must show a visible focus outline.</value>
+  </data>
+  <data name="Modal_Accessibility_Do_3" xml:space="preserve">
+    <value>&lt;strong&gt;2.1.1 Keyboard:&lt;/strong&gt; Fully functional with a keyboard, including closing the modal with the Escape key.</value>
+  </data>
+  <data name="Modal_Accessibility_Do_4" xml:space="preserve">
+    <value>&lt;strong&gt;2.1.2 No Keyboard Trap:&lt;/strong&gt; If focus is trapped, the user must be able to exit the trap.</value>
+  </data>
+  <data name="Modal_Accessibility_Do_5" xml:space="preserve">
+    <value>&lt;strong&gt;1.3.1 Info and Relationships:&lt;/strong&gt; Uses ARIA roles, labels, and descriptions, i.e.:
+&lt;ul class="list-circle"&gt;
+&lt;li&gt;the modal uses &lt;code&gt;role="dialog"&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;the title is linked using &lt;code&gt;aria-labelledby&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;and, the description is linked using &lt;code&gt;aria-describedby&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="Modal_Accessibility_Do_6" xml:space="preserve">
+    <value>&lt;strong&gt;1.4.3 Contrast Minimum:&lt;/strong&gt; Text and essential UI elements must meet minimum contrast ratios (3:1). The white modal box sits on a darkened backdrop, ensuring strong contrast.</value>
+  </data>
+  <data name="Modal_WhenNotToUse_1" xml:space="preserve">
+    <value>The content is long, complex, multi-step, or requires detailed reading.</value>
+  </data>
+  <data name="Modal_WhenNotToUse_2" xml:space="preserve">
+    <value>Users must compare information or reference other parts of the interface.</value>
+  </data>
+  <data name="Modal_WhenNotToUse_3" xml:space="preserve">
+    <value>Scrolling or extensive interaction would be required within the modal.</value>
+  </data>
+  <data name="Modal_WhenNotToUse_4" xml:space="preserve">
+    <value>The interruption is unnecessary and could be handled inline or on a dedicated page.</value>
   </data>
   <data name="Modal_Name" xml:space="preserve">
     <value>Modal</value>
   </data>
   <data name="Modal_Notes_4" xml:space="preserve">
-    <value>Modal content should be wrapped in &lt;code&gt;&amp;lt;fdcp-modal-body&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-modal-footer&amp;gt;&lt;/code&gt; tags</value>
+    <value>Modal content should be wrapped in &lt;code&gt;&amp;lt;div slot="body"&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;div slot="footer"&amp;gt;&lt;/code&gt; elements</value>
   </data>
   <data name="Modal_Notes_1" xml:space="preserve">
     <value>Modals require unique IDs when multiple are used on the same page</value>
   </data>
   <data name="Modal_Notes_3" xml:space="preserve">
-    <value>Use &lt;code&gt;is-static-backdrop="true"&lt;/code&gt; for modals that require user action</value>
+    <value>Use &lt;code&gt;static-backdrop&lt;/code&gt; for modals that require user action</value>
   </data>
   <data name="Modal_Notes_2" xml:space="preserve">
     <value>Session modals automatically handle timeout warnings and session extension</value>
   </data>
   <data name="Modal_Overview" xml:space="preserve">
     <value>The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;fdcp-session-modal&amp;gt;&lt;/code&gt; components provide a flexible dialog system for displaying content in a popup overlay. It supports regular modals for general use and specialized session modals for handling user session management.</value>
+  </data>
+  <data name="Modal_Size_Anchor" xml:space="preserve">
+    <value>modal-sizes</value>
+  </data>
+  <data name="Modal_Size_Title" xml:space="preserve">
+    <value>Sizes</value>
+  </data>
+  <data name="Modal_Size_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The modal supports three sizes — &lt;code&gt;regular&lt;/code&gt;, &lt;code&gt;small&lt;/code&gt;, and &lt;code&gt;large&lt;/code&gt; — controlled via the &lt;code&gt;size&lt;/code&gt; property. Use the appropriate size based on the amount of content and the level of focus required.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Modal_Size_Small_Title" xml:space="preserve">
+    <value>Small</value>
+  </data>
+  <data name="Modal_Size_Regular_Title" xml:space="preserve">
+    <value>Regular</value>
+  </data>
+  <data name="Modal_Size_Large_Title" xml:space="preserve">
+    <value>Large</value>
   </data>
   <data name="Modal_Session_Title" xml:space="preserve">
     <value>Session Modal</value>
@@ -1019,26 +1126,14 @@
   <data name="Modal_Notes_5" xml:space="preserve">
     <value>The &lt;code&gt;session-timeout&lt;/code&gt;, &lt;code&gt;reminder-time&lt;/code&gt;, &lt;code&gt;refresh-url&lt;/code&gt; and &lt;code&gt;logout-url&lt;/code&gt; properties are only valid for Session Modals</value>
   </data>
-  <data name="Modal_Properties_Id" xml:space="preserve">
-    <value>Unique identifier for the modal</value>
-  </data>
   <data name="Modal_Properties_Title" xml:space="preserve">
     <value>Text displayed in the modal header</value>
-  </data>
-  <data name="Modal_Properties_Centered" xml:space="preserve">
-    <value>Centers the modal vertically</value>
   </data>
   <data name="Modal_Properties_Scrollable" xml:space="preserve">
     <value>Makes the modal body scrollable</value>
   </data>
   <data name="Modal_Properties_Size" xml:space="preserve">
-    <value>Modal size (Default, Small, or Large)</value>
-  </data>
-  <data name="Modal_Properties_ShowCloseButton" xml:space="preserve">
-    <value>Shows close button in header</value>
-  </data>
-  <data name="Modal_Properties_IsStaticBackdrop" xml:space="preserve">
-    <value>Prevents closing by clicking outside</value>
+    <value>Modal size (regular, small, or large)</value>
   </data>
   <data name="Modal_Properties_SessionTimeout" xml:space="preserve">
     <value>Session timeout in seconds</value>
@@ -1359,7 +1454,7 @@
     <value>purpose</value>
   </data>
   <data name="Guidance_WhenToUse" xml:space="preserve">
-    <value>When to Use</value>
+    <value>When to use</value>
   </data>
   <data name="Guidance_WhenToUse_Anchor" xml:space="preserve">
     <value>when-to-use</value>
@@ -1368,7 +1463,7 @@
     <value>Use this component when:</value>
   </data>
   <data name="Guidance_WhenNotToUse" xml:space="preserve">
-    <value>When Not to Use</value>
+    <value>When not to use</value>
   </data>
   <data name="Guidance_WhenNotToUse_Anchor" xml:space="preserve">
     <value>when-not-to-use</value>
@@ -1377,7 +1472,7 @@
     <value>Avoid this component when:</value>
   </data>
   <data name="Guidance_Accessibility" xml:space="preserve">
-    <value>Accessibility Requirements</value>
+    <value>Accessibility requirements</value>
   </data>
   <data name="Guidance_Accessibility_Anchor" xml:space="preserve">
     <value>accessibility</value>
@@ -1897,5 +1992,254 @@
   </data>
   <data name="Card_Badge_New" xml:space="preserve">
     <value>New</value>
+  </data>
+  <data name="Modal_Notes_6" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; component handles its WCAG 2.2 accessibility requirements natively.</value>
+  </data>
+  <data name="Modal_Properties_ModalId" xml:space="preserve">
+    <value>Unique identifier used to target the modal</value>
+  </data>
+  <data name="Modal_Properties_State" xml:space="preserve">
+    <value>Visual and semantic state of the modal (regular, info, or warning)</value>
+  </data>
+  <data name="Modal_Properties_HideCloseButton" xml:space="preserve">
+    <value>Hides the close button in the modal header</value>
+  </data>
+  <data name="Modal_Properties_StaticBackdrop" xml:space="preserve">
+    <value>Prevents the modal from closing when the backdrop is clicked or the Escape key is pressed</value>
+  </data>
+  <data name="Modal_Sample_Confirm" xml:space="preserve">
+    <value>Confirm</value>
+  </data>
+  <data name="Modal_Sample_Back" xml:space="preserve">
+    <value>Back</value>
+  </data>
+  <data name="Modal_BasicStructure_Text" xml:space="preserve">
+    <value>Renders a standalone modal component. Use &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; in your Razor views to generate a modal dialog.</value>
+  </data>
+  <data name="Modal_BasicStructure_OpenButton" xml:space="preserve">
+    <value>Open modal</value>
+  </data>
+  <data name="Modal_BasicStructure_ModalTitle" xml:space="preserve">
+    <value>Basic Modal</value>
+  </data>
+  <data name="Modal_BasicStructure_Body" xml:space="preserve">
+    <value>This is a basic modal.</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Buttons interact with a modal through a combination of the &lt;code&gt;modal-id&lt;/code&gt; attribute and CSS utility classes.&lt;/gcds-text&gt;&lt;ul class="list-square"&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;modal-id&lt;/code&gt;&lt;/strong&gt; — Set on the trigger button to match the &lt;code&gt;modal-id&lt;/code&gt; of the target &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt;. This links the button to the correct modal.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;fdcp-modal-open&lt;/code&gt;&lt;/strong&gt; — Add this class to any button outside the modal to open it when clicked.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;&lt;code&gt;fdcp-modal-close&lt;/code&gt;&lt;/strong&gt; — Add this class to any button inside the modal (typically in the footer) to close it when clicked.&lt;/li&gt;&lt;/ul&gt;</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_OpenButton" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_ModalTitle" xml:space="preserve">
+    <value>My Modal</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Modal_ButtonBehaviour_ProgrammaticText" xml:space="preserve">
+    <value>For custom interactions, use JavaScript to listen for any event your application requires, find the rendered modal by its &lt;code&gt;modal-id&lt;/code&gt;, and toggle its &lt;code&gt;show&lt;/code&gt; class. The component detects this class change and automatically applies its focus and accessibility behaviour.</value>
+  </data>
+  <data name="Modal_Variants_Text" xml:space="preserve">
+    <value>The modal component supports three state variants — &lt;code&gt;regular&lt;/code&gt;, &lt;code&gt;info&lt;/code&gt;, and &lt;code&gt;warning&lt;/code&gt; — each designed for a different level of urgency or intent.</value>
+  </data>
+  <data name="Modal_Variants_Label" xml:space="preserve">
+    <value>Modal state examples</value>
+  </data>
+  <data name="Modal_Default_Text" xml:space="preserve">
+    <value>Used for standard tasks that require user attention or confirmation. It provides a neutral presentation for everyday interactions. This is the default variant and will be applied automatically if no &lt;code&gt;state&lt;/code&gt; property is specified.</value>
+  </data>
+  <data name="Modal_Default_OpenButton" xml:space="preserve">
+    <value>Open regular modal</value>
+  </data>
+  <data name="Modal_Default_ModalTitle" xml:space="preserve">
+    <value>Regular Modal</value>
+  </data>
+  <data name="Modal_Default_Body" xml:space="preserve">
+    <value>This is a regular modal, shown with no special state applied.</value>
+  </data>
+  <data name="Modal_Info_Text" xml:space="preserve">
+    <value>Delivers important information or context that users should understand before proceeding. It highlights details that support decision-making without implying risk.</value>
+  </data>
+  <data name="Modal_Info_OpenButton" xml:space="preserve">
+    <value>Open info modal</value>
+  </data>
+  <data name="Modal_Info_ModalTitle" xml:space="preserve">
+    <value>Info Modal</value>
+  </data>
+  <data name="Modal_Info_Body" xml:space="preserve">
+    <value>This is an info modal, used to highlight helpful or supplementary information for the user.</value>
+  </data>
+  <data name="Modal_Warning_Text" xml:space="preserve">
+    <value>Alerts users to high-impact or irreversible actions.</value>
+  </data>
+  <data name="Modal_Warning_OpenButton" xml:space="preserve">
+    <value>Open warning modal</value>
+  </data>
+  <data name="Modal_Warning_ModalTitle" xml:space="preserve">
+    <value>Warning Modal</value>
+  </data>
+  <data name="Modal_Warning_Body" xml:space="preserve">
+    <value>This is a warning modal, used to alert the user to something that needs their attention before proceeding.</value>
+  </data>
+  <data name="Modal_Size_Label" xml:space="preserve">
+    <value>Modal size examples</value>
+  </data>
+  <data name="Modal_Size_Regular_Text" xml:space="preserve">
+    <value>The regular size suits most everyday interactions and is applied automatically when no &lt;code&gt;size&lt;/code&gt; property is specified.</value>
+  </data>
+  <data name="Modal_Size_Regular_OpenButton" xml:space="preserve">
+    <value>Open regular modal</value>
+  </data>
+  <data name="Modal_Size_Regular_ModalTitle" xml:space="preserve">
+    <value>Regular Modal</value>
+  </data>
+  <data name="Modal_Size_Regular_Body" xml:space="preserve">
+    <value>This is a regular-size modal.</value>
+  </data>
+  <data name="Modal_Size_Small_Text" xml:space="preserve">
+    <value>Use the small size for brief confirmations or simple messages that require minimal content.</value>
+  </data>
+  <data name="Modal_Size_Small_OpenButton" xml:space="preserve">
+    <value>Open small modal</value>
+  </data>
+  <data name="Modal_Size_Small_ModalTitle" xml:space="preserve">
+    <value>Small Modal</value>
+  </data>
+  <data name="Modal_Size_Small_Body" xml:space="preserve">
+    <value>This is a small modal.</value>
+  </data>
+  <data name="Modal_Size_Large_Text" xml:space="preserve">
+    <value>Use the large size when the content requires more space, such as forms, data tables, or complex layouts.</value>
+  </data>
+  <data name="Modal_Size_Large_OpenButton" xml:space="preserve">
+    <value>Open large modal</value>
+  </data>
+  <data name="Modal_Size_Large_ModalTitle" xml:space="preserve">
+    <value>Large Modal</value>
+  </data>
+  <data name="Modal_Size_Large_Body" xml:space="preserve">
+    <value>This is a large modal.</value>
+  </data>
+  <data name="Modal_AdditionalProperties_Text" xml:space="preserve">
+    <value>Beyond the core structure, &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; supports several optional properties to control its behaviour. The example below illustrates &lt;code&gt;scrollable&lt;/code&gt;, &lt;code&gt;hide-close-button&lt;/code&gt;, and &lt;code&gt;static-backdrop&lt;/code&gt; — none of which affect content, only how the modal behaves.</value>
+  </data>
+  <data name="Modal_AdditionalProperties_ModalTitle" xml:space="preserve">
+    <value>Example Modal</value>
+  </data>
+  <data name="Modal_Session_ModalTitle" xml:space="preserve">
+    <value>Session Timeout</value>
+  </data>
+  <data name="Modal_Session_Body" xml:space="preserve">
+    <value>Your session is about to expire!</value>
+  </data>
+  <data name="Modal_Session_ExtendButton" xml:space="preserve">
+    <value>Extend session</value>
+  </data>
+  <data name="Modal_Session_LogoutButton" xml:space="preserve">
+    <value>Log out</value>
+  </data>
+  <data name="Index_Accordion_Title" xml:space="preserve">
+    <value>Accordion</value>
+  </data>
+  <data name="Index_Accordion_Description" xml:space="preserve">
+    <value>Organize related content into expandable sections.</value>
+  </data>
+  <data name="Accordion_Name" xml:space="preserve">
+    <value>Accordion</value>
+  </data>
+  <data name="Accordion_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component organizes related content into expandable sections and provides a control to open or close all sections.</value>
+  </data>
+  <data name="Accordion_BasicUsage_Title" xml:space="preserve">
+    <value>Basic usage</value>
+  </data>
+  <data name="Accordion_BasicUsage_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt; component groups multiple &lt;code&gt;&amp;lt;gcds-details&amp;gt;&lt;/code&gt; components into a dynamic accordion. It includes a button that lets users open all or close all sections. The &lt;code&gt;accordion-id&lt;/code&gt; attribute is mandatory.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Accordion_BasicUsage_Anchor" xml:space="preserve">
+    <value>basic-usage</value>
+  </data>
+  <data name="Accordion_BasicUsage_AboutService_Title" xml:space="preserve">
+    <value>About the service</value>
+  </data>
+  <data name="Accordion_BasicUsage_AboutService_Text" xml:space="preserve">
+    <value>Learn about the services available and who is eligible to use them.</value>
+  </data>
+  <data name="Accordion_BasicUsage_BeforeStart_Title" xml:space="preserve">
+    <value>Before you start</value>
+  </data>
+  <data name="Accordion_BasicUsage_BeforeStart_Text" xml:space="preserve">
+    <value>Gather the information you need before you begin your request.</value>
+  </data>
+  <data name="Accordion_BasicUsage_AfterApply_Title" xml:space="preserve">
+    <value>After you apply</value>
+  </data>
+  <data name="Accordion_BasicUsage_AfterApply_Text" xml:space="preserve">
+    <value>Find out what happens after you submit your request.</value>
+  </data>
+  <data name="Accordion_BasicAccordion_Title" xml:space="preserve">
+    <value>Basic accordion</value>
+  </data>
+  <data name="Accordion_BasicAccordion_Anchor" xml:space="preserve">
+    <value>basic-accordion</value>
+  </data>
+  <data name="Accordion_BasicAccordion_Text" xml:space="preserve">
+    <value>Use a basic accordion to group related information into expandable sections.</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Title" xml:space="preserve">
+    <value>Always open</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Anchor" xml:space="preserve">
+    <value>always-open</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Text" xml:space="preserve">
+    <value>Use the &lt;code&gt;always-open&lt;/code&gt; property to allow multiple accordion sections to remain open at the same time.</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Eligibility_Title" xml:space="preserve">
+    <value>Eligibility</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_Eligibility_Text" xml:space="preserve">
+    <value>Review the eligibility requirements before applying.</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_RequiredDocuments_Title" xml:space="preserve">
+    <value>Required documents</value>
+  </data>
+  <data name="Accordion_AlwaysOpen_RequiredDocuments_Text" xml:space="preserve">
+    <value>Prepare the documents required to support your application.</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_Title" xml:space="preserve">
+    <value>Buttons position</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_Anchor" xml:space="preserve">
+    <value>buttons-position</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_Text" xml:space="preserve">
+    <value>Set &lt;code&gt;buttons-position&lt;/code&gt; to &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, or &lt;code&gt;both&lt;/code&gt;. This example displays the expand-all and collapse-all buttons above and below the accordion.</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_SubmitApplication_Title" xml:space="preserve">
+    <value>Submit an application</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_SubmitApplication_Text" xml:space="preserve">
+    <value>Complete and submit the application form.</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_TrackApplication_Title" xml:space="preserve">
+    <value>Track your application</value>
+  </data>
+  <data name="Accordion_ButtonsPosition_TrackApplication_Text" xml:space="preserve">
+    <value>Check the status of your submitted application.</value>
+  </data>
+  <data name="Accordion_Properties_FdcpAccordion_Title" xml:space="preserve">
+    <value>Properties — &lt;code&gt;&amp;lt;fdcp-accordion&amp;gt;&lt;/code&gt;</value>
+  </data>
+  <data name="Accordion_Properties_FdcpAccordion_AccordionId" xml:space="preserve">
+    <value>Unique identifier for the accordion container. The value is rendered as the container's &lt;code&gt;id&lt;/code&gt; and is used to associate the component's client-side behaviour.</value>
+  </data>
+  <data name="Accordion_Properties_FdcpAccordion_ButtonsPosition" xml:space="preserve">
+    <value>Controls where the expand-all and collapse-all buttons are displayed. Accepted values are &lt;code&gt;top&lt;/code&gt;, &lt;code&gt;bottom&lt;/code&gt;, and &lt;code&gt;both&lt;/code&gt;.</value>
+  </data>
+  <data name="Accordion_Properties_FdcpAccordion_AlwaysOpen" xml:space="preserve">
+    <value>When &lt;code&gt;true&lt;/code&gt;, allows multiple accordion sections to remain open at the same time.</value>
   </data>
 </root>

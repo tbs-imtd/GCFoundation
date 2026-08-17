@@ -1,41 +1,38 @@
-﻿<gcds-button button-id="regular-modal">
-    Open Regular Modal
-</gcds-button>
+﻿@using GCFoundation.Web.Resources
 
-<gcds-button button-id="timeout-modal">
-    Open Timeout Modal
-</gcds-button>
+<gcds-heading tag="h3" id="@Components.Modal_BasicStructure_Anchor">@Components.Modal_BasicStructure_Title</gcds-heading>
+<gcds-text>@Html.Raw(Components.Modal_BasicStructure_Text)</gcds-text>
 
-<pre><code class="language-cshtml">&lt;!-- Button to trigger the modal --&gt;
-&lt;gcds-button button-id="regular-modal"&gt;
-    Open Regular Modal
-&lt;/gcds-button&gt;
+<gcds-button button-id="basic-modal-button" button-role="primary" modal-id="basic-modal" class="fdcp-modal-open">@Components.Modal_BasicStructure_OpenButton</gcds-button>
+<fdcp-modal modal-id="basic-modal" title="@Components.Modal_BasicStructure_ModalTitle">
+    <div slot="body">
+        <gcds-text>@Components.Modal_BasicStructure_Body</gcds-text>
+    </div>
+    <div slot="footer">
+        <gcds-button button-id="basic-modal-confirm" button-role="primary" class="fdcp-modal-close">@Components.Modal_Sample_Confirm</gcds-button>
+        <gcds-button button-id="basic-modal-back" button-role="secondary" class="fdcp-modal-close">@Components.Modal_Sample_Back</gcds-button>
+    </div>
+</fdcp-modal>
 
-&lt;!-- Modal definition --&gt;
-&lt;fdcp-modal id="regular-modal" title="Example Modal"&gt;
-    &lt;fdcp-modal-body&gt;
-        &lt;p&gt;This is a regular modal with custom content.&lt;/p&gt;
-    &lt;/fdcp-modal-body&gt;
-    &lt;fdcp-modal-footer&gt;
-        &lt;gcds-button button-id="close-modal"&gt;Close&lt;/gcds-button&gt;
-        &lt;gcds-button button-id="save-changes"&gt;Save Changes&lt;/gcds-button&gt;
-    &lt;/fdcp-modal-footer&gt;
-&lt;/fdcp-modal&gt;
+<pre><code class="language-cshtml">@Html.Raw($@"&lt;gcds-button button-id=""basic-modal-button"" button-role=""primary"" modal-id=""basic-modal"" class=""fdcp-modal-open""&gt;{Html.Encode(Components.Modal_BasicStructure_OpenButton)}&lt;/gcds-button&gt;
+&lt;fdcp-modal modal-id=""basic-modal"" title=""{Html.Encode(Components.Modal_BasicStructure_ModalTitle)}""&gt;
+    &lt;div slot=""body""&gt;
+        &lt;gcds-text&gt;{Html.Encode(Components.Modal_BasicStructure_Body)}&lt;/gcds-text&gt;
+    &lt;/div&gt;
+    &lt;div slot=""footer""&gt;
+        &lt;gcds-button button-id=""basic-modal-confirm"" button-role=""primary"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Confirm)}&lt;/gcds-button&gt;
+        &lt;gcds-button button-id=""basic-modal-back"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Back)}&lt;/gcds-button&gt;
+    &lt;/div&gt;
+&lt;/fdcp-modal&gt;")</code></pre>
 
-&lt;!-- JavaScript to initialize the modal --&gt;
-&lt;script&gt;
-    document.addEventListener('DOMContentLoaded', () => {
-        const regularBtn = document.querySelector('[button-id=regular-modal]');
-        if (regularBtn) {
-            regularBtn.addEventListener("click", (e) => {
-                e.preventDefault();
-                const modalElement = document.getElementById('regular-modal');
-                if (modalElement) {
-                    modalElement.FDCPModalInstance = modalElement.FDCPModalInstance || new FDCPModal(modalElement);
-                    modalElement.FDCPModalInstance.show();
-                }
-            });
-        }
-    });
-&lt;/script&gt;
-</code></pre>
+<partial name="Modal/_ButtonBehaviour" />
+
+<gcds-heading tag="h3" id="@Components.Modal_Variants_Anchor">@Components.Modal_Variants_Title</gcds-heading>
+<gcds-text>@Html.Raw(Components.Modal_Variants_Text)</gcds-text>
+<partial name="Modal/_Variants" />
+
+<gcds-heading tag="h3" id="@Components.Modal_Size_Anchor">@Components.Modal_Size_Title</gcds-heading>
+@Html.Raw(Components.Modal_Size_Text)
+<partial name="Modal/_Size" />
+
+<partial name="Modal/_AdditionalProperties" />

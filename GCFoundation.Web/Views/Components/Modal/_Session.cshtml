@@ -1,15 +1,18 @@
-﻿<pre><code class="language-cshtml">&lt;fdcp-session-modal id="session-modal" title="Session Timeout" 
-    is-static-backdrop="true"
-    session-timeout="3600"
-    reminder-time="300"
-    refresh-url="/api/session/refresh"
-    logout-url="/logout"&gt;
-    &lt;fdcp-modal-body&gt;
-        &lt;p&gt;Your session is about to expire!&lt;/p&gt;
-    &lt;/fdcp-modal-body&gt;
-    &lt;fdcp-modal-footer&gt;
-        &lt;gcds-button button-id="extend-session"&gt;Extend Session&lt;/gcds-button&gt;
-        &lt;gcds-button button-id="logout"&gt;Logout&lt;/gcds-button&gt;
-    &lt;/fdcp-modal-footer&gt;
-&lt;/fdcp-session-modal&gt;
-</code></pre>
+﻿@using GCFoundation.Web.Resources
+
+<pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-session-modal modal-id=""session-extend-modal""
+    title=""{Html.Encode(Components.Modal_Session_ModalTitle)}""
+    static-backdrop
+    hide-close-button
+    session-timeout=""3600""
+    reminder-time=""300""
+    refresh-url=""/authentication/refresh""
+    logout-url=""/authentication/logout""&gt;
+    &lt;div slot=""body""&gt;
+        &lt;gcds-text&gt;{Html.Encode(Components.Modal_Session_Body)}&lt;/gcds-text&gt;
+    &lt;/div&gt;
+    &lt;div slot=""footer""&gt;
+        &lt;gcds-button button-id=""session-extend-refresh-btn"" button-role=""primary""&gt;{Html.Encode(Components.Modal_Session_ExtendButton)}&lt;/gcds-button&gt;
+        &lt;gcds-button button-id=""session-extend-logout-btn"" button-role=""danger"" type=""link"" href=""/authentication/logout""&gt;{Html.Encode(Components.Modal_Session_LogoutButton)}&lt;/gcds-button&gt;
+    &lt;/div&gt;
+&lt;/fdcp-session-modal&gt;")</code></pre>

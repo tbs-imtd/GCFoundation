@@ -1,0 +1,23 @@
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h3" id="@Components.Accordion_ButtonsPosition_Anchor">@Components.Accordion_ButtonsPosition_Title</gcds-heading>
+<gcds-text>@Html.Raw(Components.Accordion_ButtonsPosition_Text)</gcds-text>
+
+<fdcp-accordion accordion-id="buttons-position-accordion-example" buttons-position="both">
+    <gcds-details details-title="@Components.Accordion_ButtonsPosition_SubmitApplication_Title">
+        <gcds-text>@Components.Accordion_ButtonsPosition_SubmitApplication_Text</gcds-text>
+    </gcds-details>
+    <gcds-details details-title="@Components.Accordion_ButtonsPosition_TrackApplication_Title">
+        <gcds-text>@Components.Accordion_ButtonsPosition_TrackApplication_Text</gcds-text>
+    </gcds-details>
+</fdcp-accordion>
+
+<pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-accordion accordion-id=""buttons-position-accordion""
+                buttons-position=""both""&gt;
+    &lt;gcds-details details-title=""{Html.Encode(Components.Accordion_ButtonsPosition_SubmitApplication_Title)}""&gt;
+        &lt;gcds-text&gt;{Html.Encode(Components.Accordion_ButtonsPosition_SubmitApplication_Text)}&lt;/gcds-text&gt;
+    &lt;/gcds-details&gt;
+    &lt;gcds-details details-title=""{Html.Encode(Components.Accordion_ButtonsPosition_TrackApplication_Title)}""&gt;
+        &lt;gcds-text&gt;{Html.Encode(Components.Accordion_ButtonsPosition_TrackApplication_Text)}&lt;/gcds-text&gt;
+    &lt;/gcds-details&gt;
+&lt;/fdcp-accordion&gt;")</code></pre>

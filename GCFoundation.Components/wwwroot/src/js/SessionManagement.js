@@ -1,5 +1,7 @@
 ﻿document.addEventListener("DOMContentLoaded", () => {
-    const sessionModalElement = document.getElementById('session-extend-modal');
+    const sessionModalElement = document.querySelector(
+        '.modal-overlay[modal-id="session-extend-modal"]'
+    );
 
     if (!sessionModalElement) return;
 
@@ -7,7 +9,7 @@
     const timer = parseInt(sessionModalElement.dataset.sessionTimeout, 10);
     const reminder = parseInt(sessionModalElement.dataset.reminderTime, 10);
     const refreshUrl = sessionModalElement.dataset.refresh;
-    const logoutUrl = sessionModalElement.dataset.logoutUrl;
+    const logoutUrl = sessionModalElement.dataset.logout;
 
     const countdownElement = document.getElementById('session-countdown');
 

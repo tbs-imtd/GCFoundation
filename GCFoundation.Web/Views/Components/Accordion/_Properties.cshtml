@@ -1,0 +1,36 @@
+@using GCFoundation.Web.Resources
+
+@* fdcp-accordion properties *@
+<gcds-heading tag="h3">@Html.Raw(Components.Accordion_Properties_FdcpAccordion_Title)</gcds-heading>
+<div class="fdcp-table-responsive">
+    <table class="fdcp-table fdcp-table-striped fdcp-table-hover fdcp-table-condensed">
+        <thead>
+            <tr>
+                <th scope="col">@Components.Properties_Property</th>
+                <th scope="col">@Components.Properties_DataType</th>
+                <th scope="col">@Components.Properties_DefaultValue</th>
+                <th scope="col">@Components.Properties_Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"><code>accordion-id</code></th>
+                <td><code>string</code></td>
+                <td>—</td>
+                <td>@Html.Raw(Components.Accordion_Properties_FdcpAccordion_AccordionId)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>always-open</code></th>
+                <td><code>bool</code></td>
+                <td>false</td>
+                <td>@Html.Raw(Components.Accordion_Properties_FdcpAccordion_AlwaysOpen)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>buttons-position</code></th>
+                <td><code>AccordionButtonsPosition</code></td>
+                <td>top</td>
+                <td>@Html.Raw(Components.Accordion_Properties_FdcpAccordion_ButtonsPosition)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

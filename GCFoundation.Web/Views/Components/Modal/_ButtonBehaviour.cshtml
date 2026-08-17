@@ -1,0 +1,28 @@
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h3" id="@Components.Modal_ButtonBehaviour_Anchor">@Components.Modal_ButtonBehaviour_Title</gcds-heading>
+@Html.Raw(Components.Modal_ButtonBehaviour_Text)
+
+<pre><code class="language-cshtml">@Html.Raw($@"&lt;gcds-button modal-id=""my-modal"" class=""fdcp-modal-open""&gt;{Html.Encode(Components.Modal_ButtonBehaviour_OpenButton)}&lt;/gcds-button&gt;
+&lt;fdcp-modal modal-id=""my-modal"" title=""{Html.Encode(Components.Modal_ButtonBehaviour_ModalTitle)}""&gt;
+...
+    &lt;div slot=""footer""&gt;
+        &lt;gcds-button button-id=""my-modal-confirm"" button-role=""primary"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Confirm)}&lt;/gcds-button&gt;
+        &lt;gcds-button button-id=""my-modal-back"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Back)}&lt;/gcds-button&gt;
+    &lt;/div&gt;
+&lt;/fdcp-modal&gt;")</code></pre>
+
+<gcds-text>@Html.Raw(Components.Modal_ButtonBehaviour_ProgrammaticText)</gcds-text>
+
+<pre><code class="language-js">const modal = document.querySelector(
+    '.modal-overlay[modal-id="my-modal"]'
+);
+const customTrigger = document.querySelector('#custom-trigger');
+
+customTrigger.addEventListener('click', () => {
+    modal.classList.add('show');
+});
+
+document.addEventListener('my-app:close-modal', () => {
+    modal.classList.remove('show');
+});</code></pre>

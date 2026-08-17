@@ -2,42 +2,93 @@
     constructor(element) {
         this.modal = element;
         this.isStatic = element.dataset.static === 'true';
-        this.closeButton = element.querySelector('.fdcp-modal__close');
-        this.backdrop = element.querySelector('.fdcp-modal__backdrop');
+        this.closeButtons = element.querySelectorAll('.fdcp-modal-close');
+        this.triggerElement = null;
 
         this.bindEvents();
     }
 
     bindEvents() {
-        if (this.closeButton) {
-            this.closeButton.addEventListener('click', () => this.hide());
-        }
+        this.closeButtons.forEach(btn => {
+            btn.addEventListener('click', () => this.hide());
+        });
 
-        if (!this.isStatic) {
-            this.backdrop.addEventListener('click', () => this.hide());
-        }
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !this.isStatic && this.modal.classList.contains('show')) {
+        // Native <dialog> puts backdrop clicks on the dialog element itself
+        // (there's no separate backdrop node anymore), so distinguish a
+        // click on the dialog's own padding/backdrop area from a click
+        // inside its content.
+        this.modal.addEventListener('click', (e) => {
+            if (this.isStatic) return;
+            if (e.target === this.modal) {
                 this.hide();
+            }
+        });
+
+        // ESC triggers 'cancel' before 'close'. Block it here for static
+        // backdrop modals instead of in a document-level keydown handler.
+        this.modal.addEventListener('cancel', (e) => {
+            if (this.isStatic) {
+                e.preventDefault();
+            }
+        });
+
+        // Fires on any close path: close(), cancel->close, or a future
+        // <form method="dialog"> submission — so this is the single place
+        // exit cleanup belongs, regardless of how the modal was closed.
+        this.modal.addEventListener('close', () => this.onExit());
+    }
+
+    onEnter() {
+        document.body.style.overflow = 'hidden';
+
+        const focusTarget =
+            this.modal.querySelector('.fdcp-modal-close') ||
+            this.modal.querySelector('.modal__body') ||
+            this.modal.querySelector('.modal__footer gcds-button, .modal__footer button') ||
+            this.modal;
+
+        requestAnimationFrame(() => {
+            if (typeof focusTarget.focus === 'function') {
+                focusTarget.focus();
             }
         });
     }
 
-    show() {
-        this.modal.classList.add('show');
-        document.body.style.overflow = 'hidden';
+    onExit() {
+        document.body.style.overflow = '';
+
+        if (this.triggerElement && typeof this.triggerElement.focus === 'function') {
+            this.triggerElement.focus();
+        }
+        this.triggerElement = null;
+    }
+
+    show(triggerElement) {
+        this.triggerElement = triggerElement || document.activeElement;
+        this.modal.showModal();
+        this.onEnter();
     }
 
     hide() {
-        this.modal.classList.remove('show');
-        document.body.style.overflow = '';
+        this.modal.close();
+        // onExit() fires automatically via the 'close' event
     }
 }
 
-// Initialize all modals on the page
+const fdcpModalRegistry = new Map();
+
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.fdcp-modal').forEach(modal => {
-        new FDCPModal(modal);
+    document.querySelectorAll('dialog.modal').forEach(modalEl => {
+        fdcpModalRegistry.set(modalEl.getAttribute('modal-id'), new FDCPModal(modalEl));
+    });
+
+    document.querySelectorAll('.fdcp-modal-open[modal-id]').forEach(trigger => {
+        trigger.addEventListener('click', () => {
+            const targetId = trigger.getAttribute('modal-id');
+            const instance = fdcpModalRegistry.get(targetId);
+            if (instance) {
+                instance.show(trigger);
+            }
+        });
     });
 });

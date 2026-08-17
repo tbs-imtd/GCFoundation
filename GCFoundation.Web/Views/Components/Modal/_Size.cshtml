@@ -1,0 +1,60 @@
+@using GCFoundation.Web.Resources
+
+<fdcp-tabs id="modal-size-tabs" label="@Components.Modal_Size_Label">
+    <fdcp-tab id="modal-tab-regular" title="@Components.Modal_Size_Regular_Title" active="true">
+        <gcds-text>@Html.Raw(Components.Modal_Size_Regular_Text)</gcds-text>
+
+        <gcds-button button-id="regular-modal-button" button-role="primary" modal-id="regular-modal" class="fdcp-modal-open">@Components.Modal_Size_Regular_OpenButton</gcds-button>
+        <fdcp-modal size="regular" modal-id="regular-modal" title="@Components.Modal_Size_Regular_ModalTitle">
+            <div slot="body">
+                <gcds-text>@Components.Modal_Size_Regular_Body</gcds-text>
+            </div>
+            <div slot="footer">
+                <gcds-button button-id="regular-modal-confirm" button-role="primary" class="fdcp-modal-close">@Components.Modal_Sample_Confirm</gcds-button>
+                <gcds-button button-id="regular-modal-back" button-role="secondary" class="fdcp-modal-close">@Components.Modal_Sample_Back</gcds-button>
+            </div>
+        </fdcp-modal>
+
+        <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-modal size=""regular"" modal-id=""regular-modal"" title=""{Html.Encode(Components.Modal_Size_Regular_ModalTitle)}""&gt;
+    ...
+&lt;/fdcp-modal&gt;")</code></pre>
+    </fdcp-tab>
+
+    <fdcp-tab id="modal-tab-small" title="@Components.Modal_Size_Small_Title">
+        <gcds-text>@Components.Modal_Size_Small_Text</gcds-text>
+
+        <gcds-button button-id="small-modal-button" button-role="primary" modal-id="small-modal" class="fdcp-modal-open">@Components.Modal_Size_Small_OpenButton</gcds-button>
+        <fdcp-modal size="small" modal-id="small-modal" title="@Components.Modal_Size_Small_ModalTitle">
+            <div slot="body">
+                <gcds-text>@Components.Modal_Size_Small_Body</gcds-text>
+            </div>
+            <div slot="footer">
+                <gcds-button button-id="small-modal-confirm" button-role="primary" class="fdcp-modal-close">@Components.Modal_Sample_Confirm</gcds-button>
+                <gcds-button button-id="small-modal-back" button-role="secondary" class="fdcp-modal-close">@Components.Modal_Sample_Back</gcds-button>
+            </div>
+        </fdcp-modal>
+
+        <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-modal size=""small"" modal-id=""small-modal"" title=""{Html.Encode(Components.Modal_Size_Small_ModalTitle)}""&gt;
+    ...
+&lt;/fdcp-modal&gt;")</code></pre>
+    </fdcp-tab>
+
+    <fdcp-tab id="modal-tab-large" title="@Components.Modal_Size_Large_Title">
+        <gcds-text>@Components.Modal_Size_Large_Text</gcds-text>
+
+        <gcds-button button-id="large-modal-button" button-role="primary" modal-id="large-modal" class="fdcp-modal-open">@Components.Modal_Size_Large_OpenButton</gcds-button>
+        <fdcp-modal size="large" modal-id="large-modal" title="@Components.Modal_Size_Large_ModalTitle">
+            <div slot="body">
+                <gcds-text>@Components.Modal_Size_Large_Body</gcds-text>
+            </div>
+            <div slot="footer">
+                <gcds-button button-id="large-modal-confirm" button-role="primary" class="fdcp-modal-close">@Components.Modal_Sample_Confirm</gcds-button>
+                <gcds-button button-id="large-modal-back" button-role="secondary" class="fdcp-modal-close">@Components.Modal_Sample_Back</gcds-button>
+            </div>
+        </fdcp-modal>
+
+        <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-modal size=""large"" modal-id=""large-modal"" title=""{Html.Encode(Components.Modal_Size_Large_ModalTitle)}""&gt;
+    ...
+&lt;/fdcp-modal&gt;")</code></pre>
+    </fdcp-tab>
+</fdcp-tabs>

@@ -1,125 +1,122 @@
 @use '../variables' as vars;
 
-.fdcp-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1050;
-    overflow: hidden;
+/* ===== Background colour utilities (reusable) ===== */
+.bg-warning {
+    background-color: var(--gcds-color-yellow-500, #{vars.$gcds-color-yellow-500});
+}
+
+.bg-info {
+    background-color: vars.$gcds-color-blue-750;
+}
+
+/* ===== Modal ===== */
+.modal {
+    border: 0;
+    padding: 0;
+    margin: auto;
+    width: var(--gcds-table-modal-width);
+    max-width: var(--gcds-table-modal-max-width);
+    max-height: var(--gcds-table-modal-max-height-desktop);
+    min-height: var(--gcds-table-modal-min-height);
+    border-radius: var(--gcds-table-modal-border-radius-desktop);
+    box-shadow: var(--gcds-table-modal-box-shadow);
+    background-color: var(--gcds-table-modal-background);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none; // matches the browser default for a closed dialog
+    flex-direction: column;
     outline: 0;
+    opacity: 0;
+    transform: translate(0, -50px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 
-    &.show {
-        display: block;
+    &[open] {
+        display: flex; // only actually lay out as flex once open
+        opacity: 1;
+        transform: translate(0, 0);
     }
 
-    &__backdrop {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: -1;
+    &::backdrop {
+        background-color: var(--gcds-table-modal-backdrop-background);
     }
 
-    &__dialog {
-        position: relative;
-        width: auto;
-        margin: 0.5rem;
-        pointer-events: none;
-        transform: translate(0, -50px);
-        transition: transform 0.3s ease-out;
-        max-width: 500px;
-        margin: 1.75rem auto;
-
-        &--centered {
-            display: flex;
-            align-items: center;
-            min-height: calc(100% - 3.5rem);
-        }
-
-        &--scrollable {
-            max-height: calc(100vh - 3.5rem);
-            overflow-y: auto;
-        }
-
-        &--sm {
-            max-width: 300px;
-        }
-
-        &--lg {
-            max-width: 800px;
-        }
-    }
-
-    &__content {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        pointer-events: auto;
-        background-color: vars.$gcds-color-grayscale-0;
-        border-radius: 0.3rem;
-        outline: 0;
-    }
-
-    &__header {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 1rem;
-        border-bottom: 1px solid vars.$gcds-color-grayscale-100;
-    }
-
-    &__title {
-        margin: 0;
-        line-height: 1.5;
-        font-size: 1.25rem;
-    }
-
-    &__footer {
-        display: flex;
-        padding: .5rem 1rem;
-        gap: 0.5rem;
-        background: vars.$gcds-color-grayscale-50;
-        border-top: 1px solid vars.$gcds-color-grayscale-100;
-
-        &.left {
-            justify-content: flex-start;
-        }
-
-        &.right {
-            justify-content: flex-end;
-        }
-
-        &.center {
-            justify-content: center;
-        }
-    }
-
-    &__body {
-        padding: .25rem 1rem;
-    }
-
-    &__close {
-        padding: 0.5rem;
-        margin: -0.5rem -0.5rem -0.5rem auto;
-        background: none;
-        border: 0;
-        font-size: 1.5rem;
-        cursor: pointer;
-        color: #000;
-        opacity: 0.5;
-
-        &:hover {
-            opacity: 1;
+    @media only screen and (width < 48em) {
+        &[open] {
+            position: fixed;
+            inset: unset;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            max-width: 100%;
+            height: var(--gcds-table-modal-height-mobile);
+            max-height: var(--gcds-table-modal-height-mobile);
+            margin: 0;
+            border-radius: var(--gcds-table-modal-border-radius-mobile);
+            transform: translate(0, 0);
         }
     }
 }
 
-.show .fdcp-modal__dialog {
-  transform: translate(0, 0);
+/* ===== Header (shared layout only) ===== */
+.modal__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--gcds-spacing-200);
+}
+
+/* ===== Icon + title grouping ===== */
+.modal__title-group {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gcds-spacing-100);
+}
+
+/* ===== Body ===== */
+.modal__body {
+    padding: var(--gcds-spacing-200);
+    flex: 1 1 auto; // always take up the remaining vertical space
+    min-height: 0; // required for overflow/scrolling to work correctly in a flex child
+}
+
+.modal--scrollable .modal__body--scrollable {
+    overflow-y: auto; // only the scrollable variant clips/scrolls; growth behavior is shared
+}
+
+/* ===== Footer ===== */
+.modal__footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--gcds-spacing-150);
+    padding: var(--gcds-spacing-200);
+
+    @media only screen and (width < 48em) {
+        flex-direction: column-reverse;
+        align-content: center;
+        align-items: center;
+        justify-content: center;
+
+        gcds-button {
+            width: 100%;
+
+            &::part(button) {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.fdcp-modal-close {
+    &.modal__close--regular {
+        --gcds-button-secondary-default-text: var(--gcds-text-light);
+    }
+
+    &.modal__close--warning {
+        --gcds-button-secondary-default-text: var(--gcds-text-primary);
+    }
+
+    &.modal__close--info {
+        --gcds-button-secondary-default-text: var(--gcds-text-light);
+    }
 }

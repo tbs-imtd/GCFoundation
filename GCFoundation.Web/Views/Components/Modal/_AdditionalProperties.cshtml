@@ -1,0 +1,12 @@
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h3" id="@Components.Modal_AdditionalProperties_Anchor">@Components.Modal_AdditionalProperties_Title</gcds-heading>
+<gcds-text>@Html.Raw(Components.Modal_AdditionalProperties_Text)</gcds-text>
+
+<pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-modal modal-id=""example-modal""
+            title=""{Html.Encode(Components.Modal_AdditionalProperties_ModalTitle)}""
+            scrollable
+            hide-close-button
+            static-backdrop&gt;
+    ...
+&lt;/fdcp-modal&gt;")</code></pre>

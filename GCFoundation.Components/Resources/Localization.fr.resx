@@ -261,4 +261,10 @@
   <data name="Next" xml:space="preserve">
     <value>Prochain</value>
   </data>
+  <data name="Expand_All" xml:space="preserve">
+    <value>Afficher tout</value>
+  </data>
+  <data name="Collapse_All" xml:space="preserve">
+    <value>Réduire tout</value>
+  </data>
 </root>

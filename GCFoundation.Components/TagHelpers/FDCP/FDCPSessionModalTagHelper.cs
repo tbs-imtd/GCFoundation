@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using GCFoundation.Components.Resources;
+using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.Extensions.Localization;
 
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
@@ -7,7 +9,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// It extends the <see cref="FDCPModalTagHelper"/> and adds additional attributes for session handling.
     /// </summary>
     [HtmlTargetElement("fdcp-session-modal")]
-    public class FDCPSessionModalTagHelper : FDCPModalTagHelper
+    public class FDCPSessionModalTagHelper(IStringLocalizer<Modal> localizer) : FDCPModalTagHelper(localizer) 
     {
         /// <summary>
         /// The session timeout in seconds. This is the time after which the session will expire.

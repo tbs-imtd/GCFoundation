@@ -1,0 +1,23 @@
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h3" id="@Components.Accordion_AlwaysOpen_Anchor">@Components.Accordion_AlwaysOpen_Title</gcds-heading>
+<gcds-text>@Html.Raw(Components.Accordion_AlwaysOpen_Text)</gcds-text>
+
+<fdcp-accordion accordion-id="always-open-accordion-example" always-open>
+    <gcds-details details-title="@Components.Accordion_AlwaysOpen_Eligibility_Title">
+        <gcds-text>@Components.Accordion_AlwaysOpen_Eligibility_Text</gcds-text>
+    </gcds-details>
+    <gcds-details details-title="@Components.Accordion_AlwaysOpen_RequiredDocuments_Title">
+        <gcds-text>@Components.Accordion_AlwaysOpen_RequiredDocuments_Text</gcds-text>
+    </gcds-details>
+</fdcp-accordion>
+
+<pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-accordion accordion-id=""always-open-accordion""
+                always-open&gt;
+    &lt;gcds-details details-title=""{Html.Encode(Components.Accordion_AlwaysOpen_Eligibility_Title)}""&gt;
+        &lt;gcds-text&gt;{Html.Encode(Components.Accordion_AlwaysOpen_Eligibility_Text)}&lt;/gcds-text&gt;
+    &lt;/gcds-details&gt;
+    &lt;gcds-details details-title=""{Html.Encode(Components.Accordion_AlwaysOpen_RequiredDocuments_Title)}""&gt;
+        &lt;gcds-text&gt;{Html.Encode(Components.Accordion_AlwaysOpen_RequiredDocuments_Text)}&lt;/gcds-text&gt;
+    &lt;/gcds-details&gt;
+&lt;/fdcp-accordion&gt;")</code></pre>

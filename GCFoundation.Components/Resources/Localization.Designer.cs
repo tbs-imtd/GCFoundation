@@ -106,6 +106,15 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Collapse all.
+        /// </summary>
+        public static string Collapse_All {
+            get {
+                return ResourceManager.GetString("Collapse_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Delete.
         /// </summary>
         public static string Delete {
@@ -178,6 +187,15 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Expand all.
+        /// </summary>
+        public static string Expand_All {
+            get {
+                return ResourceManager.GetString("Expand_All", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to MMMM d, yyyy.
         /// </summary>
         public static string Format_Date {
@@ -228,33 +246,6 @@ namespace GCFoundation.Components.Resources {
         public static string Loading {
             get {
                 return ResourceManager.GetString("Loading", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Tabs.
-        /// </summary>
-        public static string Tabs {
-            get {
-                return ResourceManager.GetString("Tabs", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to load this tab. Please try again..
-        /// </summary>
-        public static string Tabs_LoadError {
-            get {
-                return ResourceManager.GetString("Tabs_LoadError", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Loading tab content....
-        /// </summary>
-        public static string Tabs_Loading {
-            get {
-                return ResourceManager.GetString("Tabs_Loading", resourceCulture);
             }
         }
         
@@ -399,6 +390,33 @@ namespace GCFoundation.Components.Resources {
         public static string Submit {
             get {
                 return ResourceManager.GetString("Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tabs.
+        /// </summary>
+        public static string Tabs {
+            get {
+                return ResourceManager.GetString("Tabs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to load this tab. Please try again..
+        /// </summary>
+        public static string Tabs_LoadError {
+            get {
+                return ResourceManager.GetString("Tabs_LoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading tab content....
+        /// </summary>
+        public static string Tabs_Loading {
+            get {
+                return ResourceManager.GetString("Tabs_Loading", resourceCulture);
             }
         }
         
