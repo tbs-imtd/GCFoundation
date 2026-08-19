@@ -12,22 +12,6 @@ namespace GCFoundation.Web.Services
     /// </summary>
     public class TagHelperCatalogService : ITagHelperCatalogService
     {
-        //List of tags already showing as Featured in Components -> Gcfoundation Components Page
-        private static readonly HashSet<string> FeaturedTagNames = new(StringComparer.OrdinalIgnoreCase)
-        {
-            "fdcp-badge",
-            "fdcp-card",
-            "fdcp-filters-box",
-            "fdcp-form-builder",
-            "fdcp-form",
-            "fdcp-modal",
-            "fdcp-page-heading",
-            "fdcp-searchable-select",
-            "fdcp-stepper",
-            "fdcp-tabs",
-            "fdcp-table"
-        };
-
         private readonly List<DiscoveredTagHelper> discoveredTagHelpers;
 
         /// <summary>
@@ -141,8 +125,7 @@ namespace GCFoundation.Web.Services
 
                 foreach (string tagName in tagNames)
                 {
-                    // Featured tags already have dedicated component demos/cards.
-                    if (FeaturedTagNames.Contains(tagName) || discovered.ContainsKey(tagName))
+                    if (discovered.ContainsKey(tagName))
                     {
                         continue;
                     }
@@ -266,13 +249,23 @@ namespace GCFoundation.Web.Services
             string[] parts = tagName
                 .Split('-', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
-            return string.Join(
-                "_",
-                parts.Select(part => part.Equals("fdcp", StringComparison.OrdinalIgnoreCase)
-                    ? "FDCP"
-                    : part.Equals("gcds", StringComparison.OrdinalIgnoreCase)
-                        ? "GCDS"
-                        : char.ToUpperInvariant(part[0]) + part[1..]));
+            if (parts.Length == 0)
+            {
+                return tagName;
+            }
+
+            string prefix = parts[0].Equals("fdcp", StringComparison.OrdinalIgnoreCase)
+                ? "FDCP"
+                : parts[0].Equals("gcds", StringComparison.OrdinalIgnoreCase)
+                    ? "GCDS"
+                    : char.ToUpperInvariant(parts[0][0]) + parts[0][1..];
+
+            // Remaining hyphenated segments become PascalCase so fdcp-error-summary
+            // maps to Index_TagHelpers_Description_FDCP_ErrorSummary.
+            string remainder = string.Concat(
+                parts.Skip(1).Select(part => char.ToUpperInvariant(part[0]) + part[1..]));
+
+            return remainder.Length == 0 ? prefix : $"{prefix}_{remainder}";
         }
 
         private static string ResolveGroupTitle(string groupName, CultureInfo culture)

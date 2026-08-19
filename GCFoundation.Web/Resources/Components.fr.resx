@@ -1822,7 +1822,7 @@
     <value>Tag helpers</value>
   </data>
   <data name="Index_TagHelpers_Section_Description" xml:space="preserve">
-    <value>Référence rapide pour les tag helpers FDCP et GCDS non présentés dans les cartes vedettes, incluant le rôle de chaque helper, ses propriétés clés et un exemple d'utilisation minimal.</value>
+    <value>Référence rapide pour les tag helpers FDCP et GCDS, incluant le rôle de chaque helper, ses propriétés clés et un exemple d'utilisation minimal.</value>
   </data>
   <data name="Index_TagHelpers_Group_FDCP_Title" xml:space="preserve">
     <value>Tag helpers FDCP</value>
@@ -2510,6 +2510,42 @@
   </data>
   <data name="Index_TagHelpers_Description_GCDS_TopNav" xml:space="preserve">
     <value>Affiche le composant de navigation supérieure.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Accordion" xml:space="preserve">
+    <value>Affiche un accordéon avec des sections extensibles et un bouton pour tout ouvrir ou tout fermer.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Badge" xml:space="preserve">
+    <value>Affiche un badge personnalisable avec styles, bouton de fermeture et contenu de début ou de fin.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Card" xml:space="preserve">
+    <value>Affiche une carte flexible avec en-tête, corps, pied, images et mises en page inspirées de Bootstrap.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_FiltersBox" xml:space="preserve">
+    <value>Affiche un panneau de filtres avec catégories repliables pour le filtrage de données.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_FormBuilder" xml:space="preserve">
+    <value>Affiche un générateur de formulaire dynamique à partir d'une définition de formulaire.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Form" xml:space="preserve">
+    <value>Affiche un formulaire lié à un modèle, avec méthode, action et résumé des erreurs de validation.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Modal" xml:space="preserve">
+    <value>Affiche une fenêtre modale autonome à utiliser dans les vues Razor.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_PageHeading" xml:space="preserve">
+    <value>Affiche un en-tête de page de style GC avec titre, description et image d'arrière-plan facultative.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_SearchableSelect" xml:space="preserve">
+    <value>Affiche une liste déroulante avec recherche, prenant en charge la sélection simple ou multiple.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Stepper" xml:space="preserve">
+    <value>Affiche un indicateur d'étapes pour les processus à plusieurs étapes, avec états complété, actif et à venir.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Tabs" xml:space="preserve">
+    <value>Affiche une navigation par onglets pour basculer entre des panneaux de contenu dans la page.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Table" xml:space="preserve">
+    <value>Affiche un tableau de données à partir de modèles de lignes ou de définitions de colonnes explicites.</value>
   </data>
   <data name="Index_FeaturedComponents_Title" xml:space="preserve">
     <value>Composants en vedette</value>

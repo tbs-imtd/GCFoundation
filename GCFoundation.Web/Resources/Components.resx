@@ -1823,7 +1823,7 @@
     <value>Tag Helpers</value>
   </data>
   <data name="Index_TagHelpers_Section_Description" xml:space="preserve">
-    <value>Quick reference for non-featured FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet.</value>
+    <value>Quick reference for FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet.</value>
   </data>
   <data name="Index_TagHelpers_Group_FDCP_Title" xml:space="preserve">
     <value>FDCP Tag Helpers</value>
