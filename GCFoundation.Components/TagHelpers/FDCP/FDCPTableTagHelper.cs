@@ -1,4 +1,4 @@
-﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Common.Utilities;
 using GCFoundation.Components.Attributes.Table;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.TableBuilder;
@@ -16,6 +16,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Use &lt;fdcp-table&gt; in your Razor views to generate a table, either by binding row models
     /// via <c>from</c>, or by supplying explicit <c>columns</c>/<c>data</c> JSON.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-table caption=&quot;Submissions&quot; rows=&quot;@Model.Rows&quot; sort=&quot;true&quot; filter=&quot;true&quot;&gt;
+    /// &lt;/fdcp-table&gt;
+    /// </code>
+    /// </example>
     /// <remarks>
     /// Initializes a new instance of the <see cref="FDCPTableTagHelper"/> class.
     /// </remarks>

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Razor.TagHelpers;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Newtonsoft.Json.Linq;
 using System.Text.Json;
 using System.Text.Json.Serialization;
@@ -8,6 +8,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// <summary>
     /// Tag helper for rendering a single checkbox using the gcds-checkboxes component.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-checkbox for=&quot;@Model.AgreeToTerms&quot; legend=&quot;I agree to the terms&quot;&gt;
+    /// &lt;/fdcp-checkbox&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-checkbox", Attributes = "for")]
     [HtmlTargetElement("fdcp-checkbox", Attributes = "name")]
     public class FDCPCheckboxTagHelper : FDCPBaseFormComponentTagHelper

@@ -5,6 +5,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// A tag helper for rendering a details element with a title and an optional open state.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-details details-title=&quot;More information&quot;&gt;
+    ///     Hidden details.
+    /// &lt;/gcds-details&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-details")]
     public class DetailsTagHelper : BaseTagHelper
     {

@@ -1,4 +1,4 @@
-﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Common.Utilities;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Helpers;
 using GCFoundation.Components.Models.FormBuilder;
@@ -19,6 +19,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// TagHelper for rendering a dynamic form builder using the GC Design System components.
     /// Generates form markup based on the provided <see cref="FormDefinition"/> model.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-form-builder form=&quot;@Model.SampleFormBuilder.Form&quot;&gt;
+    /// &lt;/fdcp-form-builder&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-form-builder", TagStructure = TagStructure.NormalOrSelfClosing)]
     public class FDCPFormBuilderTagHelper : TagHelper
     {

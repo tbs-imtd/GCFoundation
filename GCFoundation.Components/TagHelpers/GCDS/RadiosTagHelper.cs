@@ -5,6 +5,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// Gets or sets the name of the radio group. This name is used to group the radio buttons and associate them together.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-radios for=&quot;@Model.ContactMethod&quot; legend=&quot;How should we contact you?&quot; options='[{&quot;label&quot;:&quot;Email&quot;,&quot;value&quot;:&quot;email&quot;},{&quot;label&quot;:&quot;Phone&quot;,&quot;value&quot;:&quot;phone&quot;}]'&gt;&lt;/gcds-radios&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-radios")]
     public class RadiosTagHelper : BaseFormComponentTagHelper
     {

@@ -6,6 +6,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// Represents a custom TagHelper for rendering an input element with a label and other associated attributes.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-input for=&quot;Email&quot; label=&quot;Email&quot; autocomplete=&quot;off&quot;&gt;&lt;/gcds-input&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-input", Attributes = "for")]
     public class InputTagHelper : BaseFormComponentTagHelper
     {

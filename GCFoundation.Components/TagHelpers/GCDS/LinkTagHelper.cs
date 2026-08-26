@@ -6,6 +6,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// Represents a custom HTML link element (anchor) with additional attributes for controlling display, external links, and size.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-link href=&quot;/help&quot; variant=&quot;default&quot;&gt;
+    ///     Help
+    /// &lt;/gcds-link&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-link")]
     public class LinkTagHelper : BaseTagHelper
     {

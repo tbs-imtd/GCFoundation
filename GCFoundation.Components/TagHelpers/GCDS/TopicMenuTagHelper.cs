@@ -6,6 +6,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// Represents a GC Design System topic menu TagHelper.
     /// Renders a <c>&lt;gcds-topic-menu&gt;</c> element with attributes based on the specified properties.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-topic-menu home=&quot;true&quot;&gt;&lt;/gcds-topic-menu&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-topic-menu")]
     public class TopicMenuTagHelper : BaseTagHelper
     {

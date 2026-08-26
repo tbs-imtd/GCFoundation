@@ -7,6 +7,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A TagHelper that renders a GC Design System notice component as a <c>&lt;gcds-notice&gt;</c> element.
     /// The notice is used to display alerts with a title, role, and associated content. The component can be customized with different heading tags and alert types.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-notice title=&quot;Service interruption&quot; title-tag=&quot;h2&quot; type=&quot;info&quot;&gt;
+    ///     The service is temporarily unavailable.
+    /// &lt;/gcds-notice&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-notice")]
     public class NoticeTagHelper : BaseTagHelper
     {

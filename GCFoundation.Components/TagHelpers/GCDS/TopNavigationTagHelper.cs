@@ -7,6 +7,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A TagHelper that renders a GC Design System top navigation bar as a <c>&lt;gcds-top-nav&gt;</c> element.
     /// Supports setting a label, alignment, and language attributes.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-top-nav label=&quot;Main menu&quot; alignment=&quot;end&quot;&gt;
+    ///     &lt;gcds-nav-link href=&quot;/home&quot;&gt;Home&lt;/gcds-nav-link&gt;
+    /// &lt;/gcds-top-nav&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-top-nav")]
     public class TopNavigationTagHelper : BaseTagHelper
     {

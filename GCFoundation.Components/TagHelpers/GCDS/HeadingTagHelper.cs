@@ -6,6 +6,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// A tag helper for generating heading elements with customizable properties.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-heading tag=&quot;h2&quot;&gt;
+    ///     Section title
+    /// &lt;/gcds-heading&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-heading")]
     public class HeadingTagHelper : BaseTagHelper
     {

@@ -1,4 +1,4 @@
-﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Common.Utilities;
 using GCFoundation.Components.Attributes;
 using GCFoundation.Components.Enums;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -13,6 +13,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// A tag helper for rendering input elements for different data types (e.g., text, date, checkbox, text area). 
     /// It supports automatic binding to model properties and validation, and it dynamically chooses the appropriate input tag based on the property type.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-input for=&quot;@Model.Email&quot;&gt;
+    /// &lt;/fdcp-input&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-input", Attributes = "for")]
     [HtmlTargetElement("fdcp-input", Attributes = "name")]
     public class FDCPInputTagHelper : FDCPBaseFormComponentTagHelper

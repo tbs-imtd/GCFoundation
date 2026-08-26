@@ -6,6 +6,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// A TagHelper that renders a GC Design System compliant pagination component.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-pagination label=&quot;Pagination&quot; display=&quot;list&quot; current-page=&quot;1&quot; total-pages=&quot;5&quot;&gt;&lt;/gcds-pagination&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-pagination")]
     public class PaginationTagHelper : BaseTagHelper
     {

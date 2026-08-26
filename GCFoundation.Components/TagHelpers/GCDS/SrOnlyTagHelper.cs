@@ -6,6 +6,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// A TagHelper for generating elements that are visually hidden but still accessible to screen readers.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-sr-only tag=&quot;h1&quot;&gt;Skip to main content&lt;/gcds-sr-only&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-sr-only")]
     public class SrOnlyTagHelper : BaseTagHelper
     {

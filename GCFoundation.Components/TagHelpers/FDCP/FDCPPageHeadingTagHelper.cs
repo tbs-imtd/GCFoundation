@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Enums;
+using GCFoundation.Components.Enums;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Globalization;
 using System.Text;
@@ -8,6 +8,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// <summary>
     /// TagHelper for rendering a GC-style page header with title, description, and optional background image.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-page-heading title=&quot;Funding Opportunities&quot; description=&quot;Discover and apply for funding opportunities to support your projects and initiatives.&quot; src=&quot;/images/founding-opportunity-heading-bg.jpg&quot;&gt;
+    /// &lt;/fdcp-page-heading&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-page-heading")]
     public class FDCPPageHeadingTagHelper : TagHelper
     {
