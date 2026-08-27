@@ -16,7 +16,9 @@ namespace GCFoundation.Components.Services
     /// <typeparam name="T">The type used to retrieve localization resources.</typeparam>
     public class TagHelperCatalogService<T> : ITagHelperCatalogService
     {
-        // Matches ASP.NET's HtmlConventions.ToHtmlCase so RefreshURL becomes refresh-url.
+        /// <summary>
+        /// Matches ASP.NET's HtmlConventions.ToHtmlCase so RefreshURL becomes refresh-url.
+        /// </summary>
         private static readonly Regex HtmlAttributeNameRegex = new(
             "(?<!^)((?<=[a-zA-Z0-9])[A-Z][a-z])|((?<=[a-z])[A-Z])",
             RegexOptions.Compiled | RegexOptions.CultureInvariant);
@@ -26,15 +28,17 @@ namespace GCFoundation.Components.Services
 
         /// <summary>
         /// Initializes a new instance of the <see cref="TagHelperCatalogService{T}"/> class.
+        /// Loads the resource file and scans tag helpers once at startup.
         /// </summary>
-        // Loads the resource file and scans tag helpers once at startup.
         public TagHelperCatalogService()
         {
             resourceManager = ResolveResourceManager();
             discoveredTagHelpers = DiscoverTagHelpers();
         }
 
-        // Adds an attribute name to the list if it is not already there.
+        /// <summary>
+        /// Adds an attribute name to the list if it is not already there.
+        /// </summary>
         private static void AddKeyProperty(List<string> names, HashSet<string> seen, string attributeName)
         {
             if (string.IsNullOrWhiteSpace(attributeName) || !seen.Add(attributeName))
@@ -45,13 +49,17 @@ namespace GCFoundation.Components.Services
             names.Add(attributeName);
         }
 
-        // Builds the Components.fr.resx key for a tag, e.g. fdcp-input -> Index_TagHelpers_Description_FDCP_Input.
+        /// <summary>
+        /// Builds the Components.fr.resx key for a tag, e.g. fdcp-input maps to Index_TagHelpers_Description_FDCP_Input.
+        /// </summary>
         private static string BuildDescriptionResourceKey(string tagName)
         {
             return $"Index_TagHelpers_Description_{NormalizeTagName(tagName)}";
         }
 
-        // Required [HtmlTargetElement] attributes first, then bindable properties on this type and its bases.
+        /// <summary>
+        /// Collects required HtmlTargetElement attributes first, then bindable properties on this type and its bases.
+        /// </summary>
         private static List<string> BuildKeyProperties(Type type)
         {
             var names = new List<string>();
@@ -84,8 +92,10 @@ namespace GCFoundation.Components.Services
             return names;
         }
 
-        /// <inheritdoc />
-        // Localizes the already-discovered helpers and groups them for the Components page.
+        /// <summary>
+        /// Localizes the already-discovered helpers and groups them for the Components page.
+        /// </summary>
+        /// <returns>Grouped tag helper references for the current UI culture.</returns>
         public IReadOnlyList<TagHelperReferenceGroupViewModel> BuildTagHelperGroups()
         {
             CultureInfo culture = CultureInfo.CurrentUICulture;
@@ -155,7 +165,9 @@ namespace GCFoundation.Components.Services
             return results;
         }
 
-        // Scans FDCP/GCDS tag helper types and caches tag name, description, attributes, and snippet.
+        /// <summary>
+        /// Scans FDCP and GCDS tag helper types and caches tag name, description, attributes, and snippet.
+        /// </summary>
         private static List<DiscoveredTagHelper> DiscoverTagHelpers()
         {
             Assembly componentsAssembly = typeof(TagHelperCatalogService<>).Assembly;
@@ -211,7 +223,9 @@ namespace GCFoundation.Components.Services
             return discovered.Values.ToList();
         }
 
-        // Reads the usage snippet from XML <example>, or remarks/code if example is missing.
+        /// <summary>
+        /// Reads the usage snippet from the XML example, or remarks/code if example is missing.
+        /// </summary>
         private static string ExtractExample(XElement member)
         {
             XElement? example = member.Element("example");
@@ -229,7 +243,9 @@ namespace GCFoundation.Components.Services
             return remarksCode is null ? string.Empty : NormalizeExample(remarksCode.Value);
         }
 
-        // Indexes GCFoundation.Components.xml (from /// comments) by member name for summaries and examples.
+        /// <summary>
+        /// Indexes GCFoundation.Components.xml (from XML comments) by member name for summaries and examples.
+        /// </summary>
         private static Dictionary<string, XmlMemberDocumentation> LoadXmlDocumentation(Assembly componentsAssembly)
         {
             string xmlDocumentationPath = Path.ChangeExtension(componentsAssembly.Location, ".xml");
@@ -257,7 +273,9 @@ namespace GCFoundation.Components.Services
             return documentation;
         }
 
-        // Strips shared leading indent from XML <example> lines so snippets are left-aligned.
+        /// <summary>
+        /// Strips shared leading indent from XML example lines so snippets are left-aligned.
+        /// </summary>
         private static string NormalizeExample(string? example)
         {
             if (string.IsNullOrWhiteSpace(example))
@@ -281,7 +299,9 @@ namespace GCFoundation.Components.Services
                 contentLines.Select(line => line.Length >= indent ? line[indent..] : line.TrimStart()));
         }
 
-        // Collapses XML <summary> whitespace into a single line for the catalog description.
+        /// <summary>
+        /// Collapses XML summary whitespace into a single line for the catalog description.
+        /// </summary>
         private static string NormalizeSummary(string? summary)
         {
             if (string.IsNullOrWhiteSpace(summary))
@@ -301,7 +321,9 @@ namespace GCFoundation.Components.Services
             return normalized;
         }
 
-        // fdcp-error-summary -> FDCP_ErrorSummary for Index_TagHelpers_Description_* resx keys.
+        /// <summary>
+        /// Converts a tag name such as fdcp-error-summary to FDCP_ErrorSummary for resx keys.
+        /// </summary>
         private static string NormalizeTagName(string tagName)
         {
             string[] parts = tagName
@@ -324,7 +346,9 @@ namespace GCFoundation.Components.Services
             return remainder.Length == 0 ? prefix : $"{prefix}_{remainder}";
         }
 
-        // Splits HtmlTargetElement.Attributes values such as "for, items" into individual names.
+        /// <summary>
+        /// Splits HtmlTargetElement.Attributes values such as "for, items" into individual names.
+        /// </summary>
         private static IEnumerable<string> ParseTargetAttributes(string? attributes)
         {
             if (string.IsNullOrWhiteSpace(attributes))
@@ -337,7 +361,9 @@ namespace GCFoundation.Components.Services
                 .Where(attribute => !string.IsNullOrWhiteSpace(attribute));
         }
 
-        // Uses the class XML <summary> as the English catalog description.
+        /// <summary>
+        /// Uses the class XML summary as the English catalog description.
+        /// </summary>
         private static string ResolveEnglishDescription(
             Type tagHelperType,
             IReadOnlyDictionary<string, XmlMemberDocumentation> xmlDocumentation)
@@ -352,7 +378,9 @@ namespace GCFoundation.Components.Services
             return $"Tag helper description for {tagHelperType.Name}.";
         }
 
-        // Localized heading for the FDCP or GCDS group on the Components page.
+        /// <summary>
+        /// Localized heading for the FDCP or GCDS group on the Components page.
+        /// </summary>
         private string ResolveGroupTitle(string groupName, CultureInfo culture)
         {
             return groupName.Equals("FDCP", StringComparison.OrdinalIgnoreCase)
@@ -360,7 +388,9 @@ namespace GCFoundation.Components.Services
                 : resourceManager.GetString("Index_TagHelpers_Group_GCDS_Title", culture) ?? "GCDS Tag Helpers";
         }
 
-        // T is the resx Designer class (e.g. Web.Resources.Components) passed in at DI registration.
+        /// <summary>
+        /// Reads the static ResourceManager from T, the resx Designer class passed in at DI registration.
+        /// </summary>
         private static ResourceManager ResolveResourceManager()
         {
             PropertyInfo? resourceManagerProperty = typeof(T).GetProperty("ResourceManager", BindingFlags.Public | BindingFlags.Static);
@@ -373,7 +403,9 @@ namespace GCFoundation.Components.Services
                 $"Type '{typeof(T).FullName}' must expose a public static ResourceManager property.");
         }
 
-        // Uses the class XML <example> as the catalog usage snippet.
+        /// <summary>
+        /// Uses the class XML example as the catalog usage snippet.
+        /// </summary>
         private static string ResolveUsageSnippet(
             Type tagHelperType,
             IReadOnlyDictionary<string, XmlMemberDocumentation> xmlDocumentation)
@@ -388,7 +420,9 @@ namespace GCFoundation.Components.Services
             return string.Empty;
         }
 
-        // Converts a C# property name (CurrentStep) to the Razor attribute name (current-step).
+        /// <summary>
+        /// Converts a C# property name (CurrentStep) to the Razor attribute name (current-step).
+        /// </summary>
         private static string ToHtmlAttributeName(string propertyName)
         {
             #pragma warning disable CA1308 // HTML attribute names are lowercase kebab-case.
@@ -396,7 +430,9 @@ namespace GCFoundation.Components.Services
             #pragma warning restore CA1308
         }
 
-        // Skips non-bindable properties; uses [HtmlAttributeName] when set, otherwise kebab-case.
+        /// <summary>
+        /// Skips non-bindable properties; uses HtmlAttributeName when set, otherwise kebab-case.
+        /// </summary>
         private static bool TryGetHtmlAttributeName(PropertyInfo property, out string attributeName)
         {
             attributeName = string.Empty;
