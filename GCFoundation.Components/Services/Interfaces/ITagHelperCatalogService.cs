@@ -11,6 +11,6 @@ namespace GCFoundation.Components.Services.Interfaces
         /// Builds tag helper reference groups for the current UI culture.
         /// </summary>
         /// <returns>Grouped tag helper references.</returns>
-        List<TagHelperReferenceGroupViewModel> BuildTagHelperGroups();
+        IReadOnlyList<TagHelperReferenceGroupViewModel> BuildTagHelperGroups();
     }
 }

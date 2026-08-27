@@ -86,7 +86,7 @@ namespace GCFoundation.Components.Services
 
         /// <inheritdoc />
         // Localizes the already-discovered helpers and groups them for the Components page.
-        public List<TagHelperReferenceGroupViewModel> BuildTagHelperGroups()
+        public IReadOnlyList<TagHelperReferenceGroupViewModel> BuildTagHelperGroups()
         {
             CultureInfo culture = CultureInfo.CurrentUICulture;
             // tryParents: false so a missing FR key is empty, not an English fallback.
@@ -121,13 +121,18 @@ namespace GCFoundation.Components.Services
                         description = frenchDescription;
                     }
 
-                    items.Add(new TagHelperReferenceViewModel
+                    TagHelperReferenceViewModel item = new()
                     {
                         Title = $"<{tagHelper.TagName}>",
                         Description = description,
-                        KeyProperties = tagHelper.KeyProperties,
                         UsageSnippet = tagHelper.UsageSnippet
-                    });
+                    };
+                    foreach (string propertyName in tagHelper.KeyProperties)
+                    {
+                        item.KeyProperties.Add(propertyName);
+                    }
+
+                    items.Add(item);
                 }
 
                 if (items.Count == 0)
@@ -135,11 +140,16 @@ namespace GCFoundation.Components.Services
                     continue;
                 }
 
-                results.Add(new TagHelperReferenceGroupViewModel
+                TagHelperReferenceGroupViewModel groupViewModel = new()
                 {
-                    Title = ResolveGroupTitle(group.Key, culture),
-                    Items = items
-                });
+                    Title = ResolveGroupTitle(group.Key, culture)
+                };
+                foreach (TagHelperReferenceViewModel item in items)
+                {
+                    groupViewModel.Items.Add(item);
+                }
+
+                results.Add(groupViewModel);
             }
 
             return results;

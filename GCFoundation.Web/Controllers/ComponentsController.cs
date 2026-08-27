@@ -564,7 +564,7 @@ namespace GCFoundation.Web.Controllers
                     new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
                 },
-                TagHelperGroups = tagHelperCatalogService.BuildTagHelperGroups()
+                TagHelperGroups = tagHelperCatalogService.BuildTagHelperGroups().ToList()
             };
         }
         private static ComponentViewModel BuildModalComponentViewModel()

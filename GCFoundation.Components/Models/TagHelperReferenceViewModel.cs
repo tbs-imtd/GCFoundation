@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+
 namespace GCFoundation.Components.Models
 {
     /// <summary>
@@ -18,7 +20,7 @@ namespace GCFoundation.Components.Models
         /// <summary>
         /// Core attributes commonly used with the tag helper.
         /// </summary>
-        public List<string> KeyProperties { get; set; } = new List<string>();
+        public Collection<string> KeyProperties { get; } = new Collection<string>();
 
         /// <summary>
         /// Minimal usage snippet for quick reference.

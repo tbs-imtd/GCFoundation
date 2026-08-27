@@ -1,3 +1,5 @@
+using System.Collections.ObjectModel;
+
 namespace GCFoundation.Components.Models
 {
     /// <summary>
@@ -13,6 +15,6 @@ namespace GCFoundation.Components.Models
         /// <summary>
         /// Tag helper entries that belong to this group.
         /// </summary>
-        public List<TagHelperReferenceViewModel> Items { get; set; } = new List<TagHelperReferenceViewModel>();
+        public Collection<TagHelperReferenceViewModel> Items { get; } = new Collection<TagHelperReferenceViewModel>();
     }
 }
