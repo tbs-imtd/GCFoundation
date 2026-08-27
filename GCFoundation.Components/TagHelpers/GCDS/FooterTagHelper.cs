@@ -24,9 +24,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     {
         private readonly IUrlHelperFactory UrlHelperFactory = urlHelperFactory;
 
+        /// <summary>
+        /// The current <see cref="Microsoft.AspNetCore.Mvc.Rendering.ViewContext"/> for the executing view,
+        /// injected by the Razor runtime and used to construct the <see cref="IUrlHelper"/> for link resolution.
+        /// </summary>
         [ViewContext]
         [HtmlAttributeNotBound]
-        public ViewContext ViewContext { get; set; }
+        public ViewContext ViewContext { get; set; } = default!;
 
         /// <summary>
         /// The optional heading text to display in the footer's contextual section.
@@ -52,7 +56,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
-        {
+        {        
             var urlHelper = UrlHelperFactory.GetUrlHelper(ViewContext);
 
             AddAttributeIfNotNull(output, "contextual-heading", ContextualHeading);

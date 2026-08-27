@@ -1788,6 +1788,9 @@
   <data name="Table_Properties_Annotation_IsHidden" xml:space="preserve">
     <value>Masque explicitement cette colonne du tableau rendu même lorsque &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; est présent.</value>
   </data>
+  <data name="Table_Properties_Annotation_Order" xml:space="preserve">
+    <value>Contrôle l'ordre d'affichage de cette colonne par rapport aux autres colonnes. Les colonnes sont affichées en ordre croissant selon cette valeur.</value>
+  </data>
   <data name="Table_Properties_Annotation_RowHeader" xml:space="preserve">
     <value>Marque chaque cellule de cette colonne comme en-tête de rangée.</value>
   </data>
@@ -1874,6 +1877,27 @@
   </data>
   <data name="Table_WithButtonLink_Note" xml:space="preserve">
     <value>&lt;i&gt;Note : Dans cette démonstration, le bouton navigue vers une ancre de page. Dans une vraie application, &lt;code&gt;data-bind-template-href="/votre/route/{fieldName}"&lt;/code&gt; peut construire l'URL de destination dynamiquement à partir d'une valeur de la rangée.&lt;/i&gt;</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Title" xml:space="preserve">
+    <value>Avec un emplacement de légende</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Anchor" xml:space="preserve">
+    <value>avec-emplacements-legende</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Text" xml:space="preserve">
+    <value>Utilisez &lt;code&gt;&amp;lt;div slot="caption"&amp;gt;&lt;/code&gt; pour injecter du contenu personnalisé dans la zone de légende du tableau, en complément des attributs &lt;code&gt;caption&lt;/code&gt; et &lt;code&gt;caption-detail&lt;/code&gt;. Cela est utile pour placer des contrôles d'action, comme des boutons, directement au-dessus du tableau.</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Caption" xml:space="preserve">
+    <value>Soumissions</value>
+  </data>
+  <data name="Table_WithCaptionSlot_CaptionDetail" xml:space="preserve">
+    <value>Liste des soumissions récentes</value>
+  </data>
+  <data name="Table_WithCaptionSlot_ButtonLabel" xml:space="preserve">
+    <value>Ajouter une soumission</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note : Dans cette démonstration, cliquer sur le bouton Ajouter une soumission consigne un message dans la console du navigateur.&lt;/i&gt;</value>
   </data>
   <data name="Index_Tabs_Title" xml:space="preserve">
     <value>Onglets</value>

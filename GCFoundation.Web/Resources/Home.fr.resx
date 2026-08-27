@@ -152,6 +152,18 @@
   <data name="Index_Releases_Description" xml:space="preserve">
     <value>Consultez les dernières versions préliminaires, leurs principaux changements et les détails d'installation.</value>
   </data>
+  <data name="Index_Releases_Preview6_Date" xml:space="preserve">
+    <value>25 août 2026</value>
+  </data>
+  <data name="Index_Releases_Preview6_Description" xml:space="preserve">
+    <value>Ajoute les composants accordéon et bouton de copie, refait le modal FDCP et introduit un gabarit de page CRUD.</value>
+  </data>
+  <data name="Index_Releases_Preview5_Date" xml:space="preserve">
+    <value>27 juillet 2026</value>
+  </data>
+  <data name="Index_Releases_Preview5_Description" xml:space="preserve">
+    <value>Ajoute les onglets FDCP, met à jour la page d'installation et la documentation des tableaux, et corrige la visibilité de l'option active.</value>
+  </data>
   <data name="Index_Releases_Preview4_Date" xml:space="preserve">
     <value>15 juillet 2026</value>
   </data>

@@ -16,8 +16,8 @@
     @* Preview *@
     <gcds-heading tag="h2" id="@Template.Preview_Anchor">@Template.Preview</gcds-heading>
     <p>
-        <gcds-button button-role="secondary" type="link" href="@Url.Action("ErrorDemo", "Template")" target="_blank">@Template.Demo_Button <i class="ms-100 fa-solid fa-desktop"></i></gcds-button>
-        <gcds-button button-role="secondary" type="link" href="@Url.Action("ErrorCode", "Template")">@Template.Code_Button <i class="ms-100 fa-solid fa-code"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" target="_blank" rel="noopener noreferrer" href="@Url.Action("ErrorDemo", "Template")" target="_blank">@Template.Demo_Button <i class="ms-100 fa-solid fa-desktop"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" target="_blank" rel="noopener noreferrer" href="@Url.Action("ErrorCode", "Template")">@Template.Code_Button <i class="ms-100 fa-solid fa-code"></i></gcds-button>
     </p>
     @* Preview image *@
     <img src="@Url.Content($"~/images/templates/error-demo-{Localization.ThreeLetterLanguage}.png")" alt="@Template.Error_Demo_Image_AltText" class="border rounded w-75" />

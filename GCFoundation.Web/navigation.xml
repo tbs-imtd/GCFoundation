@@ -26,7 +26,12 @@
 						<NavNode key="template-basic-sidenav-demo" controller="Template" action="BasicSideNavDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Basic_SideNav_Demo" />
 					</Children>
 				</NavNode>
-				<NavNode key="template-crud" controller="Template" action="Crud" area="" preservedRouteParameters="culture" text="Nav_Template_Crud" componentVisibility="breadcrumbs" />
+				<NavNode key="template-crud" controller="Template" action="Crud" area="" preservedRouteParameters="culture" text="Nav_Template_Crud" componentVisibility="breadcrumbs">
+					<Children>
+						<NavNode key="template-crud-code" controller="Template" action="CrudCode" area="" preservedRouteParameters="culture" text="Nav_Template_Crud_Code" />
+						<NavNode key="template-crud-demo" controller="Template" action="CrudDemo" area="" preservedRouteParameters="culture" text="Nav_Template_Crud_Demo" />
+					</Children>
+				</NavNode>
 				<NavNode key="template-dashboard" controller="Template" action="Dashboard" area="" preservedRouteParameters="culture" text="Nav_Template_Dashboard" componentVisibility="breadcrumbs">
 					<Children>
 						<NavNode key="template-dashboard-code" controller="Template" action="DashboardCode" area="" preservedRouteParameters="culture" text="Nav_Template_Dashboard_Code" />
@@ -56,9 +61,9 @@
 
 		<NavNode key="components" area="" preservedRouteParameters="culture" text="Nav_Components" componentVisibility="topnav">
 			<Children>
-				<NavNode key="components-gcds" controller="Components" action="Gcds" area="" preservedRouteParameters="culture" text="Nav_Components_GCDesign" />
 				<NavNode key="components-foundation" controller="Components" action="Index" area="" preservedRouteParameters="culture" text="Nav_Components_GCFoundation">
 					<Children>
+						<NavNode key="components-accordion" controller="Components" action="Accordion" area="" preservedRouteParameters="culture" text="Nav_Components_Accordion" componentVisibility="breadcrumbs" />
 						<NavNode key="components-badge" controller="Components" action="Badge" area="" preservedRouteParameters="culture" text="Nav_Components_Badge" componentVisibility="breadcrumbs" />
 						<NavNode key="components-card" controller="Components" action="Card" area="" preservedRouteParameters="culture" text="Nav_Components_Card" componentVisibility="breadcrumbs" />
 						<NavNode key="components-filtered-search" controller="Components" action="FilteredSearch" area="" preservedRouteParameters="culture" text="Nav_Components_FilteredSearch" componentVisibility="breadcrumbs" />
@@ -78,6 +83,7 @@
 						</NavNode>
           </Children>
         </NavNode>
+        <NavNode key="components-gcds" controller="Components" action="Gcds" area="" preservedRouteParameters="culture" text="Nav_Components_GCDesign" />
 			</Children>
 		</NavNode>
 

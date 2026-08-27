@@ -1,0 +1,39 @@
+﻿@model GCFoundation.Web.Models.Template.Crud.DemoViewModel;
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.Crud_Demo_PageTitle</gcds-heading>
+<gcds-text>@Template.Crud_Demo_Intro</gcds-text>
+
+<gcds-heading tag="h2">@Template.Crud_Demo_TableSectionTitle</gcds-heading>
+<gcds-text>@Template.Crud_Demo_TableSectionDescription</gcds-text>
+<gcds-notice title="@Template.Crud_Demo_Notice_Title"><gcds-text>@Template.Crud_Demo_Notice_Text</gcds-text></gcds-notice>
+
+<section class="mt-400">
+    <gcds-button button-id="add-employee-button" type="link" href="@Url.Action("CrudEdit", "Template")">@Template.Crud_Demo_AddEmployee_Button</gcds-button>
+</section>
+
+<gcds-container size="lg">
+    <fdcp-table filter sort pagination-size="10" caption="@Template.Crud_Demo_TableCaption" caption-detail="@Template.Crud_Demo_TableCaptionDetail" rows="@Model.EmployeeModels">
+        <template slot="cell:actions">
+            <div class="fdcp-bind-group">
+                <gcds-button data-bind-template-button-id="view-button-{id}" title="@Template.Crud_Demo_ViewProfile_Title" button-role="primary" type="link" data-bind-template-href="view/{id}" size="small">@Localization.View</gcds-button>
+                <gcds-button data-bind-template-button-id="edit-button-{id}" title="@Template.Crud_Demo_EditProfile_Title" button-role="secondary" type="link" data-bind-template-href="edit/{id}" size="small">@Localization.Edit</gcds-button>
+                <gcds-button data-bind-template-button-id="delete-button-{id}" data-bind-data-employee-id="id" data-bind-data-employee-name="name" modal-id="delete-employee-modal" title="@Template.Crud_Demo_DeleteEmployee_Title" button-role="danger" class="fdcp-modal-open" size="small">@Localization.Delete</gcds-button>
+            </div>
+        </template>
+    </fdcp-table>
+</gcds-container>
+
+<fdcp-modal title="@Template.Crud_Demo_DeleteModal_Title" modal-id="delete-employee-modal" state="warning">
+    <div slot="body">
+        <gcds-text>@Template.Crud_Demo_DeleteModal_Text <strong data-employee-name-display></strong>. @Template.Crud_Demo_DeleteModal_Instruction</gcds-text>
+    </div>
+    <div slot="footer">
+        <fdcp-form for="@Model" method="post" action="@Url.Action("CrudDelete", "Template")">
+            @Html.AntiForgeryToken()
+            <gcds-button button-id="delete-employee" type="submit" name="id" value="" button-role="danger">@Localization.Delete</gcds-button>
+            <gcds-button button-id="delete-employee-cancel" button-role="secondary" class="fdcp-modal-close">@Localization.Cancel</gcds-button>
+        </fdcp-form>
+    </div>
+</fdcp-modal>

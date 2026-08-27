@@ -1789,6 +1789,9 @@
   <data name="Table_Properties_Annotation_IsHidden" xml:space="preserve">
     <value>Explicitly hides this column from the rendered table even when &lt;code&gt;[TableColumnDefinition]&lt;/code&gt; is present.</value>
   </data>
+  <data name="Table_Properties_Annotation_Order" xml:space="preserve">
+    <value>Controls the display order of this column relative to other columns. Columns are rendered in ascending order by this value.</value>
+  </data>
   <data name="Table_Properties_Annotation_RowHeader" xml:space="preserve">
     <value>Marks each cell in this column as a row header.</value>
   </data>
@@ -1875,6 +1878,27 @@
   </data>
   <data name="Table_WithButtonLink_Note" xml:space="preserve">
     <value>&lt;i&gt;Note: In this demo, the button navigates to a page anchor. In a real application, &lt;code&gt;data-bind-template-href="/your/route/{fieldName}"&lt;/code&gt; can build the destination URL dynamically from a row value.&lt;/i&gt;</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Title" xml:space="preserve">
+    <value>With caption slot</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Anchor" xml:space="preserve">
+    <value>with-slots-caption</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Text" xml:space="preserve">
+    <value>Use &lt;code&gt;&amp;lt;div slot="caption"&amp;gt;&lt;/code&gt; to inject custom content into the caption area of the table alongside the &lt;code&gt;caption&lt;/code&gt; and &lt;code&gt;caption-detail&lt;/code&gt; attributes. This is useful for placing action controls such as buttons directly above the table.</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Caption" xml:space="preserve">
+    <value>Submissions</value>
+  </data>
+  <data name="Table_WithCaptionSlot_CaptionDetail" xml:space="preserve">
+    <value>List of recent submissions</value>
+  </data>
+  <data name="Table_WithCaptionSlot_ButtonLabel" xml:space="preserve">
+    <value>Add submission</value>
+  </data>
+  <data name="Table_WithCaptionSlot_Note" xml:space="preserve">
+    <value>&lt;i&gt;Note: In this demo, clicking the Add submission button logs a message to the browser console.&lt;/i&gt;</value>
   </data>
   <data name="Index_Tabs_Title" xml:space="preserve">
     <value>Tabs</value>

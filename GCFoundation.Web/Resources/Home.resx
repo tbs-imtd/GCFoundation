@@ -152,6 +152,18 @@
   <data name="Index_Releases_Description" xml:space="preserve">
     <value>Review the latest preview releases, their key changes and installation details.</value>
   </data>
+  <data name="Index_Releases_Preview6_Date" xml:space="preserve">
+    <value>August 25, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview6_Description" xml:space="preserve">
+    <value>Adds accordion and copy-button components, remakes the FDCP modal, and introduces a CRUD page template.</value>
+  </data>
+  <data name="Index_Releases_Preview5_Date" xml:space="preserve">
+    <value>July 27, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview5_Description" xml:space="preserve">
+    <value>Adds FDCP tabs, updates the installation page and table documentation, and fixes active option visibility.</value>
+  </data>
   <data name="Index_Releases_Preview4_Date" xml:space="preserve">
     <value>July 15, 2026</value>
   </data>

@@ -35,6 +35,11 @@ namespace GCFoundation.Components.Attributes.Table
         public bool IsHidden { get; set; }
 
         /// <summary>
+        /// Determines the display order of this column relative to others.
+        /// </summary>
+        public int Order { get; set; }
+
+        /// <summary>
         /// Set <see cref="RowHeader"/> to <c>true</c> if you want to mark each cell in the column as a row header. Row headers label what each row is about.
         /// </summary>
         public bool RowHeader { get; set; }

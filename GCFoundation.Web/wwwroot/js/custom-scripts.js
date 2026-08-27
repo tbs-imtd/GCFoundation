@@ -6,15 +6,51 @@ const GCFoundationWeb = {
         this.initCreateCopyButton();
         this.initCopy();
         this.initTableActions();
+        this.initDeleteModal();
     },
     initTableActions: function () {
         document.addEventListener("click", (e) => {
             const deleteBtn = e.target.closest('.delete');
-            if (!deleteBtn) return;
+            if (deleteBtn) {
+                e.preventDefault();
+                console.log("Delete clicked for row:", deleteBtn.row, "submisisonId:", deleteBtn.row?.submissionId);
+                return;
+            }
 
-            e.preventDefault();
+            const addBtn = e.target.closest('.add-submission');
+            if (addBtn) {
+                e.preventDefault();
+                console.log("Add submission clicked");
+            }
+        });
+    },
+    initDeleteModal: function () {
+        document.addEventListener("click", (e) => {
+            const trigger = e.target.closest('.fdcp-modal-open');
+            if (!trigger) return;
 
-            console.log("Delete clicked for row:", deleteBtn.row, "submisisonId:", deleteBtn.row?.submissionId);
+            const employeeId = trigger.getAttribute('data-employee-id');
+            const employeeName = trigger.getAttribute('data-employee-name');
+            const modalId = trigger.getAttribute('modal-id');
+
+            const modal = document.querySelector(`dialog[modal-id="${modalId}"]`);
+            if (!modal) return;
+
+            const modalContent = modal.querySelector('.modal__body')
+            if (!modalContent) return;
+
+            const modalFooter = modal.querySelector('.modal__footer')
+            if (!modalFooter) return;
+
+            const submitBtn = modalFooter.querySelector('gcds-button[button-id=delete-employee]');
+            if (submitBtn) {
+                submitBtn['value'] = employeeId;
+            }
+
+            const nameTarget = modalContent.querySelector('strong[data-employee-name-display]');
+            if (nameTarget) {
+                nameTarget.textContent = employeeName;
+            }
         });
     },
     initCopy: function () {

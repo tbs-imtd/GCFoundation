@@ -23,6 +23,10 @@ class FDCPSearchableSelect {
         this.pointerDownStartedInside = false;
         this.hasValidationError = false;
         this.form = element.closest('form');
+        this._initialValues = new Map();
+
+        this._captureInitialValue(this.singleInput);
+        this.inputs.forEach(input => this._captureInitialValue(input));
 
         this.bindEvents();
         this.updateSelectionSummary();
@@ -132,6 +136,8 @@ class FDCPSearchableSelect {
                     event.preventDefault();
                 }
             });
+
+            this.form.addEventListener('reset', () => this.formResetCallback());
         }
 
         document.addEventListener('pointerdown', event => {
@@ -510,6 +516,50 @@ class FDCPSearchableSelect {
                 value: input.value,
                 label: input.getAttribute('data-option-label') || input.value
             }));
+    }
+
+    _captureInitialValue(input) {
+        if (!input) return;
+
+        if (input.type === 'checkbox' || input.type === 'radio') {
+            this._initialValues.set(input, input.defaultChecked);
+        } else {
+            this._initialValues.set(input, input.defaultValue);
+        }
+    }
+
+    formResetCallback() {
+        this.close();
+
+        if (this.selectionMode === 'single') {
+            const initialValue = this._initialValues.get(this.singleInput) ?? '';
+
+            if (this.singleInput) {
+                this.singleInput.value = initialValue;
+            }
+
+            const initialOption = this.options.find(
+                option => option.getAttribute('data-option-value') === initialValue
+            ) || null;
+
+            this.options.forEach(option => {
+                const isSelected = option === initialOption;
+
+                option.classList.toggle('is-selected', isSelected);
+                option.setAttribute('aria-selected', isSelected.toString());
+                option.setAttribute('tabindex', '-1');
+            });
+
+            this.setActiveSingleOption(initialOption);
+            this.updateSingleOptionTabIndexes();
+        } else {
+            this.inputs.forEach(input => {
+                input.checked = this._initialValues.get(input) ?? false;
+            });
+        }
+
+        this.updateSelectionSummary();
+        this.setValidationState(true, false);
     }
 
     updateSelectionSummary() {

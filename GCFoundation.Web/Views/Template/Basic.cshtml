@@ -14,8 +14,8 @@
     @* Preview *@
     <gcds-heading tag="h2" id="@Template.Preview_Anchor">@Template.Preview</gcds-heading>
     <p>
-        <gcds-button button-role="secondary" type="link" href="@Url.Action("BasicDemo", "Template")">@Template.Demo_Button <i class="ms-100 fa-solid fa-desktop"></i></gcds-button>
-        <gcds-button button-role="secondary" type="link" href="@Url.Action("BasicCode", "Template")">@Template.Code_Button <i class="ms-100 fa-solid fa-code"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" target="_blank" rel="noopener noreferrer" href="@Url.Action("BasicDemo", "Template")">@Template.Demo_Button <i class="ms-100 fa-solid fa-desktop"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" target="_blank" rel="noopener noreferrer" href="@Url.Action("BasicCode", "Template")">@Template.Code_Button <i class="ms-100 fa-solid fa-code"></i></gcds-button>
     </p>
     @* Preview image *@
     <img src="@Url.Content($"~/images/templates/basic-demo-{Localization.ThreeLetterLanguage}.png")" alt="@Template.Basic_Demo_Image_AltText" class="border rounded w-75" />
@@ -36,8 +36,8 @@
     @* Preview : Side Navigation *@
     <gcds-heading tag="h4" id="@Template.Basic_Design_SideNav_Preview_Anchor">@Html.Raw(Template.Basic_Design_SideNav_Preview)</gcds-heading>
     <p>
-        <gcds-button button-role="secondary" type="link" href="@Url.Action("BasicSideNavDemo", "Template")">@Template.Demo_Button <i class="ms-100 fa-solid fa-desktop"></i></gcds-button>
-        <gcds-button button-role="secondary" type="link" href="@Url.Action("BasicSideNavCode", "Template")">@Template.Code_Button <i class="ms-100 fa-solid fa-code"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" target="_blank" rel="noopener noreferrer" href="@Url.Action("BasicSideNavDemo", "Template")">@Template.Demo_Button <i class="ms-100 fa-solid fa-desktop"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" target="_blank" rel="noopener noreferrer" href="@Url.Action("BasicSideNavCode", "Template")">@Template.Code_Button <i class="ms-100 fa-solid fa-code"></i></gcds-button>
     </p>
     @* Preview image *@
     <img src="@Url.Content($"~/images/templates/basic-side-navigation-demo-{Localization.ThreeLetterLanguage}.png")" alt="@Template.Basic_Design_SideNav_Demo_Image_AltText" class="border rounded w-75" />

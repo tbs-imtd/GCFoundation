@@ -106,6 +106,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Accordion.
+        /// </summary>
+        public static string Nav_Components_Accordion {
+            get {
+                return ResourceManager.GetString("Nav_Components_Accordion", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Badge.
         /// </summary>
         public static string Nav_Components_Badge {
@@ -402,6 +411,24 @@ namespace GCFoundation.Web.Resources {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to CRUD Page Code.
+        /// </summary>
+        public static string Nav_Template_Crud_Code {
+            get {
+                return ResourceManager.GetString("Nav_Template_Crud_Code", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to CRUD Page Demo.
+        /// </summary>
+        public static string Nav_Template_Crud_Demo {
+            get {
+                return ResourceManager.GetString("Nav_Template_Crud_Demo", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Dashboard Page.
         /// </summary>

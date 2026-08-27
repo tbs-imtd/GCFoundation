@@ -1,0 +1,42 @@
+﻿@model GCFoundation.Web.Models.Template.Crud.EmployeeViewModel
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+@{
+    var managerList = new List<SelectListItem>() {
+        new() { Text = Template.Crud_Edit_Manager_DavidChen, Value = "David Chen"},
+        new() { Text = Template.Crud_Edit_Manager_LindaOsei, Value = "Linda Osei"},
+        new() { Text = Template.Crud_Edit_Manager_KarenWu, Value = "Karen Wu"}
+    };
+
+    var departmentList = new List<SelectListItem>()
+    {
+        new() { Text = Template.Crud_Edit_Department_ItOperations, Value = "IT Operations"},
+        new() { Text = Template.Crud_Edit_Department_ApplicationDevelopment, Value = "Application Development"},
+        new() { Text = Template.Crud_Edit_Department_Cybersecurity, Value = "Cybersecurity"},
+        new() { Text = Template.Crud_Edit_Department_EnterpriseArchitecture, Value = "Enterprise Architecture"},
+        new() { Text = Template.Crud_Edit_Department_ItStrategy, Value = "IT Strategy"},
+        new() { Text = Template.Crud_Edit_Department_AdministrativeServices, Value = "Administrative Services"},
+        new() { Text = Template.Crud_Edit_Department_ProgramSupport, Value = "Program Support"}
+    };
+}
+
+<gcds-heading tag="h1">@Template.Crud_Edit_PageTitle</gcds-heading>
+
+<fdcp-form method="post" for="@Model" action="@Url.Action("CrudSave", "Template")">
+    @Html.AntiForgeryToken()
+    <fdcp-input for="@Model.Name"></fdcp-input>
+    <fdcp-input for="@Model.Id"></fdcp-input>
+    <fdcp-input for="@Model.Level"></fdcp-input>
+    <fdcp-searchable-select for="@Model.Department" items="@departmentList"></fdcp-searchable-select>
+    <fdcp-searchable-select for="@Model.ManagerName" items="@managerList"></fdcp-searchable-select>
+    <fdcp-input for="@Model.Salary"></fdcp-input>
+    <fdcp-input for="@Model.Address"></fdcp-input>
+    <section class="mt-400">
+        <gcds-button type="submit" href="@Url.Action("CrudSave", "template")">@Localization.Save</gcds-button>
+    </section>
+</fdcp-form>
+
+
+<section class="mt-400">
+    <gcds-button type="link" button-role="secondary" href="@Url.Action("CrudDemo", "Template")"><gcds-icon name="chevron-left" margin-right="50"></gcds-icon>@Template.Crud_BackToEmployeeList_Button</gcds-button>
+</section>

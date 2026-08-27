@@ -4,7 +4,7 @@
         this.isStatic = element.dataset.static === 'true';
         this.closeButtons = element.querySelectorAll('.fdcp-modal-close');
         this.triggerElement = null;
-
+        this.table = document.querySelector('gcds-table');
         this.bindEvents();
     }
 
@@ -74,10 +74,28 @@
         // onExit() fires automatically via the 'close' event
     }
 }
+function bindModalTrigger(trigger) {
+    if (trigger.dataset.fdcpBound) return;
+    trigger.addEventListener('click', () => {
+        const targetId = trigger.getAttribute('modal-id');
+        const instance = fdcpModalRegistry.get(targetId);
+        if (instance) {
+            instance.show(trigger);
+        }
+    });
+    trigger.dataset.fdcpBound = 'true';
+}
 
 const fdcpModalRegistry = new Map();
 
 document.addEventListener('DOMContentLoaded', () => {
+    const tables = document.querySelectorAll('gcds-table');
+    if (tables.length >= 1) {
+        document.addEventListener('fdcp-table:rows-rendered', (e) => {
+            if (!Array.from(tables).includes(e.detail.table)) return;
+            e.detail.table.querySelectorAll('.fdcp-modal-open[modal-id]').forEach(bindModalTrigger);
+        });
+    }
     document.querySelectorAll('dialog.modal').forEach(modalEl => {
         fdcpModalRegistry.set(modalEl.getAttribute('modal-id'), new FDCPModal(modalEl));
     });

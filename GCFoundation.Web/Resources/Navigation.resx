@@ -135,6 +135,9 @@
   <data name="Nav_Components_FormBuilder" xml:space="preserve">
     <value>Form Builder</value>
   </data>
+  <data name="Nav_Components_Accordion" xml:space="preserve">
+    <value>Accordion</value>
+  </data>
   <data name="Nav_Components_Badge" xml:space="preserve">
     <value>Badge</value>
   </data>
@@ -260,6 +263,12 @@
   </data>
   <data name="Nav_Template_Crud" xml:space="preserve">
     <value>CRUD Pages</value>
+  </data>
+  <data name="Nav_Template_Crud_Code" xml:space="preserve">
+    <value>CRUD Page Code</value>
+  </data>
+  <data name="Nav_Template_Crud_Demo" xml:space="preserve">
+    <value>CRUD Page Demo</value>
   </data>
   <data name="Nav_Home_AccessibilityStatement" xml:space="preserve">
     <value>Accessibility statement</value>

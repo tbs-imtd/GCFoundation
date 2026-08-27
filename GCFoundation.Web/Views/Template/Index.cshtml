@@ -13,7 +13,7 @@
     var template = new List<CardTagHelper>()
     {
         new CardTagHelper() { CardTitle = Template.Index_Basic_Title, Description = Template.Index_Basic_Description, Href = @Url.Action("Basic", "Template") ?? string.Empty },
-        new CardTagHelper() { Badge = Template.Index_Template_UnderDevelopment, CardTitle = Template.Index_Crud_Title, Description = Template.Index_Crud_Description, Href = @Url.Action("Crud", "Template") ?? string.Empty },
+        new CardTagHelper() { CardTitle = Template.Index_Crud_Title, Description = Template.Index_Crud_Description, Href = @Url.Action("Crud", "Template") ?? string.Empty },
         new CardTagHelper() { Badge = Template.Index_Template_UnderDevelopment, CardTitle = Template.Index_Dashboard_Title, Description = Template.Index_Dashboard_Description, Href = @Url.Action("Dashboard", "Template") ?? string.Empty },
         new CardTagHelper() { CardTitle = Template.Index_Error_Title, Description = Template.Index_Error_Description, Href = @Url.Action("Error", "Template") ?? string.Empty },
         new CardTagHelper() { CardTitle = Template.Index_LanguageChooser_Title, Description = Template.Index_LanguageChooser_Description, Href = @Url.Action("LanguageChooser", "Template") ?? string.Empty },

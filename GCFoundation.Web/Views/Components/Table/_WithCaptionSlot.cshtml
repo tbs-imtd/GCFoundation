@@ -1,0 +1,38 @@
+@using GCFoundation.Web.Models.Table
+@using GCFoundation.Web.Resources
+
+@{
+    var rows = new List<TableRowBasicTestViewModel>
+    {
+        new() { SubmissionId = "001", SubmitterName = "Alice Tremblay",  DateSubmitted = new DateTime(2025, 3, 10,  9,  0, 0), AssignedReviewer = "Bob Martin"     },
+        new() { SubmissionId = "002", SubmitterName = "Jean Dupont",     DateSubmitted = new DateTime(2025, 3, 11, 14, 30, 0), AssignedReviewer = "Alice Tremblay" },
+        new() { SubmissionId = "003", SubmitterName = "Sarah Lee",       DateSubmitted = new DateTime(2025, 3, 12, 10, 15, 0), AssignedReviewer = "Bob Martin"     },
+    };
+}
+
+<fdcp-table filter sort caption="@Components.Table_WithCaptionSlot_Caption"
+            caption-detail="@Components.Table_WithCaptionSlot_CaptionDetail"
+            rows="@rows">
+    <div slot="caption">
+        <gcds-button size="small" class="mb-200 add-submission">@Components.Table_WithCaptionSlot_ButtonLabel</gcds-button>
+    </div>
+</fdcp-table>
+
+<gcds-text class="mt-200">@Html.Raw(@Components.Table_WithCaptionSlot_Note)</gcds-text>
+
+<div class="code-container">
+    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table filter sort caption=""{Html.Encode(Components.Table_WithCaptionSlot_Caption)}""
+            caption-detail=""{Html.Encode(Components.Table_WithCaptionSlot_CaptionDetail)}""
+            rows=""@Model.Rows""&gt;
+    &lt;div slot=""caption""&gt;
+        &lt;gcds-button size=""small"" class=""mb-200""&gt;{Html.Encode(Components.Table_WithCaptionSlot_ButtonLabel)}&lt;/gcds-button&gt;
+    &lt;/div&gt;
+&lt;/fdcp-table&gt;")</code></pre>
+</div>
+<div class="code-container">
+    <pre><code class="language-javascript">@Html.Raw(Html.Encode(@"const addBtn = e.target.closest('.add-submission');
+if (addBtn) {
+    e.preventDefault();
+    console.log(""Add submission clicked"");
+}"))</code></pre>
+</div>

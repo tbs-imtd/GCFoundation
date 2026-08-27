@@ -807,7 +807,8 @@ namespace GCFoundation.Web.Controllers
                             new NavLink() { Href = Resources.Components.Table_WithEmail_Anchor, Label = Resources.Components.Table_WithEmail_Title },
                             new NavLink() { Href = Resources.Components.Table_WithLink_Anchor, Label = Resources.Components.Table_WithLink_Title },
                             new NavLink() { Href = Resources.Components.Table_WithButton_Anchor, Label = Resources.Components.Table_WithButton_Title },
-                            new NavLink() { Href = Resources.Components.Table_WithButtonLink_Anchor, Label = Resources.Components.Table_WithButtonLink_Title }
+                            new NavLink() { Href = Resources.Components.Table_WithButtonLink_Anchor, Label = Resources.Components.Table_WithButtonLink_Title },
+                            new NavLink() { Href = Resources.Components.Table_WithCaptionSlot_Anchor, Label = Resources.Components.Table_WithCaptionSlot_Title }
                         }
                     },
                     new NavLink() { Href = Resources.Components.Properties_Anchor, Label = Resources.Components.Properties }

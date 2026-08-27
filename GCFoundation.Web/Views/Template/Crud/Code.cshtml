@@ -1,0 +1,167 @@
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@Template.Crud_Code_Name</gcds-heading>
+@Html.Raw(Template.Crud_Code_Intro)
+
+<gcds-heading tag="h2">@Template.Crud_Code_Demo_Title</gcds-heading>
+<pre><code class="language-cshtml">@Html.Raw($@"@model GCFoundation.Web.Models.Template.Crud.DemoViewModel
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+
+&lt;gcds-heading tag=""h1""&gt;{Html.Encode(Template.Crud_Demo_PageTitle)}&lt;/gcds-heading&gt;
+&lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_Intro)}&lt;/gcds-text&gt;
+
+&lt;gcds-heading tag=""h2""&gt;{Html.Encode(Template.Crud_Demo_TableSectionTitle)}&lt;/gcds-heading&gt;
+&lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_TableSectionDescription)}&lt;/gcds-text&gt;
+&lt;gcds-notice title=""{Html.Encode(Template.Crud_Demo_Notice_Title)}""&gt;&lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_Notice_Text)}&lt;/gcds-text&gt;&lt;/gcds-notice&gt;
+
+&lt;section class=""mt-400""&gt;
+    &lt;gcds-button type=""link"" href=""@Url.Action(""CrudEdit"", ""Template"")""&gt;{Html.Encode(Template.Crud_Demo_AddEmployee_Button)}&lt;/gcds-button&gt;
+&lt;/section&gt;
+
+&lt;gcds-container size=""lg""&gt;
+    &lt;fdcp-table filter sort pagination-size=""10""
+                caption=""{Html.Encode(Template.Crud_Demo_TableCaption)}""
+                caption-detail=""{Html.Encode(Template.Crud_Demo_TableCaptionDetail)}""
+                rows=""@Model.EmployeeModels""&gt;
+        &lt;template slot=""cell:actions""&gt;
+            &lt;div class=""fdcp-bind-group""&gt;
+                &lt;gcds-button data-bind-template-button-id=""view-button-{{id}}"" title=""{Html.Encode(Template.Crud_Demo_ViewProfile_Title)}"" button-role=""primary"" type=""link"" data-bind-template-href=""profile/{{id}}"" size=""small""&gt;{Html.Encode(Localization.View)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""edit-button-{{id}}"" title=""{Html.Encode(Template.Crud_Demo_EditProfile_Title)}"" button-role=""secondary"" type=""link"" data-bind-template-href=""edit/{{id}}"" size=""small""&gt;{Html.Encode(Localization.Edit)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""delete-button-{{id}}"" data-bind-data-employee-id=""id"" data-bind-data-employee-name=""name"" modal-id=""delete-employee-modal"" title=""{Html.Encode(Template.Crud_Demo_DeleteEmployee_Title)}"" button-role=""danger"" class=""fdcp-modal-open"" size=""small""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
+            &lt;/div&gt;
+        &lt;/template&gt;
+    &lt;/fdcp-table&gt;
+&lt;/gcds-container&gt;
+
+&lt;fdcp-modal title=""{Html.Encode(Template.Crud_Demo_DeleteModal_Title)}"" modal-id=""delete-employee-modal"" state=""warning""&gt;
+    &lt;div slot=""body""&gt;
+        &lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_DeleteModal_Text)} &lt;strong data-employee-name-display&gt;&lt;/strong&gt;. {Html.Encode(Template.Crud_Demo_DeleteModal_Instruction)}&lt;/gcds-text&gt;
+    &lt;/div&gt;
+    &lt;div slot=""footer""&gt;
+        &lt;fdcp-form for=""@Model"" method=""post"" action=""@Url.Action(""CrudDelete"", ""Template"")""&gt;
+            @Html.AntiForgeryToken()
+            &lt;gcds-button button-id=""delete-employee"" type=""submit"" name=""id"" value="""" button-role=""danger""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
+            &lt;gcds-button button-id=""delete-employee-cancel"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Localization.Cancel)}&lt;/gcds-button&gt;
+        &lt;/fdcp-form&gt;
+    &lt;/div&gt;
+&lt;/fdcp-modal&gt;")</code></pre>
+
+<gcds-heading tag="h2">@Template.Crud_Code_Edit_Title</gcds-heading>
+<gcds-text>@Template.Crud_Code_Edit_Text</gcds-text>
+<pre><code class="language-cshtml">@Html.Raw($@"@model GCFoundation.Web.Models.Template.Crud.EmployeeViewModel
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+@{{
+    var managerList = new List<SelectListItem>() {{
+        ...
+    }};
+
+    var departmentList = new List<SelectListItem>(){{
+        ...
+    }};
+ }}
+
+&lt;gcds-heading tag=""h1""&gt;{Html.Encode(Template.Crud_Edit_PageTitle)}&lt;/gcds-heading&gt;
+
+&lt;fdcp-form method=""post"" for=""@Model"" action=""@Url.Action(""CrudSave"", ""Template"")""&gt;
+    @Html.AntiForgeryToken()
+    &lt;fdcp-input for=""@Model.Name""&gt;&lt;/fdcp-input&gt;
+    &lt;fdcp-input for=""@Model.Id""&gt;&lt;/fdcp-input&gt;
+    &lt;fdcp-input for=""@Model.Level""&gt;&lt;/fdcp-input&gt;
+    &lt;fdcp-searchable-select for=""@Model.Department"" items=""@departmentList""&gt;&lt;/fdcp-searchable-select&gt;
+    &lt;fdcp-searchable-select for=""@Model.ManagerName"" items=""@managerList""&gt;&lt;/fdcp-searchable-select&gt;
+    &lt;fdcp-input for=""@Model.Salary""&gt;&lt;/fdcp-input&gt;
+    &lt;fdcp-input for=""@Model.Address""&gt;&lt;/fdcp-input&gt;
+    &lt;section class=""mt-400""&gt;
+        &lt;gcds-button type=""submit"" href=""@Url.Action(""CrudSave"", ""template"")""&gt;{Html.Encode(Localization.Save)}&lt;/gcds-button&gt;
+    &lt;/section&gt;
+&lt;/fdcp-form&gt;
+
+&lt;section class=""mt-400""&gt;
+    &lt;gcds-button type=""link"" button-role=""secondary"" href=""@Url.Action(""CrudDemo"", ""Template"")""&gt;&lt;gcds-icon name=""chevron-left"" margin-right=""50""&gt;&lt;/gcds-icon&gt;{Html.Encode(Template.Crud_BackToEmployeeList_Button)}&lt;/gcds-button&gt;
+&lt;/section&gt;")</code></pre>
+
+<gcds-heading tag="h2">@Template.Crud_Code_Profile_Title</gcds-heading>
+<gcds-text>@Template.Crud_Code_Profile_Text</gcds-text>
+<pre><code class="language-cshtml">@Html.Raw($@"@using System.Reflection
+@using System.ComponentModel.DataAnnotations;
+@using GCFoundation.Web.Models.Template.Crud;
+@using GCFoundation.Web.Resources
+@model EmployeeViewModel;
+@{{
+    var properties = Model.GetType()
+            .GetProperties()
+            .Where(p => p.GetCustomAttribute&lt;DisplayAttribute&gt;() != null)
+            .OrderBy(p => p.GetCustomAttribute&lt;DisplayAttribute&gt;()!.Order);
+}}
+
+&lt;gcds-heading tag=""h1""&gt;{Html.Encode(Template.Crud_Profile_PageTitle)}&lt;/gcds-heading&gt;
+&lt;gcds-heading tag=""h2""&gt;@Model.Name&lt;/gcds-heading&gt;
+@foreach(var prop in properties)
+{{
+    if (prop.Name != ""Name"")
+    {{
+        var displayName = prop.GetCustomAttribute&lt;DisplayAttribute&gt;()!.GetName();
+        &lt;gcds-text&gt;&lt;strong&gt;@displayName: &lt;/strong&gt;@Html.Display(prop.Name)&lt;/gcds-text&gt;
+    }}
+}}
+
+&lt;section class=""mt-400""&gt;
+    &lt;gcds-button button-role=""secondary"" type=""link"" href=""@Url.Action(""CrudDemo"", ""Template"")""&gt;&lt;gcds-icon name=""chevron-left"" margin-right=""50""&gt;&lt;/gcds-icon&gt;{Html.Encode(Template.Crud_Back_Button)}&lt;/gcds-button&gt;
+&lt;/section&gt;")</code></pre>
+
+<gcds-heading tag="h2">@Template.Crud_Code_EmployeeViewModel_Title</gcds-heading>
+<gcds-text>@Template.Crud_Code_EmployeeViewModel_Text</gcds-text>
+<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"using GCFoundation.Common.Utilities;
+using GCFoundation.Components.Attributes;
+using GCFoundation.Components.Attributes.Table;
+using GCFoundation.Components.Models;
+using System.ComponentModel.DataAnnotations;
+
+namespace GCFoundation.Web.Models.Template.Crud
+{
+    public class EmployeeViewModel : BaseViewModel
+    {
+        [TableColumnDefinition(Slotted = true, Order = 4)]
+        public string Actions { get; set; } = string.Empty;
+
+        [Display(Name = ""Crud_Demo_Address_Label"", ResourceType = typeof(Resources.Template), Order = 9)]
+        public string Address { get; set; } = string.Empty;
+
+        [DataType(DataType.Date)]
+        [DateFormat(""yyyy-mm-dd"")]
+        [Display(Name = ""Crud_Demo_DateOfBirth_Label"", ResourceType = typeof(Resources.Template), Order = 8)]
+        public DateTime DateOfBirth { get; set; } = DateTime.Now;
+
+        [Display(Name = ""Crud_Demo_Department_Label"", ResourceType = typeof(Resources.Template), Order = 5)]
+        public string Department => LanguageUtility.IsFrench() ? DepartmentFr : DepartmentEn;
+
+        public string DepartmentEn { get; set; } = string.Empty;
+        public string DepartmentFr { get; set; } = string.Empty;
+
+        [Display(Name = ""Crud_Demo_EmployeeId_Label"", ResourceType = typeof(Resources.Template), Order = 2)]
+        [TableColumnDefinition(RowHeader = true, Sort = true, Order = 1)]
+        public string Id { get; set; } = string.Empty;
+
+        [Display(Name = ""Crud_Demo_EmployeeLevel_Label"", ResourceType = typeof(Resources.Template), Order = 3)]
+        [TableColumnDefinition(Sort = true, Order = 3)]
+        public string Level { get; set; } = string.Empty;
+
+        [Display(Name = ""Crud_Demo_ManagerName_Label"", ResourceType = typeof(Resources.Template), Order = 6)]
+        public string ManagerName { get; set; } = string.Empty;
+
+        [Display(Name = ""Crud_Demo_EmployeeName_Label"", ResourceType = typeof(Resources.Template), Order = 2)]
+        [TableColumnDefinition(Sort = true, Order = 2)]
+        public string Name { get; set; } = string.Empty;
+
+        [Display(Name = ""Crud_Demo_Salary_Label"", ResourceType = typeof(Resources.Template), Order = 4)]
+        public double Salary { get; set; }
+
+        [DataType(DataType.Date)]
+        [DateFormat(""yyyy-mm-dd"")]
+        [Display(Name = ""Crud_Demo_StartDate_Label"", ResourceType = typeof(Resources.Template), Order = 7)]
+        public DateTime StartDate { get; set; } = DateTime.Now;
+    }
+}"))</code></pre>

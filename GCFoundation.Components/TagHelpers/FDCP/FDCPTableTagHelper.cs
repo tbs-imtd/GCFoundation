@@ -3,6 +3,7 @@ using GCFoundation.Components.Attributes.Table;
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.TableBuilder;
 using GCFoundation.Components.TagHelpers.GCDS;
+using HtmlAgilityPack;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Localization;      
 using System.ComponentModel.DataAnnotations;
@@ -39,6 +40,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// The column definitions for the table. If <c>null</c> or empty, columns are resolved
         /// automatically from the properties of the row model in <see cref="Rows"/>.
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2227:Collection properties should be read only", Justification = "<Pending>")]
         public ICollection<ColumnDefinition>? ColumnDefinitions { get; set; }
 
         /// <summary>
@@ -61,7 +63,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? CaptionDetail { get; set; }
 
         /// <inheritdoc/>
-        public override void Process(TagHelperContext context, TagHelperOutput output)
+        public override async Task ProcessAsync(TagHelperContext context, TagHelperOutput output)
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
@@ -69,13 +71,26 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 BuildFromRows();
 
             if (ColumnDefinitions != null && Rows != null)
-                BuildFromColsAndRows();            
-            
+                BuildFromColsAndRows();
+
             output.TagName = "gcds-table";
             output.TagMode = TagMode.StartTagAndEndTag;
 
+            var childContent = await output.GetChildContentAsync().ConfigureAwait(false);
+            string childHtml = childContent.GetContent();
+
             base.Process(context, output);
-            output.PreContent.SetHtmlContent(BuildHtml());
+
+            string captionInnerHtml = BuildCaptionInnerHtml();
+            if (TryInjectIntoExistingCaptionDiv(childHtml, captionInnerHtml, out string mergedHtml))
+            {
+                output.Content.SetHtmlContent(mergedHtml);
+            }
+            else
+            {
+                output.Content.SetHtmlContent(childHtml);
+                output.PreContent.SetHtmlContent(BuildCaptionHtml(captionInnerHtml));
+            }
         }
 
         #region BuildColumnsAndData
@@ -85,6 +100,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             BuildFromColsAndRows();
         }
 
+
         private void BuildFromColsAndRows()
         {
             Columns = JsonSerializer.Serialize(ColumnDefinitions, JsonOptionsUtility.CamelCaseIgnoreNull);
@@ -93,49 +109,60 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         #endregion
 
         #region BuildHtmlContent
-        private string BuildHtml()
+        private string BuildCaptionInnerHtml()
         {
             string captionDetailHtml = string.IsNullOrEmpty(CaptionDetail) ? string.Empty : $"<gcds-text>{CaptionDetail}</gcds-text>";
             string html = $"""
-                <div slot="caption">
-                    <gcds-heading tag="h5">{Caption}</gcds-heading>
-                    {captionDetailHtml}
-                </div>
+                <gcds-heading tag="h5">{Caption}</gcds-heading>
+                {captionDetailHtml}
                 """;
             return html;
         }
-           
+
+        private static string BuildCaptionHtml(string innerHtml)
+        {
+            return $"""
+            <div slot="caption">
+                {innerHtml}
+            </div>
+            """;
+        }
         #endregion
 
         #region Resolvers
         private void ResolveColumns()
         {
-            if (Rows != null && Rows.Any())
+            if (Rows == null || !Rows.Any())
+                return;
+
+            Type type = Rows.First().GetType();
+            var properties = type != null ?
+                type.GetProperties()?
+                .Where(prop => prop.GetCustomAttribute<TableColumnDefinitionAttribute>() != null)
+                .OrderBy(prop => prop.GetCustomAttribute<TableColumnDefinitionAttribute>()!.Order)
+                .ToList() : null;
+
+            if (properties == null)
+                return;
+
+            ColumnDefinitions = new List<ColumnDefinition>();
+
+            foreach (PropertyInfo prop in properties)
             {
-                Type type = Rows.First().GetType();
-                var properties = type != null ? type.GetProperties() : null;
-                ColumnDefinitions = new List<ColumnDefinition>();
-                if (properties == null)
-                    return;
-                foreach (PropertyInfo prop in properties)
+                TableColumnDefinitionAttribute attribute = prop.GetCustomAttribute<TableColumnDefinitionAttribute>()!;
+
+                if (!attribute.IsHidden)
                 {
-                    TableColumnDefinitionAttribute? attribute = prop.GetCustomAttribute<TableColumnDefinitionAttribute>();
-                    if (attribute != null)
+                    ColumnDefinitions.Add(new ColumnDefinition()
                     {
-                        if (!attribute.IsHidden)
-                        {
-                            ColumnDefinitions.Add(new ColumnDefinition()
-                            {
-                                Field = JsonNamingPolicy.CamelCase.ConvertName(prop.Name),
-                                Header = ResolveLocalizedHeader(attribute, prop),
-                                Slotted = attribute.Slotted,
-                                RowHeader = attribute.RowHeader,
-                                Sort = attribute.Sort,
-                                SortDirection = attribute.SortDirection == SortDirection.none ? null : attribute.SortDirection,
-                                Alignment = attribute.Alignment
-                            });
-                        }
-                    }
+                        Field = JsonNamingPolicy.CamelCase.ConvertName(prop.Name),
+                        Header = ResolveLocalizedHeader(attribute, prop),
+                        Slotted = attribute.Slotted,
+                        RowHeader = attribute.RowHeader,
+                        Sort = attribute.Sort,
+                        SortDirection = attribute.SortDirection == SortDirection.none ? null : attribute.SortDirection,
+                        Alignment = attribute.Alignment
+                    });
                 }
             }
             return;
@@ -162,6 +189,37 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             return name;
         }
-    }
         #endregion
+
+        #region Helpers
+        private static bool TryInjectIntoExistingCaptionDiv(string childHtml, string captionInnerHtml, out string updatedHtml)
+        {
+            updatedHtml = childHtml;
+
+            if (string.IsNullOrWhiteSpace(childHtml))
+                return false;
+
+            var doc = new HtmlDocument();
+            doc.LoadHtml(childHtml);
+
+            HtmlNode? captionDiv = doc.DocumentNode.ChildNodes
+                .FirstOrDefault(n => n.Name == "div" && n.GetAttributeValue("slot", string.Empty) == "caption");
+
+            if (captionDiv == null)
+                return false;
+
+            var fragment = new HtmlDocument();
+            fragment.LoadHtml(captionInnerHtml);
+
+            HtmlNode? insertBefore = captionDiv.FirstChild;
+            foreach (var node in fragment.DocumentNode.ChildNodes.ToList())
+            {
+                captionDiv.InsertBefore(node, insertBefore);
+            }
+
+            updatedHtml = doc.DocumentNode.OuterHtml;
+            return true;
+        }
+        #endregion
+    }
 }
