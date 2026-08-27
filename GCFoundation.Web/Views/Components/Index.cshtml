@@ -32,11 +32,14 @@
         <gcds-details details-title="@tagHelperReference.Title">
             <gcds-text margin-bottom="100">@tagHelperReference.Description</gcds-text>
             @if (tagHelperReference.KeyProperties != null && tagHelperReference.KeyProperties.Count > 0)
-            { 
+            {
                 <gcds-text margin-bottom="100">
                     <strong>@Components.Index_TagHelpers_KeyProperties_Label:</strong>
                     @string.Join(", ", tagHelperReference.KeyProperties)
                 </gcds-text>
+            }
+            @if (!string.IsNullOrWhiteSpace(tagHelperReference.UsageSnippet))
+            {
                 <pre><code class="language-cshtml">@Html.Raw(Html.Encode(tagHelperReference.UsageSnippet))</code></pre>
             }
         </gcds-details>

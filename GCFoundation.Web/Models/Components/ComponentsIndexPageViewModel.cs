@@ -1,3 +1,5 @@
+using GCFoundation.Components.Models;
+
 namespace GCFoundation.Web.Models.Components
 {
     /// <summary>

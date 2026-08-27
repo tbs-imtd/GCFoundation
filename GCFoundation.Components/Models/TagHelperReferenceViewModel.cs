@@ -1,7 +1,7 @@
-namespace GCFoundation.Web.Models.Components
+namespace GCFoundation.Components.Models
 {
     /// <summary>
-    /// ViewModel representing a tag helper reference entry displayed on the Components index page.
+    /// Represents a tag helper reference entry displayed on the Components index page.
     /// </summary>
     public class TagHelperReferenceViewModel
     {

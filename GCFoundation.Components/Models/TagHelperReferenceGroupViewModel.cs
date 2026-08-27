@@ -1,7 +1,7 @@
-namespace GCFoundation.Web.Models.Components
+namespace GCFoundation.Components.Models
 {
     /// <summary>
-    /// ViewModel representing a group of related tag helper references.
+    /// Represents a group of related tag helper references.
     /// </summary>
     public class TagHelperReferenceGroupViewModel
     {
