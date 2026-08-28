@@ -1,6 +1,6 @@
-using GCFoundation.Components.Models;
+using GCFoundation.Web.Models;
 
-namespace GCFoundation.Components.Services.Interfaces
+namespace GCFoundation.Web.Services.Interfaces
 {
     /// <summary>
     /// Provides dynamically discovered tag helper references.

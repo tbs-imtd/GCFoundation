@@ -1,5 +1,5 @@
-using GCFoundation.Components.Models;
-using GCFoundation.Components.Services.Interfaces;
+using GCFoundation.Web.Models;
+using GCFoundation.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Globalization;
@@ -8,7 +8,7 @@ using System.Resources;
 using System.Text.RegularExpressions;
 using System.Xml.Linq;
 
-namespace GCFoundation.Components.Services
+namespace GCFoundation.Web.Services
 {
     /// <summary>
     /// Discovers tag helpers at runtime and maps them to localized reference entries.
@@ -42,9 +42,7 @@ namespace GCFoundation.Components.Services
         private static void AddKeyProperty(List<string> names, HashSet<string> seen, string attributeName)
         {
             if (string.IsNullOrWhiteSpace(attributeName) || !seen.Add(attributeName))
-            {
                 return;
-            }
 
             names.Add(attributeName);
         }
@@ -89,7 +87,7 @@ namespace GCFoundation.Components.Services
                 currentType = currentType.BaseType;
             }
 
-            return names;
+            return names.OrderBy(s => s).ToList();
         }
 
         /// <summary>
@@ -124,9 +122,7 @@ namespace GCFoundation.Components.Services
                     {
                         string? frenchDescription = frenchResources.GetString(BuildDescriptionResourceKey(tagHelper.TagName));
                         if (string.IsNullOrWhiteSpace(frenchDescription))
-                        {
                             continue;
-                        }
 
                         description = frenchDescription;
                     }
@@ -146,9 +142,7 @@ namespace GCFoundation.Components.Services
                 }
 
                 if (items.Count == 0)
-                {
                     continue;
-                }
 
                 TagHelperReferenceGroupViewModel groupViewModel = new()
                 {
@@ -170,7 +164,7 @@ namespace GCFoundation.Components.Services
         /// </summary>
         private static List<DiscoveredTagHelper> DiscoverTagHelpers()
         {
-            Assembly componentsAssembly = typeof(TagHelperCatalogService<>).Assembly;
+            Assembly componentsAssembly = typeof(GCFoundation.Components.TagHelpers.FDCP.FDCPBaseFormComponentTagHelper).Assembly;
             Dictionary<string, XmlMemberDocumentation> xmlDocumentation = LoadXmlDocumentation(componentsAssembly);
             IEnumerable<Type> tagHelperTypes = componentsAssembly
                 .GetTypes()
@@ -196,18 +190,14 @@ namespace GCFoundation.Components.Services
                     .ToList()!;
 
                 if (tagNames.Count == 0)
-                {
                     continue;
-                }
 
                 List<string> keyProperties = BuildKeyProperties(type);
 
                 foreach (string tagName in tagNames)
                 {
                     if (discovered.ContainsKey(tagName))
-                    {
                         continue;
-                    }
 
                     discovered.Add(
                         tagName,
@@ -250,9 +240,7 @@ namespace GCFoundation.Components.Services
         {
             string xmlDocumentationPath = Path.ChangeExtension(componentsAssembly.Location, ".xml");
             if (!File.Exists(xmlDocumentationPath))
-            {
                 return new Dictionary<string, XmlMemberDocumentation>(StringComparer.Ordinal);
-            }
 
             XDocument xmlDocument = XDocument.Load(xmlDocumentationPath);
             var documentation = new Dictionary<string, XmlMemberDocumentation>(StringComparer.Ordinal);
@@ -279,9 +267,7 @@ namespace GCFoundation.Components.Services
         private static string NormalizeExample(string? example)
         {
             if (string.IsNullOrWhiteSpace(example))
-            {
                 return string.Empty;
-            }
 
             string[] lines = example.Replace("\r\n", "\n", StringComparison.Ordinal).Split('\n');
             List<string> contentLines = lines
@@ -289,9 +275,7 @@ namespace GCFoundation.Components.Services
                 .ToList();
 
             if (contentLines.Count == 0)
-            {
                 return string.Empty;
-            }
 
             int indent = contentLines.Min(line => line.Length - line.TrimStart().Length);
             return string.Join(
@@ -305,9 +289,7 @@ namespace GCFoundation.Components.Services
         private static string NormalizeSummary(string? summary)
         {
             if (string.IsNullOrWhiteSpace(summary))
-            {
                 return string.Empty;
-            }
 
             string normalized = summary
                 .Replace("\r", " ", StringComparison.Ordinal)
@@ -330,9 +312,7 @@ namespace GCFoundation.Components.Services
                 .Split('-', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
             if (parts.Length == 0)
-            {
                 return tagName;
-            }
 
             string prefix = parts[0].Equals("fdcp", StringComparison.OrdinalIgnoreCase)
                 ? "FDCP"
@@ -369,11 +349,8 @@ namespace GCFoundation.Components.Services
             IReadOnlyDictionary<string, XmlMemberDocumentation> xmlDocumentation)
         {
             string memberName = $"T:{tagHelperType.FullName}";
-            if (xmlDocumentation.TryGetValue(memberName, out XmlMemberDocumentation? documentation) &&
-                !string.IsNullOrWhiteSpace(documentation.Summary))
-            {
+            if (xmlDocumentation.TryGetValue(memberName, out XmlMemberDocumentation? documentation) && !string.IsNullOrWhiteSpace(documentation.Summary))
                 return documentation.Summary;
-            }
 
             return $"Tag helper description for {tagHelperType.Name}.";
         }
@@ -395,9 +372,7 @@ namespace GCFoundation.Components.Services
         {
             PropertyInfo? resourceManagerProperty = typeof(T).GetProperty("ResourceManager", BindingFlags.Public | BindingFlags.Static);
             if (resourceManagerProperty?.GetValue(null) is ResourceManager manager)
-            {
                 return manager;
-            }
 
             throw new InvalidOperationException(
                 $"Type '{typeof(T).FullName}' must expose a public static ResourceManager property.");
@@ -423,11 +398,10 @@ namespace GCFoundation.Components.Services
         /// <summary>
         /// Converts a C# property name (CurrentStep) to the Razor attribute name (current-step).
         /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase", Justification = "")]
         private static string ToHtmlAttributeName(string propertyName)
         {
-            #pragma warning disable CA1308 // HTML attribute names are lowercase kebab-case.
             return HtmlAttributeNameRegex.Replace(propertyName, "-$1$2").ToLowerInvariant();
-            #pragma warning restore CA1308
         }
 
         /// <summary>
@@ -438,25 +412,19 @@ namespace GCFoundation.Components.Services
             attributeName = string.Empty;
 
             if (!property.CanRead || !property.CanWrite || property.GetIndexParameters().Length > 0)
-            {
                 return false;
-            }
 
             if (property.GetCustomAttribute<HtmlAttributeNotBoundAttribute>() != null ||
                 property.GetCustomAttribute<ViewContextAttribute>() != null ||
                 property.GetCustomAttribute<ObsoleteAttribute>() != null)
-            {
                 return false;
-            }
 
             HtmlAttributeNameAttribute? htmlAttributeName = property.GetCustomAttribute<HtmlAttributeNameAttribute>();
             if (htmlAttributeName is not null)
             {
                 // Skip dictionary prefixes like attr-* which are not a single catalog attribute.
                 if (string.IsNullOrWhiteSpace(htmlAttributeName.Name) || htmlAttributeName.Name.Contains('*', StringComparison.Ordinal))
-                {
                     return false;
-                }
 
                 attributeName = htmlAttributeName.Name;
                 return true;

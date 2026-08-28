@@ -1,17 +1,12 @@
 using System.Collections.ObjectModel;
 
-namespace GCFoundation.Components.Models
+namespace GCFoundation.Web.Models
 {
     /// <summary>
     /// Represents a tag helper reference entry displayed on the Components index page.
     /// </summary>
     public class TagHelperReferenceViewModel
     {
-        /// <summary>
-        /// Display title for the tag helper entry.
-        /// </summary>
-        public string Title { get; set; } = string.Empty;
-
         /// <summary>
         /// Short description of what the tag helper is used for.
         /// </summary>
@@ -21,6 +16,11 @@ namespace GCFoundation.Components.Models
         /// Core attributes commonly used with the tag helper.
         /// </summary>
         public Collection<string> KeyProperties { get; } = new Collection<string>();
+
+        /// <summary>
+        /// Display title for the tag helper entry.
+        /// </summary>
+        public string Title { get; set; } = string.Empty;
 
         /// <summary>
         /// Minimal usage snippet for quick reference.
