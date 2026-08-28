@@ -7,6 +7,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A TagHelper that renders a GC Design System card component as a <c>&lt;gcds-card&gt;</c> element.
     /// The card component is used to display content in a stylized container with optional title, description, badge, and image.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-card card-title=&quot;Application status&quot; href=&quot;/status&quot; card-title-tag=&quot;h3&quot; description=&quot;Check your application.&quot;&gt;&lt;/gcds-card&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-card")]
     public class CardTagHelper : BaseTagHelper
     {

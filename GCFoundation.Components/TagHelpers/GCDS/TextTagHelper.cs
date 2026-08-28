@@ -6,6 +6,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// Represents a tag helper for rendering text elements with customizable properties like display style, size, and margins.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-text text-role=&quot;primary&quot; size=&quot;body&quot;&gt;
+    ///     Supporting text.
+    /// &lt;/gcds-text&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-text")]
     public class TextTagHelper : BaseTagHelper
     {

@@ -1822,6 +1822,24 @@
   <data name="Table_WithLink_Anchor" xml:space="preserve">
     <value>with-slots-link</value>
   </data>
+  <data name="Index_TagHelpers_Section_Title" xml:space="preserve">
+    <value>Tag Helpers</value>
+  </data>
+  <data name="Index_TagHelpers_Section_Description" xml:space="preserve">
+    <value>Quick reference for FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet.</value>
+  </data>
+  <data name="Index_TagHelpers_Group_FDCP_Title" xml:space="preserve">
+    <value>FDCP Tag Helpers</value>
+  </data>
+  <data name="Index_TagHelpers_Group_GCDS_Title" xml:space="preserve">
+    <value>GCDS Tag Helpers</value>
+  </data>
+  <data name="Index_TagHelpers_KeyProperties_Label" xml:space="preserve">
+    <value>Key properties</value>
+  </data>
+  <data name="Index_TagHelpers_Usage_Label" xml:space="preserve">
+    <value>Usage</value>
+  </data>
   <data name="Table_WithAnnotations_Caption" xml:space="preserve">
     <value>Table using data annotations</value>
   </data>
@@ -2247,5 +2265,8 @@
   </data>
   <data name="Accordion_Properties_FdcpAccordion_AlwaysOpen" xml:space="preserve">
     <value>When &lt;code&gt;true&lt;/code&gt;, allows multiple accordion sections to remain open at the same time.</value>
+  </data>
+  <data name="Index_FeaturedComponents_Title" xml:space="preserve">
+    <value>Featured components</value>
   </data>
 </root>

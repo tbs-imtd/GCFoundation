@@ -6,6 +6,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// A tag helper for rendering a date input field component with a specified format and optional legend.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-date-input for=&quot;DateOfBirth&quot; format=&quot;full&quot; legend=&quot;Date of birth&quot;&gt;&lt;/gcds-date-input&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-date-input")]
     public class DateInputTagHelper : BaseFormComponentTagHelper
     {

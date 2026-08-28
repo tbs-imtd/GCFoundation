@@ -6,6 +6,12 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// Represents a tag helper for creating a responsive grid layout using gc design system.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-grid columns=&quot;1fr 1fr&quot; gap=&quot;300&quot; tag=&quot;div&quot;&gt;
+    /// &lt;/gcds-grid&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-grid")]
     public class GridTagHelper : BaseTagHelper
     {

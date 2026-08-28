@@ -1821,6 +1821,24 @@
   <data name="Table_WithLink_Anchor" xml:space="preserve">
     <value>avec-emplacements-lien</value>
   </data>
+  <data name="Index_TagHelpers_Section_Title" xml:space="preserve">
+    <value>Tag helpers</value>
+  </data>
+  <data name="Index_TagHelpers_Section_Description" xml:space="preserve">
+    <value>Référence rapide pour les tag helpers FDCP et GCDS, incluant le rôle de chaque helper, ses propriétés clés et un exemple d'utilisation minimal.</value>
+  </data>
+  <data name="Index_TagHelpers_Group_FDCP_Title" xml:space="preserve">
+    <value>Tag helpers FDCP</value>
+  </data>
+  <data name="Index_TagHelpers_Group_GCDS_Title" xml:space="preserve">
+    <value>Tag helpers GCDS</value>
+  </data>
+  <data name="Index_TagHelpers_KeyProperties_Label" xml:space="preserve">
+    <value>Propriétés clés</value>
+  </data>
+  <data name="Index_TagHelpers_Usage_Label" xml:space="preserve">
+    <value>Utilisation</value>
+  </data>
   <data name="Table_WithAnnotations_Caption" xml:space="preserve">
     <value>Tableau avec annotations de données</value>
   </data>
@@ -1997,135 +2015,6 @@
   </data>
   <data name="Card_Badge_New" xml:space="preserve">
     <value>Nouveau</value>
-  </data>
-  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
-    <value>Statut d'authentification actuel</value>
-  </data>
-  <data name="StatelessAuth_NotAuthenticated_Message" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_NotAuthenticated_Description" xml:space="preserve">
-    <value>Remarquez comment le partiel de connexion utilisateur se mettra à jour automatiquement après la connexion.</value>
-  </data>
-  <data name="StatelessAuth_CookieDemo_Title" xml:space="preserve">
-    <value>Démonstration d'authentification par cookie</value>
-  </data>
-  <data name="StatelessAuth_CookieDemo_Description" xml:space="preserve">
-    <value>Testez l'authentification basée sur les cookies sans sessions serveur. Toutes les données utilisateur proviennent des revendications dans le cookie d'authentification.</value>
-  </data>
-  <data name="StatelessAuth_LoggedIn_Text" xml:space="preserve">
-    <value>Vous êtes connecté ! Cliquez sur déconnexion pour effacer le cookie d'authentification.</value>
-  </data>
-  <data name="StatelessAuth_LoggedOut_Text" xml:space="preserve">
-    <value>Ceci créera un cookie d'authentification avec des revendications utilisateur (aucun stockage de session).</value>
-  </data>
-  <data name="StatelessAuth_Login_Button" xml:space="preserve">
-    <value>🔐 Connexion avec authentification par cookie</value>
-  </data>
-  <data name="StatelessAuth_Logout_Button" xml:space="preserve">
-    <value>🚪 Déconnexion</value>
-  </data>
-  <data name="StatelessAuth_TechnicalInfo_Title" xml:space="preserve">
-    <value>Informations techniques</value>
-  </data>
-  <data name="StatelessAuth_HowItWorks" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_Benefit_Claims" xml:space="preserve">
-    <value>✅ Revendications stockées dans le cookie d'authentification</value>
-  </data>
-  <data name="StatelessAuth_Benefit_NoSessions" xml:space="preserve">
-    <value>✅ Aucun stockage de session côté serveur requis</value>
-  </data>
-  <data name="StatelessAuth_Benefit_Azure" xml:space="preserve">
-    <value>✅ Mise à l'échelle automatique dans le cloud Azure</value>
-  </data>
-  <data name="StatelessAuth_Benefit_LoadBalanced" xml:space="preserve">
-    <value>✅ Fonctionne sur des serveurs équilibrés en charge</value>
-  </data>
-  <data name="StatelessAuth_ViewClaims_Button" xml:space="preserve">
-    <value>📊 Voir les revendications actuelles</value>
-  </data>
-  <data name="StatelessAuth_CheckAuth_Button" xml:space="preserve">
-    <value>⚡ Vérifier le statut d'authentification</value>
-  </data>
-  <data name="StatelessAuth_DemoResults_Title" xml:space="preserve">
-    <value>Résultats de la démonstration</value>
-  </data>
-  <data name="StatelessAuth_Methods_Title" xml:space="preserve">
-    <value>Méthodes d'authentification sans état disponibles</value>
-  </data>
-  <data name="StatelessAuth_Methods_Description" xml:space="preserve">
-    <value>La fondation GC prend en charge plusieurs approches d'authentification sans état pour le déploiement cloud Azure :</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Title" xml:space="preserve">
-    <value>🍪 Authentification par cookie</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Description" xml:space="preserve">
-    <value>Utilise des cookies d'authentification avec des revendications (aucune session serveur). ✅ Recommandé pour la plupart des applications web.</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit1" xml:space="preserve">
-    <value>Aucun stockage côté serveur requis</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit2" xml:space="preserve">
-    <value>Mise à l'échelle automatique dans Azure</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit3" xml:space="preserve">
-    <value>Fonctionne sur des serveurs équilibrés en charge</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Title" xml:space="preserve">
-    <value>🏢 Intégration Azure AD</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Description" xml:space="preserve">
-    <value>Authentification d'entreprise avec la plateforme d'identité Microsoft. Parfait pour les applications gouvernementales.</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit1" xml:space="preserve">
-    <value>Authentification unique (SSO)</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit2" xml:space="preserve">
-    <value>Authentification multifacteur</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit3" xml:space="preserve">
-    <value>Intégration Office 365</value>
-  </data>
-  <data name="StatelessAuth_JWT_Title" xml:space="preserve">
-    <value>🔑 Jetons JWT</value>
-  </data>
-  <data name="StatelessAuth_JWT_Description" xml:space="preserve">
-    <value>Authentification API sans état utilisant des jetons Web JSON. Idéal pour les microservices et APIs.</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit1" xml:space="preserve">
-    <value>Complètement sans état</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit2" xml:space="preserve">
-    <value>Compatibilité multiplateforme</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit3" xml:space="preserve">
-    <value>Peut être vérifié indépendamment</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Title" xml:space="preserve">
-    <value>🌐 Fournisseurs OAuth</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Description" xml:space="preserve">
-    <value>Fournisseurs d'authentification externes (Google, GitHub, etc.). Bon pour les applications publiques.</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit1" xml:space="preserve">
-    <value>Aucune gestion d'identifiants</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit2" xml:space="preserve">
-    <value>Commodité utilisateur</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit3" xml:space="preserve">
-    <value>Options de connexion sociale</value>
-  </data>
-  <data name="StatelessAuth_Integration_Title" xml:space="preserve">
-    <value>💡 Intégration avec le partiel de connexion utilisateur</value>
-  </data>
-  <data name="StatelessAuth_Integration_Description1" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
-    <value />
   </data>
   <data name="Modal_Notes_6" xml:space="preserve">
     <value>Le composant &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; gère nativement ses exigences d'accessibilité WCAG 2.2.</value>
@@ -2375,5 +2264,314 @@
   </data>
   <data name="Accordion_Properties_FdcpAccordion_AlwaysOpen" xml:space="preserve">
     <value>Lorsque la valeur est &lt;code&gt;true&lt;/code&gt;, permet à plusieurs sections de l’accordéon de demeurer ouvertes en même temps.</value>
+  </data>
+  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
+    <value>Statut d'authentification actuel</value>
+  </data>
+  <data name="StatelessAuth_NotAuthenticated_Message" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_NotAuthenticated_Description" xml:space="preserve">
+    <value>Remarquez comment le partiel de connexion utilisateur se mettra à jour automatiquement après la connexion.</value>
+  </data>
+  <data name="StatelessAuth_CookieDemo_Title" xml:space="preserve">
+    <value>Démonstration d'authentification par cookie</value>
+  </data>
+  <data name="StatelessAuth_CookieDemo_Description" xml:space="preserve">
+    <value>Testez l'authentification basée sur les cookies sans sessions serveur. Toutes les données utilisateur proviennent des revendications dans le cookie d'authentification.</value>
+  </data>
+  <data name="StatelessAuth_LoggedIn_Text" xml:space="preserve">
+    <value>Vous êtes connecté ! Cliquez sur déconnexion pour effacer le cookie d'authentification.</value>
+  </data>
+  <data name="StatelessAuth_LoggedOut_Text" xml:space="preserve">
+    <value>Ceci créera un cookie d'authentification avec des revendications utilisateur (aucun stockage de session).</value>
+  </data>
+  <data name="StatelessAuth_Login_Button" xml:space="preserve">
+    <value>🔐 Connexion avec authentification par cookie</value>
+  </data>
+  <data name="StatelessAuth_Logout_Button" xml:space="preserve">
+    <value>🚪 Déconnexion</value>
+  </data>
+  <data name="StatelessAuth_TechnicalInfo_Title" xml:space="preserve">
+    <value>Informations techniques</value>
+  </data>
+  <data name="StatelessAuth_HowItWorks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_Benefit_Claims" xml:space="preserve">
+    <value>✅ Revendications stockées dans le cookie d'authentification</value>
+  </data>
+  <data name="StatelessAuth_Benefit_NoSessions" xml:space="preserve">
+    <value>✅ Aucun stockage de session côté serveur requis</value>
+  </data>
+  <data name="StatelessAuth_Benefit_Azure" xml:space="preserve">
+    <value>✅ Mise à l'échelle automatique dans le cloud Azure</value>
+  </data>
+  <data name="StatelessAuth_Benefit_LoadBalanced" xml:space="preserve">
+    <value>✅ Fonctionne sur des serveurs équilibrés en charge</value>
+  </data>
+  <data name="StatelessAuth_ViewClaims_Button" xml:space="preserve">
+    <value>📊 Voir les revendications actuelles</value>
+  </data>
+  <data name="StatelessAuth_CheckAuth_Button" xml:space="preserve">
+    <value>⚡ Vérifier le statut d'authentification</value>
+  </data>
+  <data name="StatelessAuth_DemoResults_Title" xml:space="preserve">
+    <value>Résultats de la démonstration</value>
+  </data>
+  <data name="StatelessAuth_Methods_Title" xml:space="preserve">
+    <value>Méthodes d'authentification sans état disponibles</value>
+  </data>
+  <data name="StatelessAuth_Methods_Description" xml:space="preserve">
+    <value>La fondation GC prend en charge plusieurs approches d'authentification sans état pour le déploiement cloud Azure :</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Title" xml:space="preserve">
+    <value>🍪 Authentification par cookie</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Description" xml:space="preserve">
+    <value>Utilise des cookies d'authentification avec des revendications (aucune session serveur). ✅ Recommandé pour la plupart des applications web.</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit1" xml:space="preserve">
+    <value>Aucun stockage côté serveur requis</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit2" xml:space="preserve">
+    <value>Mise à l'échelle automatique dans Azure</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit3" xml:space="preserve">
+    <value>Fonctionne sur des serveurs équilibrés en charge</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Title" xml:space="preserve">
+    <value>🏢 Intégration Azure AD</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Description" xml:space="preserve">
+    <value>Authentification d'entreprise avec la plateforme d'identité Microsoft. Parfait pour les applications gouvernementales.</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit1" xml:space="preserve">
+    <value>Authentification unique (SSO)</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit2" xml:space="preserve">
+    <value>Authentification multifacteur</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit3" xml:space="preserve">
+    <value>Intégration Office 365</value>
+  </data>
+  <data name="StatelessAuth_JWT_Title" xml:space="preserve">
+    <value>🔑 Jetons JWT</value>
+  </data>
+  <data name="StatelessAuth_JWT_Description" xml:space="preserve">
+    <value>Authentification API sans état utilisant des jetons Web JSON. Idéal pour les microservices et APIs.</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit1" xml:space="preserve">
+    <value>Complètement sans état</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit2" xml:space="preserve">
+    <value>Compatibilité multiplateforme</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit3" xml:space="preserve">
+    <value>Peut être vérifié indépendamment</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Title" xml:space="preserve">
+    <value>🌐 Fournisseurs OAuth</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Description" xml:space="preserve">
+    <value>Fournisseurs d'authentification externes (Google, GitHub, etc.). Bon pour les applications publiques.</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit1" xml:space="preserve">
+    <value>Aucune gestion d'identifiants</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit2" xml:space="preserve">
+    <value>Commodité utilisateur</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit3" xml:space="preserve">
+    <value>Options de connexion sociale</value>
+  </data>
+  <data name="StatelessAuth_Integration_Title" xml:space="preserve">
+    <value>💡 Intégration avec le partiel de connexion utilisateur</value>
+  </data>
+  <data name="StatelessAuth_Integration_Description1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Search" xml:space="preserve">
+    <value>Affiche un composant de recherche du système de design GC avec action, méthode et paramètres d'entrée configurables.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Details" xml:space="preserve">
+    <value>Affiche une section de détails repliable avec un titre et un état ouvert par défaut optionnel.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_DateModified" xml:space="preserve">
+    <value>Affiche les métadonnées de date de modification et prend en charge les types date ou version.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Input" xml:space="preserve">
+    <value>Affiche un champ FDCP lié au modèle et choisit le contrôle GCDS approprié selon le type de donnée.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Select" xml:space="preserve">
+    <value>Affiche une liste déroulante FDCP liée à partir des éléments fournis.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Radios" xml:space="preserve">
+    <value>Affiche un groupe de boutons radio FDCP lié à partir des éléments fournis.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Checkbox" xml:space="preserve">
+    <value>Affiche une case à cocher FDCP unique liée.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Checkboxes" xml:space="preserve">
+    <value>Affiche un groupe de cases à cocher FDCP lié à partir des éléments fournis.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_ErrorSummary" xml:space="preserve">
+    <value>Affiche un résumé des erreurs de validation du formulaire.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_RichText" xml:space="preserve">
+    <value>Affiche un éditeur de texte enrichi lié avec barre d'outils configurable.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_SessionModal" xml:space="preserve">
+    <value>Affiche un flux de modal d'expiration de session avec actions de rafraîchissement et de déconnexion.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Tab" xml:space="preserve">
+    <value>Définit un panneau d'onglet individuel utilisé dans fdcp-tabs.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_ModalBody" xml:space="preserve">
+    <value>Définit la zone de contenu principal dans un modal FDCP.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_ModalFooter" xml:space="preserve">
+    <value>Définit la zone d'actions de pied dans un modal FDCP.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Breadcrumbs" xml:space="preserve">
+    <value>Affiche un conteneur de fil d'Ariane GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_BreadcrumbsItem" xml:space="preserve">
+    <value>Affiche un élément de fil d'Ariane dans gcds-breadcrumbs.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Button" xml:space="preserve">
+    <value>Affiche un bouton GCDS avec type, rôle et style configurables.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Card" xml:space="preserve">
+    <value>Affiche une carte de contenu GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Checkboxes" xml:space="preserve">
+    <value>Affiche un groupe de cases à cocher GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Container" xml:space="preserve">
+    <value>Affiche un conteneur de mise en page GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_DateInput" xml:space="preserve">
+    <value>Affiche un contrôle de saisie de date GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_ErrorMessage" xml:space="preserve">
+    <value>Affiche un message d'erreur en ligne pour un champ.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_ErrorSummary" xml:space="preserve">
+    <value>Affiche un résumé des erreurs de validation du formulaire.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Fieldset" xml:space="preserve">
+    <value>Affiche un conteneur fieldset avec légende et aide.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Footer" xml:space="preserve">
+    <value>Affiche le composant de pied de page du Système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Grid" xml:space="preserve">
+    <value>Affiche une grille de mise en page GCDS responsive.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Header" xml:space="preserve">
+    <value>Affiche le composant d'en-tête du Système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Heading" xml:space="preserve">
+    <value>Affiche un titre sémantique stylisé par GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Icon" xml:space="preserve">
+    <value>Affiche une icône GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Input" xml:space="preserve">
+    <value>Affiche un champ de saisie texte GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_LangToggle" xml:space="preserve">
+    <value>Affiche un lien de bascule de langue.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Link" xml:space="preserve">
+    <value>Affiche un lien stylisé GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_NavGroup" xml:space="preserve">
+    <value>Affiche une section de navigation groupée dans les composants de navigation GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_NavLink" xml:space="preserve">
+    <value>Affiche un lien de navigation dans les composants de navigation GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Notice" xml:space="preserve">
+    <value>Affiche une bannière d'avis contextuel.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Pagination" xml:space="preserve">
+    <value>Affiche un contrôle de pagination pour des résultats multi-pages.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Radios" xml:space="preserve">
+    <value>Affiche un groupe de boutons radio GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Select" xml:space="preserve">
+    <value>Affiche une liste déroulante GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_SideNav" xml:space="preserve">
+    <value>Affiche un conteneur de navigation latérale.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Signature" xml:space="preserve">
+    <value>Affiche un bloc de signature GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_SrOnly" xml:space="preserve">
+    <value>Affiche du contenu visible uniquement par les technologies d'assistance.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Stepper" xml:space="preserve">
+    <value>Affiche un composant d'indicateur d'étapes.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Table" xml:space="preserve">
+    <value>Affiche un composant de tableau GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Text" xml:space="preserve">
+    <value>Affiche un bloc de texte GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Textarea" xml:space="preserve">
+    <value>Affiche une zone de texte multiligne GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_TopicMenu" xml:space="preserve">
+    <value>Affiche un menu de navigation thématique sur la page.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_TopNav" xml:space="preserve">
+    <value>Affiche le composant de navigation supérieure.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Accordion" xml:space="preserve">
+    <value>Affiche un accordéon avec des sections extensibles et un bouton pour tout ouvrir ou tout fermer.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Badge" xml:space="preserve">
+    <value>Affiche un badge personnalisable avec styles, bouton de fermeture et contenu de début ou de fin.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Card" xml:space="preserve">
+    <value>Affiche une carte flexible avec en-tête, corps, pied, images et mises en page inspirées de Bootstrap.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_FiltersBox" xml:space="preserve">
+    <value>Affiche un panneau de filtres avec catégories repliables pour le filtrage de données.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_FormBuilder" xml:space="preserve">
+    <value>Affiche un générateur de formulaire dynamique à partir d'une définition de formulaire.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Form" xml:space="preserve">
+    <value>Affiche un formulaire lié à un modèle, avec méthode, action et résumé des erreurs de validation.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Modal" xml:space="preserve">
+    <value>Affiche une fenêtre modale autonome à utiliser dans les vues Razor.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_PageHeading" xml:space="preserve">
+    <value>Affiche un en-tête de page de style GC avec titre, description et image d'arrière-plan facultative.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_SearchableSelect" xml:space="preserve">
+    <value>Affiche une liste déroulante avec recherche, prenant en charge la sélection simple ou multiple.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Stepper" xml:space="preserve">
+    <value>Affiche un indicateur d'étapes pour les processus à plusieurs étapes, avec états complété, actif et à venir.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Tabs" xml:space="preserve">
+    <value>Affiche une navigation par onglets pour basculer entre des panneaux de contenu dans la page.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Table" xml:space="preserve">
+    <value>Affiche un tableau de données à partir de modèles de lignes ou de définitions de colonnes explicites.</value>
+  </data>
+  <data name="Index_FeaturedComponents_Title" xml:space="preserve">
+    <value>Composants en vedette</value>
   </data>
 </root>

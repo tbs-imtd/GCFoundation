@@ -5,6 +5,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// Represents a navigation link component for use in a webpage's navigation structure.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-side-nav label=&quot;Section&quot;&gt;
+    ///     &lt;gcds-nav-link href=&quot;/apply&quot; current=&quot;true&quot;&gt;Apply&lt;/gcds-nav-link&gt;
+    /// &lt;/gcds-side-nav&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-nav-link")]
     public class NavLinkTagHelper : BaseTagHelper
     {

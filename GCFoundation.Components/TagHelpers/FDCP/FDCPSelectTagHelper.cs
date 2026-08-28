@@ -1,4 +1,4 @@
-﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Common.Utilities;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Globalization;
@@ -10,6 +10,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Renders a custom dropdown (select) component.
     /// Use &lt;fdcp-select&gt; in your Razor views to generate a dropdown list.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-select for=&quot;@Model.SelectedCountry&quot; items=&quot;@(new[] { new SelectListItem { Text = &quot;Canada&quot;, Value = &quot;CA&quot; }, new SelectListItem { Text = &quot;United States&quot;, Value = &quot;US&quot; } })&quot;&gt;
+    /// &lt;/fdcp-select&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-select", Attributes = "for, items")]
     [HtmlTargetElement("fdcp-select", Attributes = "items, name")]
     public class FDCPSelectTagHelper : FDCPBaseFormComponentTagHelper

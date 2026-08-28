@@ -6,6 +6,12 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// Represents a custom tag helper for rendering a <c>&lt;gcds-fieldset&gt;</c> element.
     /// Used to generate a fieldset with a legend, optional hint, error message, and other attributes for form inputs.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-fieldset fieldset-id=&quot;contact&quot; legend=&quot;Contact information&quot; required=&quot;true&quot;&gt;
+    /// &lt;/gcds-fieldset&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-fieldset")]
     public class FieldsetTagHelper : BaseTagHelper
     {

@@ -7,6 +7,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A tag helper for rendering a container component with optional styling and layout properties.
     /// This component can be customized with attributes like border, centering, margin, padding, and size.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-container size=&quot;lg&quot; tag=&quot;div&quot;&gt;
+    ///     Page content
+    /// &lt;/gcds-container&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-container")]
     public class ContainerTagHelper : BaseTagHelper
     {

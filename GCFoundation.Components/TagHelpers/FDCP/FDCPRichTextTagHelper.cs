@@ -13,6 +13,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// A tag helper for rendering a rich text editor using Quill.js.
     /// Adheres to GCDS guidelines and ensures accessibility (WCAG 2.1 AAA).
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-rich-text for=&quot;@Model.Bio&quot; label=&quot;Biography&quot; toolbar=&quot;Standard&quot; height=&quot;240px&quot; placeholder=&quot;Enter your biography&quot;&gt;
+    /// &lt;/fdcp-rich-text&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-rich-text", Attributes = "for")]
     [HtmlTargetElement("fdcp-rich-text", Attributes = "name")]
     public class FDCPRichTextTagHelper : FDCPBaseFormComponentTagHelper

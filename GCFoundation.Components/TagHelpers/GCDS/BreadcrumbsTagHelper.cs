@@ -6,6 +6,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A TagHelper that renders a GC Design System breadcrumbs component as a <c>&lt;gcds-breadcrumbs&gt;</c> element.
     /// The breadcrumbs are used for navigation to show the current page's location within the website structure.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-breadcrumbs&gt;
+    ///     &lt;gcds-breadcrumbs-item href=&quot;/home&quot;&gt;Home&lt;/gcds-breadcrumbs-item&gt;
+    /// &lt;/gcds-breadcrumbs&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-breadcrumbs")]
     public class BreadcrumbsTagHelper : BaseTagHelper
     {

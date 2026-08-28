@@ -5,6 +5,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// Represents a tag helper for rendering a textarea input element with customizable properties like label, row count, and maximum length (GCDS v1).
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-textarea for=&quot;Notes&quot; label=&quot;Notes&quot; textarea-id=&quot;notes&quot; rows=&quot;5&quot;&gt;&lt;/gcds-textarea&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-textarea")]
     public class TextareaTagHelper : BaseFormComponentTagHelper
     {

@@ -1,4 +1,4 @@
-﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Common.Utilities;
 using GCFoundation.Components.Models;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Text.Json;
@@ -10,6 +10,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// displaying a summary of validation errors, if any. The model should contain a collection of errors
     /// that will be displayed in the error summary.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-error-summary for=&quot;@Model&quot;&gt;
+    /// &lt;/fdcp-error-summary&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-error-summary", Attributes = "for")]
     public class FDCPErrorSummaryTagHelper : TagHelper
     {

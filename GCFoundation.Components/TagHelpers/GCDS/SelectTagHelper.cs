@@ -5,6 +5,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// TagHelper for rendering a GC Design System compliant select (dropdown) component.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-select for=&quot;Province&quot; label=&quot;Province&quot; select-id=&quot;province&quot;&gt;
+    ///     &lt;option value=&quot;on&quot;&gt;Ontario&lt;/option&gt;
+    /// &lt;/gcds-select&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-select")]
     public class SelectTagHelper : BaseFormComponentTagHelper
     {

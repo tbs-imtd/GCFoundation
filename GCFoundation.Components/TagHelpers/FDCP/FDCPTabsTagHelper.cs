@@ -9,6 +9,18 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// <summary>
     /// Renders a tab navigation component for switching between in-page content panels.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-tabs id=&quot;profile-tabs&quot; label=&quot;Profile sections&quot;&gt;
+    ///     &lt;fdcp-tab id=&quot;overview&quot; title=&quot;Overview&quot; active=&quot;true&quot;&gt;
+    ///         &lt;gcds-text&gt;Overview content.&lt;/gcds-text&gt;
+    ///     &lt;/fdcp-tab&gt;
+    ///     &lt;fdcp-tab id=&quot;details&quot; title=&quot;Details&quot;&gt;
+    ///         &lt;gcds-text&gt;Details content.&lt;/gcds-text&gt;
+    ///     &lt;/fdcp-tab&gt;
+    /// &lt;/fdcp-tabs&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-tabs")]
     public class FDCPTabsTagHelper : TagHelper
     {

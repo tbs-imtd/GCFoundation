@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Enums;
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.Resources;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -12,6 +12,18 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Renders a standalone modal component.
     /// Use &lt;fdcp-modal&gt; in your Razor views to generate a modal dialog.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-modal modal-id=&quot;basic-modal&quot; title=&quot;Example modal&quot;&gt;
+    ///     &lt;div slot=&quot;body&quot;&gt;
+    ///         &lt;gcds-text&gt;This is a regular modal with custom content.&lt;/gcds-text&gt;
+    ///     &lt;/div&gt;
+    ///     &lt;div slot=&quot;footer&quot;&gt;
+    ///         &lt;gcds-button button-id=&quot;basic-modal-confirm&quot; button-role=&quot;primary&quot; class=&quot;fdcp-modal-close&quot;&gt;Confirm&lt;/gcds-button&gt;
+    ///     &lt;/div&gt;
+    /// &lt;/fdcp-modal&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-modal")]
     public class FDCPModalTagHelper(IStringLocalizer<Modal> localizer) : TagHelper
     {

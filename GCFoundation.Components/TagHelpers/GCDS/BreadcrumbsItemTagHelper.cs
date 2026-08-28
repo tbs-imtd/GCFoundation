@@ -5,6 +5,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// A tag helper for rendering individual breadcrumb items in the breadcrumbs navigation.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-breadcrumbs&gt;
+    ///     &lt;gcds-breadcrumbs-item href=&quot;/home&quot;&gt;Home&lt;/gcds-breadcrumbs-item&gt;
+    /// &lt;/gcds-breadcrumbs&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-breadcrumbs-item")]
     public class BreadcrumbsItemTagHelper : BaseTagHelper
     {

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Text.Json;
 
@@ -8,6 +8,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// Renders a custom radio button component using the gcds-radios element.
     /// Use &lt;fdcp-radios&gt; in your Razor views to generate a radio button group.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-radios for=&quot;@Model.Gender&quot; items=&quot;@(new[] { new SelectListItem { Text = &quot;Woman&quot;, Value = &quot;woman&quot; }, new SelectListItem { Text = &quot;Man&quot;, Value = &quot;man&quot; } })&quot; legend=&quot;Gender&quot;&gt;
+    /// &lt;/fdcp-radios&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-radios", Attributes = "for, items")]
     [HtmlTargetElement("fdcp-radios", Attributes = "items, name")]
     public class FDCPRadiosTagHelper : FDCPBaseFormComponentTagHelper

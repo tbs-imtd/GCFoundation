@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Reflection.Emit;
 using System.Text.Json;
@@ -9,6 +9,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// A tag helper for rendering a group of checkboxes using the gcds-checkboxes component.
     /// It binds to a model property and renders checkboxes based on the provided items.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-checkboxes for=&quot;@Model.SelectedInterests&quot; items=&quot;@(new[] { new SelectListItem { Text = &quot;Grants&quot;, Value = &quot;grants&quot; }, new SelectListItem { Text = &quot;Contributions&quot;, Value = &quot;contributions&quot; } })&quot; legend=&quot;Interests&quot;&gt;
+    /// &lt;/fdcp-checkboxes&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-checkboxes", Attributes = "for, items")]
     [HtmlTargetElement("fdcp-checkboxes", Attributes = "items, name")]
     public class FDCPCheckboxesTagHelper : FDCPBaseFormComponentTagHelper

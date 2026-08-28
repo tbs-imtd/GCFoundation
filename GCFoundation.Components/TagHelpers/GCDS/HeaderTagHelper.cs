@@ -7,6 +7,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A TagHelper that renders a GC Design System header component as a <c>&lt;gcds-header&gt;</c> element.
     /// The header component typically includes a language toggle, skip-to-content link, and a signature, along with other header-related elements.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-header lang-href=&quot;/fr&quot; skip-to-href=&quot;#main&quot; signature-has-link=&quot;true&quot;&gt;&lt;/gcds-header&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-header")]
     public class HeaderTagHelper : BaseTagHelper
     {
