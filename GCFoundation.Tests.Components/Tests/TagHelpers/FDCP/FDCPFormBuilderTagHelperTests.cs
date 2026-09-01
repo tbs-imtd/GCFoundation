@@ -591,6 +591,68 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
+        public void Process_WithRichText_RendersContainerWithoutDuplicateTextboxAria()
+        {
+            var tagHelper = new FDCPFormBuilderTagHelper
+            {
+                Form = new FormDefinition
+                {
+                    Id = "testForm",
+                    Title = "Test Form",
+                    Action = "/submit",
+                    Method = "post",
+                    SubmitButtonText = "Submit",
+                    Sections = new[]
+                    {
+                        new FormSection
+                        {
+                            Title = "Project Details",
+                            Questions = new[]
+                            {
+                                new FormQuestion
+                                {
+                                    Id = "projectSummary",
+                                    Label = "Project summary",
+                                    Hint = "Describe your project goals, milestones and outcomes.",
+                                    Type = QuestionType.RichText,
+                                    IsRequired = true,
+                                    Placeholder = "Describe your project goals, milestones and outcomes.",
+                                    Height = "260px"
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+
+            var context = new TagHelperContext(
+                new TagHelperAttributeList(),
+                new Dictionary<object, object>(),
+                "test");
+
+            var output = new TagHelperOutput("fdcp-form-builder",
+                new TagHelperAttributeList(),
+                (result, encoder) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+
+            tagHelper.Process(context, output);
+
+            var content = output.Content.GetContent();
+            Assert.Contains("id='projectSummary_editor'", content);
+            Assert.Contains("data-fdcp-rich-text='true'", content);
+            Assert.Contains("data-for='projectSummary'", content);
+            Assert.Contains("data-error-id='projectSummary_error'", content);
+            Assert.Contains("<span class='fdcp-rich-text-label gcds-label' id='projectSummary_label'", content);
+            Assert.Contains("id='projectSummary_hint'", content);
+            Assert.Contains("aria-hidden='true'", content);
+            Assert.DoesNotContain(" for='projectSummary'", content);
+            Assert.DoesNotContain("<label class='fdcp-rich-text-label", content);
+            Assert.DoesNotContain("role='textbox'", content);
+            Assert.DoesNotContain("aria-multiline='true'", content);
+            Assert.DoesNotContain("aria-labelledby='projectSummary_label'", content);
+            Assert.DoesNotContain("aria-required='true'", content);
+        }
+
+        [Fact]
         public void Process_WithConditionalValidation_RendersCorrectDependencyAttributesForErrorSummary()
         {
             // Arrange

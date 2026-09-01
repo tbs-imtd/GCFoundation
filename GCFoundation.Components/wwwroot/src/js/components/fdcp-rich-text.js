@@ -153,6 +153,37 @@
         });
     }
 
+    function getErrorEventTarget(editorContainer, hiddenInput) {
+        // Prefer the focusable editor surface so gcds-error-summary can move focus there.
+        return editorContainer.querySelector('.ql-editor')
+            || document.getElementById(hiddenInput.id)
+            || editorContainer;
+    }
+
+    function dispatchGcdsError(target, message) {
+        if (!target || !message) {
+            return;
+        }
+
+        target.dispatchEvent(new CustomEvent('gcdsError', {
+            bubbles: true,
+            composed: true,
+            detail: { message }
+        }));
+    }
+
+    function dispatchGcdsValid(target) {
+        if (!target) {
+            return;
+        }
+
+        target.dispatchEvent(new CustomEvent('gcdsValid', {
+            bubbles: true,
+            composed: true,
+            detail: {}
+        }));
+    }
+
     function setupValidation(quill, hiddenInput, editorContainer) {
         const wrapper = editorContainer.closest('.fdcp-rich-text-wrapper');
         const container = editorContainer.closest('.fdcp-rich-text-container');
@@ -292,6 +323,9 @@
             // Set the error message as inner text content (gcds-error-message displays content)
             errorElement.textContent = errorMessage;
         }
+
+        // Notify gcds-error-summary (listen mode) so Bio appears alongside GCDS field errors.
+        dispatchGcdsError(getErrorEventTarget(editorContainer, hiddenInput), errorMessage);
     }
 
     function removeErrorState(editorContainer, wrapper, container, hiddenInput) {
@@ -316,6 +350,8 @@
                 errorElement.remove();
             }
         }
+
+        dispatchGcdsValid(getErrorEventTarget(editorContainer, hiddenInput));
     }
 
     function updateAriaDescribedBy(editorArea, hiddenInput, errorId, hasError) {

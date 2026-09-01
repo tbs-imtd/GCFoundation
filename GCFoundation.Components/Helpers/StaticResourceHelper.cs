@@ -6,6 +6,11 @@
     public static class StaticResourceHelper
     {
         private static string _virtualDirectoryPrefix = string.Empty;
+        // Cache-busting key for static web assets. These files are served from `/_content/...` and
+        // can be aggressively cached by browsers/CDNs; using a version-based query string ensures
+        // clients fetch updated CSS/JS when the components package version changes.
+        private static readonly string _staticAssetsVersion =
+            typeof(StaticResourceHelper).Assembly.GetName().Version?.ToString() ?? "1";
 
         /// <summary>
         /// Configures the virtual directory prefix used when building resource paths.
@@ -31,7 +36,7 @@
         public static string GetResourcePath(string resourceRelativePath)
         {
             string entryAssemblyName = "GCFoundation.Components";
-            return $"{_virtualDirectoryPrefix}/_content/{entryAssemblyName}/{resourceRelativePath}";
+            return $"{_virtualDirectoryPrefix}/_content/{entryAssemblyName}/{resourceRelativePath}?v={_staticAssetsVersion}";
         }
 
         /// <summary>

@@ -9,35 +9,46 @@
 @@using GCFoundation.Web.Resources
 @@model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
 
-&lt;gcds-heading tag="h1"&gt;@Template.Stepper_Demo_Name&lt;/gcds-heading&gt;
-&lt;fdcp-stepper current-step="2"
-              steps="@@(new List&lt;StepperStep&gt;
-                                {
-                                    new StepperStep { StepNumber = 1, Label = "@Template.Stepper_Demo_Step1_Label", DisplayMode = StepperStepDisplayMode.Icon, CompletedIconHtml = "&lt;i class='fa fa-check'&gt;&lt;/i&gt;" },
-                                    new StepperStep { StepNumber = 2, Label = "@Template.Stepper_Demo_Step2_Label", DisplayMode = StepperStepDisplayMode.Icon, InProgressIconHtml = "&lt;i class='fa fa-spinner'&gt;&lt;/i&gt;" },
-                                    new StepperStep { StepNumber = 3, Label = "@Template.Stepper_Demo_Step3_Label", DisplayMode = StepperStepDisplayMode.Number },
-                                    new StepperStep { StepNumber = 4, Label = "@Template.Stepper_Demo_Step4_Label", DisplayMode = StepperStepDisplayMode.Number },
-                                    new StepperStep { StepNumber = 5, Label = "@Template.Stepper_Demo_Step5_Label", DisplayMode = StepperStepDisplayMode.Number }
-                                })"&gt;&lt;/fdcp-stepper&gt;
-
-@@if (!ViewData.ModelState.IsValid)
-{
-    &lt;fdcp-error-summary for="@@Model" /&gt;
-}
+&lt;fdcp-stepper current-step="@@Model.CurrentStep"
+              heading-title="@@currentStepHeading"
+              steps="@@stepperSteps"&gt;&lt;/fdcp-stepper&gt;
 
 &lt;fdcp-form method="post" action="@Url.Action("StepperDemo", "Template")" for="@@Model"&gt;
     @@Html.AntiForgeryToken()
+    &lt;input type="hidden" name="CurrentStep" value="@@Model.CurrentStep" /&gt;
 
-    &lt;fdcp-input for="@@Model.FirstName" /&gt;
-    &lt;fdcp-input for="@@Model.LastName" /&gt;
+    @* Preserve answers from other steps *@
+    &lt;partial name="Stepper/_StepHiddenState" model="Model" /&gt;
 
-    &lt;fdcp-select for="@@Model.Province" items="@@Model.ProvinceList" /&gt;
+    @* Each step renders unique fields *@
+    @@switch (Model.CurrentStep)
+    {
+        case 1:
+            &lt;partial name="Stepper/_Step1Intro" model="Model" /&gt;
+            break;
+        case 2:
+            &lt;partial name="Stepper/_Step2Info" model="Model" /&gt;
+            break;
+        case 3:
+            &lt;partial name="Stepper/_Step3Details" model="Model" /&gt;
+            break;
+        case 4:
+            &lt;partial name="Stepper/_Step4Review" model="Model" /&gt;
+            break;
+        case 5:
+            &lt;partial name="Stepper/_Step5Submit" model="Model" /&gt;
+            break;
+    }
 
-    &lt;fdcp-checkboxes for="@@Model.ContactOptions" items="@@Model.ContactOptionsList" /&gt;
-
-    &lt;div class="mt-200"&gt;
-        &lt;gcds-button type="submit" name="nav" value="prev" button-role="secondary"&gt;@Localization.Previous&lt;/gcds-button&gt;
-        &lt;gcds-button type="submit" name="nav" value="next"&gt;@Localization.Next&lt;/gcds-button&gt;
-        &lt;gcds-button type="reset" button-role="secondary"&gt;@Localization.Reset&lt;/gcds-button&gt;
-    &lt;/div&gt;
+    &lt;gcds-button type="submit" name="nav" value="prev" button-role="secondary"&gt;Previous&lt;/gcds-button&gt;
+    &lt;gcds-button type="submit" name="nav" value="next"&gt;Next / Submit&lt;/gcds-button&gt;
 &lt;/fdcp-form&gt;</code></pre>
+
+<gcds-heading tag="h2">Step-scoped validation</gcds-heading>
+<gcds-text>
+    Validate only the fields for the step being left. Map each step to its property names
+    (see <code>TemplateStepperFormViewModel.FieldsByStep</code>) and remove other
+    <code>ModelState</code> errors before checking <code>ModelState.IsValid</code>.
+    On the final step, a valid Submit redirects to a success confirmation page
+    (<code>StepperDemoSuccess</code>).
+</gcds-text>

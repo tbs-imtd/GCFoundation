@@ -454,6 +454,60 @@
   <data name="Stepper_Demo_Name" xml:space="preserve">
     <value>Démo du modèle de page avec indicateur d'étapes</value>
   </data>
+  <data name="Stepper_Demo_Review_Intro" xml:space="preserve">
+    <value>Vérifiez les renseignements que vous avez saisis avant de soumettre.</value>
+  </data>
+  <data name="Stepper_Demo_FirstName_Required" xml:space="preserve">
+    <value>Entrez votre prénom.</value>
+  </data>
+  <data name="Stepper_Demo_LastName_Required" xml:space="preserve">
+    <value>Entrez votre nom de famille.</value>
+  </data>
+  <data name="Stepper_Demo_Bio_Required" xml:space="preserve">
+    <value>Entrez une courte biographie à votre sujet.</value>
+  </data>
+  <data name="Stepper_Demo_Bio_MinLength" xml:space="preserve">
+    <value>La biographie doit comporter au moins 10 caractères.</value>
+  </data>
+  <data name="Stepper_Demo_Bio_MaxLength" xml:space="preserve">
+    <value>La biographie ne peut pas dépasser 2 000 caractères.</value>
+  </data>
+  <data name="Stepper_Demo_Country_Required" xml:space="preserve">
+    <value>Sélectionnez votre pays de résidence.</value>
+  </data>
+  <data name="Stepper_Demo_Gender_Required" xml:space="preserve">
+    <value>Sélectionnez votre genre.</value>
+  </data>
+  <data name="Stepper_Demo_Website_Label" xml:space="preserve">
+    <value>Site web</value>
+  </data>
+  <data name="Stepper_Demo_Website_Required" xml:space="preserve">
+    <value>Entrez un site Web comme exemple.com, www.exemple.com ou https://exemple.com.</value>
+  </data>
+  <data name="Stepper_Demo_Website_Invalid" xml:space="preserve">
+    <value>Entrez un site Web valide comme exemple.com, www.exemple.com ou https://exemple.com.</value>
+  </data>
+  <data name="Stepper_Demo_Website_Hint" xml:space="preserve">
+    <value>Accepte exemple.com, www.exemple.com, http://… ou https://…</value>
+  </data>
+  <data name="Stepper_Demo_Age_Required" xml:space="preserve">
+    <value>Entrez votre âge.</value>
+  </data>
+  <data name="Stepper_Demo_Age_Range" xml:space="preserve">
+    <value>L’âge doit être un nombre entre 18 et 100.</value>
+  </data>
+  <data name="Stepper_Demo_AgreeToTerms_Required" xml:space="preserve">
+    <value>Vous devez accepter les conditions d’utilisation pour continuer.</value>
+  </data>
+  <data name="Stepper_Demo_Success_Title" xml:space="preserve">
+    <value>Soumission réussie</value>
+  </data>
+  <data name="Stepper_Demo_Success_Message" xml:space="preserve">
+    <value>Vos renseignements ont été soumis avec succès. Ceci est une démonstration seulement; aucune donnée n’a été enregistrée.</value>
+  </data>
+  <data name="Stepper_Demo_Success_StartOver" xml:space="preserve">
+    <value>Recommencer</value>
+  </data>
   <data name="Stepper_Code_Intro" xml:space="preserve">
     <value>&lt;gcds-text&gt;Copiez ce code pour recréer la démo du modèle de page avec indicateur d'étapes.&lt;/gcds-text&gt;</value>
   </data>
