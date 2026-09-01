@@ -1,0 +1,49 @@
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
+
+@{
+    var contact = Model.ContactOptions is null
+        ? "—"
+        : string.Join(", ", Model.ContactOptions);
+    var dob = Model.DateOfBirth?.ToString("d") ?? "—";
+    var country = Model.CountryOptions.FirstOrDefault(c => c.Value == Model.SelectedCountry)?.Text
+        ?? Model.SelectedCountry
+        ?? "—";
+    var province = Model.ProvinceList.FirstOrDefault(p => p.Value == Model.Province)?.Text
+        ?? Model.Province
+        ?? "—";
+}
+
+<gcds-text>@Template.Stepper_Demo_Review_Intro</gcds-text>
+
+<dl class="fdcp-stepper-review">
+    <dt>@Template.Stepper_Demo_FirstName_Label</dt>
+    <dd>@(string.IsNullOrWhiteSpace(Model.FirstName) ? "—" : Model.FirstName)</dd>
+
+    <dt>@Template.Stepper_Demo_LastName_Label</dt>
+    <dd>@(string.IsNullOrWhiteSpace(Model.LastName) ? "—" : Model.LastName)</dd>
+
+    <dt>@Template.Stepper_Demo_Province_Label</dt>
+    <dd>@province</dd>
+
+    <dt>@Template.Stepper_Demo_ContactOptions_Label</dt>
+    <dd>@contact</dd>
+
+    <dt>@Components.Form_Bio_Label</dt>
+    <dd>@(string.IsNullOrWhiteSpace(Model.Bio) ? "—" : Html.Raw(Model.Bio))</dd>
+
+    <dt>@Components.Form_DateOfBirth_Label</dt>
+    <dd>@dob</dd>
+
+    <dt>@Components.Form_Country_Label</dt>
+    <dd>@country</dd>
+
+    <dt>@Components.Form_Gender_Label</dt>
+    <dd>@(string.IsNullOrWhiteSpace(Model.Gender) ? "—" : Model.Gender)</dd>
+
+    <dt>@Components.Form_Website_Label</dt>
+    <dd>@(string.IsNullOrWhiteSpace(Model.Website) ? "—" : Model.Website)</dd>
+
+    <dt>@Components.Form_Age_Label</dt>
+    <dd>@(Model.Age?.ToString() ?? "—")</dd>
+</dl>

@@ -12,7 +12,7 @@
     Layout = null;
 
     string randomBackgroundImage = "";
-    if (Model?.BackgroundImagePaths != null)
+    if (Model?.BackgroundImagePaths != null && Model.BackgroundImagePaths.Count > 0)
     {
         var paths = Model.BackgroundImagePaths!;
         int index = RandomNumberGenerator.GetInt32(paths.Count);
@@ -42,28 +42,57 @@
     <style nonce="@nonce">
         body{
             background-size: cover;
-            background-image: url('@StaticResourceHelper.GetImageResourcePath(randomBackgroundImage)');
+            @* A11y/robustness: avoid emitting an invalid url() when no background images are configured. *@
+            @if (!string.IsNullOrWhiteSpace(randomBackgroundImage))
+            {
+                <text>background-image: url('@StaticResourceHelper.GetImageResourcePath(randomBackgroundImage)');</text>
+            }
+        }
+
+        @* A11y: ensure readable contrast regardless of the chosen background photo (WCAG 1.4.3). *@
+        body::before{
+            content: "";
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.55);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        @* Keep page content above the overlay. *@
+        #mainContentOfPage{
+            position: relative;
+            z-index: 1;
         }
     </style>
+
+    @* A11y: provide a keyboard-accessible skip link to the main landmark. *@
+    <a class="sr-only sr-only-focusable" href="#mainContentOfPage">Skip to main content</a>
 
     <main id="mainContentOfPage">
         <div id="choosing-box">
             <div class="header">
-                <h1 translate="no" class="sr-only">@Model?.ApplicationTitleEn / @Model?.ApplicationTitleFr</h1>
+                @* A11y: provide a visible H1 (screen-reader-only headings can confuse users and reduce usability). *@
+                <h1 translate="no">@Model?.ApplicationTitleEn / <span lang="fr">@Model?.ApplicationTitleFr</span></h1>
+                <p class="mt-200">
+                    <span lang="en">Select your language.</span>
+                    <span lang="fr">Sélectionnez votre langue.</span>
+                </p>
                 <div class="logo">
+                    @* A11y: the GC signature is decorative here because the page already has a textual H1. *@
                     <gcds-signature></gcds-signature>
                 </div>
                 <gcds-grid columns="1fr 1fr" container="GCFoundation.Components.Enums.SizeTypeEmum.sm" equal-row-height="true">
                     <section class="text-right pt-300" lang="en">
-                        <h2 class="sr-only">@Model?.ApplicationTitleEn</h2>
+                        @* A11y: hide repeated headings; the visible H1 already identifies the page. *@
                         <p>
                             <gcds-button type="link" href="@Model?.EnglishAction" translate="no">English</gcds-button>
                         </p>
                     </section>
                     <section class="text-left pt-300" lang="fr">
-                        <h2 class="sr-only">@Model?.ApplicationTitleFr</h2>
+                        @* A11y: explicitly tag French control text so AT uses French pronunciation rules. *@
                         <p>
-                            <gcds-button type="link" href="@Model?.FrenchAction" translate="no">Français</gcds-button>
+                            <gcds-button type="link" href="@Model?.FrenchAction" translate="no" lang="fr">Français</gcds-button>
                         </p>
                     </section>
                 </gcds-grid>
@@ -71,12 +100,24 @@
             <div class="footer">
                 <gcds-grid columns="2fr 1fr" container="GCFoundation.Components.Enums.SizeTypeEmum.sm" equal-row-height="true">
                     <div>
-                    @if (!string.IsNullOrWhiteSpace(Model?.TermLinkEn) || !string.IsNullOrWhiteSpace(Model?.TermLinkFr))
+                    @* A11y/robustness: only render links that have valid hrefs; mark decorative icons aria-hidden. *@
+                    @if (!string.IsNullOrWhiteSpace(Model?.TermLinkEn))
                     {
-                        <a href="@Model?.TermLinkEn">Terms & conditions</a> <span class="fa-solid fa-asterisk"></span> <a href="@Model?.TermLinkFr">Avis</a>
+                        <a href="@Model!.TermLinkEn" lang="en">Terms &amp; conditions</a>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model?.TermLinkEn) && !string.IsNullOrWhiteSpace(Model?.TermLinkFr))
+                    {
+                        <span class="fa-solid fa-asterisk" aria-hidden="true"></span>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(Model?.TermLinkFr))
+                    {
+                        <a href="@Model!.TermLinkFr" lang="fr">Avis</a>
                     }
                     </div>
-                    <div><gcds-signature type="Wordmark"></gcds-signature></div>
+                    <div>
+                        @* A11y: wordmark is decorative when surrounding context already conveys page identity. *@
+                        <gcds-signature type="Wordmark"></gcds-signature>
+                    </div>
                 </gcds-grid>
             </div>
         </div>

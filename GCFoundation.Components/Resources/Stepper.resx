@@ -120,4 +120,22 @@
   <data name="Title_Default" xml:space="preserve">
     <value>Current step</value>
   </data>
+  <data name="SR_CurrentStepAnnouncement" xml:space="preserve">
+    <value>Step {0} of {1}: {2}.</value>
+  </data>
+  <data name="SR_ProgressLabel" xml:space="preserve">
+    <value>Progress</value>
+  </data>
+  <data name="SR_StepSummary" xml:space="preserve">
+    <value>Step {0} of {1}: {2} ({3})</value>
+  </data>
+  <data name="SR_StatusCompleted" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="SR_StatusCurrent" xml:space="preserve">
+    <value>Current step</value>
+  </data>
+  <data name="SR_StatusUpcoming" xml:space="preserve">
+    <value>Upcoming</value>
+  </data>
 </root>

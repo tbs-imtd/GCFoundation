@@ -1,14 +1,17 @@
-﻿@using GCFoundation.Components.Resources
+@using GCFoundation.Components.Resources
 @using GCFoundation.Components.Settings
 @using Microsoft.Extensions.Options
 
 @inject IOptions<GCFoundationSessionSetting> sessionSetting;
 
-<fdcp-session-modal modal-id="session-extend-modal" title="@Modal.ModalExtendSession_Title" static-backdrop hide-close-button
-session-timeout="@sessionSetting.Value.SessionTimeout" 
-reminder-time="@sessionSetting.Value.ReminderTime" 
-refresh-url="@sessionSetting.Value.RefreshURL" 
-logout-url="@sessionSetting.Value.LogoutURL">
+<fdcp-session-modal id="session-extend-modal" title="@Modal.ModalExtendSession_Title"
+	aria-describedby="session-extend-modal-description"
+	hide-close-button
+	session-timeout="@sessionSetting.Value.SessionTimeout" 
+	static-backdrop
+	reminder-time="@sessionSetting.Value.ReminderTime" 
+	refresh-url="@sessionSetting.Value.RefreshURL" 
+	logout-url="@sessionSetting.Value.LogoutURL">
 	<div slot="body">
 		<p>@Html.Raw(Modal.ModalExtendSession_Text)</p>
 	</div>

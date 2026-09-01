@@ -7,26 +7,83 @@
     width: 100%;
     min-width: 0; // This is crucial for preventing flex item overflow
 
-    .language-cshtml {
+    // Sample code uses <pre><code class="language-*">; prism.css ships a dark theme (#ccc tokens)
+    // that fails 1.4.3 on our light documentation background — override with GCDS contrast-safe colors.
+    pre > code[class*='language-'] {
+        display: block;
+        white-space: pre;
+        word-wrap: normal;
+        font-family: 'Source Code Pro', monospace;
+        font-size: 0.95em;
+        line-height: 1.5;
+        color: var(--gcds-text-primary, #333);
+        background: transparent;
+
+        .token.comment,
+        .token.block-comment,
+        .token.prolog,
+        .token.doctype,
+        .token.cdata {
+            color: var(--gcds-color-grayscale-700, #545961);
+        }
+
+        .token.punctuation {
+            color: var(--gcds-text-primary, #333);
+        }
+
+        .token.tag,
+        .token.attr-name,
+        .token.deleted {
+            color: var(--gcds-color-red-900, #822117);
+        }
+
+        .token.attr-value,
+        .token.string,
+        .token.char,
+        .token.regex,
+        .token.inserted {
+            color: var(--gcds-color-green-800, #023b1a);
+        }
+
+        .token.atrule,
+        .token.keyword,
+        .token.selector,
+        .token.important,
+        .token.builtin {
+            color: var(--gcds-color-blue-800, #2b4380);
+        }
+
+        .token.function,
+        .token.function-name,
+        .token.class-name,
+        .token.number,
+        .token.boolean {
+            color: var(--gcds-link-hover, #0535d2);
+        }
+
+        .token.operator,
+        .token.entity,
+        .token.url,
+        .token.variable {
+            color: var(--gcds-color-blue-750, #1e7b96);
+        }
+
+        .token.constant,
+        .token.property,
+        .token.symbol {
+            color: var(--gcds-color-green-700, #03662a);
+        }
+    }
+
+    pre:has(> code[class*='language-']) {
         width: 100%;
         max-width: 100%;
+        margin: 0;
+        padding: var(--gcds-spacing-200);
         overflow-x: auto;
         border-radius: 4px;
-
-        pre {
-            margin: 0;
-            padding: var(--gcds-spacing-200);
-
-            code {
-                display: block;
-                white-space: pre;
-                word-wrap: normal;
-                font-family: "Source Code Pro", monospace;
-                font-size: 0.95em;
-                line-height: 1.5;
-                padding-bottom: var(--gcds-spacing-300);
-            }
-        }
+        background-color: var(--gcds-color-grayscale-50, #f1f2f3);
+        border: 1px solid var(--gcds-color-grayscale-100, #d6d9dd);
     }
 }
 
@@ -34,4 +91,19 @@ pre {
     box-sizing: border-box;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
+}
+
+// Matches GCDS screen-reader-only pattern; defined here so FDCP markup still works when GCDS CSS
+// cannot load (e.g. CSP) and foundation styles are present.
+.visibility-sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
 }

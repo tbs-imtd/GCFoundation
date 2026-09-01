@@ -1618,6 +1618,12 @@
   <data name="Table_Link_Header" xml:space="preserve">
     <value>Submission Link</value>
   </data>
+  <data name="Table_Basic_Caption" xml:space="preserve">
+    <value>Employee records</value>
+  </data>
+  <data name="Table_Basic_Summary" xml:space="preserve">
+    <value>Table listing employee ID, name, department, and employment status.</value>
+  </data>
   <data name="Table_BasicUsage_Title" xml:space="preserve">
     <value>Basic usage</value>
   </data>
