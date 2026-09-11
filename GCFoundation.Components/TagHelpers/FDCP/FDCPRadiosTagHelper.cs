@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Mvc.TagHelpers;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Text.Json;
 
@@ -62,6 +63,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             AddAttributeIfNotNull(output, "hint", field.Hint);
             AddAttributeIfNotNull(output, "options", JsonSerializer.Serialize(options));
             AddBooleanAttribute(output, "required", field.Required);
+            if (field.Disabled == true) 
+                output.Attributes.SetAttribute(new TagHelperAttribute("disabled", null, HtmlAttributeValueStyle.Minimized));
 
             output.Content.SetHtmlContent(string.Empty);
         }
