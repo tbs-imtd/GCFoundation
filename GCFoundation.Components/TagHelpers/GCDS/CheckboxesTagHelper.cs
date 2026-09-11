@@ -35,12 +35,10 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
             output.TagName = "gcds-checkboxes";
 
-            AddAttributeIfNotNull(output, "name", field.Name);
             AddAttributeIfNotNull(output, "legend", field.Label);
-            AddAttributeIfNotNull(output, "hint", field.Hint);
-            AddAttributeIfNotNull(output, "value", field.Value);
-
             AddAttributeIfNotNull(output, "options", Options);
+
+            base.Process(context, output);
         }
     }
 }
