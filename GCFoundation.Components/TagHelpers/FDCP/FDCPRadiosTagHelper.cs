@@ -63,8 +63,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             AddAttributeIfNotNull(output, "hint", field.Hint);
             AddAttributeIfNotNull(output, "options", JsonSerializer.Serialize(options));
             AddBooleanAttribute(output, "required", field.Required);
-            if (field.Disabled == true) 
-                output.Attributes.SetAttribute(new TagHelperAttribute("disabled", null, HtmlAttributeValueStyle.Minimized));
+            AddBooleanAttribute(output, "disabled", field.Disabled);
 
             output.Content.SetHtmlContent(string.Empty);
         }
