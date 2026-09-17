@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Documentation" xml:space="preserve"><value>Documentation de l’API</value></data>
+  <data name="Overview" xml:space="preserve"><value>Aperçu</value></data>
+  <data name="Servers" xml:space="preserve"><value>Serveurs</value></data>
+  <data name="Download" xml:space="preserve"><value>Télécharger la spécification</value></data>
+  <data name="Authentication" xml:space="preserve"><value>Authentification</value></data>
+  <data name="Endpoints" xml:space="preserve"><value>Points de terminaison</value></data>
+  <data name="Schemas" xml:space="preserve"><value>Schémas</value></data>
+  <data name="Schema" xml:space="preserve"><value>Schéma</value></data>
+  <data name="NoEndpoints" xml:space="preserve"><value>Aucun point de terminaison n’est documenté.</value></data>
+  <data name="Deprecated" xml:space="preserve"><value>Point de terminaison obsolète.</value></data>
+  <data name="OperationId" xml:space="preserve"><value>Identifiant de l’opération</value></data>
+  <data name="NoAuthentication" xml:space="preserve"><value>Aucune authentification requise.</value></data>
+  <data name="SecurityHelp" xml:space="preserve"><value>Chaque objet représente une option. Tous les mécanismes d’un même objet sont requis; les tableaux indiquent les portées requises. Un objet vide permet un accès anonyme.</value></data>
+  <data name="Parameters" xml:space="preserve"><value>Paramètres</value></data>
+  <data name="None" xml:space="preserve"><value>Aucun.</value></data>
+  <data name="Name" xml:space="preserve"><value>Nom</value></data>
+  <data name="Type" xml:space="preserve"><value>Type</value></data>
+  <data name="Required" xml:space="preserve"><value>Obligatoire</value></data>
+  <data name="Description" xml:space="preserve"><value>Description</value></data>
+  <data name="Yes" xml:space="preserve"><value>Oui</value></data>
+  <data name="No" xml:space="preserve"><value>Non</value></data>
+  <data name="Definition" xml:space="preserve"><value>Définition complète</value></data>
+  <data name="RequestBody" xml:space="preserve"><value>Corps de la requête</value></data>
+  <data name="Responses" xml:space="preserve"><value>Réponses</value></data>
+  <data name="Headers" xml:space="preserve"><value>En-têtes</value></data>
+  <data name="ContentType" xml:space="preserve"><value>Type de contenu</value></data>
+  <data name="Example" xml:space="preserve"><value>Exemple</value></data>
+  <data name="Encoding" xml:space="preserve"><value>Encodage</value></data>
+  <data name="Reference" xml:space="preserve"><value>Référence (consulter la spécification source)</value></data>
+  <data name="SeeSchema" xml:space="preserve"><value>Consulter le schéma</value></data>
+  <data name="Variables" xml:space="preserve"><value>Variables</value></data>
+</root>
