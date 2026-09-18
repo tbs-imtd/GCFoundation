@@ -26,21 +26,18 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             FormFieldContext field = ResolveFormField();
 
-            output.TagName = "gcds-input";
-            output.TagMode = TagMode.StartTagAndEndTag;
-
-            AddAttributeIfNotNull(output, "value", field.Value ?? string.Empty);
             AddAttributeIfNotNull(output, "name", field.Name);
-            AddAttributeIfNotNull(output, "label", field.Label);
-            AddAttributeIfNotNull(output, "input-id", field.Id);
-            AddAttributeIfNotNull(output, "hint", field.Hint);
             AddAttributeIfNotNull(output, "lang", Lang);
-
-            AddBooleanAttribute(output, "required", field.Required);
+            AddAttributeIfNotNull(output, "hint", field.Hint);
+            if (field.Required)
+                AddAttributeIfNotNull(output, "required", field.Required);
+            AddBooleanAttribute(output, "disabled", field.Disabled);
             AddAttributeIfNotNull(output, "validate-on", "blur");
 
             string? errorMessage = ResolveModelStateError(field.Name);
             AddAttributeIfNotNull(output, "error-message", errorMessage);
+
+            base.Process(context, output);
         }
     }
 }

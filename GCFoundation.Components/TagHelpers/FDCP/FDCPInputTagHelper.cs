@@ -54,7 +54,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                     AddAttributeIfNotNull(output, "label", field.Label);
                     AddAttributeIfNotNull(output, "checkbox-id", field.Id);
-                    AddAttributeIfNotNull(output, "value", field.Value ?? string.Empty);
                     break;
                 case InputType.date:
                     output.TagName = "gcds-date-input";
@@ -76,7 +75,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                     AddAttributeIfNotNull(output, "label", field.Label);
                     AddAttributeIfNotNull(output, "textarea-id", field.Id);
-                    AddAttributeIfNotNull(output, "value", field.Value ?? string.Empty);
                     break;
                 case InputType.email:
                 case InputType.number:
@@ -92,20 +90,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     AddAttributeIfNotNull(output, "type", inputType);
                     AddAttributeIfNotNull(output, "label", field.Label);
                     AddAttributeIfNotNull(output, "input-id", field.Id);
-                    AddAttributeIfNotNull(output, "value", field.Value ?? string.Empty);
                     break;
             }
 
-            AddAttributeIfNotNull(output, "name", field.Name);
-            AddAttributeIfNotNull(output, "hint", field.Hint);
-            AddAttributeIfNotNull(output, "lang", Lang);
-
-            AddBooleanAttribute(output, "disabled", field.Disabled);
-            AddBooleanAttribute(output, "required", field.Required);
-            AddAttributeIfNotNull(output, "validate-on", "blur");
-
-            string? errorMessage = ResolveModelStateError(field.Name);
-            AddAttributeIfNotNull(output, "error-message", errorMessage);
+            base.Process(context, output);
         }
 
         #region Resolve methods
