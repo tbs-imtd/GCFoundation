@@ -282,4 +282,11 @@
   <data name="Nav_Components_Tabs" xml:space="preserve">
     <value>Onglets</value>
   </data>
+  <data name="Nav_Components_ApiDocs" xml:space="preserve">
+    <value>Documentation de l’API</value>
+  </data>
+  <data name="Nav_Template_ApiDocs" xml:space="preserve"><value>Documentation d’API</value></data>
+  <data name="Nav_Template_ApiDocs_Code" xml:space="preserve"><value>Documentation d’API — code</value></data>
+  <data name="Nav_Template_ApiDocs_Demo" xml:space="preserve"><value>Documentation d’API — démonstration</value></data>
+  <data name="Nav_Components_ApiReference" xml:space="preserve"><value>Référence OpenAPI</value></data>
 </root>

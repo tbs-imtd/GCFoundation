@@ -6,6 +6,8 @@
 
 ## Features
 
+- **API documentation page template:** Compose a complete documentation page with `fdcp-api-docs`, or embed the standalone `fdcp-api-reference` component in an existing page. Both share the OpenAPI reference renderer. See the [usage guide](Documentation/ApiDocumentation.md).
+
 - **GCDS Tag Helpers** – Easily render GCDS-compliant HTML elements (buttons, alerts, cards, navigation, etc.).
 - **View Components** – Reusable UI building blocks for breadcrumbs, language toggles, headers, footers, and more.
 - **Localization Support** – Built-in resource files for English and French.

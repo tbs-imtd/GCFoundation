@@ -1,0 +1,21 @@
+@using GCFoundation.Web.Resources
+@model string
+
+<gcds-heading tag="h1">@ApiDocsDemo.SampleTitle</gcds-heading>
+<gcds-text><a href="@Url.Action("ApiDocs", "Template")">@ApiDocsDemo.BackToDocs</a></gcds-text>
+
+<fdcp-api-docs document="@Model" id="requests-api" title="@ApiDocsDemo.SampleTitle"
+               download-url="@Url.Content("~/api-spec/requests.json")">
+    <fdcp-api-docs-section id="certificates" title="@ApiDocsDemo.Certificates">
+        <p>@ApiDocsDemo.CertificateGuidance</p>
+        <pre tabindex="0"><code>curl --cert client.pem --key client.key \
+  --header "Authorization: Bearer YOUR_ACCESS_TOKEN" \
+  https://api.example.gc.ca/v1/requests/REQUEST_ID</code></pre>
+    </fdcp-api-docs-section>
+    <fdcp-api-docs-section id="rate-limits" title="@ApiDocsDemo.RateLimits">
+        <p>@ApiDocsDemo.RateLimitGuidance</p>
+    </fdcp-api-docs-section>
+    <fdcp-api-docs-section id="support" title="@ApiDocsDemo.Support" after-endpoints="true">
+        <p>@ApiDocsDemo.SupportGuidance</p>
+    </fdcp-api-docs-section>
+</fdcp-api-docs>

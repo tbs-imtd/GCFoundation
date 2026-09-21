@@ -1,0 +1,28 @@
+@using GCFoundation.Web.Resources
+@using System.Text.Json
+@{
+    var json = JsonSerializer.Serialize(new
+    {
+        openapi = "3.1.0",
+        info = new { title = ApiDocsDemo.BasicTitle, version = "1.0" },
+        paths = new Dictionary<string, object>
+        {
+            ["/health"] = new
+            {
+                get = new
+                {
+                    summary = ApiDocsDemo.ReferenceHealth,
+                    responses = new Dictionary<string, object> { ["204"] = new { description = ApiDocsDemo.ReferenceHealthy } }
+                }
+            }
+        }
+    });
+}
+
+<fdcp-api-reference document="@json" id="health-reference"></fdcp-api-reference>
+
+<pre tabindex="0"><code class="language-cshtml">&lt;fdcp-api-reference document="@@Model.OpenApiJson"
+                    id="health-reference"&gt;
+&lt;/fdcp-api-reference&gt;</code></pre>
+
+<gcds-text><a href="@Url.Action("ApiDocs", "Template")">@ApiDocsDemo.TemplateLink</a></gcds-text>

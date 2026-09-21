@@ -1,0 +1,47 @@
+@using GCFoundation.Web.Resources
+
+<gcds-heading tag="h1">@ApiDocsDemo.Title</gcds-heading>
+<div class="documentation-content">
+    <gcds-text>@ApiDocsDemo.TemplateIntro</gcds-text>
+
+    <gcds-heading tag="h2" id="@Template.WhenToUse_Anchor">@Template.WhenToUse</gcds-heading>
+    <ul>
+        <li>@ApiDocsDemo.WhenUse1</li>
+        <li>@ApiDocsDemo.WhenUse2</li>
+    </ul>
+
+    <gcds-heading tag="h2" id="@Components.Guidance_WhenNotToUse_Anchor">@Components.Guidance_WhenNotToUse</gcds-heading>
+    <ul>
+        <li>@ApiDocsDemo.WhenNot1</li>
+        <li>@ApiDocsDemo.WhenNot2</li>
+    </ul>
+
+    <gcds-heading tag="h2" id="@Template.Preview_Anchor">@Template.Preview</gcds-heading>
+    <div class="mt-300 mb-300">
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("ApiDocsDemo", "Template")">@ApiDocsDemo.OpenDemo <i class="ms-100 fa-solid fa-desktop" aria-hidden="true"></i></gcds-button>
+        <gcds-button button-role="secondary" type="link" href="@Url.Action("ApiDocsCode", "Template")">@ApiDocsDemo.CodeButton <i class="ms-100 fa-solid fa-code" aria-hidden="true"></i></gcds-button>
+    </div>
+    <img src="@Url.Content("~/images/preview-api-docs.svg")" alt="@ApiDocsDemo.TemplatePreviewAlt" class="border rounded w-75" />
+
+    <gcds-heading tag="h2" id="@Template.HowToImplement_Anchor">@Template.HowToImplement</gcds-heading>
+    <gcds-text>@ApiDocsDemo.TemplateImplementation</gcds-text>
+    <gcds-text>@ApiDocsDemo.CustomText</gcds-text>
+    <gcds-text><a href="@Url.Action("ApiReference", "Components")">@ApiDocsDemo.ReferenceLink</a></gcds-text>
+
+    <gcds-heading tag="h2" id="@Template.DesignConsiderations_Anchor">@Template.DesignConsiderations</gcds-heading>
+    <ul>
+        <li>@ApiDocsDemo.Accessibility1</li>
+        <li>@ApiDocsDemo.Accessibility2</li>
+        <li>@ApiDocsDemo.Accessibility3</li>
+        <li>@ApiDocsDemo.Ux1</li>
+        <li>@ApiDocsDemo.Ux2</li>
+    </ul>
+
+    <gcds-heading tag="h2" id="@Template.Notes_Anchor">@Template.Notes</gcds-heading>
+    <ul>
+        <li>@ApiDocsDemo.NoteAssets</li>
+        <li>@ApiDocsDemo.NoteLocalization</li>
+        <li>@ApiDocsDemo.NoteLoading</li>
+        <li>@ApiDocsDemo.NoteSchemas</li>
+    </ul>
+</div>

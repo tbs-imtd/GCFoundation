@@ -30,6 +30,31 @@ namespace GCFoundation.Web.Controllers
             return View(vm);
         }
 
+        /// <summary>Redirects the former component guide to the API documentation page template.</summary>
+        /// <returns>The page template redirect.</returns>
+        [HttpGet("api-docs")]
+        public IActionResult ApiDocs()
+        {
+            return RedirectToAction("ApiDocs", "Template");
+        }
+
+        /// <summary>Redirects the former component demo to the page template demo.</summary>
+        /// <returns>The page template demo redirect.</returns>
+        [HttpGet("api-docs/demo")]
+        public IActionResult ApiDocsPreview()
+        {
+            return RedirectToAction("ApiDocsDemo", "Template");
+        }
+
+        /// <summary>Displays the standalone OpenAPI reference component guide.</summary>
+        /// <returns>The standard component documentation view.</returns>
+        [HttpGet("api-reference")]
+        public IActionResult ApiReference()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {ApiDocsDemo.BasicTitle}");
+            return View("Component", BuildApiReferenceComponentViewModel());
+        }
+
         /// <summary>
         /// Displays the Accordion component demo page.
         /// </summary>
@@ -550,6 +575,7 @@ namespace GCFoundation.Web.Controllers
             {
                 FeaturedComponents = new List<ComponentIndexViewModel>()
                 {
+                    new () { Name = ApiDocsDemo.BasicTitle, ShortDescription = ApiDocsDemo.ReferenceOverview, Href = Url.Action("ApiReference", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-api-docs.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Accordion_Title, ShortDescription = Resources.Components.Index_Accordion_Description, Href = Url.Action("Accordion", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-accordion.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Badge_Title, Description = Resources.Components.Index_Badge_Description, Href = Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg") },
                     new () { Name = Resources.Components.Index_Card_Title, Description = Resources.Components.Index_Card_Description, Href = Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg") },
@@ -817,6 +843,31 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
+        private static ComponentViewModel BuildApiReferenceComponentViewModel()
+        {
+            return new ComponentViewModel
+            {
+                Name = ApiDocsDemo.BasicTitle,
+                Tag = "<fdcp-api-reference>",
+                Overview = ApiDocsDemo.ReferenceOverview,
+                Purpose = ApiDocsDemo.ReferencePurpose,
+                WhenToUse = [ApiDocsDemo.ReferenceWhenUse],
+                WhenNotToUse = [ApiDocsDemo.ReferenceWhenNot, ApiDocsDemo.WhenNot1],
+                AccessibilityDo = [ApiDocsDemo.Accessibility1, ApiDocsDemo.Accessibility2, ApiDocsDemo.Accessibility3],
+                UxBestPractices = [ApiDocsDemo.Ux1],
+                Notes = [ApiDocsDemo.NoteAssets, ApiDocsDemo.NoteLocalization, ApiDocsDemo.NoteSchemas],
+                Properties =
+                [
+                    new() { Name = "document", DataType = "string", Description = ApiDocsDemo.ReferenceDocument },
+                    new() { Name = "id", DataType = "string", Description = ApiDocsDemo.PropId }
+                ],
+                SampleCodeSections =
+                [
+                    new() { Id = "api-reference-basic", Title = ApiDocsDemo.BasicTitle, Description = ApiDocsDemo.ReferenceExample, PartialViewName = "ApiReference/_Basic" }
+                ]
+            };
+        }
+
         private static ComponentViewModel BuildTabsComponentViewModel()
         {
             var vm = new ComponentViewModel

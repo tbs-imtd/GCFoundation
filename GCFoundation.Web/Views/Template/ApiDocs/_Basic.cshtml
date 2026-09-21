@@ -1,0 +1,15 @@
+@using GCFoundation.Web.Resources
+
+<div class="mt-300 mb-300">
+    <gcds-button button-role="secondary" type="link" href="@Url.Action("ApiDocsDemo", "Template")">@ApiDocsDemo.OpenDemo</gcds-button>
+</div>
+
+<pre tabindex="0"><code class="language-csharp">var json = await File.ReadAllTextAsync(
+    Path.Combine(environment.WebRootPath, "api-spec", "requests.json"));
+return View(new ApiPageViewModel { OpenApiJson = json });</code></pre>
+
+<pre tabindex="0"><code class="language-cshtml">&lt;fdcp-api-docs document="@@Model.OpenApiJson"
+               id="requests-api"
+               title="@ApiDocsDemo.SampleTitle"
+               download-url="@@Url.Content("~/api-spec/requests.json")"&gt;
+&lt;/fdcp-api-docs&gt;</code></pre>

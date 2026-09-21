@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Title" xml:space="preserve"><value>Documentation de l’API</value></data>
+  <data name="Introduction" xml:space="preserve"><value>Affichez une référence OpenAPI et ajoutez des sections Razor flexibles pour les instructions d’intégration.</value></data>
+  <data name="SampleTitle" xml:space="preserve"><value>API de demandes — exemple</value></data>
+  <data name="Certificates" xml:space="preserve"><value>Certificats clients</value></data>
+  <data name="CertificateGuidance" xml:space="preserve"><value>Cette section personnalisée peut contenir du contenu localisé, des vues partielles et des composants du GC. Pour les services exigeant une authentification TLS mutuelle, fournissez le certificat client avec le jeton d’accès. La commande ci-dessous est un exemple.</value></data>
+  <data name="RateLimits" xml:space="preserve"><value>Limites de débit</value></data>
+  <data name="RateLimitGuidance" xml:space="preserve"><value>Ce service fictif permet 60 requêtes par minute par organisation. Lorsqu’une réponse retourne le code HTTP 429, attendez le nombre de secondes indiqué dans Retry-After avant de réessayer.</value></data>
+  <data name="Support" xml:space="preserve"><value>Soutien à l’intégration</value></data>
+  <data name="SupportGuidance" xml:space="preserve"><value>Utilisez les sections après la référence pour les instructions d’intégration, l’historique des modifications ou les coordonnées de soutien. La spécification est affichée dans sa langue d’origine; les libellés du composant suivent la langue de la page.</value></data>
+  <data name="Purpose" xml:space="preserve"><value>Présenter un contrat d’API et ses instructions d’intégration dans la mise en page de GCFoundation. Le document OpenAPI fournit la référence; les sections Razor personnalisées expliquent les exigences propres au service.</value></data>
+  <data name="WhenUse1" xml:space="preserve"><value>Publier une référence lisible à partir d’un document JSON OpenAPI 3.x.</value></data>
+  <data name="WhenUse2" xml:space="preserve"><value>Combiner les détails des points de terminaison avec la configuration des certificats, l’intégration, les limites de débit ou le soutien.</value></data>
+  <data name="WhenNot1" xml:space="preserve"><value>Une console d’API interactive est nécessaire. Ce composant affiche la documentation et n’envoie pas de requêtes.</value></data>
+  <data name="WhenNot2" xml:space="preserve"><value>La source est en YAML, en Swagger 2 ou contient des objets de référence externes non regroupés. Convertissez-la ou regroupez-la d’abord.</value></data>
+  <data name="Accessibility1" xml:space="preserve"><value>Donnez un titre à la page et un titre clair et localisé à chaque section personnalisée. Utilisez des niveaux de titre appropriés dans les sections.</value></data>
+  <data name="Accessibility2" xml:space="preserve"><value>Définissez des identifiants stables et uniques pour le composant et les sections afin que la navigation et les liens directs restent utilisables après la traduction.</value></data>
+  <data name="Accessibility3" xml:space="preserve"><value>Ajoutez tabindex="0" aux blocs de code personnalisés et utilisez des liens descriptifs. Vérifiez le défilement au clavier et la mise en page sur petit écran.</value></data>
+  <data name="AccessibilityNot" xml:space="preserve"><value>Ne vous fiez pas uniquement aux couleurs des méthodes HTTP et ne cachez pas les instructions essentielles dans les exemples. Fournissez toutes les instructions requises sous forme de texte.</value></data>
+  <data name="Ux1" xml:space="preserve"><value>Tenez la spécification source à jour et fournissez un lien de téléchargement vers la même version.</value></data>
+  <data name="Ux2" xml:space="preserve"><value>Placez les instructions de configuration avant la référence et les renseignements de soutien après celle-ci. Utilisez la démonstration pleine largeur pour évaluer les longs documents dans leur mise en page prévue.</value></data>
+  <data name="BasicTitle" xml:space="preserve"><value>Référence OpenAPI</value></data>
+  <data name="BasicText" xml:space="preserve"><value>Chargez le JSON dans un contrôleur ou un service et transmettez son contenu dans votre modèle de vue. Le composant affiche les métadonnées, les paramètres, les corps de requête, les réponses, les exemples, l’authentification et les schémas liés. Ouvrez la démonstration pour voir la référence complète dans le cadre du GC.</value></data>
+  <data name="OpenDemo" xml:space="preserve"><value>Ouvrir la démonstration de documentation d’API</value></data>
+  <data name="BackToDocs" xml:space="preserve"><value>Retour au guide du modèle de page</value></data>
+  <data name="CustomTitle" xml:space="preserve"><value>Sections de spécification personnalisées</value></data>
+  <data name="CustomText" xml:space="preserve"><value>Ajoutez des sections contenant du balisage Razor, des vues partielles ou des composants du GC. Par défaut, les sections précèdent la référence générée; after-endpoints les place après la référence et ses schémas. Omettez document pour créer un guide entièrement personnalisé.</value></data>
+  <data name="NoteAssets" xml:space="preserve"><value>Les fichiers standards foundation.min.css et foundation.min.js incluent ce composant. Le contenu et les liens de navigation restent disponibles sans JavaScript.</value></data>
+  <data name="NoteLocalization" xml:space="preserve"><value>Les libellés suivent la culture de l’interface, en anglais ou en français. Fournissez séparément le texte traduit de la spécification et le contenu personnalisé. Les descriptions OpenAPI sont du texte encodé; le Markdown n’est pas interprété.</value></data>
+  <data name="NoteLoading" xml:space="preserve"><value>L’assistant ne lit pas de fichiers, ne récupère pas d’URL et n’exécute pas d’appels API. L’application charge le JSON et fournit le téléchargement facultatif. Le JSON mal formé, les versions non prises en charge et les objets de référence non valides provoquent une exception lors du rendu.</value></data>
+  <data name="NoteSchemas" xml:space="preserve"><value>Les schémas récursifs et les contraintes sont conservés en JSON; les schémas réutilisables sont liés sans développement récursif. Les rappels, les webhooks et les liens n’ont pas encore de sections générées dédiées.</value></data>
+  <data name="PropDocument" xml:space="preserve"><value>Contenu JSON OpenAPI 3.x. Omettre pour afficher uniquement les sections personnalisées.</value></data>
+  <data name="PropId" xml:space="preserve"><value>Préfixe unique des ancres. Généré si omis; fournissez une valeur stable pour les liens directs. Utilisez des lettres ASCII, des chiffres, des traits d’union et des traits de soulignement.</value></data>
+  <data name="PropTitle" xml:space="preserve"><value>Titre de la navigation. Utilise par défaut info.title du document.</value></data>
+  <data name="PropDownload" xml:space="preserve"><value>Lien de téléchargement HTTP(S) ou relatif à l’application, facultatif. Utilisez Url.Content pour respecter le chemin de base de l’application.</value></data>
+  <data name="PropSectionTitle" xml:space="preserve"><value>Titre de section et libellé de navigation obligatoires. Localisez-les dans la vue appelante.</value></data>
+  <data name="PropSectionId" xml:space="preserve"><value>Suffixe stable de la section. L’ancre générée est {parent-id}-section-{child-id}; la ponctuation est normalisée et les doublons reçoivent un suffixe unique.</value></data>
+  <data name="PropAfter" xml:space="preserve"><value>Placer la section après toute la référence générée, y compris les schémas.</value></data>
+  <data name="TemplateIntro" xml:space="preserve"><value>Une page complète de documentation d’API avec navigation, instructions de configuration, référence OpenAPI et téléchargement de la spécification.</value></data>
+  <data name="TemplateImplementation" xml:space="preserve"><value>Utilisez la mise en page Foundation standard et un titre de page. L’assistant fdcp-api-docs compose le corps de la page : aperçu, téléchargements, sections personnalisées et navigation. Il confie les détails générés de l’API au même moteur de rendu que fdcp-api-reference.</value></data>
+  <data name="TemplateCodeTitle" xml:space="preserve"><value>Modèle de documentation d’API — code</value></data>
+  <data name="ReferenceOverview" xml:space="preserve"><value>Afficher les opérations, les paramètres, les corps de requête, les réponses, l’authentification et les schémas d’un document JSON OpenAPI dans une page existante.</value></data>
+  <data name="ReferencePurpose" xml:space="preserve"><value>Fournir une référence d’API réutilisable indépendamment de la mise en page. Ce moteur de rendu alimente aussi le modèle de page de documentation d’API.</value></data>
+  <data name="ReferenceWhenUse" xml:space="preserve"><value>Intégrer une référence d’API dans une page existante qui fournit déjà son titre et sa navigation.</value></data>
+  <data name="ReferenceWhenNot" xml:space="preserve"><value>Pour une page complète destinée aux développeurs, avec instructions personnalisées, navigation et téléchargements, utilisez le modèle de page de documentation d’API.</value></data>
+  <data name="ReferenceDocument" xml:space="preserve"><value>Contenu JSON OpenAPI 3.x obligatoire.</value></data>
+  <data name="ReferenceExample" xml:space="preserve"><value>Cette petite référence peut être intégrée directement. Utilisez le modèle de page si vous avez également besoin d’un aperçu, de sections personnalisées, de téléchargements et de navigation.</value></data>
+  <data name="TemplateLink" xml:space="preserve"><value>Consulter le modèle de page de documentation d’API</value></data>
+  <data name="ReferenceLink" xml:space="preserve"><value>Consulter le composant de référence OpenAPI autonome</value></data>
+  <data name="ReferenceHealth" xml:space="preserve"><value>Vérifier la disponibilité du service</value></data>
+  <data name="ReferenceHealthy" xml:space="preserve"><value>Service disponible</value></data>
+  <data name="TemplatePreviewAlt" xml:space="preserve"><value>Page de documentation d’API avec une navigation latérale, les détails des points de terminaison et les définitions de schéma.</value></data>
+  <data name="CodeButton" xml:space="preserve"><value>Voir le code</value></data>
+</root>

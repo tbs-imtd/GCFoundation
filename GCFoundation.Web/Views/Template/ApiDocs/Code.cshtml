@@ -1,0 +1,34 @@
+@using GCFoundation.Web.Resources
+@using GCFoundation.Web.Models.Components
+@{
+    var options = new ComponentViewModel
+    {
+        Properties =
+        [
+            new() { Name = "document", DataType = "string", Description = ApiDocsDemo.PropDocument },
+            new() { Name = "id", DataType = "string", Description = ApiDocsDemo.PropId },
+            new() { Name = "title", DataType = "string", Description = ApiDocsDemo.PropTitle },
+            new() { Name = "download-url", DataType = "string", Description = ApiDocsDemo.PropDownload },
+            new() { Name = "fdcp-api-docs-section title", DataType = "string", Description = ApiDocsDemo.PropSectionTitle },
+            new() { Name = "fdcp-api-docs-section id", DataType = "string", Description = ApiDocsDemo.PropSectionId },
+            new() { Name = "fdcp-api-docs-section after-endpoints", DataType = "bool", DefaultValue = "false", Description = ApiDocsDemo.PropAfter }
+        ]
+    };
+}
+
+<gcds-heading tag="h1">@ApiDocsDemo.TemplateCodeTitle</gcds-heading>
+<div class="documentation-content">
+    <gcds-text>@ApiDocsDemo.TemplateImplementation</gcds-text>
+    <pre tabindex="0"><code class="language-cshtml">@@model ApiPageViewModel
+@@{
+    Layout = "_FoundationLayout";
+}
+&lt;gcds-heading tag="h1"&gt;@ApiDocsDemo.SampleTitle&lt;/gcds-heading&gt;</code></pre>
+    <gcds-heading tag="h2">@ApiDocsDemo.BasicTitle</gcds-heading>
+    <gcds-text>@ApiDocsDemo.BasicText</gcds-text>
+    <partial name="ApiDocs/_Basic" />
+    <gcds-heading tag="h2">@ApiDocsDemo.CustomTitle</gcds-heading>
+    <gcds-text>@ApiDocsDemo.CustomText</gcds-text>
+    <partial name="ApiDocs/_CustomSections" />
+    <partial name="/Views/Components/_Properties.cshtml" model="options" />
+</div>

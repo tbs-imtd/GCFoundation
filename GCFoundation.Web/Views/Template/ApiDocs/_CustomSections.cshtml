@@ -1,0 +1,14 @@
+@using GCFoundation.Web.Resources
+
+<pre tabindex="0"><code class="language-cshtml">&lt;fdcp-api-docs document="@@Model.OpenApiJson" id="requests-api"&gt;
+    &lt;fdcp-api-docs-section id="certificates" title="@ApiDocsDemo.Certificates"&gt;
+        &lt;partial name="_CertificateInstructions" /&gt;
+    &lt;/fdcp-api-docs-section&gt;
+    &lt;fdcp-api-docs-section id="rate-limits" title="@ApiDocsDemo.RateLimits"&gt;
+        &lt;p&gt;@ApiDocsDemo.RateLimitGuidance&lt;/p&gt;
+    &lt;/fdcp-api-docs-section&gt;
+    &lt;fdcp-api-docs-section id="support" title="@ApiDocsDemo.Support"
+                           after-endpoints="true"&gt;
+        &lt;partial name="_ApiSupport" /&gt;
+    &lt;/fdcp-api-docs-section&gt;
+&lt;/fdcp-api-docs&gt;</code></pre>

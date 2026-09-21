@@ -129,6 +129,37 @@ namespace GCFoundation.Web.Controllers
             return View();
         }
 
+        /// <summary>Displays the API documentation page template guide.</summary>
+        /// <returns>The API documentation template guide.</returns>
+        [HttpGet("api-docs")]
+        public IActionResult ApiDocs()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.ApiDocsDemo.Title}");
+            return View();
+        }
+
+        /// <summary>Displays implementation examples for the API documentation template.</summary>
+        /// <returns>The template code page.</returns>
+        [HttpGet("api-docs/code")]
+        public IActionResult ApiDocsCode()
+        {
+            SetPageTitle($"{Menu.Menu_Template} : {Resources.ApiDocsDemo.Title}");
+            return View("ApiDocs/Code");
+        }
+
+        /// <summary>Displays the API documentation page template demonstration.</summary>
+        /// <param name="environment">The application environment containing the sample specification.</param>
+        /// <returns>The full documentation page.</returns>
+        [HttpGet("api-docs/demo")]
+        public async Task<IActionResult> ApiDocsDemo([FromServices] IWebHostEnvironment environment)
+        {
+            ArgumentNullException.ThrowIfNull(environment);
+            SetPageTitle(Resources.ApiDocsDemo.SampleTitle);
+            var json = await System.IO.File.ReadAllTextAsync(
+                Path.Combine(environment.WebRootPath, "api-spec", "requests.json")).ConfigureAwait(false);
+            return View("ApiDocs/Demo", (object)json);
+        }
+
         #region Basic Page Template (Code, Demo) Controller Actions
         /// <summary>
         /// Displays a page containing sample code for the use of a Basic page template.

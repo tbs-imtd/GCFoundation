@@ -1,0 +1,209 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Requests API",
+    "version": "1.0.0",
+    "description": "Create requests and retrieve their status. This example uses fictional data and an illustrative service URL."
+  },
+  "servers": [
+    {
+      "url": "https://api.example.gc.ca/v1",
+      "description": "Example service"
+    }
+  ],
+  "security": [
+    {
+      "BearerAuth": []
+    }
+  ],
+  "paths": {
+    "/requests/{id}": {
+      "parameters": [
+        {
+          "$ref": "#/components/parameters/RequestId"
+        }
+      ],
+      "get": {
+        "operationId": "getRequest",
+        "summary": "Retrieve a request",
+        "description": "Returns the current status of a request belonging to your organization.",
+        "responses": {
+          "200": {
+            "description": "Request found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Request"
+                },
+                "examples": {
+                  "received": {
+                    "summary": "A received request",
+                    "value": {
+                      "id": "f65b50ac-22d9-47ee-a740-9d1eb39cef49",
+                      "subject": "Access to records",
+                      "status": "received"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "$ref": "#/components/responses/NotFound"
+          },
+          "429": {
+            "description": "Rate limit exceeded",
+            "headers": {
+              "Retry-After": {
+                "description": "Seconds to wait before retrying.",
+                "schema": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/requests": {
+      "post": {
+        "operationId": "createRequest",
+        "summary": "Create a request",
+        "requestBody": {
+          "required": true,
+          "description": "Provide the subject and optional details.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRequest"
+              },
+              "example": {
+                "subject": "Access to records",
+                "details": "Records for the current fiscal year."
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Request created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Request"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid request",
+            "content": {
+              "application/problem+json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Problem"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "description": "Send the access token in the Authorization header."
+      }
+    },
+    "parameters": {
+      "RequestId": {
+        "name": "id",
+        "in": "path",
+        "required": true,
+        "description": "The identifier returned when the request was created.",
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        }
+      }
+    },
+    "responses": {
+      "NotFound": {
+        "description": "Request not found",
+        "content": {
+          "application/problem+json": {
+            "schema": {
+              "$ref": "#/components/schemas/Problem"
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "CreateRequest": {
+        "type": "object",
+        "required": [
+          "subject"
+        ],
+        "properties": {
+          "subject": {
+            "type": "string",
+            "maxLength": 200,
+            "description": "A short description of the request."
+          },
+          "details": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Additional context."
+          }
+        },
+        "additionalProperties": false
+      },
+      "Request": {
+        "type": "object",
+        "required": [
+          "id",
+          "subject",
+          "status"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "subject": {
+            "type": "string"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "received",
+              "processing",
+              "completed"
+            ]
+          }
+        }
+      },
+      "Problem": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer"
+          },
+          "title": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

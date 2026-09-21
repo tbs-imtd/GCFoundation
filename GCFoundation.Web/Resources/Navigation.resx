@@ -282,4 +282,11 @@
   <data name="Nav_Components_Tabs" xml:space="preserve">
     <value>Tabs</value>
   </data>
+  <data name="Nav_Components_ApiDocs" xml:space="preserve">
+    <value>API documentation</value>
+  </data>
+  <data name="Nav_Template_ApiDocs" xml:space="preserve"><value>API documentation</value></data>
+  <data name="Nav_Template_ApiDocs_Code" xml:space="preserve"><value>API documentation — code</value></data>
+  <data name="Nav_Template_ApiDocs_Demo" xml:space="preserve"><value>API documentation — demo</value></data>
+  <data name="Nav_Components_ApiReference" xml:space="preserve"><value>OpenAPI reference</value></data>
 </root>

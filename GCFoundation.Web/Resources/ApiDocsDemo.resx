@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Title" xml:space="preserve"><value>API documentation</value></data>
+  <data name="Introduction" xml:space="preserve"><value>Render an OpenAPI reference and add flexible Razor sections for integration guidance.</value></data>
+  <data name="SampleTitle" xml:space="preserve"><value>Requests API — example</value></data>
+  <data name="Certificates" xml:space="preserve"><value>Client certificates</value></data>
+  <data name="CertificateGuidance" xml:space="preserve"><value>This authored section can contain localized content, partial views and GC components. For services requiring mutual TLS, provide the client certificate alongside the access token. The command below is illustrative.</value></data>
+  <data name="RateLimits" xml:space="preserve"><value>Rate limits</value></data>
+  <data name="RateLimitGuidance" xml:space="preserve"><value>This sample service allows 60 requests per minute per organization. When a response returns HTTP 429, wait for the number of seconds in Retry-After before retrying.</value></data>
+  <data name="Support" xml:space="preserve"><value>Integration support</value></data>
+  <data name="SupportGuidance" xml:space="preserve"><value>Use sections after the API reference for onboarding instructions, change history or support contacts. The specification is shown in its original language; the component labels follow the page language.</value></data>
+  <data name="Purpose" xml:space="preserve"><value>Present an API contract and its integration guidance using the GCFoundation layout. The OpenAPI document supplies the reference; authored Razor sections explain service-specific requirements.</value></data>
+  <data name="WhenUse1" xml:space="preserve"><value>Publish a readable reference from an OpenAPI 3.x JSON document.</value></data>
+  <data name="WhenUse2" xml:space="preserve"><value>Combine endpoint details with certificate setup, onboarding, rate limits or support instructions.</value></data>
+  <data name="WhenNot1" xml:space="preserve"><value>An interactive API console is required. This component displays documentation and does not send requests.</value></data>
+  <data name="WhenNot2" xml:space="preserve"><value>The source is YAML, Swagger 2 or an unbundled document with external Reference Objects. Convert or bundle it first.</value></data>
+  <data name="Accessibility1" xml:space="preserve"><value>Give the page a heading and each authored section a clear, localized title. Use appropriate heading levels within the section.</value></data>
+  <data name="Accessibility2" xml:space="preserve"><value>Set stable, unique component and section IDs so navigation and deep links remain usable when content is translated.</value></data>
+  <data name="Accessibility3" xml:space="preserve"><value>Add tabindex="0" to authored code blocks and provide meaningful link text. Check keyboard scrolling and the layout at narrow widths.</value></data>
+  <data name="AccessibilityNot" xml:space="preserve"><value>Do not rely on HTTP method colours alone or hide essential guidance in examples. Keep all required instructions available as text.</value></data>
+  <data name="Ux1" xml:space="preserve"><value>Keep the source specification current and provide a download link to the same version.</value></data>
+  <data name="Ux2" xml:space="preserve"><value>Place setup guidance before the reference and support information after it. Use the full-width demo to assess long documents in their intended page layout.</value></data>
+  <data name="BasicTitle" xml:space="preserve"><value>OpenAPI reference</value></data>
+  <data name="BasicText" xml:space="preserve"><value>Load the JSON in a controller or service and pass its contents through your view model. The component renders metadata, parameters, request bodies, responses, examples, authentication and linked schemas. Open the demonstration to see the complete reference in the GC shell.</value></data>
+  <data name="OpenDemo" xml:space="preserve"><value>Open the API documentation demo</value></data>
+  <data name="BackToDocs" xml:space="preserve"><value>Back to the page template guide</value></data>
+  <data name="CustomTitle" xml:space="preserve"><value>Custom specification sections</value></data>
+  <data name="CustomText" xml:space="preserve"><value>Add sections containing Razor markup, partial views or GC components. Sections appear before the generated reference by default; after-endpoints places them after the reference and its schemas. Omit document entirely to create an authored guide.</value></data>
+  <data name="NoteAssets" xml:space="preserve"><value>The standard foundation.min.css and foundation.min.js bundles include this component. Content and anchor navigation remain available without JavaScript.</value></data>
+  <data name="NoteLocalization" xml:space="preserve"><value>Labels follow the current UI culture in English or French. Supply translated specification text and authored content separately. OpenAPI descriptions are encoded plain text; Markdown is not rendered.</value></data>
+  <data name="NoteLoading" xml:space="preserve"><value>The helper does not read files, fetch URLs or execute API calls. The application loads the JSON and serves the optional download. Malformed JSON, unsupported versions and broken Reference Objects throw during rendering.</value></data>
+  <data name="NoteSchemas" xml:space="preserve"><value>Recursive schemas and constraints are preserved as JSON; reusable schemas are linked rather than expanded recursively. Callbacks, webhooks and links do not yet have dedicated generated sections.</value></data>
+  <data name="PropDocument" xml:space="preserve"><value>OpenAPI 3.x JSON contents. Omit for authored sections only.</value></data>
+  <data name="PropId" xml:space="preserve"><value>Unique anchor prefix. Generated when omitted; provide a stable value for deep links. Use ASCII letters, digits, hyphens and underscores.</value></data>
+  <data name="PropTitle" xml:space="preserve"><value>Contents navigation title. Defaults to info.title from the document.</value></data>
+  <data name="PropDownload" xml:space="preserve"><value>Optional HTTP(S) or application-relative download link. Use Url.Content to respect the application's path base.</value></data>
+  <data name="PropSectionTitle" xml:space="preserve"><value>Required section heading and navigation label. Localize it in the calling view.</value></data>
+  <data name="PropSectionId" xml:space="preserve"><value>Stable section suffix. The generated anchor is {parent-id}-section-{child-id}; punctuation is normalized and duplicates are deduplicated.</value></data>
+  <data name="PropAfter" xml:space="preserve"><value>Place the section after the entire generated reference, including schemas.</value></data>
+  <data name="TemplateIntro" xml:space="preserve"><value>A complete API documentation page with contents navigation, setup guidance, an OpenAPI reference and specification downloads.</value></data>
+  <data name="TemplateImplementation" xml:space="preserve"><value>Use the standard Foundation layout and a page heading. The fdcp-api-docs helper composes the page body: overview, downloads, authored sections and contents navigation. It delegates generated API details to the same renderer used by fdcp-api-reference.</value></data>
+  <data name="TemplateCodeTitle" xml:space="preserve"><value>API documentation template — code</value></data>
+  <data name="ReferenceOverview" xml:space="preserve"><value>Render operations, parameters, request bodies, responses, authentication and schemas from OpenAPI JSON within an existing page.</value></data>
+  <data name="ReferencePurpose" xml:space="preserve"><value>Provide reusable API reference content independently of the page layout. This renderer also powers the API documentation page template.</value></data>
+  <data name="ReferenceWhenUse" xml:space="preserve"><value>Embed an API reference in an existing page that already provides its own heading and navigation.</value></data>
+  <data name="ReferenceWhenNot" xml:space="preserve"><value>For a complete developer documentation page with custom guidance, contents navigation and downloads, use the API documentation page template.</value></data>
+  <data name="ReferenceDocument" xml:space="preserve"><value>Required OpenAPI 3.x JSON contents.</value></data>
+  <data name="ReferenceExample" xml:space="preserve"><value>This small reference can be embedded directly. Use the page template when you also need overview text, custom sections, downloads and contents navigation.</value></data>
+  <data name="TemplateLink" xml:space="preserve"><value>View the API documentation page template</value></data>
+  <data name="ReferenceLink" xml:space="preserve"><value>View the standalone OpenAPI reference component</value></data>
+  <data name="ReferenceHealth" xml:space="preserve"><value>Check service availability</value></data>
+  <data name="ReferenceHealthy" xml:space="preserve"><value>Service available</value></data>
+  <data name="TemplatePreviewAlt" xml:space="preserve"><value>API documentation page with a contents sidebar, endpoint details and schema definitions.</value></data>
+  <data name="CodeButton" xml:space="preserve"><value>View code</value></data>
+</root>

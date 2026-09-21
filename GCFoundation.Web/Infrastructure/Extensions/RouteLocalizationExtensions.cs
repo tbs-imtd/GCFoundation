@@ -43,6 +43,21 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.ApiDocs))
+                .TranslateAction("documentation-api");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.ApiDocsPreview))
+                .TranslateAction("documentation-api/demo");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.ApiReference))
+                .TranslateAction("reference-api");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.Gcds))
                 .TranslateAction("gcds");
 
@@ -187,6 +202,21 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereController(nameof(TemplateController))
                 .WhereAction(nameof(TemplateController.StepperDemo))
                 .TranslateAction("indicateur-detapes/demo");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.ApiDocs))
+                .TranslateAction("documentation-api");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.ApiDocsCode))
+                .TranslateAction("documentation-api/code");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.ApiDocsDemo))
+                .TranslateAction("documentation-api/demo");
 
                 // - Translate Template Actions.
 
