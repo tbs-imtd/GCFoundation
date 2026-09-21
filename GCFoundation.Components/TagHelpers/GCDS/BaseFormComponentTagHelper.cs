@@ -30,7 +30,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "value", field.Value);
 
             AddBooleanAttribute(output, "disabled", field.Disabled);
-            if (Required == true)
+            if (field.Required)
                 AddAttributeIfNotNull(output, "required", field.Required);
             AddAttributeIfNotNull(output, "validate-on", ValidateOn);
 
