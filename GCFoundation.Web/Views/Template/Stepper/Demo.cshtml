@@ -4,35 +4,258 @@
 @using GCFoundation.Web.Resources
 @model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
 
+@{
+    const string StepperHeadingId = "stepper-current-step-heading";
+    var stepperSteps = new List<StepperStep>
+    {
+        new() { StepNumber = 1, Label = Template.Stepper_Demo_Step1_Label, DisplayMode = StepperStepDisplayMode.Icon, CompletedIconHtml = "<i class='fa fa-check'></i>", IsLink = true, LinkUrl = Url.Action("StepperDemo", "Template", new { step = 1 }) ?? string.Empty },
+        new() { StepNumber = 2, Label = Template.Stepper_Demo_Step2_Label, DisplayMode = StepperStepDisplayMode.Number, IsLink = true, LinkUrl = Url.Action("StepperDemo", "Template", new { step = 2 }) ?? string.Empty },
+        new() { StepNumber = 3, Label = Template.Stepper_Demo_Step3_Label, DisplayMode = StepperStepDisplayMode.Number, IsLink = true, LinkUrl = Url.Action("StepperDemo", "Template", new { step = 3 }) ?? string.Empty },
+        new() { StepNumber = 4, Label = Template.Stepper_Demo_Step4_Label, DisplayMode = StepperStepDisplayMode.Number, IsLink = true, LinkUrl = Url.Action("StepperDemo", "Template", new { step = 4 }) ?? string.Empty },
+        new() { StepNumber = 5, Label = Template.Stepper_Demo_Step5_Label, DisplayMode = StepperStepDisplayMode.Number, IsLink = true, LinkUrl = Url.Action("StepperDemo", "Template", new { step = 5 }) ?? string.Empty }
+    };
+    var scriptNonce = Context.Items["CspNonce"]?.ToString();
+    var isLastStep = Model.CurrentStep >= Model.TotalSteps;
+    var currentStepHeading = stepperSteps.FirstOrDefault(s => s.StepNumber == Model.CurrentStep)?.Label
+        ?? Template.Stepper_Demo_Step1_Label;
+}
+
 <gcds-heading tag="h1">@Template.Stepper_Demo_Name</gcds-heading>
-<fdcp-stepper current-step="2"
-              steps="@(new List<StepperStep>
-                                {
-                                    new StepperStep { StepNumber = 1, Label = Template.Stepper_Demo_Step1_Label, DisplayMode = StepperStepDisplayMode.Icon, CompletedIconHtml = "<i class='fa fa-check'></i>" },
-                                    new StepperStep { StepNumber = 2, Label = Template.Stepper_Demo_Step2_Label, DisplayMode = StepperStepDisplayMode.Icon, InProgressIconHtml = "<i class='fa fa-spinner'></i>" },
-                                    new StepperStep { StepNumber = 3, Label = Template.Stepper_Demo_Step3_Label, DisplayMode = StepperStepDisplayMode.Number },
-                                    new StepperStep { StepNumber = 4, Label = Template.Stepper_Demo_Step4_Label, DisplayMode = StepperStepDisplayMode.Number },
-                                    new StepperStep { StepNumber = 5, Label = Template.Stepper_Demo_Step5_Label, DisplayMode = StepperStepDisplayMode.Number }
-                                })"></fdcp-stepper>
+@* Keep the stepper bound to the posted model so validation errors do not reset the user's progress context.
+   links-tabbable defaults to true so each step (1–5) can receive keyboard focus with a visible ring;
+   the active step is also tabindex=0. After Next/Previous, JS moves focus to the active step for SR announcement. *@
+<fdcp-stepper current-step="@Model.CurrentStep"
+              heading-id="@StepperHeadingId"
+              heading-title="@currentStepHeading"
+              steps="@stepperSteps"></fdcp-stepper>
 
 @if (!ViewData.ModelState.IsValid)
 {
+    @* Surface validation feedback before the fields so keyboard and screen-reader users get it immediately. *@
     <fdcp-error-summary for="@Model" />
 }
 
 <fdcp-form method="post" action="@Url.Action("StepperDemo", "Template")" for="@Model">
     @Html.AntiForgeryToken()
+    @* Round-trip the current step so the server can re-render the same progress state after each post. *@
+    <input type="hidden" name="CurrentStep" value="@Model.CurrentStep" />
 
-    <fdcp-input for="@Model.FirstName" />
-    <fdcp-input for="@Model.LastName" />
+    @* Preserve answers from steps that are not currently rendered. *@
+    <partial name="Stepper/_StepHiddenState" model="Model" />
 
-    <fdcp-select for="@Model.Province" items="@Model.ProvinceList" />
-
-    <fdcp-checkboxes for="@Model.ContactOptions" items="@Model.ContactOptionsList" />
+    @* Each step owns a distinct field set. *@
+    @switch (Model.CurrentStep)
+    {
+        case 1:
+            <partial name="Stepper/_Step1Intro" model="Model" />
+            break;
+        case 2:
+            <partial name="Stepper/_Step2Info" model="Model" />
+            break;
+        case 3:
+            <partial name="Stepper/_Step3Details" model="Model" />
+            break;
+        case 4:
+            <partial name="Stepper/_Step4Review" model="Model" />
+            break;
+        case 5:
+            <partial name="Stepper/_Step5Submit" model="Model" />
+            break;
+    }
 
     <div class="mt-200">
-        <gcds-button type="submit" name="nav" value="prev" button-role="secondary">@Localization.Previous</gcds-button>
-        <gcds-button type="submit" name="nav" value="next">@Localization.Next</gcds-button>
+        @if (Model.CurrentStep > 1)
+        {
+            <gcds-button type="submit" name="nav" value="prev" button-role="secondary">@Localization.Previous</gcds-button>
+        }
+        @if (!isLastStep)
+        {
+            <gcds-button type="submit" name="nav" value="next">@Localization.Next</gcds-button>
+        }
+        else
+        {
+            <gcds-button type="submit" name="nav" value="next">@Localization.Submit</gcds-button>
+        }
         <gcds-button type="reset" button-role="secondary">@Localization.Reset</gcds-button>
     </div>
 </fdcp-form>
+
+@section Scripts {
+    <script nonce="@scriptNonce">
+        document.addEventListener('DOMContentLoaded', function () {
+            // Legacy flag kept for back-compat with previously cached pages that still set it.
+            const legacyHeadingFlagKey = 'fdcp-stepper-focus-heading';
+            // Set when Next/Previous (or language toggle / step link) should re-focus the active step.
+            const focusActiveStepFlagKey = 'fdcp-stepper-focus-active-step';
+            const heading = document.getElementById('@StepperHeadingId');
+            // Resolve the form via CurrentStep — French routes use /modele/indicateur-detapes/demo,
+            // so an English-only action$="/template/stepper/demo" selector never bound submit handlers.
+            const form = document.querySelector('input[name="CurrentStep"]')?.closest('form')
+                || document.querySelector('form');
+            const stepLinks = document.querySelectorAll('[data-stepper-focus-trigger="true"]');
+            const liveRegion = document.querySelector('[data-stepper-live-region="true"]');
+            const activeStep = document.querySelector('[data-stepper-active-step="true"]');
+            const hasErrorSummary = !!document.querySelector('gcds-error-summary');
+
+            // NVDA / JAWS announce step transitions through:
+            //   1. The <title> ("Step X of 5: Label")
+            //   2. The polite aria-live region
+            //   3. Programmatic focus on the active step (visible focus ring + aria-label)
+            // Focus is delayed ~600 ms so it does not race the screen reader's initial page-load reading.
+
+            let shouldFocusActiveStep = false;
+            let shouldFocusHeading = false;
+            try {
+                if (window.sessionStorage.getItem(focusActiveStepFlagKey) === 'true') {
+                    window.sessionStorage.removeItem(focusActiveStepFlagKey);
+                    shouldFocusActiveStep = true;
+                } else if (window.sessionStorage.getItem(legacyHeadingFlagKey) === 'true') {
+                    window.sessionStorage.removeItem(legacyHeadingFlagKey);
+                    shouldFocusHeading = true;
+                }
+            } catch (_) {
+            }
+
+            // Always focus the current step on this demo (EN and FR) unless an error summary
+            // needs focus first. Relies on step links being tabbable so users can also Tab to 1–5.
+            if (!hasErrorSummary) {
+                if (shouldFocusHeading && heading) {
+                    scheduleStepAnnouncement(heading);
+                } else if (activeStep) {
+                    scheduleStepAnnouncement(activeStep);
+                }
+            } else if (shouldFocusActiveStep || shouldFocusHeading) {
+                refreshLiveRegion();
+            }
+
+            // Step-link jumps and language toggles should land focus on the (new) active step.
+            stepLinks.forEach(function (link) {
+                link.addEventListener('click', function () {
+                    setFlag(focusActiveStepFlagKey);
+                });
+            });
+
+            // gcds-button often leaves event.submitter null — treat any form submit as navigation.
+            form?.addEventListener('submit', function () {
+                setFlag(focusActiveStepFlagKey);
+            });
+
+            document.addEventListener('click', function (event) {
+                const path = typeof event.composedPath === 'function' ? event.composedPath() : [];
+                const langToggle = path.some(function (node) {
+                    return node && node.tagName && node.tagName.toLowerCase() === 'gcds-lang-toggle';
+                });
+                if (langToggle) {
+                    setFlag(focusActiveStepFlagKey);
+                }
+            }, true);
+
+            function setFlag(key) {
+                try {
+                    window.sessionStorage.setItem(key, 'true');
+                } catch (_) {
+                }
+            }
+
+            function scheduleStepAnnouncement(focusTarget) {
+                window.setTimeout(function () {
+                    if (focusTarget && typeof focusTarget.focus === 'function') {
+                        focusTarget.focus({ preventScroll: true });
+                    }
+                    refreshLiveRegion();
+                }, 600);
+            }
+
+            function refreshLiveRegion() {
+                if (!liveRegion) {
+                    return;
+                }
+
+                const announcement = liveRegion.getAttribute('data-stepper-announcement');
+                if (!announcement) {
+                    return;
+                }
+
+                liveRegion.textContent = '';
+                window.setTimeout(function () {
+                    liveRegion.textContent = announcement;
+                }, 150);
+            }
+
+            // Step 3: replace GCDS default required/url messages with format-aware copy and
+            // accept common website shapes (example.com, www.…, http(s)://…).
+            applyStep3Validators();
+        });
+
+        function applyStep3Validators() {
+            const cfg = document.getElementById('step3-validators');
+            if (!cfg) {
+                return;
+            }
+
+            const websiteRequired = {
+                en: cfg.getAttribute('data-website-required-en') || '',
+                fr: cfg.getAttribute('data-website-required-fr') || ''
+            };
+            const websiteInvalid = {
+                en: cfg.getAttribute('data-website-invalid-en') || '',
+                fr: cfg.getAttribute('data-website-invalid-fr') || ''
+            };
+            const ageRequired = {
+                en: cfg.getAttribute('data-age-required-en') || '',
+                fr: cfg.getAttribute('data-age-required-fr') || ''
+            };
+            const ageRange = {
+                en: cfg.getAttribute('data-age-range-en') || '',
+                fr: cfg.getAttribute('data-age-range-fr') || ''
+            };
+
+            // Same pattern as server-side RegularExpression on Website.
+            const websitePattern = /^(?:https?:\/\/)?(?:www\.)?(?:[a-zA-Z0-9](?:[a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,}(?::\d{1,5})?(?:\/[^\s]*)?$/;
+
+            const websiteInput = document.querySelector('gcds-input[name="Website"]');
+            if (websiteInput) {
+                websiteInput.validator = [
+                    {
+                        validate: function (value) {
+                            const filled = value != null && String(value).trim() !== '';
+                            return { valid: filled, reason: websiteRequired };
+                        }
+                    },
+                    {
+                        validate: function (value) {
+                            const text = value == null ? '' : String(value).trim();
+                            if (!text) {
+                                return { valid: true, reason: websiteInvalid };
+                            }
+                            return { valid: websitePattern.test(text), reason: websiteInvalid };
+                        }
+                    }
+                ];
+            }
+
+            const ageInput = document.querySelector('gcds-input[name="Age"]');
+            if (ageInput) {
+                ageInput.validator = [
+                    {
+                        validate: function (value) {
+                            const filled = value != null && String(value).trim() !== '';
+                            return { valid: filled, reason: ageRequired };
+                        }
+                    },
+                    {
+                        validate: function (value) {
+                            const text = value == null ? '' : String(value).trim();
+                            if (!text) {
+                                return { valid: true, reason: ageRange };
+                            }
+                            const n = Number(text);
+                            const ok = Number.isFinite(n) && n >= 18 && n <= 100;
+                            return { valid: ok, reason: ageRange };
+                        }
+                    }
+                ];
+            }
+        }
+    </script>
+}
