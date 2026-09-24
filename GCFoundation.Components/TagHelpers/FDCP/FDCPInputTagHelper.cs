@@ -96,16 +96,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     break;
             }
 
-            AddAttributeIfNotNull(output, "name", field.Name);
-            AddAttributeIfNotNull(output, "hint", field.Hint);
-            AddAttributeIfNotNull(output, "lang", Lang);
-
-            AddBooleanAttribute(output, "disabled", field.Disabled);
-            AddBooleanAttribute(output, "required", field.Required);
-            AddAttributeIfNotNull(output, "validate-on", "blur");
-
-            string? errorMessage = ResolveModelStateError(field.Name);
-            AddAttributeIfNotNull(output, "error-message", errorMessage);
+            base.Process(context, output);
         }
 
         #region Resolve methods
