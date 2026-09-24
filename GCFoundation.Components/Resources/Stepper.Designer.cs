@@ -68,5 +68,59 @@ namespace GCFoundation.Components.Resources {
                 return ResourceManager.GetString("Title_Default", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step {0} of {1}: {2}.
+        /// </summary>
+        internal static string SR_CurrentStepAnnouncement {
+            get {
+                return ResourceManager.GetString("SR_CurrentStepAnnouncement", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Progress.
+        /// </summary>
+        internal static string SR_ProgressLabel {
+            get {
+                return ResourceManager.GetString("SR_ProgressLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Step {0} of {1}: {2} ({3}).
+        /// </summary>
+        internal static string SR_StepSummary {
+            get {
+                return ResourceManager.GetString("SR_StepSummary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed.
+        /// </summary>
+        internal static string SR_StatusCompleted {
+            get {
+                return ResourceManager.GetString("SR_StatusCompleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current step.
+        /// </summary>
+        internal static string SR_StatusCurrent {
+            get {
+                return ResourceManager.GetString("SR_StatusCurrent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Upcoming.
+        /// </summary>
+        internal static string SR_StatusUpcoming {
+            get {
+                return ResourceManager.GetString("SR_StatusUpcoming", resourceCulture);
+            }
+        }
     }
 }

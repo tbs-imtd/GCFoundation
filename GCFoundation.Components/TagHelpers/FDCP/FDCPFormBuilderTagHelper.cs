@@ -363,27 +363,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var toolbar = question.RichTextToolbar.ToString().ToLowerInvariant();
 
-            var describedByIds = new List<string>();
-            if (!string.IsNullOrEmpty(question.Hint))
-            {
-                describedByIds.Add(hintId);
-            }
-            if (!string.IsNullOrEmpty(question.ErrorMessage))
-            {
-                describedByIds.Add(errorId);
-            }
-
-            var ariaDescribedByAttr = describedByIds.Count > 0
-                ? $" aria-describedby='{string.Join(' ', describedByIds)}'"
-                : string.Empty;
-            var ariaRequiredAttr = question.IsRequired ? " aria-required='true'" : string.Empty;
-
             var sb = new StringBuilder();
             sb.AppendLine("<div class='gc-form-group fdcp-rich-text-container'>");
 
+            // Use a span (not <label for>) because the editable control is a contenteditable div.
+            // The hidden input is for form submission only; association is via aria-labelledby on .ql-editor.
             sb.AppendFormat(CultureInfo.InvariantCulture,
-                "<label class='fdcp-rich-text-label gcds-label' for='{0}' id='{1}' lang='{4}'>{2}{3}</label>",
-                question.Id,
+                "<span class='fdcp-rich-text-label gcds-label' id='{0}' lang='{3}'>{1}{2}</span>",
                 labelId,
                 HtmlEncoder.Default.Encode(question.Label),
                 question.IsRequired ? "<span class='required'>*</span>" : string.Empty,
@@ -400,22 +386,25 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             }
 
             sb.AppendLine("<div class='fdcp-rich-text-wrapper'>");
+            // The outer div is a layout container only. The textbox role and ARIA
+            // associations (aria-labelledby, aria-describedby, aria-required) are applied
+            // at runtime to the inner .ql-editor by fdcp-rich-text.js, so they must NOT be
+            // duplicated here (avoids two nested textboxes sharing one label - WCAG 4.1.2).
             sb.AppendFormat(CultureInfo.InvariantCulture,
-                "<div id='{0}' class='fdcp-rich-text-editor' data-fdcp-rich-text='true' data-for='{1}' data-toolbar='{2}' aria-multiline='true' role='textbox' lang='{8}' aria-labelledby='{6}'{7}{3}{4}{5}></div>",
+                "<div id='{0}' class='fdcp-rich-text-editor' data-fdcp-rich-text='true' data-for='{1}' data-toolbar='{2}' data-error-id='{6}' lang='{7}'{3}{4}{5}></div>",
                 editorId,
                 question.Id,
                 toolbar,
                 placeholderAttr,
                 styleAttr,
                 templatesAttr,
-                labelId,
-                ariaDescribedByAttr + ariaRequiredAttr,
+                errorId,
                 language);
             sb.AppendLine();
             sb.AppendLine("</div>");
 
             sb.AppendFormat(CultureInfo.InvariantCulture,
-                "<input type='hidden' id='{0}' name='{0}' value='{1}' {2} />",
+                "<input type='hidden' id='{0}' name='{0}' value='{1}' aria-hidden='true' {2} />",
                 question.Id,
                 encodedValue,
                 question.IsRequired ? "required='required'" : string.Empty);

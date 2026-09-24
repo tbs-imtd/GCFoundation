@@ -455,6 +455,60 @@
   <data name="Stepper_Demo_Name" xml:space="preserve">
     <value>Demo of the Stepper Page Template</value>
   </data>
+  <data name="Stepper_Demo_Review_Intro" xml:space="preserve">
+    <value>Review the information you entered before submitting.</value>
+  </data>
+  <data name="Stepper_Demo_FirstName_Required" xml:space="preserve">
+    <value>Enter your first name.</value>
+  </data>
+  <data name="Stepper_Demo_LastName_Required" xml:space="preserve">
+    <value>Enter your last name.</value>
+  </data>
+  <data name="Stepper_Demo_Bio_Required" xml:space="preserve">
+    <value>Enter a short biography about yourself.</value>
+  </data>
+  <data name="Stepper_Demo_Bio_MinLength" xml:space="preserve">
+    <value>Biography must be at least 10 characters.</value>
+  </data>
+  <data name="Stepper_Demo_Bio_MaxLength" xml:space="preserve">
+    <value>Biography cannot exceed 2000 characters.</value>
+  </data>
+  <data name="Stepper_Demo_Country_Required" xml:space="preserve">
+    <value>Select your country of residence.</value>
+  </data>
+  <data name="Stepper_Demo_Gender_Required" xml:space="preserve">
+    <value>Select your gender.</value>
+  </data>
+  <data name="Stepper_Demo_Website_Label" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="Stepper_Demo_Website_Required" xml:space="preserve">
+    <value>Enter a website such as example.com, www.example.com, or https://example.com.</value>
+  </data>
+  <data name="Stepper_Demo_Website_Invalid" xml:space="preserve">
+    <value>Enter a valid website such as example.com, www.example.com, or https://example.com.</value>
+  </data>
+  <data name="Stepper_Demo_Website_Hint" xml:space="preserve">
+    <value>Accepts example.com, www.example.com, http://…, or https://…</value>
+  </data>
+  <data name="Stepper_Demo_Age_Required" xml:space="preserve">
+    <value>Enter your age.</value>
+  </data>
+  <data name="Stepper_Demo_Age_Range" xml:space="preserve">
+    <value>Age must be a number between 18 and 100.</value>
+  </data>
+  <data name="Stepper_Demo_AgreeToTerms_Required" xml:space="preserve">
+    <value>You must agree to the terms and conditions to continue.</value>
+  </data>
+  <data name="Stepper_Demo_Success_Title" xml:space="preserve">
+    <value>Submission successful</value>
+  </data>
+  <data name="Stepper_Demo_Success_Message" xml:space="preserve">
+    <value>Your information has been submitted successfully. This is a demonstration only; no data was saved.</value>
+  </data>
+  <data name="Stepper_Demo_Success_StartOver" xml:space="preserve">
+    <value>Start over</value>
+  </data>
   <data name="Stepper_Code_Intro" xml:space="preserve">
     <value>&lt;gcds-text&gt;Copy this code to recreate the demo of the stepper page template.&lt;/gcds-text&gt;</value>
   </data>

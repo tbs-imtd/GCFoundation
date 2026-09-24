@@ -1,0 +1,61 @@
+@using GCFoundation.Web.Models.Template
+@model TemplateStepperFormViewModel
+@using System.Globalization
+
+@*
+  Round-trip values for steps that are not currently visible so Next/Previous
+  (and step-link jumps) preserve previously entered answers.
+*@
+@foreach (var step in TemplateStepperFormViewModel.FieldsByStep.Keys)
+{
+    if (step == Model.CurrentStep)
+    {
+        continue;
+    }
+
+    foreach (var field in TemplateStepperFormViewModel.FieldsByStep[step])
+    {
+        switch (field)
+        {
+            case "FirstName":
+                <input type="hidden" name="FirstName" value="@Model.FirstName" />
+                break;
+            case "LastName":
+                <input type="hidden" name="LastName" value="@Model.LastName" />
+                break;
+            case "Province":
+                <input type="hidden" name="Province" value="@Model.Province" />
+                break;
+            case "ContactOptions":
+                if (Model.ContactOptions != null)
+                {
+                    foreach (var option in Model.ContactOptions)
+                    {
+                        <input type="hidden" name="ContactOptions" value="@option" />
+                    }
+                }
+                break;
+            case "Bio":
+                <input type="hidden" name="Bio" value="@Model.Bio" />
+                break;
+            case "DateOfBirth":
+                <input type="hidden" name="DateOfBirth" value="@(Model.DateOfBirth?.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture))" />
+                break;
+            case "SelectedCountry":
+                <input type="hidden" name="SelectedCountry" value="@Model.SelectedCountry" />
+                break;
+            case "Gender":
+                <input type="hidden" name="Gender" value="@Model.Gender" />
+                break;
+            case "Website":
+                <input type="hidden" name="Website" value="@Model.Website" />
+                break;
+            case "Age":
+                <input type="hidden" name="Age" value="@Model.Age" />
+                break;
+            case "AgreeToTerms":
+                <input type="hidden" name="AgreeToTerms" value="@(Model.AgreeToTerms ? "true" : "false")" />
+                break;
+        }
+    }
+}

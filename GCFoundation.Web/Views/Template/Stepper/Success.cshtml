@@ -1,0 +1,24 @@
+@using GCFoundation.Components.Enums
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+
+@{
+    // Dedicated confirmation view after a valid final Submit on step 5 (Agree to Terms).
+}
+
+<gcds-heading tag="h1">@Template.Stepper_Demo_Name</gcds-heading>
+
+<gcds-notice notice-role="@AlertType.success"
+             notice-title-tag="h2"
+             notice-title="@Template.Stepper_Demo_Success_Title"
+             class="mb-300">
+    <gcds-text>@Template.Stepper_Demo_Success_Message</gcds-text>
+</gcds-notice>
+
+<div class="mt-200">
+    <gcds-button type="link"
+                 button-role="primary"
+                 href="@Url.Action("StepperDemo", "Template")">
+        @Template.Stepper_Demo_Success_StartOver
+    </gcds-button>
+</div>

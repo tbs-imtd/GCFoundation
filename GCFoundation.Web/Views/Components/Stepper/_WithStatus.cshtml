@@ -1,6 +1,7 @@
 ﻿@using GCFoundation.Components.Enums
 @using GCFoundation.Components.Models
 
+@* The hidden text around "Not required" gives assistive tech the missing context without changing the visible badge copy. *@
 <fdcp-stepper current-step="3"
               heading-tag="h3"
               steps="@(new List<StepperStep>
@@ -10,6 +11,7 @@
                                     new StepperStep { StepNumber = 3, Label = "Step 3", DisplayMode = StepperStepDisplayMode.Icon, InProgressIconHtml = "<i class='fa fa-spinner'></i>" },
                                     new StepperStep { StepNumber = 4, Label = "Step 4", DisplayMode = StepperStepDisplayMode.Icon }
                                 })"></fdcp-stepper>
+@* Keep the sample snippet aligned with the live example so accessibility guidance is copy/paste friendly. *@
 <pre><code class="language-cshtml">
 &lt;fdcp-stepper current-step="3"
     heading-tag="h3"

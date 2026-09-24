@@ -1,0 +1,7 @@
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
+
+<fdcp-input for="@Model.FirstName" />
+<fdcp-input for="@Model.LastName" />
+<fdcp-select for="@Model.Province" items="@Model.ProvinceList" />
+<fdcp-checkboxes for="@Model.ContactOptions" items="@Model.ContactOptionsList" />

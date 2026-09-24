@@ -1,3 +1,4 @@
+using System.Globalization;
 using GCFoundation.Components.Controllers;
 using GCFoundation.Components.Models;
 using GCFoundation.Web.Models.Components;
@@ -305,15 +306,22 @@ namespace GCFoundation.Web.Controllers
         /// <summary>
         /// Displays a page containing a demo of a Stepper page template.
         /// </summary>
+        /// <param name="step">Optional step query used by the clickable stepper to jump directly to a step.</param>
         /// <returns>
         /// The view for the demo of a Stepper page template.
         /// </returns>
         [HttpGet("stepper/demo")]
-        public IActionResult StepperDemo()
+        public IActionResult StepperDemo(int? step)
         {
-            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
+            var model = new TemplateStepperFormViewModel();
+            if (step.HasValue)
+            {
+                model.CurrentStep = Math.Clamp(step.Value, 1, model.TotalSteps);
+            }
 
-            return View("stepper/demo", new TemplateStepperFormViewModel());
+            SetStepperPageTitle(model);
+
+            return View("stepper/demo", model);
         }
 
         /// <summary>
@@ -326,11 +334,147 @@ namespace GCFoundation.Web.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult StepperDemo(TemplateStepperFormViewModel model, string? nav)
         {
-            SetPageTitle($"{Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
+            // Clamp posted state before rendering so invalid values cannot desync the stepper from the demo's fixed step count.
+            var totalSteps = model.TotalSteps;
+            var current = Math.Clamp(model.CurrentStep <= 0 ? 1 : model.CurrentStep, 1, totalSteps);
 
-            // This demo intentionally posts back to the same view regardless of navigation intent.
-            // Validation errors will be surfaced via the error summary in the view.
+            if (string.Equals(nav, "next", StringComparison.OrdinalIgnoreCase))
+            {
+                // Only validate fields that belong to the step being left.
+                FilterModelStateToStep(current);
+
+                // Demo behavior: only advance when the current step is valid.
+                // If invalid, keep the step so the user can correct fields and re-submit.
+                if (ModelState.IsValid)
+                {
+                    // Final Submit (Agree to Terms): PRG to a dedicated success page.
+                    if (current >= totalSteps)
+                    {
+                        return RedirectToAction(nameof(StepperDemoSuccess));
+                    }
+
+                    current = current + 1;
+                }
+            }
+            else if (string.Equals(nav, "prev", StringComparison.OrdinalIgnoreCase))
+            {
+                // Going back never requires validation of the current step.
+                ModelState.Clear();
+                current = Math.Max(1, current - 1);
+            }
+            else
+            {
+                // Direct posts without nav (or unknown nav) still scope errors to the current step.
+                FilterModelStateToStep(current);
+            }
+
+            // Persist the resolved step back onto the model so the view and hidden field stay in sync.
+            model.CurrentStep = current;
+
+            // Feed ModelState into BaseViewModel.Errors so fdcp-error-summary can render
+            // the same unique messages as the field-level annotations (not GCDS defaults).
+            SyncModelErrorsFromModelState(model);
+
+            SetStepperPageTitle(model);
+
             return View("stepper/demo", model);
+        }
+
+        /// <summary>
+        /// Displays the success confirmation after a valid Submit on the final stepper step.
+        /// </summary>
+        /// <returns>The stepper demo success view.</returns>
+        [HttpGet("stepper/demo/success")]
+        public IActionResult StepperDemoSuccess()
+        {
+            SetPageTitle($"{Resources.Template.Stepper_Demo_Success_Title} — {Resources.Template.Stepper_Demo_Name}");
+            return View("stepper/success");
+        }
+
+        /// <summary>
+        /// Copies ModelState errors onto the view model so <c>fdcp-error-summary</c> can emit
+        /// <c>error-links</c> with the localized annotation messages.
+        /// </summary>
+        private void SyncModelErrorsFromModelState(TemplateStepperFormViewModel model)
+        {
+            model.ClearErrors();
+
+            foreach (var entry in ModelState)
+            {
+                if (entry.Value is null || entry.Value.Errors.Count == 0)
+                {
+                    continue;
+                }
+
+                foreach (var error in entry.Value.Errors)
+                {
+                    if (!string.IsNullOrWhiteSpace(error.ErrorMessage))
+                    {
+                        model.AddError(entry.Key, error.ErrorMessage);
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes ModelState errors for properties that do not belong to <paramref name="step"/>,
+        /// so multi-step Required attributes on later/earlier pages do not block navigation.
+        /// </summary>
+        private void FilterModelStateToStep(int step)
+        {
+            if (!TemplateStepperFormViewModel.FieldsByStep.TryGetValue(step, out var stepFields))
+            {
+                return;
+            }
+
+            foreach (var key in ModelState.Keys.ToList())
+            {
+                if (string.IsNullOrEmpty(key))
+                {
+                    continue;
+                }
+
+                var belongsToStep = stepFields.Any(field =>
+                    key.Equals(field, StringComparison.OrdinalIgnoreCase)
+                    || key.StartsWith(field + "[", StringComparison.OrdinalIgnoreCase)
+                    || key.StartsWith(field + ".", StringComparison.OrdinalIgnoreCase));
+
+                if (!belongsToStep)
+                {
+                    ModelState.Remove(key);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Builds the document title for the Stepper demo so it leads with the current step phrase
+        /// (e.g. "Step 2 of 5: Info") followed by the section label. Screen readers (NVDA, JAWS, VoiceOver)
+        /// announce the document title on every page load, making this the most reliable way to communicate
+        /// step transitions for users navigating with the Next/Previous buttons.
+        /// </summary>
+        private void SetStepperPageTitle(TemplateStepperFormViewModel model)
+        {
+            var stepLabel = model.CurrentStep switch
+            {
+                1 => Resources.Template.Stepper_Demo_Step1_Label,
+                2 => Resources.Template.Stepper_Demo_Step2_Label,
+                3 => Resources.Template.Stepper_Demo_Step3_Label,
+                4 => Resources.Template.Stepper_Demo_Step4_Label,
+                5 => Resources.Template.Stepper_Demo_Step5_Label,
+                _ => string.Empty,
+            };
+
+            // Mirror the announcement format used by FDCPStepperTagHelper / Stepper.SR_CurrentStepAnnouncement
+            // ("Step {0} of {1}: {2}."). Keeping this inline avoids exposing the components-internal resource
+            // class; if it ever diverges, both sides must be updated together.
+            var stepAnnouncement = string.Format(
+                CultureInfo.CurrentCulture,
+                "Step {0} of {1}: {2}.",
+                model.CurrentStep,
+                model.TotalSteps,
+                stepLabel);
+
+            SetPageTitle($"{stepAnnouncement} {Menu.Menu_Template} : {Resources.Template.Index_Stepper_Title}");
         }
         #endregion Stepper Page Template (Code, Demo) Controller Actions
 

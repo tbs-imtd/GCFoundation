@@ -1,0 +1,14 @@
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
+
+@* Same FDCP patterns as the Components Form sample. *@
+<fdcp-rich-text for="@Model.Bio"
+                toolbar="Standard"
+                height="240px"
+                placeholder="@Components.Form_Bio_Placeholder" />
+
+<fdcp-input for="@Model.DateOfBirth" />
+
+<fdcp-select for="@Model.SelectedCountry" items="@Model.CountryOptions" />
+
+<fdcp-radios for="@Model.Gender" items="@Model.GenderOptions" />
