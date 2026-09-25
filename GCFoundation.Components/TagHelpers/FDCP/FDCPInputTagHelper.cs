@@ -106,6 +106,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             string? errorMessage = ResolveModelStateError(field.Name);
             AddAttributeIfNotNull(output, "error-message", errorMessage);
+
+            ApplyDataAnnotationConstraints(output);
         }
 
         #region Resolve methods

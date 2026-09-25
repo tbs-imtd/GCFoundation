@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.ComponentModel.DataAnnotations;
+using System.Globalization;
 using System.Reflection;
 
 namespace GCFoundation.Components.TagHelpers.GCDS
@@ -243,6 +244,113 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             }
 
             return required;
+        }
+
+        /// <summary>
+        /// Emits GCDS constraint attributes from DataAnnotations on the bound property.
+        /// Existing output attributes (markup or helper properties) are left unchanged.
+        /// </summary>
+        protected void ApplyDataAnnotationConstraints(TagHelperOutput output)
+        {
+            ArgumentNullException.ThrowIfNull(output, nameof(output));
+
+            if (For == null)
+                return;
+
+            string tagName = output.TagName ?? string.Empty;
+            bool isInput = tagName.Equals("gcds-input", StringComparison.OrdinalIgnoreCase);
+            bool isTextarea = tagName.Equals("gcds-textarea", StringComparison.OrdinalIgnoreCase);
+            bool isDateInput = tagName.Equals("gcds-date-input", StringComparison.OrdinalIgnoreCase);
+
+            if (!isInput && !isTextarea && !isDateInput)
+                return;
+
+            if (isInput || isTextarea)
+                ApplyLengthConstraints(output);
+
+            if (isInput)
+            {
+                RegularExpressionAttribute? regex = GetValidatorMetadata<RegularExpressionAttribute>();
+                if (!string.IsNullOrEmpty(regex?.Pattern))
+                    AddConstraintAttributeIfMissing(output, "pattern", regex.Pattern);
+
+                ApplyRangeConstraints(output, dateRange: false);
+            }
+
+            if (isDateInput)
+                ApplyRangeConstraints(output, dateRange: true);
+        }
+
+        private TAttribute? GetValidatorMetadata<TAttribute>() where TAttribute : ValidationAttribute
+        {
+            if (For == null)
+                return null;
+
+            return For.Metadata.ValidatorMetadata.OfType<TAttribute>().FirstOrDefault()
+                   ?? PropertyInfo?.GetCustomAttribute<TAttribute>();
+        }
+
+        private void ApplyLengthConstraints(TagHelperOutput output)
+        {
+            StringLengthAttribute? stringLength = GetValidatorMetadata<StringLengthAttribute>();
+            MaxLengthAttribute? maxLength = GetValidatorMetadata<MaxLengthAttribute>();
+            MinLengthAttribute? minLength = GetValidatorMetadata<MinLengthAttribute>();
+
+            int? resolvedMax = stringLength != null ? stringLength.MaximumLength : maxLength?.Length;
+            int? resolvedMin = stringLength != null && stringLength.MinimumLength > 0
+                ? stringLength.MinimumLength
+                : minLength?.Length;
+
+            if (resolvedMax is > 0)
+                AddConstraintAttributeIfMissing(output, "maxlength", resolvedMax.Value.ToString(CultureInfo.InvariantCulture));
+
+            if (resolvedMin is > 0)
+                AddConstraintAttributeIfMissing(output, "minlength", resolvedMin.Value.ToString(CultureInfo.InvariantCulture));
+        }
+
+        private void ApplyRangeConstraints(TagHelperOutput output, bool dateRange)
+        {
+            RangeAttribute? range = GetValidatorMetadata<RangeAttribute>();
+            if (range?.Minimum == null || range.Maximum == null)
+                return;
+
+            bool isDate = range.OperandType == typeof(DateTime)
+                          || range.Minimum is DateTime
+                          || range.Maximum is DateTime;
+
+            if (isDate != dateRange)
+                return;
+
+            AddConstraintAttributeIfMissing(output, "min", FormatRangeValue(range.Minimum, isDate));
+            AddConstraintAttributeIfMissing(output, "max", FormatRangeValue(range.Maximum, isDate));
+        }
+
+        private static string? FormatRangeValue(object value, bool isDate)
+        {
+            if (isDate)
+            {
+                if (value is DateTime dateTime)
+                    return dateTime.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+                if (DateTime.TryParse(
+                        Convert.ToString(value, CultureInfo.InvariantCulture),
+                        CultureInfo.InvariantCulture,
+                        DateTimeStyles.None,
+                        out DateTime parsed))
+                {
+                    return parsed.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+                }
+            }
+
+            return Convert.ToString(value, CultureInfo.InvariantCulture);
+        }
+
+        private static void AddConstraintAttributeIfMissing(TagHelperOutput output, string attributeName, string? attributeValue)
+        {
+            if (output.Attributes.ContainsName(attributeName))
+                return;
+
+            AddAttributeIfNotNull(output, attributeName, attributeValue);
         }
 
         /// <summary>

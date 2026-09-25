@@ -36,6 +36,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             string? errorMessage = ErrorMessage ?? ResolveModelStateError(field.Name);
             AddAttributeIfNotNull(output, "error-message", errorMessage);
 
+            ApplyDataAnnotationConstraints(output);
+
             base.Process(context, output);
         }
     }
