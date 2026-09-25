@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
@@ -85,6 +86,60 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
             Assert.Equal("10", rangeOutput.Attributes["max"].Value?.ToString());
         }
 
+        [Fact]
+        public void Process_WithDataType_EmitsMatchingInputType()
+        {
+            AssertInputType(nameof(TestModel.EmailAddress), "email");
+            AssertInputType(nameof(TestModel.Password), "password");
+            AssertInputType(nameof(TestModel.Phone), "tel");
+            AssertInputType(nameof(TestModel.Website), "url");
+        }
+
+        [Fact]
+        public void Process_WithExplicitType_DoesNotOverwriteWithDataType()
+        {
+            var helper = new InputTagHelper
+            {
+                For = CreateModelExpression(nameof(TestModel.EmailAddress), new TestModel()),
+                ViewContext = new ViewContext()
+            };
+
+            var output = CreateOutput();
+            output.Attributes.SetAttribute("type", "text");
+            helper.Process(CreateContext(), output);
+
+            Assert.Equal("text", output.Attributes["type"].Value?.ToString());
+        }
+
+        [Fact]
+        public void Process_WithReadOnlyDataAnnotation_EmitsReadonlyAttribute()
+        {
+            var helper = new InputTagHelper
+            {
+                For = CreateModelExpression(nameof(TestModel.LockedCode), new TestModel()),
+                ViewContext = new ViewContext()
+            };
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.True(output.Attributes.ContainsName("readonly"));
+        }
+
+        private void AssertInputType(string propertyName, string expectedType)
+        {
+            var helper = new InputTagHelper
+            {
+                For = CreateModelExpression(propertyName, new TestModel()),
+                ViewContext = new ViewContext()
+            };
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.Equal(expectedType, output.Attributes["type"].Value?.ToString());
+        }
+
         private static ModelExpression CreateModelExpression(string propertyName, TestModel model)
         {
             var metadataProvider = new EmptyModelMetadataProvider();
@@ -112,6 +167,21 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
 
             [Range(1, 10)]
             public int Quantity { get; set; }
+
+            [DataType(DataType.EmailAddress)]
+            public string EmailAddress { get; set; } = string.Empty;
+
+            [DataType(DataType.Password)]
+            public string Password { get; set; } = string.Empty;
+
+            [DataType(DataType.PhoneNumber)]
+            public string Phone { get; set; } = string.Empty;
+
+            [DataType(DataType.Url)]
+            public string Website { get; set; } = string.Empty;
+
+            [ReadOnly(true)]
+            public string LockedCode { get; set; } = string.Empty;
         }
     }
 }

@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using FDCPInputType = GCFoundation.Components.Enums.InputType;
 
@@ -93,6 +94,13 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             [MaxLength(50)]
             public bool ConstrainedBoolProperty { get; set; }
+
+            [ReadOnly(true)]
+            public string ReadOnlyProperty { get; set; } = string.Empty;
+
+            [ReadOnly(true)]
+            [DataType(DataType.MultilineText)]
+            public string ReadOnlyMultilineProperty { get; set; } = string.Empty;
         }
 
         private FDCPInputTagHelper SetupTagHelper(string propertyName, TestModel? model = null)
@@ -531,6 +539,28 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.False(_output.Attributes.ContainsName("min"));
             Assert.False(_output.Attributes.ContainsName("max"));
             Assert.False(_output.Attributes.ContainsName("pattern"));
+        }
+
+        [Fact]
+        public void Process_WithReadOnlyDataAnnotation_EmitsReadonlyOnInput()
+        {
+            var tagHelper = SetupTagHelper("ReadOnlyProperty");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-input", _output.TagName);
+            Assert.True(_output.Attributes.ContainsName("readonly"));
+        }
+
+        [Fact]
+        public void Process_WithReadOnlyDataAnnotation_OnTextArea_DoesNotEmitReadonly()
+        {
+            var tagHelper = SetupTagHelper("ReadOnlyMultilineProperty");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-textarea", _output.TagName);
+            Assert.False(_output.Attributes.ContainsName("readonly"));
         }
 
         [Fact]
