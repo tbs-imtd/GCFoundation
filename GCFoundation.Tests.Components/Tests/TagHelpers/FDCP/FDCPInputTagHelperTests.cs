@@ -66,6 +66,33 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             [Required]
             public string RequiredTextProperty { get; set; } = string.Empty;
+
+            [MaxLength(50)]
+            public string MaxLengthProperty { get; set; } = string.Empty;
+
+            [MinLength(3)]
+            public string MinLengthProperty { get; set; } = string.Empty;
+
+            [StringLength(20, MinimumLength = 5)]
+            public string StringLengthProperty { get; set; } = string.Empty;
+
+            [Range(18, 100)]
+            public int RangeNumberProperty { get; set; }
+
+            [DataType(DataType.Date)]
+            [Range(typeof(DateTime), "2000-01-01", "2030-12-31")]
+            public DateTime RangeDateProperty { get; set; }
+
+            [RegularExpression(@"^[A-Z]{2}$")]
+            public string PatternProperty { get; set; } = string.Empty;
+
+            [MaxLength(2000)]
+            [MinLength(10)]
+            [DataType(DataType.MultilineText)]
+            public string MultilineConstrainedProperty { get; set; } = string.Empty;
+
+            [MaxLength(50)]
+            public bool ConstrainedBoolProperty { get; set; }
         }
 
         private FDCPInputTagHelper SetupTagHelper(string propertyName, TestModel? model = null)
@@ -393,6 +420,117 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("benefits", _output.Attributes["value"].Value);
             Assert.True(_output.Attributes.ContainsName("required"));
             Assert.True(_output.Attributes.ContainsName("disabled"));
+            Assert.False(_output.Attributes.ContainsName("maxlength"));
+            Assert.False(_output.Attributes.ContainsName("minlength"));
+            Assert.False(_output.Attributes.ContainsName("min"));
+            Assert.False(_output.Attributes.ContainsName("max"));
+            Assert.False(_output.Attributes.ContainsName("pattern"));
+        }
+
+        [Fact]
+        public void Process_WithMaxLengthDataAnnotation_EmitsMaxlengthAttribute()
+        {
+            var tagHelper = SetupTagHelper("MaxLengthProperty");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-input", _output.TagName);
+            Assert.Equal("50", _output.Attributes["maxlength"].Value);
+        }
+
+        [Fact]
+        public void Process_WithMinLengthDataAnnotation_EmitsMinlengthAttribute()
+        {
+            var tagHelper = SetupTagHelper("MinLengthProperty");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("3", _output.Attributes["minlength"].Value);
+        }
+
+        [Fact]
+        public void Process_WithStringLengthDataAnnotation_EmitsMinlengthAndMaxlengthAttributes()
+        {
+            var tagHelper = SetupTagHelper("StringLengthProperty");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("20", _output.Attributes["maxlength"].Value);
+            Assert.Equal("5", _output.Attributes["minlength"].Value);
+        }
+
+        [Fact]
+        public void Process_WithRangeDataAnnotation_OnNumber_EmitsMinAndMaxAttributes()
+        {
+            var tagHelper = SetupTagHelper("RangeNumberProperty");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-input", _output.TagName);
+            Assert.Equal("number", _output.Attributes["type"].Value);
+            Assert.Equal("18", _output.Attributes["min"].Value);
+            Assert.Equal("100", _output.Attributes["max"].Value);
+        }
+
+        [Fact]
+        public void Process_WithRangeDataAnnotation_OnDate_EmitsMinAndMaxAttributes()
+        {
+            var tagHelper = SetupTagHelper("RangeDateProperty");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-date-input", _output.TagName);
+            Assert.Equal("2000-01-01", _output.Attributes["min"].Value);
+            Assert.Equal("2030-12-31", _output.Attributes["max"].Value);
+        }
+
+        [Fact]
+        public void Process_WithRegularExpressionDataAnnotation_EmitsPatternAttribute()
+        {
+            var tagHelper = SetupTagHelper("PatternProperty");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-input", _output.TagName);
+            Assert.Equal("^[A-Z]{2}$", _output.Attributes["pattern"].Value);
+        }
+
+        [Fact]
+        public void Process_WithLengthDataAnnotations_OnTextArea_EmitsMinlengthAndMaxlengthAttributes()
+        {
+            var tagHelper = SetupTagHelper("MultilineConstrainedProperty");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-textarea", _output.TagName);
+            Assert.Equal("2000", _output.Attributes["maxlength"].Value);
+            Assert.Equal("10", _output.Attributes["minlength"].Value);
+        }
+
+        [Fact]
+        public void Process_WithExistingMaxlengthAttribute_DoesNotOverwriteMarkupValue()
+        {
+            var tagHelper = SetupTagHelper("MaxLengthProperty");
+            _output.Attributes.SetAttribute("maxlength", "10");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("10", _output.Attributes["maxlength"].Value);
+        }
+
+        [Fact]
+        public void Process_WithCheckbox_DoesNotEmitLengthOrRangeAttributes()
+        {
+            var tagHelper = SetupTagHelper("ConstrainedBoolProperty");
+
+            tagHelper.Process(_context, _output);
+
+            Assert.Equal("gcds-checkbox", _output.TagName);
+            Assert.False(_output.Attributes.ContainsName("maxlength"));
+            Assert.False(_output.Attributes.ContainsName("minlength"));
+            Assert.False(_output.Attributes.ContainsName("min"));
+            Assert.False(_output.Attributes.ContainsName("max"));
+            Assert.False(_output.Attributes.ContainsName("pattern"));
         }
 
         [Fact]

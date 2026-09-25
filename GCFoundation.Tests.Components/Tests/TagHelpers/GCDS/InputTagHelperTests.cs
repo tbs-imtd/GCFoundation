@@ -56,6 +56,35 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
             Assert.False(output.Attributes.ContainsName("required"));
         }
 
+        [Fact]
+        public void Process_WithDataAnnotations_EmitsConstraintAttributes()
+        {
+            var helper = new InputTagHelper
+            {
+                For = CreateModelExpression(nameof(TestModel.Username), new TestModel()),
+                ViewContext = new ViewContext()
+            };
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.Equal("25", output.Attributes["maxlength"].Value?.ToString());
+            Assert.Equal("3", output.Attributes["minlength"].Value?.ToString());
+            Assert.Equal(@"^[A-Za-z]+$", output.Attributes["pattern"].Value?.ToString());
+
+            var rangeHelper = new InputTagHelper
+            {
+                For = CreateModelExpression(nameof(TestModel.Quantity), new TestModel()),
+                ViewContext = new ViewContext()
+            };
+
+            var rangeOutput = CreateOutput();
+            rangeHelper.Process(CreateContext(), rangeOutput);
+
+            Assert.Equal("1", rangeOutput.Attributes["min"].Value?.ToString());
+            Assert.Equal("10", rangeOutput.Attributes["max"].Value?.ToString());
+        }
+
         private static ModelExpression CreateModelExpression(string propertyName, TestModel model)
         {
             var metadataProvider = new EmptyModelMetadataProvider();
@@ -75,6 +104,14 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
             [Required]
             [Display(Name = "Email address", Description = "Used for notifications.")]
             public string Email { get; set; } = string.Empty;
+
+            [MaxLength(25)]
+            [MinLength(3)]
+            [RegularExpression(@"^[A-Za-z]+$")]
+            public string Username { get; set; } = string.Empty;
+
+            [Range(1, 10)]
+            public int Quantity { get; set; }
         }
     }
 }
