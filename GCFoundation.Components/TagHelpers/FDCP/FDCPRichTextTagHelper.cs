@@ -3,7 +3,9 @@ using GCFoundation.Components.Enums;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Reflection;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 
@@ -146,6 +148,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             editorBuilder.Attributes.Add("data-error-id", errorId);
             editorBuilder.Attributes.Add("style", $"height: {Height};");
             editorBuilder.Attributes.Add("lang", lang);
+
+            if (string.IsNullOrEmpty(Placeholder))
+                Placeholder = PropertyInfo?.GetCustomAttribute<DisplayAttribute>()?.GetPrompt()
+                              ?? For?.Metadata.Placeholder;
 
             if (!string.IsNullOrEmpty(Placeholder))
             {

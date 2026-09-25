@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Reflection;
@@ -270,11 +271,16 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
             if (isInput)
             {
+                ApplyInputTypeFromDataType(output);
+
                 RegularExpressionAttribute? regex = GetValidatorMetadata<RegularExpressionAttribute>();
                 if (!string.IsNullOrEmpty(regex?.Pattern))
                     AddConstraintAttributeIfMissing(output, "pattern", regex.Pattern);
 
                 ApplyRangeConstraints(output, dateRange: false);
+
+                if (ResolveReadOnly() && !output.Attributes.ContainsName("readonly"))
+                    AddBooleanAttribute(output, "readonly", true);
             }
 
             if (isDateInput)
@@ -288,6 +294,35 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
             return For.Metadata.ValidatorMetadata.OfType<TAttribute>().FirstOrDefault()
                    ?? PropertyInfo?.GetCustomAttribute<TAttribute>();
+        }
+
+        private bool ResolveReadOnly()
+        {
+            if (For?.Metadata.IsReadOnly == true)
+                return true;
+
+            if (PropertyInfo?.GetCustomAttribute<ReadOnlyAttribute>()?.IsReadOnly == true)
+                return true;
+
+            EditableAttribute? editable = PropertyInfo?.GetCustomAttribute<EditableAttribute>();
+            return editable != null && !editable.AllowEdit;
+        }
+
+        private void ApplyInputTypeFromDataType(TagHelperOutput output)
+        {
+            if (DataTypeAttribute == null)
+                return;
+
+            string? inputType = DataTypeAttribute.DataType switch
+            {
+                DataType.EmailAddress => "email",
+                DataType.Password => "password",
+                DataType.PhoneNumber => "tel",
+                DataType.Url or DataType.ImageUrl => "url",
+                _ => null
+            };
+
+            AddConstraintAttributeIfMissing(output, "type", inputType);
         }
 
         private void ApplyLengthConstraints(TagHelperOutput output)
