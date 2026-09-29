@@ -237,8 +237,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         }
 
         /// <summary>
-        /// Retrieves the maximum length from the MaxLength attribute, or from the <see cref="MaxLengthAttribute"/>
-        /// (then <see cref="StringLengthAttribute"/>) of the bound property for text inputs and text areas.
+        /// Retrieves the maximum length from the MaxLength attribute, or from the <see cref="StringLengthAttribute"/>
+        /// (then <see cref="MaxLengthAttribute"/>) of the bound property for text inputs and text areas.
         /// </summary>
         /// <param name="inputType">The resolved input type. Length limits do not apply to checkboxes and date inputs.</param>
         /// <returns>The maximum length, or null when none is defined.</returns>
@@ -248,7 +248,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 return MaxLength;
 
             // MaxLengthAttribute uses -1 when no length is given (database maximum), which has no HTML equivalent.
-            int? maxLength = MaxLengthAttribute?.Length ?? StringLengthAttribute?.MaximumLength;
+            int? maxLength = StringLengthAttribute?.MaximumLength ?? MaxLengthAttribute?.Length;
             return maxLength > 0 ? maxLength : null;
         }
         #endregion Resolve methods

@@ -487,7 +487,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
-        public void Process_WithStringLengthAndMaxLengthDataAnnotations_PrefersMaxLength()
+        public void Process_WithStringLengthAndMaxLengthDataAnnotations_PrefersStringLength()
         {
             // Arrange
             var tagHelper = SetupTagHelper("StringLengthAndMaxLengthTextProperty");
@@ -496,7 +496,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             tagHelper.Process(_context, _output);
 
             // Assert
-            Assert.Equal("80", _output.Attributes["maxlength"].Value);
+            Assert.Equal("160", _output.Attributes["maxlength"].Value);
             Assert.False(_output.Attributes.ContainsName("minlength"));
         }
 
