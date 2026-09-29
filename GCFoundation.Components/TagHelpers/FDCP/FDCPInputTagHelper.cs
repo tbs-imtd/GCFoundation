@@ -34,6 +34,34 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// </summary>
         public InputType? Type { get; set; }
 
+        /// <summary>
+        /// Gets or sets the minimum value (GCDS <c>min</c>).
+        /// When not specified, it is taken from the <see cref="RangeAttribute"/> of the bound property for number inputs.
+        /// </summary>
+        [HtmlAttributeName("min")]
+        public string? Min { get; set; }
+
+        /// <summary>
+        /// Gets or sets the maximum value (GCDS <c>max</c>).
+        /// When not specified, it is taken from the <see cref="RangeAttribute"/> of the bound property for number inputs.
+        /// </summary>
+        [HtmlAttributeName("max")]
+        public string? Max { get; set; }
+
+        /// <summary>
+        /// Gets or sets the minimum number of characters (GCDS <c>minlength</c>).
+        /// When not specified, it is taken from the <see cref="MinLengthAttribute"/> of the bound property for text inputs and text areas.
+        /// </summary>
+        [HtmlAttributeName("minlength")]
+        public int? MinLength { get; set; }
+
+        /// <summary>
+        /// Gets or sets the maximum number of characters (GCDS <c>maxlength</c>).
+        /// When not specified, it is taken from the <see cref="MaxLengthAttribute"/> of the bound property for text inputs and text areas.
+        /// </summary>
+        [HtmlAttributeName("maxlength")]
+        public int? MaxLength { get; set; }
+
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -95,6 +123,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     AddAttributeIfNotNull(output, "value", field.Value ?? string.Empty);
                     break;
             }
+
+            AddAttributeIfNotNull(output, "min", ResolveMin(inputType));
+            AddAttributeIfNotNull(output, "max", ResolveMax(inputType));
+            AddAttributeIfNotNull(output, "minlength", ResolveMinLength(inputType));
+            AddAttributeIfNotNull(output, "maxlength", ResolveMaxLength(inputType));
 
             base.Process(context, output);
         }
@@ -160,6 +193,63 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 return InputType.number;
 
             return InputType.text;
+        }
+
+        /// <summary>
+        /// Retrieves the minimum value from the Min attribute, or from the <see cref="RangeAttribute"/> of the bound property for number inputs.
+        /// </summary>
+        /// <param name="inputType">The resolved input type. GCDS only supports a range minimum on number inputs.</param>
+        /// <returns>The minimum value, or null when none is defined.</returns>
+        protected string? ResolveMin(InputType inputType)
+        {
+            if (Min != null || inputType != InputType.number)
+                return Min;
+
+            return RangeAttribute == null ? null : Convert.ToString(RangeAttribute.Minimum, System.Globalization.CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Retrieves the maximum value from the Max attribute, or from the <see cref="RangeAttribute"/> of the bound property for number inputs.
+        /// </summary>
+        /// <param name="inputType">The resolved input type. GCDS only supports a range maximum on number inputs.</param>
+        /// <returns>The maximum value, or null when none is defined.</returns>
+        protected string? ResolveMax(InputType inputType)
+        {
+            if (Max != null || inputType != InputType.number)
+                return Max;
+
+            return RangeAttribute == null ? null : Convert.ToString(RangeAttribute.Maximum, System.Globalization.CultureInfo.InvariantCulture);
+        }
+
+        /// <summary>
+        /// Retrieves the minimum length from the MinLength attribute, or from the <see cref="MinLengthAttribute"/>
+        /// (then <see cref="StringLengthAttribute"/>) of the bound property for text inputs and text areas.
+        /// </summary>
+        /// <param name="inputType">The resolved input type. Length limits do not apply to checkboxes and date inputs.</param>
+        /// <returns>The minimum length, or null when none is defined.</returns>
+        protected int? ResolveMinLength(InputType inputType)
+        {
+            if (MinLength.HasValue || inputType == InputType.checkbox || inputType == InputType.date)
+                return MinLength;
+
+            int? minLength = MinLengthAttribute?.Length ?? StringLengthAttribute?.MinimumLength;
+            return minLength > 0 ? minLength : null;
+        }
+
+        /// <summary>
+        /// Retrieves the maximum length from the MaxLength attribute, or from the <see cref="MaxLengthAttribute"/>
+        /// (then <see cref="StringLengthAttribute"/>) of the bound property for text inputs and text areas.
+        /// </summary>
+        /// <param name="inputType">The resolved input type. Length limits do not apply to checkboxes and date inputs.</param>
+        /// <returns>The maximum length, or null when none is defined.</returns>
+        protected int? ResolveMaxLength(InputType inputType)
+        {
+            if (MaxLength.HasValue || inputType == InputType.checkbox || inputType == InputType.date)
+                return MaxLength;
+
+            // MaxLengthAttribute uses -1 when no length is given (database maximum), which has no HTML equivalent.
+            int? maxLength = MaxLengthAttribute?.Length ?? StringLengthAttribute?.MaximumLength;
+            return maxLength > 0 ? maxLength : null;
         }
         #endregion Resolve methods
     }
