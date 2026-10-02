@@ -83,7 +83,10 @@
         const templatesPayload = editorContainer.getAttribute('data-templates');
 
         const modules = {
-            toolbar: getToolbarConfig(toolbarType)
+            toolbar: getToolbarConfig(toolbarType),
+            keyboard: {
+                bindings: getTabReleaseBindings()
+            }
         };
 
         const quill = new window.Quill(editorContainer, {
@@ -104,6 +107,23 @@
         setupResetHandler(hiddenInput, editorContainer);
 
         editorContainer.dataset.quillInitialized = 'true';
+    }
+
+    /**
+     * Quill's default bindings consume Tab / Shift+Tab (insert "\t", indent lists, code blocks, tables),
+     * which traps keyboard users inside the editor (WCAG 2.1.2 No Keyboard Trap).
+     * Quill skips bindings whose value is falsy, so nulling these restores native focus navigation.
+     */
+    function getTabReleaseBindings() {
+        return {
+            tab: null,
+            'remove tab': null,
+            indent: null,
+            outdent: null,
+            'indent code-block': null,
+            'outdent code-block': null,
+            'table tab': null
+        };
     }
 
     function applyInitialValue(quill, hiddenInput) {
