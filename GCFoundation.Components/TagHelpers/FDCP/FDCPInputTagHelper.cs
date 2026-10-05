@@ -30,9 +30,18 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? Label { get; set; }
 
         /// <summary>
-        /// Gets or sets the type of the input element.
+        /// Gets or sets the maximum value (GCDS <c>max</c>).
+        /// When not specified, it is taken from the <see cref="RangeAttribute"/> of the bound property for number inputs.
         /// </summary>
-        public InputType? Type { get; set; }
+        [HtmlAttributeName("max")]
+        public string? Max { get; set; }
+
+        /// <summary>
+        /// Gets or sets the maximum number of characters (GCDS <c>maxlength</c>).
+        /// When not specified, it is taken from the <see cref="MaxLengthAttribute"/> of the bound property for text inputs and text areas.
+        /// </summary>
+        [HtmlAttributeName("maxlength")]
+        public int? MaxLength { get; set; }
 
         /// <summary>
         /// Gets or sets the minimum value (GCDS <c>min</c>).
@@ -42,13 +51,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? Min { get; set; }
 
         /// <summary>
-        /// Gets or sets the maximum value (GCDS <c>max</c>).
-        /// When not specified, it is taken from the <see cref="RangeAttribute"/> of the bound property for number inputs.
-        /// </summary>
-        [HtmlAttributeName("max")]
-        public string? Max { get; set; }
-
-        /// <summary>
         /// Gets or sets the minimum number of characters (GCDS <c>minlength</c>).
         /// When not specified, it is taken from the <see cref="MinLengthAttribute"/> of the bound property for text inputs and text areas.
         /// </summary>
@@ -56,12 +58,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public int? MinLength { get; set; }
 
         /// <summary>
-        /// Gets or sets the maximum number of characters (GCDS <c>maxlength</c>).
-        /// When not specified, it is taken from the <see cref="MaxLengthAttribute"/> of the bound property for text inputs and text areas.
+        /// Gets or sets the type of the input element.
         /// </summary>
-        [HtmlAttributeName("maxlength")]
-        public int? MaxLength { get; set; }
-
+        public InputType? Type { get; set; }
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -91,7 +90,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     AddAttributeIfNotNull(output, "type", "date");
                     AddAttributeIfNotNull(output, "legend", field.Label);
                     AddAttributeIfNotNull(output, "format", ResolveDateFormat());
-                    
+                    AddAttributeIfNotNull(output, "min", ResolveMin(inputType));
+                    AddAttributeIfNotNull(output, "max", ResolveMax(inputType));
+
                     // Ensure the value attribute is in expected format by gcds-date-input (YYYY-MM-DD).
                     if (For?.Model is DateTime dateValue)
                     {
@@ -104,6 +105,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
                     AddAttributeIfNotNull(output, "label", field.Label);
                     AddAttributeIfNotNull(output, "textarea-id", field.Id);
+                    AddAttributeIfNotNull(output, "minlength", ResolveMinLength(inputType));
+                    AddAttributeIfNotNull(output, "maxlength", ResolveMaxLength(inputType));
                     AddAttributeIfNotNull(output, "value", field.Value ?? string.Empty);
                     break;
                 case InputType.email:
@@ -120,14 +123,18 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     AddAttributeIfNotNull(output, "type", inputType);
                     AddAttributeIfNotNull(output, "label", field.Label);
                     AddAttributeIfNotNull(output, "input-id", field.Id);
+
+                    if (inputType == InputType.number)
+                    {
+                        AddAttributeIfNotNull(output, "min", ResolveMin(inputType));
+                        AddAttributeIfNotNull(output, "max", ResolveMax(inputType));
+                    }
+
+                    AddAttributeIfNotNull(output, "minlength", ResolveMinLength(inputType));
+                    AddAttributeIfNotNull(output, "maxlength", ResolveMaxLength(inputType));
                     AddAttributeIfNotNull(output, "value", field.Value ?? string.Empty);
                     break;
             }
-
-            AddAttributeIfNotNull(output, "min", ResolveMin(inputType));
-            AddAttributeIfNotNull(output, "max", ResolveMax(inputType));
-            AddAttributeIfNotNull(output, "minlength", ResolveMinLength(inputType));
-            AddAttributeIfNotNull(output, "maxlength", ResolveMaxLength(inputType));
 
             base.Process(context, output);
         }
