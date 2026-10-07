@@ -120,6 +120,12 @@
   <data name="AccountActions" xml:space="preserve">
     <value>Account actions</value>
   </data>
+  <data name="AccountMenuOpen" xml:space="preserve">
+    <value>Open account menu for {0}</value>
+  </data>
+  <data name="AccountSignOut" xml:space="preserve">
+    <value>Sign out</value>
+  </data>
   <data name="Department" xml:space="preserve">
     <value>Department</value>
   </data>

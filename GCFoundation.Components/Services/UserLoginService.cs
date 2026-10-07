@@ -1,4 +1,5 @@
 using GCFoundation.Components.Models;
+using GCFoundation.Components.Resources;
 using GCFoundation.Components.Settings;
 using GCFoundation.Common.Utilities;
 using Microsoft.AspNetCore.Http;
@@ -87,14 +88,55 @@ namespace GCFoundation.Components.Services
                 // Use JWT expiration time
                 viewModel.SessionExpiry = DateTimeOffset.FromUnixTimeSeconds(expUnixTime).UtcDateTime;
             }
-            else if (viewModel.LoginTime.HasValue)
-            {
-                // Fallback to configured timeout
-                var sessionTimeoutMinutes = 20; // Get from configuration
-                viewModel.SessionExpiry = viewModel.LoginTime.Value.AddMinutes(sessionTimeoutMinutes);
-            }
 
             return viewModel;
+        }
+
+        /// <summary>
+        /// Creates the account menu items configured by the application and appends
+        /// the standard profile and sign-out actions when enabled.
+        /// </summary>
+        /// <returns>The account menu items to render.</returns>
+        public IReadOnlyList<UserLoginMenuItemViewModel> CreateAccountMenuItems()
+        {
+            var isEnglish = LanguageUtility.IsEnglish();
+            var menuItems = _settings.MenuItems
+                .Where(item => item.Enabled && !string.IsNullOrWhiteSpace(item.Url))
+                .Select(item => new UserLoginMenuItemViewModel
+                {
+                    Text = !isEnglish && !string.IsNullOrWhiteSpace(item.TextFr)
+                        ? item.TextFr
+                        : item.TextEn,
+                    Url = item.Url,
+                    Icon = item.Icon
+                })
+                .ToList();
+
+            if (_settings.ShowProfileLink
+                && !string.IsNullOrWhiteSpace(_settings.ProfileUrl)
+                && !ContainsUrl(menuItems, _settings.ProfileUrl))
+            {
+                menuItems.Add(new UserLoginMenuItemViewModel
+                {
+                    Text = Authentication.ProfileButton,
+                    Url = _settings.ProfileUrl,
+                    Icon = "profile"
+                });
+            }
+
+            if (_settings.ShowLogoutButton
+                && !string.IsNullOrWhiteSpace(_settings.LogoutUrl)
+                && !ContainsUrl(menuItems, _settings.LogoutUrl))
+            {
+                menuItems.Add(new UserLoginMenuItemViewModel
+                {
+                    Text = Authentication.AccountSignOut,
+                    Url = _settings.LogoutUrl,
+                    Icon = "sign-out"
+                });
+            }
+
+            return menuItems;
         }
 
         /// <summary>
@@ -151,20 +193,6 @@ namespace GCFoundation.Components.Services
         }
 
         /// <summary>
-        /// Updates the session expiry time for an existing view model.
-        /// Useful for refreshing session information without recreating the entire model.
-        /// </summary>
-        /// <param name="viewModel">The view model to update.</param>
-        /// <param name="sessionTimeoutMinutes">The session timeout in minutes.</param>
-        public static void UpdateSessionExpiry(UserLoginViewModel viewModel, int sessionTimeoutMinutes = 20)
-        {
-            if (viewModel?.LoginTime.HasValue == true)
-            {
-                viewModel.SessionExpiry = viewModel.LoginTime.Value.AddMinutes(sessionTimeoutMinutes);
-            }
-        }
-
-        /// <summary>
         /// Gets a claim value from the current user's claims.
         /// </summary>
         /// <param name="user">The claims principal.</param>
@@ -173,6 +201,14 @@ namespace GCFoundation.Components.Services
         private static string? GetClaimValue(ClaimsPrincipal? user, string claimType)
         {
             return user?.FindFirst(claimType)?.Value;
+        }
+
+        private static bool ContainsUrl(
+            IEnumerable<UserLoginMenuItemViewModel> menuItems,
+            string url)
+        {
+            return menuItems.Any(item =>
+                string.Equals(item.Url, url, StringComparison.OrdinalIgnoreCase));
         }
     }
 }

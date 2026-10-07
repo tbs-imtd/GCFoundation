@@ -39,7 +39,16 @@ Add the user login settings to your `appsettings.json` file:
     "ContainerCssClasses": "mb-200",
     "ShowUserAvatar": false,
     "CustomGreetingKey": null,
-    "Position": "header"
+    "Position": "header",
+    "DisplayMode": "Dropdown",
+    "MenuItems": [
+      {
+        "TextEn": "My profile",
+        "TextFr": "Mon profil",
+        "Url": "/profile",
+        "Icon": "profile"
+      }
+    ]
   }
 }
 ```
@@ -88,6 +97,9 @@ public IActionResult Index()
 | `ShowUserAvatar` | bool | false | Show user avatar/initials |
 | `CustomGreetingKey` | string | null | Custom localization key for greeting |
 | `Position` | string | "header" | Position in the layout |
+| `DisplayMode` | string | "Inline" | Header rendering style: `Inline` or `Dropdown` |
+| `MenuButtonLabel` | string | null | Optional text in the dropdown trigger; defaults to generated initials |
+| `MenuItems` | array | [] | Additional application-provided account menu items; enabled profile and sign-out actions are appended automatically |
 
 ## Usage Examples
 

@@ -1,30 +1,74 @@
 @using GCFoundation.Components.Models
 @using GCFoundation.Components.Resources
-@using GCFoundation.Common.Utilities
-@using Microsoft.Extensions.Localization
+@using GCFoundation.Components.Settings
 @model UserLoginViewModel
+@inject GCFoundation.Components.Services.UserLoginService userLoginService
 
 @{
     var settings = Model.Settings;
     var isAuthenticated = Model.IsAuthenticated;
     var containerClasses = !string.IsNullOrWhiteSpace(settings.ContainerCssClasses) ? settings.ContainerCssClasses : "mb-200";
-}
-
-@{
     var isHeaderPosition = (settings.Position ?? "").ToLowerInvariant() == "header";
+    var useDropdownHeader = settings.DisplayMode == UserLoginDisplayMode.Dropdown;
 }
 
 @if (isHeaderPosition)
 {
     if (isAuthenticated)
     {
-        <div class="user-login-inline mt-150" aria-label="@Authentication.LoginFormAriaLabel">
-            <span class="user-login-inline__text">@Authentication.SignedInAs: <strong class="ml-50">@(Model.DisplayName ?? "")</strong></span>
-            @if (settings.ShowLogoutButton)
-            {
-                <gcds-button button-role="secondary" size="small" href="@settings.LogoutUrl">@Authentication.LogoutButton</gcds-button>
-            }
-        </div>
+        if (useDropdownHeader)
+        {
+            var menuItems = userLoginService.CreateAccountMenuItems();
+
+            var menuButtonLabel = !string.IsNullOrWhiteSpace(settings.MenuButtonLabel)
+                ? settings.MenuButtonLabel
+                : Model.GeneratedInitials;
+
+            <gcds-nav-group menu-label="@string.Format(Authentication.AccountMenuOpen, Model.AccountOwnerLabel)"
+                            open-trigger="@menuButtonLabel"
+                            close-trigger="@menuButtonLabel"
+                            class="fdcp-user-login__account-menu">
+                @if (!string.IsNullOrWhiteSpace(Model.DisplayName))
+                {
+                    <span class="fdcp-user-login__account-name">@Model.DisplayName</span>
+                }
+                @foreach (var item in menuItems)
+                {
+                    var iconClass = item.Icon switch
+                    {
+                        "back" => "fa-solid fa-arrow-left",
+                        "profile" => "fa-solid fa-gear",
+                        "sign-out" => "fa-solid fa-arrow-right-from-bracket",
+                        _ => item.Icon
+                    };
+
+                    <gcds-nav-link href="@item.Url">
+                        @if (!string.IsNullOrWhiteSpace(iconClass))
+                        {
+                            <i class="@iconClass fdcp-user-login__account-menu-icon" aria-hidden="true"></i>
+                        }
+                        @item.Text
+                    </gcds-nav-link>
+                }
+            </gcds-nav-group>
+        }
+        else
+        {
+            <div class="user-login-inline mt-150" aria-label="@Authentication.LoginFormAriaLabel">
+                <span class="user-login-inline__text">@Authentication.SignedInAs: <strong class="ml-50">@(Model.DisplayName ?? "")</strong></span>
+                @if (settings.ShowLogoutButton)
+                {
+                    <gcds-button button-role="secondary" size="small" href="@settings.LogoutUrl">@Authentication.LogoutButton</gcds-button>
+                }
+            </div>
+        }
+    }
+    else if (useDropdownHeader)
+    {
+        @if (!string.IsNullOrWhiteSpace(settings.LoginUrl))
+        {
+            <gcds-button slot="account" button-role="primary" size="small" href="@settings.LoginUrl">@Authentication.LoginButton</gcds-button>
+        }
     }
 }
 else

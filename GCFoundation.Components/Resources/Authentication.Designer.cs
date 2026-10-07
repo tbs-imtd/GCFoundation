@@ -68,7 +68,25 @@ namespace GCFoundation.Components.Resources {
                 return ResourceManager.GetString("AccountActions", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Open account menu for {0}.
+        /// </summary>
+        public static string AccountMenuOpen {
+            get {
+                return ResourceManager.GetString("AccountMenuOpen", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Sign out.
+        /// </summary>
+        public static string AccountSignOut {
+            get {
+                return ResourceManager.GetString("AccountSignOut", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Department.
         /// </summary>
@@ -203,7 +221,7 @@ namespace GCFoundation.Components.Resources {
                 return ResourceManager.GetString("SignedInAs", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to User account information.
         /// </summary>

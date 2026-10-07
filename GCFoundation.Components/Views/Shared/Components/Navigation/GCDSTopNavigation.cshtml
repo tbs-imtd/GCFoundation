@@ -6,6 +6,14 @@
 @model NavigationViewModel
 @inject IOptions<GCFoundationComponentsSettings> settings
 @inject ITopNavigationLocalizationService topNavigationLocalizationService
+@inject GCFoundation.Components.Services.UserLoginService userLoginService
+
+@{
+    string? loginPartialViewName = ViewData["LoginPartialViewName"] as string;
+    var headerLoginModel = string.IsNullOrEmpty(loginPartialViewName)
+        ? null
+        : userLoginService.CreateViewModelFromContext();
+}
 
 <div slot="menu">
     <gcds-top-nav>
@@ -43,5 +51,29 @@
                 }
             }
         }
+
+        @if (!string.IsNullOrEmpty(loginPartialViewName) && headerLoginModel?.IsAuthenticated == true)
+        {
+            if (string.Equals(loginPartialViewName, "_UserLoginPartial", StringComparison.Ordinal))
+            {
+                @await Html.PartialAsync(loginPartialViewName, headerLoginModel)
+            }
+            else
+            {
+                @await Html.PartialAsync(loginPartialViewName)
+            }
+        }
     </gcds-top-nav>
 </div>
+
+@if (!string.IsNullOrEmpty(loginPartialViewName) && headerLoginModel?.IsAuthenticated == false)
+{
+    if (string.Equals(loginPartialViewName, "_UserLoginPartial", StringComparison.Ordinal))
+    {
+        @await Html.PartialAsync(loginPartialViewName, headerLoginModel)
+    }
+    else
+    {
+        @await Html.PartialAsync(loginPartialViewName)
+    }
+}
