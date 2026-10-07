@@ -132,6 +132,16 @@ namespace GCFoundation.Components.Models
         }
 
         /// <summary>
+        /// Gets a non-empty label for identifying the account menu owner.
+        /// </summary>
+        public string AccountOwnerLabel =>
+            !string.IsNullOrWhiteSpace(DisplayName)
+                ? DisplayName
+                : !string.IsNullOrWhiteSpace(Settings.MenuButtonLabel)
+                    ? Settings.MenuButtonLabel
+                    : GeneratedInitials;
+
+        /// <summary>
         /// Gets the user's initials (first letter of first and last name).
         /// </summary>
         public string GeneratedInitials

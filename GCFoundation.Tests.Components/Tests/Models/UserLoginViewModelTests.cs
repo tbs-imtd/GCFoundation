@@ -38,6 +38,28 @@ public class UserLoginViewModelTests
     }
 
     [Fact]
+    public void AccountOwnerLabel_WhenClaimsAreMissing_ReturnsSafeFallback()
+    {
+        var model = new UserLoginViewModel();
+
+        Assert.Equal("U", model.AccountOwnerLabel);
+    }
+
+    [Fact]
+    public void AccountOwnerLabel_WhenMenuButtonLabelIsConfigured_UsesConfiguredLabel()
+    {
+        var model = new UserLoginViewModel
+        {
+            Settings = new GCFoundation.Components.Settings.GCFoundationUserLoginSettings
+            {
+                MenuButtonLabel = "Account"
+            }
+        };
+
+        Assert.Equal("Account", model.AccountOwnerLabel);
+    }
+
+    [Fact]
     public void GeneratedInitials_WhenUserInitialsSet_ReturnsUserInitials()
     {
         var model = new UserLoginViewModel { UserInitials = "JD" };

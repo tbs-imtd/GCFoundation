@@ -86,7 +86,7 @@
             <link rel="stylesheet" href="@Url.Content(cssFile)" asp-append-version="true" />
         }
     }
-    
+
     @await RenderSectionAsync("Styles", required: false)
 </head>
 <body>
@@ -105,6 +105,7 @@
             string? bannerPartialViewName = ViewData["BannerPartialViewName"] as string;
             string? breadcrumbsPartialViewName = ViewData["BreadcrumbsPartialViewName"] as string;
             string? menuPartialViewName = ViewData["MenuPartialViewName"] as string;
+            string? loginPartialViewName = ViewData["LoginPartialViewName"] as string;
             string? searchPartialViewName = ViewData["SearchPartialViewName"] as string;
             
         }
@@ -117,11 +118,18 @@
             </div>
         }
 
-        @* Load a menu view if defined *@
+        @* Custom menus own their top-nav markup; the default navigation inserts the login partial inside gcds-top-nav. *@
         @if (!string.IsNullOrEmpty(menuPartialViewName))
         {
-            <div slot="menu">
+            <div slot="menu" class="foundation-header-menu">
                 @await Html.PartialAsync(menuPartialViewName)
+
+                @if (!string.IsNullOrEmpty(loginPartialViewName))
+                {
+                    <div class="foundation-header-login">
+                        @await Html.PartialAsync(loginPartialViewName)
+                    </div>
+                }
             </div>
         }
         else
@@ -148,15 +156,6 @@
         }
     </gcds-header>
     <gcds-container id="main-content" layout="page" alignment="center" tag="main" class="mb-300">
-        @{
-            string? LoginPartialViewName = ViewData["LoginPartialViewName"] as string;
-        }
-
-        @if(!string.IsNullOrEmpty(LoginPartialViewName))
-        {
-            @await Html.PartialAsync(LoginPartialViewName)
-        }
-
         <partial name="_PageNotification" />
         @* Main content *@
         @RenderBody()

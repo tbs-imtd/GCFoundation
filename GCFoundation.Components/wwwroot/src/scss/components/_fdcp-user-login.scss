@@ -99,3 +99,16 @@
         line-height: 1;
     }
 }
+
+.fdcp-user-login__account-name {
+    display: block;
+    max-width: none;
+    padding: var(--gcds-spacing-150) var(--gcds-spacing-200);
+    border-bottom: var(--gcds-border-width-sm) solid var(--gcds-color-grayscale-300);
+    font-weight: var(--gcds-font-weights-bold);
+}
+
+.fdcp-user-login__account-menu-icon {
+    display: inline-block;
+    margin-inline-end: var(--gcds-spacing-150);
+}

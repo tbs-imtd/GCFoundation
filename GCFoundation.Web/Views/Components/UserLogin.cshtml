@@ -85,7 +85,9 @@
                 defaultUser.Settings.ShowLoginTime = true;
                 defaultUser.Settings.ShowUserAvatar = true;
             }
-            <partial name="_UserLoginPartial" model="defaultUser" />
+            <gcds-top-nav label="@GCFoundation.Components.Resources.Authentication.UserMenuAriaLabel" alignment="end">
+                <partial name="_UserLoginPartial" model="defaultUser" />
+            </gcds-top-nav>
         </fdcp-card>
 
         <fdcp-card>
@@ -105,7 +107,9 @@
                 expiringUser.Settings.ShowSessionTimeout = true;
                 expiringUser.Settings.ShowUserAvatar = true;
             }
-            <partial name="_UserLoginPartial" model="expiringUser" />
+            <gcds-top-nav label="@GCFoundation.Components.Resources.Authentication.UserMenuAriaLabel" alignment="end">
+                <partial name="_UserLoginPartial" model="expiringUser" />
+            </gcds-top-nav>
         </fdcp-card>
     </gcds-grid>
 
@@ -146,7 +150,16 @@
     "ContainerCssClasses": "mb-200",
     "ShowUserAvatar": false,
     "CustomGreetingKey": null,
-    "Position": "header"
+    "Position": "header",
+    "DisplayMode": "Dropdown",
+    "MenuItems": [
+      {
+        "TextEn": "My profile",
+        "TextFr": "Mon profil",
+        "Url": "/profile",
+        "Icon": "profile"
+      }
+    ]
   }
 }</code></pre>
         </gcds-details>
