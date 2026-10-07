@@ -1,0 +1,25 @@
+@using System.Globalization
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Template.TemplateStepperFormViewModel
+
+@{
+    // GCDS custom validators need both EN and FR reason strings regardless of the active UI language.
+    var en = CultureInfo.GetCultureInfo("en");
+    var fr = CultureInfo.GetCultureInfo("fr");
+    string Msg(string key, CultureInfo culture) =>
+        Template.ResourceManager.GetString(key, culture) ?? key;
+}
+
+@* data-* carries localized validator copy so GCDS can replace its generic required/url messages. *@
+<div id="step3-validators"
+     data-website-required-en="@Msg("Stepper_Demo_Website_Required", en)"
+     data-website-required-fr="@Msg("Stepper_Demo_Website_Required", fr)"
+     data-website-invalid-en="@Msg("Stepper_Demo_Website_Invalid", en)"
+     data-website-invalid-fr="@Msg("Stepper_Demo_Website_Invalid", fr)"
+     data-age-required-en="@Msg("Stepper_Demo_Age_Required", en)"
+     data-age-required-fr="@Msg("Stepper_Demo_Age_Required", fr)"
+     data-age-range-en="@Msg("Stepper_Demo_Age_Range", en)"
+     data-age-range-fr="@Msg("Stepper_Demo_Age_Range", fr)">
+    <fdcp-input for="@Model.Website" />
+    <fdcp-input for="@Model.Age" />
+</div>

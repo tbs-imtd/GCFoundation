@@ -1,0 +1,70 @@
+@using GCFoundation.Web.Resources
+@using System.Globalization
+@model GCFoundation.Web.Models.Components.ComponentSampleCodeSectionViewModel
+
+@{
+    var isFr = string.Equals(CultureInfo.CurrentUICulture.TwoLetterISOLanguageName, "fr", StringComparison.OrdinalIgnoreCase);
+    var colName = isFr ? "Nom" : "Name";
+    var colDepartment = isFr ? "Département" : "Department";
+    var colStatus = isFr ? "Statut" : "Status";
+}
+
+<div class="fdcp-table-responsive">
+    <table class="fdcp-table fdcp-table-hover fdcp-table-striped"
+           aria-describedby="table-basic-summary">
+        <caption>@Components.Table_Basic_Caption</caption>
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">@colName</th>
+                <th scope="col">@colDepartment</th>
+                <th scope="col">@colStatus</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>@(isFr ? "Jean Dupont" : "Jane Doe")</td>
+                <td>@(isFr ? "Finances" : "Finance")</td>
+                <td>@(isFr ? "Actif" : "Active")</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>@(isFr ? "Marie Tremblay" : "John Smith")</td>
+                <td>@(isFr ? "Ressources humaines" : "Human Resources")</td>
+                <td>@(isFr ? "En attente" : "Pending")</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td>@(isFr ? "Alex Martin" : "Alex Martin")</td>
+                <td>@(isFr ? "Technologie de l'information" : "Information Technology")</td>
+                <td>@(isFr ? "Actif" : "Active")</td>
+            </tr>
+        </tbody>
+    </table>
+    <p id="table-basic-summary" class="visibility-sr-only">@Components.Table_Basic_Summary</p>
+</div>
+
+<pre><code class="language-html">&lt;div class="fdcp-table-responsive"&gt;
+    &lt;table class="fdcp-table fdcp-table-hover fdcp-table-striped"
+           aria-describedby="table-basic-summary"&gt;
+        &lt;caption&gt;@Components.Table_Basic_Caption&lt;/caption&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th scope="col"&gt;ID&lt;/th&gt;
+                &lt;th scope="col"&gt;@colName&lt;/th&gt;
+                &lt;th scope="col"&gt;@colDepartment&lt;/th&gt;
+                &lt;th scope="col"&gt;@colStatus&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            &lt;tr&gt;
+                &lt;th scope="row"&gt;1&lt;/th&gt;
+                &lt;td&gt;@(isFr ? "Jean Dupont" : "Jane Doe")&lt;/td&gt;
+                &lt;td&gt;@(isFr ? "Finances" : "Finance")&lt;/td&gt;
+                &lt;td&gt;@(isFr ? "Actif" : "Active")&lt;/td&gt;
+            &lt;/tr&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;p id="table-basic-summary" class="visibility-sr-only"&gt;@Components.Table_Basic_Summary&lt;/p&gt;
+&lt;/div&gt;</code></pre>

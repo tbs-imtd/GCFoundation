@@ -83,7 +83,10 @@
         const templatesPayload = editorContainer.getAttribute('data-templates');
 
         const modules = {
-            toolbar: getToolbarConfig(toolbarType)
+            toolbar: getToolbarConfig(toolbarType),
+            keyboard: {
+                bindings: getTabReleaseBindings()
+            }
         };
 
         const quill = new window.Quill(editorContainer, {
@@ -104,6 +107,23 @@
         setupResetHandler(hiddenInput, editorContainer);
 
         editorContainer.dataset.quillInitialized = 'true';
+    }
+
+    /**
+     * Quill's default bindings consume Tab / Shift+Tab (insert "\t", indent lists, code blocks, tables),
+     * which traps keyboard users inside the editor (WCAG 2.1.2 No Keyboard Trap).
+     * Quill skips bindings whose value is falsy, so nulling these restores native focus navigation.
+     */
+    function getTabReleaseBindings() {
+        return {
+            tab: null,
+            'remove tab': null,
+            indent: null,
+            outdent: null,
+            'indent code-block': null,
+            'outdent code-block': null,
+            'table tab': null
+        };
     }
 
     function applyInitialValue(quill, hiddenInput) {
@@ -151,6 +171,37 @@
                 removeErrorState(editorContainer, wrapper, container, hiddenInput);
             }
         });
+    }
+
+    function getErrorEventTarget(editorContainer, hiddenInput) {
+        // Prefer the focusable editor surface so gcds-error-summary can move focus there.
+        return editorContainer.querySelector('.ql-editor')
+            || document.getElementById(hiddenInput.id)
+            || editorContainer;
+    }
+
+    function dispatchGcdsError(target, message) {
+        if (!target || !message) {
+            return;
+        }
+
+        target.dispatchEvent(new CustomEvent('gcdsError', {
+            bubbles: true,
+            composed: true,
+            detail: { message }
+        }));
+    }
+
+    function dispatchGcdsValid(target) {
+        if (!target) {
+            return;
+        }
+
+        target.dispatchEvent(new CustomEvent('gcdsValid', {
+            bubbles: true,
+            composed: true,
+            detail: {}
+        }));
     }
 
     function setupValidation(quill, hiddenInput, editorContainer) {
@@ -292,6 +343,9 @@
             // Set the error message as inner text content (gcds-error-message displays content)
             errorElement.textContent = errorMessage;
         }
+
+        // Notify gcds-error-summary (listen mode) so Bio appears alongside GCDS field errors.
+        dispatchGcdsError(getErrorEventTarget(editorContainer, hiddenInput), errorMessage);
     }
 
     function removeErrorState(editorContainer, wrapper, container, hiddenInput) {
@@ -316,6 +370,8 @@
                 errorElement.remove();
             }
         }
+
+        dispatchGcdsValid(getErrorEventTarget(editorContainer, hiddenInput));
     }
 
     function updateAriaDescribedBy(editorArea, hiddenInput, errorId, hasError) {
