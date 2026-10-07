@@ -11,14 +11,22 @@
     font-style: italic;
 }
 
-/* Code block styling */
-.language-json pre,
-.language-cshtml pre {
+/* Code block styling (<pre><code class="language-*">) — aligned with foundation documentation-content overrides */
+pre:has(> code.language-json),
+pre:has(> code.language-cshtml),
+pre:has(> code.language-csharp),
+pre:has(> code.language-html) {
     background-color: var(--gcds-color-grayscale-50, #f1f2f3);
     border: 1px solid var(--gcds-color-grayscale-100, #d6d9dd);
     border-radius: var(--gcds-border-radius-sm, 4px);
     padding: var(--gcds-spacing-200, 1rem);
     overflow-x: auto;
+}
+
+pre > code.language-json,
+pre > code.language-cshtml,
+pre > code.language-csharp,
+pre > code.language-html {
     color: var(--gcds-text-primary, #333333);
 }
 
@@ -77,4 +85,22 @@ table[tabindex]:focus {
     inset-inline-start: 0;
     width: fit-content;
     z-index: 1;
+}
+}
+
+/* Stepper demo — review step summary */
+.fdcp-stepper-review {
+    display: grid;
+    grid-template-columns: minmax(8rem, 12rem) 1fr;
+    gap: var(--gcds-spacing-100, 0.5rem) var(--gcds-spacing-200, 1rem);
+    margin: var(--gcds-spacing-300, 1.5rem) 0;
+}
+
+.fdcp-stepper-review dt {
+    font-weight: 700;
+    margin: 0;
+}
+
+.fdcp-stepper-review dd {
+    margin: 0;
 }

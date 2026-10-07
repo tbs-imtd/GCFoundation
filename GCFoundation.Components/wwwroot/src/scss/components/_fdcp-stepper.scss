@@ -7,12 +7,23 @@ $progress-line-thickness: 4px;
 $progress-line-innactive-color: $fdcp-incomplte-color;
 
 .fdcp-stepper {
-    display: flex;
-    justify-content: space-between;
+    display: block;
     width: 100%;
     position: relative;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-top: var(--gcds-spacing-300, 2rem);
+    margin-bottom: var(--gcds-spacing-300, 2rem);
+
+    // Do not use flex `gap` here: connector lines are drawn with each step's `::after`, which only
+    // spans that step's flex column—gaps would leave visible holes between steps (especially 1→2).
+    .fdcp-stepper__list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+    }
 
     .fdcp-step {
         position: relative;
@@ -23,12 +34,46 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
         background: transparent;
         z-index: 1;
 
+        .fdcp-step__link,
+        .fdcp-step__content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: inherit;
+            // Keep the focus ring tight around the circle + label (not the full step column).
+            width: fit-content;
+            align-self: center;
+        }
+
+        // Shared focus indicator: same size and background for links (steps 1–5 when not active)
+        // and the active step wrapper (programmatic focus after Next/Previous).
+        @mixin fdcp-step-focus-indicator {
+            outline: 3px solid var(--gcds-color-blue-700, #1a2a3a);
+            outline-offset: 0.25rem;
+            border-radius: var(--gcds-border-radius-sm, 0.25rem);
+            background-color: var(--gcds-color-grayscale-50, #f1f2f3);
+        }
+
+        .fdcp-step__link:hover .fdcp-step-label,
+        .fdcp-step__link:focus .fdcp-step-label,
+        .fdcp-step__link:focus-visible .fdcp-step-label {
+            text-decoration: underline;
+        }
+
+        .fdcp-step__link:focus,
+        .fdcp-step__link:focus-visible,
+        .fdcp-step__content:focus,
+        .fdcp-step__content:focus-visible {
+            @include fdcp-step-focus-indicator;
+        }
+
         .fdcp-step-circle {
             width: 2.5rem;
             height: 2.5rem;
             border-radius: 50%;
             border: $fdcp-cicle-incomplete-border;
-            background: #fff;
+            background: var(--gcds-color-white, #fff);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -41,7 +86,7 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
 
         .fdcp-step-label {
             margin-top: 0.75rem;
-            font-size: 1.25rem;
+            font-size: var(--gcds-font-text-md, 1.25rem);
             text-align: center;
         }
         // Connector line after each step except the last
@@ -73,19 +118,58 @@ $progress-line-innactive-color: $fdcp-incomplte-color;
         &.active .fdcp-step-circle {
             border: $fdcp-cicle-inactive-border;
             color: $fdcp-progress-color;
-            background: #fff;
+            background: var(--gcds-color-white, #fff);
         }
         // Completed step
         &.completed .fdcp-step-circle {
             border: $fdcp-cicle-inactive-border;
             background: $fdcp-progress-color;
-            color: #fff;
+            color: var(--gcds-color-white, #fff);
         }
         // Incomplete step
         &.incomplete .fdcp-step-circle {
             border: $fdcp-cicle-incomplete-border;
             color: $fdcp-cicle-inactive-border;
-            background: #fff;
+            background: var(--gcds-color-white, #fff);
+        }
+    }
+}
+
+@media only screen and (width < 48em) {
+    .fdcp-stepper {
+        .fdcp-stepper__list {
+            flex-direction: column;
+            align-items: stretch;
+            gap: var(--gcds-spacing-200, 1.5rem);
+        }
+
+        .fdcp-step {
+            flex: initial;
+            flex-direction: row;
+            align-items: center;
+            justify-content: flex-start;
+
+            .fdcp-step__link,
+            .fdcp-step__content {
+                flex-direction: row;
+                align-items: center;
+                gap: var(--gcds-spacing-150, 1rem);
+                width: fit-content;
+                align-self: flex-start;
+            }
+
+            .fdcp-step-circle {
+                flex: 0 0 auto;
+            }
+
+            .fdcp-step-label {
+                margin-top: 0;
+                text-align: left;
+            }
+
+            &:after {
+                display: none;
+            }
         }
     }
 }

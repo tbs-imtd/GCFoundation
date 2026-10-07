@@ -1510,6 +1510,168 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Stepper_Demo_Name", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Review the information you entered before submitting.
+        /// </summary>
+        public static string Stepper_Demo_Review_Intro {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Review_Intro", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your first name.
+        /// </summary>
+        public static string Stepper_Demo_FirstName_Required {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_FirstName_Required", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your last name.
+        /// </summary>
+        public static string Stepper_Demo_LastName_Required {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_LastName_Required", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a short biography about yourself.
+        /// </summary>
+        public static string Stepper_Demo_Bio_Required {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Bio_Required", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Biography must be at least 10 characters.
+        /// </summary>
+        public static string Stepper_Demo_Bio_MinLength {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Bio_MinLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Biography cannot exceed 2000 characters.
+        /// </summary>
+        public static string Stepper_Demo_Bio_MaxLength {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Bio_MaxLength", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Select your country of residence.
+        /// </summary>
+        public static string Stepper_Demo_Country_Required {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Country_Required", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Select your gender.
+        /// </summary>
+        public static string Stepper_Demo_Gender_Required {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Gender_Required", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Website.
+        /// </summary>
+        public static string Stepper_Demo_Website_Label {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Website_Label", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a website such as example.com, www.example.com, or https://example.com.
+        /// </summary>
+        public static string Stepper_Demo_Website_Required {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Website_Required", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enter a valid website such as example.com, www.example.com, or https://example.com.
+        /// </summary>
+        public static string Stepper_Demo_Website_Invalid {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Website_Invalid", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Accepts example.com, www.example.com, http://…, or https://….
+        /// </summary>
+        public static string Stepper_Demo_Website_Hint {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Website_Hint", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Enter your age.
+        /// </summary>
+        public static string Stepper_Demo_Age_Required {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Age_Required", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Age must be a number between 18 and 100.
+        /// </summary>
+        public static string Stepper_Demo_Age_Range {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Age_Range", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to You must agree to the terms and conditions to continue.
+        /// </summary>
+        public static string Stepper_Demo_AgreeToTerms_Required {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_AgreeToTerms_Required", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Submission successful.
+        /// </summary>
+        public static string Stepper_Demo_Success_Title {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Success_Title", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Your information has been submitted successfully. This is a demonstration only; no data was saved.
+        /// </summary>
+        public static string Stepper_Demo_Success_Message {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Success_Message", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Start over.
+        /// </summary>
+        public static string Stepper_Demo_Success_StartOver {
+            get {
+                return ResourceManager.GetString("Stepper_Demo_Success_StartOver", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to Alberta.

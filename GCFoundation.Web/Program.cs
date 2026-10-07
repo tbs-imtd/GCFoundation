@@ -1,5 +1,6 @@
 using cloudscribe.Web.Localization;
 using cloudscribe.Web.SiteMap;
+using GCFoundation.Common.Settings;
 using GCFoundation.Common.Utilities;
 using GCFoundation.Components.Middleware;
 using GCFoundation.Components.Services;
@@ -75,12 +76,42 @@ builder.Services.Configure<RazorViewEngineOptions>(options =>
     options.ViewLocationFormats.Add("/contentFiles/any/net8.0/Views/Shared/Components/Navigation/{0}.cshtml");
 });
 
+// Support running under a virtual directory (PathBase), e.g. "/gcfoundation"
+// If a PathBase is configured but the components settings don't include a virtual directory,
+// align them so static web assets (`/_content/...`) resolve correctly under the same base path.
+var configuredPathBase = builder.Configuration["ASPNETCORE_PATHBASE"];
+if (!string.IsNullOrWhiteSpace(configuredPathBase))
+{
+    builder.Services.PostConfigure<GCFoundationComponentsSettings>(options =>
+    {
+        if (string.IsNullOrWhiteSpace(options.VirtualDirectoryName))
+        {
+            options.VirtualDirectoryName = configuredPathBase.Trim().Trim('/');
+        }
+    });
+}
+
 var app = builder.Build();
 
 // Support running under a virtual directory (PathBase), e.g. "/gcfoundation"
-var pathBase = builder.Configuration["ASPNETCORE_PATHBASE"];
+var pathBase = configuredPathBase;
 if (!string.IsNullOrEmpty(pathBase))
 {
+    // Convenience: if someone hits `/en/...` on a site hosted under `/gcfoundation`,
+    // redirect to the correct base path so assets and routes behave consistently.
+    app.Use(async (context, next) =>
+    {
+        if (!context.Request.Path.StartsWithSegments(pathBase, out _)
+            && (context.Request.Path.StartsWithSegments("/en", out _)
+                || context.Request.Path.StartsWithSegments("/fr", out _)))
+        {
+            context.Response.Redirect(pathBase + context.Request.Path + context.Request.QueryString, permanent: false);
+            return;
+        }
+
+        await next();
+    });
+
     app.UsePathBase(pathBase);
 }
 

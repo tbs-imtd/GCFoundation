@@ -43,7 +43,9 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         {
             AddAttributeIfNotNull(output, "current-step", CurrentStep);
             AddAttributeIfNotNull(output, "total-step", TotalStep);
-            AddAttributeIfNotNull(output, "current-step", Lang);
+            // Forward the actual UI language to the web component so any built-in text is announced in the correct locale.
+            // Bug fix: "lang" must map to the "lang" attribute (it was previously written to "current-step").
+            AddAttributeIfNotNull(output, "lang", Lang);
             AddAttributeIfNotNull(output, "tag", Tag);
             base.Process(context, output);
         }

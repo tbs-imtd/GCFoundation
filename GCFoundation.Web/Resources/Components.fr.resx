@@ -1617,6 +1617,12 @@
   <data name="Table_Link_Header" xml:space="preserve">
     <value>Lien de la soumission</value>
   </data>
+  <data name="Table_Basic_Caption" xml:space="preserve">
+    <value>Dossiers des employés</value>
+  </data>
+  <data name="Table_Basic_Summary" xml:space="preserve">
+    <value>Tableau répertoriant le numéro d'identification, le nom, le département et le statut d'emploi de chaque employé.</value>
+  </data>
   <data name="Table_BasicUsage_Title" xml:space="preserve">
     <value>Utilisation de base</value>
   </data>

@@ -4405,6 +4405,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Employee records.
+        /// </summary>
+        public static string Table_Basic_Caption {
+            get {
+                return ResourceManager.GetString("Table_Basic_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Table listing employee ID, name, department, and employment status..
+        /// </summary>
+        public static string Table_Basic_Summary {
+            get {
+                return ResourceManager.GetString("Table_Basic_Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to basic-usage.
         /// </summary>
         public static string Table_BasicUsage_Anchor {

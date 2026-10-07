@@ -188,6 +188,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereAction(nameof(TemplateController.StepperDemo))
                 .TranslateAction("indicateur-detapes/demo");
 
+                setup.UseCulture("fr")
+                .WhereController(nameof(TemplateController))
+                .WhereAction(nameof(TemplateController.StepperDemoSuccess))
+                .TranslateAction("indicateur-detapes/demo/succes");
+
                 // - Translate Template Actions.
 
                 // Authentication Controller
