@@ -22,11 +22,13 @@
 
 <gcds-heading tag="h1">@Template.Stepper_Demo_Name</gcds-heading>
 @* Keep the stepper bound to the posted model so validation errors do not reset the user's progress context.
-   links-tabbable defaults to true so each step (1–5) can receive keyboard focus with a visible ring;
-   the active step is also tabindex=0. After Next/Previous, JS moves focus to the active step for SR announcement. *@
+   links-tabbable="false" removes the other step links from the tab order, so Tab from the active step
+   (tabindex=0) goes straight to the first form field. Step links remain clickable with a pointer.
+   After Next/Previous, JS moves focus to the active step for SR announcement. *@
 <fdcp-stepper current-step="@Model.CurrentStep"
               heading-id="@StepperHeadingId"
               heading-title="@currentStepHeading"
+              links-tabbable="false"
               steps="@stepperSteps"></fdcp-stepper>
 
 @if (!ViewData.ModelState.IsValid)
@@ -95,7 +97,10 @@
             const stepLinks = document.querySelectorAll('[data-stepper-focus-trigger="true"]');
             const liveRegion = document.querySelector('[data-stepper-live-region="true"]');
             const activeStep = document.querySelector('[data-stepper-active-step="true"]');
-            const hasErrorSummary = !!document.querySelector('gcds-error-summary');
+            // fdcp-form always renders an empty listen-mode gcds-error-summary, so its presence
+            // does not mean errors exist; only server-side validation failures should keep focus
+            // on the error summary instead of the active step.
+            const hasErrorSummary = @(ViewData.ModelState.IsValid ? "false" : "true");
 
             // NVDA / JAWS announce step transitions through:
             //   1. The <title> ("Step X of 5: Label")
@@ -117,7 +122,7 @@
             }
 
             // Always focus the current step on this demo (EN and FR) unless an error summary
-            // needs focus first. Relies on step links being tabbable so users can also Tab to 1–5.
+            // needs focus first. The next Tab then lands on the first form field.
             if (!hasErrorSummary) {
                 if (shouldFocusHeading && heading) {
                     scheduleStepAnnouncement(heading);
