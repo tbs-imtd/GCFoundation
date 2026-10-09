@@ -28,26 +28,6 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         }
 
         /// <summary>
-        /// Retrieves the <see cref="RangeAttribute"/> for the property if available.
-        /// </summary>
-        protected RangeAttribute? RangeAttribute => PropertyInfo?.GetCustomAttribute<RangeAttribute>();
-
-        /// <summary>
-        /// Retrieves the <see cref="StringLengthAttribute"/> for the property if available.
-        /// </summary>
-        protected StringLengthAttribute? StringLengthAttribute => PropertyInfo?.GetCustomAttribute<StringLengthAttribute>();
-
-        /// <summary>
-        /// Retrieves the <see cref="MinLengthAttribute"/> for the property if available.
-        /// </summary>
-        protected MinLengthAttribute? MinLengthAttribute => PropertyInfo?.GetCustomAttribute<MinLengthAttribute>();
-
-        /// <summary>
-        /// Retrieves the <see cref="MaxLengthAttribute"/> for the property if available.
-        /// </summary>
-        protected MaxLengthAttribute? MaxLengthAttribute => PropertyInfo?.GetCustomAttribute<MaxLengthAttribute>();
-
-        /// <summary>
         /// Defines whether the form component is disabled.
         /// </summary>
         public bool Disabled { get; set; }

@@ -212,7 +212,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             if (Min != null || inputType != InputType.number)
                 return Min;
 
-            return RangeAttribute == null ? null : Convert.ToString(RangeAttribute.Minimum, System.Globalization.CultureInfo.InvariantCulture);
+            RangeAttribute? rangeAttr = PropertyInfo?.GetCustomAttribute<RangeAttribute>();
+            return rangeAttr == null ? null : Convert.ToString(rangeAttr.Minimum, System.Globalization.CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -225,7 +226,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             if (Max != null || inputType != InputType.number)
                 return Max;
 
-            return RangeAttribute == null ? null : Convert.ToString(RangeAttribute.Maximum, System.Globalization.CultureInfo.InvariantCulture);
+            RangeAttribute? rangeAttr = PropertyInfo?.GetCustomAttribute<RangeAttribute>();
+            return rangeAttr == null ? null : Convert.ToString(rangeAttr.Maximum, System.Globalization.CultureInfo.InvariantCulture);
         }
 
         /// <summary>
@@ -239,7 +241,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             if (MinLength.HasValue || inputType == InputType.checkbox || inputType == InputType.date)
                 return MinLength;
 
-            int? minLength = MinLengthAttribute?.Length ?? StringLengthAttribute?.MinimumLength;
+            int? minLength = PropertyInfo?.GetCustomAttribute<MinLengthAttribute>()?.Length
+                ?? PropertyInfo?.GetCustomAttribute<StringLengthAttribute>()?.MinimumLength;
             return minLength > 0 ? minLength : null;
         }
 
@@ -255,7 +258,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 return MaxLength;
 
             // MaxLengthAttribute uses -1 when no length is given (database maximum), which has no HTML equivalent.
-            int? maxLength = StringLengthAttribute?.MaximumLength ?? MaxLengthAttribute?.Length;
+            int? maxLength = PropertyInfo?.GetCustomAttribute<StringLengthAttribute>()?.MaximumLength
+                ?? PropertyInfo?.GetCustomAttribute<MaxLengthAttribute>()?.Length;
             return maxLength > 0 ? maxLength : null;
         }
         #endregion Resolve methods
