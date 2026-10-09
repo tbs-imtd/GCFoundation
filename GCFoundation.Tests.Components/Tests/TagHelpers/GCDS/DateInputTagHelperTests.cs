@@ -45,8 +45,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
             var output = CreateOutput();
             helper.Process(CreateContext(), output);
 
-            Assert.Equal("es1900-01-01", output.Attributes["min"].Value?.ToString());
-            Assert.Equal("2026-12-31", output.Attribut["max"].Value?.ToString());
+            Assert.Equal("1900-01-01", output.Attributes["min"].Value?.ToString());
+            Assert.Equal("2026-12-31", output.Attributes["max"].Value?.ToString());
         }
 
         [Fact]
