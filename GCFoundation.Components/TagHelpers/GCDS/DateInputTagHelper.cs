@@ -24,6 +24,16 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// </summary>
         public required string Legend { get; set; }
 
+        /// <summary>
+        /// The latest date that can be entered (GCDS <c>max</c>), in <c>YYYY-MM-DD</c> format.
+        /// </summary>
+        public string? Max { get; set; }
+
+        /// <summary>
+        /// The earliest date that can be entered (GCDS <c>min</c>), in <c>YYYY-MM-DD</c> format.
+        /// </summary>
+        public string? Min { get; set; }
+
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -31,6 +41,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
             AddAttributeIfNotNull(output, "format", Format);
             AddAttributeIfNotNull(output, "legend", Legend);
+            AddAttributeIfNotNull(output, "min", Min);
+            AddAttributeIfNotNull(output, "max", Max);
 
             base.Process(context, output);
         }
