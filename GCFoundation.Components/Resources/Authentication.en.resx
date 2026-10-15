@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -139,7 +139,7 @@
     <value>Sign In</value>
   </data>
   <data name="LoginFormAriaLabel" xml:space="preserve">
-    <value>User login information</value>
+    <value>Account information</value>
   </data>
   <data name="LoginTime" xml:space="preserve">
     <value>Logged in at</value>

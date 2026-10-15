@@ -1,6 +1,6 @@
 function initializeAccountMenuIcon() {
     const accountMenus = document.querySelectorAll(
-        'gcds-nav-group.fdcp-user-login__account-menu'
+        'gcds-nav-group.fdcp-account__account-menu'
     );
 
     accountMenus.forEach(accountMenu => {

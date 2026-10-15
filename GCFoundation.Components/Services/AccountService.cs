@@ -10,33 +10,33 @@ using System.Security.Claims;
 namespace GCFoundation.Components.Services
 {
     /// <summary>
-    /// Service for creating and managing user login view models.
-    /// Provides helper methods to build UserLoginViewModel instances from various sources.
+    /// Service for creating and managing account view models.
+    /// Provides helper methods to build AccountViewModel instances from various sources.
     /// </summary>
-    public class UserLoginService
+    public class AccountService
     {
         private readonly IHttpContextAccessor _httpContextAccessor;
-        private readonly GCFoundationUserLoginSettings _settings;
+        private readonly GCFoundationAccountSettings _settings;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserLoginService"/> class.
+        /// Initializes a new instance of the <see cref="AccountService"/> class.
         /// </summary>
         /// <param name="httpContextAccessor">The HTTP context accessor.</param>
-        /// <param name="userLoginSettings">The user login settings.</param>
-        public UserLoginService(
+        /// <param name="accountSettings">The account settings.</param>
+        public AccountService(
             IHttpContextAccessor httpContextAccessor,
-            IOptions<GCFoundationUserLoginSettings> userLoginSettings)
+            IOptions<GCFoundationAccountSettings> accountSettings)
         {
             _httpContextAccessor = httpContextAccessor ?? throw new ArgumentNullException(nameof(httpContextAccessor));
-            _settings = userLoginSettings?.Value ?? throw new ArgumentNullException(nameof(userLoginSettings));
+            _settings = accountSettings?.Value ?? throw new ArgumentNullException(nameof(accountSettings));
         }
 
         /// <summary>
-        /// Creates a UserLoginViewModel from the current HTTP context.
+        /// Creates a AccountViewModel from the current HTTP context.
         /// Extracts user information from claims and session data.
         /// </summary>
-        /// <returns>A configured UserLoginViewModel instance.</returns>
-        public UserLoginViewModel CreateViewModelFromContext()
+        /// <returns>A configured AccountViewModel instance.</returns>
+        public AccountViewModel CreateViewModelFromContext()
         {
             var context = _httpContextAccessor.HttpContext;
             if (context == null)
@@ -52,7 +52,7 @@ namespace GCFoundation.Components.Services
                 return CreateAnonymousViewModel();
             }
 
-            var viewModel = new UserLoginViewModel
+            var viewModel = new AccountViewModel
             {
                 IsAuthenticated = true,
                 Settings = _settings,
@@ -97,12 +97,12 @@ namespace GCFoundation.Components.Services
         /// the standard profile and sign-out actions when enabled.
         /// </summary>
         /// <returns>The account menu items to render.</returns>
-        public IReadOnlyList<UserLoginMenuItemViewModel> CreateAccountMenuItems()
+        public IReadOnlyList<AccountMenuItemViewModel> CreateAccountMenuItems()
         {
             var isEnglish = LanguageUtility.IsEnglish();
             var menuItems = _settings.MenuItems
                 .Where(item => item.Enabled && !string.IsNullOrWhiteSpace(item.Url))
-                .Select(item => new UserLoginMenuItemViewModel
+                .Select(item => new AccountMenuItemViewModel
                 {
                     Text = !isEnglish && !string.IsNullOrWhiteSpace(item.TextFr)
                         ? item.TextFr
@@ -116,7 +116,7 @@ namespace GCFoundation.Components.Services
                 && !string.IsNullOrWhiteSpace(_settings.ProfileUrl)
                 && !ContainsUrl(menuItems, _settings.ProfileUrl))
             {
-                menuItems.Add(new UserLoginMenuItemViewModel
+                menuItems.Add(new AccountMenuItemViewModel
                 {
                     Text = Authentication.ProfileButton,
                     Url = _settings.ProfileUrl,
@@ -128,7 +128,7 @@ namespace GCFoundation.Components.Services
                 && !string.IsNullOrWhiteSpace(_settings.LogoutUrl)
                 && !ContainsUrl(menuItems, _settings.LogoutUrl))
             {
-                menuItems.Add(new UserLoginMenuItemViewModel
+                menuItems.Add(new AccountMenuItemViewModel
                 {
                     Text = Authentication.AccountSignOut,
                     Url = _settings.LogoutUrl,
@@ -140,7 +140,7 @@ namespace GCFoundation.Components.Services
         }
 
         /// <summary>
-        /// Creates a UserLoginViewModel for a specific user with provided information.
+        /// Creates a AccountViewModel for a specific user with provided information.
         /// Useful for testing or when user information is available from other sources.
         /// </summary>
         /// <param name="userName">The user's full name.</param>
@@ -151,8 +151,8 @@ namespace GCFoundation.Components.Services
         /// <param name="department">The user's department.</param>
         /// <param name="loginTime">The time the user logged in.</param>
         /// <param name="sessionExpiry">The time the session expires.</param>
-        /// <returns>A configured UserLoginViewModel instance.</returns>
-        public UserLoginViewModel CreateViewModel(
+        /// <returns>A configured AccountViewModel instance.</returns>
+        public AccountViewModel CreateViewModel(
             string? userName = null,
             string? userEmail = null,
             string? firstName = null,
@@ -162,7 +162,7 @@ namespace GCFoundation.Components.Services
             DateTime? loginTime = null,
             DateTime? sessionExpiry = null)
         {
-            return new UserLoginViewModel
+            return new AccountViewModel
             {
                 IsAuthenticated = true,
                 Settings = _settings,
@@ -179,12 +179,12 @@ namespace GCFoundation.Components.Services
         }
 
         /// <summary>
-        /// Creates a UserLoginViewModel for anonymous (not authenticated) users.
+        /// Creates a AccountViewModel for anonymous (not authenticated) users.
         /// </summary>
-        /// <returns>A UserLoginViewModel configured for anonymous users.</returns>
-        public UserLoginViewModel CreateAnonymousViewModel()
+        /// <returns>A AccountViewModel configured for anonymous users.</returns>
+        public AccountViewModel CreateAnonymousViewModel()
         {
-            return new UserLoginViewModel
+            return new AccountViewModel
             {
                 IsAuthenticated = false,
                 Settings = _settings,
@@ -204,7 +204,7 @@ namespace GCFoundation.Components.Services
         }
 
         private static bool ContainsUrl(
-            IEnumerable<UserLoginMenuItemViewModel> menuItems,
+            IEnumerable<AccountMenuItemViewModel> menuItems,
             string url)
         {
             return menuItems.Any(item =>

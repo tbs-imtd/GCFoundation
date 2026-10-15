@@ -3,9 +3,9 @@ using System.Collections.ObjectModel;
 namespace GCFoundation.Components.Settings
 {
     /// <summary>
-    /// Defines how the user login component is rendered.
+    /// Defines how the account component is rendered.
     /// </summary>
-    public enum UserLoginDisplayMode
+    public enum AccountDisplayMode
     {
         /// <summary>
         /// Renders the existing compact signed-in text with an optional sign-out button.
@@ -21,7 +21,7 @@ namespace GCFoundation.Components.Settings
     /// <summary>
     /// Configuration for a user account menu link.
     /// </summary>
-    public class GCFoundationUserLoginMenuItemSettings
+    public class GCFoundationAccountMenuItemSettings
     {
         /// <summary>
         /// Gets or sets the English link text.
@@ -51,10 +51,10 @@ namespace GCFoundation.Components.Settings
     }
 
     /// <summary>
-    /// Configuration settings for the user login display partial.
-    /// Controls the appearance and behavior of user login information display.
+    /// Configuration settings for the account display partial.
+    /// Controls the appearance and behavior of account information display.
     /// </summary>
-    public class GCFoundationUserLoginSettings
+    public class GCFoundationAccountSettings
     {
         /// <summary>
         /// Gets or sets a value indicating whether to show the user's full name when logged in.
@@ -114,7 +114,7 @@ namespace GCFoundation.Components.Settings
         public string LoginUrl { get; set; } = "/authentication/login";
 
         /// <summary>
-        /// Gets or sets the CSS classes to apply to the login container.
+        /// Gets or sets the CSS classes to apply to the account container.
         /// Default uses GCFoundation and GCDS classes.
         /// </summary>
         public string ContainerCssClasses { get; set; } = "mb-200";
@@ -132,7 +132,7 @@ namespace GCFoundation.Components.Settings
         public string? CustomGreetingKey { get; set; }
 
         /// <summary>
-        /// Gets or sets the position of the login partial.
+        /// Gets or sets the position of the account partial.
         /// Options: "header", "sidebar", "content", "footer".
         /// Default is "header".
         /// </summary>
@@ -141,7 +141,7 @@ namespace GCFoundation.Components.Settings
         /// <summary>
         /// Gets or sets how the component should render in header position.
         /// </summary>
-        public UserLoginDisplayMode DisplayMode { get; set; } = UserLoginDisplayMode.Inline;
+        public AccountDisplayMode DisplayMode { get; set; } = AccountDisplayMode.Inline;
 
         /// <summary>
         /// Gets or sets the optional text displayed inside the dropdown trigger.
@@ -153,7 +153,7 @@ namespace GCFoundation.Components.Settings
         /// Gets or sets additional application-provided account menu items.
         /// Standard profile and sign-out actions are appended when enabled.
         /// </summary>
-        public Collection<GCFoundationUserLoginMenuItemSettings> MenuItems { get; } = new Collection<GCFoundationUserLoginMenuItemSettings>();
+        public Collection<GCFoundationAccountMenuItemSettings> MenuItems { get; } = new Collection<GCFoundationAccountMenuItemSettings>();
     }
 }
 

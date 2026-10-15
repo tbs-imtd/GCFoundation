@@ -4,10 +4,10 @@ using System.Globalization;
 namespace GCFoundation.Components.Models
 {
     /// <summary>
-    /// View model for displaying user login information in the login partial.
+    /// View model for displaying account information in the account partial.
     /// Contains user data and configuration settings for display.
     /// </summary>
-    public class UserLoginViewModel
+    public class AccountViewModel
     {
         /// <summary>
         /// Gets or sets a value indicating whether the user is currently authenticated.
@@ -60,9 +60,9 @@ namespace GCFoundation.Components.Models
         public string? Department { get; set; }
 
         /// <summary>
-        /// Gets or sets the configuration settings for the login display.
+        /// Gets or sets the configuration settings for the account display.
         /// </summary>
-        public GCFoundationUserLoginSettings Settings { get; set; } = new();
+        public GCFoundationAccountSettings Settings { get; set; } = new();
 
         /// <summary>
         /// Gets or sets the current culture for localization.

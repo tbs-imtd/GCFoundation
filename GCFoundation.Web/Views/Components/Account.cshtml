@@ -1,23 +1,23 @@
-﻿@using GCFoundation.Components.Helpers
+@using GCFoundation.Components.Helpers
 @using GCFoundation.Components.Models
 @using GCFoundation.Components.Services
 @using GCFoundation.Components.Settings
 @using Microsoft.Extensions.Options
-@inject UserLoginService UserLoginService
-@inject IOptions<GCFoundationUserLoginSettings> LoginSettings
+@inject AccountService AccountService
+@inject IOptions<GCFoundationAccountSettings> AccountSettings
 
 @using GCFoundation.Web.Resources
 @{
-    ViewData["Title"] = Components.UserLogin_Component_Title;
+    ViewData["Title"] = Components.Account_Component_Title;
     string styleNonce = CspNonceHelper.AddNonceToDirective(Context, DirectiveType.Style);
 }
 
 <gcds-container size="xl" alignment="center">
     <gcds-grid columns="1fr">
         <div>
-            <gcds-heading tag="h1">@Components.UserLogin_Component_Title</gcds-heading>
+            <gcds-heading tag="h1">@Components.Account_Component_Title</gcds-heading>
             <gcds-text>
-                @Components.UserLogin_Component_Description
+                @Components.Account_Component_Description
             </gcds-text>
         </div>
     </gcds-grid>
@@ -25,9 +25,9 @@
     <!-- Live Examples Section -->
     <gcds-grid columns="1fr" class="mt-400">
         <div>
-            <gcds-heading tag="h2">@Components.UserLogin_LiveExamples</gcds-heading>
+            <gcds-heading tag="h2">@Components.Account_LiveExamples</gcds-heading>
             <gcds-text>
-                @Components.UserLogin_LiveExamples_Description
+                @Components.Account_LiveExamples_Description
             </gcds-text>
         </div>
     </gcds-grid>
@@ -35,31 +35,31 @@
     <!-- Live Example with Actual Authentication State -->
     <gcds-grid columns="1fr" class="mt-300">
         <div>
-            <gcds-heading tag="h3" size="h4" >@Components.UserLogin_CurrentUserState</gcds-heading>
+            <gcds-heading tag="h3" size="h4" >@Components.Account_CurrentUserState</gcds-heading>
             <gcds-text class="mb-200">
-                @Components.UserLogin_CurrentUserState_Description
+                @Components.Account_CurrentUserState_Description
                 @if (User?.Identity?.IsAuthenticated == true)
                 {
-                    <span>@Html.Raw(Components.UserLogin_CurrentlyAuthenticated)</span>
+                    <span>@Html.Raw(Components.Account_CurrentlyAuthenticated)</span>
                 }
                 else
                 {
-                    <span>@Html.Raw(Components.UserLogin_CurrentlyNotAuthenticated)</span>
+                    <span>@Html.Raw(Components.Account_CurrentlyNotAuthenticated)</span>
                 }
             </gcds-text>
             @{
-                var currentUser = UserLoginService.CreateViewModelFromContext();
+                var currentUser = AccountService.CreateViewModelFromContext();
                 currentUser.Settings.ShowUserEmail = true;
                 currentUser.Settings.ShowLoginTime = true;
                 currentUser.Settings.ShowUserAvatar = true;
                 currentUser.Settings.ShowSessionTimeout = true;
             }
-            <partial name="_UserLoginPartial" model="currentUser" />
+            <partial name="_AccountPartial" model="currentUser" />
             
             @if (User?.Identity?.IsAuthenticated != true)
             {
                 <div class="mt-200">
-                    <gcds-text>@Components.UserLogin_SimulateLoginNote</gcds-text>
+                    <gcds-text>@Components.Account_SimulateLoginNote</gcds-text>
                 </div>
             }
         </div>
@@ -68,10 +68,10 @@
     <!-- Static Examples Grid -->
     <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr" class="mt-300" equal-row-height>
         <fdcp-card>
-            <gcds-heading tag="h3" size="h4" >@Components.UserLogin_DefaultMode</gcds-heading>
-            <gcds-text class="mb-200">@Components.UserLogin_DefaultMode_Description</gcds-text>
+            <gcds-heading tag="h3" size="h4" >@Components.Account_DefaultMode</gcds-heading>
+            <gcds-text class="mb-200">@Components.Account_DefaultMode_Description</gcds-text>
             @{
-                var defaultUser = UserLoginService.CreateViewModel(
+                var defaultUser = AccountService.CreateViewModel(
                     userName: "Marie Dubois",
                     userEmail: "marie.dubois@canada.ca",
                     firstName: "Marie",
@@ -86,15 +86,15 @@
                 defaultUser.Settings.ShowUserAvatar = true;
             }
             <gcds-top-nav label="@GCFoundation.Components.Resources.Authentication.UserMenuAriaLabel" alignment="end">
-                <partial name="_UserLoginPartial" model="defaultUser" />
+                <partial name="_AccountPartial" model="defaultUser" />
             </gcds-top-nav>
         </fdcp-card>
 
         <fdcp-card>
-            <gcds-heading tag="h3" size="h4" >@Components.UserLogin_SessionExpiring</gcds-heading>
-            <gcds-text class="mb-200">@Components.UserLogin_SessionExpiring_Description</gcds-text>
+            <gcds-heading tag="h3" size="h4" >@Components.Account_SessionExpiring</gcds-heading>
+            <gcds-text class="mb-200">@Components.Account_SessionExpiring_Description</gcds-text>
             @{
-                var expiringUser = UserLoginService.CreateViewModel(
+                var expiringUser = AccountService.CreateViewModel(
                     userName: "Sarah Johnson",
                     userEmail: "sarah.johnson@canada.ca",
                     firstName: "Sarah",
@@ -108,7 +108,7 @@
                 expiringUser.Settings.ShowUserAvatar = true;
             }
             <gcds-top-nav label="@GCFoundation.Components.Resources.Authentication.UserMenuAriaLabel" alignment="end">
-                <partial name="_UserLoginPartial" model="expiringUser" />
+                <partial name="_AccountPartial" model="expiringUser" />
             </gcds-top-nav>
         </fdcp-card>
     </gcds-grid>
@@ -116,28 +116,28 @@
     <!-- Not Authenticated Example -->
     <gcds-grid columns="1fr" class="mt-200">
         <div>
-            <gcds-heading tag="h3" size="h4" >@Components.UserLogin_NotAuthenticatedState</gcds-heading>
-            <gcds-text class="mb-200">@Components.UserLogin_NotAuthenticatedState_Description</gcds-text>
+            <gcds-heading tag="h3" size="h4" >@Components.Account_NotAuthenticatedState</gcds-heading>
+            <gcds-text class="mb-200">@Components.Account_NotAuthenticatedState_Description</gcds-text>
             @{
-                var anonymousUser = UserLoginService.CreateAnonymousViewModel();
+                var anonymousUser = AccountService.CreateAnonymousViewModel();
             }
-            <partial name="_UserLoginPartial" model="anonymousUser" />
+            <partial name="_AccountPartial" model="anonymousUser" />
         </div>
     </gcds-grid>
 
     <!-- Configuration Section -->
     <gcds-grid columns="1fr" class="mt-500">
         <div>
-            <gcds-heading tag="h2">@Components.UserLogin_ConfigurationOptions</gcds-heading>
+            <gcds-heading tag="h2">@Components.Account_ConfigurationOptions</gcds-heading>
             <gcds-text>
-                @Components.UserLogin_ConfigOptions_Description
+                @Components.Account_ConfigOptions_Description
             </gcds-text>
         </div>
     </gcds-grid>
 
         <gcds-details details-title="appsettings.json Configuration">
             <pre class="language-json"><code>{
-  "UserLoginSettings": {
+  "AccountSettings": {
     "ShowUserName": true,
     "ShowUserEmail": false,
     "ShowLoginTime": false,
@@ -169,8 +169,8 @@
 {
     public IActionResult Index()
     {
-        // Enable the user login partial in layout
-        ViewData["LoginPartialViewName"] = "_UserLoginPartial";
+        // Enable the account partial in layout
+        ViewData["AccountPartialViewName"] = "_AccountPartial";
         return View();
     }
 }</code></pre>
@@ -178,73 +178,73 @@
 
         <gcds-details details-title="Custom View Usage">
             <pre class="language-cshtml"><code>@@using GCFoundation.Components.Services
-@@inject UserLoginService UserLoginService
+@@inject AccountService AccountService
 
 @@{
-    var userModel = UserLoginService.CreateViewModelFromContext();
+    var userModel = AccountService.CreateViewModelFromContext();
 }
 
-&lt;partial name="_UserLoginPartial" model="userModel" /&gt;</code></pre>
+&lt;partial name="_AccountPartial" model="userModel" /&gt;</code></pre>
         </gcds-details>
 
         <gcds-details details-title="Programmatic Configuration">
-            <pre class="language-csharp"><code>var customSettings = new GCFoundationUserLoginSettings
+            <pre class="language-csharp"><code>var customSettings = new GCFoundationAccountSettings
 {
     ShowUserEmail = true,
     ShowUserAvatar = true,
     ShowSessionTimeout = true
 };
 
-var userModel = _userLoginService.CreateViewModel(/* user info */);
+var userModel = _accountService.CreateViewModel(/* user info */);
 userModel.Settings = customSettings;</code></pre>
         </gcds-details>
 
     <!-- Authentication Methods -->
     <gcds-grid columns="1fr" class="mt-400">
         <div>
-            <gcds-heading tag="h2">@Components.UserLogin_SupportedAuthMethods</gcds-heading>
+            <gcds-heading tag="h2">@Components.Account_SupportedAuthMethods</gcds-heading>
             <gcds-text>
-                @Components.UserLogin_SupportedAuthMethods_Description
+                @Components.Account_SupportedAuthMethods_Description
             </gcds-text>
             
             <gcds-grid columns="1fr" columns-tablet="1fr 1fr" class="mt-300">
                 <div>
-                    <gcds-heading tag="h3" size="h4" >@Components.UserLogin_CookieAuth</gcds-heading>
+                    <gcds-heading tag="h3" size="h4" >@Components.Account_CookieAuth</gcds-heading>
                     <gcds-text>
-                        @Components.UserLogin_CookieAuth_Description
+                        @Components.Account_CookieAuth_Description
                     </gcds-text>
                     <gcds-text class="mt-200">
-                        @Html.Raw(Components.UserLogin_CookieAuth_Benefits)
+                        @Html.Raw(Components.Account_CookieAuth_Benefits)
                     </gcds-text>
                 </div>
                 
                 <div>
-                    <gcds-heading tag="h3" size="h4" >@Components.UserLogin_AzureAD</gcds-heading>
+                    <gcds-heading tag="h3" size="h4" >@Components.Account_AzureAD</gcds-heading>
                     <gcds-text>
-                        @Components.UserLogin_AzureAD_Description
+                        @Components.Account_AzureAD_Description
                     </gcds-text>
                     <gcds-text class="mt-200">
-                        @Html.Raw(Components.UserLogin_AzureAD_Benefits)
+                        @Html.Raw(Components.Account_AzureAD_Benefits)
                     </gcds-text>
                 </div>
                 
                 <div>
-                    <gcds-heading tag="h3" size="h4" >@Components.UserLogin_JWTTokens</gcds-heading>
+                    <gcds-heading tag="h3" size="h4" >@Components.Account_JWTTokens</gcds-heading>
                     <gcds-text>
-                        @Components.UserLogin_JWTTokens_Description
+                        @Components.Account_JWTTokens_Description
                     </gcds-text>
                     <gcds-text class="mt-200">
-                        @Html.Raw(Components.UserLogin_JWTTokens_Benefits)
+                        @Html.Raw(Components.Account_JWTTokens_Benefits)
                     </gcds-text>
                 </div>
                 
                 <div>
-                    <gcds-heading tag="h3" size="h4" >@Components.UserLogin_ExternalProviders</gcds-heading>
+                    <gcds-heading tag="h3" size="h4" >@Components.Account_ExternalProviders</gcds-heading>
                     <gcds-text>
-                        @Components.UserLogin_ExternalProviders_Description
+                        @Components.Account_ExternalProviders_Description
                     </gcds-text>
                     <gcds-text class="mt-200">
-                        @Html.Raw(Components.UserLogin_ExternalProviders_Benefits)
+                        @Html.Raw(Components.Account_ExternalProviders_Benefits)
                     </gcds-text>
                 </div>
             </gcds-grid>
@@ -254,16 +254,16 @@ userModel.Settings = customSettings;</code></pre>
     <!-- Documentation Links -->
     <gcds-grid columns="1fr" class="mt-400">
         <div>
-            <gcds-heading tag="h2">@Components.UserLogin_AdditionalResources</gcds-heading>
+            <gcds-heading tag="h2">@Components.Account_AdditionalResources</gcds-heading>
             <gcds-grid columns="1fr" columns-tablet="1fr 1fr 1fr" class="mt-200" equal-row-height>
 
-                <gcds-card card-title="@Components.UserLogin_CompleteExamples" href="@Url.Action("Index", "UserLoginExample")" description="@Components.UserLogin_CompleteExamples_Description" card-title-tag="h4">
+                <gcds-card card-title="@Components.Account_CompleteExamples" href="@Url.Action("Index", "AccountExample")" description="@Components.Account_CompleteExamples_Description" card-title-tag="h4">
                 </gcds-card>
                 
-                <gcds-card card-title="@Components.UserLogin_StatelessAuth" href="@Url.Action("Index", "StatelessAuthExample")" description="@Components.UserLogin_StatelessAuth_Description" card-title-tag="h4">
+                <gcds-card card-title="@Components.Account_StatelessAuth" href="@Url.Action("Index", "StatelessAuthExample")" description="@Components.Account_StatelessAuth_Description" card-title-tag="h4">
                 </gcds-card>
 
-                <gcds-card card-title="@Components.UserLogin_TemplateIntegration" href="@Url.Action("Index", "Template")" description="@Components.UserLogin_TemplateIntegration_Description" card-title-tag="h4">
+                <gcds-card card-title="@Components.Account_TemplateIntegration" href="@Url.Action("Index", "Template")" description="@Components.Account_TemplateIntegration_Description" card-title-tag="h4">
                 </gcds-card>
 
             </gcds-grid>
@@ -273,22 +273,22 @@ userModel.Settings = customSettings;</code></pre>
     <!-- Implementation Guide -->
     <gcds-grid columns="1fr" class="mt-400">
         <div>
-            <gcds-heading tag="h2">@Components.UserLogin_QuickImplementation</gcds-heading>
+            <gcds-heading tag="h2">@Components.Account_QuickImplementation</gcds-heading>
             <ol>
                 <li>
-                    <gcds-text>@Html.Raw(Components.UserLogin_Step_ConfigureSettings)</gcds-text>
+                    <gcds-text>@Html.Raw(Components.Account_Step_ConfigureSettings)</gcds-text>
                 </li>
                 <li>
-                    <gcds-text>@Html.Raw(Components.UserLogin_Step_RegisterServices)</gcds-text>
+                    <gcds-text>@Html.Raw(Components.Account_Step_RegisterServices)</gcds-text>
                 </li>
                 <li>
-                    <gcds-text>@Html.Raw(Components.UserLogin_Step_SetInController)</gcds-text>
+                    <gcds-text>@Html.Raw(Components.Account_Step_SetInController)</gcds-text>
                 </li>
                 <li>
-                    <gcds-text>@Html.Raw(Components.UserLogin_Step_ConfigureAuth)</gcds-text>
+                    <gcds-text>@Html.Raw(Components.Account_Step_ConfigureAuth)</gcds-text>
                 </li>
                 <li>
-                    <gcds-text>@Html.Raw(Components.UserLogin_Step_CustomizeAppearance)</gcds-text>
+                    <gcds-text>@Html.Raw(Components.Account_Step_CustomizeAppearance)</gcds-text>
                 </li>
             </ol>
         </div>
@@ -309,7 +309,7 @@ userModel.Settings = customSettings;</code></pre>
         font-family: 'Courier New', monospace;
     }
     
-    .user-login-partial {
+    .account-partial {
         border: 2px dashed var(--gcds-color-border);
         border-radius: 0.5rem;
         margin: 1rem 0;

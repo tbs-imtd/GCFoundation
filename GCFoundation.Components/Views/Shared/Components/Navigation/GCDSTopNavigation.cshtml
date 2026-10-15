@@ -1,4 +1,4 @@
-﻿@using GCFoundation.Common.Settings
+@using GCFoundation.Common.Settings
 @using GCFoundation.Components.Extensions
 @using GCFoundation.Components.Services.Interfaces
 @using Microsoft.Extensions.Options
@@ -6,13 +6,13 @@
 @model NavigationViewModel
 @inject IOptions<GCFoundationComponentsSettings> settings
 @inject ITopNavigationLocalizationService topNavigationLocalizationService
-@inject GCFoundation.Components.Services.UserLoginService userLoginService
+@inject GCFoundation.Components.Services.AccountService accountService
 
 @{
-    string? loginPartialViewName = ViewData["LoginPartialViewName"] as string;
-    var headerLoginModel = string.IsNullOrEmpty(loginPartialViewName)
+    string? accountPartialViewName = ViewData["AccountPartialViewName"] as string;
+    var headerAccountModel = string.IsNullOrEmpty(accountPartialViewName)
         ? null
-        : userLoginService.CreateViewModelFromContext();
+        : accountService.CreateViewModelFromContext();
 }
 
 <div slot="menu">
@@ -52,28 +52,28 @@
             }
         }
 
-        @if (!string.IsNullOrEmpty(loginPartialViewName) && headerLoginModel?.IsAuthenticated == true)
+        @if (!string.IsNullOrEmpty(accountPartialViewName) && headerAccountModel?.IsAuthenticated == true)
         {
-            if (string.Equals(loginPartialViewName, "_UserLoginPartial", StringComparison.Ordinal))
+            if (string.Equals(accountPartialViewName, "_AccountPartial", StringComparison.Ordinal))
             {
-                @await Html.PartialAsync(loginPartialViewName, headerLoginModel)
+                @await Html.PartialAsync(accountPartialViewName, headerAccountModel)
             }
             else
             {
-                @await Html.PartialAsync(loginPartialViewName)
+                @await Html.PartialAsync(accountPartialViewName)
             }
         }
     </gcds-top-nav>
 </div>
 
-@if (!string.IsNullOrEmpty(loginPartialViewName) && headerLoginModel?.IsAuthenticated == false)
+@if (!string.IsNullOrEmpty(accountPartialViewName) && headerAccountModel?.IsAuthenticated == false)
 {
-    if (string.Equals(loginPartialViewName, "_UserLoginPartial", StringComparison.Ordinal))
+    if (string.Equals(accountPartialViewName, "_AccountPartial", StringComparison.Ordinal))
     {
-        @await Html.PartialAsync(loginPartialViewName, headerLoginModel)
+        @await Html.PartialAsync(accountPartialViewName, headerAccountModel)
     }
     else
     {
-        @await Html.PartialAsync(loginPartialViewName)
+        @await Html.PartialAsync(accountPartialViewName)
     }
 }

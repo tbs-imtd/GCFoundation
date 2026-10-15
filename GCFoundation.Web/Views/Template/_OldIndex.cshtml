@@ -1,4 +1,4 @@
-﻿@using GCFoundation.Components.Models
+@using GCFoundation.Components.Models
 @using GCFoundation.Components.TagHelpers.GCDS
 @using GCFoundation.Web.Resources
 @using Microsoft.AspNetCore.Routing
@@ -30,7 +30,7 @@
         <gcds-nav-link href="#main-template">@Template.SideNav_MainTemplate</gcds-nav-link>
         <gcds-nav-link href="#error-templates">@Template.SideNav_ErrorTemplates</gcds-nav-link>
         <gcds-nav-link href="#language-chooser">@Template.SideNav_LanguageChooser</gcds-nav-link>
-        <gcds-nav-link href="#user-login-partial">@Template.SideNav_UserLoginPartial</gcds-nav-link>
+        <gcds-nav-link href="#account-partial">@Template.SideNav_AccountPartial</gcds-nav-link>
     </gcds-side-nav>
 
     <div>
@@ -59,16 +59,16 @@
             @Template.Section_LanguageChooser_Description
         </gcds-text>
 
-        <gcds-heading tag="h2" id="user-login-partial" class="mt-400">
-            @Template.Section_UserLoginPartial_Title
+        <gcds-heading tag="h2" id="account-partial" class="mt-400">
+            @Template.Section_AccountPartial_Title
         </gcds-heading>
         <gcds-text>
-            @Template.Section_UserLoginPartial_Description
+            @Template.Section_AccountPartial_Description
         </gcds-text>
         
         <gcds-heading tag="h3" class="mt-300">Template Integration</gcds-heading>
         <gcds-text>
-            The User Login Partial integrates seamlessly with the Foundation Layout template. 
+            The Account Partial integrates seamlessly with the Foundation Layout template. 
             Simply set the partial name in your controller and it will automatically appear in the designated area.
         </gcds-text>
         
@@ -77,8 +77,8 @@
 {
     public IActionResult Index()
     {
-        // Enable the user login partial in the layout
-        ViewData["LoginPartialViewName"] = "_UserLoginPartial";
+        // Enable the account partial in the layout
+        ViewData["AccountPartialViewName"] = "_AccountPartial";
         return View();
     }
 }</code></pre>
@@ -87,12 +87,12 @@
         <gcds-details details-title="Layout Integration" class="mt-200">
             <gcds-text>The Foundation Layout (_FoundationLayout.cshtml) includes this code:</gcds-text>
             <pre><code>@@{
-    string? LoginPartialViewName = ViewData["LoginPartialViewName"] as string;
+    string? AccountPartialViewName = ViewData["AccountPartialViewName"] as string;
 }
 
-@@if(!string.IsNullOrEmpty(LoginPartialViewName))
+@@if(!string.IsNullOrEmpty(AccountPartialViewName))
 {
-    @@await Html.PartialAsync(LoginPartialViewName)
+    @@await Html.PartialAsync(AccountPartialViewName)
 }</code></pre>
         </gcds-details>
 
@@ -124,14 +124,14 @@
 
         <gcds-details details-title="Multiple Partial Variants" class="mt-200">
             <pre><code>// Create different partials for different areas
-ViewData["LoginPartialViewName"] = "_HeaderUserLogin";    // Header area
-ViewData["LoginPartialViewName"] = "_SidebarUserLogin";   // Sidebar area  
+ViewData["AccountPartialViewName"] = "_HeaderAccount";    // Header area
+ViewData["AccountPartialViewName"] = "_SidebarAccount";   // Sidebar area  
 </code></pre>
         </gcds-details>
 
         <gcds-details details-title="Dynamic Configuration" class="mt-200">
             <pre><code>// Customize settings based on user role or page type
-var userModel = _userLoginService.CreateViewModelFromContext();
+var userModel = _accountService.CreateViewModelFromContext();
 
 if (User.IsInRole("Admin"))
 {
@@ -150,8 +150,8 @@ if (Request.Path.StartsWithSegments("/admin"))
             For comprehensive examples and interactive demonstrations:
         </gcds-text>
         <ul class="mt-200">
-            <li><gcds-link href="@Url.Action("UserLogin", "Components")">Component Documentation</gcds-link> - Full component showcase</li>
-            <li><gcds-link href="@Url.Action("Index", "UserLoginExample")">Interactive Examples</gcds-link> - Working demonstrations</li>
+            <li><gcds-link href="@Url.Action("Account", "Components")">Component Documentation</gcds-link> - Full component showcase</li>
+            <li><gcds-link href="@Url.Action("Index", "AccountExample")">Interactive Examples</gcds-link> - Working demonstrations</li>
             <li><gcds-link href="@Url.Action("Index", "StatelessAuthExample")">Authentication Integration</gcds-link> - Cloud-ready auth examples</li>
         </ul>
     </div>

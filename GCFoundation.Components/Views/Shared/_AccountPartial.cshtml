@@ -1,15 +1,15 @@
 @using GCFoundation.Components.Models
 @using GCFoundation.Components.Resources
 @using GCFoundation.Components.Settings
-@model UserLoginViewModel
-@inject GCFoundation.Components.Services.UserLoginService userLoginService
+@model AccountViewModel
+@inject GCFoundation.Components.Services.AccountService accountService
 
 @{
     var settings = Model.Settings;
     var isAuthenticated = Model.IsAuthenticated;
     var containerClasses = !string.IsNullOrWhiteSpace(settings.ContainerCssClasses) ? settings.ContainerCssClasses : "mb-200";
     var isHeaderPosition = (settings.Position ?? "").ToLowerInvariant() == "header";
-    var useDropdownHeader = settings.DisplayMode == UserLoginDisplayMode.Dropdown;
+    var useDropdownHeader = settings.DisplayMode == AccountDisplayMode.Dropdown;
 }
 
 @if (isHeaderPosition)
@@ -18,7 +18,7 @@
     {
         if (useDropdownHeader)
         {
-            var menuItems = userLoginService.CreateAccountMenuItems();
+            var menuItems = accountService.CreateAccountMenuItems();
 
             var menuButtonLabel = !string.IsNullOrWhiteSpace(settings.MenuButtonLabel)
                 ? settings.MenuButtonLabel
@@ -27,10 +27,10 @@
             <gcds-nav-group menu-label="@string.Format(Authentication.AccountMenuOpen, Model.AccountOwnerLabel)"
                             open-trigger="@menuButtonLabel"
                             close-trigger="@menuButtonLabel"
-                            class="fdcp-user-login__account-menu">
+                            class="fdcp-account__account-menu">
                 @if (!string.IsNullOrWhiteSpace(Model.DisplayName))
                 {
-                    <span class="fdcp-user-login__account-name">@Model.DisplayName</span>
+                    <span class="fdcp-account__account-name">@Model.DisplayName</span>
                 }
                 @foreach (var item in menuItems)
                 {
@@ -45,7 +45,7 @@
                     <gcds-nav-link href="@item.Url">
                         @if (!string.IsNullOrWhiteSpace(iconClass))
                         {
-                            <i class="@iconClass fdcp-user-login__account-menu-icon" aria-hidden="true"></i>
+                            <i class="@iconClass fdcp-account__account-menu-icon" aria-hidden="true"></i>
                         }
                         @item.Text
                     </gcds-nav-link>
@@ -54,8 +54,8 @@
         }
         else
         {
-            <div class="user-login-inline mt-150" aria-label="@Authentication.LoginFormAriaLabel">
-                <span class="user-login-inline__text">@Authentication.SignedInAs: <strong class="ml-50">@(Model.DisplayName ?? "")</strong></span>
+            <div class="account-inline mt-150" aria-label="@Authentication.LoginFormAriaLabel">
+                <span class="account-inline__text">@Authentication.SignedInAs: <strong class="ml-50">@(Model.DisplayName ?? "")</strong></span>
                 @if (settings.ShowLogoutButton)
                 {
                     <gcds-button button-role="secondary" size="small" href="@settings.LogoutUrl">@Authentication.LogoutButton</gcds-button>
@@ -73,11 +73,11 @@
 }
 else
 {
-    <div class="user-login-partial @containerClasses" aria-label="@Authentication.LoginFormAriaLabel">
+    <div class="account-partial @containerClasses" aria-label="@Authentication.LoginFormAriaLabel">
         @if (isAuthenticated)
         {
             <!-- User logged in: Expanded display -->
-                <div class="user-login-content">
+                <div class="account-content">
                     <div class="user-header mb-150">
                         @if (settings.ShowUserAvatar)
                         {
@@ -169,7 +169,7 @@ else
         else
         {
             <!-- Not Authenticated: Show sign in option -->
-            <div class="user-login-content not-authenticated">
+            <div class="account-content not-authenticated">
                 <div class="login-prompt mb-150">
                     <gcds-text size="body">@Authentication.NotLoggedIn</gcds-text>
                     <gcds-text size="small">@Authentication.PleaseSignIn</gcds-text>
@@ -185,5 +185,5 @@ else
     </div>
 }
 
-@* Styles moved to SCSS bundle (fdcp-user-login) *@
+@* Styles moved to SCSS bundle (fdcp-account) *@
 

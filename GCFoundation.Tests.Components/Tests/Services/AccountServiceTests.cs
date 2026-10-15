@@ -7,7 +7,7 @@ using System.Security.Claims;
 
 namespace GCFoundation.Tests.Components.Tests.Services;
 
-public class UserLoginServiceTests
+public class AccountServiceTests
 {
     [Fact]
     public void CreateViewModelFromContext_WhenAnonymous_ReturnsAnonymousModel()
@@ -63,12 +63,12 @@ public class UserLoginServiceTests
     public void CreateAccountMenuItems_AppendsLocalizedSignOutToCustomItems()
     {
         using var culture = new CultureScope("en-CA");
-        var settings = new GCFoundationUserLoginSettings
+        var settings = new GCFoundationAccountSettings
         {
             ShowLogoutButton = true,
             LogoutUrl = "/account/logout"
         };
-        settings.MenuItems.Add(new GCFoundationUserLoginMenuItemSettings
+        settings.MenuItems.Add(new GCFoundationAccountMenuItemSettings
         {
             TextEn = "Account settings",
             TextFr = "Paramètres du compte",
@@ -98,12 +98,12 @@ public class UserLoginServiceTests
     public void CreateAccountMenuItems_DoesNotDuplicateApplicationProvidedSignOut()
     {
         using var culture = new CultureScope("fr-CA");
-        var settings = new GCFoundationUserLoginSettings
+        var settings = new GCFoundationAccountSettings
         {
             ShowLogoutButton = true,
             LogoutUrl = "/account/logout"
         };
-        settings.MenuItems.Add(new GCFoundationUserLoginMenuItemSettings
+        settings.MenuItems.Add(new GCFoundationAccountMenuItemSettings
         {
             TextEn = "Leave",
             TextFr = "Quitter",
@@ -122,7 +122,7 @@ public class UserLoginServiceTests
     public void CreateAccountMenuItems_WhenProfileEnabled_AppendsLocalizedProfile()
     {
         using var culture = new CultureScope("fr-CA");
-        var settings = new GCFoundationUserLoginSettings
+        var settings = new GCFoundationAccountSettings
         {
             ShowProfileLink = true,
             ProfileUrl = "/account/profile",
@@ -137,16 +137,16 @@ public class UserLoginServiceTests
         Assert.Equal("/account/profile", menuItem.Url);
     }
 
-    private static UserLoginService CreateService(
+    private static AccountService CreateService(
         ClaimsPrincipal principal,
-        GCFoundationUserLoginSettings? loginSettings = null)
+        GCFoundationAccountSettings? accountSettings = null)
     {
         var context = new DefaultHttpContext { User = principal };
         var accessor = new HttpContextAccessor { HttpContext = context };
 
-        return new UserLoginService(
+        return new AccountService(
             accessor,
-            Options.Create(loginSettings ?? new GCFoundationUserLoginSettings()));
+            Options.Create(accountSettings ?? new GCFoundationAccountSettings()));
     }
 
     private static ClaimsPrincipal CreateAuthenticatedPrincipal(params Claim[] claims)

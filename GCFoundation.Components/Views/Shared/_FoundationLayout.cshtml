@@ -1,4 +1,4 @@
-﻿@using cloudscribe.Web.Navigation
+@using cloudscribe.Web.Navigation
 @using GCFoundation.Common.Models
 @using GCFoundation.Common.Settings
 @using GCFoundation.Common.Utilities
@@ -105,7 +105,7 @@
             string? bannerPartialViewName = ViewData["BannerPartialViewName"] as string;
             string? breadcrumbsPartialViewName = ViewData["BreadcrumbsPartialViewName"] as string;
             string? menuPartialViewName = ViewData["MenuPartialViewName"] as string;
-            string? loginPartialViewName = ViewData["LoginPartialViewName"] as string;
+            string? accountPartialViewName = ViewData["AccountPartialViewName"] as string;
             string? searchPartialViewName = ViewData["SearchPartialViewName"] as string;
             
         }
@@ -118,16 +118,16 @@
             </div>
         }
 
-        @* Custom menus own their top-nav markup; the default navigation inserts the login partial inside gcds-top-nav. *@
+        @* Custom menus own their top-nav markup; the default navigation inserts the account partial inside gcds-top-nav. *@
         @if (!string.IsNullOrEmpty(menuPartialViewName))
         {
             <div slot="menu" class="foundation-header-menu">
                 @await Html.PartialAsync(menuPartialViewName)
 
-                @if (!string.IsNullOrEmpty(loginPartialViewName))
+                @if (!string.IsNullOrEmpty(accountPartialViewName))
                 {
                     <div class="foundation-header-login">
-                        @await Html.PartialAsync(loginPartialViewName)
+                        @await Html.PartialAsync(accountPartialViewName)
                     </div>
                 }
             </div>

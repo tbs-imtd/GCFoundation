@@ -3,7 +3,7 @@ namespace GCFoundation.Components.Models
     /// <summary>
     /// Represents an account menu item localized for the current request.
     /// </summary>
-    public sealed class UserLoginMenuItemViewModel
+    public sealed class AccountMenuItemViewModel
     {
         /// <summary>
         /// Gets or sets the localized link text.
