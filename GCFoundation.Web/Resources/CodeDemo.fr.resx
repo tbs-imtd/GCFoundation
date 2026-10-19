@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <resheader name="resmimetype"><value>text/microsoft-resx</value></resheader>
+  <resheader name="version"><value>2.0</value></resheader>
+  <resheader name="reader"><value>System.Resources.ResXResourceReader, System.Windows.Forms</value></resheader>
+  <resheader name="writer"><value>System.Resources.ResXResourceWriter, System.Windows.Forms</value></resheader>
+  <data name="Name" xml:space="preserve"><value>Code</value></data>
+  <data name="Overview" xml:space="preserve"><value>Afficher du code, des configurations et des exemples d'API avec coloration syntaxique, un bouton de copie et, pour les exemples rédigés dans plusieurs langages, un sélecteur de langage.</value></data>
+  <data name="IndexDescription" xml:space="preserve"><value>Blocs de code colorés et exemples multilangages avec copie et choix du langage.</value></data>
+  <data name="Purpose" xml:space="preserve"><value>Aider les développeurs à lire et à réutiliser des exemples de code. Les applications fournissent le texte source et les langages; le composant gère la coloration, la copie, le choix du langage, l'accessibilité et le style.</value></data>
+  <data name="WhenUse1" xml:space="preserve"><value>Afficher un extrait de code, un fichier de configuration ou une requête ou réponse d'API.</value></data>
+  <data name="WhenUse2" xml:space="preserve"><value>Afficher le même exemple dans plusieurs langages de programmation.</value></data>
+  <data name="WhenNot1" xml:space="preserve"><value>Du code court à l'intérieur d'une phrase. Utilisez plutôt l'élément code.</value></data>
+  <data name="WhenNot2" xml:space="preserve"><value>Des secrets ou de vrais identifiants. Utilisez des valeurs fictives comme YOUR_ACCESS_TOKEN.</value></data>
+  <data name="Accessibility1" xml:space="preserve"><value>Donnez un titre à chaque bloc de code ou placez-le sous un titre qui en explique l'objectif.</value></data>
+  <data name="Accessibility2" xml:space="preserve"><value>La zone de code reçoit le focus du clavier pour que les longues lignes défilent avec les touches fléchées.</value></data>
+  <data name="Accessibility3" xml:space="preserve"><value>Le sélecteur de langage est une liste native étiquetée, et le résultat de la copie est annoncé dans un message d'état poli.</value></data>
+  <data name="Ux1" xml:space="preserve"><value>Gardez les exemples courts et ciblés. Faites un lien vers les fichiers complets au lieu de coller de longues sources.</value></data>
+  <data name="Ux2" xml:space="preserve"><value>Utilisez le même groupe de synchronisation pour les exemples d'une page qui partagent des langages, afin que le lecteur choisisse son langage une seule fois.</value></data>
+  <data name="NoteLanguages" xml:space="preserve"><value>Langages colorés : csharp, javascript, python, json, cshtml, markup (HTML), css, bash et aspnet. Les autres identifiants sont affichés en texte brut.</value></data>
+  <data name="NoteEncoding" xml:space="preserve"><value>Le code est toujours traité comme du texte et encodé une seule fois; il n'est jamais exécuté ni inséré comme HTML. Les fins de ligne sont normalisées en sauts de ligne.</value></data>
+  <data name="NoteProgressive" xml:space="preserve"><value>Sans JavaScript, chaque variante de langage est affichée avec son étiquette et les commandes de copie et de langage sont masquées. L'impression affiche aussi chaque variante.</value></data>
+  <data name="NoteLimit" xml:space="preserve"><value>La coloration commence lorsqu'un bloc devient visible. Le code de plus de 50 000 caractères est affiché sans coloration.</value></data>
+  <data name="NoteDynamic" xml:space="preserve"><value>Après avoir inséré des composants dans la page avec JavaScript, appelez FDCPCode.initialize(conteneur). Initialiser de nouveau le même composant n'a aucun effet.</value></data>
+  <data name="BlockTitle" xml:space="preserve"><value>Bloc de code</value></data>
+  <data name="BlockText" xml:space="preserve"><value>&lt;p&gt;Utilisez &lt;code&gt;fdcp-code-block&lt;/code&gt; pour un seul extrait. Passez la source dans l'attribut &lt;code&gt;code&lt;/code&gt;, ou écrivez-la comme contenu enfant encodé : la première et la dernière ligne vides ainsi que l'indentation commune sont retirées.&lt;/p&gt;</value></data>
+  <data name="ExampleTitle" xml:space="preserve"><value>Exemple multilangage</value></data>
+  <data name="ExampleText" xml:space="preserve"><value>&lt;p&gt;Utilisez &lt;code&gt;fdcp-code-example&lt;/code&gt; pour afficher le même exemple dans plusieurs langages. Les deux exemples ci-dessous partagent un groupe de synchronisation : changer le langage de l'un change celui de l'autre. Le deuxième exemple offre aussi Bash; le choisir ne modifie pas le premier exemple.&lt;/p&gt;</value></data>
+  <data name="FallbackTitle" xml:space="preserve"><value>Texte brut et retour à la ligne</value></data>
+  <data name="FallbackText" xml:space="preserve"><value>&lt;p&gt;Les langages inconnus sont affichés en texte brut. Utilisez &lt;code&gt;wrap="true"&lt;/code&gt; pour les longues lignes plus faciles à lire avec retour à la ligne, et &lt;code&gt;copy-enabled="false"&lt;/code&gt; lorsque la copie n'est pas utile.&lt;/p&gt;</value></data>
+  <data name="RendererTitle" xml:space="preserve"><value>Rendu à partir de C#</value></data>
+  <data name="RendererText" xml:space="preserve"><value>&lt;p&gt;Le code qui construit du HTML en C# peut appeler &lt;code&gt;FDCPCodeRenderer.Render&lt;/code&gt;, qui retourne un &lt;code&gt;IHtmlContent&lt;/code&gt; avec le même balisage que les Tag Helpers. Razor ne traite pas les Tag Helpers placés dans des chaînes HTML générées.&lt;/p&gt;</value></data>
+  <data name="SampleResponseTitle" xml:space="preserve"><value>Exemple de réponse</value></data>
+  <data name="SampleRegistrationTitle" xml:space="preserve"><value>Inscrire les services de Foundation</value></data>
+  <data name="SampleCreateTitle" xml:space="preserve"><value>Créer une demande</value></data>
+  <data name="SampleReadTitle" xml:space="preserve"><value>Consulter une demande</value></data>
+  <data name="SampleLogTitle" xml:space="preserve"><value>Journal de l'application</value></data>
+  <data name="SampleRequestTitle" xml:space="preserve"><value>Demande d'accès à l'information</value></data>
+  <data name="PropCode" xml:space="preserve"><value>Texte source. S'il est omis, le contenu enfant encodé est utilisé.</value></data>
+  <data name="PropCopyEnabled" xml:space="preserve"><value>Affiche le bouton de copie.</value></data>
+  <data name="PropId" xml:space="preserve"><value>Identifiant du composant. Généré s'il est omis.</value></data>
+  <data name="PropLanguage" xml:space="preserve"><value>Identifiant du langage, par exemple csharp, javascript, python ou json. Les langages inconnus sont affichés en texte brut.</value></data>
+  <data name="PropLanguageLabel" xml:space="preserve"><value>Nom affiché du langage. Déduit du langage s'il est omis.</value></data>
+  <data name="PropTitle" xml:space="preserve"><value>Titre visible, aussi utilisé pour nommer la zone de code et le bouton de copie.</value></data>
+  <data name="PropWrap" xml:space="preserve"><value>Renvoie les longues lignes à la ligne au lieu de les faire défiler horizontalement.</value></data>
+  <data name="PropExamples" xml:space="preserve"><value>Variantes de langage (CodeSample : Language, Label, Code). Les langages doivent être uniques.</value></data>
+  <data name="PropSelectedLanguage" xml:space="preserve"><value>Langage affiché en premier. Par défaut, le premier exemple.</value></data>
+  <data name="PropSyncGroup" xml:space="preserve"><value>Les exemples d'une page ayant le même groupe changent de langage ensemble.</value></data>
+</root>

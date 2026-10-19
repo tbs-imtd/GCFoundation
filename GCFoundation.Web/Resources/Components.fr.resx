@@ -2574,4 +2574,10 @@
   <data name="Index_FeaturedComponents_Title" xml:space="preserve">
     <value>Composants en vedette</value>
   </data>
+  <data name="Index_TagHelpers_Description_FDCP_CodeBlock" xml:space="preserve">
+    <value>Affiche un extrait de code avec coloration syntaxique, un titre facultatif et un bouton de copie.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_CodeExample" xml:space="preserve">
+    <value>Affiche le même exemple dans plusieurs langages avec un sélecteur de langage étiqueté, la coloration syntaxique et un bouton de copie.</value>
+  </data>
 </root>

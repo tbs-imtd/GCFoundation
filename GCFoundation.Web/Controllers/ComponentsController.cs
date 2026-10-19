@@ -30,29 +30,13 @@ namespace GCFoundation.Web.Controllers
             return View(vm);
         }
 
-        /// <summary>Redirects the former component guide to the API documentation page template.</summary>
-        /// <returns>The page template redirect.</returns>
-        [HttpGet("api-docs")]
-        public IActionResult ApiDocs()
-        {
-            return RedirectToAction("ApiDocs", "Template");
-        }
-
-        /// <summary>Redirects the former component demo to the page template demo.</summary>
-        /// <returns>The page template demo redirect.</returns>
-        [HttpGet("api-docs/demo")]
-        public IActionResult ApiDocsPreview()
-        {
-            return RedirectToAction("ApiDocsDemo", "Template");
-        }
-
-        /// <summary>Displays the standalone OpenAPI reference component guide.</summary>
+        /// <summary>Displays the code component guide.</summary>
         /// <returns>The standard component documentation view.</returns>
-        [HttpGet("api-reference")]
-        public IActionResult ApiReference()
+        [HttpGet("code")]
+        public IActionResult Code()
         {
-            SetPageTitle($"{Menu.Menu_Components} : {ApiDocsDemo.BasicTitle}");
-            return View("Component", BuildApiReferenceComponentViewModel());
+            SetPageTitle($"{Menu.Menu_Components} : {CodeDemo.Name}");
+            return View("Component", BuildCodeComponentViewModel());
         }
 
         /// <summary>
@@ -575,10 +559,10 @@ namespace GCFoundation.Web.Controllers
             {
                 FeaturedComponents = new List<ComponentIndexViewModel>()
                 {
-                    new () { Name = ApiDocsDemo.BasicTitle, ShortDescription = ApiDocsDemo.ReferenceOverview, Href = Url.Action("ApiReference", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-api-docs.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Accordion_Title, ShortDescription = Resources.Components.Index_Accordion_Description, Href = Url.Action("Accordion", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-accordion.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Badge_Title, Description = Resources.Components.Index_Badge_Description, Href = Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg") },
                     new () { Name = Resources.Components.Index_Card_Title, Description = Resources.Components.Index_Card_Description, Href = Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg") },
+                    new () { Name = CodeDemo.Name, ShortDescription = CodeDemo.IndexDescription, Href = Url.Action("Code", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-code.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_FilteredSearch_Title, ShortDescription = Resources.Components.Index_FilteredSearch_Description, Href = Url.Action("FilteredSearch", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-filtered-search.svg") },
                     new () { Name = Resources.Components.Index_FormBuilder_Title, ShortDescription = Resources.Components.Index_FormBuilder_Description, Href = Url.Action("FormBuilder", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form-builder.svg") },
                     new () { Name = Resources.Components.Index_Form_Title, ShortDescription = Resources.Components.Index_Form_Description, Href = Url.Action("Form", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form.svg") },
@@ -843,27 +827,39 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
-        private static ComponentViewModel BuildApiReferenceComponentViewModel()
+
+        private static ComponentViewModel BuildCodeComponentViewModel()
         {
             return new ComponentViewModel
             {
-                Name = ApiDocsDemo.BasicTitle,
-                Tag = "<fdcp-api-reference>",
-                Overview = ApiDocsDemo.ReferenceOverview,
-                Purpose = ApiDocsDemo.ReferencePurpose,
-                WhenToUse = [ApiDocsDemo.ReferenceWhenUse],
-                WhenNotToUse = [ApiDocsDemo.ReferenceWhenNot, ApiDocsDemo.WhenNot1],
-                AccessibilityDo = [ApiDocsDemo.Accessibility1, ApiDocsDemo.Accessibility2, ApiDocsDemo.Accessibility3],
-                UxBestPractices = [ApiDocsDemo.Ux1],
-                Notes = [ApiDocsDemo.NoteAssets, ApiDocsDemo.NoteLocalization, ApiDocsDemo.NoteSchemas],
+                Name = CodeDemo.Name,
+                Tag = "<fdcp-code-block> <fdcp-code-example>",
+                Overview = CodeDemo.Overview,
+                Purpose = CodeDemo.Purpose,
+                WhenToUse = [CodeDemo.WhenUse1, CodeDemo.WhenUse2],
+                WhenNotToUse = [CodeDemo.WhenNot1, CodeDemo.WhenNot2],
+                AccessibilityDo = [CodeDemo.Accessibility1, CodeDemo.Accessibility2, CodeDemo.Accessibility3],
+                UxBestPractices = [CodeDemo.Ux1, CodeDemo.Ux2],
+                Notes = [CodeDemo.NoteLanguages, CodeDemo.NoteEncoding, CodeDemo.NoteProgressive, CodeDemo.NoteLimit, CodeDemo.NoteDynamic],
                 Properties =
                 [
-                    new() { Name = "document", DataType = "string", Description = ApiDocsDemo.ReferenceDocument },
-                    new() { Name = "id", DataType = "string", Description = ApiDocsDemo.PropId }
+                    new() { Name = "code", DataType = "string", Description = CodeDemo.PropCode },
+                    new() { Name = "copy-enabled", DataType = "bool", DefaultValue = "true", Description = CodeDemo.PropCopyEnabled },
+                    new() { Name = "id", DataType = "string", Description = CodeDemo.PropId },
+                    new() { Name = "language", DataType = "string", DefaultValue = "plaintext", Description = CodeDemo.PropLanguage },
+                    new() { Name = "language-label", DataType = "string", Description = CodeDemo.PropLanguageLabel },
+                    new() { Name = "title", DataType = "string", Description = CodeDemo.PropTitle },
+                    new() { Name = "wrap", DataType = "bool", DefaultValue = "false", Description = CodeDemo.PropWrap },
+                    new() { Name = "fdcp-code-example examples", DataType = "IEnumerable<CodeSample>", Description = CodeDemo.PropExamples },
+                    new() { Name = "fdcp-code-example selected-language", DataType = "string", Description = CodeDemo.PropSelectedLanguage },
+                    new() { Name = "fdcp-code-example sync-group", DataType = "string", Description = CodeDemo.PropSyncGroup }
                 ],
                 SampleCodeSections =
                 [
-                    new() { Id = "api-reference-basic", Title = ApiDocsDemo.BasicTitle, Description = ApiDocsDemo.ReferenceExample, PartialViewName = "ApiReference/_Basic" }
+                    new() { Id = "code-block", Title = CodeDemo.BlockTitle, Description = CodeDemo.BlockText, PartialViewName = "Code/_Block" },
+                    new() { Id = "code-example", Title = CodeDemo.ExampleTitle, Description = CodeDemo.ExampleText, PartialViewName = "Code/_Example" },
+                    new() { Id = "code-fallback", Title = CodeDemo.FallbackTitle, Description = CodeDemo.FallbackText, PartialViewName = "Code/_Fallback" },
+                    new() { Id = "code-renderer", Title = CodeDemo.RendererTitle, Description = CodeDemo.RendererText, PartialViewName = "Code/_Renderer" }
                 ]
             };
         }

@@ -1,0 +1,16 @@
+@using GCFoundation.Web.Models.Components
+@using GCFoundation.Web.Resources
+@model ComponentSampleCodeSectionViewModel
+
+<fdcp-code-block id="code-block-log" title="@CodeDemo.SampleLogTitle" language="log" language-label="Log"
+                 code="@CodeDemoSamples.Log" wrap="true" copy-enabled="false" />
+
+<fdcp-code-block language="cshtml">
+    &lt;fdcp-code-block id="code-block-log"
+                     title="@CodeDemo.SampleLogTitle"
+                     language="log"
+                     language-label="Log"
+                     code="@@Model.Log"
+                     wrap="true"
+                     copy-enabled="false" /&gt;
+</fdcp-code-block>
