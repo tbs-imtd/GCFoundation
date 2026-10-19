@@ -1,10 +1,9 @@
 using GCFoundation.Components.Models.Code;
-using GCFoundation.Web.Resources;
 
 namespace GCFoundation.Web.Models.Components
 {
     /// <summary>
-    /// Sample sources displayed by the code component documentation and the API documentation template.
+    /// Sample sources displayed by the code component documentation.
     /// </summary>
     public static class CodeDemoSamples
     {
@@ -15,7 +14,7 @@ namespace GCFoundation.Web.Models.Components
         public static string ResponseJson => $$"""
             {
               "id": "3f2c9a1e-7b4d-4c1a-9a63-2f0d5e8b1c47",
-              "title": "{{CodeDemo.SampleRequestTitle}}",
+              "title": "{{Resources.Components.Code_SampleRequestTitle}}",
               "status": "submitted",
               "pageCount": 12,
               "urgent": false

@@ -2,11 +2,11 @@
 @using GCFoundation.Web.Resources
 @model ComponentSampleCodeSectionViewModel
 
-<fdcp-code-example id="code-example-create" title="@CodeDemo.SampleCreateTitle"
+<fdcp-code-example id="code-example-create" title="@Components.Code_SampleCreateTitle"
                    examples="@CodeDemoSamples.CreateRequest" selected-language="csharp"
                    sync-group="@CodeDemoSamples.RequestSyncGroup" />
 
-<fdcp-code-example id="code-example-read" title="@CodeDemo.SampleReadTitle"
+<fdcp-code-example id="code-example-read" title="@Components.Code_SampleReadTitle"
                    examples="@CodeDemoSamples.ReadRequest"
                    sync-group="@CodeDemoSamples.RequestSyncGroup" />
 
@@ -21,13 +21,13 @@
     }
 
     &lt;fdcp-code-example id="code-example-create"
-                       title="@CodeDemo.SampleCreateTitle"
+                       title="@Components.Code_SampleCreateTitle"
                        examples="@@createExamples"
                        selected-language="csharp"
                        sync-group="@CodeDemoSamples.RequestSyncGroup" /&gt;
 
     &lt;fdcp-code-example id="code-example-read"
-                       title="@CodeDemo.SampleReadTitle"
+                       title="@Components.Code_SampleReadTitle"
                        examples="@@Model.ReadExamples"
                        sync-group="@CodeDemoSamples.RequestSyncGroup" /&gt;
 </fdcp-code-block>

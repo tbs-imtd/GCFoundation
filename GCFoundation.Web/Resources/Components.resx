@@ -2269,4 +2269,130 @@
   <data name="Index_FeaturedComponents_Title" xml:space="preserve">
     <value>Featured components</value>
   </data>
+  <data name="Code_Name" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Code_Overview" xml:space="preserve">
+    <value>Display code, configuration and API samples with syntax highlighting, a copy button and, for examples written in several languages, a language selector.</value>
+  </data>
+  <data name="Code_IndexDescription" xml:space="preserve">
+    <value>Highlighted code blocks and multi-language examples with copy and language selection.</value>
+  </data>
+  <data name="Code_Purpose" xml:space="preserve">
+    <value>Help developers read and reuse code examples. Applications supply the source text and languages; the component owns highlighting, copying, language selection, accessibility and styling.</value>
+  </data>
+  <data name="Code_WhenUse1" xml:space="preserve">
+    <value>Show a code snippet, a configuration file or an API request or response.</value>
+  </data>
+  <data name="Code_WhenUse2" xml:space="preserve">
+    <value>Show the same example in several programming languages.</value>
+  </data>
+  <data name="Code_WhenNot1" xml:space="preserve">
+    <value>Short code inside a sentence. Use the code element instead.</value>
+  </data>
+  <data name="Code_WhenNot2" xml:space="preserve">
+    <value>Secrets or real credentials. Use placeholders such as YOUR_ACCESS_TOKEN.</value>
+  </data>
+  <data name="Code_Accessibility1" xml:space="preserve">
+    <value>Give each code block a title, or place it under a heading that explains its purpose.</value>
+  </data>
+  <data name="Code_Accessibility2" xml:space="preserve">
+    <value>The code area receives keyboard focus so long lines can be scrolled with the arrow keys.</value>
+  </data>
+  <data name="Code_Accessibility3" xml:space="preserve">
+    <value>The language selector is a labelled native select, and copy results are announced in a polite status message.</value>
+  </data>
+  <data name="Code_Ux1" xml:space="preserve">
+    <value>Keep examples short and focused. Link to complete files instead of pasting long sources.</value>
+  </data>
+  <data name="Code_Ux2" xml:space="preserve">
+    <value>Use the same sync group for examples on one page that share languages, so readers choose their language once.</value>
+  </data>
+  <data name="Code_NoteLanguages" xml:space="preserve">
+    <value>Highlighted languages: csharp, javascript, python, json, cshtml, markup (HTML), css, bash and aspnet. Other identifiers are displayed as plain text.</value>
+  </data>
+  <data name="Code_NoteEncoding" xml:space="preserve">
+    <value>Code is always treated as text and encoded once; it is never run or inserted as HTML. Line endings are normalized to line feeds.</value>
+  </data>
+  <data name="Code_NoteProgressive" xml:space="preserve">
+    <value>Without JavaScript, every language variant is displayed with its label and the copy and language controls are hidden. Printing also shows every variant.</value>
+  </data>
+  <data name="Code_NoteLimit" xml:space="preserve">
+    <value>Highlighting starts when a block becomes visible. Code longer than 50,000 characters is displayed without highlighting.</value>
+  </data>
+  <data name="Code_NoteDynamic" xml:space="preserve">
+    <value>After inserting components into the page with JavaScript, call FDCPCode.initialize(container). Initializing the same component again has no effect.</value>
+  </data>
+  <data name="Code_BlockTitle" xml:space="preserve">
+    <value>Code block</value>
+  </data>
+  <data name="Code_BlockText" xml:space="preserve">
+    <value>&lt;p&gt;Use &lt;code&gt;fdcp-code-block&lt;/code&gt; for one snippet. Pass the source in the &lt;code&gt;code&lt;/code&gt; attribute, or write it as encoded child content: the first and last blank lines and the common indentation are removed.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_ExampleTitle" xml:space="preserve">
+    <value>Multi-language example</value>
+  </data>
+  <data name="Code_ExampleText" xml:space="preserve">
+    <value>&lt;p&gt;Use &lt;code&gt;fdcp-code-example&lt;/code&gt; to show the same example in several languages. Both examples below share a sync group: changing the language in one changes the other. The second example also offers Bash; choosing it leaves the first example unchanged.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_FallbackTitle" xml:space="preserve">
+    <value>Plain text and wrapping</value>
+  </data>
+  <data name="Code_FallbackText" xml:space="preserve">
+    <value>&lt;p&gt;Unknown languages are displayed as plain text. Use &lt;code&gt;wrap="true"&lt;/code&gt; for long lines that are easier to read wrapped, and &lt;code&gt;copy-enabled="false"&lt;/code&gt; when copying is not useful.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_RendererTitle" xml:space="preserve">
+    <value>Rendering from C#</value>
+  </data>
+  <data name="Code_RendererText" xml:space="preserve">
+    <value>&lt;p&gt;Code that builds HTML in C# can call &lt;code&gt;FDCPCodeRenderer.Render&lt;/code&gt;, which returns &lt;code&gt;IHtmlContent&lt;/code&gt; with the same markup as the Tag Helpers. Tag Helpers placed inside generated HTML strings are not processed by Razor.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_SampleResponseTitle" xml:space="preserve">
+    <value>Example response</value>
+  </data>
+  <data name="Code_SampleRegistrationTitle" xml:space="preserve">
+    <value>Register Foundation services</value>
+  </data>
+  <data name="Code_SampleCreateTitle" xml:space="preserve">
+    <value>Create a request</value>
+  </data>
+  <data name="Code_SampleReadTitle" xml:space="preserve">
+    <value>Read a request</value>
+  </data>
+  <data name="Code_SampleLogTitle" xml:space="preserve">
+    <value>Application log</value>
+  </data>
+  <data name="Code_SampleRequestTitle" xml:space="preserve">
+    <value>Access to information request</value>
+  </data>
+  <data name="Code_PropCode" xml:space="preserve">
+    <value>Source text. When omitted, the encoded child content is used.</value>
+  </data>
+  <data name="Code_PropCopyEnabled" xml:space="preserve">
+    <value>Displays the copy button.</value>
+  </data>
+  <data name="Code_PropId" xml:space="preserve">
+    <value>Identifier of the component. Generated when omitted.</value>
+  </data>
+  <data name="Code_PropLanguage" xml:space="preserve">
+    <value>Language identifier, such as csharp, javascript, python or json. Unknown languages are displayed as plain text.</value>
+  </data>
+  <data name="Code_PropLanguageLabel" xml:space="preserve">
+    <value>Display name of the language. Derived from the language when omitted.</value>
+  </data>
+  <data name="Code_PropTitle" xml:space="preserve">
+    <value>Visible title, also used to name the code area and the copy button.</value>
+  </data>
+  <data name="Code_PropWrap" xml:space="preserve">
+    <value>Wraps long lines instead of scrolling horizontally.</value>
+  </data>
+  <data name="Code_PropExamples" xml:space="preserve">
+    <value>Language variants (CodeSample: Language, Label, Code). Languages must be unique.</value>
+  </data>
+  <data name="Code_PropSelectedLanguage" xml:space="preserve">
+    <value>Language displayed first. Defaults to the first example.</value>
+  </data>
+  <data name="Code_PropSyncGroup" xml:space="preserve">
+    <value>Examples with the same group on a page switch language together.</value>
+  </data>
 </root>

@@ -2,9 +2,9 @@
 @using GCFoundation.Web.Resources
 @model ComponentSampleCodeSectionViewModel
 
-<fdcp-code-block id="code-block-response" title="@CodeDemo.SampleResponseTitle" language="json" code="@CodeDemoSamples.ResponseJson" />
+<fdcp-code-block id="code-block-response" title="@Components.Code_SampleResponseTitle" language="json" code="@CodeDemoSamples.ResponseJson" />
 
-<fdcp-code-block id="code-block-registration" title="@CodeDemo.SampleRegistrationTitle" language="csharp">
+<fdcp-code-block id="code-block-registration" title="@Components.Code_SampleRegistrationTitle" language="csharp">
     builder.Services.AddGCFoundationComponents(builder.Configuration);
     builder.Services.AddGCFoundationContentPolicies(builder.Configuration);
 
@@ -14,12 +14,12 @@
 
 <fdcp-code-block language="cshtml">
     &lt;fdcp-code-block id="code-block-response"
-                     title="@CodeDemo.SampleResponseTitle"
+                     title="@Components.Code_SampleResponseTitle"
                      language="json"
                      code="@@Model.ResponseJson" /&gt;
 
     &lt;fdcp-code-block id="code-block-registration"
-                     title="@CodeDemo.SampleRegistrationTitle"
+                     title="@Components.Code_SampleRegistrationTitle"
                      language="csharp"&gt;
         builder.Services.AddGCFoundationComponents(builder.Configuration);
         builder.Services.AddGCFoundationContentPolicies(builder.Configuration);
