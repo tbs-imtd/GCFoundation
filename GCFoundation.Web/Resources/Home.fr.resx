@@ -152,6 +152,18 @@
   <data name="Index_Releases_Description" xml:space="preserve">
     <value>Consultez les dernières versions préliminaires, leurs principaux changements et les détails d'installation.</value>
   </data>
+  <data name="Index_Releases_Preview8_Date" xml:space="preserve">
+    <value>19 octobre 2026</value>
+  </data>
+  <data name="Index_Releases_Preview8_Description" xml:space="preserve">
+    <value>Applique les attributs de validation de longueur et de plage aux champs FDCP, corrige la gestion des champs obligatoires et ajoute un élément de connexion au menu déroulant.</value>
+  </data>
+  <data name="Index_Releases_Preview7_Date" xml:space="preserve">
+    <value>11 septembre 2026</value>
+  </data>
+  <data name="Index_Releases_Preview7_Description" xml:space="preserve">
+    <value>Ajoute la documentation dynamique des Tag Helpers, réinitialise les listes déroulantes avec recherche et le texte enrichi, et corrige les boutons radio et les cases à cocher.</value>
+  </data>
   <data name="Index_Releases_Preview6_Date" xml:space="preserve">
     <value>25 août 2026</value>
   </data>

@@ -445,6 +445,42 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to September 11, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview7_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview7_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adds dynamic Tag Helper documentation, resets searchable selects and rich text, and fixes radios and checkboxes..
+        /// </summary>
+        public static string Index_Releases_Preview7_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview7_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to October 19, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview8_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview8_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Applies length and range validation attributes to FDCP inputs, fixes required field handling, and adds a login menu item to the dropdown..
+        /// </summary>
+        public static string Index_Releases_Preview8_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview8_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Latest releases.
         /// </summary>
         public static string Index_Releases_Title {
