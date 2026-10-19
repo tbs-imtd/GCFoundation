@@ -12,7 +12,7 @@
       <rect x="260" y="73" width="80" height="20" rx="10" fill="#A8ADB4"/>
     </g>
 
-    <!--FDCP:User Login Partial-->
+    <!--FDCP:Account Partial-->
     <!--Sign out button-->
     <rect x="260" y="116" width="80" height="26" rx="3" fill="#26374A" fill-opacity="0.75"/>
     <rect x="270" y="126" width="60" height="6" rx="3" fill="white"/>

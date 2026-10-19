@@ -1,4 +1,4 @@
-﻿using GCFoundation.Common.Settings;
+using GCFoundation.Common.Settings;
 using GCFoundation.Components.Configuration;
 using GCFoundation.Components.Helpers;
 using GCFoundation.Components.Services;
@@ -36,9 +36,9 @@ namespace GCFoundation.Components.Middleware
             var settings = section.Get<GCFoundationComponentsSettings>();
             StaticResourceHelper.ConfigureVirtualDirectoryPrefix(settings?.VirtualDirectoryName);
 
-            // Configure user login settings
-            var userLoginSection = configuration.GetSection("UserLoginSettings");
-            services.Configure<GCFoundationUserLoginSettings>(userLoginSection);
+            // Configure account settings
+            var accountSection = configuration.GetSection("AccountSettings");
+            services.Configure<GCFoundationAccountSettings>(accountSection);
 
             // Register the CdnPolicyConfigurator
             services.AddSingleton<IConfigureOptions<GCFoundationContentPolicySettings>, GCFoundationComponentsCdnPolicyConfigurator>();
@@ -46,8 +46,8 @@ namespace GCFoundation.Components.Middleware
             // Register the GlobalResourceHelper for use in Razor views
             services.AddScoped<GlobalResourceHelper>();
 
-            // Register the UserLoginService for managing user login view models
-            services.AddScoped<UserLoginService>();
+            // Register the AccountService for managing account view models
+            services.AddScoped<AccountService>();
 
             return services;
         }

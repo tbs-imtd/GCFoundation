@@ -294,16 +294,16 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays the User Login Partial component demo page.
+        /// Displays the Account Partial component demo page.
         /// </summary>
         /// <returns>
-        /// The User Login Partial component view.
+        /// The Account Partial component view.
         /// </returns>
-        [HttpGet("user-login")]
-        public IActionResult UserLogin()
+        [HttpGet("account")]
+        public IActionResult Account()
         {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_UserLoginPartial_Title}");
-            ViewData["LoginPartialViewName"] = "_ExampleUserLogin";
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_AccountPartial_Title}");
+            ViewData["AccountPartialViewName"] = "_ExampleAccount";
             return View();
         }
 
@@ -562,7 +562,7 @@ namespace GCFoundation.Web.Controllers
                     new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
                     new () { Name = Resources.Components.Index_Tabs_Title, ShortDescription = Resources.Components.Index_Tabs_Description, Href = Url.Action("Tabs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-tabs.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg"), IsNew = true },
-                    new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
+                    new () { Name = Resources.Components.Index_AccountPartial_Title, ShortDescription = Resources.Components.Index_AccountPartial_Description, Href = Url.Action("Account", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-account-partial.svg") }
                 },
                 TagHelperGroups = tagHelperCatalogService.BuildTagHelperGroups().ToList()
             };

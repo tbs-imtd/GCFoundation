@@ -136,278 +136,278 @@
  Les composants devraient également apparaître dans Visual Studio s’ils ont été implémentés.
  Cependant, même si un composant n’apparaît pas dans IntelliSense, vous pouvez toujours l’utiliser—assurez-vous simplement de référencer la bonne version du Système de design GC.</value>
   </data>
-  <data name="UserLogin_AuthStatus_Title" xml:space="preserve">
+  <data name="Account_AuthStatus_Title" xml:space="preserve">
     <value>État actuel d'authentification</value>
   </data>
-  <data name="UserLogin_Authenticated_Message" xml:space="preserve">
+  <data name="Account_Authenticated_Message" xml:space="preserve">
     <value>Vous êtes actuellement connecté en tant que {0}</value>
   </data>
-  <data name="UserLogin_NotAuthenticated_Message" xml:space="preserve">
+  <data name="Account_NotAuthenticated_Message" xml:space="preserve">
     <value>Vous n'êtes pas actuellement connecté. Utilisez le bouton de simulation de connexion ci-dessous pour tester l'état authentifié.</value>
   </data>
-  <data name="UserLogin_SimulateLogin" xml:space="preserve">
+  <data name="Account_SimulateLogin" xml:space="preserve">
     <value>Simuler la connexion</value>
   </data>
-  <data name="UserLogin_SimulateLogout" xml:space="preserve">
+  <data name="Account_SimulateLogout" xml:space="preserve">
     <value>Simuler la déconnexion</value>
   </data>
-  <data name="UserLogin_ApiTest_Message" xml:space="preserve">
+  <data name="Account_ApiTest_Message" xml:space="preserve">
     <value>Voir comment intégrer avec les API pour obtenir les informations utilisateur.</value>
   </data>
-  <data name="UserLogin_ApiTest_Link" xml:space="preserve">
+  <data name="Account_ApiTest_Link" xml:space="preserve">
     <value>Test API</value>
   </data>
-  <data name="UserLogin_PageTitle" xml:space="preserve">
-    <value>Exemples de partiel de connexion utilisateur</value>
+  <data name="Account_PageTitle" xml:space="preserve">
+    <value>Exemples de partiel de compte</value>
   </data>
-  <data name="UserLogin_Component_Title" xml:space="preserve">
-    <value>Composant partiel de connexion utilisateur</value>
+  <data name="Account_Component_Title" xml:space="preserve">
+    <value>Composant partiel de compte</value>
   </data>
-  <data name="UserLogin_Position_PageTitle" xml:space="preserve">
-    <value>Connexion utilisateur en position {0}</value>
+  <data name="Account_Position_PageTitle" xml:space="preserve">
+    <value>Compte en position {0}</value>
   </data>
-  <data name="UserLogin_PageDescription" xml:space="preserve">
-    <value>Cette page démontre le composant partiel de connexion utilisateur configurable avec support de localisation en anglais et français. Le partiel peut être personnalisé grâce aux paramètres de configuration et affiche différentes informations selon l'état d'authentification.</value>
+  <data name="Account_PageDescription" xml:space="preserve">
+    <value>Cette page démontre le composant partiel de compte configurable avec support de localisation en anglais et français. Le partiel peut être personnalisé grâce aux paramètres de configuration et affiche différentes informations selon l'état d'authentification.</value>
   </data>
-  <data name="UserLogin_TestAuthStates" xml:space="preserve">
-    <value>Testez le partiel de connexion avec différents états d'authentification.</value>
+  <data name="Account_TestAuthStates" xml:space="preserve">
+    <value>Testez le partiel de compte avec différents états d'authentification.</value>
   </data>
-  <data name="UserLogin_ConfigurationOptions" xml:space="preserve">
+  <data name="Account_ConfigurationOptions" xml:space="preserve">
     <value>Options de configuration</value>
   </data>
-  <data name="UserLogin_ConfigDescription" xml:space="preserve">
-    <value>Le partiel de connexion utilisateur prend en charge les options de configuration suivantes via appsettings.json :</value>
+  <data name="Account_ConfigDescription" xml:space="preserve">
+    <value>Le partiel de compte prend en charge les options de configuration suivantes via appsettings.json :</value>
   </data>
-  <data name="UserLogin_Features" xml:space="preserve">
+  <data name="Account_Features" xml:space="preserve">
     <value>Fonctionnalités</value>
   </data>
-  <data name="UserLogin_Feature_Bilingual" xml:space="preserve">
+  <data name="Account_Feature_Bilingual" xml:space="preserve">
     <value>Entièrement bilingue (anglais/français) avec détection automatique de la langue</value>
   </data>
-  <data name="UserLogin_Feature_Configurable" xml:space="preserve">
+  <data name="Account_Feature_Configurable" xml:space="preserve">
     <value>Options d'affichage configurables (afficher/masquer diverses informations utilisateur)</value>
   </data>
-  <data name="UserLogin_Feature_CompactFull" xml:space="preserve">
+  <data name="Account_Feature_CompactFull" xml:space="preserve">
     <value>Modes d'affichage compact et complet</value>
   </data>
-  <data name="UserLogin_Feature_SessionTimeout" xml:space="preserve">
+  <data name="Account_Feature_SessionTimeout" xml:space="preserve">
     <value>Avertissements et compte à rebours d'expiration de session</value>
   </data>
-  <data name="UserLogin_Feature_Avatar" xml:space="preserve">
+  <data name="Account_Feature_Avatar" xml:space="preserve">
     <value>Support d'avatar utilisateur avec génération automatique d'initiales</value>
   </data>
-  <data name="UserLogin_Feature_GCDS" xml:space="preserve">
+  <data name="Account_Feature_GCDS" xml:space="preserve">
     <value>Intégration des composants GCDS pour un style cohérent du gouvernement du Canada</value>
   </data>
-  <data name="UserLogin_Feature_Responsive" xml:space="preserve">
+  <data name="Account_Feature_Responsive" xml:space="preserve">
     <value>Design réactif pour mobile et ordinateur de bureau</value>
   </data>
-  <data name="UserLogin_Feature_Accessibility" xml:space="preserve">
+  <data name="Account_Feature_Accessibility" xml:space="preserve">
     <value>Fonctionnalités d'accessibilité avec étiquettes ARIA appropriées</value>
   </data>
-  <data name="UserLogin_Feature_Integration" xml:space="preserve">
+  <data name="Account_Feature_Integration" xml:space="preserve">
     <value>Intégration facile avec les systèmes d'authentification existants</value>
   </data>
-  <data name="UserLogin_Position_Description" xml:space="preserve">
-    <value>Cet exemple montre comment le partiel de connexion utilisateur peut être positionné dans différentes zones de votre application.</value>
+  <data name="Account_Position_Description" xml:space="preserve">
+    <value>Cet exemple montre comment le partiel de compte peut être positionné dans différentes zones de votre application.</value>
   </data>
-  <data name="UserLogin_Position_Header_Alert" xml:space="preserve">
-    <value>Le partiel de connexion est affiché dans la zone d'en-tête (au-dessus de ce contenu).</value>
+  <data name="Account_Position_Header_Alert" xml:space="preserve">
+    <value>Le partiel de compte est affiché dans la zone d'en-tête (au-dessus de ce contenu).</value>
   </data>
-  <data name="UserLogin_Position_Sidebar_Title" xml:space="preserve">
-    <value>Connexion dans la barre latérale</value>
+  <data name="Account_Position_Sidebar_Title" xml:space="preserve">
+    <value>Compte dans la barre latérale</value>
   </data>
-  <data name="UserLogin_Position_Sidebar_Content" xml:space="preserve">
-    <value>Ceci est la zone de contenu principal. Le partiel de connexion est affiché dans la barre latérale à gauche (sur ordinateur) ou au-dessus (sur mobile).</value>
+  <data name="Account_Position_Sidebar_Content" xml:space="preserve">
+    <value>Ceci est la zone de contenu principal. Le partiel de compte est affiché dans la barre latérale à gauche (sur ordinateur) ou au-dessus (sur mobile).</value>
   </data>
-  <data name="UserLogin_Position_Inline_Title" xml:space="preserve">
-    <value>Informations de connexion en ligne</value>
+  <data name="Account_Position_Inline_Title" xml:space="preserve">
+    <value>Informations de compte en ligne</value>
   </data>
-  <data name="UserLogin_Position_Content_Before" xml:space="preserve">
-    <value>Ceci est le contenu avant le partiel de connexion.</value>
+  <data name="Account_Position_Content_Before" xml:space="preserve">
+    <value>Ceci est le contenu avant le partiel de compte.</value>
   </data>
-  <data name="UserLogin_Position_Content_After" xml:space="preserve">
-    <value>Ceci est le contenu après le partiel de connexion.</value>
+  <data name="Account_Position_Content_After" xml:space="preserve">
+    <value>Ceci est le contenu après le partiel de compte.</value>
   </data>
-  <data name="UserLogin_Position_Footer_Title" xml:space="preserve">
-    <value>Connexion dans le pied de page</value>
+  <data name="Account_Position_Footer_Title" xml:space="preserve">
+    <value>Compte dans le pied de page</value>
   </data>
-  <data name="UserLogin_Position_Footer_Content" xml:space="preserve">
-    <value>La zone de contenu principal. Le partiel de connexion sera affiché dans la zone de pied de page (sous ce contenu).</value>
+  <data name="Account_Position_Footer_Content" xml:space="preserve">
+    <value>La zone de contenu principal. Le partiel de compte sera affiché dans la zone de pied de page (sous ce contenu).</value>
   </data>
-  <data name="UserLogin_Position_BackToExamples" xml:space="preserve">
+  <data name="Account_Position_BackToExamples" xml:space="preserve">
     <value>← Retour aux exemples</value>
   </data>
-  <data name="UserLogin_Component_Description" xml:space="preserve">
-    <value>Un composant d'informations de connexion utilisateur configurable et bilingue qui affiche l'état d'authentification, les détails utilisateur et les informations de session. Parfait pour les déploiements cloud Azure avec authentification sans état.</value>
+  <data name="Account_Component_Description" xml:space="preserve">
+    <value>Un composant d'informations de compte configurable et bilingue qui affiche l'état d'authentification, les détails utilisateur et les informations de session. Parfait pour les déploiements cloud Azure avec authentification sans état.</value>
   </data>
-  <data name="UserLogin_LiveExamples" xml:space="preserve">
+  <data name="Account_LiveExamples" xml:space="preserve">
     <value>Exemples en direct</value>
   </data>
-  <data name="UserLogin_LiveExamples_Description" xml:space="preserve">
-    <value>Voici des exemples fonctionnels du partiel de connexion utilisateur dans différentes configurations :</value>
+  <data name="Account_LiveExamples_Description" xml:space="preserve">
+    <value>Voici des exemples fonctionnels du partiel de compte dans différentes configurations :</value>
   </data>
-  <data name="UserLogin_CurrentUserState" xml:space="preserve">
+  <data name="Account_CurrentUserState" xml:space="preserve">
     <value>Exemple en direct - État utilisateur actuel</value>
   </data>
-  <data name="UserLogin_CurrentUserState_Description" xml:space="preserve">
+  <data name="Account_CurrentUserState_Description" xml:space="preserve">
     <value>Ceci montre l'état d'authentification réel du contexte utilisateur actuel.</value>
   </data>
-  <data name="UserLogin_CurrentlyAuthenticated" xml:space="preserve">
+  <data name="Account_CurrentlyAuthenticated" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_CurrentlyNotAuthenticated" xml:space="preserve">
+  <data name="Account_CurrentlyNotAuthenticated" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_SimulateLoginNote" xml:space="preserve">
+  <data name="Account_SimulateLoginNote" xml:space="preserve">
     <value>Utilisez le bouton "Simuler la connexion" dans la section Exemples pour voir l'état authentifié.</value>
   </data>
-  <data name="UserLogin_DefaultMode" xml:space="preserve">
+  <data name="Account_DefaultMode" xml:space="preserve">
     <value>Mode par défaut</value>
   </data>
-  <data name="UserLogin_DefaultMode_Description" xml:space="preserve">
+  <data name="Account_DefaultMode_Description" xml:space="preserve">
     <value>Mode d'affichage complet standard avec informations utilisateur.</value>
   </data>
-  <data name="UserLogin_SessionExpiring" xml:space="preserve">
+  <data name="Account_SessionExpiring" xml:space="preserve">
     <value>Session expirant bientôt</value>
   </data>
-  <data name="UserLogin_SessionExpiring_Description" xml:space="preserve">
+  <data name="Account_SessionExpiring_Description" xml:space="preserve">
     <value>Exemple montrant l'avertissement d'expiration de session.</value>
   </data>
-  <data name="UserLogin_NotAuthenticatedState" xml:space="preserve">
+  <data name="Account_NotAuthenticatedState" xml:space="preserve">
     <value>État non authentifié</value>
   </data>
-  <data name="UserLogin_NotAuthenticatedState_Description" xml:space="preserve">
+  <data name="Account_NotAuthenticatedState_Description" xml:space="preserve">
     <value>Affichage pour les utilisateurs qui ne sont pas connectés.</value>
   </data>
-  <data name="UserLogin_ConfigOptions_Description" xml:space="preserve">
-    <value>Le partiel de connexion utilisateur est hautement configurable via appsettings.json et prend en charge les systèmes d'authentification avec et sans état.</value>
+  <data name="Account_ConfigOptions_Description" xml:space="preserve">
+    <value>Le partiel de compte est hautement configurable via appsettings.json et prend en charge les systèmes d'authentification avec et sans état.</value>
   </data>
-  <data name="UserLogin_KeyFeatures" xml:space="preserve">
+  <data name="Account_KeyFeatures" xml:space="preserve">
     <value>Fonctionnalités clés</value>
   </data>
-  <data name="UserLogin_BilingualSupport" xml:space="preserve">
+  <data name="Account_BilingualSupport" xml:space="preserve">
     <value>🌐 Support bilingue</value>
   </data>
-  <data name="UserLogin_BilingualSupport_Description" xml:space="preserve">
+  <data name="Account_BilingualSupport_Description" xml:space="preserve">
     <value>Localisation automatique anglais/français avec fichiers de ressources et détection de culture.</value>
   </data>
-  <data name="UserLogin_CloudReady" xml:space="preserve">
+  <data name="Account_CloudReady" xml:space="preserve">
     <value>☁️ Prêt pour le cloud</value>
   </data>
-  <data name="UserLogin_CloudReady_Description" xml:space="preserve">
+  <data name="Account_CloudReady_Description" xml:space="preserve">
     <value>Support d'authentification sans état parfait pour Azure App Service et les déploiements de conteneurs.</value>
   </data>
-  <data name="UserLogin_Configurable" xml:space="preserve">
+  <data name="Account_Configurable" xml:space="preserve">
     <value>🔧 Configurable</value>
   </data>
-  <data name="UserLogin_Configurable_Description" xml:space="preserve">
+  <data name="Account_Configurable_Description" xml:space="preserve">
     <value>Plus de 15 options de configuration pour personnaliser l'affichage et le comportement selon vos besoins.</value>
   </data>
-  <data name="UserLogin_Responsive" xml:space="preserve">
+  <data name="Account_Responsive" xml:space="preserve">
     <value>📱 Réactif</value>
   </data>
-  <data name="UserLogin_Responsive_Description" xml:space="preserve">
+  <data name="Account_Responsive_Description" xml:space="preserve">
     <value>Design mobile-first qui fonctionne parfaitement sur toutes les tailles d'appareils.</value>
   </data>
-  <data name="UserLogin_GCDSStyled" xml:space="preserve">
+  <data name="Account_GCDSStyled" xml:space="preserve">
     <value>🎨 Style GCDS</value>
   </data>
-  <data name="UserLogin_GCDSStyled_Description" xml:space="preserve">
+  <data name="Account_GCDSStyled_Description" xml:space="preserve">
     <value>Utilise les composants du système de design du gouvernement du Canada pour un style cohérent.</value>
   </data>
-  <data name="UserLogin_Accessible" xml:space="preserve">
+  <data name="Account_Accessible" xml:space="preserve">
     <value>♿ Accessible</value>
   </data>
-  <data name="UserLogin_Accessible_Description" xml:space="preserve">
+  <data name="Account_Accessible_Description" xml:space="preserve">
     <value>Conforme WCAG avec étiquettes ARIA appropriées et balisage sémantique.</value>
   </data>
-  <data name="UserLogin_SupportedAuthMethods" xml:space="preserve">
+  <data name="Account_SupportedAuthMethods" xml:space="preserve">
     <value>Méthodes d'authentification prises en charge</value>
   </data>
-  <data name="UserLogin_SupportedAuthMethods_Description" xml:space="preserve">
+  <data name="Account_SupportedAuthMethods_Description" xml:space="preserve">
     <value>Le composant extrait automatiquement les informations utilisateur des revendications, le rendant compatible avec divers systèmes d'authentification :</value>
   </data>
-  <data name="UserLogin_CookieAuth" xml:space="preserve">
+  <data name="Account_CookieAuth" xml:space="preserve">
     <value>Authentification par cookie</value>
   </data>
-  <data name="UserLogin_CookieAuth_Description" xml:space="preserve">
+  <data name="Account_CookieAuth_Description" xml:space="preserve">
     <value>Authentification sans état basée sur les cookies sans sessions côté serveur. Parfait pour les déploiements cloud Azure.</value>
   </data>
-  <data name="UserLogin_CookieAuth_Benefits" xml:space="preserve">
+  <data name="Account_CookieAuth_Benefits" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_AzureAD" xml:space="preserve">
+  <data name="Account_AzureAD" xml:space="preserve">
     <value>Azure Active Directory</value>
   </data>
-  <data name="UserLogin_AzureAD_Description" xml:space="preserve">
+  <data name="Account_AzureAD_Description" xml:space="preserve">
     <value>Authentification d'entreprise avec intégration Office 365 et support de connexion unique.</value>
   </data>
-  <data name="UserLogin_AzureAD_Benefits" xml:space="preserve">
+  <data name="Account_AzureAD_Benefits" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_JWTTokens" xml:space="preserve">
+  <data name="Account_JWTTokens" xml:space="preserve">
     <value>Jetons JWT</value>
   </data>
-  <data name="UserLogin_JWTTokens_Description" xml:space="preserve">
+  <data name="Account_JWTTokens_Description" xml:space="preserve">
     <value>Authentification par jeton Web JSON pour les applications API-first et les microservices.</value>
   </data>
-  <data name="UserLogin_JWTTokens_Benefits" xml:space="preserve">
+  <data name="Account_JWTTokens_Benefits" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_ExternalProviders" xml:space="preserve">
+  <data name="Account_ExternalProviders" xml:space="preserve">
     <value>Fournisseurs externes</value>
   </data>
-  <data name="UserLogin_ExternalProviders_Description" xml:space="preserve">
+  <data name="Account_ExternalProviders_Description" xml:space="preserve">
     <value>Intégration OAuth avec Google, GitHub, Microsoft et autres fournisseurs externes.</value>
   </data>
-  <data name="UserLogin_ExternalProviders_Benefits" xml:space="preserve">
+  <data name="Account_ExternalProviders_Benefits" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_AdditionalResources" xml:space="preserve">
+  <data name="Account_AdditionalResources" xml:space="preserve">
     <value>Ressources supplémentaires</value>
   </data>
-  <data name="UserLogin_CompleteExamples" xml:space="preserve">
+  <data name="Account_CompleteExamples" xml:space="preserve">
     <value>Exemples complets</value>
   </data>
-  <data name="UserLogin_CompleteExamples_Description" xml:space="preserve">
+  <data name="Account_CompleteExamples_Description" xml:space="preserve">
     <value>Exemples interactifs avec différentes configurations et cas d'usage.</value>
   </data>
-  <data name="UserLogin_StatelessAuth" xml:space="preserve">
+  <data name="Account_StatelessAuth" xml:space="preserve">
     <value>Authentification sans état</value>
   </data>
-  <data name="UserLogin_StatelessAuth_Description" xml:space="preserve">
+  <data name="Account_StatelessAuth_Description" xml:space="preserve">
     <value>Exemples d'authentification prêts pour le cloud Azure sans sessions.</value>
   </data>
-  <data name="UserLogin_TemplateIntegration" xml:space="preserve">
+  <data name="Account_TemplateIntegration" xml:space="preserve">
     <value>Intégration de modèle</value>
   </data>
-  <data name="UserLogin_TemplateIntegration_Description" xml:space="preserve">
+  <data name="Account_TemplateIntegration_Description" xml:space="preserve">
     <value>Apprenez comment intégrer le partiel dans vos modèles de mise en page.</value>
   </data>
-  <data name="UserLogin_QuickImplementation" xml:space="preserve">
+  <data name="Account_QuickImplementation" xml:space="preserve">
     <value>Guide d'implémentation rapide</value>
   </data>
-  <data name="UserLogin_Step_ConfigureSettings" xml:space="preserve">
+  <data name="Account_Step_ConfigureSettings" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_Step_RegisterServices" xml:space="preserve">
+  <data name="Account_Step_RegisterServices" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_Step_SetInController" xml:space="preserve">
+  <data name="Account_Step_SetInController" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_Step_ConfigureAuth" xml:space="preserve">
+  <data name="Account_Step_ConfigureAuth" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_Step_CustomizeAppearance" xml:space="preserve">
+  <data name="Account_Step_CustomizeAppearance" xml:space="preserve">
     <value />
   </data>
   <data name="StatelessAuth_Demo_Title" xml:space="preserve">
     <value>Démonstration d'authentification sans état</value>
   </data>
   <data name="StatelessAuth_Demo_Description" xml:space="preserve">
-    <value>Essayez l'authentification par cookie ci-dessous et voyez comment le partiel de connexion utilisateur se met à jour automatiquement.</value>
+    <value>Essayez l'authentification par cookie ci-dessous et voyez comment le partiel de compte se met à jour automatiquement.</value>
   </data>
   <data name="StatelessAuth_Current_Status_Title" xml:space="preserve">
     <value>État d'authentification actuel</value>
@@ -416,13 +416,13 @@
     <value />
   </data>
   <data name="StatelessAuth_Session_Info_Message" xml:space="preserve">
-    <value>Le composant de connexion utilisateur ci-dessus affiche vos informations de session actuelles à partir des revendications (pas de stockage de session côté serveur).</value>
+    <value>Le composant de compte ci-dessus affiche vos informations de session actuelles à partir des revendications (pas de stockage de session côté serveur).</value>
   </data>
   <data name="StatelessAuth_Not_Authenticated_Message" xml:space="preserve">
     <value />
   </data>
   <data name="StatelessAuth_Login_Partial_Update_Message" xml:space="preserve">
-    <value>Remarquez comment le composant de connexion utilisateur se mettra à jour automatiquement après la connexion.</value>
+    <value>Remarquez comment le composant de compte se mettra à jour automatiquement après la connexion.</value>
   </data>
   <data name="StatelessAuth_Interactive_Demo_Title" xml:space="preserve">
     <value>Démonstration d'authentification interactive</value>
@@ -494,7 +494,7 @@
     <value>Compatibilité avec le cloud gouvernemental</value>
   </data>
   <data name="StatelessAuth_Authenticated_Description" xml:space="preserve">
-    <value>Le partiel de connexion utilisateur ci-dessus affiche vos informations de session actuelles à partir des revendications (aucun stockage de session côté serveur).</value>
+    <value>Le partiel de compte ci-dessus affiche vos informations de session actuelles à partir des revendications (aucun stockage de session côté serveur).</value>
   </data>
   <data name="Index_Table_Title" xml:space="preserve">
     <value>Tableau</value>
@@ -582,11 +582,11 @@
   <data name="Index_Stepper_Description" xml:space="preserve">
     <value>Créer un processus étape par étape pour un flux ou un formulaire</value>
   </data>
-  <data name="Index_UserLoginPartial_Title" xml:space="preserve">
-    <value>Partiel de connexion utilisateur</value>
+  <data name="Index_AccountPartial_Title" xml:space="preserve">
+    <value>Partiel de compte</value>
   </data>
-  <data name="Index_UserLoginPartial_Description" xml:space="preserve">
-    <value>Affichage configurable des informations de connexion utilisateur avec support bilingue</value>
+  <data name="Index_AccountPartial_Description" xml:space="preserve">
+    <value>Affichage configurable des informations de compte avec support bilingue</value>
   </data>
   <data name="Index_Page_Title" xml:space="preserve">
     <value>Composants</value>
@@ -2272,7 +2272,7 @@
     <value />
   </data>
   <data name="StatelessAuth_NotAuthenticated_Description" xml:space="preserve">
-    <value>Remarquez comment le partiel de connexion utilisateur se mettra à jour automatiquement après la connexion.</value>
+    <value>Remarquez comment le partiel de compte se mettra à jour automatiquement après la connexion.</value>
   </data>
   <data name="StatelessAuth_CookieDemo_Title" xml:space="preserve">
     <value>Démonstration d'authentification par cookie</value>
@@ -2386,7 +2386,7 @@
     <value>Options de connexion sociale</value>
   </data>
   <data name="StatelessAuth_Integration_Title" xml:space="preserve">
-    <value>💡 Intégration avec le partiel de connexion utilisateur</value>
+    <value>💡 Intégration avec le partiel de compte</value>
   </data>
   <data name="StatelessAuth_Integration_Description1" xml:space="preserve">
     <value />

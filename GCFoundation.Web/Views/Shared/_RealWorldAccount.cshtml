@@ -1,0 +1,27 @@
+@using GCFoundation.Common.Utilities
+@using GCFoundation.Components.Services
+@inject AccountService AccountService
+
+@{
+    // Create account model from the current HTTP context
+    // This will automatically extract user information from claims and session
+    var accountModel = AccountService.CreateViewModelFromContext();
+    
+    // Set the current culture for proper localization
+    accountModel.CurrentCulture = LanguageUtility.GetCurrentApplicationLanguage();
+}
+
+@* Render the actual account partial *@
+<partial name="_AccountPartial" model="accountModel" />
+
+@* 
+This is an example of how to use the account partial in a real application.
+Simply include this partial in your layout or views where you want to display account information.
+
+To use this in your controller:
+ViewData["AccountPartialViewName"] = "_RealWorldAccount";
+
+Or directly in a view:
+<partial name="_RealWorldAccount" />
+*@
+

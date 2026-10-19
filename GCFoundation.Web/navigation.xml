@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <NavNode key="Home" controller="Home" action="Index" area="" preservedRouteParameters="culture" text="Nav_Home">
 	<Children>
 
@@ -75,10 +75,10 @@
             <NavNode key="components-stepper" controller="Components" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Components_Stepper" componentVisibility="breadcrumbs" />
             <NavNode key="components-table" controller="Components" action="Table" area="" preservedRouteParameters="culture" text="Nav_Components_Table" componentVisibility="breadcrumbs" />
             <NavNode key="components-tabs" controller="Components" action="Tabs" area="" preservedRouteParameters="culture" text="Nav_Components_Tabs" componentVisibility="breadcrumbs" />
-            <NavNode key="components-user-login" controller="Components" action="UserLogin" area="" preservedRouteParameters="culture" text="Nav_Components_UserLogin" componentVisibility="breadcrumbs">
+            <NavNode key="components-account" controller="Components" action="Account" area="" preservedRouteParameters="culture" text="Nav_Components_Account" componentVisibility="breadcrumbs">
 							<Children>
-								<NavNode key="user-login-examples" controller="UserLoginExample" action="Index" area="" preservedRouteParameters="culture" text="Nav_UserLogin_Examples" />
-								<NavNode key="user-login-positions" controller="UserLoginExample" action="PositionExample" area="" preservedRouteParameters="culture" text="Nav_UserLogin_Positions" />
+								<NavNode key="account-examples" controller="AccountExample" action="Index" area="" preservedRouteParameters="culture" text="Nav_Account_Examples" />
+								<NavNode key="account-positions" controller="AccountExample" action="PositionExample" area="" preservedRouteParameters="culture" text="Nav_Account_Positions" />
 							</Children>
 						</NavNode>
           </Children>

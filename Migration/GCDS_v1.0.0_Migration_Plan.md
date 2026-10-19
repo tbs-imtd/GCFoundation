@@ -98,7 +98,7 @@ Update raw markup to match v1 (tag helpers only fix markup that goes through the
 - [`GCFoundation.Components/Views/Shared/_BilingualErrorTemplate.cshtml`](../GCFoundation.Components/Views/Shared/_BilingualErrorTemplate.cshtml): same container pattern.
 - [`GCFoundation.Components/Views/Shared/_PageNotification.cshtml`](../GCFoundation.Components/Views/Shared/_PageNotification.cshtml): `type` → **`notice-role`** on `gcds-notice`.
 
-**Web views / samples:** replace `gcds-container` **`centered`** and **`gcds-notice` `type=`** everywhere under [`GCFoundation.Web/Views`](../GCFoundation.Web/Views) (e.g. `UserLogin.cshtml`, `UserLoginExample/Index.cshtml`, `StatelessAuthExample`, form samples, template demos, `Styles/Index.cshtml`, error demos).
+**Web views / samples:** replace `gcds-container` **`centered`** and **`gcds-notice` `type=`** everywhere under [`GCFoundation.Web/Views`](../GCFoundation.Web/Views) (e.g. `Account.cshtml`, `AccountExample/Index.cshtml`, `StatelessAuthExample`, form samples, template demos, `Styles/Index.cshtml`, error demos).
 
 **Menu:** [`GCFoundation.Web/Views/Shared/_menu.cshtml`](../GCFoundation.Web/Views/Shared/_menu.cshtml): `alignment="right"` → **`alignment="end"`**.
 
@@ -119,7 +119,7 @@ Update raw markup to match v1 (tag helpers only fix markup that goes through the
 
 1. **Build** solution.
 2. **Run** `GCFoundation.Web`: confirm layout, header/footer, nav, notices, and sample pages render without console errors; confirm GCDS script loads (network 200, CSP happy).
-3. **Spot-check** pages that heavily use GCDS: installation/components docs, User Login examples, template demos, Styles deprecation page.
+3. **Spot-check** pages that heavily use GCDS: installation/components docs, Account examples, template demos, Styles deprecation page.
 4. **Full test** `GCFoundation.Tests.Components`.
 
 ## Risk notes

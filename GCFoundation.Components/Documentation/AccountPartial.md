@@ -1,10 +1,10 @@
-# User Login Partial Documentation
+# Account Partial Documentation
 
 Note: For a complete end-to-end view of authentication methods and session guidance, see `AuthenticationAndSession.md` (single consolidated guide).
 
 ## Overview
 
-The User Login Partial is a configurable, localized component for displaying user authentication information in GCFoundation applications. It supports both English and French languages and can be customized to show different user information based on your application's requirements.
+The Account Partial is a configurable, localized component for displaying user authentication information in GCFoundation applications. It supports both English and French languages and can be customized to show different user information based on your application's requirements.
 
 ## Features
 
@@ -22,11 +22,11 @@ The User Login Partial is a configurable, localized component for displaying use
 
 ### 1. Update appsettings.json
 
-Add the user login settings to your `appsettings.json` file:
+Add the account settings to your `appsettings.json` file:
 
 ```json
 {
-  "UserLoginSettings": {
+  "AccountSettings": {
     "ShowUserName": true,
     "ShowUserEmail": false,
     "ShowLoginTime": false,
@@ -39,7 +39,16 @@ Add the user login settings to your `appsettings.json` file:
     "ContainerCssClasses": "mb-200",
     "ShowUserAvatar": false,
     "CustomGreetingKey": null,
-    "Position": "header"
+    "Position": "header",
+    "DisplayMode": "Dropdown",
+    "MenuItems": [
+      {
+        "TextEn": "My profile",
+        "TextFr": "Mon profil",
+        "Url": "/profile",
+        "Icon": "profile"
+      }
+    ]
   }
 }
 ```
@@ -53,24 +62,24 @@ builder.Services.AddGCFoundationComponents(builder.Configuration);
 ```
 
 This registers:
-- `GCFoundationUserLoginSettings` configuration
-- `UserLoginService` for creating view models
+- `GCFoundationAccountSettings` configuration
+- `AccountService` for creating view models
 
 ### 3. Enable in Layout
 
-The foundation layout (`_FoundationLayout.cshtml`) already supports login partials. Simply set the partial name in your controller:
+The foundation layout (`_FoundationLayout.cshtml`) already supports account partials. Simply set the partial name in your controller:
 
 ```csharp
 public IActionResult Index()
 {
-    ViewData["LoginPartialViewName"] = "_UserLoginPartial";
+    ViewData["AccountPartialViewName"] = "_AccountPartial";
     return View();
 }
 ```
 
 ## Configuration Options
 
-### GCFoundationUserLoginSettings Properties
+### GCFoundationAccountSettings Properties
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
@@ -88,6 +97,9 @@ public IActionResult Index()
 | `ShowUserAvatar` | bool | false | Show user avatar/initials |
 | `CustomGreetingKey` | string | null | Custom localization key for greeting |
 | `Position` | string | "header" | Position in the layout |
+| `DisplayMode` | string | "Inline" | Header rendering style: `Inline` or `Dropdown` |
+| `MenuButtonLabel` | string | null | Optional text in the dropdown trigger; defaults to generated initials |
+| `MenuItems` | array | [] | Additional application-provided account menu items; enabled profile and sign-out actions are appended automatically |
 
 ## Usage Examples
 
@@ -99,8 +111,8 @@ public class DashboardController : GCFoundationBaseController
 {
     public IActionResult Index()
     {
-        // Enable the user login partial in the layout
-        ViewData["LoginPartialViewName"] = "_UserLoginPartial";
+        // Enable the account partial in the layout
+        ViewData["AccountPartialViewName"] = "_AccountPartial";
         return View();
     }
 }
@@ -111,17 +123,17 @@ public class DashboardController : GCFoundationBaseController
 ```csharp
 public class ProfileController : GCFoundationBaseController
 {
-    private readonly UserLoginService _userLoginService;
+    private readonly AccountService _accountService;
     
-    public ProfileController(UserLoginService userLoginService)
+    public ProfileController(AccountService accountService)
     {
-        _userLoginService = userLoginService;
+        _accountService = accountService;
     }
     
     public IActionResult Index()
     {
         // Create custom user model
-        var userModel = _userLoginService.CreateViewModel(
+        var userModel = _accountService.CreateViewModel(
             userName: "John Doe",
             userEmail: "john.doe@canada.ca",
             firstName: "John",
@@ -141,14 +153,14 @@ public class ProfileController : GCFoundationBaseController
 ```razor
 @using GCFoundation.Components.Models
 @using GCFoundation.Components.Services
-@inject UserLoginService UserLoginService
+@inject AccountService AccountService
 
 @{
     // Get user information from current context
-    var loginModel = UserLoginService.CreateViewModelFromContext();
+    var accountModel = AccountService.CreateViewModelFromContext();
 }
 
-<partial name="_UserLoginPartial" model="loginModel" />
+<partial name="_AccountPartial" model="accountModel" />
 ```
 
 ### Header-inline variant (default)
@@ -158,7 +170,7 @@ When `Position` is set to `"header"` (default), the component renders a compact,
 - Text: "Signed in as: NAME" / "Connecté en tant que : NOM"
 - Button: "Sign out" / "Se déconnecter"
 
-No additional markup is required beyond rendering the partial as shown above. The inline layout uses the CSS class `.user-login-inline`.
+No additional markup is required beyond rendering the partial as shown above. The inline layout uses the CSS class `.account-inline`.
 
 ## Localization
 
@@ -184,7 +196,7 @@ You can create custom greeting messages by setting the `CustomGreetingKey` prope
 
 ```json
 {
-  "UserLoginSettings": {
+  "AccountSettings": {
     "CustomGreetingKey": "CustomWelcome"
   }
 }
@@ -192,14 +204,14 @@ You can create custom greeting messages by setting the `CustomGreetingKey` prope
 
 Then add the key to your resource files:
 
-**UserLogin.en.resx**:
+**Account.en.resx**:
 ```xml
 <data name="CustomWelcome" xml:space="preserve">
   <value>Hello, {0}! Welcome back.</value>
 </data>
 ```
 
-**UserLogin.fr.resx**:
+**Account.fr.resx**:
 ```xml
 <data name="CustomWelcome" xml:space="preserve">
   <value>Bonjour, {0}! Bon retour.</value>
@@ -210,7 +222,7 @@ Then add the key to your resource files:
 
 ### Claims-Based Authentication
 
-The `UserLoginService` automatically extracts user information from claims:
+The `AccountService` automatically extracts user information from claims:
 
 ```csharp
 // The service looks for these standard claims:
@@ -246,14 +258,14 @@ You can override the automatic context extraction by creating custom view models
 ```csharp
 public class CustomAuthController : Controller
 {
-    private readonly UserLoginService _userLoginService;
+    private readonly AccountService _accountService;
     
     public IActionResult GetUserInfo()
     {
         // Get user info from your custom source (database, external API, etc.)
         var userInfo = GetUserFromDatabase(User.Identity.Name);
         
-        var userModel = _userLoginService.CreateViewModel(
+        var userModel = _accountService.CreateViewModel(
             userName: userInfo.FullName,
             userEmail: userInfo.Email,
             firstName: userInfo.FirstName,
@@ -282,7 +294,7 @@ The component uses GCDS and Foundation CSS classes compiled via the Components S
 
 The styles live in the Components project and are compiled to `wwwroot/css/foundation.min.css`:
 
-- `wwwroot/src/scss/components/_fdcp-user-login.scss` (main component styles, includes `.user-login-inline`)
+- `wwwroot/src/scss/components/_fdcp-account.scss` (main component styles, includes `.account-inline`)
 - `wwwroot/src/scss/components/_fdcp-demo-panel.scss` (example-only panel styles used in docs/examples)
 
 Build pipeline compiles these with the Components `gulpfile.js`. No inline CSS is used so CSP nonces are not required for styles.
@@ -300,18 +312,18 @@ If you must add inline styles or scripts, use the nonce helper:
 ### Example Custom Styling
 
 ```css
-.user-login-partial .user-greeting {
+.account-partial .user-greeting {
     font-size: 1.25rem;
     color: var(--gcds-color-primary);
 }
 
-.user-login-partial .session-info {
+.account-partial .session-info {
     background: var(--gcds-color-background-warning);
     border-left: 4px solid var(--gcds-color-warning);
 }
 
 @media (max-width: 768px) {
-    .user-login-partial .user-actions {
+    .account-partial .user-actions {
         flex-direction: column;
         gap: 0.25rem;
     }
@@ -332,18 +344,18 @@ The component includes several accessibility features:
 
 ### Common Issues
 
-1. **Partial not displaying**: Ensure `LoginPartialViewName` is set in ViewData
+1. **Partial not displaying**: Ensure `AccountPartialViewName` is set in ViewData
 2. **Localization not working**: Verify resource files are included in build
 3. **Session timeout not showing**: Check session configuration and login time in session
 4. **Custom settings not applied**: Verify appsettings.json configuration section name
 
 ### Debug Information
 
-You can inspect the user login model in your views:
+You can inspect the account model in your views:
 
 ```razor
 @{
-    var debugModel = UserLoginService.CreateViewModelFromContext();
+    var debugModel = AccountService.CreateViewModelFromContext();
 }
 
 <pre>
@@ -360,9 +372,9 @@ Minutes Until Expiry: @debugModel.MinutesUntilExpiry
 
 The Web project includes a complete example implementation:
 
-- **Controller**: `UserLoginExampleController.cs`
-- **Views**: `Views/UserLoginExample/`
-- **Routes**: `/examples/user-login`
+- **Controller**: `AccountExampleController.cs`
+- **Views**: `Views/AccountExample/`
+- **Routes**: `/examples/account`
 
 Visit the examples to see different configurations and use cases in action.
 

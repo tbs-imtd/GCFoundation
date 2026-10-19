@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -153,8 +153,8 @@
   <data name="Nav_Components_Stepper" xml:space="preserve">
     <value>Stepper</value>
   </data>
-  <data name="Nav_Components_UserLogin" xml:space="preserve">
-    <value>User Login Partial</value>
+  <data name="Nav_Components_Account" xml:space="preserve">
+    <value>Account Partial</value>
   </data>
   <data name="Nav_Installation" xml:space="preserve">
     <value>Installation</value>
@@ -189,10 +189,10 @@
   <data name="Nav_Errors_Global" xml:space="preserve">
     <value>Global Error</value>
   </data>
-  <data name="Nav_UserLogin_Examples" xml:space="preserve">
+  <data name="Nav_Account_Examples" xml:space="preserve">
     <value>Interactive Examples</value>
   </data>
-  <data name="Nav_UserLogin_Positions" xml:space="preserve">
+  <data name="Nav_Account_Positions" xml:space="preserve">
     <value>Position Examples</value>
   </data>
   <data name="Nav_Authentication_StatelessExamples" xml:space="preserve">

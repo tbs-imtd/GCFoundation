@@ -1,15 +1,15 @@
 @using GCFoundation.Components.Enums
 @using GCFoundation.Web.Resources
 @{
-    ViewData["Title"] = Components.UserLogin_PageTitle;
+    ViewData["Title"] = Components.Account_PageTitle;
 }
 
 <gcds-container size="xl" alignment="center">
     <gcds-grid columns="1fr" columns-tablet="1fr" columns-desktop="1fr">
         <div>
-            <gcds-heading tag="h1">@Components.UserLogin_PageTitle</gcds-heading>
+            <gcds-heading tag="h1">@Components.Account_PageTitle</gcds-heading>
             <gcds-text>
-                @Components.UserLogin_PageDescription
+                @Components.Account_PageDescription
             </gcds-text>
         </div>
     </gcds-grid>
@@ -18,19 +18,19 @@
     <gcds-grid columns="1fr" class="mt-400">
         <section class="demo-panel demo-panel--accent" aria-labelledby="auth-status-title">
             <div class="demo-panel__header">
-                <gcds-heading tag="h2" size="h4" id="auth-status-title">@Components.UserLogin_AuthStatus_Title</gcds-heading>
+                <gcds-heading tag="h2" size="h4" id="auth-status-title">@Components.Account_AuthStatus_Title</gcds-heading>
             </div>
             <div class="demo-panel__body">
                 @if (User?.Identity?.IsAuthenticated == true)
                 {
                     <gcds-notice notice-role="@AlertType.success" notice-title-tag="h2" notice-title="Authenticated">
-                        <gcds-text>@string.Format(Components.UserLogin_Authenticated_Message, User.Identity.Name ?? "Demo User")</gcds-text>
+                        <gcds-text>@string.Format(Components.Account_Authenticated_Message, User.Identity.Name ?? "Demo User")</gcds-text>
                     </gcds-notice>
                 }
                 else
                 {
                     <gcds-notice notice-role="@AlertType.info" notice-title-tag="h2" notice-title="Not Authenticated">
-                        <gcds-text>@Components.UserLogin_NotAuthenticated_Message</gcds-text>
+                        <gcds-text>@Components.Account_NotAuthenticated_Message</gcds-text>
                     </gcds-notice>
                 }
             </div>
@@ -39,38 +39,38 @@
 
     <gcds-grid columns="1fr" columns-tablet="1fr 1fr" columns-desktop="1fr 1fr" class="mt-300" equal-row-height>
         <fdcp-card>
-            <gcds-text>@Components.UserLogin_TestAuthStates</gcds-text>
+            <gcds-text>@Components.Account_TestAuthStates</gcds-text>
             <div class="mt-200">
                 <form method="post" asp-action="SimulateLogin" class="d-inline-block">
                     @Html.AntiForgeryToken()
                     <gcds-button button-role="primary" type="submit">
-                        @Components.UserLogin_SimulateLogin
+                        @Components.Account_SimulateLogin
                     </gcds-button>
                 </form>
                 <form method="post" asp-action="SimulateLogout" class="d-inline-block">
                     @Html.AntiForgeryToken()
                     <gcds-button button-role="secondary" type="submit">
-                        @Components.UserLogin_SimulateLogout
+                        @Components.Account_SimulateLogout
                     </gcds-button>
                 </form>
             </div>
         </fdcp-card>
 
         <fdcp-card>
-            <gcds-text>@Components.UserLogin_ApiTest_Message<a href="@Url.Action("GetUserInfo")"> @Components.UserLogin_ApiTest_Link</a> </gcds-text>
+            <gcds-text>@Components.Account_ApiTest_Message<a href="@Url.Action("GetUserInfo")"> @Components.Account_ApiTest_Link</a> </gcds-text>
         </fdcp-card>
     </gcds-grid>
 
     <gcds-grid columns="1fr" class="mt-400">
         <div>
-            <gcds-heading tag="h2">@Components.UserLogin_ConfigurationOptions</gcds-heading>
+            <gcds-heading tag="h2">@Components.Account_ConfigurationOptions</gcds-heading>
             <gcds-text>
-                @Components.UserLogin_ConfigDescription
+                @Components.Account_ConfigDescription
             </gcds-text>
             
             <gcds-details details-title="Configuration Settings" class="mt-200">
                 <pre class="language-json"><code>{
-  "UserLoginSettings": {
+  "AccountSettings": {
     "ShowUserName": true,
     "ShowUserEmail": false,
     "ShowLoginTime": false,
@@ -92,8 +92,8 @@
                 <pre class="language-csharp"><code>// In your controller
 public IActionResult Index()
 {
-    // Set the login partial to be used in the layout
-    ViewData["LoginPartialViewName"] = "_UserLoginPartial";
+    // Set the account partial to be used in the layout
+    ViewData["AccountPartialViewName"] = "_AccountPartial";
     
     return View();
 }
@@ -101,7 +101,7 @@ public IActionResult Index()
 // Or create a custom model
 public IActionResult CustomLogin()
 {
-    var userModel = _userLoginService.CreateViewModel(
+    var userModel = _accountService.CreateViewModel(
         userName: "John Doe",
         userEmail: "john.doe@example.com",
         firstName: "John",
@@ -118,30 +118,30 @@ public IActionResult CustomLogin()
             <gcds-details details-title="Usage in Views" class="mt-200">
                 <pre class="language-cshtml"><code>@using GCFoundation.Components.Models
 @using GCFoundation.Components.Services
-@inject UserLoginService UserLoginService
+@inject AccountService AccountService
 
 @{
-    var loginModel = UserLoginService.CreateViewModelFromContext();
+    var loginModel = AccountService.CreateViewModelFromContext();
 }
 
-&lt;partial name="_UserLoginPartial" model="loginModel" /&gt;</code></pre>
+&lt;partial name="_AccountPartial" model="loginModel" /&gt;</code></pre>
             </gcds-details>
         </div>
     </gcds-grid>
 
     <gcds-grid columns="1fr" class="mt-400">
         <div>
-            <gcds-heading tag="h2">@Components.UserLogin_Features</gcds-heading>
+            <gcds-heading tag="h2">@Components.Account_Features</gcds-heading>
             <ul>
-                <li><gcds-text>@Components.UserLogin_Feature_Bilingual</gcds-text></li>
-                <li><gcds-text>@Components.UserLogin_Feature_Configurable</gcds-text></li>
-                <li><gcds-text>@Components.UserLogin_Feature_CompactFull</gcds-text></li>
-                <li><gcds-text>@Components.UserLogin_Feature_SessionTimeout</gcds-text></li>
-                <li><gcds-text>@Components.UserLogin_Feature_Avatar</gcds-text></li>
-                <li><gcds-text>@Components.UserLogin_Feature_GCDS</gcds-text></li>
-                <li><gcds-text>@Components.UserLogin_Feature_Responsive</gcds-text></li>
-                <li><gcds-text>@Components.UserLogin_Feature_Accessibility</gcds-text></li>
-                <li><gcds-text>@Components.UserLogin_Feature_Integration</gcds-text></li>
+                <li><gcds-text>@Components.Account_Feature_Bilingual</gcds-text></li>
+                <li><gcds-text>@Components.Account_Feature_Configurable</gcds-text></li>
+                <li><gcds-text>@Components.Account_Feature_CompactFull</gcds-text></li>
+                <li><gcds-text>@Components.Account_Feature_SessionTimeout</gcds-text></li>
+                <li><gcds-text>@Components.Account_Feature_Avatar</gcds-text></li>
+                <li><gcds-text>@Components.Account_Feature_GCDS</gcds-text></li>
+                <li><gcds-text>@Components.Account_Feature_Responsive</gcds-text></li>
+                <li><gcds-text>@Components.Account_Feature_Accessibility</gcds-text></li>
+                <li><gcds-text>@Components.Account_Feature_Integration</gcds-text></li>
             </ul>
         </div>
     </gcds-grid>
