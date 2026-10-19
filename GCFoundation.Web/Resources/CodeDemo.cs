@@ -94,6 +94,4 @@ internal static class CodeDemo
     public static string PropSelectedLanguage => Get(nameof(PropSelectedLanguage));
     /// <summary>Gets the localized PropSyncGroup text.</summary>
     public static string PropSyncGroup => Get(nameof(PropSyncGroup));
-    /// <summary>Gets the localized ApiCallTitle text.</summary>
-    public static string ApiCallTitle => Get(nameof(ApiCallTitle));
 }

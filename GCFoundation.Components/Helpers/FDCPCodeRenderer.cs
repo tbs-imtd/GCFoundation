@@ -3,7 +3,6 @@ using GCFoundation.Components.Resources;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Globalization;
-using System.Text.Encodings.Web;
 
 namespace GCFoundation.Components.Helpers
 {
@@ -222,13 +221,6 @@ namespace GCFoundation.Components.Helpers
             var value = language?.Trim().ToLowerInvariant() ?? string.Empty;
             if (value.Length == 0 || PlainTextAliases.Contains(value)) return PlainTextLanguage;
             return value.All(c => char.IsAsciiLetterOrDigit(c) || c is '-' or '_') ? value : PlainTextLanguage;
-        }
-
-        internal static string RenderToString(CodeBlockOptions options)
-        {
-            using var writer = new StringWriter(CultureInfo.InvariantCulture);
-            Render(options).WriteTo(writer, HtmlEncoder.Default);
-            return writer.ToString();
         }
 
         private static TagBuilder LanguageLabel(string label)

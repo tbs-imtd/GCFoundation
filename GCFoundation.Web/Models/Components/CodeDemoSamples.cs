@@ -69,30 +69,6 @@ namespace GCFoundation.Web.Models.Components
                 """ }
         ];
 
-        /// <summary>Gets examples that call the API with a client certificate.</summary>
-        public static IReadOnlyList<CodeSample> CertificateCall =>
-        [
-            new() { Language = "bash", Code = """
-                curl --cert client.pem --key client.key \
-                  --header "Authorization: Bearer YOUR_ACCESS_TOKEN" \
-                  https://api.example.gc.ca/v1/requests/REQUEST_ID
-                """ },
-            new() { Language = "csharp", Code = """
-                var handler = new HttpClientHandler();
-                handler.ClientCertificates.Add(X509Certificate2.CreateFromPemFile("client.pem", "client.key"));
-                using var client = new HttpClient(handler);
-                client.DefaultRequestHeaders.Authorization = new("Bearer", "YOUR_ACCESS_TOKEN");
-                var response = await client.GetAsync("https://api.example.gc.ca/v1/requests/REQUEST_ID");
-                """ },
-            new() { Language = "python", Code = """
-                response = requests.get(
-                    "https://api.example.gc.ca/v1/requests/REQUEST_ID",
-                    cert=("client.pem", "client.key"),
-                    headers={"Authorization": "Bearer YOUR_ACCESS_TOKEN"},
-                )
-                """ }
-        ];
-
         /// <summary>Gets a plain text log with long lines.</summary>
         public static string Log => """
             2026-10-19T08:15:02Z INFO  Request 3f2c9a1e-7b4d-4c1a-9a63-2f0d5e8b1c47 received from https://api.example.gc.ca/v1/requests with correlation ID 7d9e2b40-1c4f-4e8a-b3a5-6f1d2c9e8a71
