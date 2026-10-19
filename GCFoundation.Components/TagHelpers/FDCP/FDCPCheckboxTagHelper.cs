@@ -77,11 +77,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             };
 
             AddAttributeIfNotNull(output, "legend", field.Label);
-            AddAttributeIfNotNull(output, "name", field.Name);
             AddAttributeIfNotNull(output, "options", JsonSerializer.Serialize(new[] { option }, CamelCaseOptions));
-            AddBooleanAttribute(output, "required", field.Required);
-
             output.Content.SetHtmlContent(string.Empty);
+            base.Process(context, output);
         }
     }
 }

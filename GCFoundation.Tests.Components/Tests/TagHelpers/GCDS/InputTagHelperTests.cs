@@ -1,6 +1,5 @@
 using GCFoundation.Components.TagHelpers.GCDS;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using Microsoft.AspNetCore.Mvc.ModelBinding.Metadata;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -54,6 +53,46 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
             Assert.Equal("Custom hint", output.Attributes["hint"].Value?.ToString());
             Assert.Equal("override@example.com", output.Attributes["value"].Value?.ToString());
             Assert.False(output.Attributes.ContainsName("required"));
+        }
+
+        [Fact]
+        public void Process_WithMinMaxAndLengthAttributes_EmitsThem()
+        {
+            var helper = new InputTagHelper
+            {
+                For = CreateModelExpression(nameof(TestModel.Email), new TestModel()),
+                ViewContext = new ViewContext(),
+                Min = "1",
+                Max = "10",
+                MinLength = 2,
+                MaxLength = 50
+            };
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.Equal("1", output.Attributes["min"].Value?.ToString());
+            Assert.Equal("10", output.Attributes["max"].Value?.ToString());
+            Assert.Equal("2", output.Attributes["minlength"].Value?.ToString());
+            Assert.Equal("50", output.Attributes["maxlength"].Value?.ToString());
+        }
+
+        [Fact]
+        public void Process_WithoutMinMaxAndLengthAttributes_OmitsThem()
+        {
+            var helper = new InputTagHelper
+            {
+                For = CreateModelExpression(nameof(TestModel.Email), new TestModel()),
+                ViewContext = new ViewContext()
+            };
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.False(output.Attributes.ContainsName("min"));
+            Assert.False(output.Attributes.ContainsName("max"));
+            Assert.False(output.Attributes.ContainsName("minlength"));
+            Assert.False(output.Attributes.ContainsName("maxlength"));
         }
 
         private static ModelExpression CreateModelExpression(string propertyName, TestModel model)

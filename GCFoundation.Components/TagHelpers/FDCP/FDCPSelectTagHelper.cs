@@ -52,19 +52,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.TagName = "gcds-select";
             output.TagMode = TagMode.StartTagAndEndTag;
 
-            AddAttributeIfNotNull(output, "name", field.Name);
             AddAttributeIfNotNull(output, "select-id", field.Id);
             AddAttributeIfNotNull(output, "class", "gcds-select");
             AddAttributeIfNotNull(output, "label", field.Label);
-            AddAttributeIfNotNull(output, "lang", Lang);
-            AddAttributeIfNotNull(output, "hint", field.Hint);
             AddAttributeIfNotNull(output, "default-value", DefaultValue);
-
-            AddBooleanAttribute(output, "required", field.Required);
-            AddAttributeIfNotNull(output, "validate-on", "blur");
-
-            string? errorMessage = ResolveModelStateError(field.Name);
-            AddAttributeIfNotNull(output, "error-message", errorMessage);
 
             string? selectedValue = field.Value ?? field.Model?.ToString();
             var sb = new StringBuilder();
@@ -74,8 +65,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 var selected = selectedValue == item.Value ? " selected" : "";
                 sb.AppendLine(CultureInfo.InvariantCulture, $"<option value='{item.Value}'{selected}>{item.Text}</option>");
             }
-
             output.Content.SetHtmlContent(sb.ToString());
+            base.Process(context, output);
         }
     }
 }

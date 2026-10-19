@@ -42,7 +42,7 @@ jobs:
     needs: build-and-test
     runs-on: ubuntu-latest
     container:
-      image: mcr.microsoft.com/playwright:v1.49.0-jammy
+      image: mcr.microsoft.com/playwright:v1.55.0-jammy
     
     steps:
     - uses: actions/checkout@v4
@@ -66,6 +66,7 @@ jobs:
       run: npm ci
 
     - name: Install Playwright browsers
+      working-directory: e2e
       run: |
         npx playwright install chrome
         npx playwright install firefox
