@@ -1,0 +1,268 @@
+/* Selectors are nested under the root so container rules such as `.documentation-content pre` cannot restyle the component. */
+.fdcp-code {
+    background: var(--gcds-bg-white);
+    border: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+    border-radius: var(--gcds-border-radius-sm);
+    color: var(--gcds-text-primary);
+    margin-block: var(--gcds-spacing-200) var(--gcds-spacing-400);
+    max-width: 100%;
+    min-width: 0;
+
+    .fdcp-code__header {
+        align-items: center;
+        border-bottom: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gcds-spacing-150);
+        justify-content: space-between;
+        padding: var(--gcds-spacing-150) var(--gcds-spacing-200);
+    }
+
+    .fdcp-code__heading {
+        display: flex;
+        flex-direction: column;
+        gap: var(--gcds-spacing-50);
+        min-width: 0;
+
+        .fdcp-code__language { padding: 0; }
+    }
+
+    .fdcp-code__title {
+        font-family: var(--gcds-font-families-body);
+        font-size: var(--gcds-font-sizes-text);
+        font-weight: var(--gcds-font-weights-bold);
+        margin: 0;
+        max-width: var(--gcds-text-character-limit);
+        overflow-wrap: anywhere;
+    }
+
+    .fdcp-code__controls {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gcds-spacing-150);
+        margin-inline-start: auto;
+
+        &[hidden] { display: none; }
+    }
+
+    .fdcp-code__picker {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--gcds-spacing-100);
+    }
+
+    .fdcp-code__select-label {
+        font-size: var(--gcds-font-sizes-text-small);
+        font-weight: var(--gcds-font-weights-bold);
+        margin: 0;
+    }
+
+    .fdcp-code__select,
+    .fdcp-code__copy {
+        border-radius: var(--gcds-select-border-radius, var(--gcds-input-border-radius, 0.125rem));
+        font-family: var(--gcds-font-families-body);
+        font-size: var(--gcds-font-sizes-text-small);
+        line-height: var(--gcds-line-heights-text-small);
+        min-height: var(--gcds-select-min-width-and-height, 3rem);
+        outline-color: transparent;
+        outline-style: solid;
+        padding: var(--gcds-spacing-50) var(--gcds-spacing-150);
+    }
+
+    .fdcp-code__select {
+        background-color: var(--gcds-select-default-background, var(--gcds-bg-white));
+        border: var(--gcds-select-border-width, var(--gcds-input-border-width, 0.125rem)) solid currentColor;
+        color: var(--gcds-select-default-text, var(--gcds-text-primary));
+        max-width: 100%;
+
+        &:focus {
+            border-color: var(--gcds-input-focus-border, var(--gcds-focus-border));
+            box-shadow: var(--gcds-input-focus-box-shadow, none);
+            outline-color: var(--gcds-input-focus-border, var(--gcds-focus-border));
+            outline-offset: var(--gcds-input-border-width, 0.125rem);
+            outline-width: var(--gcds-input-outline-width, 0.1875rem);
+        }
+    }
+
+    .fdcp-code__copy {
+        background-color: var(--gcds-bg-white);
+        border: var(--gcds-button-border-width, 0.125rem) solid var(--gcds-link-default);
+        color: var(--gcds-link-default);
+        cursor: pointer;
+        font-weight: var(--gcds-font-weights-bold);
+
+        &:hover {
+            background-color: var(--gcds-bg-light);
+        }
+
+        &:focus-visible {
+            background-color: var(--gcds-button-shared-focus-background, var(--gcds-focus-border));
+            border-color: var(--gcds-button-shared-focus-background, var(--gcds-focus-border));
+            box-shadow: var(--gcds-button-shared-focus-box-shadow, none);
+            color: var(--gcds-button-shared-focus-text, var(--gcds-text-light));
+            outline-color: var(--gcds-focus-border);
+            outline-offset: var(--gcds-link-focus-outline-offset, 0.125rem);
+            outline-width: var(--gcds-button-shared-focus-outline-width, 0.1875rem);
+        }
+    }
+
+    .fdcp-code__status {
+        font-size: var(--gcds-font-sizes-text-small);
+        max-width: 32rem;
+
+        // Hiding the empty region with display: none stops some screen readers announcing the next message.
+        &:empty {
+            clip-path: inset(50%);
+            height: 1px;
+            overflow: hidden;
+            position: absolute;
+            white-space: nowrap;
+            width: 1px;
+        }
+    }
+
+    .fdcp-code__language {
+        color: var(--gcds-text-secondary);
+        font-size: var(--gcds-font-sizes-text-small);
+        font-weight: var(--gcds-font-weights-bold);
+        margin: 0;
+        padding: var(--gcds-spacing-100) var(--gcds-spacing-200) 0;
+    }
+
+    .fdcp-code__panel + .fdcp-code__panel:not([hidden]) {
+        border-top: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+    }
+
+    .fdcp-code__pre {
+        background: transparent;
+        border: 0;
+        border-radius: 0;
+        box-sizing: border-box;
+        color: var(--gcds-text-primary);
+        font-family: var(--gcds-font-families-monospace);
+        font-size: var(--gcds-font-sizes-text-small);
+        line-height: var(--gcds-line-heights-text);
+        margin: 0;
+        max-width: 100%;
+        overflow-x: auto;
+        padding: var(--gcds-spacing-150) var(--gcds-spacing-200) var(--gcds-spacing-200);
+        tab-size: 4;
+        white-space: pre;
+
+        &:focus-visible {
+            outline: var(--gcds-link-focus-outline-width, 0.1875rem) solid var(--gcds-focus-border);
+            outline-offset: calc(-1 * var(--gcds-link-focus-outline-width, 0.1875rem));
+        }
+    }
+
+    .fdcp-code__code {
+        background: transparent;
+        color: inherit;
+        display: block;
+        font: inherit;
+        overflow-wrap: normal;
+        padding: 0;
+        white-space: inherit;
+        word-break: normal;
+    }
+
+    &.fdcp-code--wrap .fdcp-code__pre {
+        overflow-wrap: anywhere;
+        white-space: pre-wrap;
+    }
+
+    &.fdcp-code--multiple.fdcp-code--enhanced .fdcp-code__language {
+        display: none;
+    }
+
+    // Every default colour keeps at least 4.5:1 contrast on a white background; override the properties to theme.
+    --fdcp-code-token-comment: #59636e;
+    --fdcp-code-token-keyword: #cf222e;
+    --fdcp-code-token-string: #0a3069;
+    --fdcp-code-token-function: #6639ba;
+    --fdcp-code-token-type: #953800;
+    --fdcp-code-token-constant: #0550ae;
+    --fdcp-code-token-property: #953800;
+    --fdcp-code-token-tag: #116329;
+
+    .token {
+        background: none;
+        // The global Prism theme fades some tokens, which drops them below 4.5:1 contrast.
+        opacity: 1;
+        text-shadow: none;
+
+        &.comment, &.prolog, &.doctype, &.cdata, &.block-comment {
+            color: var(--fdcp-code-token-comment);
+            font-style: italic;
+        }
+
+        &.punctuation, &.operator, &.entity, &.url, &.parameter {
+            color: var(--gcds-text-primary);
+        }
+
+        &.keyword, &.atrule, &.important, &.directive, &.rule {
+            color: var(--fdcp-code-token-keyword);
+        }
+
+        &.string, &.char, &.attr-value, &.regex, &.template-string, &.triple-quoted-string, &.inserted {
+            color: var(--fdcp-code-token-string);
+        }
+
+        &.function, &.method, &.decorator {
+            color: var(--fdcp-code-token-function);
+        }
+
+        &.class-name, &.builtin, &.namespace, &.return-type, &.type-expression, &.generic {
+            color: var(--fdcp-code-token-type);
+        }
+
+        &.number, &.boolean, &.constant, &.symbol, &.variable, &.deleted {
+            color: var(--fdcp-code-token-constant);
+        }
+
+        &.property, &.attr-name {
+            color: var(--fdcp-code-token-property);
+        }
+
+        &.tag, &.selector, &.environment, &.shebang {
+            color: var(--fdcp-code-token-tag);
+        }
+
+        &.interpolation-punctuation, &.template-punctuation {
+            color: var(--fdcp-code-token-keyword);
+        }
+
+        &.bold { font-weight: var(--gcds-font-weights-bold); }
+        &.italic { font-style: italic; }
+    }
+}
+
+@media (forced-colors: active) {
+    .fdcp-code {
+        border-color: CanvasText;
+
+        .fdcp-code__pre:focus-visible,
+        .fdcp-code__select:focus,
+        .fdcp-code__copy:focus-visible {
+            outline-color: Highlight;
+        }
+    }
+}
+
+@media print {
+    .fdcp-code {
+        break-inside: auto;
+
+        .fdcp-code__controls { display: none !important; }
+        .fdcp-code__panel[hidden] { display: block !important; }
+        &.fdcp-code--multiple.fdcp-code--enhanced .fdcp-code__language { display: block; }
+
+        .fdcp-code__pre {
+            overflow: visible;
+            overflow-wrap: anywhere;
+            white-space: pre-wrap;
+        }
+    }
+}

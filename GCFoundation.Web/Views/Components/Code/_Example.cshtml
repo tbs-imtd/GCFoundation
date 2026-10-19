@@ -1,0 +1,33 @@
+@using GCFoundation.Web.Models.Components
+@using GCFoundation.Web.Resources
+@model ComponentSampleCodeSectionViewModel
+
+<fdcp-code-example id="code-example-create" title="@Components.Code_SampleCreateTitle"
+                   examples="@CodeDemoSamples.CreateRequest" selected-language="csharp"
+                   sync-group="@CodeDemoSamples.RequestSyncGroup" />
+
+<fdcp-code-example id="code-example-read" title="@Components.Code_SampleReadTitle"
+                   examples="@CodeDemoSamples.ReadRequest"
+                   sync-group="@CodeDemoSamples.RequestSyncGroup" />
+
+<fdcp-code-block language="cshtml">
+    @@{
+        var createExamples = new List&lt;CodeSample&gt;
+        {
+            new() { Language = "csharp", Code = Model.CreateCSharp },
+            new() { Language = "javascript", Code = Model.CreateJavaScript },
+            new() { Language = "python", Code = Model.CreatePython }
+        };
+    }
+
+    &lt;fdcp-code-example id="code-example-create"
+                       title="@Components.Code_SampleCreateTitle"
+                       examples="@@createExamples"
+                       selected-language="csharp"
+                       sync-group="@CodeDemoSamples.RequestSyncGroup" /&gt;
+
+    &lt;fdcp-code-example id="code-example-read"
+                       title="@Components.Code_SampleReadTitle"
+                       examples="@@Model.ReadExamples"
+                       sync-group="@CodeDemoSamples.RequestSyncGroup" /&gt;
+</fdcp-code-block>

@@ -64,6 +64,7 @@
 				<NavNode key="components-foundation" controller="Components" action="Index" area="" preservedRouteParameters="culture" text="Nav_Components_GCFoundation">
 					<Children>
 						<NavNode key="components-accordion" controller="Components" action="Accordion" area="" preservedRouteParameters="culture" text="Nav_Components_Accordion" componentVisibility="breadcrumbs" />
+						<NavNode key="components-code" controller="Components" action="Code" area="" preservedRouteParameters="culture" text="Nav_Components_Code" componentVisibility="breadcrumbs" />
 						<NavNode key="components-badge" controller="Components" action="Badge" area="" preservedRouteParameters="culture" text="Nav_Components_Badge" componentVisibility="breadcrumbs" />
 						<NavNode key="components-card" controller="Components" action="Card" area="" preservedRouteParameters="culture" text="Nav_Components_Card" componentVisibility="breadcrumbs" />
 						<NavNode key="components-filtered-search" controller="Components" action="FilteredSearch" area="" preservedRouteParameters="culture" text="Nav_Components_FilteredSearch" componentVisibility="breadcrumbs" />

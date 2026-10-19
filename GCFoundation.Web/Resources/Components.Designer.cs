@@ -19,7 +19,7 @@ namespace GCFoundation.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Components {
@@ -1011,6 +1011,384 @@ namespace GCFoundation.Web.Resources {
         public static string Card_WithSlots_Title {
             get {
                 return ResourceManager.GetString("Card_WithSlots_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Give each code block a title, or place it under a heading that explains its purpose..
+        /// </summary>
+        public static string Code_Accessibility1 {
+            get {
+                return ResourceManager.GetString("Code_Accessibility1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The code area receives keyboard focus so long lines can be scrolled with the arrow keys..
+        /// </summary>
+        public static string Code_Accessibility2 {
+            get {
+                return ResourceManager.GetString("Code_Accessibility2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The language selector is a labelled native select, and copy results are announced in a polite status message..
+        /// </summary>
+        public static string Code_Accessibility3 {
+            get {
+                return ResourceManager.GetString("Code_Accessibility3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Use &lt;code&gt;fdcp-code-block&lt;/code&gt; for one snippet. Pass the source in the &lt;code&gt;code&lt;/code&gt; attribute, or write it as encoded child content: the first and last blank lines and the common indentation are removed.&lt;/p&gt;.
+        /// </summary>
+        public static string Code_BlockText {
+            get {
+                return ResourceManager.GetString("Code_BlockText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code block.
+        /// </summary>
+        public static string Code_BlockTitle {
+            get {
+                return ResourceManager.GetString("Code_BlockTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Use &lt;code&gt;fdcp-code-example&lt;/code&gt; to show the same example in several languages. Both examples below share a sync group: changing the language in one changes the other. The second example also offers Bash; choosing it leaves the first example unchanged.&lt;/p&gt;.
+        /// </summary>
+        public static string Code_ExampleText {
+            get {
+                return ResourceManager.GetString("Code_ExampleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multi-language example.
+        /// </summary>
+        public static string Code_ExampleTitle {
+            get {
+                return ResourceManager.GetString("Code_ExampleTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Unknown languages are displayed as plain text. Use &lt;code&gt;wrap=&quot;true&quot;&lt;/code&gt; for long lines that are easier to read wrapped, and &lt;code&gt;copy-enabled=&quot;false&quot;&lt;/code&gt; when copying is not useful.&lt;/p&gt;.
+        /// </summary>
+        public static string Code_FallbackText {
+            get {
+                return ResourceManager.GetString("Code_FallbackText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plain text and wrapping.
+        /// </summary>
+        public static string Code_FallbackTitle {
+            get {
+                return ResourceManager.GetString("Code_FallbackTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlighted code blocks and multi-language examples with copy and language selection..
+        /// </summary>
+        public static string Code_IndexDescription {
+            get {
+                return ResourceManager.GetString("Code_IndexDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string Code_Name {
+            get {
+                return ResourceManager.GetString("Code_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After inserting components into the page with JavaScript, call FDCPCode.initialize(container). Initializing the same component again has no effect..
+        /// </summary>
+        public static string Code_NoteDynamic {
+            get {
+                return ResourceManager.GetString("Code_NoteDynamic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code is always treated as text and encoded once; it is never run or inserted as HTML. Line endings are normalized to line feeds..
+        /// </summary>
+        public static string Code_NoteEncoding {
+            get {
+                return ResourceManager.GetString("Code_NoteEncoding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlighted languages: csharp, javascript, python, json, cshtml, markup (HTML), css, bash and aspnet. Other identifiers are displayed as plain text..
+        /// </summary>
+        public static string Code_NoteLanguages {
+            get {
+                return ResourceManager.GetString("Code_NoteLanguages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlighting starts when a block becomes visible. Code longer than 50,000 characters is displayed without highlighting..
+        /// </summary>
+        public static string Code_NoteLimit {
+            get {
+                return ResourceManager.GetString("Code_NoteLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Without JavaScript, every language variant is displayed with its label and the copy and language controls are hidden. Printing also shows every variant..
+        /// </summary>
+        public static string Code_NoteProgressive {
+            get {
+                return ResourceManager.GetString("Code_NoteProgressive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display code, configuration and API samples with syntax highlighting, a copy button and, for examples written in several languages, a language selector..
+        /// </summary>
+        public static string Code_Overview {
+            get {
+                return ResourceManager.GetString("Code_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source text. When omitted, the encoded child content is used..
+        /// </summary>
+        public static string Code_PropCode {
+            get {
+                return ResourceManager.GetString("Code_PropCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Displays the copy button..
+        /// </summary>
+        public static string Code_PropCopyEnabled {
+            get {
+                return ResourceManager.GetString("Code_PropCopyEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language variants (CodeSample: Language, Label, Code). Languages must be unique..
+        /// </summary>
+        public static string Code_PropExamples {
+            get {
+                return ResourceManager.GetString("Code_PropExamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier of the component. Generated when omitted..
+        /// </summary>
+        public static string Code_PropId {
+            get {
+                return ResourceManager.GetString("Code_PropId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language identifier, such as csharp, javascript, python or json. Unknown languages are displayed as plain text..
+        /// </summary>
+        public static string Code_PropLanguage {
+            get {
+                return ResourceManager.GetString("Code_PropLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display name of the language. Derived from the language when omitted..
+        /// </summary>
+        public static string Code_PropLanguageLabel {
+            get {
+                return ResourceManager.GetString("Code_PropLanguageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language displayed first. Defaults to the first example..
+        /// </summary>
+        public static string Code_PropSelectedLanguage {
+            get {
+                return ResourceManager.GetString("Code_PropSelectedLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Examples with the same group on a page switch language together..
+        /// </summary>
+        public static string Code_PropSyncGroup {
+            get {
+                return ResourceManager.GetString("Code_PropSyncGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visible title, also used to name the code area and the copy button..
+        /// </summary>
+        public static string Code_PropTitle {
+            get {
+                return ResourceManager.GetString("Code_PropTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wraps long lines instead of scrolling horizontally..
+        /// </summary>
+        public static string Code_PropWrap {
+            get {
+                return ResourceManager.GetString("Code_PropWrap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help developers read and reuse code examples. Applications supply the source text and languages; the component owns highlighting, copying, language selection, accessibility and styling..
+        /// </summary>
+        public static string Code_Purpose {
+            get {
+                return ResourceManager.GetString("Code_Purpose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Code that builds HTML in C# can call &lt;code&gt;FDCPCodeRenderer.Render&lt;/code&gt;, which returns &lt;code&gt;IHtmlContent&lt;/code&gt; with the same markup as the Tag Helpers. Tag Helpers placed inside generated HTML strings are not processed by Razor.&lt;/p&gt;.
+        /// </summary>
+        public static string Code_RendererText {
+            get {
+                return ResourceManager.GetString("Code_RendererText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rendering from C#.
+        /// </summary>
+        public static string Code_RendererTitle {
+            get {
+                return ResourceManager.GetString("Code_RendererTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a request.
+        /// </summary>
+        public static string Code_SampleCreateTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleCreateTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application log.
+        /// </summary>
+        public static string Code_SampleLogTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleLogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read a request.
+        /// </summary>
+        public static string Code_SampleReadTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleReadTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register Foundation services.
+        /// </summary>
+        public static string Code_SampleRegistrationTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleRegistrationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Access to information request.
+        /// </summary>
+        public static string Code_SampleRequestTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleRequestTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Example response.
+        /// </summary>
+        public static string Code_SampleResponseTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleResponseTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep examples short and focused. Link to complete files instead of pasting long sources..
+        /// </summary>
+        public static string Code_Ux1 {
+            get {
+                return ResourceManager.GetString("Code_Ux1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the same sync group for examples on one page that share languages, so readers choose their language once..
+        /// </summary>
+        public static string Code_Ux2 {
+            get {
+                return ResourceManager.GetString("Code_Ux2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Short code inside a sentence. Use the code element instead..
+        /// </summary>
+        public static string Code_WhenNot1 {
+            get {
+                return ResourceManager.GetString("Code_WhenNot1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secrets or real credentials. Use placeholders such as YOUR_ACCESS_TOKEN..
+        /// </summary>
+        public static string Code_WhenNot2 {
+            get {
+                return ResourceManager.GetString("Code_WhenNot2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show a code snippet, a configuration file or an API request or response..
+        /// </summary>
+        public static string Code_WhenUse1 {
+            get {
+                return ResourceManager.GetString("Code_WhenUse1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the same example in several programming languages..
+        /// </summary>
+        public static string Code_WhenUse2 {
+            get {
+                return ResourceManager.GetString("Code_WhenUse2", resourceCulture);
             }
         }
         
@@ -2136,7 +2514,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quick reference for non-featured FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet..
+        ///   Looks up a localized string similar to Quick reference for FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet..
         /// </summary>
         public static string Index_TagHelpers_Section_Description {
             get {
@@ -4619,22 +4997,22 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Table_Properties_Annotation_IsHidden", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Controls the display order of this column relative to other columns. Columns are rendered in ascending order by this value..
-        /// </summary>
-        public static string Table_Properties_Annotation_Order {
-            get {
-                return ResourceManager.GetString("Table_Properties_Annotation_Order", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Sets the column header text. Provide a resource key as &lt;code&gt;Name&lt;/code&gt; and the resource class as &lt;code&gt;ResourceType&lt;/code&gt; for a localized header..
         /// </summary>
         public static string Table_Properties_Annotation_NameResourceType {
             get {
                 return ResourceManager.GetString("Table_Properties_Annotation_NameResourceType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controls the display order of this column relative to other columns. Columns are rendered in ascending order by this value..
+        /// </summary>
+        public static string Table_Properties_Annotation_Order {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Order", resourceCulture);
             }
         }
         
@@ -5078,69 +5456,6 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Table_WithButtonLink_Note", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to with-slots-caption.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Anchor {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Anchor", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Add submission.
-        /// </summary>
-        public static string Table_WithCaptionSlot_ButtonLabel {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_ButtonLabel", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, clicking the Add submission button logs a message to the browser console.&lt;/i&gt;.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Note {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Note", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Submissions.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Caption {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Caption", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to List of recent submissions.
-        /// </summary>
-        public static string Table_WithCaptionSlot_CaptionDetail {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_CaptionDetail", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Use &lt;code&gt;&amp;lt;div slot="caption"&amp;gt;&lt;/code&gt; to inject custom content into the caption area of the table.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Text {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Text", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to With caption slot.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Title {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Title", resourceCulture);
-            }
-        }
         
         /// <summary>
         ///   Looks up a localized string similar to A &lt;code&gt;type=&quot;link&quot;&lt;/code&gt; button inside the slot navigates like a link. Use &lt;code&gt;data-bind-template-href&lt;/code&gt; to supply the destination URL from the current row&apos;s data..
@@ -5157,6 +5472,69 @@ namespace GCFoundation.Web.Resources {
         public static string Table_WithButtonLink_Title {
             get {
                 return ResourceManager.GetString("Table_WithButtonLink_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-slots-caption.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Anchor {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add submission.
+        /// </summary>
+        public static string Table_WithCaptionSlot_ButtonLabel {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_ButtonLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submissions.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List of recent submissions.
+        /// </summary>
+        public static string Table_WithCaptionSlot_CaptionDetail {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_CaptionDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, clicking the Add submission button logs a message to the browser console.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Note {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use &lt;code&gt;&amp;lt;div slot=&quot;caption&quot;&amp;gt;&lt;/code&gt; to inject custom content into the caption area of the table alongside the &lt;code&gt;caption&lt;/code&gt; and &lt;code&gt;caption-detail&lt;/code&gt; attributes. This is useful for placing action controls such as buttons directly above the table..
+        /// </summary>
+        public static string Table_WithCaptionSlot_Text {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With caption slot.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Title {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Title", resourceCulture);
             }
         }
         
