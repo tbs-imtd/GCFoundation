@@ -1,3 +1,4 @@
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.Helpers;
 using GCFoundation.Components.Models.Code;
 using GCFoundation.Components.TagHelpers.FDCP;
@@ -21,12 +22,13 @@ public class FDCPCodeTagHelperTests
     [Fact]
     public async Task CodeBlockRendersSemanticMarkupAndHidesControlsUntilInitialized()
     {
-        var doc = Parse(await RenderBlock(new() { Id = "response", Title = "Example response", Language = "json", Code = "{ \"id\": 1 }" }));
+        var doc = Parse(await Render(new() { Id = "response", Title = "Example response", Language = "json", Code = "{ \"id\": 1 }" }));
 
         var root = Single(doc, "//div[@data-fdcp-code='true']");
         Assert.Equal("response", root.Id);
         Assert.Contains("fdcp-code", root.GetClasses());
         Assert.DoesNotContain("fdcp-code--multiple", root.GetClasses());
+        Assert.Equal("light", root.GetAttributeValue("data-fdcp-code-theme", ""));
         Assert.Equal("Example response", Single(doc, "//p[@id='response-title']").InnerText);
 
         var controls = Single(doc, "//*[@data-fdcp-code-controls]");
@@ -37,7 +39,15 @@ public class FDCPCodeTagHelperTests
         Assert.Equal("button", button.GetAttributeValue("type", ""));
         Assert.Equal("response-title", button.GetAttributeValue("aria-describedby", ""));
         Assert.Equal("Copy code", button.InnerText);
-        Assert.Equal("status", Single(doc, "//*[@data-fdcp-code-status]").GetAttributeValue("role", ""));
+        Assert.Equal("Copy code", button.GetAttributeValue("aria-label", ""));
+        Assert.Equal("Copied!", button.GetAttributeValue("data-fdcp-code-copied-label", ""));
+        Assert.Null(doc.DocumentNode.SelectSingleNode("//*[@data-fdcp-code-controls]//*[@data-fdcp-code-visible-status]"));
+        var status = Single(doc, "//*[@data-fdcp-code-status]");
+        Assert.Equal("status", status.GetAttributeValue("role", ""));
+        Assert.Equal("polite", status.GetAttributeValue("aria-live", ""));
+        Assert.Equal("true", status.GetAttributeValue("aria-atomic", ""));
+        Assert.Null(status.SelectSingleNode("ancestor::*[@data-fdcp-code-controls]"));
+        Assert.Equal("true", Single(doc, "//*[@data-fdcp-code-visible-status]").GetAttributeValue("aria-hidden", ""));
         Assert.Equal("Code copied to the clipboard.", Decode(root.GetAttributeValue("data-fdcp-code-copied", "")));
 
         var panel = Single(doc, "//div[@data-fdcp-code-panel]");
@@ -94,9 +104,9 @@ public class FDCPCodeTagHelperTests
     }
 
     [Fact]
-    public void CodeExampleRendersEveryVariantReadableWithLabelledSelector()
+    public async Task SeveralLanguagesRenderALabelledSelector()
     {
-        var output = RenderExample(new()
+        var output = await Render(new()
         {
             Id = "create",
             Title = "Create a request",
@@ -129,25 +139,35 @@ public class FDCPCodeTagHelperTests
     }
 
     [Fact]
-    public void UnknownSelectedLanguageFallsBackToFirstExample()
+    public async Task OneLanguageOmitsTheSelector()
     {
-        var doc = Parse(RenderExample(new() { Examples = Samples("csharp", "python"), SelectedLanguage = "ruby" }));
+        var doc = Parse(await Render(new() { Title = "One language", Examples = Samples("csharp") }));
+        Assert.Null(doc.DocumentNode.SelectSingleNode("//select"));
+        Assert.DoesNotContain("fdcp-code--multiple", Single(doc, "//div[@data-fdcp-code]").GetClasses());
+        Assert.Equal("C#", Single(doc, "//div[contains(@class,'fdcp-code__heading')]/p[contains(@class,'fdcp-code__language')]").InnerText);
+    }
+
+    [Fact]
+    public async Task UnknownSelectedLanguageFallsBackToFirstExample()
+    {
+        var doc = Parse(await Render(new() { Examples = Samples("csharp", "python"), SelectedLanguage = "ruby" }));
         Assert.Equal("csharp", Single(doc, "//div[@data-fdcp-code-active='true']").GetAttributeValue("data-fdcp-code-language", ""));
         Assert.Equal("csharp", Single(doc, "//option[@selected]").GetAttributeValue("value", ""));
     }
 
     [Fact]
-    public void RejectsMissingAndDuplicateLanguages()
+    public async Task RejectsMissingAndDuplicateLanguages()
     {
-        Assert.Throws<ArgumentException>(() => RenderExample(new()));
-        Assert.Throws<ArgumentException>(() => RenderExample(new() { Examples = Samples("csharp", "CSharp") }));
-        Assert.Throws<ArgumentException>(() => RenderExample(new() { Examples = [new() { Code = "a" }, new() { Language = "text", Code = "b" }] }));
+        Assert.Throws<ArgumentException>(() => Html(new CodeBlockOptions()));
+        await Assert.ThrowsAsync<ArgumentException>(() => Render(new() { Examples = [] }));
+        await Assert.ThrowsAsync<ArgumentException>(() => Render(new() { Examples = Samples("csharp", "CSharp") }));
+        await Assert.ThrowsAsync<ArgumentException>(() => Render(new() { Examples = [new() { Code = "a" }, new() { Language = "text", Code = "b" }] }));
     }
 
     [Fact]
     public async Task CopyDisabledOmitsCopyControlsAndMessages()
     {
-        var html = await RenderBlock(new() { Language = "csharp", Code = "x", CopyEnabled = false });
+        var html = await Render(new() { Language = "csharp", Code = "x", CopyEnabled = false });
         var doc = Parse(html);
         Assert.Null(doc.DocumentNode.SelectSingleNode("//button"));
         Assert.Null(doc.DocumentNode.SelectSingleNode("//*[@data-fdcp-code-status]"));
@@ -159,8 +179,8 @@ public class FDCPCodeTagHelperTests
     [Fact]
     public async Task WrapAndClassAreAppliedToRoot()
     {
-        var output = new TagHelperOutput("fdcp-code-block", new TagHelperAttributeList { { "class", "mb-400" } }, (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
-        await new FDCPCodeBlockTagHelper { Code = "x", Wrap = true }.ProcessAsync(Context(), output);
+        var output = new TagHelperOutput("fdcp-code", new TagHelperAttributeList { { "class", "mb-400" } }, (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+        await new FDCPCodeTagHelper { Code = "x", Wrap = true }.ProcessAsync(Context(), output);
 
         Assert.Null(output.TagName);
         var classes = Single(Parse(output.Content.GetContent()), "//div[@data-fdcp-code]").GetClasses().ToList();
@@ -172,16 +192,16 @@ public class FDCPCodeTagHelperTests
     public async Task ChildContentIsDecodedTrimmedAndDedented()
     {
         const string child = "\n        &lt;fdcp-input for=&quot;Name&quot; /&gt;\n            @Model.Value\n\n        &lt;/div&gt;\n    ";
-        var doc = Parse(await RenderBlock(new() { Language = "cshtml" }, child));
+        var doc = Parse(await Render(new() { Language = "cshtml" }, child));
         Assert.Equal("<fdcp-input for=\"Name\" />\n    @Model.Value\n\n</div>", CodeText(doc));
     }
 
     [Fact]
-    public void IdsAreSanitizedUniqueAndReferenced()
+    public async Task IdsAreSanitizedUniqueAndReferenced()
     {
-        var first = RenderExample(new() { Id = "my example<1>", Title = "First", Examples = Samples("csharp", "python") });
-        var second = RenderExample(new() { Title = "Second", Examples = Samples("csharp", "python") });
-        var third = RenderExample(new() { Title = "Third", Examples = Samples("csharp", "python") });
+        var first = await Render(new() { Id = "my example<1>", Title = "First", Examples = Samples("csharp", "python") });
+        var second = await Render(new() { Title = "Second", Examples = Samples("csharp", "python") });
+        var third = await Render(new() { Title = "Third", Examples = Samples("csharp", "python") });
         var doc = Parse(first + second + third);
 
         var ids = doc.DocumentNode.SelectNodes("//*[@id]").Select(n => n.Id).ToList();
@@ -209,14 +229,28 @@ public class FDCPCodeTagHelperTests
     }
 
     [Fact]
-    public void FrenchLabelsFollowCurrentUICulture()
+    public async Task DarkThemeIsMarkedSoDarkReaderWillNotInvertIt()
+    {
+        var doc = Parse(await Render(new() { Id = "dark", Language = "csharp", Code = "var x = 1;", Theme = FDCPCodeTheme.dark }));
+        var root = Single(doc, "//div[@data-fdcp-code]");
+        Assert.Contains("fdcp-code--dark", root.GetClasses());
+        Assert.Equal("dark", root.GetAttributeValue("data-fdcp-code-theme", ""));
+        Assert.Null(doc.DocumentNode.SelectSingleNode("//select"));
+        Assert.Equal("polite", Single(doc, "//*[@data-fdcp-code-status]").GetAttributeValue("aria-live", ""));
+    }
+
+    [Fact]
+    public async Task FrenchLabelsFollowCurrentUICulture()
     {
         var previous = CultureInfo.CurrentUICulture;
         try
         {
             CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("fr-CA");
-            var doc = Parse(RenderExample(new() { Examples = [new() { Language = "csharp", Code = "a" }, new() { Language = "", Code = "b" }] }));
-            Assert.Equal("Copier le code", Single(doc, "//button").InnerText);
+            var doc = Parse(await Render(new() { Examples = [new() { Language = "csharp", Code = "a" }, new() { Language = "", Code = "b" }] }));
+            var button = Single(doc, "//button");
+            Assert.Equal("Copier le code", button.InnerText);
+            Assert.Equal("Copier le code", button.GetAttributeValue("aria-label", ""));
+            Assert.Equal("Copié!", Decode(button.GetAttributeValue("data-fdcp-code-copied-label", "")));
             Assert.Equal("Langage du code", Decode(Single(doc, "//label").InnerHtml));
             Assert.Equal("Texte brut", Single(doc, "//option[@value='plaintext']").InnerText);
             Assert.Equal("Code C#", Decode(Single(doc, "(//pre)[1]").GetAttributeValue("aria-label", "")));
@@ -228,17 +262,10 @@ public class FDCPCodeTagHelperTests
     private static List<CodeSample> Samples(params string[] languages) =>
         languages.Select(l => new CodeSample { Language = l, Code = "source " + l.ToLowerInvariant() }).ToList();
 
-    private static async Task<string> RenderBlock(FDCPCodeBlockTagHelper helper, string childContent = "")
+    private static async Task<string> Render(FDCPCodeTagHelper helper, string childContent = "")
     {
-        var output = new TagHelperOutput("fdcp-code-block", [], (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent().SetHtmlContent(childContent)));
+        var output = new TagHelperOutput("fdcp-code", [], (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent().SetHtmlContent(childContent)));
         await helper.ProcessAsync(Context(), output);
-        return output.Content.GetContent();
-    }
-
-    private static string RenderExample(FDCPCodeExampleTagHelper helper)
-    {
-        var output = new TagHelperOutput("fdcp-code-example", [], (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
-        helper.Process(Context(), output);
         return output.Content.GetContent();
     }
 
