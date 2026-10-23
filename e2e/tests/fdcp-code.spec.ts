@@ -47,7 +47,7 @@ function lowContrastTokens(page: Page) {
       const [x, y] = [luminance(a), luminance(b)].sort((m, n) => n - m);
       return (x + 0.05) / (y + 0.05);
     };
-    return [...document.querySelectorAll<HTMLElement>('[data-fdcp-code] [data-fdcp-code-active] .token, [data-fdcp-code] .fdcp-code__language, [data-fdcp-code] .fdcp-code__title')]
+    return Array.from(document.querySelectorAll<HTMLElement>('[data-fdcp-code] [data-fdcp-code-active] .token, [data-fdcp-code] .fdcp-code__language, [data-fdcp-code] .fdcp-code__title'))
       .filter(el => el.getClientRects().length > 0 && el.textContent!.trim())
       .map(el => {
         const background = getComputedStyle(el.closest('[data-fdcp-code]')!).backgroundColor;
