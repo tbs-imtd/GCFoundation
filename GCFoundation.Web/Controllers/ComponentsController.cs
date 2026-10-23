@@ -833,14 +833,14 @@ namespace GCFoundation.Web.Controllers
             return new ComponentViewModel
             {
                 Name = Resources.Components.Code_Name,
-                Tag = "<fdcp-code-block> <fdcp-code-example>",
+                Tag = "<fdcp-code>",
                 Overview = Resources.Components.Code_Overview,
                 Purpose = Resources.Components.Code_Purpose,
                 WhenToUse = [Resources.Components.Code_WhenUse1, Resources.Components.Code_WhenUse2],
                 WhenNotToUse = [Resources.Components.Code_WhenNot1, Resources.Components.Code_WhenNot2],
-                AccessibilityDo = [Resources.Components.Code_Accessibility1, Resources.Components.Code_Accessibility2, Resources.Components.Code_Accessibility3],
+                AccessibilityDo = [Resources.Components.Code_Accessibility1, Resources.Components.Code_Accessibility2, Resources.Components.Code_Accessibility3, Resources.Components.Code_Accessibility4],
                 UxBestPractices = [Resources.Components.Code_Ux1, Resources.Components.Code_Ux2],
-                Notes = [Resources.Components.Code_NoteLanguages, Resources.Components.Code_NoteEncoding, Resources.Components.Code_NoteProgressive, Resources.Components.Code_NoteLimit, Resources.Components.Code_NoteDynamic],
+                Notes = [Resources.Components.Code_NoteLanguages, Resources.Components.Code_NoteEncoding, Resources.Components.Code_NoteProgressive, Resources.Components.Code_NoteLimit, Resources.Components.Code_NoteTheme, Resources.Components.Code_NoteDynamic],
                 Properties =
                 [
                     new() { Name = "code", DataType = "string", Description = Resources.Components.Code_PropCode },
@@ -850,14 +850,16 @@ namespace GCFoundation.Web.Controllers
                     new() { Name = "language-label", DataType = "string", Description = Resources.Components.Code_PropLanguageLabel },
                     new() { Name = "title", DataType = "string", Description = Resources.Components.Code_PropTitle },
                     new() { Name = "wrap", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Code_PropWrap },
-                    new() { Name = "fdcp-code-example examples", DataType = "IEnumerable<CodeSample>", Description = Resources.Components.Code_PropExamples },
-                    new() { Name = "fdcp-code-example selected-language", DataType = "string", Description = Resources.Components.Code_PropSelectedLanguage },
-                    new() { Name = "fdcp-code-example sync-group", DataType = "string", Description = Resources.Components.Code_PropSyncGroup }
+                    new() { Name = "examples", DataType = "IEnumerable<CodeSample>", Description = Resources.Components.Code_PropExamples },
+                    new() { Name = "selected-language", DataType = "string", Description = Resources.Components.Code_PropSelectedLanguage },
+                    new() { Name = "sync-group", DataType = "string", Description = Resources.Components.Code_PropSyncGroup },
+                    new() { Name = "theme", DataType = "FDCPCodeTheme", DefaultValue = "light", Description = Resources.Components.Code_PropTheme }
                 ],
                 SampleCodeSections =
                 [
                     new() { Id = "code-block", Title = Resources.Components.Code_BlockTitle, Description = Resources.Components.Code_BlockText, PartialViewName = "Code/_Block" },
                     new() { Id = "code-example", Title = Resources.Components.Code_ExampleTitle, Description = Resources.Components.Code_ExampleText, PartialViewName = "Code/_Example" },
+                    new() { Id = "code-dark", Title = Resources.Components.Code_DarkTitle, Description = Resources.Components.Code_DarkText, PartialViewName = "Code/_Dark" },
                     new() { Id = "code-fallback", Title = Resources.Components.Code_FallbackTitle, Description = Resources.Components.Code_FallbackText, PartialViewName = "Code/_Fallback" },
                     new() { Id = "code-renderer", Title = Resources.Components.Code_RendererTitle, Description = Resources.Components.Code_RendererText, PartialViewName = "Code/_Renderer" }
                 ]

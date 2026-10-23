@@ -2,15 +2,15 @@
 @using GCFoundation.Web.Resources
 @model ComponentSampleCodeSectionViewModel
 
-<fdcp-code-block id="code-block-log" title="@Components.Code_SampleLogTitle" language="log" language-label="Log"
+<fdcp-code id="code-block-log" title="@Components.Code_SampleLogTitle" language="log" language-label="Log"
                  code="@CodeDemoSamples.Log" wrap="true" copy-enabled="false" />
 
-<fdcp-code-block language="cshtml">
-    &lt;fdcp-code-block id="code-block-log"
+<fdcp-code language="cshtml">
+    &lt;fdcp-code id="code-block-log"
                      title="@Components.Code_SampleLogTitle"
                      language="log"
                      language-label="Log"
                      code="@@Model.Log"
                      wrap="true"
                      copy-enabled="false" /&gt;
-</fdcp-code-block>
+</fdcp-code>

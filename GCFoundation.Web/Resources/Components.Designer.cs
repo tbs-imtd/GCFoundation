@@ -1033,7 +1033,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The language selector is a labelled native select, and copy results are announced in a polite status message..
+        ///   Looks up a localized string similar to The language selector is a labelled native select and is omitted when there is only one language. After a successful copy, a polite live region announces that the code was copied..
         /// </summary>
         public static string Code_Accessibility3 {
             get {
@@ -1042,7 +1042,16 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Use &lt;code&gt;fdcp-code-block&lt;/code&gt; for one snippet. Pass the source in the &lt;code&gt;code&lt;/code&gt; attribute, or write it as encoded child content: the first and last blank lines and the common indentation are removed.&lt;/p&gt;.
+        ///   Looks up a localized string similar to Syntax colour reinforces the code. People who do not distinguish those colours can still read the text. Colours meet the contrast minimum..
+        /// </summary>
+        public static string Code_Accessibility4 {
+            get {
+                return ResourceManager.GetString("Code_Accessibility4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Use &lt;code&gt;fdcp-code&lt;/code&gt; for one snippet. Pass the source in the &lt;code&gt;code&lt;/code&gt; attribute, or write it as encoded child content: the first and last blank lines and the common indentation are removed. With one language, the language selector is not shown.&lt;/p&gt;.
         /// </summary>
         public static string Code_BlockText {
             get {
@@ -1060,7 +1069,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Use &lt;code&gt;fdcp-code-example&lt;/code&gt; to show the same example in several languages. Both examples below share a sync group: changing the language in one changes the other. The second example also offers Bash; choosing it leaves the first example unchanged.&lt;/p&gt;.
+        ///   Looks up a localized string similar to &lt;p&gt;Pass &lt;code&gt;examples&lt;/code&gt; to the same &lt;code&gt;fdcp-code&lt;/code&gt; component to show one example in several languages. The language selector appears only then..
         /// </summary>
         public static string Code_ExampleText {
             get {
@@ -1074,6 +1083,24 @@ namespace GCFoundation.Web.Resources {
         public static string Code_ExampleTitle {
             get {
                 return ResourceManager.GetString("Code_ExampleTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark theme.
+        /// </summary>
+        public static string Code_DarkTitle {
+            get {
+                return ResourceManager.GetString("Code_DarkTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set theme=&quot;dark&quot; for a dark background. The block uses color-scheme: dark, so Dark Reader leaves the colours alone instead of inverting them..
+        /// </summary>
+        public static string Code_DarkText {
+            get {
+                return ResourceManager.GetString("Code_DarkText", resourceCulture);
             }
         }
         
@@ -1096,7 +1123,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Highlighted code blocks and multi-language examples with copy and language selection..
+        ///   Looks up a localized string similar to Code samples with syntax highlighting, copy, an optional language selector and an optional dark theme..
         /// </summary>
         public static string Code_IndexDescription {
             get {
@@ -1159,7 +1186,16 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display code, configuration and API samples with syntax highlighting, a copy button and, for examples written in several languages, a language selector..
+        ///   Looks up a localized string similar to theme=&quot;dark&quot; uses a dark background and color-scheme: dark so Dark Reader does not invert the block. The default theme is light..
+        /// </summary>
+        public static string Code_NoteTheme {
+            get {
+                return ResourceManager.GetString("Code_NoteTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display code with syntax highlighting and a copy button. The same component shows one snippet or several languages..
         /// </summary>
         public static string Code_Overview {
             get {
@@ -1186,7 +1222,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language variants (CodeSample: Language, Label, Code). Languages must be unique..
+        ///   Looks up a localized string similar to Language variants (CodeSample: Language, Label, Code). Languages must be unique. The language selector is shown only when more than one variant is supplied..
         /// </summary>
         public static string Code_PropExamples {
             get {
@@ -1236,6 +1272,15 @@ namespace GCFoundation.Web.Resources {
         public static string Code_PropSyncGroup {
             get {
                 return ResourceManager.GetString("Code_PropSyncGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to light or dark. dark uses a dark background and color-scheme: dark. Defaults to light..
+        /// </summary>
+        public static string Code_PropTheme {
+            get {
+                return ResourceManager.GetString("Code_PropTheme", resourceCulture);
             }
         }
         
