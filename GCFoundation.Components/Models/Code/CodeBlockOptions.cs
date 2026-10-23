@@ -1,3 +1,5 @@
+using GCFoundation.Components.Enums;
+
 namespace GCFoundation.Components.Models.Code
 {
     /// <summary>
@@ -28,8 +30,8 @@ namespace GCFoundation.Components.Models.Code
         public string? Id { get; set; }
 
         /// <summary>
-        /// Gets or sets the language variants. A single sample renders a code block; several samples render a
-        /// language selector. Language identifiers must be unique within one component.
+        /// Gets or sets the language variants. One sample renders without a language selector; several samples
+        /// render a selector. Language identifiers must be unique within one component.
         /// </summary>
         public IReadOnlyList<CodeSample> Samples { get; set; } = [];
 
@@ -42,6 +44,12 @@ namespace GCFoundation.Components.Models.Code
         /// Gets or sets an optional group name. Components sharing a group on the same page switch language together.
         /// </summary>
         public string? SyncGroup { get; set; }
+
+        /// <summary>
+        /// Gets or sets the colour theme. <see cref="FDCPCodeTheme.dark"/> uses a dark background and
+        /// <c>color-scheme: dark</c> so Dark Reader does not invert the syntax colours. Defaults to light.
+        /// </summary>
+        public FDCPCodeTheme Theme { get; set; } = FDCPCodeTheme.light;
 
         /// <summary>
         /// Gets or sets an optional visible title for the code.

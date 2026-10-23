@@ -115,6 +115,15 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Copied!.
+        /// </summary>
+        public static string Code_CopiedLabel {
+            get {
+                return ResourceManager.GetString("Code_CopiedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Copy code.
         /// </summary>
         public static string Code_Copy {

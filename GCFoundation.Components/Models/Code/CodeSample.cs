@@ -1,8 +1,7 @@
 namespace GCFoundation.Components.Models.Code
 {
     /// <summary>
-    /// One language variant of a code example rendered by <c>&lt;fdcp-code-block&gt;</c>,
-    /// <c>&lt;fdcp-code-example&gt;</c> or <see cref="Helpers.FDCPCodeRenderer"/>.
+    /// One language variant of a code sample rendered by <c>&lt;fdcp-code&gt;</c> or <see cref="Helpers.FDCPCodeRenderer"/>.
     /// </summary>
     public class CodeSample
     {

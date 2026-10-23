@@ -273,6 +273,9 @@
   <data name="Code_Copied" xml:space="preserve">
     <value>Code copié dans le presse-papiers.</value>
   </data>
+  <data name="Code_CopiedLabel" xml:space="preserve">
+    <value>Copié!</value>
+  </data>
   <data name="Code_CopyFailed" xml:space="preserve">
     <value>Le code n'a pas pu être copié automatiquement. Le code est sélectionné : appuyez sur Ctrl+C (Commande+C sur un Mac) pour le copier.</value>
   </data>

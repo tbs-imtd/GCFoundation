@@ -92,7 +92,14 @@ test.describe('FDCP code', () => {
 
     const status = create.getByRole('status');
     await expect(status).toBeAttached();
+    await expect(status).toHaveAttribute('aria-live', 'polite');
+    await expect(status).toHaveAttribute('aria-atomic', 'true');
     expect(await status.evaluate(el => getComputedStyle(el).display)).not.toBe('none');
+    await expect(page.locator('#code-block-response').getByRole('combobox')).toHaveCount(0);
+    const dark = page.locator('#code-dark-sample');
+    await expect(dark).toHaveAttribute('data-fdcp-code-theme', 'dark');
+    await expect(dark).toHaveCSS('color-scheme', 'dark');
+    await expect(dark.getByRole('combobox')).toHaveCount(0);
 
     await page.keyboard.press('Tab');
     const copy = create.getByRole('button', { name: 'Copy code' });

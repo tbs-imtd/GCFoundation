@@ -1,3 +1,4 @@
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.Code;
 using GCFoundation.Components.Resources;
 using Microsoft.AspNetCore.Html;
@@ -7,9 +8,8 @@ using System.Globalization;
 namespace GCFoundation.Components.Helpers
 {
     /// <summary>
-    /// Renders the FDCP code component. The <c>&lt;fdcp-code-block&gt;</c> and <c>&lt;fdcp-code-example&gt;</c>
-    /// Tag Helpers use this renderer, and C# code that generates HTML can call it directly instead of
-    /// reproducing the component markup.
+    /// Renders the FDCP code component. The <c>&lt;fdcp-code&gt;</c> Tag Helper uses this renderer, and C# code
+    /// that generates HTML can call it directly instead of reproducing the component markup.
     /// </summary>
     /// <example>
     /// <code>
@@ -51,7 +51,7 @@ namespace GCFoundation.Components.Helpers
         };
 
         /// <summary>
-        /// Renders a code block, or a multi-language code example when several samples are supplied.
+        /// Renders a code sample. A language selector is included only when several samples are supplied.
         /// </summary>
         /// <param name="options">The code and display options.</param>
         /// <returns>Encoded HTML for the component.</returns>
@@ -87,8 +87,10 @@ namespace GCFoundation.Components.Helpers
             root.AddCssClass("fdcp-code");
             if (isMultiLanguage) root.AddCssClass("fdcp-code--multiple");
             if (options.Wrap) root.AddCssClass("fdcp-code--wrap");
+            if (options.Theme == FDCPCodeTheme.dark) root.AddCssClass("fdcp-code--dark");
             if (!string.IsNullOrWhiteSpace(options.CssClass)) root.AddCssClass(options.CssClass.Trim());
             root.Attributes["data-fdcp-code"] = "true";
+            root.Attributes["data-fdcp-code-theme"] = options.Theme == FDCPCodeTheme.dark ? "dark" : "light";
             if (!string.IsNullOrWhiteSpace(options.SyncGroup)) root.Attributes["data-fdcp-code-sync-group"] = options.SyncGroup.Trim();
             if (options.CopyEnabled)
             {
@@ -156,19 +158,39 @@ namespace GCFoundation.Components.Helpers
                     copy.AddCssClass("fdcp-code__copy");
                     copy.Attributes["type"] = "button";
                     copy.Attributes["data-fdcp-code-copy"] = "true";
+                    copy.Attributes["data-fdcp-code-copied-label"] = Localization.Code_CopiedLabel;
+                    // The accessible name stays stable so the confirmation does not rename the button.
+                    copy.Attributes["aria-label"] = Localization.Code_Copy;
                     if (hasTitle) copy.Attributes["aria-describedby"] = titleId;
-                    copy.InnerHtml.Append(Localization.Code_Copy);
+                    var copyLabel = new TagBuilder("span");
+                    copyLabel.Attributes["data-fdcp-code-copy-label"] = "true";
+                    copyLabel.Attributes["aria-hidden"] = "true";
+                    copyLabel.InnerHtml.Append(Localization.Code_Copy);
+                    copy.InnerHtml.AppendHtml(copyLabel);
                     controls.InnerHtml.AppendHtml(copy);
-
-                    var status = new TagBuilder("span");
-                    status.AddCssClass("fdcp-code__status");
-                    status.Attributes["role"] = "status";
-                    status.Attributes["data-fdcp-code-status"] = "true";
-                    controls.InnerHtml.AppendHtml(status);
                 }
 
                 header.InnerHtml.AppendHtml(controls);
                 root.InnerHtml.AppendHtml(header);
+            }
+
+            if (options.CopyEnabled)
+            {
+                // Kept outside the hidden controls so assistive technology registers the live region on load.
+                var status = new TagBuilder("span");
+                status.AddCssClass("fdcp-code__live");
+                status.Attributes["role"] = "status";
+                status.Attributes["aria-live"] = "polite";
+                status.Attributes["aria-atomic"] = "true";
+                status.Attributes["data-fdcp-code-status"] = "true";
+                root.InnerHtml.AppendHtml(status);
+
+                // Failure text sits on its own line, so it does not push the copy button.
+                var visibleStatus = new TagBuilder("p");
+                visibleStatus.AddCssClass("fdcp-code__status");
+                visibleStatus.Attributes["data-fdcp-code-visible-status"] = "true";
+                visibleStatus.Attributes["aria-hidden"] = "true";
+                root.InnerHtml.AppendHtml(visibleStatus);
             }
 
             for (var i = 0; i < samples.Count; i++)
