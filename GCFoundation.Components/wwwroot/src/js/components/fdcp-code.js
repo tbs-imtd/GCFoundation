@@ -54,9 +54,13 @@
             this.controls = root.querySelector('[data-fdcp-code-controls]');
             this.select = root.querySelector('[data-fdcp-code-select]');
             this.copyButton = root.querySelector('[data-fdcp-code-copy]');
+            this.copyLabel = root.querySelector('[data-fdcp-code-copy-label]');
+            this.copyLabelText = this.copyLabel ? this.copyLabel.textContent : '';
+            this.visibleStatus = root.querySelector('[data-fdcp-code-visible-status]');
             this.status = root.querySelector('[data-fdcp-code-status]');
             this.syncGroup = root.dataset.fdcpCodeSyncGroup || '';
             this.statusTimer = null;
+            this.clearTimer = null;
             this.sources = new Map(this.panels.map((panel) => {
                 const code = panel.querySelector('[data-fdcp-code-source]');
                 return [panel, code ? code.textContent : ''];
@@ -153,19 +157,27 @@
         }
 
         setStatus(message, autoClear) {
-            if (!this.status) return;
+            if (!this.status && !this.visibleStatus && !this.copyLabel) return;
             window.clearTimeout(this.statusTimer);
-            this.status.textContent = '';
+            window.clearTimeout(this.clearTimer);
+            this.writeStatus('', false);
             if (!message) return;
-            // Clearing first lets screen readers announce the same message again on repeated copies.
-            window.requestAnimationFrame(() => {
-                this.status.textContent = message;
-            });
-            if (autoClear) {
-                this.statusTimer = window.setTimeout(() => {
-                    this.status.textContent = '';
-                }, STATUS_RESET_DELAY);
+            // A gap after the clear lets screen readers announce the same message on repeated copies.
+            this.statusTimer = window.setTimeout(() => {
+                this.writeStatus(message, autoClear);
+                if (!autoClear) return;
+                this.clearTimer = window.setTimeout(() => this.writeStatus('', false), STATUS_RESET_DELAY);
+            }, 60);
+        }
+
+        writeStatus(message, showOnButton) {
+            if (this.copyLabel) {
+                this.copyLabel.textContent = showOnButton
+                    ? (this.copyButton.dataset.fdcpCodeCopiedLabel || this.copyLabelText)
+                    : this.copyLabelText;
             }
+            if (this.visibleStatus) this.visibleStatus.textContent = showOnButton ? '' : message;
+            if (this.status) this.status.textContent = message;
         }
 
         static initialize(container) {

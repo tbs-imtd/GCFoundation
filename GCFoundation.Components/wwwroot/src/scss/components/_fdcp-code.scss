@@ -1,16 +1,17 @@
 /* Selectors are nested under the root so container rules such as `.documentation-content pre` cannot restyle the component. */
 .fdcp-code {
-    background: var(--gcds-bg-white);
-    border: var(--gcds-border-width-sm) solid var(--gcds-border-default);
+    // Light by default. The dark theme matches the Twilight code blocks used on the other component pages.
+    background: var(--gcds-color-grayscale-50, #f1f2f3);
+    border: 1px solid var(--gcds-color-grayscale-100, #d6d9dd);
     border-radius: var(--gcds-border-radius-sm);
     color: var(--gcds-text-primary);
+    color-scheme: light;
     margin-block: var(--gcds-spacing-200) var(--gcds-spacing-400);
     max-width: 100%;
     min-width: 0;
 
     .fdcp-code__header {
         align-items: center;
-        border-bottom: var(--gcds-border-width-sm) solid var(--gcds-border-default);
         display: flex;
         flex-wrap: wrap;
         gap: var(--gcds-spacing-150);
@@ -88,10 +89,27 @@
 
     .fdcp-code__copy {
         background-color: var(--gcds-bg-white);
-        border: var(--gcds-button-border-width, 0.125rem) solid var(--gcds-link-default);
-        color: var(--gcds-link-default);
+        border: var(--gcds-button-border-width, 0.125rem) solid var(--gcds-text-primary);
+        color: var(--gcds-text-primary);
         cursor: pointer;
+        display: inline-grid;
         font-weight: var(--gcds-font-weights-bold);
+        justify-items: center;
+
+        span,
+        &::before,
+        &::after { grid-area: 1 / 1; }
+
+        // Both labels stay in the grid so the button keeps the wider width when the text changes.
+        &::before {
+            content: attr(aria-label);
+            visibility: hidden;
+        }
+
+        &::after {
+            content: attr(data-fdcp-code-copied-label);
+            visibility: hidden;
+        }
 
         &:hover {
             background-color: var(--gcds-bg-light);
@@ -110,17 +128,24 @@
 
     .fdcp-code__status {
         font-size: var(--gcds-font-sizes-text-small);
-        max-width: 32rem;
+        margin: 0;
+        max-width: 40rem;
+        padding: 0 var(--gcds-spacing-200) var(--gcds-spacing-150);
 
-        // Hiding the empty region with display: none stops some screen readers announcing the next message.
-        &:empty {
-            clip-path: inset(50%);
-            height: 1px;
-            overflow: hidden;
-            position: absolute;
-            white-space: nowrap;
-            width: 1px;
-        }
+        &:empty { display: none; }
+    }
+
+    // Visually hidden, but never display:none, so screen readers announce "Code copied".
+    .fdcp-code__live {
+        border: 0;
+        clip-path: inset(50%);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
     }
 
     .fdcp-code__language {
@@ -237,11 +262,73 @@
         &.bold { font-weight: var(--gcds-font-weights-bold); }
         &.italic { font-style: italic; }
     }
+
+    // Token colours stay at or above 4.5:1 on #141414. color-scheme tells Dark Reader this surface is already dark.
+    &.fdcp-code--dark {
+        background: #141414;
+        border: 0.3em solid #545454;
+        border-radius: 0.5em;
+        box-shadow: inset 1px 1px 0.5em #000;
+        color: #fff;
+        color-scheme: dark;
+        --fdcp-code-token-comment: #b6c2cf;
+        --fdcp-code-token-keyword: #ff9492;
+        --fdcp-code-token-string: #a5d6ff;
+        --fdcp-code-token-function: #d2a8ff;
+        --fdcp-code-token-type: #ffb86c;
+        --fdcp-code-token-constant: #79c0ff;
+        --fdcp-code-token-property: #ffb86c;
+        --fdcp-code-token-tag: #7ee787;
+
+        .fdcp-code__panel + .fdcp-code__panel:not([hidden]) {
+            border-color: #545454;
+        }
+
+        .fdcp-code__pre,
+        .fdcp-code__select,
+        .fdcp-code__title,
+        .fdcp-code__status,
+        .fdcp-code__select-label {
+            color: #fff;
+        }
+
+        .fdcp-code__language { color: #d0d7de; }
+
+        .fdcp-code__select {
+            background-color: #141414;
+            border-color: #fff;
+        }
+
+        .fdcp-code__copy {
+            background-color: #fff;
+            border-color: #141414;
+            color: #141414;
+
+            &:hover { background-color: #f1f2f3; }
+
+            &:focus-visible {
+                background-color: var(--gcds-button-shared-focus-background, var(--gcds-focus-border));
+                border-color: var(--gcds-button-shared-focus-background, var(--gcds-focus-border));
+                color: var(--gcds-button-shared-focus-text, var(--gcds-text-light));
+            }
+        }
+
+        .token.punctuation,
+        .token.operator,
+        .token.entity,
+        .token.url,
+        .token.parameter {
+            color: #fff;
+        }
+    }
 }
 
 @media (forced-colors: active) {
-    .fdcp-code {
+    .fdcp-code,
+    .fdcp-code.fdcp-code--dark {
+        background: Canvas;
         border-color: CanvasText;
+        color: CanvasText;
 
         .fdcp-code__pre:focus-visible,
         .fdcp-code__select:focus,
@@ -263,6 +350,36 @@
             overflow: visible;
             overflow-wrap: anywhere;
             white-space: pre-wrap;
+        }
+
+        &.fdcp-code--dark {
+            background: white;
+            border-color: black;
+            color: black;
+            --fdcp-code-token-comment: #59636e;
+            --fdcp-code-token-keyword: #cf222e;
+            --fdcp-code-token-string: #0a3069;
+            --fdcp-code-token-function: #6639ba;
+            --fdcp-code-token-type: #953800;
+            --fdcp-code-token-constant: #0550ae;
+            --fdcp-code-token-property: #953800;
+            --fdcp-code-token-tag: #116329;
+
+            .fdcp-code__pre,
+            .fdcp-code__select,
+            .fdcp-code__copy,
+            .fdcp-code__language,
+            .fdcp-code__title,
+            .fdcp-code__status,
+            .fdcp-code__select-label,
+            .token.punctuation,
+            .token.operator,
+            .token.entity,
+            .token.url,
+            .token.parameter {
+                background: transparent;
+                color: black;
+            }
         }
     }
 }
