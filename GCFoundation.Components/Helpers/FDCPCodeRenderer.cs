@@ -154,19 +154,26 @@ namespace GCFoundation.Components.Helpers
 
                 if (options.CopyEnabled)
                 {
-                    var copy = new TagBuilder("button");
+                    var copy = new TagBuilder("gcds-button");
                     copy.AddCssClass("fdcp-code__copy");
                     copy.Attributes["type"] = "button";
+                    copy.Attributes["button-role"] = "secondary";
+                    copy.Attributes["size"] = "small";
                     copy.Attributes["data-fdcp-code-copy"] = "true";
                     copy.Attributes["data-fdcp-code-copied-label"] = Localization.Code_CopiedLabel;
-                    // The accessible name stays stable so the confirmation does not rename the button.
+                    // GCDS copies aria-* onto its inner button. A string description survives that shadow boundary.
                     copy.Attributes["aria-label"] = Localization.Code_Copy;
-                    if (hasTitle) copy.Attributes["aria-describedby"] = titleId;
+                    if (hasTitle) copy.Attributes["aria-description"] = options.Title!.Trim();
+                    var copySizer = new TagBuilder("span");
+                    copySizer.AddCssClass("fdcp-code__copy-label");
+                    copySizer.Attributes["data-fdcp-code-rest-label"] = Localization.Code_Copy;
+                    copySizer.Attributes["data-fdcp-code-copied-label"] = Localization.Code_CopiedLabel;
+                    copySizer.Attributes["aria-hidden"] = "true";
                     var copyLabel = new TagBuilder("span");
                     copyLabel.Attributes["data-fdcp-code-copy-label"] = "true";
-                    copyLabel.Attributes["aria-hidden"] = "true";
                     copyLabel.InnerHtml.Append(Localization.Code_Copy);
-                    copy.InnerHtml.AppendHtml(copyLabel);
+                    copySizer.InnerHtml.AppendHtml(copyLabel);
+                    copy.InnerHtml.AppendHtml(copySizer);
                     controls.InnerHtml.AppendHtml(copy);
                 }
 

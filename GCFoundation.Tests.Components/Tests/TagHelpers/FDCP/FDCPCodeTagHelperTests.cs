@@ -35,9 +35,11 @@ public class FDCPCodeTagHelperTests
         Assert.True(controls.Attributes.Contains("hidden"));
         Assert.Null(doc.DocumentNode.SelectSingleNode("//select"));
 
-        var button = Single(doc, "//button[@data-fdcp-code-copy]");
+        var button = Single(doc, "//gcds-button[@data-fdcp-code-copy]");
         Assert.Equal("button", button.GetAttributeValue("type", ""));
-        Assert.Equal("response-title", button.GetAttributeValue("aria-describedby", ""));
+        Assert.Equal("secondary", button.GetAttributeValue("button-role", ""));
+        Assert.Equal("small", button.GetAttributeValue("size", ""));
+        Assert.Equal("Example response", button.GetAttributeValue("aria-description", ""));
         Assert.Equal("Copy code", button.InnerText);
         Assert.Equal("Copy code", button.GetAttributeValue("aria-label", ""));
         Assert.Equal("Copied!", button.GetAttributeValue("data-fdcp-code-copied-label", ""));
@@ -169,7 +171,7 @@ public class FDCPCodeTagHelperTests
     {
         var html = await Render(new() { Language = "csharp", Code = "x", CopyEnabled = false });
         var doc = Parse(html);
-        Assert.Null(doc.DocumentNode.SelectSingleNode("//button"));
+        Assert.Null(doc.DocumentNode.SelectSingleNode("//gcds-button"));
         Assert.Null(doc.DocumentNode.SelectSingleNode("//*[@data-fdcp-code-status]"));
         Assert.DoesNotContain("data-fdcp-code-copied", html, StringComparison.Ordinal);
         Assert.Null(doc.DocumentNode.SelectSingleNode("//*[contains(@class,'fdcp-code__header')]"));
@@ -224,7 +226,7 @@ public class FDCPCodeTagHelperTests
             Samples = [new CodeSample { Language = "json", Code = "{}" }]
         }));
         Assert.Null(doc.DocumentNode.SelectSingleNode("//*[contains(@class,'fdcp-code__title')]"));
-        Assert.Null(Single(doc, "//button").Attributes["aria-describedby"]);
+        Assert.Null(Single(doc, "//gcds-button").Attributes["aria-description"]);
         Assert.Equal("GET /requests — Schema (JSON)", Decode(Single(doc, "//pre").GetAttributeValue("aria-label", "")));
     }
 
@@ -247,7 +249,7 @@ public class FDCPCodeTagHelperTests
         {
             CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("fr-CA");
             var doc = Parse(await Render(new() { Examples = [new() { Language = "csharp", Code = "a" }, new() { Language = "", Code = "b" }] }));
-            var button = Single(doc, "//button");
+            var button = Single(doc, "//gcds-button");
             Assert.Equal("Copier le code", button.InnerText);
             Assert.Equal("Copier le code", button.GetAttributeValue("aria-label", ""));
             Assert.Equal("Copié!", Decode(button.GetAttributeValue("data-fdcp-code-copied-label", "")));
