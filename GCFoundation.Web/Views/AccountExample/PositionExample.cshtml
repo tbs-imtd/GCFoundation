@@ -1,15 +1,15 @@
 @using GCFoundation.Web.Resources
 @{
-    var position = ViewData["UserLoginPosition"]?.ToString() ?? "header";
-    ViewData["Title"] = string.Format(Components.UserLogin_Position_PageTitle, position.ToUpper());
+    var position = ViewData["AccountPosition"]?.ToString() ?? "header";
+    ViewData["Title"] = string.Format(Components.Account_Position_PageTitle, position.ToUpper());
 }
 
 <gcds-container size="xl" alignment="center">
     <gcds-grid columns="1fr">
         <div>
-            <gcds-heading tag="h1">@string.Format(Components.UserLogin_Position_PageTitle, position.ToUpper())</gcds-heading>
+            <gcds-heading tag="h1">@string.Format(Components.Account_Position_PageTitle, position.ToUpper())</gcds-heading>
             <gcds-text>
-                @Components.UserLogin_Position_Description
+                @Components.Account_Position_Description
             </gcds-text>
         </div>
     </gcds-grid>
@@ -17,7 +17,7 @@
     @if (position == "header")
     {
         <gcds-alert alert-role="info" class="mt-300">
-            <gcds-text>@Components.UserLogin_Position_Header_Alert</gcds-text>
+            <gcds-text>@Components.Account_Position_Header_Alert</gcds-text>
         </gcds-alert>
     }
     else if (position == "sidebar")
@@ -26,15 +26,15 @@
             <aside>
                 <section class="demo-panel" aria-labelledby="sidebar-login-title">
                     <div class="demo-panel__header">
-                        <gcds-heading tag="h2" size="h5" id="sidebar-login-title">@Components.UserLogin_Position_Sidebar_Title</gcds-heading>
+                        <gcds-heading tag="h2" size="h5" id="sidebar-login-title">@Components.Account_Position_Sidebar_Title</gcds-heading>
                     </div>
                     <div class="demo-panel__body">
-                        <partial name="_ExampleUserLogin" />
+                        <partial name="_ExampleAccount" />
                     </div>
                 </section>
             </aside>
             <main>
-                <gcds-text>@Components.UserLogin_Position_Sidebar_Content</gcds-text>
+                <gcds-text>@Components.Account_Position_Sidebar_Content</gcds-text>
             </main>
         </gcds-grid>
     }
@@ -42,20 +42,20 @@
     {
         <gcds-grid columns="1fr" class="mt-300">
             <div>
-                <gcds-text>@Components.UserLogin_Position_Content_Before</gcds-text>
+                <gcds-text>@Components.Account_Position_Content_Before</gcds-text>
                 
                 <div class="mt-300 mb-300">
                     <section class="demo-panel" aria-labelledby="inline-login-title">
                         <div class="demo-panel__header">
-                            <gcds-heading tag="h2" size="h5" id="inline-login-title">@Components.UserLogin_Position_Inline_Title</gcds-heading>
+                            <gcds-heading tag="h2" size="h5" id="inline-login-title">@Components.Account_Position_Inline_Title</gcds-heading>
                         </div>
                         <div class="demo-panel__body">
-                            <partial name="_ExampleUserLogin" />
+                            <partial name="_ExampleAccount" />
                         </div>
                     </section>
                 </div>
                 
-                <gcds-text>@Components.UserLogin_Position_Content_After</gcds-text>
+                <gcds-text>@Components.Account_Position_Content_After</gcds-text>
             </div>
         </gcds-grid>
     }
@@ -63,17 +63,17 @@
     {
         <gcds-grid columns="1fr" class="mt-300">
             <div>
-                <gcds-text>@Components.UserLogin_Position_Footer_Content</gcds-text>
+                <gcds-text>@Components.Account_Position_Footer_Content</gcds-text>
             </div>
         </gcds-grid>
         
         <footer class="mt-400 pt-300 footer-border">
             <section class="demo-panel" aria-labelledby="footer-login-title">
                 <div class="demo-panel__header">
-                    <gcds-heading tag="h2" size="h5" id="footer-login-title">@Components.UserLogin_Position_Footer_Title</gcds-heading>
+                    <gcds-heading tag="h2" size="h5" id="footer-login-title">@Components.Account_Position_Footer_Title</gcds-heading>
                 </div>
                 <div class="demo-panel__body">
-                    <partial name="_ExampleUserLogin" />
+                    <partial name="_ExampleAccount" />
                 </div>
             </section>
         </footer>
@@ -82,7 +82,7 @@
     <gcds-grid columns="1fr" class="mt-400">
         <div>
             <gcds-text>
-                <a href="@Url.Action("Index")">@Components.UserLogin_Position_BackToExamples</a>
+                <a href="@Url.Action("Index")">@Components.Account_Position_BackToExamples</a>
             </gcds-text>
         </div>
     </gcds-grid>
