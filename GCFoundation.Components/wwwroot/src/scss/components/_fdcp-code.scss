@@ -37,7 +37,7 @@
     }
 
     .fdcp-code__controls {
-        align-items: center;
+        align-items: flex-end;
         display: flex;
         flex-wrap: wrap;
         gap: var(--gcds-spacing-150);
@@ -46,43 +46,9 @@
         &[hidden] { display: none; }
     }
 
-    .fdcp-code__picker {
-        align-items: center;
-        display: flex;
-        flex-wrap: wrap;
-        gap: var(--gcds-spacing-100);
-    }
-
-    .fdcp-code__select-label {
-        font-size: var(--gcds-font-sizes-text-small);
-        font-weight: var(--gcds-font-weights-bold);
-        margin: 0;
-    }
-
     .fdcp-code__select {
-        border-radius: var(--gcds-select-border-radius, var(--gcds-input-border-radius, 0.125rem));
-        font-family: var(--gcds-font-families-body);
-        font-size: var(--gcds-font-sizes-text-small);
-        line-height: var(--gcds-line-heights-text-small);
-        min-height: var(--gcds-select-min-width-and-height, 3rem);
-        outline-color: transparent;
-        outline-style: solid;
-        padding: var(--gcds-spacing-50) var(--gcds-spacing-150);
-    }
-
-    .fdcp-code__select {
-        background-color: var(--gcds-select-default-background, var(--gcds-bg-white));
-        border: var(--gcds-select-border-width, var(--gcds-input-border-width, 0.125rem)) solid currentColor;
-        color: var(--gcds-select-default-text, var(--gcds-text-primary));
+        --gcds-select-margin: 0;
         max-width: 100%;
-
-        &:focus {
-            border-color: var(--gcds-input-focus-border, var(--gcds-focus-border));
-            box-shadow: var(--gcds-input-focus-box-shadow, none);
-            outline-color: var(--gcds-input-focus-border, var(--gcds-focus-border));
-            outline-offset: var(--gcds-input-border-width, 0.125rem);
-            outline-width: var(--gcds-input-outline-width, 0.1875rem);
-        }
     }
 
     .fdcp-code__copy {
@@ -269,18 +235,17 @@
             color: #ccc;
         }
 
-        .fdcp-code__select,
         .fdcp-code__title,
-        .fdcp-code__status,
-        .fdcp-code__select-label {
+        .fdcp-code__status {
             color: #fff;
         }
 
         .fdcp-code__language { color: #d0d7de; }
 
         .fdcp-code__select {
-            background-color: #2d2d2d;
-            border-color: #fff;
+            --gcds-label-text: #fff;
+            --gcds-select-default-background: #2d2d2d;
+            --gcds-select-default-text: #fff;
         }
 
         .fdcp-code__copy {
@@ -310,7 +275,6 @@
         color: CanvasText;
 
         .fdcp-code__pre:focus-visible,
-        .fdcp-code__select:focus,
         .fdcp-code__copy:focus-visible {
             outline-color: Highlight;
         }
@@ -345,12 +309,9 @@
             --fdcp-code-token-tag: #116329;
 
             .fdcp-code__pre,
-            .fdcp-code__select,
-            .fdcp-code__copy,
             .fdcp-code__language,
             .fdcp-code__title,
             .fdcp-code__status,
-            .fdcp-code__select-label,
             .token.punctuation,
             .token.operator,
             .token.entity,

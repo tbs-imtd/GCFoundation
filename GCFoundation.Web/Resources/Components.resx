@@ -2300,7 +2300,7 @@
     <value>The code area receives keyboard focus so long lines can be scrolled with the arrow keys.</value>
   </data>
   <data name="Code_Accessibility3" xml:space="preserve">
-    <value>The language selector is a labelled native select and is omitted when there is only one language. After a successful copy, a polite live region announces that the code was copied.</value>
+    <value>The language selector is a labelled GCDS select (gcds-select) and is omitted when there is only one language. After a successful copy, a polite live region announces that the code was copied.</value>
   </data>
   <data name="Code_Accessibility4" xml:space="preserve">
     <value>Syntax colour reinforces the code. People who do not distinguish those colours can still read the text. Colours meet the contrast minimum.</value>
@@ -2353,12 +2353,6 @@
   <data name="Code_FallbackText" xml:space="preserve">
     <value>&lt;p&gt;Unknown languages are displayed as plain text. Use &lt;code&gt;wrap="true"&lt;/code&gt; for long lines that are easier to read wrapped, and &lt;code&gt;copy-enabled="false"&lt;/code&gt; when copying is not useful.&lt;/p&gt;</value>
   </data>
-  <data name="Code_RendererTitle" xml:space="preserve">
-    <value>Rendering from C#</value>
-  </data>
-  <data name="Code_RendererText" xml:space="preserve">
-    <value>&lt;p&gt;Code that builds HTML in C# can call &lt;code&gt;FDCPCodeRenderer.Render&lt;/code&gt;, which returns &lt;code&gt;IHtmlContent&lt;/code&gt; with the same markup as the Tag Helpers. Tag Helpers placed inside generated HTML strings are not processed by Razor.&lt;/p&gt;</value>
-  </data>
   <data name="Code_SampleResponseTitle" xml:space="preserve">
     <value>Example response</value>
   </data>
@@ -2386,11 +2380,11 @@
   <data name="Code_PropId" xml:space="preserve">
     <value>Identifier of the component. Generated when omitted.</value>
   </data>
-  <data name="Code_PropLanguage" xml:space="preserve">
-    <value>Language identifier, such as csharp, javascript, python or json. Unknown languages are displayed as plain text.</value>
+  <data name="Code_PropCodeLanguage" xml:space="preserve">
+    <value>Code language identifier, such as csharp, javascript, python or json. Unknown languages are displayed as plain text.</value>
   </data>
-  <data name="Code_PropLanguageLabel" xml:space="preserve">
-    <value>Display name of the language. Derived from the language when omitted.</value>
+  <data name="Code_PropCodeLanguageLabel" xml:space="preserve">
+    <value>Display name of the code language. Derived from code-language when omitted.</value>
   </data>
   <data name="Code_PropTheme" xml:space="preserve">
     <value>light or dark. dark uses a dark background and color-scheme: dark. Defaults to light.</value>
@@ -2404,8 +2398,8 @@
   <data name="Code_PropExamples" xml:space="preserve">
     <value>Language variants (CodeSample: Language, Label, Code). Languages must be unique. The language selector is shown only when more than one variant is supplied.</value>
   </data>
-  <data name="Code_PropSelectedLanguage" xml:space="preserve">
-    <value>Language displayed first. Defaults to the first example.</value>
+  <data name="Code_PropSelectedCodeLanguage" xml:space="preserve">
+    <value>Code language displayed first. Defaults to the first example.</value>
   </data>
   <data name="Code_PropSyncGroup" xml:space="preserve">
     <value>Examples with the same group on a page switch language together.</value>

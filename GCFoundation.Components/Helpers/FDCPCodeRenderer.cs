@@ -1,6 +1,7 @@
 using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models.Code;
 using GCFoundation.Components.Resources;
+using GCFoundation.Components.TagHelpers.GCDS;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Globalization;
@@ -76,10 +77,9 @@ namespace GCFoundation.Components.Helpers
                 throw new ArgumentException($"The code language '{duplicate.Key}' is used more than once in the same component.", nameof(options));
             }
 
-            var selectedLanguage = NormalizeLanguage(options.SelectedLanguage);
-            var activeIndex = Math.Max(0, samples.FindIndex(s => s.Language == selectedLanguage));
+            var selectedCodeLanguage = NormalizeLanguage(options.SelectedCodeLanguage);
+            var activeIndex = Math.Max(0, samples.FindIndex(s => s.Language == selectedCodeLanguage));
             var hasTitle = !string.IsNullOrWhiteSpace(options.Title);
-            var titleId = $"{id}-title";
             var isMultiLanguage = samples.Count > 1;
 
             var root = new TagBuilder("div");
@@ -87,10 +87,10 @@ namespace GCFoundation.Components.Helpers
             root.AddCssClass("fdcp-code");
             if (isMultiLanguage) root.AddCssClass("fdcp-code--multiple");
             if (options.Wrap) root.AddCssClass("fdcp-code--wrap");
-            if (options.Theme == FDCPCodeTheme.dark) root.AddCssClass("fdcp-code--dark");
+            if (options.Theme == ColourTheme.dark) root.AddCssClass("fdcp-code--dark");
             if (!string.IsNullOrWhiteSpace(options.CssClass)) root.AddCssClass(options.CssClass.Trim());
             root.Attributes["data-fdcp-code"] = "true";
-            root.Attributes["data-fdcp-code-theme"] = options.Theme == FDCPCodeTheme.dark ? "dark" : "light";
+            root.Attributes["data-fdcp-code-theme"] = options.Theme == ColourTheme.dark ? "dark" : "light";
             if (!string.IsNullOrWhiteSpace(options.SyncGroup)) root.Attributes["data-fdcp-code-sync-group"] = options.SyncGroup.Trim();
             if (options.CopyEnabled)
             {
@@ -109,7 +109,6 @@ namespace GCFoundation.Components.Helpers
                 if (hasTitle)
                 {
                     var title = new TagBuilder("p");
-                    title.Attributes["id"] = titleId;
                     title.AddCssClass("fdcp-code__title");
                     title.InnerHtml.Append(options.Title!.Trim());
                     heading.InnerHtml.AppendHtml(title);
@@ -126,20 +125,15 @@ namespace GCFoundation.Components.Helpers
                 if (isMultiLanguage)
                 {
                     var selectId = $"{id}-language";
-                    var picker = new TagBuilder("div");
-                    picker.AddCssClass("fdcp-code__picker");
-
-                    var label = new TagBuilder("label");
-                    label.AddCssClass("fdcp-code__select-label");
-                    label.Attributes["for"] = selectId;
-                    label.InnerHtml.Append(Localization.Code_LanguageSelect);
-                    picker.InnerHtml.AppendHtml(label);
-
-                    var select = new TagBuilder("select");
+                    var select = new TagBuilder("gcds-select");
                     select.AddCssClass("fdcp-code__select");
-                    select.Attributes["id"] = selectId;
+                    select.Attributes["select-id"] = selectId;
+                    select.Attributes["name"] = selectId;
+                    select.Attributes["label"] = Localization.Code_LanguageSelect;
+                    select.Attributes["lang"] = BaseTagHelper.Lang.ToString();
                     select.Attributes["data-fdcp-code-select"] = "true";
-                    if (hasTitle) select.Attributes["aria-describedby"] = titleId;
+                    // GCDS copies aria-* onto its inner select. A string description survives that shadow boundary.
+                    if (hasTitle) select.Attributes["aria-description"] = options.Title!.Trim();
                     for (var i = 0; i < samples.Count; i++)
                     {
                         var option = new TagBuilder("option");
@@ -148,8 +142,7 @@ namespace GCFoundation.Components.Helpers
                         option.InnerHtml.Append(samples[i].Label);
                         select.InnerHtml.AppendHtml(option);
                     }
-                    picker.InnerHtml.AppendHtml(select);
-                    controls.InnerHtml.AppendHtml(picker);
+                    controls.InnerHtml.AppendHtml(select);
                 }
 
                 if (options.CopyEnabled)
@@ -220,9 +213,11 @@ namespace GCFoundation.Components.Helpers
                 pre.Attributes["tabindex"] = "0";
                 pre.Attributes["role"] = "group";
                 var name = hasTitle ? options.Title!.Trim() : options.AccessibleLabel?.Trim();
+#pragma warning disable CA1863 // Use CompositeFormat - the format is a per-culture resource, so one cached instance would be wrong for the other language
                 pre.Attributes["aria-label"] = string.IsNullOrEmpty(name)
                     ? string.Format(CultureInfo.CurrentCulture, Localization.Code_RegionLabel, label)
                     : $"{name} ({label})";
+#pragma warning restore CA1863
                 pre.Attributes["dir"] = "ltr";
                 pre.Attributes["translate"] = "no";
 

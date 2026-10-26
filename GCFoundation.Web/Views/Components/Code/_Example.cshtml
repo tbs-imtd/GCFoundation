@@ -3,14 +3,14 @@
 @model ComponentSampleCodeSectionViewModel
 
 <fdcp-code id="code-example-create" title="@Components.Code_SampleCreateTitle"
-                   examples="@CodeDemoSamples.CreateRequest" selected-language="csharp"
+                   examples="@CodeDemoSamples.CreateRequest" selected-code-language="csharp"
                    sync-group="@CodeDemoSamples.RequestSyncGroup" />
 
 <fdcp-code id="code-example-read" title="@Components.Code_SampleReadTitle"
                    examples="@CodeDemoSamples.ReadRequest"
                    sync-group="@CodeDemoSamples.RequestSyncGroup" />
 
-<fdcp-code language="cshtml">
+<fdcp-code code-language="cshtml">
     @@{
         var createExamples = new List&lt;CodeSample&gt;
         {
@@ -23,7 +23,7 @@
     &lt;fdcp-code id="code-example-create"
                        title="@Components.Code_SampleCreateTitle"
                        examples="@@createExamples"
-                       selected-language="csharp"
+                       selected-code-language="csharp"
                        sync-group="@CodeDemoSamples.RequestSyncGroup" /&gt;
 
     &lt;fdcp-code id="code-example-read"

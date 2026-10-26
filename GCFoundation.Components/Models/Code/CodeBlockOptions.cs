@@ -36,9 +36,9 @@ namespace GCFoundation.Components.Models.Code
         public IReadOnlyList<CodeSample> Samples { get; set; } = [];
 
         /// <summary>
-        /// Gets or sets the language shown first. Defaults to the first sample when omitted or not available.
+        /// Gets or sets the code language shown first. Defaults to the first sample when omitted or not available.
         /// </summary>
-        public string? SelectedLanguage { get; set; }
+        public string? SelectedCodeLanguage { get; set; }
 
         /// <summary>
         /// Gets or sets an optional group name. Components sharing a group on the same page switch language together.
@@ -46,10 +46,10 @@ namespace GCFoundation.Components.Models.Code
         public string? SyncGroup { get; set; }
 
         /// <summary>
-        /// Gets or sets the colour theme. <see cref="FDCPCodeTheme.dark"/> uses a dark background and
+        /// Gets or sets the colour theme. <see cref="ColourTheme.dark"/> uses a dark background and
         /// <c>color-scheme: dark</c> so Dark Reader does not invert the syntax colours. Defaults to light.
         /// </summary>
-        public FDCPCodeTheme Theme { get; set; } = FDCPCodeTheme.light;
+        public ColourTheme Theme { get; set; } = ColourTheme.light;
 
         /// <summary>
         /// Gets or sets an optional visible title for the code.

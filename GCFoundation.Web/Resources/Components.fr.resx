@@ -2608,7 +2608,7 @@
     <value>La zone de code reçoit le focus du clavier pour que les longues lignes défilent avec les touches fléchées.</value>
   </data>
   <data name="Code_Accessibility3" xml:space="preserve">
-    <value>Le sélecteur de langage est une liste native étiquetée et il est omis lorsqu'il n'y a qu'un seul langage. Après une copie réussie, une zone d'annonce polie indique que le code a été copié.</value>
+    <value>Le sélecteur de langage est une liste GCDS étiquetée (gcds-select) et il est omis lorsqu'il n'y a qu'un seul langage. Après une copie réussie, une zone d'annonce polie indique que le code a été copié.</value>
   </data>
   <data name="Code_Accessibility4" xml:space="preserve">
     <value>La couleur syntaxique renforce le code. Les personnes qui ne distinguent pas ces couleurs peuvent tout de même lire le texte. Les couleurs respectent le contraste minimal.</value>
@@ -2661,12 +2661,6 @@
   <data name="Code_FallbackText" xml:space="preserve">
     <value>&lt;p&gt;Les langages inconnus sont affichés en texte brut. Utilisez &lt;code&gt;wrap="true"&lt;/code&gt; pour les longues lignes plus faciles à lire avec retour à la ligne, et &lt;code&gt;copy-enabled="false"&lt;/code&gt; lorsque la copie n'est pas utile.&lt;/p&gt;</value>
   </data>
-  <data name="Code_RendererTitle" xml:space="preserve">
-    <value>Rendu à partir de C#</value>
-  </data>
-  <data name="Code_RendererText" xml:space="preserve">
-    <value>&lt;p&gt;Le code qui construit du HTML en C# peut appeler &lt;code&gt;FDCPCodeRenderer.Render&lt;/code&gt;, qui retourne un &lt;code&gt;IHtmlContent&lt;/code&gt; avec le même balisage que les Tag Helpers. Razor ne traite pas les Tag Helpers placés dans des chaînes HTML générées.&lt;/p&gt;</value>
-  </data>
   <data name="Code_SampleResponseTitle" xml:space="preserve">
     <value>Exemple de réponse</value>
   </data>
@@ -2694,11 +2688,11 @@
   <data name="Code_PropId" xml:space="preserve">
     <value>Identifiant du composant. Généré s'il est omis.</value>
   </data>
-  <data name="Code_PropLanguage" xml:space="preserve">
-    <value>Identifiant du langage, par exemple csharp, javascript, python ou json. Les langages inconnus sont affichés en texte brut.</value>
+  <data name="Code_PropCodeLanguage" xml:space="preserve">
+    <value>Identifiant du langage de code, par exemple csharp, javascript, python ou json. Les langages inconnus sont affichés en texte brut.</value>
   </data>
-  <data name="Code_PropLanguageLabel" xml:space="preserve">
-    <value>Nom affiché du langage. Déduit du langage s'il est omis.</value>
+  <data name="Code_PropCodeLanguageLabel" xml:space="preserve">
+    <value>Nom affiché du langage de code. Déduit de code-language s'il est omis.</value>
   </data>
   <data name="Code_PropTheme" xml:space="preserve">
     <value>light ou dark. dark utilise un fond sombre et color-scheme: dark. La valeur par défaut est light.</value>
@@ -2712,8 +2706,8 @@
   <data name="Code_PropExamples" xml:space="preserve">
     <value>Variantes de langage (CodeSample : Language, Label, Code). Les langages doivent être uniques. Le sélecteur de langage n'apparaît que lorsqu'il y a plus d'une variante.</value>
   </data>
-  <data name="Code_PropSelectedLanguage" xml:space="preserve">
-    <value>Langage affiché en premier. Par défaut, le premier exemple.</value>
+  <data name="Code_PropSelectedCodeLanguage" xml:space="preserve">
+    <value>Langage de code affiché en premier. Par défaut, le premier exemple.</value>
   </data>
   <data name="Code_PropSyncGroup" xml:space="preserve">
     <value>Les exemples d'une page ayant le même groupe changent de langage ensemble.</value>

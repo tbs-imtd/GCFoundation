@@ -15,10 +15,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// <example>
     /// <code>
     /// &lt;fdcp-code id=&quot;response-example&quot; title=&quot;Example response&quot;
-    ///            language=&quot;json&quot; code=&quot;@Model.ResponseJson&quot; /&gt;
+    ///            code-language=&quot;json&quot; code=&quot;@Model.ResponseJson&quot; /&gt;
     ///
     /// &lt;fdcp-code id=&quot;create-request-example&quot; title=&quot;Create a request&quot;
-    ///            examples=&quot;@Model.RequestExamples&quot; selected-language=&quot;csharp&quot;
+    ///            examples=&quot;@Model.RequestExamples&quot; selected-code-language=&quot;csharp&quot;
     ///            sync-group=&quot;request-examples&quot; theme=&quot;dark&quot; /&gt;
     /// </code>
     /// </example>
@@ -49,21 +49,21 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? Id { get; set; }
 
         /// <summary>
-        /// Language identifier for a single snippet, such as <c>csharp</c>, <c>javascript</c>, <c>python</c>
+        /// Code language identifier for a single snippet, such as <c>csharp</c>, <c>javascript</c>, <c>python</c>
         /// or <c>json</c>. Unknown or empty languages are displayed as plain text. Ignored when
         /// <see cref="Examples"/> is set.
         /// </summary>
-        public string? Language { get; set; }
+        public string? CodeLanguage { get; set; }
 
         /// <summary>
-        /// Display name of the single snippet language. Derived from <see cref="Language"/> when omitted.
+        /// Display name of the single snippet code language. Derived from <see cref="CodeLanguage"/> when omitted.
         /// </summary>
-        public string? LanguageLabel { get; set; }
+        public string? CodeLanguageLabel { get; set; }
 
         /// <summary>
-        /// Language shown first when several variants are supplied. Defaults to the first variant.
+        /// Code language shown first when several variants are supplied. Defaults to the first variant.
         /// </summary>
-        public string? SelectedLanguage { get; set; }
+        public string? SelectedCodeLanguage { get; set; }
 
         /// <summary>
         /// Optional group name. Components with the same group on a page switch language together; a component
@@ -72,10 +72,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? SyncGroup { get; set; }
 
         /// <summary>
-        /// Colour theme. <see cref="FDCPCodeTheme.dark"/> uses a dark background and <c>color-scheme: dark</c>.
-        /// Defaults to <see cref="FDCPCodeTheme.light"/>.
+        /// Colour theme. <see cref="ColourTheme.dark"/> uses a dark background and <c>color-scheme: dark</c>.
+        /// Defaults to <see cref="ColourTheme.light"/>.
         /// </summary>
-        public FDCPCodeTheme Theme { get; set; } = FDCPCodeTheme.light;
+        public ColourTheme Theme { get; set; } = ColourTheme.light;
 
         /// <summary>
         /// Optional visible title.
@@ -106,7 +106,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     code = Dedent(WebUtility.HtmlDecode(childContent.GetContent()));
                 }
 
-                samples = [new CodeSample { Language = Language ?? string.Empty, Label = LanguageLabel, Code = code }];
+                samples = [new CodeSample { Language = CodeLanguage ?? string.Empty, Label = CodeLanguageLabel, Code = code }];
             }
 
             var html = FDCPCodeRenderer.Render(new CodeBlockOptions
@@ -115,7 +115,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 CssClass = output.Attributes["class"]?.Value?.ToString(),
                 Id = Id,
                 Samples = samples,
-                SelectedLanguage = SelectedLanguage,
+                SelectedCodeLanguage = SelectedCodeLanguage,
                 SyncGroup = SyncGroup,
                 Theme = Theme,
                 Title = Title,

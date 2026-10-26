@@ -1033,7 +1033,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The language selector is a labelled native select and is omitted when there is only one language. After a successful copy, a polite live region announces that the code was copied..
+        ///   Looks up a localized string similar to The language selector is a labelled GCDS select (gcds-select) and is omitted when there is only one language. After a successful copy, a polite live region announces that the code was copied..
         /// </summary>
         public static string Code_Accessibility3 {
             get {
@@ -1213,6 +1213,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code language identifier, such as csharp, javascript, python or json. Unknown languages are displayed as plain text..
+        /// </summary>
+        public static string Code_PropCodeLanguage {
+            get {
+                return ResourceManager.GetString("Code_PropCodeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display name of the code language. Derived from code-language when omitted..
+        /// </summary>
+        public static string Code_PropCodeLanguageLabel {
+            get {
+                return ResourceManager.GetString("Code_PropCodeLanguageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Displays the copy button..
         /// </summary>
         public static string Code_PropCopyEnabled {
@@ -1240,29 +1258,11 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language identifier, such as csharp, javascript, python or json. Unknown languages are displayed as plain text..
+        ///   Looks up a localized string similar to Code language displayed first. Defaults to the first example..
         /// </summary>
-        public static string Code_PropLanguage {
+        public static string Code_PropSelectedCodeLanguage {
             get {
-                return ResourceManager.GetString("Code_PropLanguage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Display name of the language. Derived from the language when omitted..
-        /// </summary>
-        public static string Code_PropLanguageLabel {
-            get {
-                return ResourceManager.GetString("Code_PropLanguageLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Language displayed first. Defaults to the first example..
-        /// </summary>
-        public static string Code_PropSelectedLanguage {
-            get {
-                return ResourceManager.GetString("Code_PropSelectedLanguage", resourceCulture);
+                return ResourceManager.GetString("Code_PropSelectedCodeLanguage", resourceCulture);
             }
         }
         
@@ -1308,24 +1308,6 @@ namespace GCFoundation.Web.Resources {
         public static string Code_Purpose {
             get {
                 return ResourceManager.GetString("Code_Purpose", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Code that builds HTML in C# can call &lt;code&gt;FDCPCodeRenderer.Render&lt;/code&gt;, which returns &lt;code&gt;IHtmlContent&lt;/code&gt; with the same markup as the Tag Helpers. Tag Helpers placed inside generated HTML strings are not processed by Razor.&lt;/p&gt;.
-        /// </summary>
-        public static string Code_RendererText {
-            get {
-                return ResourceManager.GetString("Code_RendererText", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rendering from C#.
-        /// </summary>
-        public static string Code_RendererTitle {
-            get {
-                return ResourceManager.GetString("Code_RendererTitle", resourceCulture);
             }
         }
         

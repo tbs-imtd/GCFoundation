@@ -110,9 +110,18 @@
                 if (isActive) panel.dataset.fdcpCodeActive = 'true';
                 else delete panel.dataset.fdcpCodeActive;
             });
-            if (this.select && this.select.value !== language) this.select.value = language;
+            this.setSelectValue(language);
             this.setStatus('');
             return true;
+        }
+
+        setSelectValue(language) {
+            if (!this.select) return;
+            // gcds-select reads the selected option when it loads, so it must match the value set here.
+            this.select.querySelectorAll('option').forEach((option) => {
+                option.toggleAttribute('selected', option.getAttribute('value') === language);
+            });
+            if (this.select.value !== language) this.select.value = language;
         }
 
         onLanguageChange(language) {

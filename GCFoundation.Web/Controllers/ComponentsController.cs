@@ -846,22 +846,21 @@ namespace GCFoundation.Web.Controllers
                     new() { Name = "code", DataType = "string", Description = Resources.Components.Code_PropCode },
                     new() { Name = "copy-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Code_PropCopyEnabled },
                     new() { Name = "id", DataType = "string", Description = Resources.Components.Code_PropId },
-                    new() { Name = "language", DataType = "string", DefaultValue = "plaintext", Description = Resources.Components.Code_PropLanguage },
-                    new() { Name = "language-label", DataType = "string", Description = Resources.Components.Code_PropLanguageLabel },
+                    new() { Name = "code-language", DataType = "string", DefaultValue = "plaintext", Description = Resources.Components.Code_PropCodeLanguage },
+                    new() { Name = "code-language-label", DataType = "string", Description = Resources.Components.Code_PropCodeLanguageLabel },
                     new() { Name = "title", DataType = "string", Description = Resources.Components.Code_PropTitle },
                     new() { Name = "wrap", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Code_PropWrap },
                     new() { Name = "examples", DataType = "IEnumerable<CodeSample>", Description = Resources.Components.Code_PropExamples },
-                    new() { Name = "selected-language", DataType = "string", Description = Resources.Components.Code_PropSelectedLanguage },
+                    new() { Name = "selected-code-language", DataType = "string", Description = Resources.Components.Code_PropSelectedCodeLanguage },
                     new() { Name = "sync-group", DataType = "string", Description = Resources.Components.Code_PropSyncGroup },
-                    new() { Name = "theme", DataType = "FDCPCodeTheme", DefaultValue = "light", Description = Resources.Components.Code_PropTheme }
+                    new() { Name = "theme", DataType = "ColourTheme", DefaultValue = "light", Description = Resources.Components.Code_PropTheme }
                 ],
                 SampleCodeSections =
                 [
                     new() { Id = "code-block", Title = Resources.Components.Code_BlockTitle, Description = Resources.Components.Code_BlockText, PartialViewName = "Code/_Block" },
                     new() { Id = "code-example", Title = Resources.Components.Code_ExampleTitle, Description = Resources.Components.Code_ExampleText, PartialViewName = "Code/_Example" },
                     new() { Id = "code-dark", Title = Resources.Components.Code_DarkTitle, Description = Resources.Components.Code_DarkText, PartialViewName = "Code/_Dark" },
-                    new() { Id = "code-fallback", Title = Resources.Components.Code_FallbackTitle, Description = Resources.Components.Code_FallbackText, PartialViewName = "Code/_Fallback" },
-                    new() { Id = "code-renderer", Title = Resources.Components.Code_RendererTitle, Description = Resources.Components.Code_RendererText, PartialViewName = "Code/_Renderer" }
+                    new() { Id = "code-fallback", Title = Resources.Components.Code_FallbackTitle, Description = Resources.Components.Code_FallbackText, PartialViewName = "Code/_Fallback" }
                 ]
             };
         }

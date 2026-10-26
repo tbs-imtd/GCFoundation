@@ -1,9 +1,9 @@
 namespace GCFoundation.Components.Enums
 {
     /// <summary>
-    /// Colour theme for <c>&lt;fdcp-code&gt;</c>.
+    /// Colour theme.
     /// </summary>
-    public enum FDCPCodeTheme
+    public enum ColourTheme
     {
         /// <summary>
         /// Light background. This is the default.
@@ -11,7 +11,7 @@ namespace GCFoundation.Components.Enums
         light = 0,
 
         /// <summary>
-        /// Dark background. The component sets <c>color-scheme: dark</c> so Dark Reader does not invert it.
+        /// Dark background.
         /// </summary>
         dark = 1
     }

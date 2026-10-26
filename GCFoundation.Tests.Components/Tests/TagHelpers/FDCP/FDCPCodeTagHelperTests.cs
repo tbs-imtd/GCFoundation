@@ -22,18 +22,18 @@ public class FDCPCodeTagHelperTests
     [Fact]
     public async Task CodeBlockRendersSemanticMarkupAndHidesControlsUntilInitialized()
     {
-        var doc = Parse(await Render(new() { Id = "response", Title = "Example response", Language = "json", Code = "{ \"id\": 1 }" }));
+        var doc = Parse(await Render(new() { Id = "response", Title = "Example response", CodeLanguage = "json", Code = "{ \"id\": 1 }" }));
 
         var root = Single(doc, "//div[@data-fdcp-code='true']");
         Assert.Equal("response", root.Id);
         Assert.Contains("fdcp-code", root.GetClasses());
         Assert.DoesNotContain("fdcp-code--multiple", root.GetClasses());
         Assert.Equal("light", root.GetAttributeValue("data-fdcp-code-theme", ""));
-        Assert.Equal("Example response", Single(doc, "//p[@id='response-title']").InnerText);
+        Assert.Equal("Example response", Single(doc, "//p[contains(@class,'fdcp-code__title')]").InnerText);
 
         var controls = Single(doc, "//*[@data-fdcp-code-controls]");
         Assert.True(controls.Attributes.Contains("hidden"));
-        Assert.Null(doc.DocumentNode.SelectSingleNode("//select"));
+        Assert.Null(doc.DocumentNode.SelectSingleNode("//gcds-select"));
 
         var button = Single(doc, "//gcds-button[@data-fdcp-code-copy]");
         Assert.Equal("button", button.GetAttributeValue("type", ""));
@@ -113,7 +113,7 @@ public class FDCPCodeTagHelperTests
             Id = "create",
             Title = "Create a request",
             Examples = Samples("csharp", "javascript", "python"),
-            SelectedLanguage = "python",
+            SelectedCodeLanguage = "python",
             SyncGroup = "request-examples"
         });
         var doc = Parse(output);
@@ -122,10 +122,11 @@ public class FDCPCodeTagHelperTests
         Assert.Contains("fdcp-code--multiple", root.GetClasses());
         Assert.Equal("request-examples", root.GetAttributeValue("data-fdcp-code-sync-group", ""));
 
-        var select = Single(doc, "//select[@data-fdcp-code-select]");
-        Assert.Equal(select.Id, Single(doc, "//label").GetAttributeValue("for", ""));
-        Assert.Equal("Code language", Single(doc, "//label").InnerText);
-        Assert.Equal("create-title", select.GetAttributeValue("aria-describedby", ""));
+        var select = Single(doc, "//gcds-select[@data-fdcp-code-select]");
+        Assert.Equal("create-language", select.GetAttributeValue("select-id", ""));
+        Assert.Equal("create-language", select.GetAttributeValue("name", ""));
+        Assert.Equal("Code language", select.GetAttributeValue("label", ""));
+        Assert.Equal("Create a request", select.GetAttributeValue("aria-description", ""));
         var options = select.SelectNodes("option");
         Assert.Equal(new[] { "csharp", "javascript", "python" }, options.Select(o => o.GetAttributeValue("value", "")));
         Assert.Equal(new[] { "C#", "JavaScript", "Python" }, options.Select(o => o.InnerText));
@@ -144,15 +145,15 @@ public class FDCPCodeTagHelperTests
     public async Task OneLanguageOmitsTheSelector()
     {
         var doc = Parse(await Render(new() { Title = "One language", Examples = Samples("csharp") }));
-        Assert.Null(doc.DocumentNode.SelectSingleNode("//select"));
+        Assert.Null(doc.DocumentNode.SelectSingleNode("//gcds-select"));
         Assert.DoesNotContain("fdcp-code--multiple", Single(doc, "//div[@data-fdcp-code]").GetClasses());
         Assert.Equal("C#", Single(doc, "//div[contains(@class,'fdcp-code__heading')]/p[contains(@class,'fdcp-code__language')]").InnerText);
     }
 
     [Fact]
-    public async Task UnknownSelectedLanguageFallsBackToFirstExample()
+    public async Task UnknownSelectedCodeLanguageFallsBackToFirstExample()
     {
-        var doc = Parse(await Render(new() { Examples = Samples("csharp", "python"), SelectedLanguage = "ruby" }));
+        var doc = Parse(await Render(new() { Examples = Samples("csharp", "python"), SelectedCodeLanguage = "ruby" }));
         Assert.Equal("csharp", Single(doc, "//div[@data-fdcp-code-active='true']").GetAttributeValue("data-fdcp-code-language", ""));
         Assert.Equal("csharp", Single(doc, "//option[@selected]").GetAttributeValue("value", ""));
     }
@@ -169,7 +170,7 @@ public class FDCPCodeTagHelperTests
     [Fact]
     public async Task CopyDisabledOmitsCopyControlsAndMessages()
     {
-        var html = await Render(new() { Language = "csharp", Code = "x", CopyEnabled = false });
+        var html = await Render(new() { CodeLanguage = "csharp", Code = "x", CopyEnabled = false });
         var doc = Parse(html);
         Assert.Null(doc.DocumentNode.SelectSingleNode("//gcds-button"));
         Assert.Null(doc.DocumentNode.SelectSingleNode("//*[@data-fdcp-code-status]"));
@@ -194,7 +195,7 @@ public class FDCPCodeTagHelperTests
     public async Task ChildContentIsDecodedTrimmedAndDedented()
     {
         const string child = "\n        &lt;fdcp-input for=&quot;Name&quot; /&gt;\n            @Model.Value\n\n        &lt;/div&gt;\n    ";
-        var doc = Parse(await Render(new() { Language = "cshtml" }, child));
+        var doc = Parse(await Render(new() { CodeLanguage = "cshtml" }, child));
         Assert.Equal("<fdcp-input for=\"Name\" />\n    @Model.Value\n\n</div>", CodeText(doc));
     }
 
@@ -206,15 +207,13 @@ public class FDCPCodeTagHelperTests
         var third = await Render(new() { Title = "Third", Examples = Samples("csharp", "python") });
         var doc = Parse(first + second + third);
 
-        var ids = doc.DocumentNode.SelectNodes("//*[@id]").Select(n => n.Id).ToList();
+        var ids = doc.DocumentNode.SelectNodes("//*[@id]").Select(n => n.Id)
+            .Concat(doc.DocumentNode.SelectNodes("//gcds-select").Select(n => n.GetAttributeValue("select-id", "")))
+            .ToList();
         Assert.Equal(ids.Count, ids.Distinct(StringComparer.Ordinal).Count());
         Assert.Contains("my-example-1-", ids);
+        Assert.Contains("my-example-1--language", ids);
         Assert.All(ids, id => Assert.Matches("^[A-Za-z0-9_-]+$", id));
-        foreach (var node in doc.DocumentNode.SelectNodes("//*[@for or @aria-describedby]"))
-        {
-            var target = node.GetAttributeValue("for", "");
-            Assert.Contains(target.Length > 0 ? target : node.GetAttributeValue("aria-describedby", ""), ids);
-        }
     }
 
     [Fact]
@@ -233,11 +232,11 @@ public class FDCPCodeTagHelperTests
     [Fact]
     public async Task DarkThemeIsMarkedSoDarkReaderWillNotInvertIt()
     {
-        var doc = Parse(await Render(new() { Id = "dark", Language = "csharp", Code = "var x = 1;", Theme = FDCPCodeTheme.dark }));
+        var doc = Parse(await Render(new() { Id = "dark", CodeLanguage = "csharp", Code = "var x = 1;", Theme = ColourTheme.dark }));
         var root = Single(doc, "//div[@data-fdcp-code]");
         Assert.Contains("fdcp-code--dark", root.GetClasses());
         Assert.Equal("dark", root.GetAttributeValue("data-fdcp-code-theme", ""));
-        Assert.Null(doc.DocumentNode.SelectSingleNode("//select"));
+        Assert.Null(doc.DocumentNode.SelectSingleNode("//gcds-select"));
         Assert.Equal("polite", Single(doc, "//*[@data-fdcp-code-status]").GetAttributeValue("aria-live", ""));
     }
 
@@ -245,20 +244,27 @@ public class FDCPCodeTagHelperTests
     public async Task FrenchLabelsFollowCurrentUICulture()
     {
         var previous = CultureInfo.CurrentUICulture;
+        var previousCulture = CultureInfo.CurrentCulture;
         try
         {
             CultureInfo.CurrentUICulture = CultureInfo.GetCultureInfo("fr-CA");
+            CultureInfo.CurrentCulture = CultureInfo.GetCultureInfo("fr-CA");
             var doc = Parse(await Render(new() { Examples = [new() { Language = "csharp", Code = "a" }, new() { Language = "", Code = "b" }] }));
             var button = Single(doc, "//gcds-button");
             Assert.Equal("Copier le code", button.InnerText);
             Assert.Equal("Copier le code", button.GetAttributeValue("aria-label", ""));
             Assert.Equal("Copié!", Decode(button.GetAttributeValue("data-fdcp-code-copied-label", "")));
-            Assert.Equal("Langage du code", Decode(Single(doc, "//label").InnerHtml));
+            Assert.Equal("Langage du code", Decode(Single(doc, "//gcds-select").GetAttributeValue("label", "")));
+            Assert.Equal("fr", Single(doc, "//gcds-select").GetAttributeValue("lang", ""));
             Assert.Equal("Texte brut", Single(doc, "//option[@value='plaintext']").InnerText);
             Assert.Equal("Code C#", Decode(Single(doc, "(//pre)[1]").GetAttributeValue("aria-label", "")));
             Assert.StartsWith("Le code n'a pas pu", Decode(Single(doc, "//div[@data-fdcp-code]").GetAttributeValue("data-fdcp-code-copy-failed", "")), StringComparison.Ordinal);
         }
-        finally { CultureInfo.CurrentUICulture = previous; }
+        finally
+        {
+            CultureInfo.CurrentUICulture = previous;
+            CultureInfo.CurrentCulture = previousCulture;
+        }
     }
 
     private static List<CodeSample> Samples(params string[] languages) =>

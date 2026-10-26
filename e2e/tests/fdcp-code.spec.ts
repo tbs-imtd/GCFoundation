@@ -22,7 +22,7 @@ async function highlightActivePanels(page: Page) {
 
 /** Visits every language of every example, calling `check` once per combination. */
 async function forEachLanguage(page: Page, check: (state: string) => Promise<void>) {
-  const selects = page.locator('[data-fdcp-code-select]');
+  const selects = page.locator('[data-fdcp-code-select] select');
   const optionCounts = await selects.evaluateAll(list => list.map(s => (s as HTMLSelectElement).options.length));
   const rounds = Math.max(1, ...optionCounts);
   for (let round = 0; round < rounds; round++) {
@@ -130,7 +130,8 @@ test.describe('FDCP code', () => {
     });
     await page.goto('/fr/composants/code');
     const read = page.locator('#code-example-read');
-    await read.getByRole('button', { name: 'Copier le code' }).click();
+    await expect(read.getByRole('button', { name: 'Copier le code' })).toBeVisible();
+    await read.locator('[data-fdcp-code-copy]').click();
     await expect(read.getByRole('status')).toContainText('Ctrl+C');
     const source = await read.locator('[data-fdcp-code-active] code').textContent();
     await expect.poll(() => page.evaluate(() => String(window.getSelection()))).toBe(source);
@@ -163,7 +164,7 @@ test.describe('FDCP code', () => {
       await page.addStyleTag({
         content: '* { line-height: 1.5 !important; letter-spacing: 0.12em !important; word-spacing: 0.16em !important; } p { margin-bottom: 2em !important; }'
       });
-      const clipped = await page.locator('[data-fdcp-code] .fdcp-code__title, [data-fdcp-code] .fdcp-code__language, [data-fdcp-code] .fdcp-code__select-label, [data-fdcp-code] button')
+      const clipped = await page.locator('[data-fdcp-code] .fdcp-code__title, [data-fdcp-code] .fdcp-code__language, [data-fdcp-code] label, [data-fdcp-code] button')
         .evaluateAll(list => list.filter(el => el.getClientRects().length > 0 && (el.scrollWidth > el.clientWidth + 1 || el.scrollHeight > el.clientHeight + 1)).map(el => el.textContent));
       expect(clipped).toEqual([]);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth + 1)).toBe(true);

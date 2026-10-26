@@ -2,16 +2,16 @@
 @using GCFoundation.Web.Resources
 @model ComponentSampleCodeSectionViewModel
 
-<fdcp-code id="code-dark-sample" title="@Components.Code_SampleRegistrationTitle" language="csharp" theme="dark">
+<fdcp-code id="code-dark-sample" title="@Components.Code_SampleRegistrationTitle" code-language="csharp" theme="dark">
     // Submit the request.
     var response = await client.PostAsJsonAsync("v1/requests", new { title = "Access request" });
     response.EnsureSuccessStatusCode();
 </fdcp-code>
 
-<fdcp-code language="cshtml">
+<fdcp-code code-language="cshtml">
     &lt;fdcp-code id="code-dark-sample"
                title="@Components.Code_SampleRegistrationTitle"
-               language="csharp"
+               code-language="csharp"
                theme="dark"&gt;
         // Submit the request.
         var response = await client.PostAsJsonAsync("v1/requests", new { title = "Access request" });
