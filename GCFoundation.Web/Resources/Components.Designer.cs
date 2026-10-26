@@ -19,7 +19,7 @@ namespace GCFoundation.Web.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Components {
@@ -1069,6 +1069,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Set theme=&quot;dark&quot; for a dark background. The block uses color-scheme: dark, so Dark Reader leaves the colours alone instead of inverting them..
+        /// </summary>
+        public static string Code_DarkText {
+            get {
+                return ResourceManager.GetString("Code_DarkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark theme.
+        /// </summary>
+        public static string Code_DarkTitle {
+            get {
+                return ResourceManager.GetString("Code_DarkTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;p&gt;Pass &lt;code&gt;examples&lt;/code&gt; to the same &lt;code&gt;fdcp-code&lt;/code&gt; component to show one example in several languages. The language selector appears only then..
         /// </summary>
         public static string Code_ExampleText {
@@ -1083,24 +1101,6 @@ namespace GCFoundation.Web.Resources {
         public static string Code_ExampleTitle {
             get {
                 return ResourceManager.GetString("Code_ExampleTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Dark theme.
-        /// </summary>
-        public static string Code_DarkTitle {
-            get {
-                return ResourceManager.GetString("Code_DarkTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Set theme=&quot;dark&quot; for a dark background. The block uses color-scheme: dark, so Dark Reader leaves the colours alone instead of inverting them..
-        /// </summary>
-        public static string Code_DarkText {
-            get {
-                return ResourceManager.GetString("Code_DarkText", resourceCulture);
             }
         }
         
@@ -1141,7 +1141,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to After inserting components into the page with JavaScript, call FDCPCode.initialize(container). Initializing the same component again has no effect..
+        ///   Looks up a localized string similar to After inserting components into the page with JavaScript, call FDCPCode.&lt;wbr&gt;initialize(container). Initializing the same component again has no effect..
         /// </summary>
         public static string Code_NoteDynamic {
             get {
@@ -2559,7 +2559,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quick reference for FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet..
+        ///   Looks up a localized string similar to Quick reference for non-featured FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet..
         /// </summary>
         public static string Index_TagHelpers_Section_Description {
             get {
@@ -5042,22 +5042,22 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Table_Properties_Annotation_IsHidden", resourceCulture);
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sets the column header text. Provide a resource key as &lt;code&gt;Name&lt;/code&gt; and the resource class as &lt;code&gt;ResourceType&lt;/code&gt; for a localized header..
-        /// </summary>
-        public static string Table_Properties_Annotation_NameResourceType {
-            get {
-                return ResourceManager.GetString("Table_Properties_Annotation_NameResourceType", resourceCulture);
-            }
-        }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to Controls the display order of this column relative to other columns. Columns are rendered in ascending order by this value..
         /// </summary>
         public static string Table_Properties_Annotation_Order {
             get {
                 return ResourceManager.GetString("Table_Properties_Annotation_Order", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the column header text. Provide a resource key as &lt;code&gt;Name&lt;/code&gt; and the resource class as &lt;code&gt;ResourceType&lt;/code&gt; for a localized header..
+        /// </summary>
+        public static string Table_Properties_Annotation_NameResourceType {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_NameResourceType", resourceCulture);
             }
         }
         
@@ -5501,6 +5501,69 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Table_WithButtonLink_Note", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to with-slots-caption.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Anchor {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Anchor", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Add submission.
+        /// </summary>
+        public static string Table_WithCaptionSlot_ButtonLabel {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_ButtonLabel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, clicking the Add submission button logs a message to the browser console.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Note {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Note", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Submissions.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Caption", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to List of recent submissions.
+        /// </summary>
+        public static string Table_WithCaptionSlot_CaptionDetail {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_CaptionDetail", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Use &lt;code&gt;&amp;lt;div slot="caption"&amp;gt;&lt;/code&gt; to inject custom content into the caption area of the table.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Text {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Text", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to With caption slot.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Title {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Title", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to A &lt;code&gt;type=&quot;link&quot;&lt;/code&gt; button inside the slot navigates like a link. Use &lt;code&gt;data-bind-template-href&lt;/code&gt; to supply the destination URL from the current row&apos;s data..
@@ -5517,69 +5580,6 @@ namespace GCFoundation.Web.Resources {
         public static string Table_WithButtonLink_Title {
             get {
                 return ResourceManager.GetString("Table_WithButtonLink_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to with-slots-caption.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Anchor {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add submission.
-        /// </summary>
-        public static string Table_WithCaptionSlot_ButtonLabel {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_ButtonLabel", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Submissions.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Caption {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Caption", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to List of recent submissions.
-        /// </summary>
-        public static string Table_WithCaptionSlot_CaptionDetail {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_CaptionDetail", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, clicking the Add submission button logs a message to the browser console.&lt;/i&gt;.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Note {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Note", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use &lt;code&gt;&amp;lt;div slot=&quot;caption&quot;&amp;gt;&lt;/code&gt; to inject custom content into the caption area of the table alongside the &lt;code&gt;caption&lt;/code&gt; and &lt;code&gt;caption-detail&lt;/code&gt; attributes. This is useful for placing action controls such as buttons directly above the table..
-        /// </summary>
-        public static string Table_WithCaptionSlot_Text {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Text", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to With caption slot.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Title {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Title", resourceCulture);
             }
         }
         

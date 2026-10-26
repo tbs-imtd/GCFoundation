@@ -2635,7 +2635,7 @@
     <value>theme="dark" utilise un fond sombre et color-scheme: dark afin que Dark Reader n'inverse pas le bloc. Le thème par défaut est clair.</value>
   </data>
   <data name="Code_NoteDynamic" xml:space="preserve">
-    <value>Après avoir inséré des composants dans la page avec JavaScript, appelez FDCPCode.initialize(conteneur). Initialiser de nouveau le même composant n'a aucun effet.</value>
+    <value>Après avoir inséré des composants dans la page avec JavaScript, appelez FDCPCode.&lt;wbr&gt;initialize(conteneur). Initialiser de nouveau le même composant n'a aucun effet.</value>
   </data>
   <data name="Code_BlockTitle" xml:space="preserve">
     <value>Bloc de code</value>

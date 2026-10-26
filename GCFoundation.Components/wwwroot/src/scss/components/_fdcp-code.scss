@@ -1,6 +1,5 @@
 /* Selectors are nested under the root so container rules such as `.documentation-content pre` cannot restyle the component. */
 .fdcp-code {
-    // Light by default. The live samples are a flat surface: Prism's gray frame only applies when the language class is on the pre.
     background: var(--gcds-color-grayscale-50, #f1f2f3);
     border: 0;
     border-radius: 4px;
@@ -247,28 +246,29 @@
         &.italic { font-style: italic; }
     }
 
-    // Token colours stay at or above 4.5:1 on #141414. color-scheme tells Dark Reader this surface is already dark.
+    // Same palette as the site's Prism Tomorrow samples; every token stays at or above 4.5:1 on #2d2d2d.
+    // color-scheme tells Dark Reader this surface is already dark.
     &.fdcp-code--dark {
-        background: #141414;
-        border: 0;
-        border-radius: 4px;
-        box-shadow: none;
-        color: #fff;
+        background: #2d2d2d;
+        color: #ccc;
         color-scheme: dark;
-        --fdcp-code-token-comment: #b6c2cf;
-        --fdcp-code-token-keyword: #ff9492;
-        --fdcp-code-token-string: #a5d6ff;
-        --fdcp-code-token-function: #d2a8ff;
-        --fdcp-code-token-type: #ffb86c;
-        --fdcp-code-token-constant: #79c0ff;
-        --fdcp-code-token-property: #ffb86c;
-        --fdcp-code-token-tag: #7ee787;
+        --fdcp-code-token-comment: #999;
+        --fdcp-code-token-keyword: #cc99cd;
+        --fdcp-code-token-string: #7ec699;
+        --fdcp-code-token-function: #f08d49;
+        --fdcp-code-token-type: #f8c555;
+        --fdcp-code-token-constant: #f08d49;
+        --fdcp-code-token-property: #f8c555;
+        --fdcp-code-token-tag: #e2777a;
 
         .fdcp-code__panel + .fdcp-code__panel:not([hidden]) {
-            border-color: #545454;
+            border-color: #999;
         }
 
-        .fdcp-code__pre,
+        .fdcp-code__pre {
+            color: #ccc;
+        }
+
         .fdcp-code__select,
         .fdcp-code__title,
         .fdcp-code__status,
@@ -279,7 +279,7 @@
         .fdcp-code__language { color: #d0d7de; }
 
         .fdcp-code__select {
-            background-color: #141414;
+            background-color: #2d2d2d;
             border-color: #fff;
         }
 
@@ -290,11 +290,14 @@
         }
 
         .token.punctuation,
+        .token.parameter {
+            color: #ccc;
+        }
+
         .token.operator,
         .token.entity,
-        .token.url,
-        .token.parameter {
-            color: #fff;
+        .token.url {
+            color: #67cdcc;
         }
     }
 }

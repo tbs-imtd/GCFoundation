@@ -2,7 +2,6 @@
 .documentation-content {
     width: 100%;
     min-width: 0; // This is crucial for preventing flex item overflow
-    overflow-wrap: break-word;
 
     .language-cshtml {
         width: 100%;
