@@ -2269,4 +2269,139 @@
   <data name="Index_FeaturedComponents_Title" xml:space="preserve">
     <value>Featured components</value>
   </data>
+  <data name="Code_Name" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Code_Overview" xml:space="preserve">
+    <value>Display code with syntax highlighting and a copy button. The same component shows one snippet or several languages. The language selector appears only when there is more than one language. A dark theme is available.</value>
+  </data>
+  <data name="Code_IndexDescription" xml:space="preserve">
+    <value>Code samples with syntax highlighting, copy, an optional language selector and an optional dark theme.</value>
+  </data>
+  <data name="Code_Purpose" xml:space="preserve">
+    <value>Help developers read and reuse code examples. Applications supply the source text and languages; the component owns highlighting, copying, language selection, the theme, accessibility and styling.</value>
+  </data>
+  <data name="Code_WhenUse1" xml:space="preserve">
+    <value>Show a code snippet, a configuration file or an API request or response.</value>
+  </data>
+  <data name="Code_WhenUse2" xml:space="preserve">
+    <value>Show the same example in several programming languages.</value>
+  </data>
+  <data name="Code_WhenNot1" xml:space="preserve">
+    <value>Short code inside a sentence. Use the code element instead.</value>
+  </data>
+  <data name="Code_WhenNot2" xml:space="preserve">
+    <value>Secrets or real credentials. Use placeholders such as YOUR_ACCESS_TOKEN.</value>
+  </data>
+  <data name="Code_Accessibility1" xml:space="preserve">
+    <value>Give each code block a title, or place it under a heading that explains its purpose.</value>
+  </data>
+  <data name="Code_Accessibility2" xml:space="preserve">
+    <value>The code area receives keyboard focus so long lines can be scrolled with the arrow keys.</value>
+  </data>
+  <data name="Code_Accessibility3" xml:space="preserve">
+    <value>The language selector is a labelled GCDS select (gcds-select) and is omitted when there is only one language. After a successful copy, a polite live region announces that the code was copied.</value>
+  </data>
+  <data name="Code_Accessibility4" xml:space="preserve">
+    <value>Syntax colour reinforces the code. People who do not distinguish those colours can still read the text. Colours meet the contrast minimum.</value>
+  </data>
+  <data name="Code_Ux1" xml:space="preserve">
+    <value>Keep examples short and focused. Link to complete files instead of pasting long sources.</value>
+  </data>
+  <data name="Code_Ux2" xml:space="preserve">
+    <value>Use the same sync group for examples on one page that share languages, so readers choose their language once.</value>
+  </data>
+  <data name="Code_NoteLanguages" xml:space="preserve">
+    <value>Highlighted languages: csharp, javascript, python, json, cshtml, markup (HTML), css, bash and aspnet. Other identifiers are displayed as plain text.</value>
+  </data>
+  <data name="Code_NoteEncoding" xml:space="preserve">
+    <value>Code is always treated as text and encoded once; it is never run or inserted as HTML. Line endings are normalized to line feeds.</value>
+  </data>
+  <data name="Code_NoteProgressive" xml:space="preserve">
+    <value>Without JavaScript, every language variant is displayed with its label and the copy and language controls are hidden. Printing also shows every variant.</value>
+  </data>
+  <data name="Code_NoteLimit" xml:space="preserve">
+    <value>Highlighting starts when a block becomes visible. Code longer than 50,000 characters is displayed without highlighting.</value>
+  </data>
+  <data name="Code_NoteTheme" xml:space="preserve">
+    <value>theme="dark" uses a dark background and color-scheme: dark so Dark Reader does not invert the block. The default theme is light.</value>
+  </data>
+  <data name="Code_NoteDynamic" xml:space="preserve">
+    <value>After inserting components into the page with JavaScript, call FDCPCode.&lt;wbr&gt;initialize(container). Initializing the same component again has no effect.</value>
+  </data>
+  <data name="Code_BlockTitle" xml:space="preserve">
+    <value>Code block</value>
+  </data>
+  <data name="Code_BlockText" xml:space="preserve">
+    <value>&lt;p&gt;Use &lt;code&gt;fdcp-code&lt;/code&gt; for one snippet. Pass the source in the &lt;code&gt;code&lt;/code&gt; attribute, or write it as encoded child content: the first and last blank lines and the common indentation are removed. With one language, the language selector is not shown.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_ExampleTitle" xml:space="preserve">
+    <value>Multi-language example</value>
+  </data>
+  <data name="Code_ExampleText" xml:space="preserve">
+    <value>&lt;p&gt;Pass &lt;code&gt;examples&lt;/code&gt; to the same &lt;code&gt;fdcp-code&lt;/code&gt; component to show one example in several languages. The language selector appears only then. Both examples below share a sync group: changing the language in one changes the other. The second example also offers Bash; choosing it leaves the first example unchanged.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_DarkTitle" xml:space="preserve">
+    <value>Dark theme</value>
+  </data>
+  <data name="Code_DarkText" xml:space="preserve">
+    <value>&lt;p&gt;Set &lt;code&gt;theme="dark"&lt;/code&gt; for a dark background. The block uses &lt;code&gt;color-scheme: dark&lt;/code&gt;, so Dark Reader leaves the colours alone instead of inverting them. Syntax colours meet the text contrast minimum.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_FallbackTitle" xml:space="preserve">
+    <value>Plain text and wrapping</value>
+  </data>
+  <data name="Code_FallbackText" xml:space="preserve">
+    <value>&lt;p&gt;Unknown languages are displayed as plain text. Use &lt;code&gt;wrap="true"&lt;/code&gt; for long lines that are easier to read wrapped, and &lt;code&gt;copy-enabled="false"&lt;/code&gt; when copying is not useful.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_SampleResponseTitle" xml:space="preserve">
+    <value>Example response</value>
+  </data>
+  <data name="Code_SampleRegistrationTitle" xml:space="preserve">
+    <value>Register Foundation services</value>
+  </data>
+  <data name="Code_SampleCreateTitle" xml:space="preserve">
+    <value>Create a request</value>
+  </data>
+  <data name="Code_SampleReadTitle" xml:space="preserve">
+    <value>Read a request</value>
+  </data>
+  <data name="Code_SampleLogTitle" xml:space="preserve">
+    <value>Application log</value>
+  </data>
+  <data name="Code_SampleRequestTitle" xml:space="preserve">
+    <value>Access to information request</value>
+  </data>
+  <data name="Code_PropCode" xml:space="preserve">
+    <value>Source text. When omitted, the encoded child content is used.</value>
+  </data>
+  <data name="Code_PropCopyEnabled" xml:space="preserve">
+    <value>Displays the copy button.</value>
+  </data>
+  <data name="Code_PropId" xml:space="preserve">
+    <value>Identifier of the component. Generated when omitted.</value>
+  </data>
+  <data name="Code_PropCodeLanguage" xml:space="preserve">
+    <value>Code language identifier, such as csharp, javascript, python or json. Unknown languages are displayed as plain text.</value>
+  </data>
+  <data name="Code_PropCodeLanguageLabel" xml:space="preserve">
+    <value>Display name of the code language. Derived from code-language when omitted.</value>
+  </data>
+  <data name="Code_PropTheme" xml:space="preserve">
+    <value>light or dark. dark uses a dark background and color-scheme: dark. Defaults to light.</value>
+  </data>
+  <data name="Code_PropTitle" xml:space="preserve">
+    <value>Visible title, also used to name the code area and the copy button.</value>
+  </data>
+  <data name="Code_PropWrap" xml:space="preserve">
+    <value>Wraps long lines instead of scrolling horizontally.</value>
+  </data>
+  <data name="Code_PropExamples" xml:space="preserve">
+    <value>Language variants (CodeSample: Language, Label, Code). Languages must be unique. The language selector is shown only when more than one variant is supplied.</value>
+  </data>
+  <data name="Code_PropSelectedCodeLanguage" xml:space="preserve">
+    <value>Code language displayed first. Defaults to the first example.</value>
+  </data>
+  <data name="Code_PropSyncGroup" xml:space="preserve">
+    <value>Examples with the same group on a page switch language together.</value>
+  </data>
 </root>

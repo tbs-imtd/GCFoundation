@@ -106,6 +106,69 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Code copied to the clipboard..
+        /// </summary>
+        public static string Code_Copied {
+            get {
+                return ResourceManager.GetString("Code_Copied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copied!.
+        /// </summary>
+        public static string Code_CopiedLabel {
+            get {
+                return ResourceManager.GetString("Code_CopiedLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Copy code.
+        /// </summary>
+        public static string Code_Copy {
+            get {
+                return ResourceManager.GetString("Code_Copy", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The code could not be copied automatically. The code is selected: press Ctrl+C (Command+C on a Mac) to copy it..
+        /// </summary>
+        public static string Code_CopyFailed {
+            get {
+                return ResourceManager.GetString("Code_CopyFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code language.
+        /// </summary>
+        public static string Code_LanguageSelect {
+            get {
+                return ResourceManager.GetString("Code_LanguageSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plain text.
+        /// </summary>
+        public static string Code_PlainText {
+            get {
+                return ResourceManager.GetString("Code_PlainText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} code.
+        /// </summary>
+        public static string Code_RegionLabel {
+            get {
+                return ResourceManager.GetString("Code_RegionLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Collapse all.
         /// </summary>
         public static string Collapse_All {

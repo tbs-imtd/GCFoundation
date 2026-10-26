@@ -1,6 +1,14 @@
 import type { Page, TestInfo } from '@playwright/test';
-import AxeBuilder, { type AxeResults } from '@axe-core/playwright';
+import type axe from 'axe-core';
+import AxeBuilder from '@axe-core/playwright';
 import { promises as fs } from 'fs';
+
+type AxeResults = axe.AxeResults;
+
+/** axe may return a shadow-DOM selector array. Playwright and querySelector need a CSS string. */
+function cssSelector(target: axe.CrossTreeSelector | undefined): string | undefined {
+  return typeof target === 'string' && target.length > 0 ? target : undefined;
+}
 
 export async function runAxeAndAttach(
   page: Page,
@@ -26,11 +34,11 @@ export async function runAxeAndAttach(
 
   // Highlight serious/critical nodes on the page and capture screenshots to help locate issues
   const highlightSelectors: string[] = [];
-  const seriousViolations = results.violations.filter(v => v.impact === 'serious' || v.impact === 'critical');
+  const seriousViolations = results.violations.filter((v: axe.Result) => v.impact === 'serious' || v.impact === 'critical');
   let perNodeCount = 0;
   for (const v of seriousViolations) {
     for (const [idx, n] of v.nodes.entries()) {
-      const sel = n.target?.[0];
+      const sel = cssSelector(n.target?.[0]);
       if (!sel) continue;
       highlightSelectors.push(sel);
       try {
@@ -91,7 +99,7 @@ function generateMarkdown(results: AxeResults): string {
     lines.push(`Affected nodes: ${v.nodes.length}`);
     const sampleNodes = v.nodes.slice(0, 5);
     for (const n of sampleNodes) {
-      lines.push('- Selector: ' + (n.target?.[0] ?? '(unknown)'));
+      lines.push('- Selector: ' + (cssSelector(n.target?.[0]) ?? '(unknown)'));
       if (n.failureSummary) lines.push('  ' + n.failureSummary.replace(/\n/g, ' '));
     }
     lines.push('');

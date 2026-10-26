@@ -5,6 +5,7 @@
     "type": "module",
     "scripts": {
         "build": "gulp build",
+        "build:prism": "gulp prism",
         "watch": "gulp watchTask"
     },
     "keywords": [],
@@ -31,6 +32,7 @@
         "sass": "^1.87.0"
     },
     "dependencies": {
+        "prismjs": "1.30.0",
         "quill": "^2.0.2"
     }
 }

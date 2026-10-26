@@ -282,4 +282,7 @@
   <data name="Nav_Components_Tabs" xml:space="preserve">
     <value>Onglets</value>
   </data>
+  <data name="Nav_Components_Code" xml:space="preserve">
+    <value>Code</value>
+  </data>
 </root>

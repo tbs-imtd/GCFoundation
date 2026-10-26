@@ -1,3 +1,4 @@
+import type { Result } from 'axe-core';
 import { test, expect } from '@playwright/test';
 import { runAxeAndAttach } from '../utils/a11y';
 
@@ -28,7 +29,7 @@ for (const route of routes) {
     await page.waitForLoadState('load');
 
     const results = await runAxeAndAttach(page, testInfo);
-    const serious = results.violations.filter(v => v.impact === 'serious' || v.impact === 'critical');
+    const serious = results.violations.filter((v: Result) => v.impact === 'serious' || v.impact === 'critical');
     expect.soft(serious, `Serious/critical a11y violations on ${route.name}`).toHaveLength(0);
   });
 }
