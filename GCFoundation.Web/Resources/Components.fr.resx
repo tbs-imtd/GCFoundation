@@ -2590,16 +2590,16 @@
     <value>Aider les développeurs à lire et à réutiliser des exemples de code. Les applications fournissent le texte source et les langages; le composant gère la coloration, la copie, le choix du langage, le thème, l'accessibilité et le style.</value>
   </data>
   <data name="Code_WhenUse1" xml:space="preserve">
-    <value>Afficher un extrait de code, un fichier de configuration ou une requête ou réponse d'API.</value>
+    <value>Vous devez afficher un extrait de code, un fichier de configuration ou une requête ou réponse d'API.</value>
   </data>
   <data name="Code_WhenUse2" xml:space="preserve">
-    <value>Afficher le même exemple dans plusieurs langages de programmation.</value>
+    <value>Vous souhaitez afficher le même exemple dans plusieurs langages de programmation.</value>
   </data>
   <data name="Code_WhenNot1" xml:space="preserve">
-    <value>Du code court à l'intérieur d'une phrase. Utilisez plutôt l'élément code.</value>
+    <value>Le code est court et se trouve dans une phrase. Utilisez plutôt l'élément code.</value>
   </data>
   <data name="Code_WhenNot2" xml:space="preserve">
-    <value>Des secrets ou de vrais identifiants. Utilisez des valeurs fictives comme YOUR_ACCESS_TOKEN.</value>
+    <value>Le code contient des secrets ou de vrais identifiants. Utilisez des valeurs fictives comme YOUR_ACCESS_TOKEN.</value>
   </data>
   <data name="Code_Accessibility1" xml:space="preserve">
     <value>Donnez un titre à chaque bloc de code ou placez-le sous un titre qui en explique l'objectif.</value>

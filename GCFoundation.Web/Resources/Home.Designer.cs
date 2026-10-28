@@ -463,6 +463,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to October 27, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview9_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview9_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adds Subresource Integrity to the GC Design System and Font Awesome CDN files and blocks direct downloads of precompressed static files..
+        /// </summary>
+        public static string Index_Releases_Preview9_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview9_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to October 19, 2026.
         /// </summary>
         public static string Index_Releases_Preview8_Date {

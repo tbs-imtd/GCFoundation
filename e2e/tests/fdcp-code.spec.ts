@@ -89,6 +89,7 @@ test.describe('FDCP code', () => {
     await expect(select).toBeFocused();
     await expect(read.locator('[data-fdcp-code-active]')).toHaveAttribute('data-fdcp-code-language', 'javascript');
     await expect(create.locator('[data-fdcp-code-panel]:visible')).toHaveCount(1);
+    await expect(create.locator('[data-fdcp-code-active]')).toHaveCSS('border-top-style', 'none');
 
     const status = create.getByRole('status');
     await expect(status).toBeAttached();

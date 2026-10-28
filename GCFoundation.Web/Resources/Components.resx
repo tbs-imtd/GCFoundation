@@ -2282,16 +2282,16 @@
     <value>Help developers read and reuse code examples. Applications supply the source text and languages; the component owns highlighting, copying, language selection, the theme, accessibility and styling.</value>
   </data>
   <data name="Code_WhenUse1" xml:space="preserve">
-    <value>Show a code snippet, a configuration file or an API request or response.</value>
+    <value>You need to show a code snippet, a configuration file or an API request or response.</value>
   </data>
   <data name="Code_WhenUse2" xml:space="preserve">
-    <value>Show the same example in several programming languages.</value>
+    <value>You want to show the same example in several programming languages.</value>
   </data>
   <data name="Code_WhenNot1" xml:space="preserve">
-    <value>Short code inside a sentence. Use the code element instead.</value>
+    <value>The code is short and appears inside a sentence. Use the code element instead.</value>
   </data>
   <data name="Code_WhenNot2" xml:space="preserve">
-    <value>Secrets or real credentials. Use placeholders such as YOUR_ACCESS_TOKEN.</value>
+    <value>The code contains secrets or real credentials. Use placeholders such as YOUR_ACCESS_TOKEN.</value>
   </data>
   <data name="Code_Accessibility1" xml:space="preserve">
     <value>Give each code block a title, or place it under a heading that explains its purpose.</value>

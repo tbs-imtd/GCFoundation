@@ -152,6 +152,12 @@
   <data name="Index_Releases_Description" xml:space="preserve">
     <value>Consultez les dernières versions préliminaires, leurs principaux changements et les détails d'installation.</value>
   </data>
+  <data name="Index_Releases_Preview9_Date" xml:space="preserve">
+    <value>27 octobre 2026</value>
+  </data>
+  <data name="Index_Releases_Preview9_Description" xml:space="preserve">
+    <value>Ajoute l'intégrité des sous-ressources aux fichiers CDN de GC Design System et de Font Awesome, et bloque le téléchargement direct des fichiers statiques précompressés.</value>
+  </data>
   <data name="Index_Releases_Preview8_Date" xml:space="preserve">
     <value>19 octobre 2026</value>
   </data>
