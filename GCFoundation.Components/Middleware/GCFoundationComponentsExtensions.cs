@@ -60,6 +60,7 @@ namespace GCFoundation.Components.Middleware
         /// <returns>The updated <see cref="IApplicationBuilder"/> with foundation components middleware added.</returns>
         public static IApplicationBuilder UseGCFoundationComponents(this IApplicationBuilder app)
         {
+            app.UseMiddleware<GCFoundationBlockedCompressedFileMiddleware>();
             app.UseMiddleware<GCFoundationComponentsMiddleware>();
             return app;
         }

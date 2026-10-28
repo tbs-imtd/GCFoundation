@@ -54,10 +54,10 @@ namespace GCFoundation.Components.Middleware
                     {
                         var html = await reader.ReadToEndAsync().ConfigureAwait(false);
                         html = html.Replace("</head>", @$"
-                        <link rel=""stylesheet"" href=""{_foundationComponentsSettings.FontAwesomeCDN}"" crossorigin=""anonymous"">
-                        <link rel=""stylesheet"" href=""{_foundationComponentsSettings.GCDSCssCDN}"">
-                        <link rel=""stylesheet"" href=""{_foundationComponentsSettings.GCDSCssShortcutsCDN}"">
-                        <script type=""module"" src=""{_foundationComponentsSettings.GCDSJavaScriptCDN}""></script>
+                        <link rel=""stylesheet"" href=""{_foundationComponentsSettings.FontAwesomeCDN}"" integrity=""{_foundationComponentsSettings.FontAwesomeCssIntegrity}"" crossorigin=""anonymous"">
+                        <link rel=""stylesheet"" href=""{_foundationComponentsSettings.GCDSCssCDN}"" integrity=""{_foundationComponentsSettings.GCDSCssIntegrity}"" crossorigin=""anonymous"">
+                        <link rel=""stylesheet"" href=""{_foundationComponentsSettings.GCDSCssShortcutsCDN}"" integrity=""{_foundationComponentsSettings.GCDSCssShortcutsIntegrity}"" crossorigin=""anonymous"">
+                        <script type=""module"" src=""{_foundationComponentsSettings.GCDSJavaScriptCDN}"" integrity=""{_foundationComponentsSettings.GCDSJavaScriptIntegrity}"" crossorigin=""anonymous""></script>
                     </head>", StringComparison.OrdinalIgnoreCase);
 
                         var modifiedHtml = Encoding.UTF8.GetBytes(html);

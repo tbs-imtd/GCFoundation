@@ -39,6 +39,12 @@ namespace GCFoundation.Common.Settings
         }
 
         /// <summary>
+        /// Gets or sets the Subresource Integrity hash for <see cref="FontAwesomeCDN"/>.
+        /// This must be updated whenever <see cref="FontAwesomeVersion"/> changes; an outdated hash blocks the stylesheet.
+        /// </summary>
+        public string FontAwesomeCssIntegrity { get; set; } = "sha384-blOohCVdhjmtROpu8+CfTnUWham9nkX7P7OZQMst+RUnhtoY/9qemFAkIKOYxDI3";
+
+        /// <summary>
         /// Gets the URI for the GC Design System CSS from the CDN.
         /// </summary>
         public Uri GCDSCssCDN
@@ -48,6 +54,12 @@ namespace GCFoundation.Common.Settings
                 return new Uri($"https://cdn.design-system.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.css");
             }
         }
+
+        /// <summary>
+        /// Gets or sets the Subresource Integrity hash for <see cref="GCDSCssCDN"/>.
+        /// This must be updated whenever <see cref="GCDSVersion"/> changes; an outdated hash blocks the stylesheet.
+        /// </summary>
+        public string GCDSCssIntegrity { get; set; } = "sha384-ciEmHZaNfd4iF1I274zPNm5UUTUX5iPuj17AXjg6meZ/YEXa28VQp9HG8+PFAeA3";
 
         /// <summary>
         /// Gets the URI for the GC Design System - for CSS Shortcuts - from the CDN.
@@ -61,6 +73,12 @@ namespace GCFoundation.Common.Settings
         }
 
         /// <summary>
+        /// Gets or sets the Subresource Integrity hash for <see cref="GCDSCssShortcutsCDN"/>.
+        /// This must be updated whenever <see cref="GCDSCssShortcutsVersion"/> changes; an outdated hash blocks the stylesheet.
+        /// </summary>
+        public string GCDSCssShortcutsIntegrity { get; set; } = "sha384-RPuw/uOTHdRtRgDlbOJx3QCQ9eHdglALdV7zecAqIM+8Ieun0+iX0puFxUgSc584";
+
+        /// <summary>
         /// Gets the URI for the GC Design System JavaScript module from the CDN.
         /// </summary>
         public Uri GCDSJavaScriptCDN
@@ -70,6 +88,12 @@ namespace GCFoundation.Common.Settings
                 return new Uri($"https://cdn.design-system.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.esm.js");
             }
         }
+
+        /// <summary>
+        /// Gets or sets the Subresource Integrity hash for <see cref="GCDSJavaScriptCDN"/>.
+        /// This must be updated whenever <see cref="GCDSVersion"/> changes; an outdated hash blocks the module.
+        /// </summary>
+        public string GCDSJavaScriptIntegrity { get; set; } = "sha384-PB0URAhV959oCiaWbfzIO82+K+Njy/1Njwkl5LhUa7oEgXL5RanPGMN4xXPp/g8r";
 
 
         /// <summary>

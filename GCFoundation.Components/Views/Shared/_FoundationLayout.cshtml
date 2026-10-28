@@ -60,13 +60,13 @@
     @* GCDS CSS from CDN (if enabled) *@
     @if (settings.Value.IncludeGCDSResources)
     {
-        <link rel="stylesheet" href="@settings.Value.GCDSCssCDN" nonce="@(Context.Items["CspNonce"])" />
+        <link rel="stylesheet" href="@settings.Value.GCDSCssCDN" integrity="@settings.Value.GCDSCssIntegrity" crossorigin="anonymous" nonce="@(Context.Items["CspNonce"])" />
     }
     
     @* Font Awesome CSS from CDN (if enabled) *@
     @if (settings.Value.IncludeFontAwesome)
     {
-        <link rel="stylesheet" href="@settings.Value.FontAwesomeCDN" />
+        <link rel="stylesheet" href="@settings.Value.FontAwesomeCDN" integrity="@settings.Value.FontAwesomeCssIntegrity" crossorigin="anonymous" />
     }
     
     @* Default GCFoundation CSS files (always included) *@
@@ -222,7 +222,7 @@
     @* GCDS JavaScript from CDN (if enabled) *@
     @if (settings.Value.IncludeGCDSResources)
     {
-        <script type="module" src="@settings.Value.GCDSJavaScriptCDN" nonce="@(Context.Items["CspNonce"])"></script>
+        <script type="module" src="@settings.Value.GCDSJavaScriptCDN" integrity="@settings.Value.GCDSJavaScriptIntegrity" crossorigin="anonymous" nonce="@(Context.Items["CspNonce"])"></script>
     }
 
     @* Default foundation JavaScript files (always included) *@
