@@ -29,7 +29,7 @@
     <PackageReference Include="cloudscribe.Web.Navigation" Version="8.7.0" />
     <PackageReference Include="cloudscribe.Web.SiteMap" Version="8.7.0" />
     <PackageReference Include="cloudscribe.Web.SiteMap.FromNavigation" Version="8.7.0" />
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="5.3.0">
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="5.9.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
