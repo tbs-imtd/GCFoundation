@@ -47,7 +47,7 @@
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
-    <PackageReference Include="cloudscribe.Web.Navigation" Version="8.7.0" />
+    <PackageReference Include="cloudscribe.Web.Navigation" Version="10.1.0" />
     <PackageReference Include="HtmlAgilityPack" Version="1.13.1" />
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="5.9.0">
       <PrivateAssets>all</PrivateAssets>
