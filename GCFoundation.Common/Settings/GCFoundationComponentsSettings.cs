@@ -24,7 +24,7 @@ namespace GCFoundation.Common.Settings
         /// <summary>
         /// Gets or sets the version of the GC Design System being used.
         /// </summary>
-        public string GCDSVersion { get; set; } = "1.3.1";
+        public string GCDSVersion { get; set; } = "1.7.0";
 
 
         /// <summary>
