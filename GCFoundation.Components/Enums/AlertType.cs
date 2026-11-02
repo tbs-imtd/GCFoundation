@@ -1,27 +1,27 @@
 ﻿namespace GCFoundation.Components.Enums
 {
     /// <summary>
-    /// Defines the types of alert messages used in the UI.
+    /// Defines the roles that categorize an alert and determine its visual style.
     /// </summary>
     public enum AlertType
     {
         /// <summary>
-        /// Indicates a danger or error message, typically used for critical issues or failed actions.
+        /// Indicates a danger alert for critical information or an error.
         /// </summary>
         danger,
 
         /// <summary>
-        /// Indicates an informational message, used to display general information to the user.
+        /// Indicates an informational alert.
         /// </summary>
         info,
 
         /// <summary>
-        /// Indicates a success message, typically used to confirm an action was completed successfully.
+        /// Indicates a success alert that confirms a successful action or outcome.
         /// </summary>
         success,
 
         /// <summary>
-        /// Indicates a warning message, used to alert the user to something that may require attention.
+        /// Indicates a warning alert for information that requires attention.
         /// </summary>
         warning
     }
