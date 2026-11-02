@@ -13,7 +13,12 @@ import { deleteAsync } from 'del';
 import plumber from 'gulp-plumber';
 import notify from 'gulp-notify';
 import through2 from 'through2';
-import { copyFile, readFile, writeFile } from 'node:fs/promises';
+import { copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises';
+import { execFile } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { promisify } from 'node:util';
 
 const { src, dest, watch, series, parallel } = gulp;
 const sass = gulpSass(dartSass);
@@ -49,6 +54,28 @@ const paths = {
             languages: ['markup', 'css', 'clike', 'javascript', 'csharp', 'aspnet', 'cshtml', 'bash', 'python', 'json'],
             js: 'wwwroot/lib/prism/js/prism.js',
             license: 'wwwroot/lib/prism/LICENSE'
+        },
+        // CDN versions served by GCFoundation. Each file path is relative to the npm package root and must be
+        // the same file the CDN URL in GCFoundationComponentsSettings serves.
+        cdn: {
+            manifest: '../GCFoundation.Common/Settings/cdn-integrity.json',
+            packages: {
+                fontAwesome: {
+                    name: '@fortawesome/fontawesome-free',
+                    version: '6.4.2',
+                    files: { css: 'css/all.min.css' }
+                },
+                gcds: {
+                    name: '@gcds-core/components',
+                    version: '1.3.1',
+                    files: { css: 'dist/gcds/gcds.css', javaScript: 'dist/gcds/gcds.esm.js' }
+                },
+                gcdsCssShortcuts: {
+                    name: '@gcds-core/css-shortcuts',
+                    version: '1.2.0',
+                    files: { css: 'dist/gcds-css-shortcuts.min.css' }
+                }
+            }
         }
     }
 };
@@ -127,6 +154,53 @@ export async function prism() {
         .map(name => readFile(`${root}/components/prism-${name}.min.js`, 'utf8')));
     await writeFile(js, banner + scripts.join('\n') + '\n');
     await copyFile(`${root}/LICENSE`, license);
+}
+
+const execFileAsync = promisify(execFile);
+
+// Downloads only the package tarball (not its dependencies); npm verifies it against the registry checksum.
+async function unpackNpmPackage(name, version, workDir) {
+    const target = join(workDir, name.replace('/', '+'));
+    await mkdir(target, { recursive: true });
+    const { stdout } = await execFileAsync(process.execPath,
+        [process.env.npm_execpath, 'pack', `${name}@${version}`, '--json', '--pack-destination', target]);
+    const [{ filename }] = JSON.parse(stdout);
+    await execFileAsync('tar', ['-xzf', join(target, filename), '-C', target]);
+    return join(target, 'package');
+}
+
+async function buildCdnIntegrityManifest() {
+    const workDir = await mkdtemp(join(tmpdir(), 'gcfoundation-cdn-'));
+    try {
+        const manifest = {
+            generatedBy: 'npm run build:cdn-integrity in GCFoundation.Components. Edit paths.vendor.cdn in gulpfile.js instead.'
+        };
+        for (const [key, { name, version, files }] of Object.entries(paths.vendor.cdn.packages)) {
+            const root = await unpackNpmPackage(name, version, workDir);
+            manifest[key] = { package: name, version };
+            for (const [field, file] of Object.entries(files)) {
+                const digest = createHash('sha384').update(await readFile(join(root, file))).digest('base64');
+                manifest[key][field] = `sha384-${digest}`;
+            }
+        }
+        return JSON.stringify(manifest, null, 2) + '\n';
+    } finally {
+        await rm(workDir, { recursive: true, force: true });
+    }
+}
+
+// Rebuild the committed CDN integrity manifest from the pinned npm packages (npm run build:cdn-integrity).
+// Run through npm so npm_execpath is set.
+export async function cdnIntegrity() {
+    await writeFile(paths.vendor.cdn.manifest, await buildCdnIntegrityManifest());
+}
+
+// Fail when the committed manifest is out of date with paths.vendor.cdn (npm run check:cdn-integrity)
+export async function checkCdnIntegrity() {
+    const committed = (await readFile(paths.vendor.cdn.manifest, 'utf8')).replace(/\r\n/g, '\n');
+    if (committed !== await buildCdnIntegrityManifest()) {
+        throw new Error(`${paths.vendor.cdn.manifest} does not match paths.vendor.cdn. Run "npm run build:cdn-integrity" and commit the result.`);
+    }
 }
 
 // Build tasks
