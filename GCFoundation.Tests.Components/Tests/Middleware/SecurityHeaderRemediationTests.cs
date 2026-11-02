@@ -1,4 +1,4 @@
-using GCFoundation.Components.Middleware;
+using GCFoundation.Security.Middlewares;
 using Microsoft.AspNetCore.Http;
 
 namespace GCFoundation.Tests.Components.Tests.Middleware

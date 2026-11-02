@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Http;
 
-namespace GCFoundation.Components.Middleware
+namespace GCFoundation.Security.Middlewares
 {
     /// <summary>
     /// Rejects direct requests for pre-compressed static files such as <c>script.js.gz</c>.
