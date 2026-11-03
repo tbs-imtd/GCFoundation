@@ -3127,7 +3127,7 @@ namespace GCFoundation.Web.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;Code samples with syntax highlighting, copy, an optional language selector and an optional dark theme.&lt;/gcds-text&gt;
-        ///&lt;gcds-text&gt;&lt;em&gt;Code block&lt;/em&gt;&lt;/gcds-text&gt;.
+        ///&lt;gcds-text&gt;&lt;em&gt;Other names: code block, code sample&lt;/em&gt;&lt;/gcds-text&gt;.
         /// </summary>
         public static string Index_Code_Description {
             get {
