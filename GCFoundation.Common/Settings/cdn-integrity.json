@@ -1,0 +1,19 @@
+{
+  "generatedBy": "npm run build:cdn-integrity in GCFoundation.Components. Edit paths.vendor.cdn in gulpfile.js instead.",
+  "fontAwesome": {
+    "package": "@fortawesome/fontawesome-free",
+    "version": "6.4.2",
+    "css": "sha384-blOohCVdhjmtROpu8+CfTnUWham9nkX7P7OZQMst+RUnhtoY/9qemFAkIKOYxDI3"
+  },
+  "gcds": {
+    "package": "@gcds-core/components",
+    "version": "1.7.0",
+    "css": "sha384-nwmu+QP1V1CZMAM48W3efvJ/14eIt0oVvWp1qW0q5iwL/ELaJC8cLlFsRwxVuaaG",
+    "javaScript": "sha384-no1ED4f0tcigWjYsO/zHMa0+BRXheiDNTj6F2jzRXhXzuZitM7N3gz71Gg0H6MM7"
+  },
+  "gcdsCssShortcuts": {
+    "package": "@gcds-core/css-shortcuts",
+    "version": "1.2.0",
+    "css": "sha384-RPuw/uOTHdRtRgDlbOJx3QCQ9eHdglALdV7zecAqIM+8Ieun0+iX0puFxUgSc584"
+  }
+}

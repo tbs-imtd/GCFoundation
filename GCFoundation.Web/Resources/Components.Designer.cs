@@ -2176,7 +2176,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Short code inside a sentence. Use the code element instead..
+        ///   Looks up a localized string similar to The code is short and appears inside a sentence. Use the code element instead..
         /// </summary>
         public static string Code_WhenNot1 {
             get {
@@ -2185,7 +2185,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Secrets or real credentials. Use placeholders such as YOUR_ACCESS_TOKEN..
+        ///   Looks up a localized string similar to The code contains secrets or real credentials. Use placeholders such as YOUR_ACCESS_TOKEN..
         /// </summary>
         public static string Code_WhenNot2 {
             get {
@@ -2194,7 +2194,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show a code snippet, a configuration file or an API request or response..
+        ///   Looks up a localized string similar to You need to show a code snippet, a configuration file or an API request or response..
         /// </summary>
         public static string Code_WhenUse1 {
             get {
@@ -2203,7 +2203,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show the same example in several programming languages..
+        ///   Looks up a localized string similar to You want to show the same example in several programming languages..
         /// </summary>
         public static string Code_WhenUse2 {
             get {
@@ -3127,7 +3127,7 @@ namespace GCFoundation.Web.Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;Code samples with syntax highlighting, copy, an optional language selector and an optional dark theme.&lt;/gcds-text&gt;
-        ///&lt;gcds-text&gt;&lt;em&gt;Code block&lt;/em&gt;&lt;/gcds-text&gt;.
+        ///&lt;gcds-text&gt;&lt;em&gt;Other names: code block, code sample&lt;/em&gt;&lt;/gcds-text&gt;.
         /// </summary>
         public static string Index_Code_Description {
             get {

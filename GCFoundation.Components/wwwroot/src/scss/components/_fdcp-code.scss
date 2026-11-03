@@ -105,7 +105,8 @@
         padding: var(--gcds-spacing-100) var(--gcds-spacing-200) 0;
     }
 
-    .fdcp-code__panel + .fdcp-code__panel:not([hidden]) {
+    // Separates stacked variants before JavaScript runs; once enhanced, hidden panels stay in the DOM as siblings.
+    &:not(.fdcp-code--enhanced) .fdcp-code__panel + .fdcp-code__panel {
         border-top: var(--gcds-border-width-sm) solid var(--gcds-border-default);
     }
 
@@ -227,7 +228,7 @@
         --fdcp-code-token-property: #f8c555;
         --fdcp-code-token-tag: #e2777a;
 
-        .fdcp-code__panel + .fdcp-code__panel:not([hidden]) {
+        .fdcp-code__panel + .fdcp-code__panel {
             border-color: #999;
         }
 
@@ -287,6 +288,7 @@
 
         .fdcp-code__controls { display: none !important; }
         .fdcp-code__panel[hidden] { display: block !important; }
+        .fdcp-code__panel + .fdcp-code__panel { border-top: var(--gcds-border-width-sm) solid var(--gcds-border-default); }
         &.fdcp-code--multiple.fdcp-code--enhanced .fdcp-code__language { display: block; }
 
         .fdcp-code__pre {

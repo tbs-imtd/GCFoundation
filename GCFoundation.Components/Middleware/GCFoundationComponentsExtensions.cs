@@ -30,7 +30,10 @@ namespace GCFoundation.Components.Middleware
             ArgumentNullException.ThrowIfNull(configuration, nameof(configuration));
 
             var section = configuration.GetSection("FoundationComponentsSettings");
-            services.Configure<GCFoundationComponentsSettings>(section);
+            services.AddOptions<GCFoundationComponentsSettings>()
+                .Bind(section)
+                .ValidateOnStart();
+            services.AddSingleton<IValidateOptions<GCFoundationComponentsSettings>, GCFoundationComponentsSettingsValidator>();
 
             // Initialize resource helper with virtual directory name (if provided)
             var settings = section.Get<GCFoundationComponentsSettings>();

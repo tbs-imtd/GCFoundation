@@ -38,6 +38,26 @@ The GCFoundation framework now supports configurable global resources that can b
 }
 ```
 
+### CDN Versions and Integrity Hashes
+
+GCFoundation loads GCDS, GCDS CSS Shortcuts and Font Awesome from pinned CDN versions, each with a Subresource Integrity (`integrity`) hash. The versions and hashes come from `GCFoundation.Common/Settings/cdn-integrity.json`, which is generated from the npm packages for those versions.
+
+You can override a version, but you must also set the sha384 hash for that version, or the application will not start:
+
+```json
+{
+  "FoundationComponentsSettings": {
+    "GCDSVersion": "1.7.0",
+    "GCDSCssIntegrity": "sha384-...",
+    "GCDSJavaScriptIntegrity": "sha384-..."
+  }
+}
+```
+
+To change the shipped versions in GCFoundation itself, edit `paths.vendor.cdn` in `GCFoundation.Components/gulpfile.js`, run `npm run build:cdn-integrity` in `GCFoundation.Components`, and commit the regenerated `cdn-integrity.json`. CI runs `npm run check:cdn-integrity` and fails if the file is out of date.
+
+The GCDS hash only covers `gcds.esm.js`. The component code it loads afterwards is not checked; see `Migration/CDS_Discussion_Notes.md`.
+
 **Note:** Default foundation CSS and JavaScript files (foundation.min.css, foundation.min.js, grid.js, prism) are **always included** and cannot be disabled. The `IncludeDefaultCss` and `IncludeDefaultJavaScript` settings are deprecated and no longer used.
 
 ### Global CSS Files
@@ -240,7 +260,7 @@ The resources are loaded in the following order:
 ## Security Considerations
 
 - Be careful with CDN resources - ensure they come from trusted sources
-- Consider using Subresource Integrity (SRI) for CDN resources
+- GCFoundation's own CDN resources have Subresource Integrity (SRI) hashes (see [CDN Versions and Integrity Hashes](#cdn-versions-and-integrity-hashes)); `GlobalCssFiles` and `GlobalJavaScriptFiles` entries do not, so prefer local copies of third-party files
 - Validate any user-provided content in meta tags and link tags
 - Use HTTPS for all external resources
 
