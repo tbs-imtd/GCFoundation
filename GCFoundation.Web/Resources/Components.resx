@@ -2275,8 +2275,9 @@
   <data name="Code_Overview" xml:space="preserve">
     <value>Display code with syntax highlighting and a copy button. The same component shows one snippet or several languages. The language selector appears only when there is more than one language. A dark theme is available.</value>
   </data>
-  <data name="Code_IndexDescription" xml:space="preserve">
-    <value>Code samples with syntax highlighting, copy, an optional language selector and an optional dark theme.</value>
+  <data name="Index_Code_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Code samples with syntax highlighting, copy, an optional language selector and an optional dark theme.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Code block&lt;/em&gt;&lt;/gcds-text&gt;</value>
   </data>
   <data name="Code_Purpose" xml:space="preserve">
     <value>Help developers read and reuse code examples. Applications supply the source text and languages; the component owns highlighting, copying, language selection, the theme, accessibility and styling.</value>
@@ -2403,5 +2404,8 @@
   </data>
   <data name="Code_PropSyncGroup" xml:space="preserve">
     <value>Examples with the same group on a page switch language together.</value>
+  </data>
+  <data name="Index_Code_Title" xml:space="preserve">
+    <value>Code</value>
   </data>
 </root>

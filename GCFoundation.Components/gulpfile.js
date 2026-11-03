@@ -67,7 +67,7 @@ const paths = {
                 },
                 gcds: {
                     name: '@gcds-core/components',
-                    version: '1.3.1',
+                    version: '1.7.0',
                     files: { css: 'dist/gcds/gcds.css', javaScript: 'dist/gcds/gcds.esm.js' }
                 },
                 gcdsCssShortcuts: {

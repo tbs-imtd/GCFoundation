@@ -7,9 +7,9 @@
   },
   "gcds": {
     "package": "@gcds-core/components",
-    "version": "1.3.1",
-    "css": "sha384-ciEmHZaNfd4iF1I274zPNm5UUTUX5iPuj17AXjg6meZ/YEXa28VQp9HG8+PFAeA3",
-    "javaScript": "sha384-PB0URAhV959oCiaWbfzIO82+K+Njy/1Njwkl5LhUa7oEgXL5RanPGMN4xXPp/g8r"
+    "version": "1.7.0",
+    "css": "sha384-nwmu+QP1V1CZMAM48W3efvJ/14eIt0oVvWp1qW0q5iwL/ELaJC8cLlFsRwxVuaaG",
+    "javaScript": "sha384-no1ED4f0tcigWjYsO/zHMa0+BRXheiDNTj6F2jzRXhXzuZitM7N3gz71Gg0H6MM7"
   },
   "gcdsCssShortcuts": {
     "package": "@gcds-core/css-shortcuts",
