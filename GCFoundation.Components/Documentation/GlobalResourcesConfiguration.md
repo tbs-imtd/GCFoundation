@@ -47,7 +47,7 @@ You can override a version, but you must also set the sha384 hash for that versi
 ```json
 {
   "FoundationComponentsSettings": {
-    "GCDSVersion": "1.6.0",
+    "GCDSVersion": "1.7.0",
     "GCDSCssIntegrity": "sha384-...",
     "GCDSJavaScriptIntegrity": "sha384-..."
   }
