@@ -2575,6 +2575,9 @@
   <data name="Index_TagHelpers_Description_FDCP_ModalFooter" xml:space="preserve">
     <value>Définit la zone d'actions de pied dans un modal FDCP.</value>
   </data>
+  <data name="Index_TagHelpers_Description_GCDS_Alert" xml:space="preserve">
+    <value>Affiche une alerte du Système de design GC pour communiquer des renseignements importants à l'utilisateur.</value>
+  </data>
   <data name="Index_TagHelpers_Description_GCDS_Breadcrumbs" xml:space="preserve">
     <value>Affiche un conteneur de fil d'Ariane GCDS.</value>
   </data>
