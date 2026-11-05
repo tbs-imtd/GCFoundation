@@ -1,0 +1,14 @@
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Components.ComponentSampleCodeSectionViewModel
+
+<fdcp-toggle name="emailNotifications"
+             label="@Components.Toggle_Sample_Notifications_Label"
+             hint="@Components.Toggle_Sample_Notifications_Hint"></fdcp-toggle>
+
+<fdcp-code code-language="cshtml">
+    &lt;fdcp-toggle name="emailNotifications"
+                 label="@Components.Toggle_Sample_Notifications_Label"
+                 hint="@Components.Toggle_Sample_Notifications_Hint"&gt;&lt;/fdcp-toggle&gt;
+
+    &lt;fdcp-toggle for="@@Model.EmailNotifications"&gt;&lt;/fdcp-toggle&gt;
+</fdcp-code>

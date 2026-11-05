@@ -1,0 +1,192 @@
+@use '../variables' as vars;
+
+.fdcp-toggle {
+    --fdcp-toggle-border-width: var(--gcds-input-border-width, #{vars.$gcds-input-border-width});
+    --fdcp-toggle-track-width: 3.5rem;
+    --fdcp-toggle-track-height: 2rem;
+    --fdcp-toggle-thumb-size: 1.25rem;
+    --fdcp-toggle-thumb-offset: calc((var(--fdcp-toggle-track-height) - (2 * var(--fdcp-toggle-border-width)) - var(--fdcp-toggle-thumb-size)) / 2);
+    --fdcp-toggle-thumb-travel: calc(var(--fdcp-toggle-track-width) - (2 * var(--fdcp-toggle-border-width)) - var(--fdcp-toggle-thumb-size) - (2 * var(--fdcp-toggle-thumb-offset)));
+    // WCAG 2.5.5 (AAA) asks for a 44 x 44 CSS pixel pointer target.
+    --fdcp-toggle-target-size: 2.75rem;
+    --fdcp-toggle-target-offset: calc(((var(--fdcp-toggle-target-size) - var(--fdcp-toggle-track-height)) / 2) + var(--fdcp-toggle-border-width));
+
+    --fdcp-toggle-off-background: var(--gcds-bg-white, #{vars.$gcds-bg-white});
+    --fdcp-toggle-off-border: var(--gcds-text-primary, #{vars.$gcds-text-primary});
+    --fdcp-toggle-off-thumb: var(--gcds-text-primary, #{vars.$gcds-text-primary});
+    --fdcp-toggle-off-hover-background: var(--gcds-bg-light, #{vars.$gcds-bg-light});
+    --fdcp-toggle-on-background: var(--gcds-bg-primary, #{vars.$gcds-bg-primary});
+    --fdcp-toggle-on-hover-background: var(--gcds-link-default, #{vars.$gcds-link-default});
+    --fdcp-toggle-on-thumb: var(--gcds-bg-white, #{vars.$gcds-bg-white});
+    --fdcp-toggle-focus: var(--gcds-input-focus-border, var(--gcds-focus-border, #{vars.$gcds-focus-border}));
+    --fdcp-toggle-danger: var(--gcds-danger-border, #{vars.$gcds-danger-border});
+    --fdcp-toggle-disabled-background: var(--gcds-disabled-background, #{vars.$gcds-disabled-background});
+    --fdcp-toggle-disabled-text: var(--gcds-disabled-text, #{vars.$gcds-disabled-text});
+
+    margin-block-end: var(--gcds-spacing-300);
+    font-family: var(--gcds-font-families-body);
+
+    &__label {
+        color: var(--gcds-label-text, #{vars.$gcds-label-text});
+        cursor: pointer;
+        display: block;
+        font: var(--gcds-label-font-desktop, #{vars.$gcds-label-font-desktop});
+        max-width: 100%;
+        margin: var(--gcds-label-margin, 0 0 0.5rem) !important;
+    }
+
+    &__control {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+    }
+
+    &__input {
+        appearance: none;
+        position: relative;
+        box-sizing: border-box;
+        flex: 0 0 var(--fdcp-toggle-track-width);
+        width: var(--fdcp-toggle-track-width);
+        height: var(--fdcp-toggle-track-height);
+        margin: 0;
+        border: var(--fdcp-toggle-border-width) solid var(--fdcp-toggle-off-border);
+        border-radius: var(--fdcp-toggle-track-height);
+        background-color: var(--fdcp-toggle-off-background);
+        outline-color: transparent;
+        outline-style: solid;
+        outline-width: 0;
+        cursor: pointer;
+        transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, outline-color 0.15s ease-in-out, outline-offset 0.15s ease-in-out, outline-width 0.15s ease-in-out;
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset-block-start: var(--fdcp-toggle-thumb-offset);
+            inset-inline-start: var(--fdcp-toggle-thumb-offset);
+            width: var(--fdcp-toggle-thumb-size);
+            height: var(--fdcp-toggle-thumb-size);
+            border-radius: 50%;
+            background-color: var(--fdcp-toggle-off-thumb);
+            transition: inset-inline-start 0.15s ease-in-out, background-color 0.15s ease-in-out;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            inset: calc(-1 * var(--fdcp-toggle-target-offset));
+        }
+
+        &:hover {
+            background-color: var(--fdcp-toggle-off-hover-background);
+        }
+
+        &:checked {
+            border-color: var(--fdcp-toggle-on-background);
+            background-color: var(--fdcp-toggle-on-background);
+
+            &::before {
+                background-color: var(--fdcp-toggle-on-thumb);
+                inset-inline-start: calc(var(--fdcp-toggle-thumb-offset) + var(--fdcp-toggle-thumb-travel));
+            }
+
+            &:hover {
+                border-color: var(--fdcp-toggle-on-hover-background);
+                background-color: var(--fdcp-toggle-on-hover-background);
+            }
+        }
+
+        &:focus-visible {
+            border-color: var(--fdcp-toggle-focus);
+            box-shadow: var(--gcds-input-focus-box-shadow, none);
+            outline-color: var(--fdcp-toggle-focus);
+            outline-offset: var(--fdcp-toggle-border-width);
+            outline-width: var(--gcds-input-outline-width, 0.1875rem);
+        }
+
+        &[aria-invalid="true"] {
+            border-color: var(--fdcp-toggle-danger);
+        }
+
+        &:disabled {
+            border-color: var(--fdcp-toggle-disabled-text);
+            background-color: var(--fdcp-toggle-disabled-background);
+            cursor: not-allowed;
+
+            &::before {
+                background-color: var(--fdcp-toggle-disabled-text);
+            }
+        }
+
+        &:checked:disabled {
+            background-color: var(--fdcp-toggle-disabled-text);
+
+            &::before {
+                background-color: var(--fdcp-toggle-disabled-background);
+            }
+        }
+    }
+
+    &__state {
+        display: inline;
+        color: var(--gcds-text-primary, #{vars.$gcds-text-primary});
+        font-size: var(--gcds-font-sizes-text, 1.25rem);
+        line-height: 1.5;
+    }
+
+    &__input:not(:checked) + &__state &__state-on,
+    &__input:checked + &__state &__state-off {
+        display: none;
+    }
+
+    &__input:disabled + &__state {
+        color: var(--fdcp-toggle-disabled-text);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        &__input,
+        &__input::before {
+            transition: none;
+        }
+    }
+
+    @media (forced-colors: active) {
+        &__input {
+            border-color: CanvasText;
+
+            &::before {
+                forced-color-adjust: none;
+                background-color: CanvasText;
+            }
+
+            &:checked {
+                forced-color-adjust: none;
+                border-color: Highlight;
+                background-color: Highlight;
+
+                &::before {
+                    background-color: HighlightText;
+                }
+            }
+
+            &:disabled {
+                border-color: GrayText;
+
+                &::before {
+                    background-color: GrayText;
+                }
+            }
+
+            &:checked:disabled {
+                background-color: GrayText;
+
+                &::before {
+                    background-color: Canvas;
+                }
+            }
+
+            &:focus-visible {
+                outline-color: Highlight;
+            }
+        }
+    }
+}
