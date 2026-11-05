@@ -10,6 +10,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// Content placed inside the alert is displayed in its default slot and can include text,
     /// links, buttons, or other custom content.
     /// </remarks>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-alert heading=&quot;Service interruption&quot; alert-role=&quot;warning&quot;&gt;
+    ///     &lt;p&gt;The service is temporarily unavailable.&lt;/p&gt;
+    /// &lt;/gcds-alert&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-alert", Attributes = "heading")]
     public class AlertTagHelper : BaseTagHelper
     {
