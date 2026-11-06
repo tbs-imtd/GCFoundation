@@ -4,7 +4,7 @@
 @Html.Raw(Template.LanguageChooser_Code_Intro)
 
 <div class="documentation-content">
-<pre><code class="language-cshtml">@@using GCFoundation.Components.Models
+<fdcp-code code-language="cshtml">@@using GCFoundation.Components.Models
 @@using Microsoft.AspNetCore.Mvc
 
 public class LanguageController : Controller
@@ -36,5 +36,5 @@ public class LanguageController : Controller
         // Renders the GCFoundation.Components language chooser view (standalone splash page)
         return View("~/Views/Language/Index.cshtml", model);
     }
-}</code></pre>
+}</fdcp-code>
 </div>

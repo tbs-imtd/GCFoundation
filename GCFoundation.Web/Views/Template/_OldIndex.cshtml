@@ -73,7 +73,7 @@
         </gcds-text>
         
         <gcds-details details-title="Controller Implementation" class="mt-200">
-            <pre><code>public class HomeController : GCFoundationBaseController
+            <fdcp-code code-language="csharp">public class HomeController : GCFoundationBaseController
 {
     public IActionResult Index()
     {
@@ -81,19 +81,19 @@
         ViewData["AccountPartialViewName"] = "_AccountPartial";
         return View();
     }
-}</code></pre>
+}</fdcp-code>
         </gcds-details>
 
         <gcds-details details-title="Layout Integration" class="mt-200">
             <gcds-text>The Foundation Layout (_FoundationLayout.cshtml) includes this code:</gcds-text>
-            <pre><code>@@{
+            <fdcp-code code-language="cshtml">@@{
     string? AccountPartialViewName = ViewData["AccountPartialViewName"] as string;
 }
 
 @@if(!string.IsNullOrEmpty(AccountPartialViewName))
 {
     @@await Html.PartialAsync(AccountPartialViewName)
-}</code></pre>
+}</fdcp-code>
         </gcds-details>
 
         <gcds-heading tag="h3" class="mt-300">Authentication System Integration</gcds-heading>
@@ -123,14 +123,14 @@
         </gcds-text>
 
         <gcds-details details-title="Multiple Partial Variants" class="mt-200">
-            <pre><code>// Create different partials for different areas
+            <fdcp-code code-language="csharp">// Create different partials for different areas
 ViewData["AccountPartialViewName"] = "_HeaderAccount";    // Header area
 ViewData["AccountPartialViewName"] = "_SidebarAccount";   // Sidebar area  
-</code></pre>
+</fdcp-code>
         </gcds-details>
 
         <gcds-details details-title="Dynamic Configuration" class="mt-200">
-            <pre><code>// Customize settings based on user role or page type
+            <fdcp-code code-language="csharp">// Customize settings based on user role or page type
 var userModel = _accountService.CreateViewModelFromContext();
 
 if (User.IsInRole("Admin"))
@@ -142,7 +142,7 @@ if (User.IsInRole("Admin"))
 if (Request.Path.StartsWithSegments("/admin"))
 {
     // Customize admin-specific settings here
-}</code></pre>
+}</fdcp-code>
         </gcds-details>
 
         <gcds-heading tag="h3" class="mt-300">Complete Examples</gcds-heading>

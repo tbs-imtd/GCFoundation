@@ -5,7 +5,7 @@
 @Html.Raw(Template.Crud_Code_Intro)
 
 <gcds-heading tag="h2">@Template.Crud_Code_Demo_Title</gcds-heading>
-<pre><code class="language-cshtml">@Html.Raw($@"@model GCFoundation.Web.Models.Template.Crud.DemoViewModel
+<fdcp-code code-language="cshtml">@Html.Raw($@"@model GCFoundation.Web.Models.Template.Crud.DemoViewModel
 @using GCFoundation.Components.Resources
 @using GCFoundation.Web.Resources
 
@@ -46,11 +46,11 @@
             &lt;gcds-button button-id=""delete-employee-cancel"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Localization.Cancel)}&lt;/gcds-button&gt;
         &lt;/fdcp-form&gt;
     &lt;/div&gt;
-&lt;/fdcp-modal&gt;")</code></pre>
+&lt;/fdcp-modal&gt;")</fdcp-code>
 
 <gcds-heading tag="h2">@Template.Crud_Code_Edit_Title</gcds-heading>
 <gcds-text>@Template.Crud_Code_Edit_Text</gcds-text>
-<pre><code class="language-cshtml">@Html.Raw($@"@model GCFoundation.Web.Models.Template.Crud.EmployeeViewModel
+<fdcp-code code-language="cshtml">@Html.Raw($@"@model GCFoundation.Web.Models.Template.Crud.EmployeeViewModel
 @using GCFoundation.Components.Resources
 @using GCFoundation.Web.Resources
 @{{
@@ -81,11 +81,11 @@
 
 &lt;section class=""mt-400""&gt;
     &lt;gcds-button type=""link"" button-role=""secondary"" href=""@Url.Action(""CrudDemo"", ""Template"")""&gt;&lt;gcds-icon name=""chevron-left"" margin-right=""50""&gt;&lt;/gcds-icon&gt;{Html.Encode(Template.Crud_BackToEmployeeList_Button)}&lt;/gcds-button&gt;
-&lt;/section&gt;")</code></pre>
+&lt;/section&gt;")</fdcp-code>
 
 <gcds-heading tag="h2">@Template.Crud_Code_Profile_Title</gcds-heading>
 <gcds-text>@Template.Crud_Code_Profile_Text</gcds-text>
-<pre><code class="language-cshtml">@Html.Raw($@"@using System.Reflection
+<fdcp-code code-language="cshtml">@Html.Raw($@"@using System.Reflection
 @using System.ComponentModel.DataAnnotations;
 @using GCFoundation.Web.Models.Template.Crud;
 @using GCFoundation.Web.Resources
@@ -110,11 +110,11 @@
 
 &lt;section class=""mt-400""&gt;
     &lt;gcds-button button-role=""secondary"" type=""link"" href=""@Url.Action(""CrudDemo"", ""Template"")""&gt;&lt;gcds-icon name=""chevron-left"" margin-right=""50""&gt;&lt;/gcds-icon&gt;{Html.Encode(Template.Crud_Back_Button)}&lt;/gcds-button&gt;
-&lt;/section&gt;")</code></pre>
+&lt;/section&gt;")</fdcp-code>
 
 <gcds-heading tag="h2">@Template.Crud_Code_EmployeeViewModel_Title</gcds-heading>
 <gcds-text>@Template.Crud_Code_EmployeeViewModel_Text</gcds-text>
-<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"using GCFoundation.Common.Utilities;
+<fdcp-code code-language="csharp">@Html.Raw(Html.Encode(@"using GCFoundation.Common.Utilities;
 using GCFoundation.Components.Attributes;
 using GCFoundation.Components.Attributes.Table;
 using GCFoundation.Components.Models;
@@ -164,4 +164,4 @@ namespace GCFoundation.Web.Models.Template.Crud
         [Display(Name = ""Crud_Demo_StartDate_Label"", ResourceType = typeof(Resources.Template), Order = 7)]
         public DateTime StartDate { get; set; } = DateTime.Now;
     }
-}"))</code></pre>
+}"))</fdcp-code>

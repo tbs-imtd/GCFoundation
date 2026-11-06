@@ -41,6 +41,7 @@ namespace GCFoundation.Components.Helpers
             ["javascript"] = "JavaScript",
             ["js"] = "JavaScript",
             ["json"] = "JSON",
+            ["powershell"] = "PowerShell",
             ["markup"] = "HTML",
             ["py"] = "Python",
             ["python"] = "Python",
