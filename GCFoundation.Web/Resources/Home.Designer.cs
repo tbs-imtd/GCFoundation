@@ -481,6 +481,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to November 6, 2026.
+        /// </summary>
+        public static string Index_Releases_Preview9_Date {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview9_Date", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Adds code block and GCDS alert components, upgrades to GC Design System 1.7.0, and includes vulnerability scan fixes..
+        /// </summary>
+        public static string Index_Releases_Preview9_Description {
+            get {
+                return ResourceManager.GetString("Index_Releases_Preview9_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Latest releases.
         /// </summary>
         public static string Index_Releases_Title {
