@@ -19,14 +19,11 @@
 }
 
 <fdcp-table caption="@Components.Table_WithColumns_Caption" column-definitions="@cols" rows="@rows"></fdcp-table>
-<div class="code-container">
-    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithColumns_Caption)}""
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithColumns_Caption)}""
             column-definitions=""@Model.Cols""
             rows=""@Model.Rows""&gt;
-&lt;/fdcp-table&gt;")</code></pre>
-</div>
-<div class="code-container">
-    <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"using GCFoundation.Components.Models.Table;
+&lt;/fdcp-table&gt;")</fdcp-code>
+<fdcp-code code-language="csharp">@Html.Raw(Html.Encode(@"using GCFoundation.Components.Models.Table;
 
 vm.Cols = new List<ColumnDefinition>()
 {
@@ -36,5 +33,4 @@ vm.Cols = new List<ColumnDefinition>()
     new() { Field = ""assignedReviewer"", Header = Resources.Components.Table_Assigned_Reviewer_Header },
 };
 vm.Rows = new List<MyRowViewModel>() { ... };
-    "))</code></pre>
-</div>
+    "))</fdcp-code>
