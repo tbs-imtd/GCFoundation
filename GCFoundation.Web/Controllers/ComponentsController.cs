@@ -291,6 +291,15 @@ namespace GCFoundation.Web.Controllers
             return View("Component", vm);
         }
 
+        /// <summary>Displays the Toggle component demo page.</summary>
+        /// <returns>The Toggle component view.</returns>
+        [HttpGet("toggle")]
+        public IActionResult Toggle()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Toggle_Title}");
+            return View("Component", BuildToggleComponentViewModel());
+        }
+
         /// <summary>
         /// Returns sample server-loaded content for the Tabs component demo.
         /// </summary>
@@ -608,6 +617,7 @@ namespace GCFoundation.Web.Controllers
                     new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
                     new () { Name = Resources.Components.Index_Tabs_Title, ShortDescription = Resources.Components.Index_Tabs_Description, Href = Url.Action("Tabs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-tabs.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg"), IsNew = true },
+                    new () { Name = Resources.Components.Index_Toggle_Title, Description = Resources.Components.Index_Toggle_Description, Href = Url.Action("Toggle", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-toggle.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_AccountPartial_Title, ShortDescription = Resources.Components.Index_AccountPartial_Description, Href = Url.Action("Account", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-account-partial.svg") }
                 },
                 TagHelperGroups = tagHelperCatalogService.BuildTagHelperGroups().ToList()
@@ -755,6 +765,39 @@ namespace GCFoundation.Web.Controllers
             vm.Tag = "<fdcp-searchable-select>";
 
             return vm;
+        }
+        private static ComponentViewModel BuildToggleComponentViewModel()
+        {
+            return new ComponentViewModel
+            {
+                Name = Resources.Components.Toggle_Name,
+                Tag = "<fdcp-toggle>",
+                Overview = Resources.Components.Toggle_Overview,
+                WhenToUse = [Resources.Components.Toggle_WhenToUse_1, Resources.Components.Toggle_WhenToUse_2],
+                WhenNotToUse = [Resources.Components.Toggle_WhenNotToUse_1, Resources.Components.Toggle_WhenNotToUse_2, Resources.Components.Toggle_WhenNotToUse_3, Resources.Components.Toggle_WhenNotToUse_4],
+                AccessibilityDo = [Resources.Components.Toggle_Accessibility_1, Resources.Components.Toggle_Accessibility_2, Resources.Components.Toggle_Accessibility_3, Resources.Components.Toggle_Accessibility_4, Resources.Components.Toggle_Accessibility_5],
+                AccessibilityDoNot = [Resources.Components.Toggle_AccessibilityDoNot_1, Resources.Components.Toggle_AccessibilityDoNot_2, Resources.Components.Toggle_AccessibilityDoNot_3, Resources.Components.Toggle_AccessibilityDoNot_4],
+                Notes = [Resources.Components.Toggle_Notes_1, Resources.Components.Toggle_Notes_2, Resources.Components.Toggle_Notes_3, Resources.Components.Toggle_Notes_4, Resources.Components.Toggle_Notes_5, Resources.Components.Toggle_Notes_6, Resources.Components.Toggle_Notes_7],
+                Properties =
+                [
+                    new() { Name = "for", DataType = "ModelExpression", Description = Resources.Components.Toggle_Properties_For },
+                    new() { Name = "name", DataType = "string", Description = Resources.Components.Toggle_Properties_Name },
+                    new() { Name = "id", DataType = "string", Description = Resources.Components.Toggle_Properties_Id },
+                    new() { Name = "label", DataType = "string", Description = Resources.Components.Toggle_Properties_Label },
+                    new() { Name = "hint", DataType = "string", Description = Resources.Components.Toggle_Properties_Hint },
+                    new() { Name = "checked", DataType = "bool?", Description = Resources.Components.Toggle_Properties_Checked },
+                    new() { Name = "on-text", DataType = "string", DefaultValue = GCFoundation.Components.Resources.Localization.On, Description = Resources.Components.Toggle_Properties_OnText },
+                    new() { Name = "off-text", DataType = "string", DefaultValue = GCFoundation.Components.Resources.Localization.Off, Description = Resources.Components.Toggle_Properties_OffText },
+                    new() { Name = "disabled", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Toggle_Properties_Disabled }
+                ],
+                SampleCodeSections =
+                [
+                    new() { Id = "toggle-basic", Title = Resources.Components.Toggle_Basic_Title, Description = Resources.Components.Toggle_Basic_Text, PartialViewName = "Toggle/_Basic" },
+                    new() { Id = "toggle-states", Title = Resources.Components.Toggle_States_Title, Description = Resources.Components.Toggle_States_Text, PartialViewName = "Toggle/_States" },
+                    new() { Id = "toggle-state-text", Title = Resources.Components.Toggle_StateText_Title, Description = Resources.Components.Toggle_StateText_Text, PartialViewName = "Toggle/_StateText" },
+                    new() { Id = "toggle-group", Title = Resources.Components.Toggle_Group_Title, Description = Resources.Components.Toggle_Group_Text, PartialViewName = "Toggle/_Group" }
+                ]
+            };
         }
         private static ComponentViewModel BuildStepperComponentViewModel()
         {

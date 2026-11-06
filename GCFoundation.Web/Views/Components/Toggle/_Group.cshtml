@@ -1,0 +1,23 @@
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Components.ComponentSampleCodeSectionViewModel
+
+<gcds-fieldset fieldset-id="notificationPreferences" legend="@Components.Toggle_Sample_Group_Legend">
+    <fdcp-toggle name="groupEmailNotifications"
+                 label="@Components.Toggle_Sample_Notifications_Label"
+                 checked="true"></fdcp-toggle>
+
+    <fdcp-toggle name="groupSmsNotifications"
+                 label="@Components.Toggle_Sample_Group_Sms_Label"></fdcp-toggle>
+</gcds-fieldset>
+
+<fdcp-code code-language="cshtml">
+    &lt;gcds-fieldset fieldset-id="notificationPreferences"
+                   legend="@Components.Toggle_Sample_Group_Legend"&gt;
+        &lt;fdcp-toggle name="groupEmailNotifications"
+                     label="@Components.Toggle_Sample_Notifications_Label"
+                     checked="true"&gt;&lt;/fdcp-toggle&gt;
+
+        &lt;fdcp-toggle name="groupSmsNotifications"
+                     label="@Components.Toggle_Sample_Group_Sms_Label"&gt;&lt;/fdcp-toggle&gt;
+    &lt;/gcds-fieldset&gt;
+</fdcp-code>
