@@ -11,10 +11,13 @@ on:
         default: '1.0.0-preview.1'
 
 jobs:
+
   publish:
     name: Pack and Publish
+    permissions:
+      id-token: write  # enable GitHub OIDC token issuance for this job
     runs-on: ubuntu-latest
-    
+
     steps:
     - uses: actions/checkout@v4
 
