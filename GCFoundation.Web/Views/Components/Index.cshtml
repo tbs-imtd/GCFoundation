@@ -1,6 +1,18 @@
 ﻿@using GCFoundation.Web.Models.Components
 @using GCFoundation.Web.Resources
+@using Microsoft.AspNetCore.Mvc.Rendering
 @model ComponentsIndexPageViewModel
+
+@{
+    List<SelectListItem> radioOptions =
+    [
+        new() { Text = "It doesn’t apply to my role", Value = "not-applicable" },
+        new() { Text = "I just started learning about it", Value = "learning" },
+        new() { Text = "I can do it with guidance", Value = "guidance" },
+        new() { Text = "I can do it without guidance", Value = "independent" },
+        new() { Text = "I can help, support, or guide others", Value = "support-others" }
+    ];
+}
 
 <gcds-heading tag="h1">@Components.Index_Page_Title</gcds-heading>
 <gcds-heading tag="h2">@Components.Index_FeaturedComponents_Title</gcds-heading>
@@ -46,3 +58,10 @@
     }
     </fdcp-accordion>
 }
+
+<fdcp-horizontal-radios class="mt-400"
+                        items="@radioOptions"
+                        name="collaboration-frequency"
+                        legend="1.3 Collaboration using digital tools"
+                        hint="I use note-taking applications such as OneNote, transcription services, and collaborative platforms like GCXchange, GCconnex, GCcollab, GCwiki and Microsoft Teams to make communication, collaboration and documentation easier and more effective."
+                        required="true" />

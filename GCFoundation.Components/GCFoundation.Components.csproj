@@ -142,7 +142,9 @@
   <ItemGroup>
     <Content Remove="package-lock.json" />
     <Content Remove="package.json" />    
-    <Content Remove="Views\Shared\_ViewImports.cshtml" />
+    <Content Remove="Views\Shared\_ViewImports.cshtml" />    
+    <Content Remove="wwwroot\src\js\components\fdcp-radio.js" />    
+    <Content Remove="wwwroot\src\scss\components\_fdcp-radio.scss" />
   </ItemGroup>
 
   <ItemGroup>

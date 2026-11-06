@@ -49,28 +49,38 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("name=\"RequiredChoice\"", content, StringComparison.Ordinal);
             Assert.Contains("value=\"guidance\" required checked", content, StringComparison.Ordinal);
             Assert.Contains("fdcp-horizontal-radios__grid d-grid", content, StringComparison.Ordinal);
-            Assert.DoesNotContain("fdcp-horizontal-radios__card", content, StringComparison.Ordinal);
-            Assert.DoesNotContain(
-                "fdcp-horizontal-radios--boxed",
-                _output.Attributes["class"].Value.ToString(),
-                StringComparison.Ordinal);
+            Assert.Contains("fdcp-horizontal-radios__card", content, StringComparison.Ordinal);
+            Assert.Equal(
+                "fdcp-horizontal-radios",
+                _output.Attributes["class"].Value.ToString());
         }
 
         [Fact]
-        public void Process_WithBoxed_RendersOptionsInCards()
+        public void Process_RendersOuterContainerAndOptionCards()
         {
             _tagHelper.Name = "skill";
             _tagHelper.Legend = "Skill level";
-            _tagHelper.Boxed = true;
             _tagHelper.Items = [new() { Text = "Learning", Value = "learning" }];
+            _output.Attributes.SetAttribute("class", "mt-400");
 
             _tagHelper.Process(_context, _output);
 
             string content = _output.Content.GetContent();
+            Assert.Contains(
+                "<gcds-container class=\"fdcp-horizontal-radios__outer mt-400\"",
+                _output.PreElement.GetContent(),
+                StringComparison.Ordinal);
+            Assert.DoesNotContain(" border", _output.PreElement.GetContent(), StringComparison.Ordinal);
+            Assert.Contains("padding=\"300\"", _output.PreElement.GetContent(), StringComparison.Ordinal);
+            Assert.Equal("</gcds-container>", _output.PostElement.GetContent());
             Assert.Contains("fdcp-card fdcp-horizontal-radios__card", content, StringComparison.Ordinal);
             Assert.Contains("fdcp-card-body", content, StringComparison.Ordinal);
             Assert.Contains(
-                "fdcp-horizontal-radios--boxed",
+                "<span class=\"fdcp-horizontal-radios__label-text\">Learning</span>",
+                content,
+                StringComparison.Ordinal);
+            Assert.DoesNotContain(
+                "mt-400",
                 _output.Attributes["class"].Value.ToString(),
                 StringComparison.Ordinal);
         }

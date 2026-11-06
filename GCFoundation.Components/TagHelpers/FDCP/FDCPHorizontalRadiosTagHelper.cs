@@ -9,8 +9,7 @@ using ValidationResources = GCFoundation.Components.Resources.Validation;
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
     /// <summary>
-    /// Renders a responsive horizontal radio group, optionally using cards around
-    /// its options, and GCDS radio styling in its stacked layout.
+    /// Renders a responsive horizontal radio group using cards around its options.
     /// </summary>
     [HtmlTargetElement("fdcp-horizontal-radios", Attributes = "for, items")]
     [HtmlTargetElement("fdcp-horizontal-radios", Attributes = "items, name")]
@@ -27,12 +26,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         /// </summary>
         [HtmlAttributeName("legend")]
         public string? Legend { get; set; }
-
-        /// <summary>
-        /// Gets or sets whether each option is rendered inside an FDCP card.
-        /// </summary>
-        [HtmlAttributeName("boxed")]
-        public bool Boxed { get; set; }
 
         /// <inheritdoc />
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -58,18 +51,27 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 StringComparison.Ordinal);
             string? selectedValue = ResolveSelectedValue(field);
             bool isRequired = field.Required && !field.Disabled;
+            string? existingClasses = output.Attributes["class"]?.Value?.ToString();
 
             output.TagName = "fieldset";
             output.TagMode = TagMode.StartTagAndEndTag;
             output.Attributes.SetAttribute("id", componentId);
-            output.Attributes.SetAttribute(
-                "class",
-                BuildRootClasses(output));
+            output.Attributes.SetAttribute("class", "fdcp-horizontal-radios");
             output.Attributes.SetAttribute("aria-labelledby", legendId);
             output.Attributes.SetAttribute("data-fdcp-horizontal-radios", string.Empty);
             output.Attributes.SetAttribute("data-required-message", requiredMessage);
             output.Attributes.SetAttribute("data-required-summary-message", requiredSummaryMessage);
             output.Attributes.SetAttribute("lang", Lang.ToString());
+
+            string outerClasses = string.IsNullOrWhiteSpace(existingClasses)
+                ? "fdcp-horizontal-radios__outer"
+                : $"fdcp-horizontal-radios__outer {existingClasses}";
+
+            output.PreElement.SetHtmlContent($"""
+                <gcds-container class="{Encode(outerClasses)}"
+                                padding="300">
+                """);
+            output.PostElement.SetHtmlContent("</gcds-container>");
 
             if (!string.IsNullOrWhiteSpace(field.Hint))
             {
@@ -106,8 +108,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     optionIndex,
                     disabled,
                     selected,
-                    isRequired,
-                    Boxed);
+                    isRequired);
 
                 optionIndex++;
             }
@@ -181,21 +182,17 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             int optionIndex,
             bool disabled,
             bool selected,
-            bool isRequired,
-            bool boxed)
+            bool isRequired)
         {
             string optionId = TagBuilder.CreateSanitizedId( $"{componentId}_{optionIndex}_{item.Value}", "_");
             string requiredAttribute = isRequired ? " required" : string.Empty;
             string disabledAttribute = disabled ? " disabled" : string.Empty;
             string checkedAttribute = selected ? " checked" : string.Empty;
 
-            if (boxed)
-            {
-                html.AppendLine("""
-                    <div class="fdcp-card fdcp-horizontal-radios__card">
-                        <div class="fdcp-card-body">
-                    """);
-            }
+            html.AppendLine("""
+                <div class="fdcp-card fdcp-horizontal-radios__card">
+                    <div class="fdcp-card-body">
+                """);
 
             html.AppendLine(CultureInfo.InvariantCulture, $"""
                 <div class="fdcp-horizontal-radios__option">
@@ -204,31 +201,16 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                            id="{Encode(optionId)}"
                            name="{Encode(field.Name)}"
                            value="{Encode(item.Value)}"{requiredAttribute}{disabledAttribute}{checkedAttribute}>
-                    <label class="fdcp-horizontal-radios__label" for="{Encode(optionId)}">{Encode(item.Text)}</label>
+                    <label class="fdcp-horizontal-radios__label" for="{Encode(optionId)}">
+                        <span class="fdcp-horizontal-radios__label-text">{Encode(item.Text)}</span>
+                    </label>
                 </div>
                 """);
 
-            if (boxed)
-            {
-                html.AppendLine("""
-                        </div>
+            html.AppendLine("""
                     </div>
-                    """);
-            }
-        }
-
-        private string BuildRootClasses(TagHelperOutput output)
-        {
-            string? existingClasses = output.Attributes["class"]?.Value?.ToString();
-            string additionalClasses = string.IsNullOrWhiteSpace(existingClasses)
-                ? string.Empty
-                : $" {existingClasses}";
-
-            string boxedClass = Boxed
-                ? " fdcp-horizontal-radios--boxed"
-                : string.Empty;
-
-            return $"fdcp-horizontal-radios{boxedClass}{additionalClasses}";
+                </div>
+                """);
         }
 
         private static string Encode(string? value)

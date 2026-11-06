@@ -6,9 +6,6 @@ class FDCPHorizontalRadios {
         }
         this.element.dataset.fdcpHorizontalRadiosInitialized = 'true';
 
-        this.labels = Array.from(
-            this.element.querySelectorAll('.fdcp-horizontal-radios__label')
-        );
         this.inputs = Array.from(
             this.element.querySelectorAll(
                 '.fdcp-horizontal-radios__input[type="radio"]'
@@ -17,38 +14,102 @@ class FDCPHorizontalRadios {
         this.error = this.element.querySelector(
             '.fdcp-horizontal-radios__error'
         );
+        this.labelTexts = Array.from(
+            this.element.querySelectorAll(
+                '.fdcp-horizontal-radios__label-text'
+            )
+        );
         this.required = this.inputs.some(input => input.required);
-        this.errorMessage = this.element.dataset.requiredMessage
+        this.errorSummaryMessage = this.element.dataset.requiredSummaryMessage
             || this.error?.textContent.trim()
             || 'Choose an option to continue.';
-        this.errorSummaryMessage = this.element.dataset.requiredSummaryMessage
-            || this.errorMessage;
-        this.referenceText = 'sometimes';
-        this.animationFrame = null;
-        this.measurementFrame = null;
-        this.observedWidth = null;
         this.handlingInvalidEvent = false;
-
-        this.resizeObserver = new ResizeObserver(entries => {
-            const width = entries[0]?.contentRect.width;
-
-            if (width !== undefined && Math.abs(width - this.observedWidth) < 1) {
-                return;
-            }
-
-            this.observedWidth = width;
-            this.scheduleLayout();
-        });
-        this.resizeObserver.observe(this.element);
-        this.scheduleLayout();
 
         if (this.required) {
             this.bindValidation();
         }
 
-        if (document.fonts) {
-            document.fonts.ready.then(() => this.scheduleLayout());
+        this.bindCardSelection();
+        this.bindResponsiveLabelLayout();
+    }
+
+    bindCardSelection() {
+        this.element.querySelectorAll(
+            '.fdcp-horizontal-radios__card'
+        ).forEach(card => {
+            card.addEventListener('click', event => {
+                if (!window.matchMedia('(width < 64em)').matches
+                    || event.target.closest('input, label')) {
+                    return;
+                }
+
+                const input = card.querySelector(
+                    '.fdcp-horizontal-radios__input[type="radio"]'
+                );
+
+                if (!input?.disabled) {
+                    input.click();
+                }
+            });
+        });
+    }
+
+    bindResponsiveLabelLayout() {
+        if (this.labelTexts.length === 0) {
+            return;
         }
+
+        this.horizontalLayoutMedia = window.matchMedia('(width >= 48em)');
+        this.lastObservedWidth = null;
+        this.labelLayoutFrame = null;
+
+        const scheduleUpdate = () => {
+            if (this.labelLayoutFrame !== null) {
+                cancelAnimationFrame(this.labelLayoutFrame);
+            }
+
+            this.labelLayoutFrame = requestAnimationFrame(() => {
+                this.labelLayoutFrame = null;
+                this.updateResponsiveLabelLayout();
+            });
+        };
+
+        this.labelLayoutObserver = new ResizeObserver(entries => {
+            const width = entries[0]?.contentRect.width;
+            if (width === this.lastObservedWidth) {
+                return;
+            }
+
+            this.lastObservedWidth = width;
+            scheduleUpdate();
+        });
+        this.labelLayoutObserver.observe(this.element);
+        this.horizontalLayoutMedia.addEventListener('change', scheduleUpdate);
+
+        document.fonts?.ready.then(scheduleUpdate);
+        scheduleUpdate();
+    }
+
+    updateResponsiveLabelLayout() {
+        const stackedClass = 'fdcp-horizontal-radios--stacked-labels';
+        this.element.classList.remove(stackedClass);
+
+        if (!this.horizontalLayoutMedia.matches) {
+            return;
+        }
+
+        const anyLabelWrapped = this.labelTexts.some(text => {
+            const label = text.closest('.fdcp-horizontal-radios__label');
+            if (!label) {
+                return false;
+            }
+
+            const labelTop = label.getBoundingClientRect().top;
+            const textTop = text.getBoundingClientRect().top;
+            return textTop - labelTop > 1;
+        });
+
+        this.element.classList.toggle(stackedClass, anyLabelWrapped);
     }
 
     bindValidation() {
@@ -144,66 +205,6 @@ class FDCPHorizontalRadios {
                 message: this.errorSummaryMessage
             }
         }));
-    }
-
-    scheduleLayout() {
-        if (this.animationFrame !== null) {
-            cancelAnimationFrame(this.animationFrame);
-        }
-
-        if (this.measurementFrame !== null) {
-            cancelAnimationFrame(this.measurementFrame);
-        }
-
-        this.animationFrame = requestAnimationFrame(() => {
-            this.animationFrame = null;
-            this.updateLayout();
-        });
-    }
-
-    updateLayout() {
-        this.setWideLayout(true);
-
-        this.measurementFrame = requestAnimationFrame(() => {
-            this.measurementFrame = requestAnimationFrame(() => {
-                this.measurementFrame = null;
-                this.finishLayoutMeasurement();
-            });
-        });
-    }
-
-    finishLayoutMeasurement() {
-        const hasNarrowTextArea = this.labels.some(label => {
-            const styles = getComputedStyle(label);
-            const availableWidth = label.clientWidth
-                - Number.parseFloat(styles.paddingInlineStart || 0)
-                - Number.parseFloat(styles.paddingInlineEnd || 0);
-
-            return availableWidth < this.getReferenceTextWidth(styles);
-        });
-
-        this.setWideLayout(!hasNarrowTextArea);
-    }
-
-    setWideLayout(isWide) {
-        this.element.classList.toggle('fdcp-horizontal-radios--wide', isWide);
-    }
-
-    getReferenceTextWidth(styles) {
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-
-        if (!context) {
-            return 96;
-        }
-
-        context.font = styles.font || [
-            styles.fontWeight,
-            styles.fontSize,
-            styles.fontFamily
-        ].join(' ');
-
-        return Math.ceil(context.measureText(this.referenceText).width);
     }
 }
 
