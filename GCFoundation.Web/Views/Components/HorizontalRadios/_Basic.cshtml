@@ -1,0 +1,38 @@
+﻿@using GCFoundation.Web.Models.Components
+@using GCFoundation.Web.Resources
+@using Microsoft.AspNetCore.Mvc.Rendering
+@model HorizontalRadioModel
+
+@{
+    var satisfactionOptions = new List<SelectListItem>
+    {
+        new() { Text = Components.HorizontalRadios_Basic_VeryDissatisfied, Value = "very-dissatisfied" },
+        new() { Text = Components.HorizontalRadios_Basic_Dissatisfied, Value = "dissatisfied" },
+        new() { Text = Components.HorizontalRadios_Basic_Satisfied, Value = "satisfied" },
+        new() { Text = Components.HorizontalRadios_Basic_VerySatisfied, Value = "very-satisfied" }
+    };
+}
+
+<fdcp-horizontal-radios for="@Model.ServiceSatisfaction"
+                        items="@satisfactionOptions"
+                        index="@Components.HorizontalRadios_Basic_Index"
+                        display-index="true"/>
+
+<pre><code class="language-cshtml">@Html.Raw($@"@using GCFoundation.Web.Models.Components
+@using Microsoft.AspNetCore.Mvc.Rendering
+@model HorizontalRadioModel
+
+@{{
+    var satisfactionOptions = new List&lt;SelectListItem&gt;
+    {{
+        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Basic_VeryDissatisfied)}"", Value = ""very-dissatisfied"" }},
+        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Basic_Dissatisfied)}"", Value = ""dissatisfied"" }},
+        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Basic_Satisfied)}"", Value = ""satisfied"" }},
+        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Basic_VerySatisfied)}"", Value = ""very-satisfied"" }}
+    }};
+}}
+
+&lt;fdcp-horizontal-radios for=""@Model.ServiceSatisfaction""
+                        items=""@satisfactionOptions""
+                        index=""{Html.Encode(Components.HorizontalRadios_Basic_Index)}""
+                        display-index=""true"" /&gt;")</code></pre>

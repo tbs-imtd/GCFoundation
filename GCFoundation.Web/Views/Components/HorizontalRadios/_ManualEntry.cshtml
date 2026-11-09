@@ -1,0 +1,36 @@
+@using GCFoundation.Web.Resources
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    var frequencyOptions = new List<SelectListItem>
+    {
+        new() { Text = Components.HorizontalRadios_Standalone_Never, Value = "never" },
+        new() { Text = Components.HorizontalRadios_Standalone_Rarely, Value = "rarely" },
+        new() { Text = Components.HorizontalRadios_Standalone_Sometimes, Value = "sometimes" },
+        new() { Text = Components.HorizontalRadios_Standalone_Often, Value = "often" }
+    };
+}
+
+<fdcp-horizontal-radios items="@frequencyOptions"
+                        name="service-use-frequency"
+                        legend="@Components.HorizontalRadios_Standalone_Legend"
+                        hint="@Components.HorizontalRadios_Standalone_Hint"
+                        required="true" />
+
+<pre><code class="language-cshtml">@Html.Raw($@"@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{{
+    var frequencyOptions = new List&lt;SelectListItem&gt;
+    {{
+        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Standalone_Never)}"", Value = ""never"" }},
+        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Standalone_Rarely)}"", Value = ""rarely"" }},
+        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Standalone_Sometimes)}"", Value = ""sometimes"" }},
+        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Standalone_Often)}"", Value = ""often"" }}
+    }};
+}}
+
+&lt;fdcp-horizontal-radios items=""@frequencyOptions""
+                        name=""service-use-frequency""
+                        legend=""{Html.Encode(Components.HorizontalRadios_Standalone_Legend)}""
+                        hint=""{Html.Encode(Components.HorizontalRadios_Standalone_Hint)}""
+                        required=""true"" /&gt;")</code></pre>

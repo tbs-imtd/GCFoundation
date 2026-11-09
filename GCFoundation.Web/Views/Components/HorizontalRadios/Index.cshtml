@@ -1,0 +1,31 @@
+@model GCFoundation.Web.Models.Components.HorizontalRadioModel
+
+<gcds-grid columns="minmax(0, 1fr)"
+           columns-desktop="320px minmax(0, 1fr)"
+           alignment="center"
+           tag="div"
+           container="GCFoundation.Components.Enums.SizeTypeEmum.xl"
+           class="xl:px-0 sm:px-600 px-225">
+    @if (Model.ShowSideNavigation)
+    {
+        <partial name="_SideNavigation" model="Model.SideNavigation" />
+    }
+
+    <div class="documentation-content">
+        <gcds-heading tag="h1">@Model.Name<br /><code>@Html.Raw(Html.Encode(Model.Tag))</code></gcds-heading>
+
+        <partial name="_Overview" model="Model" />
+
+        @foreach (var sample in Model.SampleCodeSections)
+        {
+            <gcds-heading tag="h2" id="@sample.Id">@sample.Title</gcds-heading>
+            @if (!string.IsNullOrWhiteSpace(sample.Description))
+            {
+                <gcds-text>@sample.Description</gcds-text>
+            }
+            <partial name="@sample.PartialViewName" model="Model" />
+        }
+
+        <partial name="~/Views/Components/_Properties.cshtml" model="Model" />
+    </div>
+</gcds-grid>

@@ -1846,6 +1846,285 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Dissatisfied.
+        /// </summary>
+        public static string HorizontalRadios_Basic_Dissatisfied {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Basic_Dissatisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the option that best describes your experience..
+        /// </summary>
+        public static string HorizontalRadios_Basic_Hint {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Basic_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question 1 of 4.
+        /// </summary>
+        public static string HorizontalRadios_Basic_Index {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Basic_Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How satisfied are you with this service?.
+        /// </summary>
+        public static string HorizontalRadios_Basic_Legend {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Basic_Legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Satisfied.
+        /// </summary>
+        public static string HorizontalRadios_Basic_Satisfied {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Basic_Satisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very dissatisfied.
+        /// </summary>
+        public static string HorizontalRadios_Basic_VeryDissatisfied {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Basic_VeryDissatisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very satisfied.
+        /// </summary>
+        public static string HorizontalRadios_Basic_VerySatisfied {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Basic_VerySatisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to manual-entry.
+        /// </summary>
+        public static string HorizontalRadios_ManualEntry_Anchor {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_ManualEntry_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide the name, legend and hint directly when the radio group is not bound to a model property..
+        /// </summary>
+        public static string HorizontalRadios_ManualEntry_Description {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_ManualEntry_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manual entry.
+        /// </summary>
+        public static string HorizontalRadios_ManualEntry_Title {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_ManualEntry_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to model-binding.
+        /// </summary>
+        public static string HorizontalRadios_ModelBinding_Anchor {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_ModelBinding_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use model binding to derive the name, legend, hint and validation from model metadata..
+        /// </summary>
+        public static string HorizontalRadios_ModelBinding_Description {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_ModelBinding_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model binding.
+        /// </summary>
+        public static string HorizontalRadios_ModelBinding_Title {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_ModelBinding_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use horizontal radios for questionnaires that contain many repeated radio-button questions..
+        /// </summary>
+        public static string HorizontalRadios_Overview {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disables every radio option when set to true..
+        /// </summary>
+        public static string HorizontalRadios_Properties_Disabled {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Displays the index above the legend when set to true and index is provided..
+        /// </summary>
+        public static string HorizontalRadios_Properties_DisplayIndex {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_DisplayIndex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Binds the radio group to a model property and derives its name, value, legend, hint and validation metadata..
+        /// </summary>
+        public static string HorizontalRadios_Properties_For {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides supporting text displayed below the legend. Overrides the model metadata value..
+        /// </summary>
+        public static string HorizontalRadios_Properties_Hint {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the fieldset ID. Overrides the ID derived from model binding or name..
+        /// </summary>
+        public static string HorizontalRadios_Properties_Id {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides index text displayed above the legend when display-index is true..
+        /// </summary>
+        public static string HorizontalRadios_Properties_Index {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides the radio options, including their text, values, selected state and disabled state..
+        /// </summary>
+        public static string HorizontalRadios_Properties_Items {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_Items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the radio group legend. Overrides the legend derived from model metadata..
+        /// </summary>
+        public static string HorizontalRadios_Properties_Legend {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_Legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the submitted field name for standalone usage. Use this when for is not provided..
+        /// </summary>
+        public static string HorizontalRadios_Properties_Name {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controls whether an option is required. Overrides the model&apos;s Required annotation..
+        /// </summary>
+        public static string HorizontalRadios_Properties_Required {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the selected option value. ModelState and model-bound values take precedence..
+        /// </summary>
+        public static string HorizontalRadios_Properties_Value {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Properties_Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select one option..
+        /// </summary>
+        public static string HorizontalRadios_Standalone_Hint {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Standalone_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How often do you use this service?.
+        /// </summary>
+        public static string HorizontalRadios_Standalone_Legend {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Standalone_Legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Never.
+        /// </summary>
+        public static string HorizontalRadios_Standalone_Never {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Standalone_Never", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Often.
+        /// </summary>
+        public static string HorizontalRadios_Standalone_Often {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Standalone_Often", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rarely.
+        /// </summary>
+        public static string HorizontalRadios_Standalone_Rarely {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Standalone_Rarely", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sometimes.
+        /// </summary>
+        public static string HorizontalRadios_Standalone_Sometimes {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Standalone_Sometimes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Organize related content into expandable sections..
         /// </summary>
         public static string Index_Accordion_Description {
@@ -1970,6 +2249,24 @@ namespace GCFoundation.Web.Resources {
         public static string Index_FormBuilder_Title {
             get {
                 return ResourceManager.GetString("Index_FormBuilder_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Present radio options horizontally in responsive cards.
+        /// </summary>
+        public static string Index_HorizontalRadios_Description {
+            get {
+                return ResourceManager.GetString("Index_HorizontalRadios_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Horizontal radios.
+        /// </summary>
+        public static string Index_HorizontalRadios_Title {
+            get {
+                return ResourceManager.GetString("Index_HorizontalRadios_Title", resourceCulture);
             }
         }
         
@@ -2136,7 +2433,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Quick reference for non-featured FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet..
+        ///   Looks up a localized string similar to Quick reference for FDCP and GCDS tag helpers, including what each helper does, key properties, and a minimal usage snippet..
         /// </summary>
         public static string Index_TagHelpers_Section_Description {
             get {
@@ -4619,22 +4916,22 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Table_Properties_Annotation_IsHidden", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Controls the display order of this column relative to other columns. Columns are rendered in ascending order by this value..
-        /// </summary>
-        public static string Table_Properties_Annotation_Order {
-            get {
-                return ResourceManager.GetString("Table_Properties_Annotation_Order", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Sets the column header text. Provide a resource key as &lt;code&gt;Name&lt;/code&gt; and the resource class as &lt;code&gt;ResourceType&lt;/code&gt; for a localized header..
         /// </summary>
         public static string Table_Properties_Annotation_NameResourceType {
             get {
                 return ResourceManager.GetString("Table_Properties_Annotation_NameResourceType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controls the display order of this column relative to other columns. Columns are rendered in ascending order by this value..
+        /// </summary>
+        public static string Table_Properties_Annotation_Order {
+            get {
+                return ResourceManager.GetString("Table_Properties_Annotation_Order", resourceCulture);
             }
         }
         
@@ -5078,69 +5375,6 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Table_WithButtonLink_Note", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to with-slots-caption.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Anchor {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Anchor", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Add submission.
-        /// </summary>
-        public static string Table_WithCaptionSlot_ButtonLabel {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_ButtonLabel", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, clicking the Add submission button logs a message to the browser console.&lt;/i&gt;.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Note {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Note", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Submissions.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Caption {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Caption", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to List of recent submissions.
-        /// </summary>
-        public static string Table_WithCaptionSlot_CaptionDetail {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_CaptionDetail", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Use &lt;code&gt;&amp;lt;div slot="caption"&amp;gt;&lt;/code&gt; to inject custom content into the caption area of the table.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Text {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Text", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to With caption slot.
-        /// </summary>
-        public static string Table_WithCaptionSlot_Title {
-            get {
-                return ResourceManager.GetString("Table_WithCaptionSlot_Title", resourceCulture);
-            }
-        }
         
         /// <summary>
         ///   Looks up a localized string similar to A &lt;code&gt;type=&quot;link&quot;&lt;/code&gt; button inside the slot navigates like a link. Use &lt;code&gt;data-bind-template-href&lt;/code&gt; to supply the destination URL from the current row&apos;s data..
@@ -5157,6 +5391,69 @@ namespace GCFoundation.Web.Resources {
         public static string Table_WithButtonLink_Title {
             get {
                 return ResourceManager.GetString("Table_WithButtonLink_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to with-slots-caption.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Anchor {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add submission.
+        /// </summary>
+        public static string Table_WithCaptionSlot_ButtonLabel {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_ButtonLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submissions.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Caption {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Caption", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to List of recent submissions.
+        /// </summary>
+        public static string Table_WithCaptionSlot_CaptionDetail {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_CaptionDetail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Note: In this demo, clicking the Add submission button logs a message to the browser console.&lt;/i&gt;.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Note {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use &lt;code&gt;&amp;lt;div slot=&quot;caption&quot;&amp;gt;&lt;/code&gt; to inject custom content into the caption area of the table alongside the &lt;code&gt;caption&lt;/code&gt; and &lt;code&gt;caption-detail&lt;/code&gt; attributes. This is useful for placing action controls such as buttons directly above the table..
+        /// </summary>
+        public static string Table_WithCaptionSlot_Text {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With caption slot.
+        /// </summary>
+        public static string Table_WithCaptionSlot_Title {
+            get {
+                return ResourceManager.GetString("Table_WithCaptionSlot_Title", resourceCulture);
             }
         }
         

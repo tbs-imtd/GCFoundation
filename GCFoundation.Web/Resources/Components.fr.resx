@@ -544,6 +544,105 @@
   <data name="Index_FilteredSearch_Description" xml:space="preserve">
     <value>Un moyen d'afficher une recherche avec des résultats filtrés</value>
   </data>
+  <data name="Index_HorizontalRadios_Title" xml:space="preserve">
+    <value>Boutons radio horizontaux</value>
+  </data>
+  <data name="Index_HorizontalRadios_Description" xml:space="preserve">
+    <value>Présentez les options de bouton radio horizontalement dans des cartes adaptatives</value>
+  </data>
+  <data name="HorizontalRadios_Basic_Index" xml:space="preserve">
+    <value>Question 1 sur 4</value>
+  </data>
+  <data name="HorizontalRadios_Overview" xml:space="preserve">
+    <value>Utilisez les boutons radio horizontaux pour les questionnaires qui contiennent de nombreuses questions répétées à choix unique.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_Disabled" xml:space="preserve">
+    <value>Désactive toutes les options lorsque la valeur est true.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_DisplayIndex" xml:space="preserve">
+    <value>Affiche l’index au-dessus de la légende lorsque la valeur est true et que index est fourni.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_For" xml:space="preserve">
+    <value>Lie le groupe de boutons radio à une propriété du modèle et en déduit le nom, la valeur, la légende, l’indice et les métadonnées de validation.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_Hint" xml:space="preserve">
+    <value>Fournit le texte d’aide affiché sous la légende. Remplace la valeur des métadonnées du modèle.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_Id" xml:space="preserve">
+    <value>Définit l’identifiant du groupe. Remplace l’identifiant dérivé de la liaison de modèle ou du nom.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_Index" xml:space="preserve">
+    <value>Fournit le texte d’index affiché au-dessus de la légende lorsque display-index est true.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_Items" xml:space="preserve">
+    <value>Fournit les options radio, y compris leur texte, leur valeur et leurs états sélectionné et désactivé.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_Legend" xml:space="preserve">
+    <value>Définit la légende du groupe de boutons radio. Remplace la légende dérivée des métadonnées du modèle.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_Name" xml:space="preserve">
+    <value>Définit le nom du champ soumis pour une utilisation autonome. Utilisez-le lorsque for n’est pas fourni.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_Required" xml:space="preserve">
+    <value>Détermine si une option est requise. Remplace l’annotation Required du modèle.</value>
+  </data>
+  <data name="HorizontalRadios_Properties_Value" xml:space="preserve">
+    <value>Définit la valeur de l’option sélectionnée. ModelState et les valeurs liées au modèle ont priorité.</value>
+  </data>
+  <data name="HorizontalRadios_ModelBinding_Title" xml:space="preserve">
+    <value>Liaison de modèle</value>
+  </data>
+  <data name="HorizontalRadios_ModelBinding_Anchor" xml:space="preserve">
+    <value>liaison-de-modele</value>
+  </data>
+  <data name="HorizontalRadios_ModelBinding_Description" xml:space="preserve">
+    <value>Utilisez la liaison de modèle pour obtenir le nom, la légende, l’indice et la validation à partir des métadonnées du modèle.</value>
+  </data>
+  <data name="HorizontalRadios_ManualEntry_Title" xml:space="preserve">
+    <value>Saisie manuelle</value>
+  </data>
+  <data name="HorizontalRadios_ManualEntry_Anchor" xml:space="preserve">
+    <value>saisie-manuelle</value>
+  </data>
+  <data name="HorizontalRadios_ManualEntry_Description" xml:space="preserve">
+    <value>Fournissez directement le nom, la légende et l’indice lorsque le groupe de boutons radio n’est pas lié à une propriété du modèle.</value>
+  </data>
+  <data name="HorizontalRadios_Basic_Legend" xml:space="preserve">
+    <value>Dans quelle mesure êtes-vous satisfait de ce service?</value>
+  </data>
+  <data name="HorizontalRadios_Basic_Hint" xml:space="preserve">
+    <value>Sélectionnez l'option qui décrit le mieux votre expérience.</value>
+  </data>
+  <data name="HorizontalRadios_Basic_VeryDissatisfied" xml:space="preserve">
+    <value>Très insatisfait</value>
+  </data>
+  <data name="HorizontalRadios_Basic_Dissatisfied" xml:space="preserve">
+    <value>Insatisfait</value>
+  </data>
+  <data name="HorizontalRadios_Basic_Satisfied" xml:space="preserve">
+    <value>Satisfait</value>
+  </data>
+  <data name="HorizontalRadios_Basic_VerySatisfied" xml:space="preserve">
+    <value>Très satisfait</value>
+  </data>
+  <data name="HorizontalRadios_Standalone_Legend" xml:space="preserve">
+    <value>À quelle fréquence utilisez-vous ce service?</value>
+  </data>
+  <data name="HorizontalRadios_Standalone_Hint" xml:space="preserve">
+    <value>Sélectionnez une option.</value>
+  </data>
+  <data name="HorizontalRadios_Standalone_Never" xml:space="preserve">
+    <value>Jamais</value>
+  </data>
+  <data name="HorizontalRadios_Standalone_Rarely" xml:space="preserve">
+    <value>Rarement</value>
+  </data>
+  <data name="HorizontalRadios_Standalone_Sometimes" xml:space="preserve">
+    <value>Parfois</value>
+  </data>
+  <data name="HorizontalRadios_Standalone_Often" xml:space="preserve">
+    <value>Souvent</value>
+  </data>
   <data name="Index_SearchableSelect_Title" xml:space="preserve">
     <value>Sélecteur avec recherche</value>
   </data>
