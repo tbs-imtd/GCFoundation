@@ -27,6 +27,18 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         [HtmlAttributeName("legend")]
         public string? Legend { get; set; }
 
+        /// <summary>
+        /// Gets or sets the optional index text rendered above the legend.
+        /// </summary>
+        [HtmlAttributeName("index")]
+        public string? Index { get; set; }
+
+        /// <summary>
+        /// Gets or sets a value indicating whether the index text is displayed.
+        /// </summary>
+        [HtmlAttributeName("display-index")]
+        public bool DisplayIndex { get; set; }
+
         /// <inheritdoc />
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -84,7 +96,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             }
 
             var html = new StringBuilder();
-            AppendLegend(html, field, legendId, isRequired);
+            AppendLegend(html, field, legendId, isRequired, Index, DisplayIndex);
             AppendHint(html, field.Hint, hintId);
             if (isRequired)
             {
@@ -132,10 +144,22 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             StringBuilder html,
             FormFieldContext field,
             string legendId,
-            bool isRequired)
+            bool isRequired,
+            string? index,
+            bool displayIndex)
         {
             html.Append(CultureInfo.InvariantCulture, $"""
                 <legend class="fdcp-horizontal-radios__legend" id="{Encode(legendId)}">
+                """);
+
+            if (displayIndex && !string.IsNullOrWhiteSpace(index))
+            {
+                html.Append(CultureInfo.InvariantCulture, $"""
+                    <span class="fdcp-horizontal-radios__index">{Encode(index)}</span>
+                    """);
+            }
+
+            html.Append(CultureInfo.InvariantCulture, $"""
                     {Encode(field.Label)}
                 """);
 

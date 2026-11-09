@@ -110,6 +110,44 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
+        public void Process_WithDisplayedIndex_RendersEncodedIndexAboveLegend()
+        {
+            _tagHelper.Name = "skill";
+            _tagHelper.Legend = "Skill level";
+            _tagHelper.Index = "Question <1> of 7";
+            _tagHelper.DisplayIndex = true;
+            _tagHelper.Items = [new() { Text = "Learning", Value = "learning" }];
+
+            _tagHelper.Process(_context, _output);
+
+            string content = _output.Content.GetContent();
+            Assert.Contains(
+                "<span class=\"fdcp-horizontal-radios__index\">Question &lt;1&gt; of 7</span>",
+                content,
+                StringComparison.Ordinal);
+            Assert.True(
+                content.IndexOf("fdcp-horizontal-radios__index", StringComparison.Ordinal) <
+                content.IndexOf("Skill level", StringComparison.Ordinal));
+        }
+
+        [Fact]
+        public void Process_WithHiddenIndex_DoesNotRenderIndex()
+        {
+            _tagHelper.Name = "skill";
+            _tagHelper.Legend = "Skill level";
+            _tagHelper.Index = "Question 1 of 7";
+            _tagHelper.DisplayIndex = false;
+            _tagHelper.Items = [new() { Text = "Learning", Value = "learning" }];
+
+            _tagHelper.Process(_context, _output);
+
+            Assert.DoesNotContain(
+                "fdcp-horizontal-radios__index",
+                _output.Content.GetContent(),
+                StringComparison.Ordinal);
+        }
+
+        [Fact]
         public void Process_WithoutRequired_DoesNotRenderRequiredInputs()
         {
             _tagHelper.Name = "skill";
