@@ -11,6 +11,12 @@ class FDCPHorizontalRadios {
                 '.fdcp-horizontal-radios__input[type="radio"]'
             )
         );
+        this.cards = Array.from(
+            this.element.querySelectorAll('.fdcp-horizontal-radios__card')
+        );
+        this.grid = this.element.querySelector(
+            '.fdcp-horizontal-radios__grid'
+        );
         this.error = this.element.querySelector(
             '.fdcp-horizontal-radios__error'
         );
@@ -34,9 +40,7 @@ class FDCPHorizontalRadios {
     }
 
     bindCardSelection() {
-        this.element.querySelectorAll(
-            '.fdcp-horizontal-radios__card'
-        ).forEach(card => {
+        this.cards.forEach(card => {
             card.addEventListener('click', event => {
                 if (!window.matchMedia('(width < 64em)').matches
                     || event.target.closest('input, label')) {
@@ -93,6 +97,7 @@ class FDCPHorizontalRadios {
     updateResponsiveLabelLayout() {
         const stackedClass = 'fdcp-horizontal-radios--stacked-labels';
         this.element.classList.remove(stackedClass);
+        this.resetCardDimensions();
 
         if (!this.horizontalLayoutMedia.matches) {
             return;
@@ -110,6 +115,64 @@ class FDCPHorizontalRadios {
         });
 
         this.element.classList.toggle(stackedClass, anyLabelWrapped);
+        this.matchCardDimensions();
+    }
+
+    resetCardDimensions() {
+        this.cards.forEach(card => {
+            card.style.removeProperty('flex');
+            card.style.removeProperty('inline-size');
+            card.style.removeProperty('min-inline-size');
+            card.style.removeProperty('min-height');
+        });
+    }
+
+    matchCardDimensions() {
+        if (!this.grid || this.cards.length === 0) {
+            return;
+        }
+
+        this.cards.forEach(card => {
+            card.style.flex = '0 0 min-content';
+            card.style.inlineSize = 'min-content';
+            card.style.minInlineSize = 'min-content';
+        });
+
+        const minimumWidth = Math.ceil(Math.max(
+            ...this.cards.map(card => card.getBoundingClientRect().width)
+        ));
+        const gridWidth = this.grid.getBoundingClientRect().width;
+        const columnGap = Number.parseFloat(
+            getComputedStyle(this.grid).columnGap
+        ) || 0;
+        const columnCount = Math.min(
+            this.cards.length,
+            Math.max(
+                1,
+                Math.floor(
+                    (gridWidth + columnGap) / (minimumWidth + columnGap)
+                )
+            )
+        );
+        const sharedWidth = Math.max(
+            minimumWidth,
+            (gridWidth - columnGap * (columnCount - 1)) / columnCount
+        );
+
+        this.cards.forEach(card => {
+            card.style.flex = `0 0 ${sharedWidth}px`;
+            card.style.inlineSize = `${sharedWidth}px`;
+            card.style.minInlineSize = `${sharedWidth}px`;
+        });
+
+        const maximumHeight = Math.max(
+            0,
+            ...this.cards.map(card => card.getBoundingClientRect().height)
+        );
+
+        this.cards.forEach(card => {
+            card.style.minHeight = `${maximumHeight}px`;
+        });
     }
 
     bindValidation() {

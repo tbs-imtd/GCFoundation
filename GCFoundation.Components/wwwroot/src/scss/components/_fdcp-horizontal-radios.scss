@@ -283,8 +283,14 @@
         }
 
         &__grid {
-            grid-template-columns: repeat(5, minmax(0, 1fr));
             align-items: stretch;
+            display: flex !important;
+            flex-wrap: wrap;
+        }
+
+        &__card {
+            flex: 1 1 0;
+            min-inline-size: min-content;
         }
 
         &__option {

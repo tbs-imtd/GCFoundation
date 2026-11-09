@@ -64,6 +64,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string? selectedValue = ResolveSelectedValue(field);
             bool isRequired = field.Required && !field.Disabled;
             string? existingClasses = output.Attributes["class"]?.Value?.ToString();
+            List<SelectListItem> items = Items.ToList();
 
             output.TagName = "fieldset";
             output.TagMode = TagMode.StartTagAndEndTag;
@@ -105,7 +106,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             html.AppendLine("""<div class="fdcp-horizontal-radios__grid d-grid">""");
 
             int optionIndex = 0;
-            foreach (SelectListItem item in Items)
+            foreach (SelectListItem item in items)
             {
                 bool disabled = field.Disabled || item.Disabled;
                 bool selected = selectedValue != null
