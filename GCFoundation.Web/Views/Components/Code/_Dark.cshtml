@@ -2,19 +2,23 @@
 @using GCFoundation.Web.Resources
 @model ComponentSampleCodeSectionViewModel
 
-<fdcp-code id="code-dark-sample" title="@Components.Code_SampleRegistrationTitle" code-language="csharp" theme="dark">
-    // Submit the request.
-    var response = await client.PostAsJsonAsync("v1/requests", new { title = "Access request" });
-    response.EnsureSuccessStatusCode();
-</fdcp-code>
+<fdcp-code id="code-dark-sample" title="@Components.Code_SampleRegistrationTitle"
+           examples="@CodeDemoSamples.CreateRequest" selected-code-language="csharp"
+           theme="dark" />
 
 <fdcp-code code-language="cshtml">
+    @@{
+        var examples = new List&lt;CodeSample&gt;
+        {
+            new() { Language = "csharp", Code = Model.CreateCSharp },
+            new() { Language = "javascript", Code = Model.CreateJavaScript },
+            new() { Language = "python", Code = Model.CreatePython }
+        };
+    }
+
     &lt;fdcp-code id="code-dark-sample"
                title="@Components.Code_SampleRegistrationTitle"
-               code-language="csharp"
-               theme="dark"&gt;
-        // Submit the request.
-        var response = await client.PostAsJsonAsync("v1/requests", new { title = "Access request" });
-        response.EnsureSuccessStatusCode();
-    &lt;/fdcp-code&gt;
+               examples="@@examples"
+               selected-code-language="csharp"
+               theme="dark" /&gt;
 </fdcp-code>
