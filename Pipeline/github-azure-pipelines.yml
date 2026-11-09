@@ -1,6 +1,6 @@
 # GCFoundation.Web - Build and Deploy pipeline (from GitHub)
 # Created: 2026-04-20
-# Modified: 2026-04-23
+# Modified: 2026-11-04
 #
 # Runs once per change reaching master (merge push), not on every PR sync.
 # Azure Pipelines cannot trigger on GitHub "PR approved" alone; pair this with
@@ -198,5 +198,26 @@ stages:
               resourceGroupName: ${{ variables.resourceGroupName }}
               slotName: ${{ variables.slotName }}
               useSlot: ${{ variables.useSlot }}
+              virtualDirectoryName: ${{ variables.virtualDirectoryName }}
+              webAppName: ${{ variables.webAppName }}
+
+- stage: deploy_prod
+  dependsOn: deploy_uat
+  jobs:
+  - deployment: deploy_app_prod
+    variables:
+      - template: './transforms/prod/appsettings.yaml'
+      - template: './transforms/prod/deployment.yaml'
+    environment: ${{ variables.deploymentEnvironment }}
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+          - template: Deploy/DotNetCore/deploy-steps.yaml@templates
+            parameters:
+              azureSubscription: ${{ variables.azureSubscription }}
+              pathToPackage: ${{ variables.pathToPackage }}
+              resourceGroupName: ${{ variables.resourceGroupName }}
+              slotName: ${{ variables.slotName }}
               virtualDirectoryName: ${{ variables.virtualDirectoryName }}
               webAppName: ${{ variables.webAppName }}

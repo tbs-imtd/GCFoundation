@@ -2,20 +2,20 @@
 @using GCFoundation.Components.Services
 @using GCFoundation.Components.Settings
 @using Microsoft.Extensions.Options
-@inject UserLoginService UserLoginService
-@inject IOptions<GCFoundationUserLoginSettings> LoginSettings
+@inject AccountService AccountService
+@inject IOptions<GCFoundationAccountSettings> AccountSettings
 
 @{
-    // Create a sample user login view model for demonstration
+    // Create a sample account view model for demonstration
     // In a real application, you would get this from the authenticated user context
     var isAuthenticated = User?.Identity?.IsAuthenticated ?? false;
     
-    UserLoginViewModel loginModel;
+    AccountViewModel accountModel;
     
     if (isAuthenticated)
     {
         // Create a sample authenticated user
-        loginModel = UserLoginService.CreateViewModel(
+        accountModel = AccountService.CreateViewModel(
             userName: "John Doe",
             userEmail: "john.doe@example.gc.ca",
             firstName: "John",
@@ -29,12 +29,12 @@
     else
     {
         // Create anonymous user model
-        loginModel = UserLoginService.CreateAnonymousViewModel();
+        accountModel = AccountService.CreateAnonymousViewModel();
     }
 }
 
-@* Render the user login partial *@
-<partial name="_UserLoginPartial" model="loginModel" />
+@* Render the account partial *@
+<partial name="_AccountPartial" model="accountModel" />
 
 @* 
 Example of how to customize settings for different scenarios:

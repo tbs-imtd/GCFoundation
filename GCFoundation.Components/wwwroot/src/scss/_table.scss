@@ -92,6 +92,8 @@ table,
     display: block;
     min-height: .01%;
     overflow-x: auto;
+    // Contains absolutely positioned screen reader text, which otherwise widens the page at narrow widths.
+    position: relative;
     width: 100%;
     -webkit-overflow-scrolling: touch;
 

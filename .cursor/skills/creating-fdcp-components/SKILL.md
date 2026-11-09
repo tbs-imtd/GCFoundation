@@ -88,7 +88,7 @@ For custom form controls:
 - Add the component route/action and component view model in `ComponentsController`.
 - Add the component to the documentation index.
 - Add localized name, overview, property descriptions, sample headings, and sample strings.
-- Provide a live sample and matching escaped `<pre><code>` output.
+- Provide a live sample and the same source in `<fdcp-code>`, with tags encoded in the child content.
 - Include representative modes and optional content.
 - Add a required form example when the component participates in forms.
 

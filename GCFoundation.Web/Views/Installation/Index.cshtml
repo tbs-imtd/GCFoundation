@@ -33,39 +33,32 @@
 
         <gcds-heading tag="h2" id="package-installation">@Installation.Index_PackageInstallation_Heading</gcds-heading>
         <p>@Html.Raw(Installation.Index_PackageInstallation_CorePackages_Intro)</p>
-<div class="code-container">
-<pre><code class="language-powershell">dotnet add YourApp.Web package GCFoundation.Common
+<fdcp-code code-language="powershell">dotnet add YourApp.Web package GCFoundation.Common
 dotnet add YourApp.Web package GCFoundation.Components
-dotnet add YourApp.Web package GCFoundation.Security</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+dotnet add YourApp.Web package GCFoundation.Security</fdcp-code>
 
         <p>@Installation.Index_PackageInstallation_NavigationPackages_Intro</p>
-<div class="code-container">
-<pre><code class="language-powershell">dotnet add YourApp.Web package cloudscribe.Web.Navigation
+<fdcp-code code-language="powershell">dotnet add YourApp.Web package cloudscribe.Web.Navigation
 dotnet add YourApp.Web package cloudscribe.Web.Localization
 dotnet add YourApp.Web package cloudscribe.Web.SiteMap
 dotnet add YourApp.Web package cloudscribe.Web.SiteMap.FromNavigation
-dotnet add YourApp.Web package RouteLocalization.AspNetCore</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+dotnet add YourApp.Web package RouteLocalization.AspNetCore</fdcp-code>
 
         <p>@Installation.Index_PackageInstallation_PackageManager_Intro</p>
-<div class="code-container">
-<pre><code class="language-powershell">Install-Package GCFoundation.Common
+<fdcp-code code-language="powershell">Install-Package GCFoundation.Common
 Install-Package GCFoundation.Components
 Install-Package GCFoundation.Security
 Install-Package cloudscribe.Web.Navigation
 Install-Package cloudscribe.Web.Localization
 Install-Package cloudscribe.Web.SiteMap
 Install-Package cloudscribe.Web.SiteMap.FromNavigation
-Install-Package RouteLocalization.AspNetCore</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+Install-Package RouteLocalization.AspNetCore</fdcp-code>
 
         <hr />
 
         <gcds-heading tag="h2" id="basic-setup">@Installation.Index_BasicSetup_Heading</gcds-heading>
         <p>@Html.Raw(Installation.Index_BasicSetup_Intro)</p>
-<div class="code-container">
-<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_MvcLocalization))
+<fdcp-code code-language="csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_MvcLocalization))
 builder.Services.AddControllersWithViews()
     .AddViewLocalization()
     .AddDataAnnotationsLocalization();
@@ -74,26 +67,22 @@ builder.Services.AddControllersWithViews()
 builder.Services.AddGCFoundationComponents(builder.Configuration);
 builder.Services.AddGCFoundationContentPolicies(builder.Configuration);
 builder.Services.AddGCFoundationSession(builder.Configuration);
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <hr />
 
         <gcds-heading tag="h2" id="components-setup">@Installation.Index_ComponentsSetup_Heading</gcds-heading>
         <p>@Html.Raw(Installation.Index_ComponentsSetup_Intro)</p>
-<div class="code-container">
-<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_LoadComponents))
+<fdcp-code code-language="csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_LoadComponents))
 app.UseGCFoundationComponents();
 app.UseGCFoundationSession();
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <hr />
 
         <gcds-heading tag="h2" id="security-setup">@Installation.Index_SecuritySetup_Heading</gcds-heading>
         <p>@Installation.Index_SecuritySetup_Intro</p>
-<div class="code-container">
-<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddContentSecurityPolicy))
+<fdcp-code code-language="csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddContentSecurityPolicy))
 app.UseGCFoundationContentPolicies();
 
 // @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureSecureCookies))
@@ -103,15 +92,13 @@ app.UseCookiePolicy(new CookiePolicyOptions
     Secure = CookieSecurePolicy.Always,
     HttpOnly = HttpOnlyPolicy.Always
 });
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <hr />
 
         <gcds-heading tag="h2" id="language-setup">@Installation.Index_LanguageSetup_Heading</gcds-heading>
         <p>@Html.Raw(Installation.Index_LanguageSetup_Configuration_Intro)</p>
-<div class="code-container">
-<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureGlobalResources))
+<fdcp-code code-language="csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureGlobalResources))
 builder.Services.Configure<GlobalResourceOptions>(builder.Configuration.GetSection("GlobalResourceOptions"));
 builder.Services.AddSingleton<IStringLocalizerFactory, GlobalResourceManagerStringLocalizerFactory>();
 builder.Services.AddLocalization();
@@ -130,97 +117,81 @@ builder.Services.Configure<RequestLocalizationOptions>(options =>
 
 // @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddRouteLocalization))
 builder.Services.AddCustomRouteLocalization();
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <p>@Installation.Index_LanguageSetup_Middleware_Intro</p>
-<div class="code-container">
-<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddLanguageMiddleware))
+<fdcp-code code-language="csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_AddLanguageMiddleware))
 app.UseMiddleware<GCFoundationLanguageMiddleware>();
 
 // @Html.Raw(Html.Encode(Installation.Index_CodeComment_EnableRequestLocalization))
 var localizationOptions = app.Services.GetRequiredService&lt;IOptions&lt;RequestLocalizationOptions&gt;&gt;().Value;
 app.UseRequestLocalization(localizationOptions);
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <hr />
 
         <gcds-heading tag="h2" id="breadcrumbs-setup">@Installation.Index_BreadcrumbsSetup_Heading</gcds-heading>
         <p>@Html.Raw(Installation.Index_BreadcrumbsSetup_Intro)</p>
-<div class="code-container">
-<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureNavigationServices))
+<fdcp-code code-language="csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureNavigationServices))
 builder.Services.AddScoped&lt;ISiteMapNodeService, NavigationTreeSiteMapNodeService&gt;();
 builder.Services.AddCloudscribeNavigation(builder.Configuration.GetSection("NavigationOptions"));
 
 // @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureBreadcrumbsLocalization))
 builder.Services.AddSingleton(typeof(IBreadcrumbsLocalizationService),
     typeof(BreadcrumbsLocalizationService&lt;YourApp.Resources.Navigation&gt;));
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <hr />
 
         <gcds-heading tag="h2" id="menu-setup">@Installation.Index_MenuSetup_Heading <gcds-badge label="@Installation.Index_Optional_Badge" type="info"></gcds-badge></gcds-heading>
         <p>@Html.Raw(Installation.Index_MenuSetup_Intro)</p>
-<div class="code-container">
-<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureTopNavigationLocalization))
+<fdcp-code code-language="csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureTopNavigationLocalization))
 builder.Services.AddSingleton&lt;ITopNavigationLocalizationService,
     TopNavigationLocalizationService&lt;YourApp.Resources.Navigation&gt;&gt;();
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <gcds-heading tag="h3" id="menu-component-visibility">@Installation.Index_MenuComponentVisibility_Heading</gcds-heading>
         <p>@Html.Raw(Installation.Index_MenuComponentVisibility_Intro)</p>
-<div class="code-container">
-<pre><code class="language-xml">&lt;!-- @Html.Raw(Html.Encode(Installation.Index_CodeComment_ShownEverywhere)) --&gt;
+<fdcp-code code-language="xml">&lt;!-- @Html.Raw(Html.Encode(Installation.Index_CodeComment_ShownEverywhere)) --&gt;
 &lt;NavNode key="home" controller="Home" action="Index"
          text="Nav_Home" /&gt;
 
 &lt;!-- @Html.Raw(Html.Encode(Installation.Index_CodeComment_TopNavigationOnly)) --&gt;
 &lt;NavNode key="get-started" text="Nav_GetStarted"
          componentVisibility="topnav" /&gt;
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <gcds-heading tag="h3" id="menu-restrictions">@Installation.Index_MenuRestrictions_Heading <gcds-badge label="@Installation.Index_Optional_Badge" type="info"></gcds-badge></gcds-heading>
         <p>@Html.Raw(Installation.Index_MenuRestrictions_Rules_Intro)</p>
-<div class="code-container">
-<pre><code class="language-json">"NavigationRules": {
+<fdcp-code code-language="json">"NavigationRules": {
   "Rules": {
     "node-key1":  { "type": "Cookie",  "name": "TestCookie",  "value": "true" },
     "node-key2":  { "type": "Session", "name": "TestSession", "value": "true" },
     "node-key3": { "type": "Claim",   "name": "role",        "value": "admin" }
   }
 }
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
         <p>@Html.Raw(Installation.Index_MenuRestrictions_Program_Intro)</p>
-<div class="code-container">
-<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_BindNavigationRules))
+<fdcp-code code-language="csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_BindNavigationRules))
 builder.Services.Configure&lt;NavRulesOptions&gt;(builder.Configuration.GetSection("NavigationRules"));
 
 // @Html.Raw(Html.Encode(Installation.Index_CodeComment_EvaluateNavigationRules))
 builder.Services.AddScoped&lt;INavigationNodePermissionResolver, ConfigurableNavPermissionResolver&gt;();
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <hr />
 
         <gcds-heading tag="h2" id="url-translation">@Installation.Index_UrlTranslation_Heading</gcds-heading>
         <p>@Installation.Index_UrlTranslation_Routing_Intro</p>
-<div class="code-container">
-<pre><code class="language-csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureDefaultRoute))
+<fdcp-code code-language="csharp">// @Html.Raw(Html.Encode(Installation.Index_CodeComment_ConfigureDefaultRoute))
 app.MapControllerRoute(
     name: "default",
     pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}"
 );
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <p>@Html.Raw(Installation.Index_UrlTranslation_AppSettings_Intro)</p>
-<div class="code-container">
-<pre><code class="language-json">{
+<fdcp-code code-language="json">{
   "NavigationOptions": {
     "EnableLocalization": true,
     "LocalizationNamespace": "YourApp.Resources.Navigation"
@@ -230,8 +201,7 @@ app.MapControllerRoute(
     "SupportedCultures": [ "en-CA", "fr-CA" ]
   }
 }
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <p>@Installation.Index_UrlTranslation_KeyFeatures_Heading</p>
         <ul>
@@ -245,8 +215,7 @@ app.MapControllerRoute(
 
         <gcds-heading tag="h2" id="complete-example">@Installation.Index_CompleteExample_Heading</gcds-heading>
         <p>@Html.Raw(Installation.Index_CompleteExample_Intro)</p>
-<div class="code-container">
-<pre><code class="language-csharp">using System.Globalization;
+<fdcp-code code-language="csharp">using System.Globalization;
 using cloudscribe.Web.Navigation;
 using cloudscribe.Web.SiteMap;
 using GCFoundation.Common.Utilities;
@@ -349,12 +318,10 @@ app.MapControllerRoute(
     pattern: "{culture=en}/{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <p>@Html.Raw(Installation.Index_CompleteExample_AppSettings_Intro)</p>
-<div class="code-container">
-<pre><code class="language-json">{
+<fdcp-code code-language="json">{
   "NavigationOptions": {
     "EnableLocalization": true,
     "LocalizationNamespace": "YourApp.Resources.Navigation"
@@ -364,17 +331,14 @@ app.Run();
     "SupportedCultures": [ "en-CA", "fr-CA" ]
   }
 }
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
 
         <p>@Installation.Index_CompleteExample_ProjectStructure_Intro</p>
-<div class="code-container">
-<pre><code>YourApp/
+<fdcp-code>YourApp/
   └── Resources/
       ├── Navigation.en-CA.resx
       ├── Navigation.fr-CA.resx
       └── Navigation/   (optional additional navigation resources)
-</code><gcds-button button-role="secondary" class="mt-150 code-copy-button" data-success-text="@Installation.Index_CopyButton_SuccessText">@Installation.Index_CopyButton_Text</gcds-button></pre>
-</div>
+</fdcp-code>
     </div>
 </gcds-grid>

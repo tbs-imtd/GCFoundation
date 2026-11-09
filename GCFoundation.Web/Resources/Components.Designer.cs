@@ -349,6 +349,807 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ♿ Accessible.
+        /// </summary>
+        public static string Account_Accessible {
+            get {
+                return ResourceManager.GetString("Account_Accessible", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WCAG compliant with proper ARIA labels and semantic markup..
+        /// </summary>
+        public static string Account_Accessible_Description {
+            get {
+                return ResourceManager.GetString("Account_Accessible_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additional Resources.
+        /// </summary>
+        public static string Account_AdditionalResources {
+            get {
+                return ResourceManager.GetString("Account_AdditionalResources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to API test.
+        /// </summary>
+        public static string Account_ApiTest_Link {
+            get {
+                return ResourceManager.GetString("Account_ApiTest_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to See how to integrate with APIs to get user information..
+        /// </summary>
+        public static string Account_ApiTest_Message {
+            get {
+                return ResourceManager.GetString("Account_ApiTest_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are currently logged in as {0}.
+        /// </summary>
+        public static string Account_Authenticated_Message {
+            get {
+                return ResourceManager.GetString("Account_Authenticated_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Current Authentication Status.
+        /// </summary>
+        public static string Account_AuthStatus_Title {
+            get {
+                return ResourceManager.GetString("Account_AuthStatus_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Azure Active Directory.
+        /// </summary>
+        public static string Account_AzureAD {
+            get {
+                return ResourceManager.GetString("Account_AzureAD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_AzureAD_Benefits {
+            get {
+                return ResourceManager.GetString("Account_AzureAD_Benefits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enterprise authentication with Office 365 integration and single sign-on support..
+        /// </summary>
+        public static string Account_AzureAD_Description {
+            get {
+                return ResourceManager.GetString("Account_AzureAD_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🌐 Bilingual Support.
+        /// </summary>
+        public static string Account_BilingualSupport {
+            get {
+                return ResourceManager.GetString("Account_BilingualSupport", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Automatic English/French localization with resource files and culture detection..
+        /// </summary>
+        public static string Account_BilingualSupport_Description {
+            get {
+                return ResourceManager.GetString("Account_BilingualSupport_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ☁️ Cloud Ready.
+        /// </summary>
+        public static string Account_CloudReady {
+            get {
+                return ResourceManager.GetString("Account_CloudReady", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stateless authentication support perfect for Azure App Service and container deployments..
+        /// </summary>
+        public static string Account_CloudReady_Description {
+            get {
+                return ResourceManager.GetString("Account_CloudReady_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Complete Examples.
+        /// </summary>
+        public static string Account_CompleteExamples {
+            get {
+                return ResourceManager.GetString("Account_CompleteExamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interactive examples with different configurations and use cases..
+        /// </summary>
+        public static string Account_CompleteExamples_Description {
+            get {
+                return ResourceManager.GetString("Account_CompleteExamples_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A configurable, bilingual account information component that displays authentication status, user details, and session information. Perfect for Azure cloud deployments with stateless authentication..
+        /// </summary>
+        public static string Account_Component_Description {
+            get {
+                return ResourceManager.GetString("Account_Component_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account Partial Component.
+        /// </summary>
+        public static string Account_Component_Title {
+            get {
+                return ResourceManager.GetString("Account_Component_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Account partial supports the following configuration options through appsettings.json:.
+        /// </summary>
+        public static string Account_ConfigDescription {
+            get {
+                return ResourceManager.GetString("Account_ConfigDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The Account Partial is highly configurable through appsettings.json and supports both stateless and session-based authentication systems..
+        /// </summary>
+        public static string Account_ConfigOptions_Description {
+            get {
+                return ResourceManager.GetString("Account_ConfigOptions_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🔧 Configurable.
+        /// </summary>
+        public static string Account_Configurable {
+            get {
+                return ResourceManager.GetString("Account_Configurable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 15+ configuration options to customize display and behavior for your needs..
+        /// </summary>
+        public static string Account_Configurable_Description {
+            get {
+                return ResourceManager.GetString("Account_Configurable_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configuration Options.
+        /// </summary>
+        public static string Account_ConfigurationOptions {
+            get {
+                return ResourceManager.GetString("Account_ConfigurationOptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cookie Authentication.
+        /// </summary>
+        public static string Account_CookieAuth {
+            get {
+                return ResourceManager.GetString("Account_CookieAuth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_CookieAuth_Benefits {
+            get {
+                return ResourceManager.GetString("Account_CookieAuth_Benefits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stateless cookie-based auth without server-side sessions. Perfect for Azure cloud deployments..
+        /// </summary>
+        public static string Account_CookieAuth_Description {
+            get {
+                return ResourceManager.GetString("Account_CookieAuth_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_CurrentlyAuthenticated {
+            get {
+                return ResourceManager.GetString("Account_CurrentlyAuthenticated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_CurrentlyNotAuthenticated {
+            get {
+                return ResourceManager.GetString("Account_CurrentlyNotAuthenticated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Live Example - Current User State.
+        /// </summary>
+        public static string Account_CurrentUserState {
+            get {
+                return ResourceManager.GetString("Account_CurrentUserState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This shows the actual authentication state from the current user context..
+        /// </summary>
+        public static string Account_CurrentUserState_Description {
+            get {
+                return ResourceManager.GetString("Account_CurrentUserState_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default Mode.
+        /// </summary>
+        public static string Account_DefaultMode {
+            get {
+                return ResourceManager.GetString("Account_DefaultMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standard full display mode with user information..
+        /// </summary>
+        public static string Account_DefaultMode_Description {
+            get {
+                return ResourceManager.GetString("Account_DefaultMode_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to External Providers.
+        /// </summary>
+        public static string Account_ExternalProviders {
+            get {
+                return ResourceManager.GetString("Account_ExternalProviders", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_ExternalProviders_Benefits {
+            get {
+                return ResourceManager.GetString("Account_ExternalProviders_Benefits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OAuth integration with Google, GitHub, Microsoft, and other external providers..
+        /// </summary>
+        public static string Account_ExternalProviders_Description {
+            get {
+                return ResourceManager.GetString("Account_ExternalProviders_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Accessibility features with proper ARIA labels.
+        /// </summary>
+        public static string Account_Feature_Accessibility {
+            get {
+                return ResourceManager.GetString("Account_Feature_Accessibility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User avatar support with automatic initials generation.
+        /// </summary>
+        public static string Account_Feature_Avatar {
+            get {
+                return ResourceManager.GetString("Account_Feature_Avatar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Fully bilingual (English/French) with automatic language detection.
+        /// </summary>
+        public static string Account_Feature_Bilingual {
+            get {
+                return ResourceManager.GetString("Account_Feature_Bilingual", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compact and full display modes.
+        /// </summary>
+        public static string Account_Feature_CompactFull {
+            get {
+                return ResourceManager.GetString("Account_Feature_CompactFull", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Configurable display options (show/hide various user information).
+        /// </summary>
+        public static string Account_Feature_Configurable {
+            get {
+                return ResourceManager.GetString("Account_Feature_Configurable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GCDS component integration for consistent Government of Canada styling.
+        /// </summary>
+        public static string Account_Feature_GCDS {
+            get {
+                return ResourceManager.GetString("Account_Feature_GCDS", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Easy integration with existing authentication systems.
+        /// </summary>
+        public static string Account_Feature_Integration {
+            get {
+                return ResourceManager.GetString("Account_Feature_Integration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Responsive design for mobile and desktop.
+        /// </summary>
+        public static string Account_Feature_Responsive {
+            get {
+                return ResourceManager.GetString("Account_Feature_Responsive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session timeout warnings and countdown.
+        /// </summary>
+        public static string Account_Feature_SessionTimeout {
+            get {
+                return ResourceManager.GetString("Account_Feature_SessionTimeout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Features.
+        /// </summary>
+        public static string Account_Features {
+            get {
+                return ResourceManager.GetString("Account_Features", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 🎨 GCDS Styled.
+        /// </summary>
+        public static string Account_GCDSStyled {
+            get {
+                return ResourceManager.GetString("Account_GCDSStyled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uses Government of Canada Design System components for consistent styling..
+        /// </summary>
+        public static string Account_GCDSStyled_Description {
+            get {
+                return ResourceManager.GetString("Account_GCDSStyled_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JWT Tokens.
+        /// </summary>
+        public static string Account_JWTTokens {
+            get {
+                return ResourceManager.GetString("Account_JWTTokens", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_JWTTokens_Benefits {
+            get {
+                return ResourceManager.GetString("Account_JWTTokens_Benefits", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to JSON Web Token authentication for API-first applications and microservices..
+        /// </summary>
+        public static string Account_JWTTokens_Description {
+            get {
+                return ResourceManager.GetString("Account_JWTTokens_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Key Features.
+        /// </summary>
+        public static string Account_KeyFeatures {
+            get {
+                return ResourceManager.GetString("Account_KeyFeatures", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Live Examples.
+        /// </summary>
+        public static string Account_LiveExamples {
+            get {
+                return ResourceManager.GetString("Account_LiveExamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Below are working examples of the Account Partial in different configurations:.
+        /// </summary>
+        public static string Account_LiveExamples_Description {
+            get {
+                return ResourceManager.GetString("Account_LiveExamples_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You are not currently logged in. Use the simulate login button below to test the authenticated state..
+        /// </summary>
+        public static string Account_NotAuthenticated_Message {
+            get {
+                return ResourceManager.GetString("Account_NotAuthenticated_Message", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Not Authenticated State.
+        /// </summary>
+        public static string Account_NotAuthenticatedState {
+            get {
+                return ResourceManager.GetString("Account_NotAuthenticatedState", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display for users who are not logged in..
+        /// </summary>
+        public static string Account_NotAuthenticatedState_Description {
+            get {
+                return ResourceManager.GetString("Account_NotAuthenticatedState_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This page demonstrates the configurable Account partial component with English and French localization support. The partial can be customized through configuration settings and displays different information based on authentication status..
+        /// </summary>
+        public static string Account_PageDescription {
+            get {
+                return ResourceManager.GetString("Account_PageDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account Partial Examples.
+        /// </summary>
+        public static string Account_PageTitle {
+            get {
+                return ResourceManager.GetString("Account_PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ← Back to Examples.
+        /// </summary>
+        public static string Account_Position_BackToExamples {
+            get {
+                return ResourceManager.GetString("Account_Position_BackToExamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is content after the account partial..
+        /// </summary>
+        public static string Account_Position_Content_After {
+            get {
+                return ResourceManager.GetString("Account_Position_Content_After", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is content before the account partial..
+        /// </summary>
+        public static string Account_Position_Content_Before {
+            get {
+                return ResourceManager.GetString("Account_Position_Content_Before", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This example shows how the Account partial can be positioned in different areas of your application..
+        /// </summary>
+        public static string Account_Position_Description {
+            get {
+                return ResourceManager.GetString("Account_Position_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The main content area. The account partial will be displayed in the footer area (below this content)..
+        /// </summary>
+        public static string Account_Position_Footer_Content {
+            get {
+                return ResourceManager.GetString("Account_Position_Footer_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Footer Login.
+        /// </summary>
+        public static string Account_Position_Footer_Title {
+            get {
+                return ResourceManager.GetString("Account_Position_Footer_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The account partial is displayed in the header area (above this content)..
+        /// </summary>
+        public static string Account_Position_Header_Alert {
+            get {
+                return ResourceManager.GetString("Account_Position_Header_Alert", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inline Login Information.
+        /// </summary>
+        public static string Account_Position_Inline_Title {
+            get {
+                return ResourceManager.GetString("Account_Position_Inline_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account in {0} Position.
+        /// </summary>
+        public static string Account_Position_PageTitle {
+            get {
+                return ResourceManager.GetString("Account_Position_PageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This is the main content area. The account partial is displayed in the sidebar to the left (on desktop) or above (on mobile)..
+        /// </summary>
+        public static string Account_Position_Sidebar_Content {
+            get {
+                return ResourceManager.GetString("Account_Position_Sidebar_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sidebar Login.
+        /// </summary>
+        public static string Account_Position_Sidebar_Title {
+            get {
+                return ResourceManager.GetString("Account_Position_Sidebar_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick Implementation Guide.
+        /// </summary>
+        public static string Account_QuickImplementation {
+            get {
+                return ResourceManager.GetString("Account_QuickImplementation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 📱 Responsive.
+        /// </summary>
+        public static string Account_Responsive {
+            get {
+                return ResourceManager.GetString("Account_Responsive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mobile-first design that works perfectly on all device sizes..
+        /// </summary>
+        public static string Account_Responsive_Description {
+            get {
+                return ResourceManager.GetString("Account_Responsive_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Session Expiring Soon.
+        /// </summary>
+        public static string Account_SessionExpiring {
+            get {
+                return ResourceManager.GetString("Account_SessionExpiring", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Example showing session timeout warning..
+        /// </summary>
+        public static string Account_SessionExpiring_Description {
+            get {
+                return ResourceManager.GetString("Account_SessionExpiring_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simulate Login.
+        /// </summary>
+        public static string Account_SimulateLogin {
+            get {
+                return ResourceManager.GetString("Account_SimulateLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the &quot;Simulate Login&quot; button in the Examples section to see the authenticated state..
+        /// </summary>
+        public static string Account_SimulateLoginNote {
+            get {
+                return ResourceManager.GetString("Account_SimulateLoginNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Simulate Logout.
+        /// </summary>
+        public static string Account_SimulateLogout {
+            get {
+                return ResourceManager.GetString("Account_SimulateLogout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stateless Authentication.
+        /// </summary>
+        public static string Account_StatelessAuth {
+            get {
+                return ResourceManager.GetString("Account_StatelessAuth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Azure cloud-ready authentication examples without sessions..
+        /// </summary>
+        public static string Account_StatelessAuth_Description {
+            get {
+                return ResourceManager.GetString("Account_StatelessAuth_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_Step_ConfigureAuth {
+            get {
+                return ResourceManager.GetString("Account_Step_ConfigureAuth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_Step_ConfigureSettings {
+            get {
+                return ResourceManager.GetString("Account_Step_ConfigureSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_Step_CustomizeAppearance {
+            get {
+                return ResourceManager.GetString("Account_Step_CustomizeAppearance", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_Step_RegisterServices {
+            get {
+                return ResourceManager.GetString("Account_Step_RegisterServices", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Account_Step_SetInController {
+            get {
+                return ResourceManager.GetString("Account_Step_SetInController", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supported Authentication Methods.
+        /// </summary>
+        public static string Account_SupportedAuthMethods {
+            get {
+                return ResourceManager.GetString("Account_SupportedAuthMethods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The component automatically extracts user information from claims, making it compatible with various authentication systems:.
+        /// </summary>
+        public static string Account_SupportedAuthMethods_Description {
+            get {
+                return ResourceManager.GetString("Account_SupportedAuthMethods_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Template Integration.
+        /// </summary>
+        public static string Account_TemplateIntegration {
+            get {
+                return ResourceManager.GetString("Account_TemplateIntegration", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Learn how to integrate the partial into your layout templates..
+        /// </summary>
+        public static string Account_TemplateIntegration_Description {
+            get {
+                return ResourceManager.GetString("Account_TemplateIntegration_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test the account partial with different authentication states..
+        /// </summary>
+        public static string Account_TestAuthStates {
+            get {
+                return ResourceManager.GetString("Account_TestAuthStates", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use text or iconography in addition to colour to convey meaning..
         /// </summary>
         public static string Badge_Accessibility_Do_1 {
@@ -1011,6 +1812,402 @@ namespace GCFoundation.Web.Resources {
         public static string Card_WithSlots_Title {
             get {
                 return ResourceManager.GetString("Card_WithSlots_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Give each code block a title, or place it under a heading that explains its purpose..
+        /// </summary>
+        public static string Code_Accessibility1 {
+            get {
+                return ResourceManager.GetString("Code_Accessibility1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The code area receives keyboard focus so long lines can be scrolled with the arrow keys..
+        /// </summary>
+        public static string Code_Accessibility2 {
+            get {
+                return ResourceManager.GetString("Code_Accessibility2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The language selector is a labelled GCDS select (gcds-select) and is omitted when there is only one language. After a successful copy, a polite live region announces that the code was copied..
+        /// </summary>
+        public static string Code_Accessibility3 {
+            get {
+                return ResourceManager.GetString("Code_Accessibility3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Syntax colour reinforces the code. People who do not distinguish those colours can still read the text. Colours meet the contrast minimum..
+        /// </summary>
+        public static string Code_Accessibility4 {
+            get {
+                return ResourceManager.GetString("Code_Accessibility4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Use &lt;code&gt;fdcp-code&lt;/code&gt; for one snippet. Pass the source in the &lt;code&gt;code&lt;/code&gt; attribute, or write it as encoded child content: the first and last blank lines and the common indentation are removed. With one language, the language selector is not shown.&lt;/p&gt;.
+        /// </summary>
+        public static string Code_BlockText {
+            get {
+                return ResourceManager.GetString("Code_BlockText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code block.
+        /// </summary>
+        public static string Code_BlockTitle {
+            get {
+                return ResourceManager.GetString("Code_BlockTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Set &lt;code&gt;theme=&quot;dark&quot;&lt;/code&gt; for a dark background. The block uses &lt;code&gt;color-scheme: dark&lt;/code&gt;, so Dark Reader leaves the colours alone instead of inverting them. Syntax colours meet the text contrast minimum.&lt;/p&gt;.
+        /// </summary>
+        public static string Code_DarkText {
+            get {
+                return ResourceManager.GetString("Code_DarkText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark theme.
+        /// </summary>
+        public static string Code_DarkTitle {
+            get {
+                return ResourceManager.GetString("Code_DarkTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Pass &lt;code&gt;examples&lt;/code&gt; to the same &lt;code&gt;fdcp-code&lt;/code&gt; component to show one example in several languages. The language selector appears only then. Both examples below share a sync group: changing the language in one changes the other. The second example also offers Bash; choosing it leaves the first example unchanged.&lt;/p&gt;.
+        /// </summary>
+        public static string Code_ExampleText {
+            get {
+                return ResourceManager.GetString("Code_ExampleText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Multi-language example.
+        /// </summary>
+        public static string Code_ExampleTitle {
+            get {
+                return ResourceManager.GetString("Code_ExampleTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;p&gt;Unknown languages are displayed as plain text. Use &lt;code&gt;wrap=&quot;true&quot;&lt;/code&gt; for long lines that are easier to read wrapped, and &lt;code&gt;copy-enabled=&quot;false&quot;&lt;/code&gt; when copying is not useful.&lt;/p&gt;.
+        /// </summary>
+        public static string Code_FallbackText {
+            get {
+                return ResourceManager.GetString("Code_FallbackText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plain text and wrapping.
+        /// </summary>
+        public static string Code_FallbackTitle {
+            get {
+                return ResourceManager.GetString("Code_FallbackTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string Code_Name {
+            get {
+                return ResourceManager.GetString("Code_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to After inserting components into the page with JavaScript, call FDCPCode.&lt;wbr&gt;initialize(container). Initializing the same component again has no effect..
+        /// </summary>
+        public static string Code_NoteDynamic {
+            get {
+                return ResourceManager.GetString("Code_NoteDynamic", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code is always treated as text and encoded once; it is never run or inserted as HTML. Line endings are normalized to line feeds..
+        /// </summary>
+        public static string Code_NoteEncoding {
+            get {
+                return ResourceManager.GetString("Code_NoteEncoding", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlighted languages: csharp, javascript, python, json, cshtml, markup (HTML), css, bash and aspnet. Other identifiers are displayed as plain text..
+        /// </summary>
+        public static string Code_NoteLanguages {
+            get {
+                return ResourceManager.GetString("Code_NoteLanguages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Highlighting starts when a block becomes visible. Code longer than 50,000 characters is displayed without highlighting..
+        /// </summary>
+        public static string Code_NoteLimit {
+            get {
+                return ResourceManager.GetString("Code_NoteLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Without JavaScript, every language variant is displayed with its label and the copy and language controls are hidden. Printing also shows every variant..
+        /// </summary>
+        public static string Code_NoteProgressive {
+            get {
+                return ResourceManager.GetString("Code_NoteProgressive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to theme=&quot;dark&quot; uses a dark background and color-scheme: dark so Dark Reader does not invert the block. The default theme is light..
+        /// </summary>
+        public static string Code_NoteTheme {
+            get {
+                return ResourceManager.GetString("Code_NoteTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display code with syntax highlighting and a copy button. The same component shows one snippet or several languages. The language selector appears only when there is more than one language. A dark theme is available..
+        /// </summary>
+        public static string Code_Overview {
+            get {
+                return ResourceManager.GetString("Code_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Source text. When omitted, the encoded child content is used..
+        /// </summary>
+        public static string Code_PropCode {
+            get {
+                return ResourceManager.GetString("Code_PropCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code language identifier, such as csharp, javascript, python or json. Unknown languages are displayed as plain text..
+        /// </summary>
+        public static string Code_PropCodeLanguage {
+            get {
+                return ResourceManager.GetString("Code_PropCodeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display name of the code language. Derived from code-language when omitted..
+        /// </summary>
+        public static string Code_PropCodeLanguageLabel {
+            get {
+                return ResourceManager.GetString("Code_PropCodeLanguageLabel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Displays the copy button..
+        /// </summary>
+        public static string Code_PropCopyEnabled {
+            get {
+                return ResourceManager.GetString("Code_PropCopyEnabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language variants (CodeSample: Language, Label, Code). Languages must be unique. The language selector is shown only when more than one variant is supplied..
+        /// </summary>
+        public static string Code_PropExamples {
+            get {
+                return ResourceManager.GetString("Code_PropExamples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier of the component. Generated when omitted..
+        /// </summary>
+        public static string Code_PropId {
+            get {
+                return ResourceManager.GetString("Code_PropId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code language displayed first. Defaults to the first example..
+        /// </summary>
+        public static string Code_PropSelectedCodeLanguage {
+            get {
+                return ResourceManager.GetString("Code_PropSelectedCodeLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Examples with the same group on a page switch language together..
+        /// </summary>
+        public static string Code_PropSyncGroup {
+            get {
+                return ResourceManager.GetString("Code_PropSyncGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to light or dark. dark uses a dark background and color-scheme: dark. Defaults to light..
+        /// </summary>
+        public static string Code_PropTheme {
+            get {
+                return ResourceManager.GetString("Code_PropTheme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visible title, also used to name the code area and the copy button..
+        /// </summary>
+        public static string Code_PropTitle {
+            get {
+                return ResourceManager.GetString("Code_PropTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wraps long lines instead of scrolling horizontally..
+        /// </summary>
+        public static string Code_PropWrap {
+            get {
+                return ResourceManager.GetString("Code_PropWrap", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Help developers read and reuse code examples. Applications supply the source text and languages; the component owns highlighting, copying, language selection, the theme, accessibility and styling..
+        /// </summary>
+        public static string Code_Purpose {
+            get {
+                return ResourceManager.GetString("Code_Purpose", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create a request.
+        /// </summary>
+        public static string Code_SampleCreateTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleCreateTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application log.
+        /// </summary>
+        public static string Code_SampleLogTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleLogTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Read a request.
+        /// </summary>
+        public static string Code_SampleReadTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleReadTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Register Foundation services.
+        /// </summary>
+        public static string Code_SampleRegistrationTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleRegistrationTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Access to information request.
+        /// </summary>
+        public static string Code_SampleRequestTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleRequestTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Example response.
+        /// </summary>
+        public static string Code_SampleResponseTitle {
+            get {
+                return ResourceManager.GetString("Code_SampleResponseTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep examples short and focused. Link to complete files instead of pasting long sources..
+        /// </summary>
+        public static string Code_Ux1 {
+            get {
+                return ResourceManager.GetString("Code_Ux1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the same sync group for examples on one page that share languages, so readers choose their language once..
+        /// </summary>
+        public static string Code_Ux2 {
+            get {
+                return ResourceManager.GetString("Code_Ux2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The code is short and appears inside a sentence. Use the code element instead..
+        /// </summary>
+        public static string Code_WhenNot1 {
+            get {
+                return ResourceManager.GetString("Code_WhenNot1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The code contains secrets or real credentials. Use placeholders such as YOUR_ACCESS_TOKEN..
+        /// </summary>
+        public static string Code_WhenNot2 {
+            get {
+                return ResourceManager.GetString("Code_WhenNot2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You need to show a code snippet, a configuration file or an API request or response..
+        /// </summary>
+        public static string Code_WhenUse1 {
+            get {
+                return ResourceManager.GetString("Code_WhenUse1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You want to show the same example in several programming languages..
+        /// </summary>
+        public static string Code_WhenUse2 {
+            get {
+                return ResourceManager.GetString("Code_WhenUse2", resourceCulture);
             }
         }
         
@@ -2143,6 +3340,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Configurable account information display with bilingual support.
+        /// </summary>
+        public static string Index_AccountPartial_Description {
+            get {
+                return ResourceManager.GetString("Index_AccountPartial_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Account Partial.
+        /// </summary>
+        public static string Index_AccountPartial_Title {
+            get {
+                return ResourceManager.GetString("Index_AccountPartial_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;gcds-text&gt;A way to display tags&lt;/gcds-text&gt;
         ///&lt;gcds-text&gt;&lt;em&gt;Other names: pill, keyword&lt;/em&gt;&lt;/gcds-text&gt;.
         /// </summary>
@@ -2186,6 +3401,25 @@ namespace GCFoundation.Web.Resources {
         public static string Index_Card_Title {
             get {
                 return ResourceManager.GetString("Index_Card_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Code samples with syntax highlighting, copy, an optional language selector and an optional dark theme.&lt;/gcds-text&gt;
+        ///&lt;gcds-text&gt;&lt;em&gt;Other names: code block, code sample&lt;/em&gt;&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string Index_Code_Description {
+            get {
+                return ResourceManager.GetString("Index_Code_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Code.
+        /// </summary>
+        public static string Index_Code_Title {
+            get {
+                return ResourceManager.GetString("Index_Code_Title", resourceCulture);
             }
         }
         
@@ -2456,24 +3690,6 @@ namespace GCFoundation.Web.Resources {
         public static string Index_TagHelpers_Usage_Label {
             get {
                 return ResourceManager.GetString("Index_TagHelpers_Usage_Label", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configurable user login information display with bilingual support.
-        /// </summary>
-        public static string Index_UserLoginPartial_Description {
-            get {
-                return ResourceManager.GetString("Index_UserLoginPartial_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User Login Partial.
-        /// </summary>
-        public static string Index_UserLoginPartial_Title {
-            get {
-                return ResourceManager.GetString("Index_UserLoginPartial_Title", resourceCulture);
             }
         }
         
@@ -4076,7 +5292,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The User Login Partial above shows your current session information from claims (no server-side session storage)..
+        ///   Looks up a localized string similar to The Account Partial above shows your current session information from claims (no server-side session storage)..
         /// </summary>
         public static string StatelessAuth_Authenticated_Description {
             get {
@@ -4193,7 +5409,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Azure cloud-ready authentication examples without sessions. Try the cookie authentication below and see how the User Login Partial updates automatically..
+        ///   Looks up a localized string similar to Azure cloud-ready authentication examples without sessions. Try the cookie authentication below and see how the Account Partial updates automatically..
         /// </summary>
         public static string StatelessAuth_Demo_Description {
             get {
@@ -4283,7 +5499,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Notice how the User Login Partial will update automatically after login..
+        ///   Looks up a localized string similar to Notice how the Account Partial will update automatically after login..
         /// </summary>
         public static string StatelessAuth_Login_Partial_Update_Message {
             get {
@@ -4319,7 +5535,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The User Login Partial above shows your current session information from claims (no server-side session storage)..
+        ///   Looks up a localized string similar to The Account Partial above shows your current session information from claims (no server-side session storage)..
         /// </summary>
         public static string StatelessAuth_Session_Info_Message {
             get {
@@ -5931,807 +7147,6 @@ namespace GCFoundation.Web.Resources {
         public static string Tabs_WhenToUse_2 {
             get {
                 return ResourceManager.GetString("Tabs_WhenToUse_2", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ♿ Accessible.
-        /// </summary>
-        public static string UserLogin_Accessible {
-            get {
-                return ResourceManager.GetString("UserLogin_Accessible", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to WCAG compliant with proper ARIA labels and semantic markup..
-        /// </summary>
-        public static string UserLogin_Accessible_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_Accessible_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Additional Resources.
-        /// </summary>
-        public static string UserLogin_AdditionalResources {
-            get {
-                return ResourceManager.GetString("UserLogin_AdditionalResources", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to API test.
-        /// </summary>
-        public static string UserLogin_ApiTest_Link {
-            get {
-                return ResourceManager.GetString("UserLogin_ApiTest_Link", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to See how to integrate with APIs to get user information..
-        /// </summary>
-        public static string UserLogin_ApiTest_Message {
-            get {
-                return ResourceManager.GetString("UserLogin_ApiTest_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You are currently logged in as {0}.
-        /// </summary>
-        public static string UserLogin_Authenticated_Message {
-            get {
-                return ResourceManager.GetString("UserLogin_Authenticated_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Current Authentication Status.
-        /// </summary>
-        public static string UserLogin_AuthStatus_Title {
-            get {
-                return ResourceManager.GetString("UserLogin_AuthStatus_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Azure Active Directory.
-        /// </summary>
-        public static string UserLogin_AzureAD {
-            get {
-                return ResourceManager.GetString("UserLogin_AzureAD", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_AzureAD_Benefits {
-            get {
-                return ResourceManager.GetString("UserLogin_AzureAD_Benefits", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enterprise authentication with Office 365 integration and single sign-on support..
-        /// </summary>
-        public static string UserLogin_AzureAD_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_AzureAD_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 🌐 Bilingual Support.
-        /// </summary>
-        public static string UserLogin_BilingualSupport {
-            get {
-                return ResourceManager.GetString("UserLogin_BilingualSupport", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Automatic English/French localization with resource files and culture detection..
-        /// </summary>
-        public static string UserLogin_BilingualSupport_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_BilingualSupport_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ☁️ Cloud Ready.
-        /// </summary>
-        public static string UserLogin_CloudReady {
-            get {
-                return ResourceManager.GetString("UserLogin_CloudReady", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Stateless authentication support perfect for Azure App Service and container deployments..
-        /// </summary>
-        public static string UserLogin_CloudReady_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_CloudReady_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Complete Examples.
-        /// </summary>
-        public static string UserLogin_CompleteExamples {
-            get {
-                return ResourceManager.GetString("UserLogin_CompleteExamples", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Interactive examples with different configurations and use cases..
-        /// </summary>
-        public static string UserLogin_CompleteExamples_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_CompleteExamples_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A configurable, bilingual user login information component that displays authentication status, user details, and session information. Perfect for Azure cloud deployments with stateless authentication..
-        /// </summary>
-        public static string UserLogin_Component_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_Component_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User Login Partial Component.
-        /// </summary>
-        public static string UserLogin_Component_Title {
-            get {
-                return ResourceManager.GetString("UserLogin_Component_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The User Login partial supports the following configuration options through appsettings.json:.
-        /// </summary>
-        public static string UserLogin_ConfigDescription {
-            get {
-                return ResourceManager.GetString("UserLogin_ConfigDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The User Login Partial is highly configurable through appsettings.json and supports both stateless and session-based authentication systems..
-        /// </summary>
-        public static string UserLogin_ConfigOptions_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_ConfigOptions_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 🔧 Configurable.
-        /// </summary>
-        public static string UserLogin_Configurable {
-            get {
-                return ResourceManager.GetString("UserLogin_Configurable", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 15+ configuration options to customize display and behavior for your needs..
-        /// </summary>
-        public static string UserLogin_Configurable_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_Configurable_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configuration Options.
-        /// </summary>
-        public static string UserLogin_ConfigurationOptions {
-            get {
-                return ResourceManager.GetString("UserLogin_ConfigurationOptions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Cookie Authentication.
-        /// </summary>
-        public static string UserLogin_CookieAuth {
-            get {
-                return ResourceManager.GetString("UserLogin_CookieAuth", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_CookieAuth_Benefits {
-            get {
-                return ResourceManager.GetString("UserLogin_CookieAuth_Benefits", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Stateless cookie-based auth without server-side sessions. Perfect for Azure cloud deployments..
-        /// </summary>
-        public static string UserLogin_CookieAuth_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_CookieAuth_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_CurrentlyAuthenticated {
-            get {
-                return ResourceManager.GetString("UserLogin_CurrentlyAuthenticated", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_CurrentlyNotAuthenticated {
-            get {
-                return ResourceManager.GetString("UserLogin_CurrentlyNotAuthenticated", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Live Example - Current User State.
-        /// </summary>
-        public static string UserLogin_CurrentUserState {
-            get {
-                return ResourceManager.GetString("UserLogin_CurrentUserState", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This shows the actual authentication state from the current user context..
-        /// </summary>
-        public static string UserLogin_CurrentUserState_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_CurrentUserState_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Default Mode.
-        /// </summary>
-        public static string UserLogin_DefaultMode {
-            get {
-                return ResourceManager.GetString("UserLogin_DefaultMode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Standard full display mode with user information..
-        /// </summary>
-        public static string UserLogin_DefaultMode_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_DefaultMode_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to External Providers.
-        /// </summary>
-        public static string UserLogin_ExternalProviders {
-            get {
-                return ResourceManager.GetString("UserLogin_ExternalProviders", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_ExternalProviders_Benefits {
-            get {
-                return ResourceManager.GetString("UserLogin_ExternalProviders_Benefits", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to OAuth integration with Google, GitHub, Microsoft, and other external providers..
-        /// </summary>
-        public static string UserLogin_ExternalProviders_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_ExternalProviders_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Accessibility features with proper ARIA labels.
-        /// </summary>
-        public static string UserLogin_Feature_Accessibility {
-            get {
-                return ResourceManager.GetString("UserLogin_Feature_Accessibility", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User avatar support with automatic initials generation.
-        /// </summary>
-        public static string UserLogin_Feature_Avatar {
-            get {
-                return ResourceManager.GetString("UserLogin_Feature_Avatar", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Fully bilingual (English/French) with automatic language detection.
-        /// </summary>
-        public static string UserLogin_Feature_Bilingual {
-            get {
-                return ResourceManager.GetString("UserLogin_Feature_Bilingual", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Compact and full display modes.
-        /// </summary>
-        public static string UserLogin_Feature_CompactFull {
-            get {
-                return ResourceManager.GetString("UserLogin_Feature_CompactFull", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configurable display options (show/hide various user information).
-        /// </summary>
-        public static string UserLogin_Feature_Configurable {
-            get {
-                return ResourceManager.GetString("UserLogin_Feature_Configurable", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to GCDS component integration for consistent Government of Canada styling.
-        /// </summary>
-        public static string UserLogin_Feature_GCDS {
-            get {
-                return ResourceManager.GetString("UserLogin_Feature_GCDS", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Easy integration with existing authentication systems.
-        /// </summary>
-        public static string UserLogin_Feature_Integration {
-            get {
-                return ResourceManager.GetString("UserLogin_Feature_Integration", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Responsive design for mobile and desktop.
-        /// </summary>
-        public static string UserLogin_Feature_Responsive {
-            get {
-                return ResourceManager.GetString("UserLogin_Feature_Responsive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Session timeout warnings and countdown.
-        /// </summary>
-        public static string UserLogin_Feature_SessionTimeout {
-            get {
-                return ResourceManager.GetString("UserLogin_Feature_SessionTimeout", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Features.
-        /// </summary>
-        public static string UserLogin_Features {
-            get {
-                return ResourceManager.GetString("UserLogin_Features", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 🎨 GCDS Styled.
-        /// </summary>
-        public static string UserLogin_GCDSStyled {
-            get {
-                return ResourceManager.GetString("UserLogin_GCDSStyled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Uses Government of Canada Design System components for consistent styling..
-        /// </summary>
-        public static string UserLogin_GCDSStyled_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_GCDSStyled_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to JWT Tokens.
-        /// </summary>
-        public static string UserLogin_JWTTokens {
-            get {
-                return ResourceManager.GetString("UserLogin_JWTTokens", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_JWTTokens_Benefits {
-            get {
-                return ResourceManager.GetString("UserLogin_JWTTokens_Benefits", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to JSON Web Token authentication for API-first applications and microservices..
-        /// </summary>
-        public static string UserLogin_JWTTokens_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_JWTTokens_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Key Features.
-        /// </summary>
-        public static string UserLogin_KeyFeatures {
-            get {
-                return ResourceManager.GetString("UserLogin_KeyFeatures", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Live Examples.
-        /// </summary>
-        public static string UserLogin_LiveExamples {
-            get {
-                return ResourceManager.GetString("UserLogin_LiveExamples", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Below are working examples of the User Login Partial in different configurations:.
-        /// </summary>
-        public static string UserLogin_LiveExamples_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_LiveExamples_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You are not currently logged in. Use the simulate login button below to test the authenticated state..
-        /// </summary>
-        public static string UserLogin_NotAuthenticated_Message {
-            get {
-                return ResourceManager.GetString("UserLogin_NotAuthenticated_Message", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Not Authenticated State.
-        /// </summary>
-        public static string UserLogin_NotAuthenticatedState {
-            get {
-                return ResourceManager.GetString("UserLogin_NotAuthenticatedState", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Display for users who are not logged in..
-        /// </summary>
-        public static string UserLogin_NotAuthenticatedState_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_NotAuthenticatedState_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This page demonstrates the configurable User Login partial component with English and French localization support. The partial can be customized through configuration settings and displays different information based on authentication status..
-        /// </summary>
-        public static string UserLogin_PageDescription {
-            get {
-                return ResourceManager.GetString("UserLogin_PageDescription", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User Login Partial Examples.
-        /// </summary>
-        public static string UserLogin_PageTitle {
-            get {
-                return ResourceManager.GetString("UserLogin_PageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ← Back to Examples.
-        /// </summary>
-        public static string UserLogin_Position_BackToExamples {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_BackToExamples", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This is content after the login partial..
-        /// </summary>
-        public static string UserLogin_Position_Content_After {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_Content_After", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This is content before the login partial..
-        /// </summary>
-        public static string UserLogin_Position_Content_Before {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_Content_Before", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This example shows how the User Login partial can be positioned in different areas of your application..
-        /// </summary>
-        public static string UserLogin_Position_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The main content area. The login partial will be displayed in the footer area (below this content)..
-        /// </summary>
-        public static string UserLogin_Position_Footer_Content {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_Footer_Content", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Footer Login.
-        /// </summary>
-        public static string UserLogin_Position_Footer_Title {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_Footer_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The login partial is displayed in the header area (above this content)..
-        /// </summary>
-        public static string UserLogin_Position_Header_Alert {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_Header_Alert", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Inline Login Information.
-        /// </summary>
-        public static string UserLogin_Position_Inline_Title {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_Inline_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to User Login in {0} Position.
-        /// </summary>
-        public static string UserLogin_Position_PageTitle {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_PageTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This is the main content area. The login partial is displayed in the sidebar to the left (on desktop) or above (on mobile)..
-        /// </summary>
-        public static string UserLogin_Position_Sidebar_Content {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_Sidebar_Content", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sidebar Login.
-        /// </summary>
-        public static string UserLogin_Position_Sidebar_Title {
-            get {
-                return ResourceManager.GetString("UserLogin_Position_Sidebar_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Quick Implementation Guide.
-        /// </summary>
-        public static string UserLogin_QuickImplementation {
-            get {
-                return ResourceManager.GetString("UserLogin_QuickImplementation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 📱 Responsive.
-        /// </summary>
-        public static string UserLogin_Responsive {
-            get {
-                return ResourceManager.GetString("UserLogin_Responsive", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mobile-first design that works perfectly on all device sizes..
-        /// </summary>
-        public static string UserLogin_Responsive_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_Responsive_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Session Expiring Soon.
-        /// </summary>
-        public static string UserLogin_SessionExpiring {
-            get {
-                return ResourceManager.GetString("UserLogin_SessionExpiring", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Example showing session timeout warning..
-        /// </summary>
-        public static string UserLogin_SessionExpiring_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_SessionExpiring_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Simulate Login.
-        /// </summary>
-        public static string UserLogin_SimulateLogin {
-            get {
-                return ResourceManager.GetString("UserLogin_SimulateLogin", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use the &quot;Simulate Login&quot; button in the Examples section to see the authenticated state..
-        /// </summary>
-        public static string UserLogin_SimulateLoginNote {
-            get {
-                return ResourceManager.GetString("UserLogin_SimulateLoginNote", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Simulate Logout.
-        /// </summary>
-        public static string UserLogin_SimulateLogout {
-            get {
-                return ResourceManager.GetString("UserLogin_SimulateLogout", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Stateless Authentication.
-        /// </summary>
-        public static string UserLogin_StatelessAuth {
-            get {
-                return ResourceManager.GetString("UserLogin_StatelessAuth", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Azure cloud-ready authentication examples without sessions..
-        /// </summary>
-        public static string UserLogin_StatelessAuth_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_StatelessAuth_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_Step_ConfigureAuth {
-            get {
-                return ResourceManager.GetString("UserLogin_Step_ConfigureAuth", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_Step_ConfigureSettings {
-            get {
-                return ResourceManager.GetString("UserLogin_Step_ConfigureSettings", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_Step_CustomizeAppearance {
-            get {
-                return ResourceManager.GetString("UserLogin_Step_CustomizeAppearance", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_Step_RegisterServices {
-            get {
-                return ResourceManager.GetString("UserLogin_Step_RegisterServices", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to .
-        /// </summary>
-        public static string UserLogin_Step_SetInController {
-            get {
-                return ResourceManager.GetString("UserLogin_Step_SetInController", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Supported Authentication Methods.
-        /// </summary>
-        public static string UserLogin_SupportedAuthMethods {
-            get {
-                return ResourceManager.GetString("UserLogin_SupportedAuthMethods", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The component automatically extracts user information from claims, making it compatible with various authentication systems:.
-        /// </summary>
-        public static string UserLogin_SupportedAuthMethods_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_SupportedAuthMethods_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Template Integration.
-        /// </summary>
-        public static string UserLogin_TemplateIntegration {
-            get {
-                return ResourceManager.GetString("UserLogin_TemplateIntegration", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Learn how to integrate the partial into your layout templates..
-        /// </summary>
-        public static string UserLogin_TemplateIntegration_Description {
-            get {
-                return ResourceManager.GetString("UserLogin_TemplateIntegration_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Test the login partial with different authentication states..
-        /// </summary>
-        public static string UserLogin_TestAuthStates {
-            get {
-                return ResourceManager.GetString("UserLogin_TestAuthStates", resourceCulture);
             }
         }
     }

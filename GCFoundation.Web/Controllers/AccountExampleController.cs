@@ -10,57 +10,57 @@ using System.Security.Claims;
 namespace GCFoundation.Web.Controllers
 {
     /// <summary>
-    /// Example controller demonstrating how to use the User Login partial.
-    /// This controller shows different ways to configure and display user login information.
+    /// Example controller demonstrating how to use the Account partial.
+    /// This controller shows different ways to configure and display account information.
     /// </summary>
-    [Route("examples/user-login")]
-    public class UserLoginExampleController : GCFoundationBaseController
+    [Route("examples/account")]
+    public class AccountExampleController : GCFoundationBaseController
     {
-        private readonly UserLoginService _userLoginService;
+        private readonly AccountService _accountService;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="UserLoginExampleController"/> class.
+        /// Initializes a new instance of the <see cref="AccountExampleController"/> class.
         /// </summary>
         /// <param name="logger">The logger instance.</param>
-        /// <param name="userLoginService">The user login service.</param>
-        public UserLoginExampleController(
-            ILogger<UserLoginExampleController> logger,
-            UserLoginService userLoginService) 
+        /// <param name="accountService">The account service.</param>
+        public AccountExampleController(
+            ILogger<AccountExampleController> logger,
+            AccountService accountService) 
             : base(logger)
         {
-            _userLoginService = userLoginService;
+            _accountService = accountService;
         }
 
         /// <summary>
-        /// Displays the main user login examples page.
+        /// Displays the main account examples page.
         /// </summary>
-        /// <returns>The view with user login examples.</returns>
+        /// <returns>The view with account examples.</returns>
         [HttpGet("")]
         public IActionResult Index()
         {
-            ViewData["Title"] = "User Login Partial Examples";
+            ViewData["Title"] = "Account Partial Examples";
             
-            // Set the login partial to be used in the layout
-            ViewData["LoginPartialViewName"] = "_ExampleUserLogin";
+            // Set the account partial to be used in the layout
+            ViewData["AccountPartialViewName"] = "_ExampleAccount";
             
             return View();
         }
 
         /// <summary>
-        /// Demonstrates how to create a custom user login model programmatically.
+        /// Demonstrates how to create a custom account model programmatically.
         /// </summary>
-        /// <returns>JSON result with the user login model.</returns>
+        /// <returns>JSON result with the account model.</returns>
         [HttpGet("api/user-info")]
         public IActionResult GetUserInfo()
         {
             // Example: Create user info from authentication context or database
             var isAuthenticated = User?.Identity?.IsAuthenticated ?? false;
             
-            UserLoginViewModel userModel;
+            AccountViewModel userModel;
             
             if (isAuthenticated)
             {
-                userModel = _userLoginService.CreateViewModel(
+                userModel = _accountService.CreateViewModel(
                     userName: "Jane Smith",
                     userEmail: "jane.smith@canada.ca",
                     firstName: "Jane",
@@ -73,7 +73,7 @@ namespace GCFoundation.Web.Controllers
             }
             else
             {
-                userModel = _userLoginService.CreateAnonymousViewModel();
+                userModel = _accountService.CreateAnonymousViewModel();
             }
 
             return Json(new
@@ -91,9 +91,9 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Example of how to render the user login partial in different positions.
+        /// Example of how to render the account partial in different positions.
         /// </summary>
-        /// <param name="position">The position where to render the login partial (header, sidebar, content, footer).</param>
+        /// <param name="position">The position where to render the account partial (header, sidebar, content, footer).</param>
         /// <returns>The view configured for the specified position.</returns>
         [HttpGet("position/{position}")]
         public IActionResult Position(string position)
@@ -107,17 +107,17 @@ namespace GCFoundation.Web.Controllers
                 return BadRequest($"Invalid position. Valid positions are: {string.Join(", ", validPositions)}");
             }
 
-            ViewData["Title"] = $"User Login in {position.ToUpperInvariant()} Position";
+            ViewData["Title"] = $"Account in {position.ToUpperInvariant()} Position";
             #pragma warning disable CA1308 // Lowercase needed for CSS classes
-            ViewData["UserLoginPosition"] = position.ToLowerInvariant(); // Lowercase needed for CSS classes
+            ViewData["AccountPosition"] = position.ToLowerInvariant(); // Lowercase needed for CSS classes
             #pragma warning restore CA1308
-            ViewData["LoginPartialViewName"] = "_ExampleUserLogin";
+            ViewData["AccountPartialViewName"] = "_ExampleAccount";
             
             return View("PositionExample");
         }
 
         /// <summary>
-        /// Simulates user login for demonstration purposes using temporary cookie authentication.
+        /// Simulates account for demonstration purposes using temporary cookie authentication.
         /// In a real application, this would be handled by your authentication system (Azure AD, JWT, etc.).
         /// </summary>
         /// <returns>Redirect to the examples page with user logged in.</returns>
@@ -152,7 +152,7 @@ namespace GCFoundation.Web.Controllers
             SetPageNotification(new Components.Models.PageNotification
             {
                 Title = "Demo Login Successful",
-                Message = "Demo user has been authenticated. You can now see the user login partial in action!",
+                Message = "Demo user has been authenticated. You can now see the account partial in action!",
                 AlertType = Components.Enums.AlertType.success
             });
 
@@ -173,7 +173,7 @@ namespace GCFoundation.Web.Controllers
             SetPageNotification(new Components.Models.PageNotification
             {
                 Title = "Demo Logout Successful",
-                Message = "Demo user has been signed out. The login partial now shows the anonymous state.",
+                Message = "Demo user has been signed out. The account partial now shows the anonymous state.",
                 AlertType = Components.Enums.AlertType.info
             });
 

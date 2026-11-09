@@ -15,13 +15,13 @@
             </div>
         </fdcp-modal>
 
-        <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-modal state=""regular"" modal-id=""default-modal"" title=""{Html.Encode(Components.Modal_Default_ModalTitle)}""&gt;
+        <fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-modal state=""regular"" modal-id=""default-modal"" title=""{Html.Encode(Components.Modal_Default_ModalTitle)}""&gt;
     ...
     &lt;div slot=""footer""&gt;
         &lt;gcds-button button-id=""info-modal-confirm"" button-role=""primary"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Confirm)}&lt;/gcds-button&gt;
         &lt;gcds-button button-id=""info-modal-back"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Back)}&lt;/gcds-button&gt;
     &lt;/div&gt;
-&lt;/fdcp-modal&gt;")</code></pre>
+&lt;/fdcp-modal&gt;")</fdcp-code>
     </fdcp-tab>
 
     <fdcp-tab id="modal-tab-info" title="@Components.Modal_Info_Title">
@@ -37,12 +37,12 @@
             </div>
         </fdcp-modal>
 
-        <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-modal state=""info"" modal-id=""info-modal"" title=""{Html.Encode(Components.Modal_Info_ModalTitle)}""&gt;
+        <fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-modal state=""info"" modal-id=""info-modal"" title=""{Html.Encode(Components.Modal_Info_ModalTitle)}""&gt;
     ...
     &lt;div slot=""footer""&gt;
         &lt;gcds-button button-id=""info-modal-back"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Back)}&lt;/gcds-button&gt;
     &lt;/div&gt;
-&lt;/fdcp-modal&gt;")</code></pre>
+&lt;/fdcp-modal&gt;")</fdcp-code>
     </fdcp-tab>
 
     <fdcp-tab id="modal-tab-warning" title="@Components.Modal_Warning_Title">
@@ -59,12 +59,12 @@
             </div>
         </fdcp-modal>
 
-        <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-modal state=""warning"" modal-id=""warning-modal"" title=""{Html.Encode(Components.Modal_Warning_ModalTitle)}""&gt;
+        <fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-modal state=""warning"" modal-id=""warning-modal"" title=""{Html.Encode(Components.Modal_Warning_ModalTitle)}""&gt;
     ...
     &lt;div slot=""footer""&gt;
         &lt;gcds-button button-id=""warning-modal-confirm"" button-role=""danger"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Confirm)}&lt;/gcds-button&gt;
         &lt;gcds-button button-id=""warning-modal-back"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Back)}&lt;/gcds-button&gt;
     &lt;/div&gt;
-&lt;/fdcp-modal&gt;")</code></pre>
+&lt;/fdcp-modal&gt;")</fdcp-code>
     </fdcp-tab>
 </fdcp-tabs>

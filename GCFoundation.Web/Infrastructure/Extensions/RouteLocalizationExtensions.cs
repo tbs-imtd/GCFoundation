@@ -43,6 +43,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.Code))
+                .TranslateAction("code");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.Gcds))
                 .TranslateAction("gcds");
 

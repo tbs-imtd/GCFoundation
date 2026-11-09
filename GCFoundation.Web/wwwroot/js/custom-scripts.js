@@ -78,7 +78,7 @@ const GCFoundationWeb = {
         const strings = COPY_BUTTON_STRINGS[lang];
 
         document.querySelectorAll('pre:has(code)').forEach(pre => {
-            if (pre.querySelector('.code-copy-button')) return;
+            if (pre.querySelector('.code-copy-button') || pre.closest('[data-fdcp-code]')) return;
 
             const button = document.createElement('gcds-button');
             button.setAttribute('button-role', 'secondary');

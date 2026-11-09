@@ -1,10 +1,10 @@
 @use '../variables' as vars;
 
-// User Login Partial Component Styles
-.user-login-partial {
+// Account Partial Component Styles
+.account-partial {
     max-width: 100%;
 
-    .user-login-content {
+    .account-content {
         padding: 1rem;
         border-radius: 0.375rem;
         border: 1px solid var(--gcds-color-border);
@@ -57,7 +57,7 @@
     }
 
     // Not authenticated state
-    &.not-authenticated .user-login-content {
+    &.not-authenticated .account-content {
         text-align: center;
         padding: 2rem 1rem;
     }
@@ -85,7 +85,7 @@
 }
 
 // Compact header inline variant
-.user-login-inline {
+.account-inline {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -98,4 +98,17 @@
         font-size: var(--gcds-font-text-sm);
         line-height: 1;
     }
+}
+
+.fdcp-account__account-name {
+    display: block;
+    max-width: none;
+    padding: var(--gcds-spacing-150) var(--gcds-spacing-200);
+    border-bottom: var(--gcds-border-width-sm) solid var(--gcds-color-grayscale-300);
+    font-weight: var(--gcds-font-weights-bold);
+}
+
+.fdcp-account__account-menu-icon {
+    display: inline-block;
+    margin-inline-end: var(--gcds-spacing-150);
 }

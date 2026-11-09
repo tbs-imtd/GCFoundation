@@ -1,3 +1,4 @@
+import type { Result } from 'axe-core';
 import { test, expect } from '@playwright/test';
 import { runAxeAndAttach } from '../utils/a11y';
 
@@ -18,7 +19,7 @@ test.describe('Smoke', () => {
 
     // Axe a11y (WCAG A/AA) with detailed attachments
     const results = await runAxeAndAttach(page, test.info());
-    const serious = results.violations.filter(v => v.impact === 'serious' || v.impact === 'critical');
+    const serious = results.violations.filter((v: Result) => v.impact === 'serious' || v.impact === 'critical');
     expect.soft(serious, `A11y serious violations on ${browserName}`).toHaveLength(0);
 
     // Allow page events to flush

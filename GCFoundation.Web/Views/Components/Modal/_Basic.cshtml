@@ -14,7 +14,7 @@
     </div>
 </fdcp-modal>
 
-<pre><code class="language-cshtml">@Html.Raw($@"&lt;gcds-button button-id=""basic-modal-button"" button-role=""primary"" modal-id=""basic-modal"" class=""fdcp-modal-open""&gt;{Html.Encode(Components.Modal_BasicStructure_OpenButton)}&lt;/gcds-button&gt;
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;gcds-button button-id=""basic-modal-button"" button-role=""primary"" modal-id=""basic-modal"" class=""fdcp-modal-open""&gt;{Html.Encode(Components.Modal_BasicStructure_OpenButton)}&lt;/gcds-button&gt;
 &lt;fdcp-modal modal-id=""basic-modal"" title=""{Html.Encode(Components.Modal_BasicStructure_ModalTitle)}""&gt;
     &lt;div slot=""body""&gt;
         &lt;gcds-text&gt;{Html.Encode(Components.Modal_BasicStructure_Body)}&lt;/gcds-text&gt;
@@ -23,7 +23,7 @@
         &lt;gcds-button button-id=""basic-modal-confirm"" button-role=""primary"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Confirm)}&lt;/gcds-button&gt;
         &lt;gcds-button button-id=""basic-modal-back"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Components.Modal_Sample_Back)}&lt;/gcds-button&gt;
     &lt;/div&gt;
-&lt;/fdcp-modal&gt;")</code></pre>
+&lt;/fdcp-modal&gt;")</fdcp-code>
 
 <partial name="Modal/_ButtonBehaviour" />
 

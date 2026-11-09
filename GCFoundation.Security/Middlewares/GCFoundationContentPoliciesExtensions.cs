@@ -21,6 +21,7 @@ namespace GCFoundation.Security.Middlewares
         public static IApplicationBuilder UseGCFoundationContentPolicies(this IApplicationBuilder app)
         {
             app.UseMiddleware<GCFoundationContentPoliciesMiddleware>();
+            app.UseMiddleware<GCFoundationBlockedCompressedFileMiddleware>();
             return app;
         }
     }

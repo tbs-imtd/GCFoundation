@@ -28,6 +28,10 @@ jobs:
       working-directory: GCFoundation.Components
       run: npm install
 
+    - name: Check CDN integrity manifest
+      working-directory: GCFoundation.Components
+      run: npm run check:cdn-integrity
+
     - name: Restore dependencies
       run: dotnet restore
 

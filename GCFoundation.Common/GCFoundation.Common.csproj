@@ -34,6 +34,11 @@
     <Folder Include="Enums\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="Settings\cdn-integrity.json" />
+    <EmbeddedResource Include="Settings\cdn-integrity.json" LogicalName="GCFoundation.Common.cdn-integrity.json" />
+  </ItemGroup>
+
   <!-- README for NuGet.org -->
   <ItemGroup>
     <None Include="README.md" Pack="true" PackagePath="\" />

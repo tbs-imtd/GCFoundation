@@ -25,8 +25,8 @@ builder.Services.AddControllersWithViews()
 builder.Services.AddAuthentication("DemoAuth")
     .AddCookie("DemoAuth", options =>
     {
-        options.LoginPath = "/examples/user-login";
-        options.LogoutPath = "/examples/user-login";
+        options.LoginPath = "/examples/account";
+        options.LogoutPath = "/examples/account";
         options.ExpireTimeSpan = TimeSpan.FromHours(1);
         options.SlidingExpiration = false;
         options.Cookie.Name = "GCFoundationDemo";

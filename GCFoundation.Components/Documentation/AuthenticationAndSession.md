@@ -2,7 +2,7 @@
 
 ## Overview
 
-This guide consolidates all authentication and session guidance for GCFoundation into a single page. It covers multiple authentication schemes (Cookies, Azure AD, JWT, external OAuth) and the session experience (timeout reminder modal and keep-alive), and shows how the `UserLogin` partial integrates with all of them.
+This guide consolidates all authentication and session guidance for GCFoundation into a single page. It covers multiple authentication schemes (Cookies, Azure AD, JWT, external OAuth) and the session experience (timeout reminder modal and keep-alive), and shows how the `Account` partial integrates with all of them.
 
 ## Quick Start
 
@@ -12,11 +12,11 @@ This guide consolidates all authentication and session guidance for GCFoundation
 builder.Services.AddGCFoundationComponents(builder.Configuration);
 ```
 
-2. Configure the login partial
+2. Configure the account partial
 ```json
 // appsettings.json
 {
-  "UserLoginSettings": {
+  "AccountSettings": {
     "ShowUserName": true,
     "ShowUserEmail": false,
     "ShowLoginTime": false,
@@ -33,7 +33,7 @@ builder.Services.AddGCFoundationComponents(builder.Configuration);
 ```csharp
 public IActionResult Index()
 {
-    ViewData["LoginPartialViewName"] = "_UserLoginPartial";
+    ViewData["AccountPartialViewName"] = "_AccountPartial";
     return View();
 }
 ```
@@ -131,9 +131,9 @@ builder.Services
     .AddGitHub(o => { o.ClientId = configuration["GitHub:ClientId"]; o.ClientSecret = configuration["GitHub:ClientSecret"]; });
 ```
 
-## User Login Partial Integration
+## Account Partial Integration
 
-The `UserLoginService` builds the model from the current `HttpContext.User` claims, so it works across all schemes without session state.
+The `AccountService` builds the model from the current `HttpContext.User` claims, so it works across all schemes without session state.
 
 Claim mapping used by the partial:
 
@@ -149,11 +149,11 @@ Claim mapping used by the partial:
 Usage in Razor:
 
 ```razor
-@inject GCFoundation.Components.Services.UserLoginService UserLoginService
+@inject GCFoundation.Components.Services.AccountService AccountService
 @{
-    var loginModel = UserLoginService.CreateViewModelFromContext();
+    var loginModel = AccountService.CreateViewModelFromContext();
 }
-<partial name="_UserLoginPartial" model="loginModel" />
+<partial name="_AccountPartial" model="loginModel" />
 ```
 
 ## Session Experience (Optional)
@@ -204,11 +204,11 @@ public class AuthenticationController : GCFoundation.Components.Controllers.GCFo
 
 - Claims missing: verify your authentication handler populates standard claims.
 - Expiry not shown: ensure an `exp` claim (Unix seconds) is present.
-- Partial not rendering: set `ViewData["LoginPartialViewName"]` to `"_UserLoginPartial"` in your controller.
+- Partial not rendering: set `ViewData["AccountPartialViewName"]` to `"_AccountPartial"` in your controller.
 
 ## Examples in This Repository
 
-- Interactive examples: `GCFoundation.Web/Views/UserLoginExample/` and controller `UserLoginExampleController`
+- Interactive examples: `GCFoundation.Web/Views/AccountExample/` and controller `AccountExampleController`
 - Stateless auth examples: `GCFoundation.Web/Views/StatelessAuthExample/` and controller `StatelessAuthExampleController`
 
 ## Migration Notes (Session → Stateless)
@@ -216,7 +216,7 @@ public class AuthenticationController : GCFoundation.Components.Controllers.GCFo
 1. Stop storing identity in session; issue claims at sign-in.
 2. Ensure `auth_time` and `exp` are added to claims.
 3. Switch to cookie/JWT/Azure AD authentication as appropriate.
-4. Verify the `UserLogin` partial displays the same info from claims.
+4. Verify the `Account` partial displays the same info from claims.
 
 
 

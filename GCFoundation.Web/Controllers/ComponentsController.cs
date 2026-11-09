@@ -73,6 +73,15 @@ namespace GCFoundation.Web.Controllers
             return View("Component", vm);
         }
 
+        /// <summary>Displays the code component guide.</summary>
+        /// <returns>The standard component documentation view.</returns>
+        [HttpGet("code")]
+        public IActionResult Code()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Code_Title}");
+            return View("Component", BuildCodeComponentViewModel());
+        }
+
         /// <summary>
         /// Displays the Filtered Search component demo page.
         /// </summary>
@@ -307,16 +316,16 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays the User Login Partial component demo page.
+        /// Displays the Account Partial component demo page.
         /// </summary>
         /// <returns>
-        /// The User Login Partial component view.
+        /// The Account Partial component view.
         /// </returns>
-        [HttpGet("user-login")]
-        public IActionResult UserLogin()
+        [HttpGet("account")]
+        public IActionResult Account()
         {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_UserLoginPartial_Title}");
-            ViewData["LoginPartialViewName"] = "_ExampleUserLogin";
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_AccountPartial_Title}");
+            ViewData["AccountPartialViewName"] = "_ExampleAccount";
             return View();
         }
 
@@ -485,6 +494,42 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
+        private static ComponentViewModel BuildCodeComponentViewModel()
+        {
+            return new ComponentViewModel
+            {
+                Name = Resources.Components.Code_Name,
+                Tag = "<fdcp-code>",
+                Overview = Resources.Components.Code_Overview,
+                Purpose = Resources.Components.Code_Purpose,
+                WhenToUse = [Resources.Components.Code_WhenUse1, Resources.Components.Code_WhenUse2],
+                WhenNotToUse = [Resources.Components.Code_WhenNot1, Resources.Components.Code_WhenNot2],
+                AccessibilityDo = [Resources.Components.Code_Accessibility1, Resources.Components.Code_Accessibility2, Resources.Components.Code_Accessibility3, Resources.Components.Code_Accessibility4],
+                UxBestPractices = [Resources.Components.Code_Ux1, Resources.Components.Code_Ux2],
+                Notes = [Resources.Components.Code_NoteLanguages, Resources.Components.Code_NoteEncoding, Resources.Components.Code_NoteProgressive, Resources.Components.Code_NoteLimit, Resources.Components.Code_NoteTheme, Resources.Components.Code_NoteDynamic],
+                Properties =
+                [
+                    new() { Name = "code", DataType = "string", Description = Resources.Components.Code_PropCode },
+                    new() { Name = "copy-enabled", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Code_PropCopyEnabled },
+                    new() { Name = "id", DataType = "string", Description = Resources.Components.Code_PropId },
+                    new() { Name = "code-language", DataType = "string", DefaultValue = "plaintext", Description = Resources.Components.Code_PropCodeLanguage },
+                    new() { Name = "code-language-label", DataType = "string", Description = Resources.Components.Code_PropCodeLanguageLabel },
+                    new() { Name = "title", DataType = "string", Description = Resources.Components.Code_PropTitle },
+                    new() { Name = "wrap", DataType = "bool", DefaultValue = "false", Description = Resources.Components.Code_PropWrap },
+                    new() { Name = "examples", DataType = "IEnumerable<CodeSample>", Description = Resources.Components.Code_PropExamples },
+                    new() { Name = "selected-code-language", DataType = "string", Description = Resources.Components.Code_PropSelectedCodeLanguage },
+                    new() { Name = "sync-group", DataType = "string", Description = Resources.Components.Code_PropSyncGroup },
+                    new() { Name = "theme", DataType = "ColourTheme", DefaultValue = "light", Description = Resources.Components.Code_PropTheme }
+                ],
+                SampleCodeSections =
+                [
+                    new() { Id = "code-block", Title = Resources.Components.Code_BlockTitle, Description = Resources.Components.Code_BlockText, PartialViewName = "Code/_Block" },
+                    new() { Id = "code-example", Title = Resources.Components.Code_ExampleTitle, Description = Resources.Components.Code_ExampleText, PartialViewName = "Code/_Example" },
+                    new() { Id = "code-dark", Title = Resources.Components.Code_DarkTitle, Description = Resources.Components.Code_DarkText, PartialViewName = "Code/_Dark" },
+                    new() { Id = "code-fallback", Title = Resources.Components.Code_FallbackTitle, Description = Resources.Components.Code_FallbackText, PartialViewName = "Code/_Fallback" }
+                ]
+            };
+        }
         private static ComponentViewModel BuildFilteredSearchComponentViewModel()
         {
             var vm = new ComponentViewModel();
@@ -606,6 +651,7 @@ namespace GCFoundation.Web.Controllers
                     new () { Name = Resources.Components.Index_Accordion_Title, ShortDescription = Resources.Components.Index_Accordion_Description, Href = Url.Action("Accordion", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-accordion.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Badge_Title, Description = Resources.Components.Index_Badge_Description, Href = Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg") },
                     new () { Name = Resources.Components.Index_Card_Title, Description = Resources.Components.Index_Card_Description, Href = Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg") },
+                    new () { Name = Resources.Components.Index_Code_Title, Description = Resources.Components.Index_Code_Description, Href = Url.Action("Code", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-code.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_FilteredSearch_Title, ShortDescription = Resources.Components.Index_FilteredSearch_Description, Href = Url.Action("FilteredSearch", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-filtered-search.svg") },
                     new () { Name = Resources.Components.Index_FormBuilder_Title, ShortDescription = Resources.Components.Index_FormBuilder_Description, Href = Url.Action("FormBuilder", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form-builder.svg") },
                     new () { Name = Resources.Components.Index_Form_Title, ShortDescription = Resources.Components.Index_Form_Description, Href = Url.Action("Form", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form.svg") },
@@ -616,7 +662,7 @@ namespace GCFoundation.Web.Controllers
                     new () { Name = Resources.Components.Index_Stepper_Title, ShortDescription = Resources.Components.Index_Stepper_Description, Href = Url.Action("Stepper", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-stepper-fdcp.svg") },
                     new () { Name = Resources.Components.Index_Tabs_Title, ShortDescription = Resources.Components.Index_Tabs_Description, Href = Url.Action("Tabs", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-tabs.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Table_Title, ShortDescription = Resources.Components.Index_Table_Description, Href = Url.Action("Table", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-table.svg"), IsNew = true },
-                    new () { Name = Resources.Components.Index_UserLoginPartial_Title, ShortDescription = Resources.Components.Index_UserLoginPartial_Description, Href = Url.Action("UserLogin", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-user-login-partial.svg") }
+                    new () { Name = Resources.Components.Index_AccountPartial_Title, ShortDescription = Resources.Components.Index_AccountPartial_Description, Href = Url.Action("Account", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-account-partial.svg") }
                 },
                 TagHelperGroups = tagHelperCatalogService.BuildTagHelperGroups().ToList()
             };
