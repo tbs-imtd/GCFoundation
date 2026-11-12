@@ -38,7 +38,7 @@ public class FDCPCodeTagHelperTests
         var button = Single(doc, "//gcds-button[@data-fdcp-code-copy]");
         Assert.Equal("button", button.GetAttributeValue("type", ""));
         Assert.Equal("secondary", button.GetAttributeValue("button-role", ""));
-        Assert.Equal("small", button.GetAttributeValue("size", ""));
+        Assert.False(button.Attributes.Contains("size"));
         Assert.Equal("Example response", button.GetAttributeValue("aria-description", ""));
         Assert.Equal("Copy code", button.InnerText);
         Assert.Equal("Copy code", button.GetAttributeValue("aria-label", ""));
