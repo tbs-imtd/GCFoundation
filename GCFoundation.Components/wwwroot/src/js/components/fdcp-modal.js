@@ -5,6 +5,16 @@
         this.closeButtons = element.querySelectorAll('.fdcp-modal-close');
         this.triggerElement = null;
         this.table = document.querySelector('gcds-table');
+        this.focusTrap = globalThis.focusTrap.createFocusTrap(this.modal, {
+            delayInitialFocus: false,
+            escapeDeactivates: false,
+            fallbackFocus: this.modal,
+            initialFocus: () => this.getInitialFocusTarget(),
+            returnFocusOnDeactivate: false,
+            tabbableOptions: {
+                getShadowRoot: node => node.shadowRoot
+            }
+        });
         this.bindEvents();
     }
 
@@ -40,21 +50,19 @@
 
     onEnter() {
         document.body.style.overflow = 'hidden';
+        this.focusTrap.activate();
+    }
 
-        const focusTarget =
+    getInitialFocusTarget() {
+        return (
             this.modal.querySelector('.fdcp-modal-close') ||
-            this.modal.querySelector('.modal__body') ||
             this.modal.querySelector('.modal__footer gcds-button, .modal__footer button') ||
-            this.modal;
-
-        requestAnimationFrame(() => {
-            if (typeof focusTarget.focus === 'function') {
-                focusTarget.focus();
-            }
-        });
+            this.modal
+        );
     }
 
     onExit() {
+        this.focusTrap.deactivate({ returnFocus: false });
         document.body.style.overflow = '';
 
         if (this.triggerElement && typeof this.triggerElement.focus === 'function') {

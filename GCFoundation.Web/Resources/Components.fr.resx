@@ -1719,6 +1719,9 @@
   <data name="Table_Properties_FdcpTable_Caption" xml:space="preserve">
     <value>Nom accessible du tableau, annoncé par les technologies d'assistance. Requis pour la conformité WCAG.</value>
   </data>
+  <data name="Table_Properties_FdcpTable_CaptionTag" xml:space="preserve">
+    <value>Balise de titre HTML utilisée pour le titre visible de la légende.</value>
+  </data>
   <data name="Table_Properties_FdcpTable_CaptionDetail" xml:space="preserve">
     <value>Texte descriptif supplémentaire affiché sous la légende.</value>
   </data>

@@ -4729,6 +4729,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to HTML heading tag used for the visible caption heading..
+        /// </summary>
+        public static string Table_Properties_FdcpTable_CaptionTag {
+            get {
+                return ResourceManager.GetString("Table_Properties_FdcpTable_CaptionTag", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Additional descriptive text displayed below the caption..
         /// </summary>
         public static string Table_Properties_FdcpTable_CaptionDetail {

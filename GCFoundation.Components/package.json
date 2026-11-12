@@ -31,6 +31,7 @@
         "sass": "^1.87.0"
     },
     "dependencies": {
+        "focus-trap": "^7.8.0",
         "quill": "^2.0.2"
     }
 }

@@ -14,7 +14,7 @@
 
 &lt;gcds-heading tag=""h2""&gt;{Html.Encode(Template.Crud_Demo_TableSectionTitle)}&lt;/gcds-heading&gt;
 &lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_TableSectionDescription)}&lt;/gcds-text&gt;
-&lt;gcds-notice title=""{Html.Encode(Template.Crud_Demo_Notice_Title)}""&gt;&lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_Notice_Text)}&lt;/gcds-text&gt;&lt;/gcds-notice&gt;
+&lt;gcds-notice title-tag=""3"" title=""{Html.Encode(Template.Crud_Demo_Notice_Title)}""&gt;&lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_Notice_Text)}&lt;/gcds-text&gt;&lt;/gcds-notice&gt;
 
 &lt;section class=""mt-400""&gt;
     &lt;gcds-button type=""link"" href=""@Url.Action(""CrudEdit"", ""Template"")""&gt;{Html.Encode(Template.Crud_Demo_AddEmployee_Button)}&lt;/gcds-button&gt;
@@ -23,13 +23,14 @@
 &lt;gcds-container size=""lg""&gt;
     &lt;fdcp-table filter sort pagination-size=""10""
                 caption=""{Html.Encode(Template.Crud_Demo_TableCaption)}""
+                caption-tag=""h3""
                 caption-detail=""{Html.Encode(Template.Crud_Demo_TableCaptionDetail)}""
                 rows=""@Model.EmployeeModels""&gt;
         &lt;template slot=""cell:actions""&gt;
             &lt;div class=""fdcp-bind-group""&gt;
-                &lt;gcds-button data-bind-template-button-id=""view-button-{{id}}"" title=""{Html.Encode(Template.Crud_Demo_ViewProfile_Title)}"" button-role=""primary"" type=""link"" data-bind-template-href=""profile/{{id}}"" size=""small""&gt;{Html.Encode(Localization.View)}&lt;/gcds-button&gt;
-                &lt;gcds-button data-bind-template-button-id=""edit-button-{{id}}"" title=""{Html.Encode(Template.Crud_Demo_EditProfile_Title)}"" button-role=""secondary"" type=""link"" data-bind-template-href=""edit/{{id}}"" size=""small""&gt;{Html.Encode(Localization.Edit)}&lt;/gcds-button&gt;
-                &lt;gcds-button data-bind-template-button-id=""delete-button-{{id}}"" data-bind-data-employee-id=""id"" data-bind-data-employee-name=""name"" modal-id=""delete-employee-modal"" title=""{Html.Encode(Template.Crud_Demo_DeleteEmployee_Title)}"" button-role=""danger"" class=""fdcp-modal-open"" size=""small""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""view-button-{{id}}"" data-bind-template-aria-label=""{Html.Encode(Template.Crud_Demo_ViewProfile_Title)} {{name}}"" button-role=""primary"" type=""link"" data-bind-template-href=""profile/{{id}}"" size=""small""&gt;{Html.Encode(Localization.View)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""edit-button-{{id}}"" data-bind-template-aria-label=""{Html.Encode(Template.Crud_Demo_EditProfile_Title)} {{name}}"" button-role=""secondary"" type=""link"" data-bind-template-href=""edit/{{id}}"" size=""small""&gt;{Html.Encode(Localization.Edit)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""delete-button-{{id}}"" data-bind-data-employee-id=""id"" data-bind-data-employee-name=""name"" data-bind-template-aria-label=""{Html.Encode(Template.Crud_Demo_DeleteEmployee_Title)} {{name}}"" modal-id=""delete-employee-modal"" button-role=""danger"" class=""fdcp-modal-open"" size=""small""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
             &lt;/div&gt;
         &lt;/template&gt;
     &lt;/fdcp-table&gt;
@@ -42,7 +43,7 @@
     &lt;div slot=""footer""&gt;
         &lt;fdcp-form for=""@Model"" method=""post"" action=""@Url.Action(""CrudDelete"", ""Template"")""&gt;
             @Html.AntiForgeryToken()
-            &lt;gcds-button button-id=""delete-employee"" type=""submit"" name=""id"" value="""" button-role=""danger""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
+            &lt;gcds-button button-id=""delete-employee"" type=""submit"" name=""id"" value="""" button-role=""danger"" data-aria-label-template=""{Html.Encode(Template.Crud_Demo_DeleteEmployee_Title)} {{name}}""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
             &lt;gcds-button button-id=""delete-employee-cancel"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Localization.Cancel)}&lt;/gcds-button&gt;
         &lt;/fdcp-form&gt;
     &lt;/div&gt;
