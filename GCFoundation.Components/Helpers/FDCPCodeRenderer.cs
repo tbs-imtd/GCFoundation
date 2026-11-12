@@ -152,7 +152,6 @@ namespace GCFoundation.Components.Helpers
                     copy.AddCssClass("fdcp-code__copy");
                     copy.Attributes["type"] = "button";
                     copy.Attributes["button-role"] = "secondary";
-                    copy.Attributes["size"] = "small";
                     copy.Attributes["data-fdcp-code-copy"] = "true";
                     copy.Attributes["data-fdcp-code-copied-label"] = Localization.Code_CopiedLabel;
                     // GCDS copies aria-* onto its inner button. A string description survives that shadow boundary.
