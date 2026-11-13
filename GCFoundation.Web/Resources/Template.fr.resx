@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -153,13 +153,13 @@
   <data name="SideNav_MainTemplate" xml:space="preserve">
     <value>Modèle principal</value>
   </data>
-  <data name="SideNav_UserLoginPartial" xml:space="preserve">
-    <value>Partiel de connexion utilisateur</value>
+  <data name="SideNav_AccountPartial" xml:space="preserve">
+    <value>Partiel de compte</value>
   </data>
-  <data name="Section_UserLoginPartial_Title" xml:space="preserve">
-    <value>Modèle partiel de connexion utilisateur</value>
+  <data name="Section_AccountPartial_Title" xml:space="preserve">
+    <value>Modèle partiel de compte</value>
   </data>
-  <data name="Section_UserLoginPartial_Description" xml:space="preserve">
+  <data name="Section_AccountPartial_Description" xml:space="preserve">
     <value>Un composant bilingue configurable pour afficher les informations d'authentification des utilisateurs. Prend en charge les systèmes d'authentification sans état parfaits pour les déploiements cloud Azure.</value>
   </data>
   <data name="Index_Basic_Title" xml:space="preserve">

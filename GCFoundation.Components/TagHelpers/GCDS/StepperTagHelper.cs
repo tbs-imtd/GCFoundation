@@ -7,6 +7,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A TagHelper that renders a GC Design System stepper component as a <c>&lt;gcds-stepper&gt;</c> element.
     /// Used to indicate the user's progress through a sequence of steps.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-stepper current-step=&quot;2&quot; total-step=&quot;5&quot; tag=&quot;h2&quot;&gt;
+    ///     Contact information
+    /// &lt;/gcds-stepper&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-stepper")]
     public class StepperTagHelper : BaseTagHelper
     {

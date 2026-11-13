@@ -92,6 +92,8 @@
             placeholder
         });
 
+        editorContainer.dataset.fdcpInitialValue = hiddenInput.defaultValue;
+
         applyInitialValue(quill, hiddenInput);
         bindEditorEvents(quill, hiddenInput, editorContainer);
         enhanceAccessibility(editorContainer, hiddenInput);
@@ -99,6 +101,7 @@
         enhanceToolbarAccessibility(editorContainer, hiddenInput);
         enhanceTooltipAccessibility(editorContainer);
         setupValidation(quill, hiddenInput, editorContainer);
+        setupResetHandler(hiddenInput, editorContainer);
 
         editorContainer.dataset.quillInitialized = 'true';
     }
@@ -194,6 +197,40 @@
                 }
             });
         }
+    }
+
+    function setupResetHandler(hiddenInput, editorContainer) {
+        const form = hiddenInput.closest('form');
+        if (!form || form.hasAttribute('data-rich-text-reset-bound')) {
+            return;
+        }
+
+        form.setAttribute('data-rich-text-reset-bound', 'true');
+        form.addEventListener('reset', () => {
+            const richTextEditors = form.querySelectorAll(`${EDITOR_SELECTOR}[data-quill-initialized="true"]`);
+
+            richTextEditors.forEach(editor => {
+                const quillInstance = window.Quill?.find(editor);
+                if (!quillInstance) {
+                    return;
+                }
+
+                const wrapper = editor.closest('.fdcp-rich-text-wrapper');
+                const container = editor.closest('.fdcp-rich-text-container');
+                const input = document.getElementById(editor.getAttribute('data-for'));
+                const initialValue = editor.dataset.fdcpInitialValue ?? '';
+
+                if (initialValue) {
+                    quillInstance.clipboard.dangerouslyPasteHTML(initialValue);
+                } else {
+                    quillInstance.setText('');
+                }
+
+                if (input) {
+                    removeErrorState(editor, wrapper, container, input);
+                }
+            });
+        });
     }
 
     function validateField(quill, hiddenInput, editorContainer, wrapper, container) {

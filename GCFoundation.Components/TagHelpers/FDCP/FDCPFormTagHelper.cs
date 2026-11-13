@@ -1,4 +1,4 @@
-﻿using GCFoundation.Common.Utilities;
+using GCFoundation.Common.Utilities;
 using GCFoundation.Components.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -10,6 +10,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// A tag helper for rendering a form. It binds to a model and adds the necessary form attributes (method, action). 
     /// Additionally, it generates an error summary if the model contains validation errors.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-form for=&quot;@Model&quot; method=&quot;post&quot; action=&quot;@Url.Action(&quot;Form&quot;, &quot;Components&quot;)&quot;&gt;
+    ///     &lt;fdcp-input for=&quot;@Model.FullName&quot;&gt;&lt;/fdcp-input&gt;
+    ///     &lt;gcds-button type=&quot;submit&quot;&gt;Submit&lt;/gcds-button&gt;
+    /// &lt;/fdcp-form&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-form", Attributes = "for, method, action")]
     public class FDCPFormTagHelper : TagHelper
     {

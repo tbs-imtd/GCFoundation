@@ -1,6 +1,6 @@
 ﻿@using GCFoundation.Web.Resources
 
-<pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-session-modal modal-id=""session-extend-modal""
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-session-modal modal-id=""session-extend-modal""
     title=""{Html.Encode(Components.Modal_Session_ModalTitle)}""
     static-backdrop
     hide-close-button
@@ -15,4 +15,4 @@
         &lt;gcds-button button-id=""session-extend-refresh-btn"" button-role=""primary""&gt;{Html.Encode(Components.Modal_Session_ExtendButton)}&lt;/gcds-button&gt;
         &lt;gcds-button button-id=""session-extend-logout-btn"" button-role=""danger"" type=""link"" href=""/authentication/logout""&gt;{Html.Encode(Components.Modal_Session_LogoutButton)}&lt;/gcds-button&gt;
     &lt;/div&gt;
-&lt;/fdcp-session-modal&gt;")</code></pre>
+&lt;/fdcp-session-modal&gt;")</fdcp-code>

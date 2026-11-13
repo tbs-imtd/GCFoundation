@@ -16,7 +16,7 @@ namespace GCFoundation.Web.Controllers
     [Route("examples/stateless-auth")]
     public class StatelessAuthExampleController : GCFoundationBaseController
     {
-        private readonly UserLoginService _userLoginService;
+        private readonly AccountService _accountService;
         private static readonly string[] LoginOptions = [
             "Cookie-based authentication",
             "JWT token authentication", 
@@ -36,13 +36,13 @@ namespace GCFoundation.Web.Controllers
         /// Initializes a new instance of the <see cref="StatelessAuthExampleController"/> class.
         /// </summary>
         /// <param name="logger">The logger instance.</param>
-        /// <param name="userLoginService">The user login service.</param>
+        /// <param name="accountService">The account service.</param>
         public StatelessAuthExampleController(
             ILogger<StatelessAuthExampleController> logger,
-            UserLoginService userLoginService) 
+            AccountService accountService) 
             : base(logger)
         {
-            _userLoginService = userLoginService;
+            _accountService = accountService;
         }
 
         /// <summary>
@@ -53,7 +53,7 @@ namespace GCFoundation.Web.Controllers
         public IActionResult Index()
         {
             ViewData["Title"] = "Stateless Authentication Examples";
-            ViewData["LoginPartialViewName"] = "_RealWorldUserLogin";
+            ViewData["AccountPartialViewName"] = "_RealWorldAccount";
             
             return View();
         }
@@ -195,7 +195,7 @@ namespace GCFoundation.Web.Controllers
         [HttpGet("current-user")]
         public IActionResult GetCurrentUser()
         {
-            var userModel = _userLoginService.CreateViewModelFromContext();
+            var userModel = _accountService.CreateViewModelFromContext();
 
             return Json(new
             {

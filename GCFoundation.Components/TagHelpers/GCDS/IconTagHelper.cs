@@ -5,6 +5,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// 
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-icon name=&quot;search&quot; size=&quot;text&quot;&gt;&lt;/gcds-icon&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-icon")]
     public class IconTagHelper : BaseTagHelper
     {

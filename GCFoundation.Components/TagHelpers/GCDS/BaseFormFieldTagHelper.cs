@@ -30,7 +30,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <summary>
         /// Defines whether the form component is disabled.
         /// </summary>
-        public bool? Disabled { get; set; }
+        public bool Disabled { get; set; }
 
         /// <summary>
         /// Binds the tag helper to a model property, enabling validation and data binding.
@@ -230,18 +230,14 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         protected bool ResolveRequired(PropertyInfo? property)
         {
             bool required = false;
-
             if (For != null)
             {
-                required = For.Metadata.ValidatorMetadata.OfType<RequiredAttribute>().Any()
-                           || property?.GetCustomAttribute<RequiredAttribute>() != null;
+               required = property?.GetCustomAttribute<RequiredAttribute>() != null ;
             }
-
-            if (Required.HasValue)
+            if (Required != null)
             {
                 required = Required.Value;
             }
-
             return required;
         }
 
@@ -257,7 +253,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
             string? nameOverride = options.Name ?? Name;
             string? idOverride = options.Id ?? Id;
-            bool disabled = options.Disabled ?? Disabled ?? false;
+            bool disabled = options.Disabled ?? Disabled;
             string? hintOverride = options.Hint ?? Hint;
 
             if (For != null)

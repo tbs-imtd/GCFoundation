@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Enums;
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.Resources;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Localization;
@@ -7,11 +7,20 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 {
     /// <summary>
     /// Renders an <c>&lt;fdcp-accordion&gt;</c> element as a <c>&lt;div class="fdcp-accordion"&gt;</c>
-    /// container with an injected "Open all / Close all" toggle button. Works together with the
+    /// container with an injected "Expand all / Collapse all" toggle button. Works together with the
     /// <c>FDCPAccordion</c> JavaScript class, which binds to elements with the <c>fdcp-accordion</c>
     /// class to provide single-open-at-a-time behaviour for child <c>gcds-details</c> elements,
     /// plus bulk open/close via the toggle button.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-accordion accordion-id=&quot;basic-accordion&quot;&gt;
+    ///     &lt;gcds-details details-title=&quot;About this service&quot;&gt;
+    ///         &lt;gcds-text&gt;Section content.&lt;/gcds-text&gt;
+    ///     &lt;/gcds-details&gt;
+    /// &lt;/fdcp-accordion&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-accordion", Attributes = "accordion-id")]
     public class FdcpAccordionTagHelper(IStringLocalizer<Localization> localizer) : TagHelper
     {

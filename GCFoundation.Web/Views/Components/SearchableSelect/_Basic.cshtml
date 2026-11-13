@@ -34,7 +34,7 @@
                               multiple-results-text="@Components.SearchableSelect_Sample_MultipleResultsText"></fdcp-searchable-select>
 </div>
 
-<pre><code class="language-cshtml">@Html.Raw($@"@using Microsoft.AspNetCore.Mvc.Rendering
+<fdcp-code code-language="cshtml">@Html.Raw($@"@using Microsoft.AspNetCore.Mvc.Rendering
 
 @{{
     var countryOptions = new List&lt;SelectListItem&gt;
@@ -67,4 +67,4 @@
                               no-results-text=""{Html.Encode(Components.SearchableSelect_Sample_Country_NoResultsText)}""
                               one-result-text=""{Html.Encode(Components.SearchableSelect_Sample_OneResultText)}""
                               multiple-results-text=""{Html.Encode(Components.SearchableSelect_Sample_MultipleResultsText)}""&gt;&lt;/fdcp-searchable-select&gt;
-&lt;/div&gt;")</code></pre>
+&lt;/div&gt;")</fdcp-code>

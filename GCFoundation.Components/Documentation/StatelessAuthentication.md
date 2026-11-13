@@ -6,7 +6,7 @@ This document is deprecated. See the single consolidated guide: `AuthenticationA
 
 ## Overview
 
-This document explains how to implement stateless authentication with the GCFoundation User Login Partial, specifically designed for Azure cloud deployments where session storage is not available or desired.
+This document explains how to implement stateless authentication with the GCFoundation Account Partial, specifically designed for Azure cloud deployments where session storage is not available or desired.
 
 ## Why Stateless Authentication?
 
@@ -206,17 +206,17 @@ public string CreateToken(User user)
 }
 ```
 
-## User Login Partial Integration
+## Account Partial Integration
 
-The User Login Partial automatically works with all stateless authentication methods because it reads from claims instead of sessions.
+The Account Partial automatically works with all stateless authentication methods because it reads from claims instead of sessions.
 
 ### Automatic Claim Mapping
 
-The `UserLoginService` automatically maps standard claims:
+The `AccountService` automatically maps standard claims:
 
 ```csharp
-// In UserLoginService.CreateViewModelFromContext()
-var viewModel = new UserLoginViewModel
+// In AccountService.CreateViewModelFromContext()
+var viewModel = new AccountViewModel
 {
     IsAuthenticated = user?.Identity?.IsAuthenticated ?? false,
     UserName = GetClaimValue(user, ClaimTypes.Name),
@@ -258,8 +258,8 @@ public class HomeController : GCFoundationBaseController
 {
     public IActionResult Index()
     {
-        // Enable the user login partial - it will automatically read from claims
-        ViewData["LoginPartialViewName"] = "_UserLoginPartial";
+        // Enable the account partial - it will automatically read from claims
+        ViewData["AccountPartialViewName"] = "_AccountPartial";
         return View();
     }
 }
@@ -268,14 +268,14 @@ public class HomeController : GCFoundationBaseController
 ### Usage in Views
 
 ```razor
-@inject UserLoginService UserLoginService
+@inject AccountService AccountService
 
 @{
     // Automatically creates model from current user's claims
-    var loginModel = UserLoginService.CreateViewModelFromContext();
+    var loginModel = AccountService.CreateViewModelFromContext();
 }
 
-<partial name="_UserLoginPartial" model="loginModel" />
+<partial name="_AccountPartial" model="loginModel" />
 ```
 
 ## Azure Deployment Configuration
@@ -284,7 +284,7 @@ public class HomeController : GCFoundationBaseController
 
 ```json
 {
-  "UserLoginSettings": {
+  "AccountSettings": {
     "ShowUserName": true,
     "ShowUserEmail": true,
     "ShowLoginTime": true,
@@ -401,6 +401,6 @@ See the `StatelessAuthExampleController` for complete working examples of all au
 1. Replace session storage with claims
 2. Update login logic to create claims instead of session variables
 3. Modify logout to clear authentication cookies
-4. Test user login partial continues to work
+4. Test account partial continues to work
 5. Remove session configuration from Program.cs
 6. Update Azure deployment to remove session storage dependencies

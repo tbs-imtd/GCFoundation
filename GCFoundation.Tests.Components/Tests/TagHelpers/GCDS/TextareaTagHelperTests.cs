@@ -58,6 +58,40 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
             Assert.Equal("true", output.Attributes["hide-limit"].Value?.ToString());
         }
 
+        [Fact]
+        public void Process_WithMinLength_EmitsMinlengthAttribute()
+        {
+            var helper = new TextareaTagHelper
+            {
+                Name = "comments",
+                Label = "Comments",
+                TextareaId = "comments",
+                MinLength = 10
+            };
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.Equal("10", output.Attributes["minlength"].Value?.ToString());
+        }
+
+        [Fact]
+        public void Process_WithMinLengthZero_OmitsMinlengthAttribute()
+        {
+            var helper = new TextareaTagHelper
+            {
+                Name = "c",
+                Label = "L",
+                TextareaId = "c",
+                MinLength = 0
+            };
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.False(output.Attributes.ContainsName("minlength"));
+        }
+
         private static TagHelperContext CreateContext() =>
             new(new TagHelperAttributeList(), new Dictionary<object, object>(), "test-id");
 

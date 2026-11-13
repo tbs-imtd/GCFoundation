@@ -5,6 +5,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// Represents a tag helper for rendering a textarea input element with customizable properties like label, row count, and maximum length (GCDS v1).
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-textarea for=&quot;Notes&quot; label=&quot;Notes&quot; textarea-id=&quot;notes&quot; rows=&quot;5&quot;&gt;&lt;/gcds-textarea&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-textarea")]
     public class TextareaTagHelper : BaseFormComponentTagHelper
     {
@@ -36,6 +41,12 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         }
 
         /// <summary>
+        /// Gets or sets the minimum number of characters (GCDS v1 <c>minlength</c>).
+        /// </summary>
+        [HtmlAttributeName("minlength")]
+        public int MinLength { get; set; }
+
+        /// <summary>
         /// When true, hides the character counter while still applying <see cref="MaxLength"/> (GCDS v1 <c>hide-limit</c>).
         /// </summary>
         public bool HideLimit { get; set; }
@@ -61,6 +72,9 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "textarea-id", TextareaId);
             if (MaxLength > 0)
                 AddAttributeIfNotNull(output, "maxlength", MaxLength);
+
+            if (MinLength > 0)
+                AddAttributeIfNotNull(output, "minlength", MinLength);
 
             if (HideLimit)
                 AddAttributeIfNotNull(output, "hide-limit", true);

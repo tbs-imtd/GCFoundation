@@ -5,6 +5,9 @@
     "type": "module",
     "scripts": {
         "build": "gulp build",
+        "build:prism": "gulp prism",
+        "build:cdn-integrity": "gulp cdnIntegrity",
+        "check:cdn-integrity": "gulp checkCdnIntegrity",
         "watch": "gulp watchTask"
     },
     "keywords": [],
@@ -30,8 +33,9 @@
         "gulp-uglify": "^3.0.2",
         "sass": "^1.87.0"
     },
-    "dependencies": {
-        "focus-trap": "^7.8.0",
-        "quill": "^2.0.2"
-    }
+  "dependencies": {
+    "prismjs": "1.30.0",
+    "focus-trap": "^7.8.0",
+    "quill": "^2.0.2"
+  }
 }

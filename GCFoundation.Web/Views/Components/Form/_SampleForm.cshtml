@@ -1,5 +1,4 @@
 @using GCFoundation.Components.Enums
-@using GCFoundation.Components.TagHelpers.FDCP
 @using GCFoundation.Web.Resources
 @model GCFoundation.Web.Models.FormTestViewModel
 
@@ -56,7 +55,7 @@ else
         <gcds-button type="reset" button-role="secondary">Reset</gcds-button>
     </fdcp-form>
 
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"
+<fdcp-code code-language="cshtml">@Html.Raw(Html.Encode(@"
 <fdcp-form method=""post"" action=""@Url.Action(""Form"", ""Components"")"" for=""@Model"">
         <fdcp-input for=""@Model.FullName"" />
         <fdcp-input for=""@Model.Email"" />
@@ -83,5 +82,5 @@ else
 
         <gcds-button type=""submit"">Submit</gcds-button>
         <gcds-button type=""reset"" button-role=""secondary"">Reset</gcds-button>
-</fdcp-form>"))</code></pre>
+</fdcp-form>"))</fdcp-code>
 }

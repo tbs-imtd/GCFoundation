@@ -126,12 +126,16 @@
 
   <ItemGroup>
     <Compile Remove="Converters\**" />
+    <Compile Remove="DataAnnotations\**" />
     <Compile Remove="wwwroot\scss\**" />
     <Content Remove="Converters\**" />
+    <Content Remove="DataAnnotations\**" />
     <Content Remove="wwwroot\scss\**" />
     <EmbeddedResource Remove="Converters\**" />
+    <EmbeddedResource Remove="DataAnnotations\**" />
     <EmbeddedResource Remove="wwwroot\scss\**" />
     <None Remove="Converters\**" />
+    <None Remove="DataAnnotations\**" />
     <None Remove="wwwroot\scss\**" />
   </ItemGroup>
   
@@ -151,7 +155,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DataAnnotations\" />
     <Folder Include="wwwroot\images\Icons\" />
     <Folder Include="wwwroot\images\splash\" />
   </ItemGroup>

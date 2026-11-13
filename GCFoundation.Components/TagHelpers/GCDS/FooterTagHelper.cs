@@ -14,6 +14,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// Represents a custom tag helper for rendering a footer section with contextual and sub-links.
     /// This tag helper generates a footer with support for customizable headings, links, and display options.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-footer display=&quot;full&quot; contextual-heading=&quot;Related links&quot;&gt;&lt;/gcds-footer&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-footer")]
     public class FooterTagHelper(IUrlHelperFactory urlHelperFactory) : BaseTagHelper
     {

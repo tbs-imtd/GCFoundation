@@ -9,6 +9,15 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// A tag helper that renders a flexible card component using the GC Design System.
     /// Supports header, body, footer, images, and various Bootstrap-inspired card features.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-card&gt;
+    ///     &lt;h5 class=&quot;fdcp-card-title&quot;&gt;Card title&lt;/h5&gt;
+    ///     &lt;p class=&quot;fdcp-card-text&quot;&gt;Some quick example text to build on the card title.&lt;/p&gt;
+    ///     &lt;a href=&quot;#&quot; class=&quot;fdcp-card-link&quot;&gt;Go somewhere&lt;/a&gt;
+    /// &lt;/fdcp-card&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-card")]
     public class FDCPCardTagHelper : TagHelper
     {

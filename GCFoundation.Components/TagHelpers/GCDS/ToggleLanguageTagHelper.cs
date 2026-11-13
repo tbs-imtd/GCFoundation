@@ -6,6 +6,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A TagHelper that renders a GC Design System language toggle component as a <c>&lt;gcds-lang-toggle&gt;</c> element.
     /// Adds the target language and URL as attributes.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-lang-toggle href=&quot;/fr&quot;&gt;&lt;/gcds-lang-toggle&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-lang-toggle")]
     public class ToggleLanguageTagHelper : BaseTagHelper
     {

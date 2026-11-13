@@ -136,278 +136,278 @@
  Les composants devraient également apparaître dans Visual Studio s’ils ont été implémentés.
  Cependant, même si un composant n’apparaît pas dans IntelliSense, vous pouvez toujours l’utiliser—assurez-vous simplement de référencer la bonne version du Système de design GC.</value>
   </data>
-  <data name="UserLogin_AuthStatus_Title" xml:space="preserve">
+  <data name="Account_AuthStatus_Title" xml:space="preserve">
     <value>État actuel d'authentification</value>
   </data>
-  <data name="UserLogin_Authenticated_Message" xml:space="preserve">
+  <data name="Account_Authenticated_Message" xml:space="preserve">
     <value>Vous êtes actuellement connecté en tant que {0}</value>
   </data>
-  <data name="UserLogin_NotAuthenticated_Message" xml:space="preserve">
+  <data name="Account_NotAuthenticated_Message" xml:space="preserve">
     <value>Vous n'êtes pas actuellement connecté. Utilisez le bouton de simulation de connexion ci-dessous pour tester l'état authentifié.</value>
   </data>
-  <data name="UserLogin_SimulateLogin" xml:space="preserve">
+  <data name="Account_SimulateLogin" xml:space="preserve">
     <value>Simuler la connexion</value>
   </data>
-  <data name="UserLogin_SimulateLogout" xml:space="preserve">
+  <data name="Account_SimulateLogout" xml:space="preserve">
     <value>Simuler la déconnexion</value>
   </data>
-  <data name="UserLogin_ApiTest_Message" xml:space="preserve">
+  <data name="Account_ApiTest_Message" xml:space="preserve">
     <value>Voir comment intégrer avec les API pour obtenir les informations utilisateur.</value>
   </data>
-  <data name="UserLogin_ApiTest_Link" xml:space="preserve">
+  <data name="Account_ApiTest_Link" xml:space="preserve">
     <value>Test API</value>
   </data>
-  <data name="UserLogin_PageTitle" xml:space="preserve">
-    <value>Exemples de partiel de connexion utilisateur</value>
+  <data name="Account_PageTitle" xml:space="preserve">
+    <value>Exemples de partiel de compte</value>
   </data>
-  <data name="UserLogin_Component_Title" xml:space="preserve">
-    <value>Composant partiel de connexion utilisateur</value>
+  <data name="Account_Component_Title" xml:space="preserve">
+    <value>Composant partiel de compte</value>
   </data>
-  <data name="UserLogin_Position_PageTitle" xml:space="preserve">
-    <value>Connexion utilisateur en position {0}</value>
+  <data name="Account_Position_PageTitle" xml:space="preserve">
+    <value>Compte en position {0}</value>
   </data>
-  <data name="UserLogin_PageDescription" xml:space="preserve">
-    <value>Cette page démontre le composant partiel de connexion utilisateur configurable avec support de localisation en anglais et français. Le partiel peut être personnalisé grâce aux paramètres de configuration et affiche différentes informations selon l'état d'authentification.</value>
+  <data name="Account_PageDescription" xml:space="preserve">
+    <value>Cette page démontre le composant partiel de compte configurable avec support de localisation en anglais et français. Le partiel peut être personnalisé grâce aux paramètres de configuration et affiche différentes informations selon l'état d'authentification.</value>
   </data>
-  <data name="UserLogin_TestAuthStates" xml:space="preserve">
-    <value>Testez le partiel de connexion avec différents états d'authentification.</value>
+  <data name="Account_TestAuthStates" xml:space="preserve">
+    <value>Testez le partiel de compte avec différents états d'authentification.</value>
   </data>
-  <data name="UserLogin_ConfigurationOptions" xml:space="preserve">
+  <data name="Account_ConfigurationOptions" xml:space="preserve">
     <value>Options de configuration</value>
   </data>
-  <data name="UserLogin_ConfigDescription" xml:space="preserve">
-    <value>Le partiel de connexion utilisateur prend en charge les options de configuration suivantes via appsettings.json :</value>
+  <data name="Account_ConfigDescription" xml:space="preserve">
+    <value>Le partiel de compte prend en charge les options de configuration suivantes via appsettings.json :</value>
   </data>
-  <data name="UserLogin_Features" xml:space="preserve">
+  <data name="Account_Features" xml:space="preserve">
     <value>Fonctionnalités</value>
   </data>
-  <data name="UserLogin_Feature_Bilingual" xml:space="preserve">
+  <data name="Account_Feature_Bilingual" xml:space="preserve">
     <value>Entièrement bilingue (anglais/français) avec détection automatique de la langue</value>
   </data>
-  <data name="UserLogin_Feature_Configurable" xml:space="preserve">
+  <data name="Account_Feature_Configurable" xml:space="preserve">
     <value>Options d'affichage configurables (afficher/masquer diverses informations utilisateur)</value>
   </data>
-  <data name="UserLogin_Feature_CompactFull" xml:space="preserve">
+  <data name="Account_Feature_CompactFull" xml:space="preserve">
     <value>Modes d'affichage compact et complet</value>
   </data>
-  <data name="UserLogin_Feature_SessionTimeout" xml:space="preserve">
+  <data name="Account_Feature_SessionTimeout" xml:space="preserve">
     <value>Avertissements et compte à rebours d'expiration de session</value>
   </data>
-  <data name="UserLogin_Feature_Avatar" xml:space="preserve">
+  <data name="Account_Feature_Avatar" xml:space="preserve">
     <value>Support d'avatar utilisateur avec génération automatique d'initiales</value>
   </data>
-  <data name="UserLogin_Feature_GCDS" xml:space="preserve">
+  <data name="Account_Feature_GCDS" xml:space="preserve">
     <value>Intégration des composants GCDS pour un style cohérent du gouvernement du Canada</value>
   </data>
-  <data name="UserLogin_Feature_Responsive" xml:space="preserve">
+  <data name="Account_Feature_Responsive" xml:space="preserve">
     <value>Design réactif pour mobile et ordinateur de bureau</value>
   </data>
-  <data name="UserLogin_Feature_Accessibility" xml:space="preserve">
+  <data name="Account_Feature_Accessibility" xml:space="preserve">
     <value>Fonctionnalités d'accessibilité avec étiquettes ARIA appropriées</value>
   </data>
-  <data name="UserLogin_Feature_Integration" xml:space="preserve">
+  <data name="Account_Feature_Integration" xml:space="preserve">
     <value>Intégration facile avec les systèmes d'authentification existants</value>
   </data>
-  <data name="UserLogin_Position_Description" xml:space="preserve">
-    <value>Cet exemple montre comment le partiel de connexion utilisateur peut être positionné dans différentes zones de votre application.</value>
+  <data name="Account_Position_Description" xml:space="preserve">
+    <value>Cet exemple montre comment le partiel de compte peut être positionné dans différentes zones de votre application.</value>
   </data>
-  <data name="UserLogin_Position_Header_Alert" xml:space="preserve">
-    <value>Le partiel de connexion est affiché dans la zone d'en-tête (au-dessus de ce contenu).</value>
+  <data name="Account_Position_Header_Alert" xml:space="preserve">
+    <value>Le partiel de compte est affiché dans la zone d'en-tête (au-dessus de ce contenu).</value>
   </data>
-  <data name="UserLogin_Position_Sidebar_Title" xml:space="preserve">
-    <value>Connexion dans la barre latérale</value>
+  <data name="Account_Position_Sidebar_Title" xml:space="preserve">
+    <value>Compte dans la barre latérale</value>
   </data>
-  <data name="UserLogin_Position_Sidebar_Content" xml:space="preserve">
-    <value>Ceci est la zone de contenu principal. Le partiel de connexion est affiché dans la barre latérale à gauche (sur ordinateur) ou au-dessus (sur mobile).</value>
+  <data name="Account_Position_Sidebar_Content" xml:space="preserve">
+    <value>Ceci est la zone de contenu principal. Le partiel de compte est affiché dans la barre latérale à gauche (sur ordinateur) ou au-dessus (sur mobile).</value>
   </data>
-  <data name="UserLogin_Position_Inline_Title" xml:space="preserve">
-    <value>Informations de connexion en ligne</value>
+  <data name="Account_Position_Inline_Title" xml:space="preserve">
+    <value>Informations de compte en ligne</value>
   </data>
-  <data name="UserLogin_Position_Content_Before" xml:space="preserve">
-    <value>Ceci est le contenu avant le partiel de connexion.</value>
+  <data name="Account_Position_Content_Before" xml:space="preserve">
+    <value>Ceci est le contenu avant le partiel de compte.</value>
   </data>
-  <data name="UserLogin_Position_Content_After" xml:space="preserve">
-    <value>Ceci est le contenu après le partiel de connexion.</value>
+  <data name="Account_Position_Content_After" xml:space="preserve">
+    <value>Ceci est le contenu après le partiel de compte.</value>
   </data>
-  <data name="UserLogin_Position_Footer_Title" xml:space="preserve">
-    <value>Connexion dans le pied de page</value>
+  <data name="Account_Position_Footer_Title" xml:space="preserve">
+    <value>Compte dans le pied de page</value>
   </data>
-  <data name="UserLogin_Position_Footer_Content" xml:space="preserve">
-    <value>La zone de contenu principal. Le partiel de connexion sera affiché dans la zone de pied de page (sous ce contenu).</value>
+  <data name="Account_Position_Footer_Content" xml:space="preserve">
+    <value>La zone de contenu principal. Le partiel de compte sera affiché dans la zone de pied de page (sous ce contenu).</value>
   </data>
-  <data name="UserLogin_Position_BackToExamples" xml:space="preserve">
+  <data name="Account_Position_BackToExamples" xml:space="preserve">
     <value>← Retour aux exemples</value>
   </data>
-  <data name="UserLogin_Component_Description" xml:space="preserve">
-    <value>Un composant d'informations de connexion utilisateur configurable et bilingue qui affiche l'état d'authentification, les détails utilisateur et les informations de session. Parfait pour les déploiements cloud Azure avec authentification sans état.</value>
+  <data name="Account_Component_Description" xml:space="preserve">
+    <value>Un composant d'informations de compte configurable et bilingue qui affiche l'état d'authentification, les détails utilisateur et les informations de session. Parfait pour les déploiements cloud Azure avec authentification sans état.</value>
   </data>
-  <data name="UserLogin_LiveExamples" xml:space="preserve">
+  <data name="Account_LiveExamples" xml:space="preserve">
     <value>Exemples en direct</value>
   </data>
-  <data name="UserLogin_LiveExamples_Description" xml:space="preserve">
-    <value>Voici des exemples fonctionnels du partiel de connexion utilisateur dans différentes configurations :</value>
+  <data name="Account_LiveExamples_Description" xml:space="preserve">
+    <value>Voici des exemples fonctionnels du partiel de compte dans différentes configurations :</value>
   </data>
-  <data name="UserLogin_CurrentUserState" xml:space="preserve">
+  <data name="Account_CurrentUserState" xml:space="preserve">
     <value>Exemple en direct - État utilisateur actuel</value>
   </data>
-  <data name="UserLogin_CurrentUserState_Description" xml:space="preserve">
+  <data name="Account_CurrentUserState_Description" xml:space="preserve">
     <value>Ceci montre l'état d'authentification réel du contexte utilisateur actuel.</value>
   </data>
-  <data name="UserLogin_CurrentlyAuthenticated" xml:space="preserve">
+  <data name="Account_CurrentlyAuthenticated" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_CurrentlyNotAuthenticated" xml:space="preserve">
+  <data name="Account_CurrentlyNotAuthenticated" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_SimulateLoginNote" xml:space="preserve">
+  <data name="Account_SimulateLoginNote" xml:space="preserve">
     <value>Utilisez le bouton "Simuler la connexion" dans la section Exemples pour voir l'état authentifié.</value>
   </data>
-  <data name="UserLogin_DefaultMode" xml:space="preserve">
+  <data name="Account_DefaultMode" xml:space="preserve">
     <value>Mode par défaut</value>
   </data>
-  <data name="UserLogin_DefaultMode_Description" xml:space="preserve">
+  <data name="Account_DefaultMode_Description" xml:space="preserve">
     <value>Mode d'affichage complet standard avec informations utilisateur.</value>
   </data>
-  <data name="UserLogin_SessionExpiring" xml:space="preserve">
+  <data name="Account_SessionExpiring" xml:space="preserve">
     <value>Session expirant bientôt</value>
   </data>
-  <data name="UserLogin_SessionExpiring_Description" xml:space="preserve">
+  <data name="Account_SessionExpiring_Description" xml:space="preserve">
     <value>Exemple montrant l'avertissement d'expiration de session.</value>
   </data>
-  <data name="UserLogin_NotAuthenticatedState" xml:space="preserve">
+  <data name="Account_NotAuthenticatedState" xml:space="preserve">
     <value>État non authentifié</value>
   </data>
-  <data name="UserLogin_NotAuthenticatedState_Description" xml:space="preserve">
+  <data name="Account_NotAuthenticatedState_Description" xml:space="preserve">
     <value>Affichage pour les utilisateurs qui ne sont pas connectés.</value>
   </data>
-  <data name="UserLogin_ConfigOptions_Description" xml:space="preserve">
-    <value>Le partiel de connexion utilisateur est hautement configurable via appsettings.json et prend en charge les systèmes d'authentification avec et sans état.</value>
+  <data name="Account_ConfigOptions_Description" xml:space="preserve">
+    <value>Le partiel de compte est hautement configurable via appsettings.json et prend en charge les systèmes d'authentification avec et sans état.</value>
   </data>
-  <data name="UserLogin_KeyFeatures" xml:space="preserve">
+  <data name="Account_KeyFeatures" xml:space="preserve">
     <value>Fonctionnalités clés</value>
   </data>
-  <data name="UserLogin_BilingualSupport" xml:space="preserve">
+  <data name="Account_BilingualSupport" xml:space="preserve">
     <value>🌐 Support bilingue</value>
   </data>
-  <data name="UserLogin_BilingualSupport_Description" xml:space="preserve">
+  <data name="Account_BilingualSupport_Description" xml:space="preserve">
     <value>Localisation automatique anglais/français avec fichiers de ressources et détection de culture.</value>
   </data>
-  <data name="UserLogin_CloudReady" xml:space="preserve">
+  <data name="Account_CloudReady" xml:space="preserve">
     <value>☁️ Prêt pour le cloud</value>
   </data>
-  <data name="UserLogin_CloudReady_Description" xml:space="preserve">
+  <data name="Account_CloudReady_Description" xml:space="preserve">
     <value>Support d'authentification sans état parfait pour Azure App Service et les déploiements de conteneurs.</value>
   </data>
-  <data name="UserLogin_Configurable" xml:space="preserve">
+  <data name="Account_Configurable" xml:space="preserve">
     <value>🔧 Configurable</value>
   </data>
-  <data name="UserLogin_Configurable_Description" xml:space="preserve">
+  <data name="Account_Configurable_Description" xml:space="preserve">
     <value>Plus de 15 options de configuration pour personnaliser l'affichage et le comportement selon vos besoins.</value>
   </data>
-  <data name="UserLogin_Responsive" xml:space="preserve">
+  <data name="Account_Responsive" xml:space="preserve">
     <value>📱 Réactif</value>
   </data>
-  <data name="UserLogin_Responsive_Description" xml:space="preserve">
+  <data name="Account_Responsive_Description" xml:space="preserve">
     <value>Design mobile-first qui fonctionne parfaitement sur toutes les tailles d'appareils.</value>
   </data>
-  <data name="UserLogin_GCDSStyled" xml:space="preserve">
+  <data name="Account_GCDSStyled" xml:space="preserve">
     <value>🎨 Style GCDS</value>
   </data>
-  <data name="UserLogin_GCDSStyled_Description" xml:space="preserve">
+  <data name="Account_GCDSStyled_Description" xml:space="preserve">
     <value>Utilise les composants du système de design du gouvernement du Canada pour un style cohérent.</value>
   </data>
-  <data name="UserLogin_Accessible" xml:space="preserve">
+  <data name="Account_Accessible" xml:space="preserve">
     <value>♿ Accessible</value>
   </data>
-  <data name="UserLogin_Accessible_Description" xml:space="preserve">
+  <data name="Account_Accessible_Description" xml:space="preserve">
     <value>Conforme WCAG avec étiquettes ARIA appropriées et balisage sémantique.</value>
   </data>
-  <data name="UserLogin_SupportedAuthMethods" xml:space="preserve">
+  <data name="Account_SupportedAuthMethods" xml:space="preserve">
     <value>Méthodes d'authentification prises en charge</value>
   </data>
-  <data name="UserLogin_SupportedAuthMethods_Description" xml:space="preserve">
+  <data name="Account_SupportedAuthMethods_Description" xml:space="preserve">
     <value>Le composant extrait automatiquement les informations utilisateur des revendications, le rendant compatible avec divers systèmes d'authentification :</value>
   </data>
-  <data name="UserLogin_CookieAuth" xml:space="preserve">
+  <data name="Account_CookieAuth" xml:space="preserve">
     <value>Authentification par cookie</value>
   </data>
-  <data name="UserLogin_CookieAuth_Description" xml:space="preserve">
+  <data name="Account_CookieAuth_Description" xml:space="preserve">
     <value>Authentification sans état basée sur les cookies sans sessions côté serveur. Parfait pour les déploiements cloud Azure.</value>
   </data>
-  <data name="UserLogin_CookieAuth_Benefits" xml:space="preserve">
+  <data name="Account_CookieAuth_Benefits" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_AzureAD" xml:space="preserve">
+  <data name="Account_AzureAD" xml:space="preserve">
     <value>Azure Active Directory</value>
   </data>
-  <data name="UserLogin_AzureAD_Description" xml:space="preserve">
+  <data name="Account_AzureAD_Description" xml:space="preserve">
     <value>Authentification d'entreprise avec intégration Office 365 et support de connexion unique.</value>
   </data>
-  <data name="UserLogin_AzureAD_Benefits" xml:space="preserve">
+  <data name="Account_AzureAD_Benefits" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_JWTTokens" xml:space="preserve">
+  <data name="Account_JWTTokens" xml:space="preserve">
     <value>Jetons JWT</value>
   </data>
-  <data name="UserLogin_JWTTokens_Description" xml:space="preserve">
+  <data name="Account_JWTTokens_Description" xml:space="preserve">
     <value>Authentification par jeton Web JSON pour les applications API-first et les microservices.</value>
   </data>
-  <data name="UserLogin_JWTTokens_Benefits" xml:space="preserve">
+  <data name="Account_JWTTokens_Benefits" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_ExternalProviders" xml:space="preserve">
+  <data name="Account_ExternalProviders" xml:space="preserve">
     <value>Fournisseurs externes</value>
   </data>
-  <data name="UserLogin_ExternalProviders_Description" xml:space="preserve">
+  <data name="Account_ExternalProviders_Description" xml:space="preserve">
     <value>Intégration OAuth avec Google, GitHub, Microsoft et autres fournisseurs externes.</value>
   </data>
-  <data name="UserLogin_ExternalProviders_Benefits" xml:space="preserve">
+  <data name="Account_ExternalProviders_Benefits" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_AdditionalResources" xml:space="preserve">
+  <data name="Account_AdditionalResources" xml:space="preserve">
     <value>Ressources supplémentaires</value>
   </data>
-  <data name="UserLogin_CompleteExamples" xml:space="preserve">
+  <data name="Account_CompleteExamples" xml:space="preserve">
     <value>Exemples complets</value>
   </data>
-  <data name="UserLogin_CompleteExamples_Description" xml:space="preserve">
+  <data name="Account_CompleteExamples_Description" xml:space="preserve">
     <value>Exemples interactifs avec différentes configurations et cas d'usage.</value>
   </data>
-  <data name="UserLogin_StatelessAuth" xml:space="preserve">
+  <data name="Account_StatelessAuth" xml:space="preserve">
     <value>Authentification sans état</value>
   </data>
-  <data name="UserLogin_StatelessAuth_Description" xml:space="preserve">
+  <data name="Account_StatelessAuth_Description" xml:space="preserve">
     <value>Exemples d'authentification prêts pour le cloud Azure sans sessions.</value>
   </data>
-  <data name="UserLogin_TemplateIntegration" xml:space="preserve">
+  <data name="Account_TemplateIntegration" xml:space="preserve">
     <value>Intégration de modèle</value>
   </data>
-  <data name="UserLogin_TemplateIntegration_Description" xml:space="preserve">
+  <data name="Account_TemplateIntegration_Description" xml:space="preserve">
     <value>Apprenez comment intégrer le partiel dans vos modèles de mise en page.</value>
   </data>
-  <data name="UserLogin_QuickImplementation" xml:space="preserve">
+  <data name="Account_QuickImplementation" xml:space="preserve">
     <value>Guide d'implémentation rapide</value>
   </data>
-  <data name="UserLogin_Step_ConfigureSettings" xml:space="preserve">
+  <data name="Account_Step_ConfigureSettings" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_Step_RegisterServices" xml:space="preserve">
+  <data name="Account_Step_RegisterServices" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_Step_SetInController" xml:space="preserve">
+  <data name="Account_Step_SetInController" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_Step_ConfigureAuth" xml:space="preserve">
+  <data name="Account_Step_ConfigureAuth" xml:space="preserve">
     <value />
   </data>
-  <data name="UserLogin_Step_CustomizeAppearance" xml:space="preserve">
+  <data name="Account_Step_CustomizeAppearance" xml:space="preserve">
     <value />
   </data>
   <data name="StatelessAuth_Demo_Title" xml:space="preserve">
     <value>Démonstration d'authentification sans état</value>
   </data>
   <data name="StatelessAuth_Demo_Description" xml:space="preserve">
-    <value>Essayez l'authentification par cookie ci-dessous et voyez comment le partiel de connexion utilisateur se met à jour automatiquement.</value>
+    <value>Essayez l'authentification par cookie ci-dessous et voyez comment le partiel de compte se met à jour automatiquement.</value>
   </data>
   <data name="StatelessAuth_Current_Status_Title" xml:space="preserve">
     <value>État d'authentification actuel</value>
@@ -416,13 +416,13 @@
     <value />
   </data>
   <data name="StatelessAuth_Session_Info_Message" xml:space="preserve">
-    <value>Le composant de connexion utilisateur ci-dessus affiche vos informations de session actuelles à partir des revendications (pas de stockage de session côté serveur).</value>
+    <value>Le composant de compte ci-dessus affiche vos informations de session actuelles à partir des revendications (pas de stockage de session côté serveur).</value>
   </data>
   <data name="StatelessAuth_Not_Authenticated_Message" xml:space="preserve">
     <value />
   </data>
   <data name="StatelessAuth_Login_Partial_Update_Message" xml:space="preserve">
-    <value>Remarquez comment le composant de connexion utilisateur se mettra à jour automatiquement après la connexion.</value>
+    <value>Remarquez comment le composant de compte se mettra à jour automatiquement après la connexion.</value>
   </data>
   <data name="StatelessAuth_Interactive_Demo_Title" xml:space="preserve">
     <value>Démonstration d'authentification interactive</value>
@@ -494,7 +494,7 @@
     <value>Compatibilité avec le cloud gouvernemental</value>
   </data>
   <data name="StatelessAuth_Authenticated_Description" xml:space="preserve">
-    <value>Le partiel de connexion utilisateur ci-dessus affiche vos informations de session actuelles à partir des revendications (aucun stockage de session côté serveur).</value>
+    <value>Le partiel de compte ci-dessus affiche vos informations de session actuelles à partir des revendications (aucun stockage de session côté serveur).</value>
   </data>
   <data name="Index_Table_Title" xml:space="preserve">
     <value>Tableau</value>
@@ -582,11 +582,11 @@
   <data name="Index_Stepper_Description" xml:space="preserve">
     <value>Créer un processus étape par étape pour un flux ou un formulaire</value>
   </data>
-  <data name="Index_UserLoginPartial_Title" xml:space="preserve">
-    <value>Partiel de connexion utilisateur</value>
+  <data name="Index_AccountPartial_Title" xml:space="preserve">
+    <value>Partiel de compte</value>
   </data>
-  <data name="Index_UserLoginPartial_Description" xml:space="preserve">
-    <value>Affichage configurable des informations de connexion utilisateur avec support bilingue</value>
+  <data name="Index_AccountPartial_Description" xml:space="preserve">
+    <value>Affichage configurable des informations de compte avec support bilingue</value>
   </data>
   <data name="Index_Page_Title" xml:space="preserve">
     <value>Composants</value>
@@ -1824,6 +1824,24 @@
   <data name="Table_WithLink_Anchor" xml:space="preserve">
     <value>avec-emplacements-lien</value>
   </data>
+  <data name="Index_TagHelpers_Section_Title" xml:space="preserve">
+    <value>Tag helpers</value>
+  </data>
+  <data name="Index_TagHelpers_Section_Description" xml:space="preserve">
+    <value>Référence rapide pour les tag helpers FDCP et GCDS, incluant le rôle de chaque helper, ses propriétés clés et un exemple d'utilisation minimal.</value>
+  </data>
+  <data name="Index_TagHelpers_Group_FDCP_Title" xml:space="preserve">
+    <value>Tag helpers FDCP</value>
+  </data>
+  <data name="Index_TagHelpers_Group_GCDS_Title" xml:space="preserve">
+    <value>Tag helpers GCDS</value>
+  </data>
+  <data name="Index_TagHelpers_KeyProperties_Label" xml:space="preserve">
+    <value>Propriétés clés</value>
+  </data>
+  <data name="Index_TagHelpers_Usage_Label" xml:space="preserve">
+    <value>Utilisation</value>
+  </data>
   <data name="Table_WithAnnotations_Caption" xml:space="preserve">
     <value>Tableau avec annotations de données</value>
   </data>
@@ -2000,135 +2018,6 @@
   </data>
   <data name="Card_Badge_New" xml:space="preserve">
     <value>Nouveau</value>
-  </data>
-  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
-    <value>Statut d'authentification actuel</value>
-  </data>
-  <data name="StatelessAuth_NotAuthenticated_Message" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_NotAuthenticated_Description" xml:space="preserve">
-    <value>Remarquez comment le partiel de connexion utilisateur se mettra à jour automatiquement après la connexion.</value>
-  </data>
-  <data name="StatelessAuth_CookieDemo_Title" xml:space="preserve">
-    <value>Démonstration d'authentification par cookie</value>
-  </data>
-  <data name="StatelessAuth_CookieDemo_Description" xml:space="preserve">
-    <value>Testez l'authentification basée sur les cookies sans sessions serveur. Toutes les données utilisateur proviennent des revendications dans le cookie d'authentification.</value>
-  </data>
-  <data name="StatelessAuth_LoggedIn_Text" xml:space="preserve">
-    <value>Vous êtes connecté ! Cliquez sur déconnexion pour effacer le cookie d'authentification.</value>
-  </data>
-  <data name="StatelessAuth_LoggedOut_Text" xml:space="preserve">
-    <value>Ceci créera un cookie d'authentification avec des revendications utilisateur (aucun stockage de session).</value>
-  </data>
-  <data name="StatelessAuth_Login_Button" xml:space="preserve">
-    <value>🔐 Connexion avec authentification par cookie</value>
-  </data>
-  <data name="StatelessAuth_Logout_Button" xml:space="preserve">
-    <value>🚪 Déconnexion</value>
-  </data>
-  <data name="StatelessAuth_TechnicalInfo_Title" xml:space="preserve">
-    <value>Informations techniques</value>
-  </data>
-  <data name="StatelessAuth_HowItWorks" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_Benefit_Claims" xml:space="preserve">
-    <value>✅ Revendications stockées dans le cookie d'authentification</value>
-  </data>
-  <data name="StatelessAuth_Benefit_NoSessions" xml:space="preserve">
-    <value>✅ Aucun stockage de session côté serveur requis</value>
-  </data>
-  <data name="StatelessAuth_Benefit_Azure" xml:space="preserve">
-    <value>✅ Mise à l'échelle automatique dans le cloud Azure</value>
-  </data>
-  <data name="StatelessAuth_Benefit_LoadBalanced" xml:space="preserve">
-    <value>✅ Fonctionne sur des serveurs équilibrés en charge</value>
-  </data>
-  <data name="StatelessAuth_ViewClaims_Button" xml:space="preserve">
-    <value>📊 Voir les revendications actuelles</value>
-  </data>
-  <data name="StatelessAuth_CheckAuth_Button" xml:space="preserve">
-    <value>⚡ Vérifier le statut d'authentification</value>
-  </data>
-  <data name="StatelessAuth_DemoResults_Title" xml:space="preserve">
-    <value>Résultats de la démonstration</value>
-  </data>
-  <data name="StatelessAuth_Methods_Title" xml:space="preserve">
-    <value>Méthodes d'authentification sans état disponibles</value>
-  </data>
-  <data name="StatelessAuth_Methods_Description" xml:space="preserve">
-    <value>La fondation GC prend en charge plusieurs approches d'authentification sans état pour le déploiement cloud Azure :</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Title" xml:space="preserve">
-    <value>🍪 Authentification par cookie</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Description" xml:space="preserve">
-    <value>Utilise des cookies d'authentification avec des revendications (aucune session serveur). ✅ Recommandé pour la plupart des applications web.</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit1" xml:space="preserve">
-    <value>Aucun stockage côté serveur requis</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit2" xml:space="preserve">
-    <value>Mise à l'échelle automatique dans Azure</value>
-  </data>
-  <data name="StatelessAuth_CookieAuth_Benefit3" xml:space="preserve">
-    <value>Fonctionne sur des serveurs équilibrés en charge</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Title" xml:space="preserve">
-    <value>🏢 Intégration Azure AD</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Description" xml:space="preserve">
-    <value>Authentification d'entreprise avec la plateforme d'identité Microsoft. Parfait pour les applications gouvernementales.</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit1" xml:space="preserve">
-    <value>Authentification unique (SSO)</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit2" xml:space="preserve">
-    <value>Authentification multifacteur</value>
-  </data>
-  <data name="StatelessAuth_AzureAD_Benefit3" xml:space="preserve">
-    <value>Intégration Office 365</value>
-  </data>
-  <data name="StatelessAuth_JWT_Title" xml:space="preserve">
-    <value>🔑 Jetons JWT</value>
-  </data>
-  <data name="StatelessAuth_JWT_Description" xml:space="preserve">
-    <value>Authentification API sans état utilisant des jetons Web JSON. Idéal pour les microservices et APIs.</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit1" xml:space="preserve">
-    <value>Complètement sans état</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit2" xml:space="preserve">
-    <value>Compatibilité multiplateforme</value>
-  </data>
-  <data name="StatelessAuth_JWT_Benefit3" xml:space="preserve">
-    <value>Peut être vérifié indépendamment</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Title" xml:space="preserve">
-    <value>🌐 Fournisseurs OAuth</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Description" xml:space="preserve">
-    <value>Fournisseurs d'authentification externes (Google, GitHub, etc.). Bon pour les applications publiques.</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit1" xml:space="preserve">
-    <value>Aucune gestion d'identifiants</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit2" xml:space="preserve">
-    <value>Commodité utilisateur</value>
-  </data>
-  <data name="StatelessAuth_OAuth_Benefit3" xml:space="preserve">
-    <value>Options de connexion sociale</value>
-  </data>
-  <data name="StatelessAuth_Integration_Title" xml:space="preserve">
-    <value>💡 Intégration avec le partiel de connexion utilisateur</value>
-  </data>
-  <data name="StatelessAuth_Integration_Description1" xml:space="preserve">
-    <value />
-  </data>
-  <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
-    <value />
   </data>
   <data name="Modal_Notes_6" xml:space="preserve">
     <value>Le composant &lt;code&gt;&amp;lt;fdcp-modal&amp;gt;&lt;/code&gt; gère nativement ses exigences d'accessibilité WCAG 2.2.</value>
@@ -2378,5 +2267,459 @@
   </data>
   <data name="Accordion_Properties_FdcpAccordion_AlwaysOpen" xml:space="preserve">
     <value>Lorsque la valeur est &lt;code&gt;true&lt;/code&gt;, permet à plusieurs sections de l’accordéon de demeurer ouvertes en même temps.</value>
+  </data>
+  <data name="Index_FeaturedComponents_Title" xml:space="preserve">
+    <value>Composants en vedette</value>
+  </data>
+  <data name="Code_Name" xml:space="preserve">
+    <value>Code</value>
+  </data>
+  <data name="Code_Overview" xml:space="preserve">
+    <value>Afficher du code avec coloration syntaxique et un bouton de copie. Le même composant affiche un seul extrait ou plusieurs langages. Le sélecteur de langage n'apparaît que lorsqu'il y a plus d'un langage. Un thème sombre est offert.</value>
+  </data>
+  <data name="Index_Code_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Extraits de code avec coloration syntaxique, copie, un sélecteur de langage facultatif et un thème sombre facultatif.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Autre(s) nom(s)&amp;nbsp;: bloc de code, exemple de code&lt;/em&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Code_Purpose" xml:space="preserve">
+    <value>Aider les développeurs à lire et à réutiliser des exemples de code. Les applications fournissent le texte source et les langages; le composant gère la coloration, la copie, le choix du langage, le thème, l'accessibilité et le style.</value>
+  </data>
+  <data name="Code_WhenUse1" xml:space="preserve">
+    <value>Vous devez afficher un extrait de code, un fichier de configuration ou une requête ou réponse d'API.</value>
+  </data>
+  <data name="Code_WhenUse2" xml:space="preserve">
+    <value>Vous souhaitez afficher le même exemple dans plusieurs langages de programmation.</value>
+  </data>
+  <data name="Code_WhenNot1" xml:space="preserve">
+    <value>Le code est court et se trouve dans une phrase. Utilisez plutôt l'élément code.</value>
+  </data>
+  <data name="Code_WhenNot2" xml:space="preserve">
+    <value>Le code contient des secrets ou de vrais identifiants. Utilisez des valeurs fictives comme YOUR_ACCESS_TOKEN.</value>
+  </data>
+  <data name="Code_Accessibility1" xml:space="preserve">
+    <value>Donnez un titre à chaque bloc de code ou placez-le sous un titre qui en explique l'objectif.</value>
+  </data>
+  <data name="Code_Accessibility2" xml:space="preserve">
+    <value>La zone de code reçoit le focus du clavier pour que les longues lignes défilent avec les touches fléchées.</value>
+  </data>
+  <data name="Code_Accessibility3" xml:space="preserve">
+    <value>Le sélecteur de langage est une liste GCDS étiquetée (gcds-select) et il est omis lorsqu'il n'y a qu'un seul langage. Après une copie réussie, une zone d'annonce polie indique que le code a été copié.</value>
+  </data>
+  <data name="Code_Accessibility4" xml:space="preserve">
+    <value>La couleur syntaxique renforce le code. Les personnes qui ne distinguent pas ces couleurs peuvent tout de même lire le texte. Les couleurs respectent le contraste minimal.</value>
+  </data>
+  <data name="Code_Ux1" xml:space="preserve">
+    <value>Gardez les exemples courts et ciblés. Faites un lien vers les fichiers complets au lieu de coller de longues sources.</value>
+  </data>
+  <data name="Code_Ux2" xml:space="preserve">
+    <value>Utilisez le même groupe de synchronisation pour les exemples d'une page qui partagent des langages, afin que le lecteur choisisse son langage une seule fois.</value>
+  </data>
+  <data name="Code_NoteLanguages" xml:space="preserve">
+    <value>Langages colorés : csharp, javascript, python, json, cshtml, markup (HTML), css, bash et aspnet. Les autres identifiants sont affichés en texte brut.</value>
+  </data>
+  <data name="Code_NoteEncoding" xml:space="preserve">
+    <value>Le code est toujours traité comme du texte et encodé une seule fois; il n'est jamais exécuté ni inséré comme HTML. Les fins de ligne sont normalisées en sauts de ligne.</value>
+  </data>
+  <data name="Code_NoteProgressive" xml:space="preserve">
+    <value>Sans JavaScript, chaque variante de langage est affichée avec son étiquette et les commandes de copie et de langage sont masquées. L'impression affiche aussi chaque variante.</value>
+  </data>
+  <data name="Code_NoteLimit" xml:space="preserve">
+    <value>La coloration commence lorsqu'un bloc devient visible. Le code de plus de 50 000 caractères est affiché sans coloration.</value>
+  </data>
+  <data name="Code_NoteTheme" xml:space="preserve">
+    <value>theme="dark" utilise un fond sombre et color-scheme: dark afin que Dark Reader n'inverse pas le bloc. Le thème par défaut est clair.</value>
+  </data>
+  <data name="Code_NoteDynamic" xml:space="preserve">
+    <value>Après avoir inséré des composants dans la page avec JavaScript, appelez FDCPCode.&lt;wbr&gt;initialize(conteneur). Initialiser de nouveau le même composant n'a aucun effet.</value>
+  </data>
+  <data name="Code_BlockTitle" xml:space="preserve">
+    <value>Bloc de code</value>
+  </data>
+  <data name="Code_BlockText" xml:space="preserve">
+    <value>&lt;p&gt;Utilisez &lt;code&gt;fdcp-code&lt;/code&gt; pour un seul extrait. Passez la source dans l'attribut &lt;code&gt;code&lt;/code&gt;, ou écrivez-la comme contenu enfant encodé : la première et la dernière ligne vides ainsi que l'indentation commune sont retirées. Avec un seul langage, le sélecteur de langage n'est pas affiché.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_ExampleTitle" xml:space="preserve">
+    <value>Exemple multilangage</value>
+  </data>
+  <data name="Code_ExampleText" xml:space="preserve">
+    <value>&lt;p&gt;Passez &lt;code&gt;examples&lt;/code&gt; au même composant &lt;code&gt;fdcp-code&lt;/code&gt; pour afficher un exemple dans plusieurs langages. Le sélecteur de langage n'apparaît que dans ce cas. Les deux exemples ci-dessous partagent un groupe de synchronisation : changer le langage de l'un change celui de l'autre. Le deuxième exemple offre aussi Bash; le choisir ne modifie pas le premier exemple.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_DarkTitle" xml:space="preserve">
+    <value>Thème sombre</value>
+  </data>
+  <data name="Code_DarkText" xml:space="preserve">
+    <value>&lt;p&gt;Définissez &lt;code&gt;theme="dark"&lt;/code&gt; pour un fond sombre. Le bloc utilise &lt;code&gt;color-scheme: dark&lt;/code&gt;, afin que Dark Reader laisse les couleurs telles quelles au lieu de les inverser. Les couleurs syntaxiques respectent le contraste minimal du texte.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_FallbackTitle" xml:space="preserve">
+    <value>Texte brut et retour à la ligne</value>
+  </data>
+  <data name="Code_FallbackText" xml:space="preserve">
+    <value>&lt;p&gt;Les langages inconnus sont affichés en texte brut. Utilisez &lt;code&gt;wrap="true"&lt;/code&gt; pour les longues lignes plus faciles à lire avec retour à la ligne, et &lt;code&gt;copy-enabled="false"&lt;/code&gt; lorsque la copie n'est pas utile.&lt;/p&gt;</value>
+  </data>
+  <data name="Code_SampleResponseTitle" xml:space="preserve">
+    <value>Exemple de réponse</value>
+  </data>
+  <data name="Code_SampleRegistrationTitle" xml:space="preserve">
+    <value>Inscrire les services de Foundation</value>
+  </data>
+  <data name="Code_SampleCreateTitle" xml:space="preserve">
+    <value>Créer une demande</value>
+  </data>
+  <data name="Code_SampleReadTitle" xml:space="preserve">
+    <value>Consulter une demande</value>
+  </data>
+  <data name="Code_SampleLogTitle" xml:space="preserve">
+    <value>Journal de l'application</value>
+  </data>
+  <data name="Code_SampleRequestTitle" xml:space="preserve">
+    <value>Demande d'accès à l'information</value>
+  </data>
+  <data name="Code_PropCode" xml:space="preserve">
+    <value>Texte source. S'il est omis, le contenu enfant encodé est utilisé.</value>
+  </data>
+  <data name="Code_PropCopyEnabled" xml:space="preserve">
+    <value>Affiche le bouton de copie.</value>
+  </data>
+  <data name="Code_PropId" xml:space="preserve">
+    <value>Identifiant du composant. Généré s'il est omis.</value>
+  </data>
+  <data name="Code_PropCodeLanguage" xml:space="preserve">
+    <value>Identifiant du langage de code, par exemple csharp, javascript, python ou json. Les langages inconnus sont affichés en texte brut.</value>
+  </data>
+  <data name="Code_PropCodeLanguageLabel" xml:space="preserve">
+    <value>Nom affiché du langage de code. Déduit de code-language s'il est omis.</value>
+  </data>
+  <data name="Code_PropTheme" xml:space="preserve">
+    <value>light ou dark. dark utilise un fond sombre et color-scheme: dark. La valeur par défaut est light.</value>
+  </data>
+  <data name="Code_PropTitle" xml:space="preserve">
+    <value>Titre visible, aussi utilisé pour nommer la zone de code et le bouton de copie.</value>
+  </data>
+  <data name="Code_PropWrap" xml:space="preserve">
+    <value>Renvoie les longues lignes à la ligne au lieu de les faire défiler horizontalement.</value>
+  </data>
+  <data name="Code_PropExamples" xml:space="preserve">
+    <value>Variantes de langage (CodeSample : Language, Label, Code). Les langages doivent être uniques. Le sélecteur de langage n'apparaît que lorsqu'il y a plus d'une variante.</value>
+  </data>
+  <data name="Code_PropSelectedCodeLanguage" xml:space="preserve">
+    <value>Langage de code affiché en premier. Par défaut, le premier exemple.</value>
+  </data>
+  <data name="Code_PropSyncGroup" xml:space="preserve">
+    <value>Les exemples d'une page ayant le même groupe changent de langage ensemble.</value>
+  </data>
+  <data name="StatelessAuth_CurrentStatus_Title" xml:space="preserve">
+    <value>Statut d'authentification actuel</value>
+  </data>
+  <data name="StatelessAuth_NotAuthenticated_Message" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_NotAuthenticated_Description" xml:space="preserve">
+    <value>Remarquez comment le partiel de compte se mettra à jour automatiquement après la connexion.</value>
+  </data>
+  <data name="StatelessAuth_CookieDemo_Title" xml:space="preserve">
+    <value>Démonstration d'authentification par cookie</value>
+  </data>
+  <data name="StatelessAuth_CookieDemo_Description" xml:space="preserve">
+    <value>Testez l'authentification basée sur les cookies sans sessions serveur. Toutes les données utilisateur proviennent des revendications dans le cookie d'authentification.</value>
+  </data>
+  <data name="StatelessAuth_LoggedIn_Text" xml:space="preserve">
+    <value>Vous êtes connecté ! Cliquez sur déconnexion pour effacer le cookie d'authentification.</value>
+  </data>
+  <data name="StatelessAuth_LoggedOut_Text" xml:space="preserve">
+    <value>Ceci créera un cookie d'authentification avec des revendications utilisateur (aucun stockage de session).</value>
+  </data>
+  <data name="StatelessAuth_Login_Button" xml:space="preserve">
+    <value>🔐 Connexion avec authentification par cookie</value>
+  </data>
+  <data name="StatelessAuth_Logout_Button" xml:space="preserve">
+    <value>🚪 Déconnexion</value>
+  </data>
+  <data name="StatelessAuth_TechnicalInfo_Title" xml:space="preserve">
+    <value>Informations techniques</value>
+  </data>
+  <data name="StatelessAuth_HowItWorks" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_Benefit_Claims" xml:space="preserve">
+    <value>✅ Revendications stockées dans le cookie d'authentification</value>
+  </data>
+  <data name="StatelessAuth_Benefit_NoSessions" xml:space="preserve">
+    <value>✅ Aucun stockage de session côté serveur requis</value>
+  </data>
+  <data name="StatelessAuth_Benefit_Azure" xml:space="preserve">
+    <value>✅ Mise à l'échelle automatique dans le cloud Azure</value>
+  </data>
+  <data name="StatelessAuth_Benefit_LoadBalanced" xml:space="preserve">
+    <value>✅ Fonctionne sur des serveurs équilibrés en charge</value>
+  </data>
+  <data name="StatelessAuth_ViewClaims_Button" xml:space="preserve">
+    <value>📊 Voir les revendications actuelles</value>
+  </data>
+  <data name="StatelessAuth_CheckAuth_Button" xml:space="preserve">
+    <value>⚡ Vérifier le statut d'authentification</value>
+  </data>
+  <data name="StatelessAuth_DemoResults_Title" xml:space="preserve">
+    <value>Résultats de la démonstration</value>
+  </data>
+  <data name="StatelessAuth_Methods_Title" xml:space="preserve">
+    <value>Méthodes d'authentification sans état disponibles</value>
+  </data>
+  <data name="StatelessAuth_Methods_Description" xml:space="preserve">
+    <value>La fondation GC prend en charge plusieurs approches d'authentification sans état pour le déploiement cloud Azure :</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Title" xml:space="preserve">
+    <value>🍪 Authentification par cookie</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Description" xml:space="preserve">
+    <value>Utilise des cookies d'authentification avec des revendications (aucune session serveur). ✅ Recommandé pour la plupart des applications web.</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit1" xml:space="preserve">
+    <value>Aucun stockage côté serveur requis</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit2" xml:space="preserve">
+    <value>Mise à l'échelle automatique dans Azure</value>
+  </data>
+  <data name="StatelessAuth_CookieAuth_Benefit3" xml:space="preserve">
+    <value>Fonctionne sur des serveurs équilibrés en charge</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Title" xml:space="preserve">
+    <value>🏢 Intégration Azure AD</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Description" xml:space="preserve">
+    <value>Authentification d'entreprise avec la plateforme d'identité Microsoft. Parfait pour les applications gouvernementales.</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit1" xml:space="preserve">
+    <value>Authentification unique (SSO)</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit2" xml:space="preserve">
+    <value>Authentification multifacteur</value>
+  </data>
+  <data name="StatelessAuth_AzureAD_Benefit3" xml:space="preserve">
+    <value>Intégration Office 365</value>
+  </data>
+  <data name="StatelessAuth_JWT_Title" xml:space="preserve">
+    <value>🔑 Jetons JWT</value>
+  </data>
+  <data name="StatelessAuth_JWT_Description" xml:space="preserve">
+    <value>Authentification API sans état utilisant des jetons Web JSON. Idéal pour les microservices et APIs.</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit1" xml:space="preserve">
+    <value>Complètement sans état</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit2" xml:space="preserve">
+    <value>Compatibilité multiplateforme</value>
+  </data>
+  <data name="StatelessAuth_JWT_Benefit3" xml:space="preserve">
+    <value>Peut être vérifié indépendamment</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Title" xml:space="preserve">
+    <value>🌐 Fournisseurs OAuth</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Description" xml:space="preserve">
+    <value>Fournisseurs d'authentification externes (Google, GitHub, etc.). Bon pour les applications publiques.</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit1" xml:space="preserve">
+    <value>Aucune gestion d'identifiants</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit2" xml:space="preserve">
+    <value>Commodité utilisateur</value>
+  </data>
+  <data name="StatelessAuth_OAuth_Benefit3" xml:space="preserve">
+    <value>Options de connexion sociale</value>
+  </data>
+  <data name="StatelessAuth_Integration_Title" xml:space="preserve">
+    <value>💡 Intégration avec le partiel de compte</value>
+  </data>
+  <data name="StatelessAuth_Integration_Description1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="StatelessAuth_Integration_Description2" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Search" xml:space="preserve">
+    <value>Affiche un composant de recherche du système de design GC avec action, méthode et paramètres d'entrée configurables.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Details" xml:space="preserve">
+    <value>Affiche une section de détails repliable avec un titre et un état ouvert par défaut optionnel.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_DateModified" xml:space="preserve">
+    <value>Affiche les métadonnées de date de modification et prend en charge les types date ou version.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Input" xml:space="preserve">
+    <value>Affiche un champ FDCP lié au modèle et choisit le contrôle GCDS approprié selon le type de donnée.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Select" xml:space="preserve">
+    <value>Affiche une liste déroulante FDCP liée à partir des éléments fournis.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Radios" xml:space="preserve">
+    <value>Affiche un groupe de boutons radio FDCP lié à partir des éléments fournis.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Checkbox" xml:space="preserve">
+    <value>Affiche une case à cocher FDCP unique liée.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Checkboxes" xml:space="preserve">
+    <value>Affiche un groupe de cases à cocher FDCP lié à partir des éléments fournis.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_ErrorSummary" xml:space="preserve">
+    <value>Affiche un résumé des erreurs de validation du formulaire.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_RichText" xml:space="preserve">
+    <value>Affiche un éditeur de texte enrichi lié avec barre d'outils configurable.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_SessionModal" xml:space="preserve">
+    <value>Affiche un flux de modal d'expiration de session avec actions de rafraîchissement et de déconnexion.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Tab" xml:space="preserve">
+    <value>Définit un panneau d'onglet individuel utilisé dans fdcp-tabs.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_ModalBody" xml:space="preserve">
+    <value>Définit la zone de contenu principal dans un modal FDCP.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_ModalFooter" xml:space="preserve">
+    <value>Définit la zone d'actions de pied dans un modal FDCP.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Alert" xml:space="preserve">
+    <value>Affiche une alerte du Système de design GC pour communiquer des renseignements importants à l'utilisateur.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Breadcrumbs" xml:space="preserve">
+    <value>Affiche un conteneur de fil d'Ariane GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_BreadcrumbsItem" xml:space="preserve">
+    <value>Affiche un élément de fil d'Ariane dans gcds-breadcrumbs.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Button" xml:space="preserve">
+    <value>Affiche un bouton GCDS avec type, rôle et style configurables.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Card" xml:space="preserve">
+    <value>Affiche une carte de contenu GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Checkboxes" xml:space="preserve">
+    <value>Affiche un groupe de cases à cocher GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Container" xml:space="preserve">
+    <value>Affiche un conteneur de mise en page GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_DateInput" xml:space="preserve">
+    <value>Affiche un contrôle de saisie de date GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_ErrorMessage" xml:space="preserve">
+    <value>Affiche un message d'erreur en ligne pour un champ.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_ErrorSummary" xml:space="preserve">
+    <value>Affiche un résumé des erreurs de validation du formulaire.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Fieldset" xml:space="preserve">
+    <value>Affiche un conteneur fieldset avec légende et aide.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Footer" xml:space="preserve">
+    <value>Affiche le composant de pied de page du Système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Grid" xml:space="preserve">
+    <value>Affiche une grille de mise en page GCDS responsive.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Header" xml:space="preserve">
+    <value>Affiche le composant d'en-tête du Système de design GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Heading" xml:space="preserve">
+    <value>Affiche un titre sémantique stylisé par GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Icon" xml:space="preserve">
+    <value>Affiche une icône GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Input" xml:space="preserve">
+    <value>Affiche un champ de saisie texte GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_LangToggle" xml:space="preserve">
+    <value>Affiche un lien de bascule de langue.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Link" xml:space="preserve">
+    <value>Affiche un lien stylisé GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_NavGroup" xml:space="preserve">
+    <value>Affiche une section de navigation groupée dans les composants de navigation GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_NavLink" xml:space="preserve">
+    <value>Affiche un lien de navigation dans les composants de navigation GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Notice" xml:space="preserve">
+    <value>Affiche une bannière d'avis contextuel.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Pagination" xml:space="preserve">
+    <value>Affiche un contrôle de pagination pour des résultats multi-pages.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Radios" xml:space="preserve">
+    <value>Affiche un groupe de boutons radio GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Select" xml:space="preserve">
+    <value>Affiche une liste déroulante GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_SideNav" xml:space="preserve">
+    <value>Affiche un conteneur de navigation latérale.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Signature" xml:space="preserve">
+    <value>Affiche un bloc de signature GC.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_SrOnly" xml:space="preserve">
+    <value>Affiche du contenu visible uniquement par les technologies d'assistance.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Stepper" xml:space="preserve">
+    <value>Affiche un composant d'indicateur d'étapes.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Table" xml:space="preserve">
+    <value>Affiche un composant de tableau GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Text" xml:space="preserve">
+    <value>Affiche un bloc de texte GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_Textarea" xml:space="preserve">
+    <value>Affiche une zone de texte multiligne GCDS.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_TopicMenu" xml:space="preserve">
+    <value>Affiche un menu de navigation thématique sur la page.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_GCDS_TopNav" xml:space="preserve">
+    <value>Affiche le composant de navigation supérieure.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Accordion" xml:space="preserve">
+    <value>Affiche un accordéon avec des sections extensibles et un bouton pour tout ouvrir ou tout fermer.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Badge" xml:space="preserve">
+    <value>Affiche un badge personnalisable avec styles, bouton de fermeture et contenu de début ou de fin.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Card" xml:space="preserve">
+    <value>Affiche une carte flexible avec en-tête, corps, pied, images et mises en page inspirées de Bootstrap.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_FiltersBox" xml:space="preserve">
+    <value>Affiche un panneau de filtres avec catégories repliables pour le filtrage de données.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_FormBuilder" xml:space="preserve">
+    <value>Affiche un générateur de formulaire dynamique à partir d'une définition de formulaire.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Form" xml:space="preserve">
+    <value>Affiche un formulaire lié à un modèle, avec méthode, action et résumé des erreurs de validation.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Modal" xml:space="preserve">
+    <value>Affiche une fenêtre modale autonome à utiliser dans les vues Razor.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_PageHeading" xml:space="preserve">
+    <value>Affiche un en-tête de page de style GC avec titre, description et image d'arrière-plan facultative.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_SearchableSelect" xml:space="preserve">
+    <value>Affiche une liste déroulante avec recherche, prenant en charge la sélection simple ou multiple.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Stepper" xml:space="preserve">
+    <value>Affiche un indicateur d'étapes pour les processus à plusieurs étapes, avec états complété, actif et à venir.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Tabs" xml:space="preserve">
+    <value>Affiche une navigation par onglets pour basculer entre des panneaux de contenu dans la page.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Table" xml:space="preserve">
+    <value>Affiche un tableau de données à partir de modèles de lignes ou de définitions de colonnes explicites.</value>
+  </data>
+  <data name="Index_TagHelpers_Description_FDCP_Code" xml:space="preserve">
+    <value>Affiche du code avec coloration syntaxique, un titre facultatif et un bouton de copie. Un seul extrait, ou plusieurs langages avec l'attribut examples. Le sélecteur de langage n'apparaît que lorsqu'il y a plus d'un langage. Le thème dark donne un fond sombre que Dark Reader n'inverse pas.</value>
+  </data>
+  <data name="Index_Code_Title" xml:space="preserve">
+    <value>Code</value>
   </data>
 </root>

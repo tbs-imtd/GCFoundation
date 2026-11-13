@@ -6,6 +6,15 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// Represents a navigation group for use in a webpage's navigation structure.
     /// This group can contain multiple links and can be dynamically opened or closed.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-side-nav label=&quot;Section&quot;&gt;
+    ///     &lt;gcds-nav-group menu-label=&quot;Services&quot; open-trigger=&quot;Services&quot;&gt;
+    ///         &lt;gcds-nav-link href=&quot;/apply&quot;&gt;Apply&lt;/gcds-nav-link&gt;
+    ///     &lt;/gcds-nav-group&gt;
+    /// &lt;/gcds-side-nav&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-nav-group")]
     public class NavGoupTagHelper : BaseTagHelper
     {

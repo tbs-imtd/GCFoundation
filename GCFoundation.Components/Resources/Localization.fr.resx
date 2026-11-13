@@ -267,4 +267,26 @@
   <data name="Collapse_All" xml:space="preserve">
     <value>Réduire tout</value>
   </data>
+  <data name="Code_Copy" xml:space="preserve">
+    <value>Copier le code</value>
+  </data>
+  <data name="Code_Copied" xml:space="preserve">
+    <value>Code copié dans le presse-papiers.</value>
+  </data>
+  <data name="Code_CopiedLabel" xml:space="preserve">
+    <value>Copié!</value>
+  </data>
+  <data name="Code_CopyFailed" xml:space="preserve">
+    <value>Le code n'a pas pu être copié automatiquement. Le code est sélectionné : appuyez sur Ctrl+C (Commande+C sur un Mac) pour le copier.</value>
+  </data>
+  <data name="Code_LanguageSelect" xml:space="preserve">
+    <value>Langage du code</value>
+  </data>
+  <data name="Code_PlainText" xml:space="preserve">
+    <value>Texte brut</value>
+  </data>
+  <data name="Code_RegionLabel" xml:space="preserve">
+    <value>Code {0}</value>
+    <comment>{0} est le nom du langage, par exemple C#.</comment>
+  </data>
 </root>

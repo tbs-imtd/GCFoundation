@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Resources;
+using GCFoundation.Components.Resources;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.Extensions.Localization;
 
@@ -8,6 +8,19 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// A TagHelper that renders a session modal for managing session timeouts and reminders.
     /// It extends the <see cref="FDCPModalTagHelper"/> and adds additional attributes for session handling.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-session-modal modal-id=&quot;session-extend-modal&quot; title=&quot;Your session is about to expire&quot; static-backdrop hide-close-button session-timeout=&quot;3600&quot; reminder-time=&quot;300&quot; refresh-url=&quot;/authentication/refresh&quot; logout-url=&quot;/authentication/logout&quot;&gt;
+    ///     &lt;div slot=&quot;body&quot;&gt;
+    ///         &lt;gcds-text&gt;Your session will expire soon. Stay signed in or log out.&lt;/gcds-text&gt;
+    ///     &lt;/div&gt;
+    ///     &lt;div slot=&quot;footer&quot;&gt;
+    ///         &lt;gcds-button button-id=&quot;session-extend-refresh-btn&quot; button-role=&quot;primary&quot;&gt;Stay signed in&lt;/gcds-button&gt;
+    ///         &lt;gcds-button button-id=&quot;session-extend-logout-btn&quot; button-role=&quot;danger&quot; type=&quot;link&quot; href=&quot;/authentication/logout&quot;&gt;Log out&lt;/gcds-button&gt;
+    ///     &lt;/div&gt;
+    /// &lt;/fdcp-session-modal&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-session-modal")]
     public class FDCPSessionModalTagHelper(IStringLocalizer<Modal> localizer) : FDCPModalTagHelper(localizer) 
     {

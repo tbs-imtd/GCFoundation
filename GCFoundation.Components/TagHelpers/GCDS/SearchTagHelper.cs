@@ -7,6 +7,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A TagHelper that renders a GC Design System search component as a <c>&lt;gcds-search&gt;</c> element.
     /// The search component is used to create a search input field with customizable action, method, and other options.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-search action=&quot;/search&quot; method=&quot;get&quot; name=&quot;q&quot; search-id=&quot;search&quot;&gt;&lt;/gcds-search&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-search")]
     public class SearchTagHelper : BaseTagHelper
     {

@@ -8,6 +8,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// A tag helper for rendering a summary of error messages with links to specific error details.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-error-summary heading=&quot;There is a problem&quot; listen=&quot;true&quot; error-links=&quot;@(new[] { new ErrorLink { Href = &quot;#email&quot;, Message = &quot;Enter a valid email&quot; } })&quot;&gt;&lt;/gcds-error-summary&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-error-summary")]
     public class ErrorSummaryTagHelper : BaseTagHelper
     {

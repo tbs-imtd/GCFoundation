@@ -6,6 +6,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// A tag helper for rendering a date modified element, which can display either the date or version type.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-date-modified type=&quot;date&quot;&gt;2026-08-19&lt;/gcds-date-modified&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-date-modified")]
     public class DateModifiedTagHelper : BaseTagHelper
     {

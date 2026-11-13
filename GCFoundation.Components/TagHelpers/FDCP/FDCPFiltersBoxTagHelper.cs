@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Models;
+using GCFoundation.Components.Models;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Globalization;
 using System.Text;
@@ -9,6 +9,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// A TagHelper that renders a filter panel with collapsible filter categories.
     /// Intended for use in FDCP (Filtered Data Control Panel) scenarios.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-filters-box title=&quot;Filters&quot; filters=&quot;@(new[] { new SearchFilterCategory { Title = &quot;Funding type&quot;, SearchFilterCategoryId = &quot;funding&quot;, Filters = new[] { new SearchFilterOption { Title = &quot;Grants&quot;, Count = 45, Name = &quot;grants&quot; } } } })&quot;&gt;
+    /// &lt;/fdcp-filters-box&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-filters-box")]
     public class FDCPFiltersBoxTagHelper : TagHelper
     {

@@ -7,6 +7,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A TagHelper that renders a GC Design System signature component as a <c>&lt;gcds-signature&gt;</c> element.
     /// Supports optional linking, type, and variant customization for the signature.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-signature type=&quot;signature&quot; has-link=&quot;true&quot;&gt;&lt;/gcds-signature&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-signature")]
     public class SignatureTagHelper : BaseTagHelper
     {

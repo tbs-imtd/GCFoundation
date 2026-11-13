@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Enums;
+using GCFoundation.Components.Enums;
 using GCFoundation.Components.Models;
 using GCFoundation.Components.Resources;
 using Microsoft.AspNetCore.Razor.TagHelpers;
@@ -12,13 +12,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// A tag helper that renders a step indicator/progress component for multi-step processes.
     /// Displays numbered steps with labels and indicates completed, active, and upcoming steps.
     /// </summary>
-    /// <remarks>
-    /// Usage example:
+    /// <example>
     /// <code>
-    /// &lt;fdcp-stepper current-step=&quot;2&quot; steps=&quot;@(new[] { new Step { StepNumber = 1, Status = StepStatus.completed }, new Step { StepNumber = 2, Status = StepStatus.InProgress }, new Step { StepNumber = 3, Status = StepStatus.NotStarted } })&quot;&gt;
+    /// &lt;fdcp-stepper current-step=&quot;2&quot; heading-tag=&quot;h3&quot;
+    ///     steps=&quot;@(new List&lt;StepperStep&gt; { new StepperStep { StepNumber = 1, Label = &quot;Step One&quot;, DisplayMode = StepperStepDisplayMode.Number }, new StepperStep { StepNumber = 2, Label = &quot;Step Two&quot;, DisplayMode = StepperStepDisplayMode.Number }, new StepperStep { StepNumber = 3, Label = &quot;Step Three&quot;, DisplayMode = StepperStepDisplayMode.Number } })&quot;&gt;
     /// &lt;/fdcp-stepper&gt;
     /// </code>
-    /// </remarks>
+    /// </example>
     [HtmlTargetElement("fdcp-stepper")]
     public class FDCPStepperTagHelper : TagHelper
     {

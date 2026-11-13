@@ -6,6 +6,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// A tag helper for rendering a custom button component within the application.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-button type=&quot;submit&quot; size=&quot;regular&quot; button-role=&quot;primary&quot;&gt;
+    ///     Save
+    /// &lt;/gcds-button&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-button")]
     public class ButtonTagHelper : BaseTagHelper
     {

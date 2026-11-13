@@ -152,6 +152,30 @@
   <data name="Index_Releases_Description" xml:space="preserve">
     <value>Review the latest preview releases, their key changes and installation details.</value>
   </data>
+  <data name="Index_Releases_Preview9_Date" xml:space="preserve">
+    <value>November 6, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview9_Description" xml:space="preserve">
+    <value>Adds code block and GCDS alert components, upgrades to GC Design System 1.7.0, and includes vulnerability scan fixes.</value>
+  </data>
+  <data name="Index_Releases_Preview8_Date" xml:space="preserve">
+    <value>October 19, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview8_Description" xml:space="preserve">
+    <value>Applies length and range validation attributes to FDCP inputs, fixes required field handling, and adds a login menu item to the dropdown.</value>
+  </data>
+  <data name="Index_Releases_Preview7_Date" xml:space="preserve">
+    <value>September 11, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview7_Description" xml:space="preserve">
+    <value>Adds dynamic Tag Helper documentation, resets searchable selects and rich text, and fixes radios and checkboxes.</value>
+  </data>
+  <data name="Index_Releases_Preview6_Date" xml:space="preserve">
+    <value>August 25, 2026</value>
+  </data>
+  <data name="Index_Releases_Preview6_Description" xml:space="preserve">
+    <value>Adds accordion and copy-button components, remakes the FDCP modal, and introduces a CRUD page template.</value>
+  </data>
   <data name="Index_Releases_Preview5_Date" xml:space="preserve">
     <value>July 27, 2026</value>
   </data>

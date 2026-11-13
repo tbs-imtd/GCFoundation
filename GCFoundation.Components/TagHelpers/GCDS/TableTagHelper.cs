@@ -5,6 +5,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// <summary>
     /// TagHelper for rendering a GC Design System compliant table component.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-table columns='[{&quot;field&quot;:&quot;name&quot;,&quot;header&quot;:&quot;Name&quot;}]' data='[{&quot;name&quot;:&quot;Alice&quot;}]' filter=&quot;true&quot;&gt;&lt;/gcds-table&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-table")]
     public class TableTagHelper : BaseTagHelper
     {

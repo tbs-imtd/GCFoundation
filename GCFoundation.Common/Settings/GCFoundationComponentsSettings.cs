@@ -11,20 +11,28 @@ namespace GCFoundation.Common.Settings
     /// </summary>
     public class GCFoundationComponentsSettings
     {
+        private string? _fontAwesomeCssIntegrity;
+        private string? _gcdsCssIntegrity;
+        private string? _gcdsCssShortcutsIntegrity;
+        private string? _gcdsJavaScriptIntegrity;
+
         /// <summary>
         /// Gets or sets the version of Font Awesome being used.
+        /// Defaults to the version in <see cref="CdnIntegrityManifest"/>.
         /// </summary>
-        public string FontAwesomeVersion { get; set; } = "6.4.2";
+        public string FontAwesomeVersion { get; set; } = CdnIntegrityManifest.Current.FontAwesome.Version;
 
         /// <summary>
         /// Gets or sets the version of the GC Design System CSS Shortcuts being used.
+        /// Defaults to the version in <see cref="CdnIntegrityManifest"/>.
         /// </summary>
-        public string GCDSCssShortcutsVersion { get; set; } = "1.2.0";
+        public string GCDSCssShortcutsVersion { get; set; } = CdnIntegrityManifest.Current.GcdsCssShortcuts.Version;
 
         /// <summary>
         /// Gets or sets the version of the GC Design System being used.
+        /// Defaults to the version in <see cref="CdnIntegrityManifest"/>.
         /// </summary>
-        public string GCDSVersion { get; set; } = "1.3.1";
+        public string GCDSVersion { get; set; } = CdnIntegrityManifest.Current.Gcds.Version;
 
 
         /// <summary>
@@ -39,6 +47,16 @@ namespace GCFoundation.Common.Settings
         }
 
         /// <summary>
+        /// Gets or sets the Subresource Integrity hash for <see cref="FontAwesomeCDN"/>.
+        /// Defaults to the shipped hash when <see cref="FontAwesomeVersion"/> is the shipped version, otherwise empty.
+        /// </summary>
+        public string FontAwesomeCssIntegrity
+        {
+            get => _fontAwesomeCssIntegrity ?? ShippedIntegrity(CdnIntegrityManifest.Current.FontAwesome, FontAwesomeVersion, CdnIntegrityManifest.Current.FontAwesome.Css);
+            set => _fontAwesomeCssIntegrity = value;
+        }
+
+        /// <summary>
         /// Gets the URI for the GC Design System CSS from the CDN.
         /// </summary>
         public Uri GCDSCssCDN
@@ -47,6 +65,16 @@ namespace GCFoundation.Common.Settings
             {
                 return new Uri($"https://cdn.design-system.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.css");
             }
+        }
+
+        /// <summary>
+        /// Gets or sets the Subresource Integrity hash for <see cref="GCDSCssCDN"/>.
+        /// Defaults to the shipped hash when <see cref="GCDSVersion"/> is the shipped version, otherwise empty.
+        /// </summary>
+        public string GCDSCssIntegrity
+        {
+            get => _gcdsCssIntegrity ?? ShippedIntegrity(CdnIntegrityManifest.Current.Gcds, GCDSVersion, CdnIntegrityManifest.Current.Gcds.Css);
+            set => _gcdsCssIntegrity = value;
         }
 
         /// <summary>
@@ -61,6 +89,16 @@ namespace GCFoundation.Common.Settings
         }
 
         /// <summary>
+        /// Gets or sets the Subresource Integrity hash for <see cref="GCDSCssShortcutsCDN"/>.
+        /// Defaults to the shipped hash when <see cref="GCDSCssShortcutsVersion"/> is the shipped version, otherwise empty.
+        /// </summary>
+        public string GCDSCssShortcutsIntegrity
+        {
+            get => _gcdsCssShortcutsIntegrity ?? ShippedIntegrity(CdnIntegrityManifest.Current.GcdsCssShortcuts, GCDSCssShortcutsVersion, CdnIntegrityManifest.Current.GcdsCssShortcuts.Css);
+            set => _gcdsCssShortcutsIntegrity = value;
+        }
+
+        /// <summary>
         /// Gets the URI for the GC Design System JavaScript module from the CDN.
         /// </summary>
         public Uri GCDSJavaScriptCDN
@@ -69,6 +107,16 @@ namespace GCFoundation.Common.Settings
             {
                 return new Uri($"https://cdn.design-system.canada.ca/@gcds-core/components@{GCDSVersion}/dist/gcds/gcds.esm.js");
             }
+        }
+
+        /// <summary>
+        /// Gets or sets the Subresource Integrity hash for <see cref="GCDSJavaScriptCDN"/>.
+        /// Defaults to the shipped hash when <see cref="GCDSVersion"/> is the shipped version, otherwise empty.
+        /// </summary>
+        public string GCDSJavaScriptIntegrity
+        {
+            get => _gcdsJavaScriptIntegrity ?? ShippedIntegrity(CdnIntegrityManifest.Current.Gcds, GCDSVersion, CdnIntegrityManifest.Current.Gcds.JavaScript);
+            set => _gcdsJavaScriptIntegrity = value;
         }
 
 
@@ -193,5 +241,10 @@ namespace GCFoundation.Common.Settings
         /// Set to false to disable automatic inclusion of Font Awesome CSS from CDN.
         /// </summary>
         public bool IncludeFontAwesome { get; set; } = true;
+
+        private static string ShippedIntegrity(CdnPackageIntegrity shipped, string version, string hash)
+        {
+            return string.Equals(shipped.Version, version, StringComparison.Ordinal) ? hash : string.Empty;
+        }
     }
 }

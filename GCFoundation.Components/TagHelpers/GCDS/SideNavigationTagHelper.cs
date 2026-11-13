@@ -6,6 +6,13 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// A TagHelper that renders a GC Design System side navigation component as a <c>&lt;gcds-side-nav&gt;</c> element.
     /// The side navigation is typically used for displaying a list of navigation links on the side of the page.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-side-nav label=&quot;Section&quot;&gt;
+    ///     &lt;gcds-nav-link href=&quot;/apply&quot;&gt;Apply&lt;/gcds-nav-link&gt;
+    /// &lt;/gcds-side-nav&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("gcds-side-nav")]
     public class SideNavigationTagHelper : BaseTagHelper
     {

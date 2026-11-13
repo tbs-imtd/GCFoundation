@@ -1,4 +1,4 @@
-﻿@using GCFoundation.Common.Settings
+@using GCFoundation.Common.Settings
 @using GCFoundation.Components.Extensions
 @using GCFoundation.Components.Services.Interfaces
 @using Microsoft.Extensions.Options
@@ -6,6 +6,14 @@
 @model NavigationViewModel
 @inject IOptions<GCFoundationComponentsSettings> settings
 @inject ITopNavigationLocalizationService topNavigationLocalizationService
+@inject GCFoundation.Components.Services.AccountService accountService
+
+@{
+    string? accountPartialViewName = ViewData["AccountPartialViewName"] as string;
+    var headerAccountModel = string.IsNullOrEmpty(accountPartialViewName)
+        ? null
+        : accountService.CreateViewModelFromContext();
+}
 
 <div slot="menu">
     <gcds-top-nav>
@@ -43,5 +51,29 @@
                 }
             }
         }
+
+        @if (!string.IsNullOrEmpty(accountPartialViewName) && headerAccountModel?.IsAuthenticated == true)
+        {
+            if (string.Equals(accountPartialViewName, "_AccountPartial", StringComparison.Ordinal))
+            {
+                @await Html.PartialAsync(accountPartialViewName, headerAccountModel)
+            }
+            else
+            {
+                @await Html.PartialAsync(accountPartialViewName)
+            }
+        }
     </gcds-top-nav>
 </div>
+
+@if (!string.IsNullOrEmpty(accountPartialViewName) && headerAccountModel?.IsAuthenticated == false)
+{
+    if (string.Equals(accountPartialViewName, "_AccountPartial", StringComparison.Ordinal))
+    {
+        @await Html.PartialAsync(accountPartialViewName, headerAccountModel)
+    }
+    else
+    {
+        @await Html.PartialAsync(accountPartialViewName)
+    }
+}

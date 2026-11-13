@@ -11,6 +11,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// <summary>
     /// Renders a searchable select that supports single and multiple selection.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-searchable-select for=&quot;@Model.SearchableCountry&quot; items=&quot;@(new[] { new SelectListItem { Text = &quot;Canada&quot;, Value = &quot;CA&quot; }, new SelectListItem { Text = &quot;France&quot;, Value = &quot;FR&quot; } })&quot; label=&quot;Country&quot; default-value=&quot;Select a country&quot; search-placeholder=&quot;Search&quot;&gt;
+    /// &lt;/fdcp-searchable-select&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-searchable-select", Attributes = "for, items")]
     [HtmlTargetElement("fdcp-searchable-select", Attributes = "items, name")]
     public class FDCPSearchableSelectTagHelper : FDCPBaseFormComponentTagHelper

@@ -18,16 +18,13 @@
 
 <gcds-text class="mt-200">@Html.Raw(@Components.Table_WithLink_Note)</gcds-text>
 
-<div class="code-container">
-    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithLink_Caption)}"" rows=""@Model.Rows""&gt;
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithLink_Caption)}"" rows=""@Model.Rows""&gt;
     &lt;template slot=""cell:submissionLink""&gt;
         &lt;gcds-link data-bind-template=""{Html.Encode(Components.Table_WithLink_Label)} {{submitterName}}""
                    href=""#{Html.Encode(Components.Table_WithLink_Anchor)}""&gt;&lt;/gcds-link&gt;
     &lt;/template&gt;
-&lt;/fdcp-table&gt;")</code></pre>
-</div>
-<div class="code-container">
-    <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[TableColumnDefinition(Name = ""Table_Submitter_Name_Header"",
+&lt;/fdcp-table&gt;")</fdcp-code>
+<fdcp-code code-language="csharp">@Html.Raw(Html.Encode(@"[TableColumnDefinition(Name = ""Table_Submitter_Name_Header"",
                        ResourceType = typeof(Resources.Components),
                        RowHeader = true)]
 public string SubmitterName { get; set; } = string.Empty;
@@ -36,5 +33,4 @@ public string SubmitterName { get; set; } = string.Empty;
                        ResourceType = typeof(Resources.Components),
                        Slotted = true)]
 public string SubmissionLink { get; set; } = string.Empty;
-"))</code></pre>
-</div>
+"))</fdcp-code>

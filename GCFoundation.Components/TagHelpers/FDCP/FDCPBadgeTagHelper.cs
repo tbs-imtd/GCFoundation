@@ -1,4 +1,4 @@
-﻿using GCFoundation.Components.Enums;
+using GCFoundation.Components.Enums;
 using HtmlAgilityPack;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Text;
@@ -9,6 +9,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// A tag helper that renders a customizable badge component using the GC Design System.
     /// Supports styles, dismissible button, inversion, and start/end content via props or slot elements.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;fdcp-badge style=&quot;info&quot;&gt;
+    ///     New
+    /// &lt;/fdcp-badge&gt;
+    /// </code>
+    /// </example>
     [HtmlTargetElement("fdcp-badge")]
     public class FDCPBadgeTagHelper : TagHelper
     {
