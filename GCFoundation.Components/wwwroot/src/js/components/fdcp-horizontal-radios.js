@@ -42,7 +42,15 @@ class FDCPHorizontalRadios {
     bindCardSelection() {
         this.cards.forEach(card => {
             card.addEventListener('click', event => {
-                if (!window.matchMedia('(width < 64em)').matches
+                const usesWholeCardSelection = window.matchMedia(
+                    '(width < 64em)'
+                ).matches || this.element.classList.contains(
+                    'fdcp-horizontal-radios--tablet-layout'
+                ) || this.element.classList.contains(
+                    'fdcp-horizontal-radios--mobile-layout'
+                );
+
+                if (!usesWholeCardSelection
                     || event.target.closest('input, label')) {
                     return;
                 }
@@ -64,6 +72,7 @@ class FDCPHorizontalRadios {
         }
 
         this.horizontalLayoutMedia = window.matchMedia('(width >= 48em)');
+        this.desktopLayoutMedia = window.matchMedia('(width >= 64em)');
         this.lastObservedWidth = null;
         this.labelLayoutFrame = null;
 
@@ -89,6 +98,7 @@ class FDCPHorizontalRadios {
         });
         this.labelLayoutObserver.observe(this.element);
         this.horizontalLayoutMedia.addEventListener('change', scheduleUpdate);
+        this.desktopLayoutMedia.addEventListener('change', scheduleUpdate);
 
         document.fonts?.ready.then(scheduleUpdate);
         scheduleUpdate();
@@ -96,13 +106,42 @@ class FDCPHorizontalRadios {
 
     updateResponsiveLabelLayout() {
         const stackedClass = 'fdcp-horizontal-radios--stacked-labels';
-        this.element.classList.remove(stackedClass);
+        const tabletClass = 'fdcp-horizontal-radios--tablet-layout';
+        const mobileClass = 'fdcp-horizontal-radios--mobile-layout';
+        this.element.classList.remove(
+            stackedClass,
+            tabletClass,
+            mobileClass
+        );
         this.resetCardDimensions();
 
         if (!this.horizontalLayoutMedia.matches) {
             return;
         }
 
+        const cardsWrap = this.applyHorizontalCardLayout(stackedClass);
+        if (!cardsWrap) {
+            return;
+        }
+
+        if (this.desktopLayoutMedia.matches) {
+            this.element.classList.add(tabletClass);
+            this.element.classList.remove(stackedClass);
+            this.resetCardDimensions();
+
+            if (!this.applyHorizontalCardLayout(stackedClass)) {
+                return;
+            }
+
+            this.element.classList.remove(tabletClass, stackedClass);
+        }
+
+        this.element.classList.add(mobileClass);
+        this.element.classList.remove(stackedClass);
+        this.resetCardDimensions();
+    }
+
+    applyHorizontalCardLayout(stackedClass) {
         const anyLabelWrapped = this.labelTexts.some(text => {
             const label = text.closest('.fdcp-horizontal-radios__label');
             if (!label) {
@@ -115,7 +154,7 @@ class FDCPHorizontalRadios {
         });
 
         this.element.classList.toggle(stackedClass, anyLabelWrapped);
-        this.matchCardDimensions();
+        return this.matchCardDimensions();
     }
 
     resetCardDimensions() {
@@ -129,7 +168,7 @@ class FDCPHorizontalRadios {
 
     matchCardDimensions() {
         if (!this.grid || this.cards.length === 0) {
-            return;
+            return false;
         }
 
         this.cards.forEach(card => {
@@ -173,6 +212,8 @@ class FDCPHorizontalRadios {
         this.cards.forEach(card => {
             card.style.minHeight = `${maximumHeight}px`;
         });
+
+        return columnCount < this.cards.length;
     }
 
     bindValidation() {

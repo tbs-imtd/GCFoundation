@@ -3268,11 +3268,29 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Does not apply.
+        /// </summary>
+        public static string HorizontalRadios_Standalone_DoesNotApply {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Standalone_DoesNotApply", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Select one option..
         /// </summary>
         public static string HorizontalRadios_Standalone_Hint {
             get {
                 return ResourceManager.GetString("HorizontalRadios_Standalone_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question 2 of 4.
+        /// </summary>
+        public static string HorizontalRadios_Standalone_Index {
+            get {
+                return ResourceManager.GetString("HorizontalRadios_Standalone_Index", resourceCulture);
             }
         }
         

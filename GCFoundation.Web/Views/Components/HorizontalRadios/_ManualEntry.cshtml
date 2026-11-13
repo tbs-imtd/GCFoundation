@@ -7,12 +7,15 @@
         new() { Text = Components.HorizontalRadios_Standalone_Never, Value = "never" },
         new() { Text = Components.HorizontalRadios_Standalone_Rarely, Value = "rarely" },
         new() { Text = Components.HorizontalRadios_Standalone_Sometimes, Value = "sometimes" },
-        new() { Text = Components.HorizontalRadios_Standalone_Often, Value = "often" }
+        new() { Text = Components.HorizontalRadios_Standalone_Often, Value = "often" },
+        new() { Text = Components.HorizontalRadios_Standalone_DoesNotApply, Value = "does not apply" }
     };
 }
 
 <fdcp-horizontal-radios items="@frequencyOptions"
                         name="service-use-frequency"
+                        index="@Components.HorizontalRadios_Standalone_Index"
+                        display-index="true"
                         legend="@Components.HorizontalRadios_Standalone_Legend"
                         hint="@Components.HorizontalRadios_Standalone_Hint"
                         required="true" />
@@ -25,12 +28,16 @@
         new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Standalone_Never)}"", Value = ""never"" }},
         new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Standalone_Rarely)}"", Value = ""rarely"" }},
         new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Standalone_Sometimes)}"", Value = ""sometimes"" }},
-        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Standalone_Often)}"", Value = ""often"" }}
+        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Standalone_Often)}"", Value = ""often"" }},
+        new() {{ Text = ""{Html.Encode(Components.HorizontalRadios_Standalone_DoesNotApply)}"", Value = ""does not apply"" }}
+
     }};
 }}
 
 &lt;fdcp-horizontal-radios items=""@frequencyOptions""
                         name=""service-use-frequency""
+                        index=""{Html.Encode(Components.HorizontalRadios_Standalone_Index)}""
+                        display-index=""true""
                         legend=""{Html.Encode(Components.HorizontalRadios_Standalone_Legend)}""
                         hint=""{Html.Encode(Components.HorizontalRadios_Standalone_Hint)}""
                         required=""true"" /&gt;")</code></pre>

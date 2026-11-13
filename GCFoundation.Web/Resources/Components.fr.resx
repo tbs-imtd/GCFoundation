@@ -628,6 +628,9 @@
   <data name="HorizontalRadios_Standalone_Legend" xml:space="preserve">
     <value>À quelle fréquence utilisez-vous ce service?</value>
   </data>
+  <data name="HorizontalRadios_Standalone_Index" xml:space="preserve">
+    <value>Question 2 sur 4</value>
+  </data>
   <data name="HorizontalRadios_Standalone_Hint" xml:space="preserve">
     <value>Sélectionnez une option.</value>
   </data>
@@ -642,6 +645,9 @@
   </data>
   <data name="HorizontalRadios_Standalone_Often" xml:space="preserve">
     <value>Souvent</value>
+  </data>
+  <data name="HorizontalRadios_Standalone_DoesNotApply" xml:space="preserve">
+    <value>Ne s’applique pas</value>
   </data>
   <data name="Index_SearchableSelect_Title" xml:space="preserve">
     <value>Sélecteur avec recherche</value>
