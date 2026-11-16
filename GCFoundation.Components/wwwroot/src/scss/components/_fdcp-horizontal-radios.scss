@@ -17,6 +17,10 @@
         }
     }
 
+    &:not(:has(&__hint)) &__legend {
+        margin-block-end: var(--gcds-spacing-200);
+    }
+
     &__required {
         font: var(--gcds-radio-legend-required-font-desktop);
 
@@ -46,6 +50,7 @@
     }
 
     &__grid {
+        clear: both;
         grid-template-columns: minmax(0, 1fr);
         gap: var(--gcds-grid-gap-200);
     }
@@ -56,6 +61,7 @@
         border: var(--gcds-container-border);
         border-color: var(--gcds-color-grayscale-100);
         border-radius: 0.75rem;
+        margin: var(--gcds-radio-margin);
     }
 
     &__card {
@@ -446,10 +452,6 @@
     .fdcp-horizontal-radios__card {
         border-color: var(--gcds-radio-danger-border);
     }
-}
-
-.fdcp-horizontal-radios__outer:has(.fdcp-horizontal-radios--error) {
-    border-color: var(--gcds-radio-danger-border);
 }
 
 @media (forced-colors: active) {

@@ -33,12 +33,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         [HtmlAttributeName("index")]
         public string? Index { get; set; }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether the index text is displayed.
-        /// </summary>
-        [HtmlAttributeName("display-index")]
-        public bool DisplayIndex { get; set; }
-
         /// <inheritdoc />
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
@@ -56,7 +50,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string legendId = $"{componentId}_legend";
             string hintId = $"{componentId}_hint";
             string errorId = $"{componentId}_error";
-            string requiredMessage = ValidationResources.Field_Required_Generic;
+            string requiredMessage = ValidationResources.HorizontalRadios_Required;
             string requiredSummaryMessage = ValidationResources.Field_Required_Summary.Replace(
                 "{0}",
                 field.Label,
@@ -97,7 +91,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             }
 
             var html = new StringBuilder();
-            AppendLegend(html, field, legendId, isRequired, Index, DisplayIndex);
+            AppendLegend(html, field, legendId, isRequired, Index);
             AppendHint(html, field.Hint, hintId);
             if (isRequired)
             {
@@ -146,14 +140,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             FormFieldContext field,
             string legendId,
             bool isRequired,
-            string? index,
-            bool displayIndex)
+            string? index)
         {
             html.Append(CultureInfo.InvariantCulture, $"""
                 <legend class="fdcp-horizontal-radios__legend" id="{Encode(legendId)}">
                 """);
 
-            if (displayIndex && !string.IsNullOrWhiteSpace(index))
+            if (!string.IsNullOrWhiteSpace(index))
             {
                 html.Append(CultureInfo.InvariantCulture, $"""
                     <span class="fdcp-horizontal-radios__index">{Encode(index)}</span>
