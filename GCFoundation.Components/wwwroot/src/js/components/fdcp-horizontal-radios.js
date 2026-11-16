@@ -284,7 +284,7 @@ class FDCPHorizontalRadios {
             }
         });
 
-        this.dispatchValidationEvent(isValid);
+        this.dispatchValidationEvent(isValid, enabledInputs[0]);
 
         if (!isValid && focus) {
             enabledInputs[0]?.focus();
@@ -293,16 +293,20 @@ class FDCPHorizontalRadios {
         return isValid;
     }
 
-    dispatchValidationEvent(isValid) {
+    dispatchValidationEvent(isValid, control) {
+        if (!control) {
+            return;
+        }
+
         if (isValid) {
-            this.element.dispatchEvent(new CustomEvent('gcdsValid', {
+            control.dispatchEvent(new CustomEvent('gcdsValid', {
                 bubbles: true,
                 composed: true
             }));
             return;
         }
 
-        this.element.dispatchEvent(new CustomEvent('gcdsError', {
+        control.dispatchEvent(new CustomEvent('gcdsError', {
             bubbles: true,
             composed: true,
             detail: {

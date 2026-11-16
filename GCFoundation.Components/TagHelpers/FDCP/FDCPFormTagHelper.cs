@@ -69,6 +69,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var errorSummaryTag = new TagBuilder("gcds-error-summary");
             errorSummaryTag.Attributes.Add("lang", LanguageUtility.GetCurrentApplicationLanguage());
+            errorSummaryTag.Attributes.Add("listen", "true");
 
             // Add error summary if model has errors (server-side validation)
             if (!Model.IsValid)

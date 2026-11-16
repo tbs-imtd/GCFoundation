@@ -75,7 +75,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 Form.Action, Form.Method);
 
             // Error summary component
-            content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-error-summary lang='{LanguageUtility.GetCurrentApplicationLanguage()}'></gcds-error-summary>");
+            content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-error-summary lang='{LanguageUtility.GetCurrentApplicationLanguage()}' listen='true'></gcds-error-summary>");
 
             // Form sections
             foreach (var section in Form.Sections)
