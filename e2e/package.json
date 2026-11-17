@@ -14,6 +14,7 @@
     "test:i18n": "playwright test -g @i18n",
     "test:i18n:warn": "cross-env I18N_WARN_ONLY=1 playwright test -g @i18n",
     "test:smoke": "playwright test -g @smoke",
+    "test:perf": "playwright test -g @perf --workers=1",
     "lint": "eslint . --ext .ts",
     "format": "prettier --write ."
   },

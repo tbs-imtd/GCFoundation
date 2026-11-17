@@ -6852,5 +6852,671 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Tabs_WhenToUse_2", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Autocomplete.
+        /// </summary>
+        public static string Index_Autocomplete_Title {
+            get {
+                return ResourceManager.GetString("Index_Autocomplete_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search a large or remote list as you type and select one result..
+        /// </summary>
+        public static string Index_Autocomplete_Description {
+            get {
+                return ResourceManager.GetString("Index_Autocomplete_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Autocomplete.
+        /// </summary>
+        public static string Autocomplete_Name {
+            get {
+                return ResourceManager.GetString("Autocomplete_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The fdcp-autocomplete component is a text input that looks up suggestions from a data source as the user types..
+        /// </summary>
+        public static string Autocomplete_Overview {
+            get {
+                return ResourceManager.GetString("Autocomplete_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model expression the component is bound to..
+        /// </summary>
+        public static string Autocomplete_Properties_For {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Form field name when the component is not bound to a model..
+        /// </summary>
+        public static string Autocomplete_Properties_Name {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to URL of the data source..
+        /// </summary>
+        public static string Autocomplete_Properties_Src {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_Src", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Label text..
+        /// </summary>
+        public static string Autocomplete_Properties_Label {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text displayed for the current value..
+        /// </summary>
+        public static string Autocomplete_Properties_SelectedText {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_SelectedText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hint text displayed below the label..
+        /// </summary>
+        public static string Autocomplete_Properties_Hint {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whether a selection is required..
+        /// </summary>
+        public static string Autocomplete_Properties_Required {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Placeholder text for the input..
+        /// </summary>
+        public static string Autocomplete_Properties_Placeholder {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Name of the query-string parameter that carries the search term..
+        /// </summary>
+        public static string Autocomplete_Properties_QueryParam {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_QueryParam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimum number of characters typed before the data source is called..
+        /// </summary>
+        public static string Autocomplete_Properties_MinLength {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_MinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delay in milliseconds between the last keystroke and the data source call..
+        /// </summary>
+        public static string Autocomplete_Properties_Debounce {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_Debounce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of records requested per call..
+        /// </summary>
+        public static string Autocomplete_Properties_PageSize {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_PageSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum number of records the list loads for one search term..
+        /// </summary>
+        public static string Autocomplete_Properties_MaxResults {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_MaxResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Whether pages of results are cached in memory..
+        /// </summary>
+        public static string Autocomplete_Properties_Cache {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_Cache", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lifetime of a cached page of results, in seconds..
+        /// </summary>
+        public static string Autocomplete_Properties_CacheTtl {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_CacheTtl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximum number of pages of results kept in the cache..
+        /// </summary>
+        public static string Autocomplete_Properties_CacheSize {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_CacheSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Overrides for the localized texts..
+        /// </summary>
+        public static string Autocomplete_Properties_Texts {
+            get {
+                return ResourceManager.GetString("Autocomplete_Properties_Texts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to basic.
+        /// </summary>
+        public static string Autocomplete_Basic_Anchor {
+            get {
+                return ResourceManager.GetString("Autocomplete_Basic_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic.
+        /// </summary>
+        public static string Autocomplete_Basic_Title {
+            get {
+                return ResourceManager.GetString("Autocomplete_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to preselected.
+        /// </summary>
+        public static string Autocomplete_Preselected_Anchor {
+            get {
+                return ResourceManager.GetString("Autocomplete_Preselected_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to With an existing selection.
+        /// </summary>
+        public static string Autocomplete_Preselected_Title {
+            get {
+                return ResourceManager.GetString("Autocomplete_Preselected_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pass the saved value and its display text..
+        /// </summary>
+        public static string Autocomplete_Preselected_Text {
+            get {
+                return ResourceManager.GetString("Autocomplete_Preselected_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to required.
+        /// </summary>
+        public static string Autocomplete_Required_Anchor {
+            get {
+                return ResourceManager.GetString("Autocomplete_Required_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required field in a form.
+        /// </summary>
+        public static string Autocomplete_Required_Title {
+            get {
+                return ResourceManager.GetString("Autocomplete_Required_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submitting without a selection shows an error..
+        /// </summary>
+        public static string Autocomplete_Required_Text {
+            get {
+                return ResourceManager.GetString("Autocomplete_Required_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to large-dataset.
+        /// </summary>
+        public static string Autocomplete_LargeDataset_Anchor {
+            get {
+                return ResourceManager.GetString("Autocomplete_LargeDataset_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Large dataset.
+        /// </summary>
+        public static string Autocomplete_LargeDataset_Title {
+            get {
+                return ResourceManager.GetString("Autocomplete_LargeDataset_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searches 5,000 records with paging, virtualization and caching..
+        /// </summary>
+        public static string Autocomplete_LargeDataset_Text {
+            get {
+                return ResourceManager.GetString("Autocomplete_LargeDataset_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Employee.
+        /// </summary>
+        public static string Autocomplete_Sample_Employee_Label {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Employee_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type at least 2 characters of a first or last name..
+        /// </summary>
+        public static string Autocomplete_Sample_Employee_Hint {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Employee_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manager.
+        /// </summary>
+        public static string Autocomplete_Sample_Manager_Label {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Manager_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approver.
+        /// </summary>
+        public static string Autocomplete_Sample_Approver_Label {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Approver_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search the directory.
+        /// </summary>
+        public static string Autocomplete_Sample_Directory_Label {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Directory_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try a short term such as “an” to get hundreds of results..
+        /// </summary>
+        public static string Autocomplete_Sample_Directory_Hint {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Directory_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit.
+        /// </summary>
+        public static string Autocomplete_Sample_Submit {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Submit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Reset.
+        /// </summary>
+        public static string Autocomplete_Sample_Reset {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Reset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to source-database.
+        /// </summary>
+        public static string Autocomplete_SourceDatabase_Anchor {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceDatabase_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data source: database.
+        /// </summary>
+        public static string Autocomplete_SourceDatabase_Title {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceDatabase_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A controller action queries the database and returns the JSON contract..
+        /// </summary>
+        public static string Autocomplete_SourceDatabase_Text {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceDatabase_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to source-graphql.
+        /// </summary>
+        public static string Autocomplete_SourceGraphQL_Anchor {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceGraphQL_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data source: GraphQL.
+        /// </summary>
+        public static string Autocomplete_SourceGraphQL_Title {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceGraphQL_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A custom data source posts a GraphQL query..
+        /// </summary>
+        public static string Autocomplete_SourceGraphQL_Text {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceGraphQL_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to source-existing-api.
+        /// </summary>
+        public static string Autocomplete_SourceLegacy_Anchor {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceLegacy_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data source: existing API with a different shape.
+        /// </summary>
+        public static string Autocomplete_SourceLegacy_Title {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceLegacy_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A custom data source adapts paging and field names..
+        /// </summary>
+        public static string Autocomplete_SourceLegacy_Text {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceLegacy_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to source-local.
+        /// </summary>
+        public static string Autocomplete_SourceLocal_Anchor {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceLocal_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data source: data already on the page.
+        /// </summary>
+        public static string Autocomplete_SourceLocal_Title {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceLocal_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A custom data source filters an array without any request..
+        /// </summary>
+        public static string Autocomplete_SourceLocal_Text {
+            get {
+                return ResourceManager.GetString("Autocomplete_SourceLocal_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Province or territory.
+        /// </summary>
+        public static string Autocomplete_Sample_Province_Label {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Province_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type at least 1 character..
+        /// </summary>
+        public static string Autocomplete_Sample_Province_Hint {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Province_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to all-properties.
+        /// </summary>
+        public static string Autocomplete_AllProperties_Anchor {
+            get {
+                return ResourceManager.GetString("Autocomplete_AllProperties_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to All properties.
+        /// </summary>
+        public static string Autocomplete_AllProperties_Title {
+            get {
+                return ResourceManager.GetString("Autocomplete_AllProperties_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The first field sets every property except &lt;code&gt;for&lt;/code&gt;, which re.
+        /// </summary>
+        public static string Autocomplete_AllProperties_Text {
+            get {
+                return ResourceManager.GetString("Autocomplete_AllProperties_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delegated authority.
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_Label {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Search by first or last name. The person must already work in the organization..
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_Hint {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For example, Tremblay.
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_Placeholder {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_Placeholder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Searching the directory....
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_Loading {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No employee matches that name.
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_NoResults {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_NoResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 employee found.
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_OneResult {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_OneResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} employees found.
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_MultipleResults {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_MultipleResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type {0} or more letters of a name.
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_MinLength {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_MinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The directory is not available. Try again in a moment..
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_LoadError {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_LoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear the delegated authority.
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_Clear {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type a name. Use the up and down arrow keys to review employees and Enter to cho.
+        /// </summary>
+        public static string Autocomplete_Sample_AllProperties_Instructions {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_AllProperties_Instructions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Approving manager (set by the system).
+        /// </summary>
+        public static string Autocomplete_Sample_Disabled_Label {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Disabled_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to bound-to-a-model.
+        /// </summary>
+        public static string Autocomplete_Bound_Anchor {
+            get {
+                return ResourceManager.GetString("Autocomplete_Bound_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bound to a model.
+        /// </summary>
+        public static string Autocomplete_Bound_Title {
+            get {
+                return ResourceManager.GetString("Autocomplete_Bound_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;With &lt;code&gt;for&lt;/code&gt;, the field takes its name, id and value from th.
+        /// </summary>
+        public static string Autocomplete_Bound_Text {
+            get {
+                return ResourceManager.GetString("Autocomplete_Bound_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supervisor.
+        /// </summary>
+        public static string Autocomplete_Sample_Bound_Label {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Bound_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The person who approves this employee&#x27;s leave and overtime..
+        /// </summary>
+        public static string Autocomplete_Sample_Bound_Hint {
+            get {
+                return ResourceManager.GetString("Autocomplete_Sample_Bound_Hint", resourceCulture);
+            }
+        }
     }
 }

@@ -1,0 +1,59 @@
+@using GCFoundation.Components.Helpers
+@using GCFoundation.Web.Resources
+
+@{
+    // This string is both run on the page and shown as the sample, so the two cannot drift apart.
+    var script = @"document.addEventListener('fdcp-autocomplete:ready', event => {
+    if (event.target.id !== 'legacyEmployee') return;
+
+    const autocomplete = event.detail.instance;
+
+    // The API pages by number and answers { count, results: [{ id, displayName, titleEn, titleFr }] }.
+    autocomplete.dataSource = async ({ term, skip, lang, signal }) => {
+        const url = new URL(autocomplete.src, document.baseURI);
+        url.searchParams.set('search', term);
+        url.searchParams.set('page', String(skip / autocomplete.pageSize + 1));
+        url.searchParams.set('pageSize', String(autocomplete.pageSize));
+
+        const response = await fetch(url, {
+            credentials: 'same-origin',
+            signal,
+            headers: { 'Accept': 'application/json', 'X-Requested-With': 'XMLHttpRequest' }
+        });
+
+        if (!response.ok) throw new Error('Request failed: ' + response.status);
+
+        const body = await response.json();
+
+        return {
+            total: body.count,
+            items: body.results.map(person => ({
+                value: person.id,
+                text: person.displayName,
+                description: lang === 'fr' ? person.titleFr : person.titleEn
+            }))
+        };
+    };
+});";
+    var nonce = CspNonceHelper.AddNonceToDirective(Context, DirectiveType.Script);
+}
+
+<div class="autocomplete-source-legacy-example">
+    <fdcp-autocomplete name="legacyEmployee"
+                       src="@Url.Action("AutocompleteLegacy", "Components")"
+                       label="@Components.Autocomplete_Sample_Employee_Label"
+                       hint="@Components.Autocomplete_Sample_Employee_Hint"
+                       page-size="25"></fdcp-autocomplete>
+</div>
+
+<script nonce="@nonce">@Html.Raw(script)</script>
+
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-autocomplete name=""legacyEmployee""
+                   src=""/api/v1/people""
+                   label=""{Html.Encode(Components.Autocomplete_Sample_Employee_Label)}""
+                   hint=""{Html.Encode(Components.Autocomplete_Sample_Employee_Hint)}""
+                   page-size=""25""&gt;&lt;/fdcp-autocomplete&gt;
+
+&lt;script nonce=""@CspNonceHelper.AddNonceToDirective(Context, DirectiveType.Script)""&gt;
+{Html.Encode(script)}
+&lt;/script&gt;")</fdcp-code>

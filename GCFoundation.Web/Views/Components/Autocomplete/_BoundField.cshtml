@@ -1,0 +1,5 @@
+@model GCFoundation.Web.Models.Components.AutocompleteBoundSampleModel
+
+<fdcp-autocomplete for="@Model.SupervisorId"
+                   src="@Url.Action("AutocompleteData", "Components")"
+                   selected-text="@Model.SupervisorName"></fdcp-autocomplete>

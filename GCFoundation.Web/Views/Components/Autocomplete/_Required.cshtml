@@ -1,0 +1,27 @@
+@using GCFoundation.Web.Resources
+
+<form method="get" action="@Url.Action("Autocomplete", "Components")" novalidate class="autocomplete-required-example">
+    <gcds-error-summary></gcds-error-summary>
+
+    <fdcp-autocomplete name="approver"
+                       src="@Url.Action("AutocompleteData", "Components")"
+                       label="@Components.Autocomplete_Sample_Approver_Label"
+                       hint="@Components.Autocomplete_Sample_Employee_Hint"
+                       required="true"></fdcp-autocomplete>
+
+    <gcds-button type="submit">@Components.Autocomplete_Sample_Submit</gcds-button>
+    <gcds-button type="reset" button-role="secondary">@Components.Autocomplete_Sample_Reset</gcds-button>
+</form>
+
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;form method=""get"" action=""@Url.Action(""Autocomplete"", ""Components"")"" novalidate&gt;
+    &lt;gcds-error-summary&gt;&lt;/gcds-error-summary&gt;
+
+    &lt;fdcp-autocomplete name=""approver""
+                       src=""@Url.Action(""AutocompleteData"", ""Components"")""
+                       label=""{Html.Encode(Components.Autocomplete_Sample_Approver_Label)}""
+                       hint=""{Html.Encode(Components.Autocomplete_Sample_Employee_Hint)}""
+                       required=""true""&gt;&lt;/fdcp-autocomplete&gt;
+
+    &lt;gcds-button type=""submit""&gt;{Html.Encode(Components.Autocomplete_Sample_Submit)}&lt;/gcds-button&gt;
+    &lt;gcds-button type=""reset"" button-role=""secondary""&gt;{Html.Encode(Components.Autocomplete_Sample_Reset)}&lt;/gcds-button&gt;
+&lt;/form&gt;")</fdcp-code>

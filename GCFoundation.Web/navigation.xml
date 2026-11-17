@@ -72,6 +72,7 @@
             <NavNode key="components-formBuilder" controller="Components" action="FormBuilder" area="" preservedRouteParameters="culture" text="Nav_Components_FormBuilder" componentVisibility="breadcrumbs" />
             <NavNode key="components-modal" controller="Components" action="Modal" area="" preservedRouteParameters="culture" text="Nav_Components_Modal" componentVisibility="breadcrumbs" />
 						<NavNode key="components-page-heading" controller="Components" action="PageHeading" area="" preservedRouteParameters="culture" text="Nav_Components_PageHeading" componentVisibility="breadcrumbs" />
+            <NavNode key="components-autocomplete" controller="Components" action="Autocomplete" area="" preservedRouteParameters="culture" text="Nav_Components_Autocomplete" componentVisibility="breadcrumbs" />
             <NavNode key="components-searchable-select" controller="Components" action="SearchableSelect" area="" preservedRouteParameters="culture" text="Nav_Components_SearchableSelect" componentVisibility="breadcrumbs" />
             <NavNode key="components-stepper" controller="Components" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Components_Stepper" componentVisibility="breadcrumbs" />
             <NavNode key="components-table" controller="Components" action="Table" area="" preservedRouteParameters="culture" text="Nav_Components_Table" componentVisibility="breadcrumbs" />

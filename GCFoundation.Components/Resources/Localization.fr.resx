@@ -289,4 +289,28 @@
     <value>Code {0}</value>
     <comment>{0} est le nom du langage, par exemple C#.</comment>
   </data>
+  <data name="Autocomplete_Loading" xml:space="preserve">
+    <value>Chargement des résultats...</value>
+  </data>
+  <data name="Autocomplete_NoResults" xml:space="preserve">
+    <value>Aucun résultat trouvé</value>
+  </data>
+  <data name="Autocomplete_OneResult" xml:space="preserve">
+    <value>1 résultat disponible</value>
+  </data>
+  <data name="Autocomplete_MultipleResults" xml:space="preserve">
+    <value>{0} résultats disponibles</value>
+  </data>
+  <data name="Autocomplete_MinLength" xml:space="preserve">
+    <value>Saisissez au moins {0} caractères pour lancer la recherche</value>
+  </data>
+  <data name="Autocomplete_LoadError" xml:space="preserve">
+    <value>Impossible de charger les résultats. Veuillez réessayer.</value>
+  </data>
+  <data name="Autocomplete_Clear" xml:space="preserve">
+    <value>Effacer la sélection</value>
+  </data>
+  <data name="Autocomplete_Instructions" xml:space="preserve">
+    <value>Saisissez du texte pour lancer la recherche. Utilisez les flèches vers le haut et vers le bas pour parcourir les résultats et la touche Entrée pour sélectionner.</value>
+  </data>
 </root>

@@ -572,5 +572,77 @@ namespace GCFoundation.Components.Resources {
                 return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loading results....
+        /// </summary>
+        public static string Autocomplete_Loading {
+            get {
+                return ResourceManager.GetString("Autocomplete_Loading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No results found.
+        /// </summary>
+        public static string Autocomplete_NoResults {
+            get {
+                return ResourceManager.GetString("Autocomplete_NoResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1 result available.
+        /// </summary>
+        public static string Autocomplete_OneResult {
+            get {
+                return ResourceManager.GetString("Autocomplete_OneResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} results available.
+        /// </summary>
+        public static string Autocomplete_MultipleResults {
+            get {
+                return ResourceManager.GetString("Autocomplete_MultipleResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type {0} or more characters to search.
+        /// </summary>
+        public static string Autocomplete_MinLength {
+            get {
+                return ResourceManager.GetString("Autocomplete_MinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to load results. Please try again..
+        /// </summary>
+        public static string Autocomplete_LoadError {
+            get {
+                return ResourceManager.GetString("Autocomplete_LoadError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clear selection.
+        /// </summary>
+        public static string Autocomplete_Clear {
+            get {
+                return ResourceManager.GetString("Autocomplete_Clear", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Type to search. Use the up and down arrow keys to review results and Enter to select..
+        /// </summary>
+        public static string Autocomplete_Instructions {
+            get {
+                return ResourceManager.GetString("Autocomplete_Instructions", resourceCulture);
+            }
+        }
     }
 }

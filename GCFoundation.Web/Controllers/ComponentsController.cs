@@ -1,9 +1,11 @@
 using GCFoundation.Components.Controllers;
 using GCFoundation.Components.Enums;
+using GCFoundation.Components.Models;
 using GCFoundation.Components.Models.FormBuilder;
 using GCFoundation.Web.Models;
 using GCFoundation.Web.Models.Components;
 using GCFoundation.Web.Resources;
+using GCFoundation.Web.Services;
 using GCFoundation.Web.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,6 +43,130 @@ namespace GCFoundation.Web.Controllers
 
             var vm = BuildAccordionComponentViewModel();
             return View("Component", vm);
+        }
+
+        /// <summary>
+        /// Displays the Autocomplete component demo page.
+        /// </summary>
+        /// <returns>The Autocomplete component view.</returns>
+        [HttpGet("autocomplete")]
+        public IActionResult Autocomplete()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_Autocomplete_Title}");
+
+            var vm = BuildAutocompleteComponentViewModel();
+            return View("Component", vm);
+        }
+
+        /// <summary>
+        /// Sample data source for the Autocomplete component demo. Searches a directory of fictional people.
+        /// </summary>
+        /// <param name="directory">The sample directory.</param>
+        /// <param name="q">The text typed by the user.</param>
+        /// <param name="skip">The number of matches to skip.</param>
+        /// <param name="take">The number of matches to return.</param>
+        /// <param name="lang">The language of the descriptions.</param>
+        /// <param name="term">Alternative name for <paramref name="q"/>, used by the sample that sets <c>query-param="term"</c>.</param>
+        /// <returns>A JSON page of matches and the total number of matches.</returns>
+        /// <remarks>
+        /// A real data source must also require authorization, rate-limit callers and return only the fields the list displays.
+        /// The directory enforces the minimum term length, the page size and the paging depth, whatever the client sends.
+        /// </remarks>
+        [HttpGet("autocomplete/data")]
+        public IActionResult AutocompleteData([FromServices] IAutocompleteSampleDirectory directory, [FromQuery] string? q, [FromQuery] int skip = 0, [FromQuery] int take = 50, [FromQuery] string? lang = null, [FromQuery] string? term = null)
+        {
+            ArgumentNullException.ThrowIfNull(directory, nameof(directory));
+
+            return Json(directory.Search(q ?? term, skip, take, lang));
+        }
+
+        /// <summary>
+        /// Autocomplete data source sample: a database queried with LINQ.
+        /// </summary>
+        /// <param name="directory">The sample directory, standing in for a database context.</param>
+        /// <param name="q">The text typed by the user.</param>
+        /// <param name="skip">The number of matches to skip.</param>
+        /// <param name="take">The number of matches to return.</param>
+        /// <param name="lang">The language of the descriptions.</param>
+        /// <returns>A JSON page of matches and the total number of matches.</returns>
+        /// <remarks>
+        /// The query is written against <see cref="IQueryable{T}"/>, so the same code runs over an Entity Framework
+        /// <c>DbSet</c>, where it becomes one <c>COUNT</c> and one paged <c>SELECT</c>. Here the set is in memory.
+        /// </remarks>
+        [HttpGet("autocomplete/sources/database")]
+        public IActionResult AutocompleteDatabase([FromServices] IAutocompleteSampleDirectory directory, [FromQuery] string? q, [FromQuery] int skip = 0, [FromQuery] int take = 50, [FromQuery] string? lang = null)
+        {
+            ArgumentNullException.ThrowIfNull(directory, nameof(directory));
+
+            var people = QueryPeople(directory, q, skip, take, out int total);
+            bool french = AutocompleteSampleDirectory.IsFrench(lang);
+
+            return Json(new FDCPAutocompleteResult(
+                total,
+                [.. people.Select(person => new FDCPAutocompleteItem(person.Id, person.Name, french ? person.DescriptionFr : person.DescriptionEn))]));
+        }
+
+        /// <summary>
+        /// Autocomplete data source sample: a mock GraphQL endpoint.
+        /// </summary>
+        /// <param name="directory">The sample directory.</param>
+        /// <param name="request">The GraphQL request: a document and its variables.</param>
+        /// <returns>A GraphQL response: <c>{ data }</c> on success, <c>{ errors }</c> otherwise.</returns>
+        /// <remarks>
+        /// This is a mock, not a GraphQL engine: it resolves one field, <c>employees(term, skip, take, lang)</c>,
+        /// from the request variables. It exists to show the client side of calling a GraphQL API.
+        /// <para>
+        /// Antiforgery validation is deliberately off: the request only reads data and changes nothing, and a
+        /// cross-site page cannot read the response. An endpoint that changes state must validate the token.
+        /// </para>
+        /// </remarks>
+        [HttpPost("autocomplete/sources/graphql")]
+        [IgnoreAntiforgeryToken]
+#pragma warning disable CA5391 // Read-only query; see remarks.
+        public IActionResult AutocompleteGraphQL([FromServices] IAutocompleteSampleDirectory directory, [FromBody] AutocompleteGraphQLRequest? request)
+        {
+            ArgumentNullException.ThrowIfNull(directory, nameof(directory));
+
+            if (request?.Query == null || !request.Query.Contains("employees", StringComparison.Ordinal))
+            {
+                return Json(new { errors = new[] { new { message = "Unknown query. This mock resolves only the 'employees' field." } } });
+            }
+
+            var variables = request.Variables;
+            var result = directory.Search(
+                ReadString(variables, "term"),
+                ReadInt(variables, "skip", 0),
+                ReadInt(variables, "take", 50),
+                ReadString(variables, "lang"));
+
+            return Json(new { data = new { employees = result } });
+        }
+#pragma warning restore CA5391
+
+        /// <summary>
+        /// Autocomplete data source sample: an existing API whose paging and response shape differ from the component's contract.
+        /// </summary>
+        /// <param name="directory">The sample directory.</param>
+        /// <param name="search">The text typed by the user.</param>
+        /// <param name="page">The page number, starting at 1.</param>
+        /// <param name="pageSize">The number of records per page.</param>
+        /// <returns>JSON shaped as <c>{ count, page, pageSize, results: [{ id, displayName, titleEn, titleFr }] }</c>.</returns>
+        [HttpGet("autocomplete/sources/legacy")]
+        public IActionResult AutocompleteLegacy([FromServices] IAutocompleteSampleDirectory directory, [FromQuery] string? search, [FromQuery] int page = 1, [FromQuery] int pageSize = 50)
+        {
+            ArgumentNullException.ThrowIfNull(directory, nameof(directory));
+
+            int size = Math.Clamp(pageSize, 1, AutocompleteSampleDirectory.MaxPageSize);
+            int number = Math.Clamp(page, 1, (AutocompleteSampleDirectory.MaxSkip / size) + 1);
+            var people = QueryPeople(directory, search, (number - 1) * size, size, out int total);
+
+            return Json(new
+            {
+                count = total,
+                page = number,
+                pageSize = size,
+                results = people.Select(person => new { id = person.Id, displayName = person.Name, titleEn = person.DescriptionEn, titleFr = person.DescriptionFr })
+            });
         }
 
         /// <summary>
@@ -596,6 +722,7 @@ namespace GCFoundation.Web.Controllers
                 FeaturedComponents = new List<ComponentIndexViewModel>()
                 {
                     new () { Name = Resources.Components.Index_Accordion_Title, ShortDescription = Resources.Components.Index_Accordion_Description, Href = Url.Action("Accordion", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-accordion.svg"), IsNew = true },
+                    new () { Name = Resources.Components.Index_Autocomplete_Title, ShortDescription = Resources.Components.Index_Autocomplete_Description, Href = Url.Action("Autocomplete", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-search.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Badge_Title, Description = Resources.Components.Index_Badge_Description, Href = Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg") },
                     new () { Name = Resources.Components.Index_Card_Title, Description = Resources.Components.Index_Card_Description, Href = Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg") },
                     new () { Name = Resources.Components.Index_Code_Title, Description = Resources.Components.Index_Code_Description, Href = Url.Action("Code", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-code.svg"), IsNew = true },
@@ -724,6 +851,91 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.PageHeading_Basic_Anchor, PartialViewName = "PageHeading/_Basic", Title = Resources.Components.PageHeading_Basic_Title }
             };
             vm.Tag = "<fdcp-page-heading>";
+
+            return vm;
+        }
+        /// <summary>
+        /// Runs a name search as a LINQ query, with the limits every data source must enforce on the server.
+        /// </summary>
+        private static List<AutocompleteSamplePerson> QueryPeople(IAutocompleteSampleDirectory directory, string? text, int skip, int take, out int total)
+        {
+            string term = AutocompleteSampleDirectory.NormalizeTerm(text);
+
+            if (term.Length < AutocompleteSampleDirectory.MinTermLength || term.Length > AutocompleteSampleDirectory.MaxTermLength)
+            {
+                total = 0;
+                return [];
+            }
+
+            int safeTake = Math.Clamp(take, 1, AutocompleteSampleDirectory.MaxPageSize);
+            int safeSkip = Math.Clamp(skip, 0, AutocompleteSampleDirectory.MaxSkip);
+
+            IQueryable<AutocompleteSamplePerson> matches = directory.Query().Where(person => person.SearchName.Contains(term));
+
+            total = matches.Count();
+
+            // With Entity Framework, drop the comparer and give the SearchName column a binary collation instead.
+            return [.. matches
+                .OrderBy(person => person.SearchName, StringComparer.Ordinal)
+                .ThenBy(person => person.Id, StringComparer.Ordinal)
+                .Skip(safeSkip)
+                .Take(safeTake)];
+        }
+
+        private static string? ReadString(Dictionary<string, System.Text.Json.JsonElement>? variables, string name)
+        {
+            return variables != null && variables.TryGetValue(name, out var value) && value.ValueKind == System.Text.Json.JsonValueKind.String
+                ? value.GetString()
+                : null;
+        }
+
+        private static int ReadInt(Dictionary<string, System.Text.Json.JsonElement>? variables, string name, int fallback)
+        {
+            return variables != null && variables.TryGetValue(name, out var value) && value.ValueKind == System.Text.Json.JsonValueKind.Number && value.TryGetInt32(out int number)
+                ? number
+                : fallback;
+        }
+
+        private static ComponentViewModel BuildAutocompleteComponentViewModel()
+        {
+            var vm = new ComponentViewModel();
+
+            vm.Name = Resources.Components.Autocomplete_Name;
+            vm.Overview = Resources.Components.Autocomplete_Overview;
+            vm.Properties = new List<ComponentPropertyViewModel>()
+            {
+                new ComponentPropertyViewModel() { Name = "for", DataType = "ModelExpression", Description = Resources.Components.Autocomplete_Properties_For },
+                new ComponentPropertyViewModel() { Name = "name", DataType = "string", Description = Resources.Components.Autocomplete_Properties_Name },
+                new ComponentPropertyViewModel() { Name = "src", DataType = "string", Description = Resources.Components.Autocomplete_Properties_Src },
+                new ComponentPropertyViewModel() { Name = "label", DataType = "string", Description = Resources.Components.Autocomplete_Properties_Label },
+                new ComponentPropertyViewModel() { Name = "selected-text", DataType = "string", Description = Resources.Components.Autocomplete_Properties_SelectedText },
+                new ComponentPropertyViewModel() { Name = "hint", DataType = "string", Description = Resources.Components.Autocomplete_Properties_Hint },
+                new ComponentPropertyViewModel() { Name = "required", DataType = "bool", Description = Resources.Components.Autocomplete_Properties_Required },
+                new ComponentPropertyViewModel() { Name = "placeholder", DataType = "string", Description = Resources.Components.Autocomplete_Properties_Placeholder },
+                new ComponentPropertyViewModel() { Name = "query-param", DataType = "string", DefaultValue = "q", Description = Resources.Components.Autocomplete_Properties_QueryParam },
+                new ComponentPropertyViewModel() { Name = "min-length", DataType = "int", DefaultValue = "2", Description = Resources.Components.Autocomplete_Properties_MinLength },
+                new ComponentPropertyViewModel() { Name = "debounce", DataType = "int", DefaultValue = "250", Description = Resources.Components.Autocomplete_Properties_Debounce },
+                new ComponentPropertyViewModel() { Name = "page-size", DataType = "int", DefaultValue = "50", Description = Resources.Components.Autocomplete_Properties_PageSize },
+                new ComponentPropertyViewModel() { Name = "max-results", DataType = "int", DefaultValue = "1000", Description = Resources.Components.Autocomplete_Properties_MaxResults },
+                new ComponentPropertyViewModel() { Name = "cache", DataType = "bool", DefaultValue = "true", Description = Resources.Components.Autocomplete_Properties_Cache },
+                new ComponentPropertyViewModel() { Name = "cache-ttl", DataType = "int", DefaultValue = "300", Description = Resources.Components.Autocomplete_Properties_CacheTtl },
+                new ComponentPropertyViewModel() { Name = "cache-size", DataType = "int", DefaultValue = "50", Description = Resources.Components.Autocomplete_Properties_CacheSize },
+                new ComponentPropertyViewModel() { Name = "loading-text, no-results-text, one-result-text, multiple-results-text, min-length-text, load-error-text, clear-text, instructions-text", DataType = "string", Description = Resources.Components.Autocomplete_Properties_Texts }
+            };
+            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
+            {
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Autocomplete_Basic_Anchor, PartialViewName = "Autocomplete/_Basic", Title = Resources.Components.Autocomplete_Basic_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_Preselected_Text, Id = Resources.Components.Autocomplete_Preselected_Anchor, PartialViewName = "Autocomplete/_Preselected", Title = Resources.Components.Autocomplete_Preselected_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_Required_Text, Id = Resources.Components.Autocomplete_Required_Anchor, PartialViewName = "Autocomplete/_Required", Title = Resources.Components.Autocomplete_Required_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_Bound_Text, Id = Resources.Components.Autocomplete_Bound_Anchor, PartialViewName = "Autocomplete/_Bound", Title = Resources.Components.Autocomplete_Bound_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_AllProperties_Text, Id = Resources.Components.Autocomplete_AllProperties_Anchor, PartialViewName = "Autocomplete/_AllProperties", Title = Resources.Components.Autocomplete_AllProperties_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_LargeDataset_Text, Id = Resources.Components.Autocomplete_LargeDataset_Anchor, PartialViewName = "Autocomplete/_LargeDataset", Title = Resources.Components.Autocomplete_LargeDataset_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_SourceDatabase_Text, Id = Resources.Components.Autocomplete_SourceDatabase_Anchor, PartialViewName = "Autocomplete/_SourceDatabase", Title = Resources.Components.Autocomplete_SourceDatabase_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_SourceGraphQL_Text, Id = Resources.Components.Autocomplete_SourceGraphQL_Anchor, PartialViewName = "Autocomplete/_SourceGraphQL", Title = Resources.Components.Autocomplete_SourceGraphQL_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_SourceLegacy_Text, Id = Resources.Components.Autocomplete_SourceLegacy_Anchor, PartialViewName = "Autocomplete/_SourceLegacy", Title = Resources.Components.Autocomplete_SourceLegacy_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_SourceLocal_Text, Id = Resources.Components.Autocomplete_SourceLocal_Anchor, PartialViewName = "Autocomplete/_SourceLocal", Title = Resources.Components.Autocomplete_SourceLocal_Title }
+            };
+            vm.Tag = "<fdcp-autocomplete>";
 
             return vm;
         }

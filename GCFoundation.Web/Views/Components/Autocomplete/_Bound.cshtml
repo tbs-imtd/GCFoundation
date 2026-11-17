@@ -1,0 +1,28 @@
+@using GCFoundation.Common.Utilities
+@using GCFoundation.Web.Models.Components
+@inject GCFoundation.Web.Services.Interfaces.IAutocompleteSampleDirectory Directory
+
+@{
+    // Stands in for a record loaded by the controller of an edit page.
+    var current = Directory.Find("E000042", LanguageUtility.GetCurrentApplicationLanguage());
+    var sample = new AutocompleteBoundSampleModel { SupervisorId = current?.Value, SupervisorName = current?.Text };
+
+    var modelCode = @"public class EditEmployeeViewModel
+{
+    [Required]
+    [Display(Name = ""Supervisor_Label"", Description = ""Supervisor_Hint"", ResourceType = typeof(Resources.Employees))]
+    public string? SupervisorId { get; set; }
+
+    public string? SupervisorName { get; set; }
+}";
+}
+
+<div class="autocomplete-bound-example">
+    <partial name="Autocomplete/_BoundField" model="sample" />
+</div>
+
+<fdcp-code code-language="csharp">@Html.Raw(Html.Encode(modelCode))</fdcp-code>
+
+<fdcp-code code-language="cshtml">@Html.Raw(@"&lt;fdcp-autocomplete for=""@Model.SupervisorId""
+                   src=""@Url.Action(""Search"", ""Employees"")""
+                   selected-text=""@Model.SupervisorName""&gt;&lt;/fdcp-autocomplete&gt;")</fdcp-code>

@@ -93,6 +93,11 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
+                .WhereAction(nameof(ComponentsController.Autocomplete))
+                .TranslateAction("saisie-semi-automatique");
+
+                setup.UseCulture("fr")
+                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.Stepper))
                 .TranslateAction("etapes");
 

@@ -1,0 +1,228 @@
+// Colour pairs below are chosen for WCAG 1.4.6 (7:1): #333 on #fff, #fff on #333, #333 on #d6d9dd, #43474e on #fff.
+.fdcp-autocomplete {
+    // Every option has this height so the list can be virtualized. rem keeps it proportional to text size.
+    --fdcp-autocomplete-option-height: 3.75rem;
+    --fdcp-autocomplete-visible-options: 6;
+
+    display: block;
+    position: relative;
+    width: 100%;
+    max-width: 36rem;
+    margin-block-end: var(--gcds-spacing-300, 1.5rem);
+    font-family: var(--gcds-font-families-body);
+
+    [hidden] {
+        display: none !important;
+    }
+
+    &__visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+    }
+
+    &__label {
+        color: var(--gcds-label-text, #333333);
+        cursor: pointer;
+        display: block;
+        font: var(--gcds-label-font-desktop, 600 1.25rem / 160% "Noto Sans", sans-serif);
+        max-width: 100%;
+        margin: var(--gcds-label-margin, 0 0 0.5rem) !important;
+
+        @media only screen and (width < 48em) {
+            font: var(--gcds-label-font-mobile, 600 1.125rem / 160% "Noto Sans", sans-serif);
+        }
+
+        .label--required {
+            font-weight: var(--gcds-label-required-font-weight, 400);
+        }
+    }
+
+    &__control {
+        position: relative;
+    }
+
+    &__input {
+        box-sizing: border-box;
+        display: block;
+        width: 100%;
+        min-height: 3rem;
+        // Room for the clear button on the inline-end side.
+        padding: 0.5rem 3.25rem 0.5rem 0.75rem;
+        border: var(--gcds-input-border-width, 0.125rem) solid currentColor;
+        border-radius: var(--gcds-input-border-radius, 0.125rem);
+        background-color: var(--gcds-input-default-background, var(--gcds-bg-white, #fff));
+        color: var(--gcds-input-default-text, var(--gcds-text-primary, #333));
+        font-family: var(--gcds-font-families-body);
+        font-size: var(--gcds-font-sizes-text, 1.25rem);
+        line-height: 1.5;
+        outline-color: transparent;
+        outline-style: solid;
+        outline-width: 0;
+
+        &::placeholder {
+            color: var(--gcds-text-secondary, #43474e);
+            opacity: 1;
+        }
+
+        &:focus {
+            border-color: var(--gcds-input-focus-border, var(--gcds-focus-border, #0535d2));
+            box-shadow: var(--gcds-input-focus-box-shadow, none);
+            outline-color: var(--gcds-input-focus-border, var(--gcds-focus-border, #0535d2));
+            outline-offset: var(--gcds-input-border-width, 0.125rem);
+            outline-width: var(--gcds-input-outline-width, 0.1875rem);
+        }
+
+        &[aria-invalid="true"]:not(:focus) {
+            border-color: var(--gcds-danger-border, var(--gcds-danger-text, #a62a1e));
+        }
+
+        &:disabled {
+            border-color: var(--gcds-input-disabled-text, var(--gcds-disabled-text, #545961));
+            background-color: var(--gcds-input-disabled-background, var(--gcds-disabled-background, #d6d9dd));
+            color: var(--gcds-input-disabled-text, var(--gcds-disabled-text, #545961));
+            cursor: not-allowed;
+        }
+    }
+
+    &__clear {
+        position: absolute;
+        inset-block: 0;
+        inset-inline-end: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        // 2.75rem = 44 CSS px at the default text size (WCAG 2.5.5).
+        min-width: 2.75rem;
+        min-height: 2.75rem;
+        margin: auto 0.125rem;
+        padding: 0;
+        border: 0;
+        border-radius: var(--gcds-input-border-radius, 0.125rem);
+        background: transparent;
+        color: var(--gcds-text-primary, #333);
+        font-size: 1.75rem;
+        line-height: 1;
+        cursor: pointer;
+
+        &:hover {
+            background: var(--gcds-color-grayscale-100, #d6d9dd);
+        }
+
+        &:focus-visible {
+            outline: var(--gcds-input-outline-width, 0.1875rem) solid var(--gcds-focus-border, #0535d2);
+            outline-offset: -0.1875rem;
+        }
+    }
+
+    &__panel {
+        position: absolute;
+        inset-inline: 0;
+        top: 100%;
+        z-index: 20;
+        box-sizing: border-box;
+        margin-top: 0.25rem;
+        border: var(--gcds-input-border-width, 0.125rem) solid var(--gcds-text-primary, #333);
+        border-radius: var(--gcds-input-border-radius, 0.125rem);
+        background: var(--gcds-bg-white, #fff);
+        color: var(--gcds-text-primary, #333);
+    }
+
+    // Opens upward when there is more room above, so the panel never covers the input.
+    &--open-above &__panel {
+        top: auto;
+        bottom: 100%;
+        margin-top: 0;
+        margin-bottom: 0.25rem;
+    }
+
+    &__listbox {
+        position: relative;
+        max-height: calc(var(--fdcp-autocomplete-option-height) * var(--fdcp-autocomplete-visible-options));
+        overflow-x: hidden;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+    }
+
+    &__sizer {
+        position: relative;
+        width: 100%;
+    }
+
+    &__option {
+        position: absolute;
+        top: 0;
+        inset-inline: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: var(--fdcp-autocomplete-option-height);
+        padding: 0 0.75rem;
+        color: var(--gcds-text-primary, #333);
+        font-size: var(--gcds-font-sizes-text, 1.25rem);
+        line-height: 1.5;
+        cursor: pointer;
+
+        &:hover {
+            background: var(--gcds-color-grayscale-100, #d6d9dd);
+        }
+
+        // Active state is not conveyed by colour alone: the text is also underlined.
+        &.is-active {
+            background: var(--gcds-bg-dark, #333);
+            color: var(--gcds-text-light, #fff);
+
+            .fdcp-autocomplete__option-text {
+                text-decoration: underline;
+            }
+
+            .fdcp-autocomplete__option-description {
+                color: var(--gcds-text-light, #fff);
+            }
+        }
+
+        &--loading {
+            color: var(--gcds-text-secondary, #43474e);
+            cursor: progress;
+        }
+    }
+
+    &__option-text,
+    &__option-description {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__option-description {
+        color: var(--gcds-text-secondary, #43474e);
+        font-size: 1rem;
+    }
+
+    &__message {
+        padding: 0.75rem;
+        color: var(--gcds-text-secondary, #43474e);
+        font-size: var(--gcds-font-sizes-text, 1.25rem);
+        line-height: 1.5;
+    }
+
+    @media (forced-colors: active) {
+        &__option.is-active {
+            background: Highlight;
+            color: HighlightText;
+            forced-color-adjust: none;
+
+            .fdcp-autocomplete__option-description {
+                color: HighlightText;
+            }
+        }
+    }
+}

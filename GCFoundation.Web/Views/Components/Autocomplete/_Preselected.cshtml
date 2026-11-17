@@ -1,0 +1,24 @@
+@using GCFoundation.Common.Utilities
+@using GCFoundation.Web.Resources
+@inject GCFoundation.Web.Services.Interfaces.IAutocompleteSampleDirectory Directory
+
+@{
+    // An edit form already knows the saved value and its display text, so no lookup is needed to show it.
+    var current = Directory.Find("E000042", LanguageUtility.GetCurrentApplicationLanguage());
+}
+
+<div class="autocomplete-preselected-example">
+    <fdcp-autocomplete name="manager"
+                       src="@Url.Action("AutocompleteData", "Components")"
+                       label="@Components.Autocomplete_Sample_Manager_Label"
+                       hint="@Components.Autocomplete_Sample_Employee_Hint"
+                       value="@current?.Value"
+                       selected-text="@current?.Text"></fdcp-autocomplete>
+</div>
+
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-autocomplete name=""manager""
+                   src=""@Url.Action(""AutocompleteData"", ""Components"")""
+                   label=""{Html.Encode(Components.Autocomplete_Sample_Manager_Label)}""
+                   hint=""{Html.Encode(Components.Autocomplete_Sample_Employee_Hint)}""
+                   value=""{Html.Encode(current?.Value)}""
+                   selected-text=""{Html.Encode(current?.Text)}""&gt;&lt;/fdcp-autocomplete&gt;")</fdcp-code>

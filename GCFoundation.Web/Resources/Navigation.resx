@@ -285,4 +285,7 @@
   <data name="Nav_Components_Code" xml:space="preserve">
     <value>Code</value>
   </data>
+  <data name="Nav_Components_Autocomplete" xml:space="preserve">
+    <value>Autocomplete</value>
+  </data>
 </root>

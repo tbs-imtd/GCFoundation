@@ -2408,4 +2408,226 @@
   <data name="Index_Code_Title" xml:space="preserve">
     <value>Code</value>
   </data>
+  <data name="Index_Autocomplete_Title" xml:space="preserve">
+    <value>Autocomplete</value>
+  </data>
+  <data name="Index_Autocomplete_Description" xml:space="preserve">
+    <value>Search a large or remote list as you type and select one result.</value>
+  </data>
+  <data name="Autocomplete_Name" xml:space="preserve">
+    <value>Autocomplete</value>
+  </data>
+  <data name="Autocomplete_Overview" xml:space="preserve">
+    <value>The &lt;code&gt;&amp;lt;fdcp-autocomplete&amp;gt;&lt;/code&gt; component is a text input that looks up suggestions from a data source, such as a web API, as the user types, and submits the value of the selected suggestion. It pages, virtualizes and caches results, so it stays fast with thousands of matches. Use it for large or remote lists with a single selection, such as people, organizations or codes. For a short, fixed list, grouped options or multiple selections, use &lt;code&gt;&amp;lt;fdcp-searchable-select&amp;gt;&lt;/code&gt; instead. All records in these samples are fictional.</value>
+  </data>
+  <data name="Autocomplete_Properties_For" xml:space="preserve">
+    <value>Model expression the component is bound to. The label, hint, required state and value come from the model.</value>
+  </data>
+  <data name="Autocomplete_Properties_Name" xml:space="preserve">
+    <value>Form field name when the component is not bound to a model.</value>
+  </data>
+  <data name="Autocomplete_Properties_Src" xml:space="preserve">
+    <value>URL of the data source. It receives the search term, &lt;code&gt;skip&lt;/code&gt;, &lt;code&gt;take&lt;/code&gt; and &lt;code&gt;lang&lt;/code&gt; as query-string parameters and returns JSON shaped like &lt;code&gt;{ "total": 0, "items": [{ "value": "", "text": "", "description": "" }] }&lt;/code&gt;. Must be a relative, http or https URL.</value>
+  </data>
+  <data name="Autocomplete_Properties_Label" xml:space="preserve">
+    <value>Label text. Overrides the model display name.</value>
+  </data>
+  <data name="Autocomplete_Properties_SelectedText" xml:space="preserve">
+    <value>Text displayed for the current value, so an existing selection is shown without calling the data source.</value>
+  </data>
+  <data name="Autocomplete_Properties_Hint" xml:space="preserve">
+    <value>Hint text displayed below the label.</value>
+  </data>
+  <data name="Autocomplete_Properties_Required" xml:space="preserve">
+    <value>Whether a selection is required. Overrides the model &lt;code&gt;[Required]&lt;/code&gt; attribute.</value>
+  </data>
+  <data name="Autocomplete_Properties_Placeholder" xml:space="preserve">
+    <value>Placeholder text for the input.</value>
+  </data>
+  <data name="Autocomplete_Properties_QueryParam" xml:space="preserve">
+    <value>Name of the query-string parameter that carries the search term.</value>
+  </data>
+  <data name="Autocomplete_Properties_MinLength" xml:space="preserve">
+    <value>Minimum number of characters typed before the data source is called.</value>
+  </data>
+  <data name="Autocomplete_Properties_Debounce" xml:space="preserve">
+    <value>Delay in milliseconds between the last keystroke and the data source call.</value>
+  </data>
+  <data name="Autocomplete_Properties_PageSize" xml:space="preserve">
+    <value>Number of records requested per call. More pages are requested as the user moves through the list.</value>
+  </data>
+  <data name="Autocomplete_Properties_MaxResults" xml:space="preserve">
+    <value>Maximum number of records the list loads for one search term.</value>
+  </data>
+  <data name="Autocomplete_Properties_Cache" xml:space="preserve">
+    <value>Whether pages of results are cached in memory for the life of the page. Nothing is written to browser storage.</value>
+  </data>
+  <data name="Autocomplete_Properties_CacheTtl" xml:space="preserve">
+    <value>Lifetime of a cached page of results, in seconds.</value>
+  </data>
+  <data name="Autocomplete_Properties_CacheSize" xml:space="preserve">
+    <value>Maximum number of pages of results kept in the cache.</value>
+  </data>
+  <data name="Autocomplete_Properties_Texts" xml:space="preserve">
+    <value>Overrides for the localized texts. English and French defaults are built in.</value>
+  </data>
+  <data name="Autocomplete_Basic_Anchor" xml:space="preserve">
+    <value>basic</value>
+  </data>
+  <data name="Autocomplete_Basic_Title" xml:space="preserve">
+    <value>Basic</value>
+  </data>
+  <data name="Autocomplete_Preselected_Anchor" xml:space="preserve">
+    <value>preselected</value>
+  </data>
+  <data name="Autocomplete_Preselected_Title" xml:space="preserve">
+    <value>With an existing selection</value>
+  </data>
+  <data name="Autocomplete_Preselected_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;On an edit form, pass the saved value and its display text. The component shows the selection without calling the data source.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_Required_Anchor" xml:space="preserve">
+    <value>required</value>
+  </data>
+  <data name="Autocomplete_Required_Title" xml:space="preserve">
+    <value>Required field in a form</value>
+  </data>
+  <data name="Autocomplete_Required_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Submitting without a selection, or with text that was not picked from the list, shows an error on the field and in the error summary.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_LargeDataset_Anchor" xml:space="preserve">
+    <value>large-dataset</value>
+  </data>
+  <data name="Autocomplete_LargeDataset_Title" xml:space="preserve">
+    <value>Large dataset</value>
+  </data>
+  <data name="Autocomplete_LargeDataset_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;This sample searches 5,000 randomly generated records. Results are requested 100 at a time as you move through the list, only the visible rows are rendered, and repeated searches are served from the cache.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_Sample_Employee_Label" xml:space="preserve">
+    <value>Employee</value>
+  </data>
+  <data name="Autocomplete_Sample_Employee_Hint" xml:space="preserve">
+    <value>Type at least 2 characters of a first or last name.</value>
+  </data>
+  <data name="Autocomplete_Sample_Manager_Label" xml:space="preserve">
+    <value>Manager</value>
+  </data>
+  <data name="Autocomplete_Sample_Approver_Label" xml:space="preserve">
+    <value>Approver</value>
+  </data>
+  <data name="Autocomplete_Sample_Directory_Label" xml:space="preserve">
+    <value>Search the directory</value>
+  </data>
+  <data name="Autocomplete_Sample_Directory_Hint" xml:space="preserve">
+    <value>Try a short term such as “an” to get hundreds of results.</value>
+  </data>
+  <data name="Autocomplete_Sample_Submit" xml:space="preserve">
+    <value>Submit</value>
+  </data>
+  <data name="Autocomplete_Sample_Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Autocomplete_SourceDatabase_Anchor" xml:space="preserve">
+    <value>source-database</value>
+  </data>
+  <data name="Autocomplete_SourceDatabase_Title" xml:space="preserve">
+    <value>Data source: database</value>
+  </data>
+  <data name="Autocomplete_SourceDatabase_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The component needs nothing special to read from a database: point &lt;code&gt;src&lt;/code&gt; at a controller action that runs the query and returns the JSON contract. The samples above (Basic, Large dataset) call a Web API the same way. The query below is written with LINQ, so Entity Framework turns it into one &lt;code&gt;COUNT&lt;/code&gt; and one paged &lt;code&gt;SELECT&lt;/code&gt;. In this demo the same LINQ query runs over an in-memory set that stands in for the database.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_SourceGraphQL_Anchor" xml:space="preserve">
+    <value>source-graphql</value>
+  </data>
+  <data name="Autocomplete_SourceGraphQL_Title" xml:space="preserve">
+    <value>Data source: GraphQL</value>
+  </data>
+  <data name="Autocomplete_SourceGraphQL_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;For anything that is not a simple GET, replace the component's &lt;code&gt;dataSource&lt;/code&gt; function. It receives the term, paging, language and an abort signal, and returns &lt;code&gt;{ total, items }&lt;/code&gt;. Here it posts a GraphQL query with variables. Paging, caching, virtualization and stale-response handling keep working. The endpoint in this demo is a mock that resolves a single &lt;code&gt;employees&lt;/code&gt; field.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_SourceLegacy_Anchor" xml:space="preserve">
+    <value>source-existing-api</value>
+  </data>
+  <data name="Autocomplete_SourceLegacy_Title" xml:space="preserve">
+    <value>Data source: existing API with a different shape</value>
+  </data>
+  <data name="Autocomplete_SourceLegacy_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;An API you cannot change may page by number and use its own field names. A custom &lt;code&gt;dataSource&lt;/code&gt; translates in both directions: &lt;code&gt;skip&lt;/code&gt; becomes a page number, and each record is mapped to &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;text&lt;/code&gt; and &lt;code&gt;description&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_SourceLocal_Anchor" xml:space="preserve">
+    <value>source-local</value>
+  </data>
+  <data name="Autocomplete_SourceLocal_Title" xml:space="preserve">
+    <value>Data source: data already on the page</value>
+  </data>
+  <data name="Autocomplete_SourceLocal_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The data source does not have to call a server. This one filters an array in the page, so no request is made. For a short fixed list like this, &lt;code&gt;&amp;lt;fdcp-searchable-select&amp;gt;&lt;/code&gt; is usually the simpler choice; use this approach when the data comes from somewhere only script can reach, such as browser storage or an open connection.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_Sample_Province_Label" xml:space="preserve">
+    <value>Province or territory</value>
+  </data>
+  <data name="Autocomplete_Sample_Province_Hint" xml:space="preserve">
+    <value>Type at least 1 character.</value>
+  </data>
+  <data name="Autocomplete_AllProperties_Anchor" xml:space="preserve">
+    <value>all-properties</value>
+  </data>
+  <data name="Autocomplete_AllProperties_Title" xml:space="preserve">
+    <value>All properties</value>
+  </data>
+  <data name="Autocomplete_AllProperties_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The first field sets every property except &lt;code&gt;for&lt;/code&gt;, which replaces &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;label&lt;/code&gt; and &lt;code&gt;required&lt;/code&gt; when the field is bound to a model. It asks the data source with &lt;code&gt;term&lt;/code&gt; instead of &lt;code&gt;q&lt;/code&gt;, waits for 3 characters, requests 25 records at a time up to 500, keeps 20 pages in the cache for 2 minutes, and replaces every built-in message. The second field shows &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;selected-text&lt;/code&gt; and &lt;code&gt;disabled&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Label" xml:space="preserve">
+    <value>Delegated authority</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Hint" xml:space="preserve">
+    <value>Search by first or last name. The person must already work in the organization.</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Placeholder" xml:space="preserve">
+    <value>For example, Tremblay</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Loading" xml:space="preserve">
+    <value>Searching the directory...</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_NoResults" xml:space="preserve">
+    <value>No employee matches that name</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_OneResult" xml:space="preserve">
+    <value>1 employee found</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_MultipleResults" xml:space="preserve">
+    <value>{0} employees found</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_MinLength" xml:space="preserve">
+    <value>Type {0} or more letters of a name</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_LoadError" xml:space="preserve">
+    <value>The directory is not available. Try again in a moment.</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Clear" xml:space="preserve">
+    <value>Clear the delegated authority</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Instructions" xml:space="preserve">
+    <value>Type a name. Use the up and down arrow keys to review employees and Enter to choose one.</value>
+  </data>
+  <data name="Autocomplete_Sample_Disabled_Label" xml:space="preserve">
+    <value>Approving manager (set by the system)</value>
+  </data>
+  <data name="Autocomplete_Bound_Anchor" xml:space="preserve">
+    <value>bound-to-a-model</value>
+  </data>
+  <data name="Autocomplete_Bound_Title" xml:space="preserve">
+    <value>Bound to a model</value>
+  </data>
+  <data name="Autocomplete_Bound_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;With &lt;code&gt;for&lt;/code&gt;, the field takes its name, id and value from the model property, its label and hint from &lt;code&gt;[Display]&lt;/code&gt;, and its required state from &lt;code&gt;[Required]&lt;/code&gt;. A server validation error for the property is shown when the form is redisplayed. Pass the saved display text in &lt;code&gt;selected-text&lt;/code&gt; so the page does not need to call the data source to show it.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_Sample_Bound_Label" xml:space="preserve">
+    <value>Supervisor</value>
+  </data>
+  <data name="Autocomplete_Sample_Bound_Hint" xml:space="preserve">
+    <value>The person who approves this employee's leave and overtime.</value>
+  </data>
 </root>
