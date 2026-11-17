@@ -8,6 +8,16 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     public abstract class BaseFormComponentTagHelper : BaseFormFieldTagHelper
     {
         /// <summary>
+        /// If true, the field is focused when the component renders (GCDS <c>autofocus</c>).
+        /// </summary>
+        public bool Autofocus { get; set; }
+
+        /// <summary>
+        /// The ID of the form the field belongs to, when it is outside that form (GCDS <c>form</c>).
+        /// </summary>
+        public string? Form { get; set; }
+
+        /// <summary>
         /// The error message associated with the input field, if any.
         /// </summary>
         public string? ErrorMessage { get; set; }
@@ -30,6 +40,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "value", field.Value);
 
             AddBooleanAttribute(output, "disabled", field.Disabled);
+            AddBooleanAttribute(output, "autofocus", Autofocus);
+            AddAttributeIfNotNull(output, "form", Form);
             if (field.Required)
                 AddAttributeIfNotNull(output, "required", field.Required);
             AddAttributeIfNotNull(output, "validate-on", ValidateOn);

@@ -7,10 +7,10 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
     public class ContainerTagHelperTests
     {
         [Theory]
-        [InlineData(ContainerAlignment.start, "start")]
-        [InlineData(ContainerAlignment.center, "center")]
-        [InlineData(ContainerAlignment.end, "end")]
-        public void Process_EmitsAlignment(ContainerAlignment alignment, string expected)
+        [InlineData(HorizontalAlignment.start, "start")]
+        [InlineData(HorizontalAlignment.center, "center")]
+        [InlineData(HorizontalAlignment.end, "end")]
+        public void Process_EmitsAlignment(HorizontalAlignment alignment, string expected)
         {
             var helper = new ContainerTagHelper { Alignment = alignment };
 
@@ -38,7 +38,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
         {
             var helper = new ContainerTagHelper
             {
-                Alignment = ContainerAlignment.center,
+                Alignment = HorizontalAlignment.center,
                 Layout = ContainerLayout.page,
                 Tag = "main",
                 Size = SizeTypeEmum.lg

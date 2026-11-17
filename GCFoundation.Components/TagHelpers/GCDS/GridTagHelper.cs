@@ -16,6 +16,16 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     public class GridTagHelper : BaseTagHelper
     {
         private AlignItem? _alignItems;
+        private HorizontalAlignment? _alignment;
+
+        /// <summary>
+        /// Defines the grid alignment when the grid container is narrower than its parent (GCDS <c>alignment</c>). Not rendered unless set.
+        /// </summary>
+        public HorizontalAlignment Alignment
+        {
+            get => _alignment ?? default;
+            set => _alignment = value;
+        }
 
         /// <summary>
         /// Defines the alignment of content in the grid container.
@@ -114,6 +124,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            AddAttributeIfNotNull(output, "alignment", _alignment);
             AddAttributeIfNotNullWithCaseConversion(output, "align-content", AlignContent);
             AddAttributeIfNotNullWithCaseConversion(output, "align-items", _alignItems);
             AddAttributeIfNotNull(output, "columns", Columns);

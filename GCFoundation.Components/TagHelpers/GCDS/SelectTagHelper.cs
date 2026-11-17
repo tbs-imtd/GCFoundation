@@ -27,6 +27,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public string? DefaultValue { get; set; }
 
         /// <summary>
+        /// Gets or sets whether the label is visually hidden (GCDS <c>hide-label</c>).
+        /// </summary>
+        public bool HideLabel { get; set; }
+
+        /// <summary>
         /// Gets or sets the label text for the select component.
         /// </summary>
         public required string Label { get; set; }
@@ -51,6 +56,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "select-id", field.Id);
             AddAttributeIfNotNull(output, "default-value", DefaultValue);
             AddAttributeIfNotNull(output, "autocomplete", Autocomplete);
+            AddBooleanAttribute(output, "hide-label", HideLabel);
 
             base.Process(context, output);
         }

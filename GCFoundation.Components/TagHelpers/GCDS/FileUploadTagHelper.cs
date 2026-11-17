@@ -21,6 +21,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public string? Accept { get; set; }
 
         /// <summary>
+        /// Gets or sets whether the label is visually hidden (GCDS <c>hide-label</c>).
+        /// </summary>
+        public bool HideLabel { get; set; }
+
+        /// <summary>
         /// The label to display next to the file upload input field.
         /// </summary>
         public required string Label { get; set; }
@@ -53,6 +58,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "accept", Accept);
 
             AddBooleanAttribute(output, "multiple", Multiple);
+            AddBooleanAttribute(output, "hide-label", HideLabel);
 
             base.Process(context, output);
         }

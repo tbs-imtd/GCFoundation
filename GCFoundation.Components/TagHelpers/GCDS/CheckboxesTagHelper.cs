@@ -19,6 +19,16 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public required string Legend { get; set; }
 
         /// <summary>
+        /// Gets or sets whether the label of a single checkbox is visually hidden (GCDS <c>hide-label</c>).
+        /// </summary>
+        public bool HideLabel { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the legend is visually hidden (GCDS <c>hide-legend</c>).
+        /// </summary>
+        public bool HideLegend { get; set; }
+
+        /// <summary>
         /// Gets or sets the options for the checkboxes, provided as a JSON string.
         /// </summary>
         public required string Options { get; set; }
@@ -37,6 +47,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
             AddAttributeIfNotNull(output, "legend", field.Label);
             AddAttributeIfNotNull(output, "options", Options);
+            AddBooleanAttribute(output, "hide-label", HideLabel);
+            AddBooleanAttribute(output, "hide-legend", HideLegend);
 
             base.Process(context, output);
         }

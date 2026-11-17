@@ -62,25 +62,14 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
         /// </summary>
         private static readonly HashSet<string> FoundationAttributes = ["for", "id"];
 
-        /// <summary>
-        /// Known divergences from GCDS that are not yet resolved.
-        /// </summary>
-        private static readonly Dictionary<string, HashSet<string>> KnownExceptions = new(StringComparer.Ordinal)
-        {
-            ["gcds-fieldset"] = ["fieldset-id", "disabled", "error-message", "required", "validate-on"],
-        };
+        private static Type[] GcdsTagHelpers { get; } = typeof(BaseTagHelper).Assembly.GetTypes()
+            .Where(t => t.Namespace == typeof(BaseTagHelper).Namespace && !t.IsAbstract && typeof(ITagHelper).IsAssignableFrom(t))
+            .OrderBy(t => t.Name, StringComparer.Ordinal)
+            .ToArray();
 
-        public static TheoryData<Type> GcdsTagHelperTypes()
-        {
-            var data = new TheoryData<Type>();
-            foreach (Type type in typeof(BaseTagHelper).Assembly.GetTypes()
-                .Where(t => t.Namespace == typeof(BaseTagHelper).Namespace && !t.IsAbstract && typeof(ITagHelper).IsAssignableFrom(t))
-                .OrderBy(t => t.Name, StringComparer.Ordinal))
-            {
-                data.Add(type);
-            }
-            return data;
-        }
+        public static TheoryData<Type> GcdsTagHelperTypes() => new(GcdsTagHelpers);
+
+        public static TheoryData<string> GcdsElements() => new(GcdsAttributes.Keys.Order(StringComparer.Ordinal));
 
         [Fact]
         public void GcdsAttributeList_MatchesShippedGcdsVersion()
@@ -110,10 +99,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
                 return;
             }
 
-            KnownExceptions.TryGetValue(tag, out HashSet<string>? exceptions);
-
-            string[] unknown = GetBoundAttributeNames(tagHelperType)
-                .Where(name => !allowed.Contains(name) && !FoundationAttributes.Contains(name) && exceptions?.Contains(name) != true)
+            string[] unknown = GetBoundProperties(tagHelperType)
+                .Select(GetAttributeName)
+                .Where(name => !allowed.Contains(name) && !FoundationAttributes.Contains(name))
                 .ToArray();
 
             Assert.True(unknown.Length == 0,
@@ -121,16 +109,80 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
                 "Use the GCDS attribute name, and keep any legacy name as an [Obsolete] alias.");
         }
 
+        [Theory]
+        [MemberData(nameof(GcdsElements))]
+        public void GcdsElement_HasTagHelperBindingEveryAttribute(string tag)
+        {
+            Type? tagHelperType = GcdsTagHelpers.FirstOrDefault(t => GetTargetTag(t) == tag);
+            Assert.True(tagHelperType != null, $"No tag helper targets <{tag}>.");
+
+            HashSet<string> bound = GetBoundProperties(tagHelperType).Select(GetAttributeName).ToHashSet(StringComparer.Ordinal);
+            string[] missing = GcdsAttributes[tag].Where(name => !bound.Contains(name)).Order(StringComparer.Ordinal).ToArray();
+
+            Assert.True(missing.Length == 0,
+                $"{tagHelperType.Name} has no property for these <{tag}> attributes: {string.Join(", ", missing)}.");
+        }
+
+        [Theory]
+        [MemberData(nameof(GcdsTagHelperTypes))]
+        public void TagHelper_EmitsEachBoundAttributeUnderItsGcdsName(Type tagHelperType)
+        {
+            if (tagHelperType.GetConstructor(Type.EmptyTypes) == null)
+            {
+                return;
+            }
+
+            var helper = (TagHelper)Activator.CreateInstance(tagHelperType)!;
+            var expected = new List<string>();
+            foreach (PropertyInfo property in GetBoundProperties(tagHelperType))
+            {
+                string name = GetAttributeName(property);
+                if (TryCreateSampleValue(property.PropertyType, out object? value))
+                {
+                    property.SetValue(helper, value);
+                    if (!FoundationAttributes.Contains(name))
+                    {
+                        expected.Add(name);
+                    }
+                }
+            }
+
+            var output = new TagHelperOutput(GetTargetTag(tagHelperType) ?? "div", [],
+                (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+            helper.Process(new TagHelperContext([], new Dictionary<object, object>(), "test-id"), output);
+
+            string[] notEmitted = expected.Where(name => !output.Attributes.ContainsName(name)).ToArray();
+            Assert.True(notEmitted.Length == 0,
+                $"{tagHelperType.Name} did not emit these attributes after their properties were set: {string.Join(", ", notEmitted)}.");
+        }
+
         private static string? GetTargetTag(Type type) =>
             type.GetCustomAttributes<HtmlTargetElementAttribute>().Select(a => a.Tag).FirstOrDefault();
 
-        private static IEnumerable<string> GetBoundAttributeNames(Type type) =>
+        private static IEnumerable<PropertyInfo> GetBoundProperties(Type type) =>
             type.GetProperties(BindingFlags.Public | BindingFlags.Instance)
                 .Where(p => p.SetMethod?.IsPublic == true
                     && p.GetCustomAttribute<HtmlAttributeNotBoundAttribute>() == null
                     && p.GetCustomAttribute<ViewContextAttribute>() == null
-                    && p.GetCustomAttribute<ObsoleteAttribute>() == null)
-                .Select(p => p.GetCustomAttribute<HtmlAttributeNameAttribute>()?.Name ?? ToHtmlCase(p.Name));
+                    && p.GetCustomAttribute<ObsoleteAttribute>() == null);
+
+        private static string GetAttributeName(PropertyInfo property) =>
+            property.GetCustomAttribute<HtmlAttributeNameAttribute>()?.Name ?? ToHtmlCase(property.Name);
+
+        private static bool TryCreateSampleValue(Type type, out object? value)
+        {
+            Type actual = Nullable.GetUnderlyingType(type) ?? type;
+            value = actual switch
+            {
+                _ when actual == typeof(string) => "sample",
+                _ when actual == typeof(bool) => true,
+                _ when actual == typeof(int) => 1,
+                _ when actual == typeof(Uri) => new Uri("https://example.com/"),
+                _ when actual.IsEnum => Enum.GetValues(actual).GetValue(0),
+                _ => null,
+            };
+            return value != null;
+        }
 
         private static string ToHtmlCase(string name) =>
             HtmlCaseRegex().Replace(name, "-$1$2").ToLowerInvariant();

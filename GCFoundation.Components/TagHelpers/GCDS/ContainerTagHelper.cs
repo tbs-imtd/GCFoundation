@@ -17,14 +17,14 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     [HtmlTargetElement("gcds-container")]
     public class ContainerTagHelper : BaseTagHelper
     {
-        private ContainerAlignment? _alignment;
+        private HorizontalAlignment? _alignment;
         private ContainerLayout? _layout;
 
         /// <summary>
         /// Gets or sets the container alignment (GCDS <c>alignment</c>). Not rendered unless set.
         /// Ignored by GCDS when <see cref="Layout"/> is <see cref="ContainerLayout.page"/>.
         /// </summary>
-        public ContainerAlignment Alignment
+        public HorizontalAlignment Alignment
         {
             get => _alignment ?? default;
             set => _alignment = value;
@@ -50,8 +50,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         [Obsolete("Use Alignment (alignment=\"center\") to match the GCDS gcds-container attribute.")]
         public bool Centered
         {
-            get => _alignment == ContainerAlignment.center;
-            set => _alignment = value ? ContainerAlignment.center : null;
+            get => _alignment == HorizontalAlignment.center;
+            set => _alignment = value ? HorizontalAlignment.center : null;
         }
 
         /// <summary>
