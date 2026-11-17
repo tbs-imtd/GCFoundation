@@ -9,7 +9,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// </summary>
     /// <example>
     /// <code>
-    /// &lt;gcds-stepper current-step=&quot;2&quot; total-step=&quot;5&quot; tag=&quot;h2&quot;&gt;
+    /// &lt;gcds-stepper current-step=&quot;2&quot; total-steps=&quot;5&quot; tag=&quot;h2&quot;&gt;
     ///     Contact information
     /// &lt;/gcds-stepper&gt;
     /// </code>
@@ -18,14 +18,24 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     public class StepperTagHelper : BaseTagHelper
     {
         /// <summary>
-        /// Gets or sets the current step in the sequence. Should be a 1-based index.
+        /// Gets or sets the current step in the sequence (GCDS <c>current-step</c>). Should be a 1-based index.
         /// </summary>
         public int CurrentStep { get; set; }
 
         /// <summary>
-        /// Gets or sets the total number of steps in the sequence.
+        /// Gets or sets the total number of steps in the sequence (GCDS <c>total-steps</c>).
         /// </summary>
-        public int TotalStep { get; set; }
+        public int TotalSteps { get; set; }
+
+        /// <summary>
+        /// Gets or sets the total number of steps; use <see cref="TotalSteps"/> (<c>total-steps</c>) instead.
+        /// </summary>
+        [Obsolete("Use TotalSteps (total-steps) to match the GCDS gcds-stepper attribute.")]
+        public int TotalStep
+        {
+            get => TotalSteps;
+            set => TotalSteps = value;
+        }
 
         /// <summary>
         /// Gets or sets the HTML tag to use for the stepper heading.
@@ -34,7 +44,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public StepperTag Tag { get; set; } = StepperTag.h2;
 
         /// <summary>
-        /// Processes the <c>gcds-stepper</c> element by adding the <c>current-step</c>, <c>total-step</c>,
+        /// Processes the <c>gcds-stepper</c> element by adding the <c>current-step</c>, <c>total-steps</c>,
         /// <c>lang</c>, and <c>tag</c> attributes to the rendered output.
         /// </summary>
         /// <param name="context">The context for the tag helper.</param>
@@ -42,8 +52,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             AddAttributeIfNotNull(output, "current-step", CurrentStep);
-            AddAttributeIfNotNull(output, "total-step", TotalStep);
-            AddAttributeIfNotNull(output, "current-step", Lang);
+            AddAttributeIfNotNull(output, "total-steps", TotalSteps);
+            AddAttributeIfNotNull(output, "lang", Lang);
             AddAttributeIfNotNull(output, "tag", Tag);
             base.Process(context, output);
         }

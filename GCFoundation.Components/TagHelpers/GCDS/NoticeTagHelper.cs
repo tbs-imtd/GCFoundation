@@ -9,7 +9,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// </summary>
     /// <example>
     /// <code>
-    /// &lt;gcds-notice title=&quot;Service interruption&quot; title-tag=&quot;h2&quot; type=&quot;info&quot;&gt;
+    /// &lt;gcds-notice notice-title=&quot;Service interruption&quot; notice-title-tag=&quot;h2&quot; notice-role=&quot;info&quot;&gt;
     ///     The service is temporarily unavailable.
     /// &lt;/gcds-notice&gt;
     /// </code>
@@ -18,19 +18,49 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     public class NoticeTagHelper : BaseTagHelper
     {
         /// <summary>
-        /// Gets or sets the title of the notice. This is the main heading of the alert.
+        /// Gets or sets the title of the notice (GCDS <c>notice-title</c>). This is the main heading of the alert.
         /// </summary>
-        public required string Title { get; set; }
+        public required string NoticeTitle { get; set; }
 
         /// <summary>
-        /// Gets or sets the HTML heading tag used for the title. Default is <see cref="HeadingTag.h2"/>.
+        /// Gets or sets the HTML heading tag used for the title (GCDS <c>notice-title-tag</c>). Default is <see cref="HeadingTag.h2"/>.
         /// </summary>
-        public HeadingTag TitleTag { get; set; } = HeadingTag.h2;
+        public HeadingTag NoticeTitleTag { get; set; } = HeadingTag.h2;
 
         /// <summary>
-        /// Gets or sets the notice role (GCDS v1 <c>notice-role</c>). The default is <see cref="AlertType.info"/>.
+        /// Gets or sets the notice role (GCDS <c>notice-role</c>). The default is <see cref="AlertType.info"/>.
         /// </summary>
-        public AlertType Type { get; set; } = AlertType.info;
+        public AlertType NoticeRole { get; set; } = AlertType.info;
+
+        /// <summary>
+        /// Gets or sets the title of the notice; use <see cref="NoticeTitle"/> (<c>notice-title</c>) instead.
+        /// </summary>
+        [Obsolete("Use NoticeTitle (notice-title) to match the GCDS gcds-notice attribute.")]
+        public string Title
+        {
+            get => NoticeTitle;
+            set => NoticeTitle = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the heading tag of the notice title; use <see cref="NoticeTitleTag"/> (<c>notice-title-tag</c>) instead.
+        /// </summary>
+        [Obsolete("Use NoticeTitleTag (notice-title-tag) to match the GCDS gcds-notice attribute.")]
+        public HeadingTag TitleTag
+        {
+            get => NoticeTitleTag;
+            set => NoticeTitleTag = value;
+        }
+
+        /// <summary>
+        /// Gets or sets the notice role; use <see cref="NoticeRole"/> (<c>notice-role</c>) instead.
+        /// </summary>
+        [Obsolete("Use NoticeRole (notice-role) to match the GCDS gcds-notice attribute.")]
+        public AlertType Type
+        {
+            get => NoticeRole;
+            set => NoticeRole = value;
+        }
 
         /// <summary>
         /// Processes the <c>gcds-notice</c> element by adding the <c>notice-title</c>, <c>notice-title-tag</c>, <c>notice-role</c>, and <c>lang</c> attributes
@@ -43,12 +73,9 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             ArgumentNullException.ThrowIfNull(output, nameof(output));
             output.TagName = "gcds-notice";
 
-            AddAttributeIfNotNull(output, "notice-title", Title);
-
-            AddAttributeIfNotNull(output, "notice-title-tag", TitleTag);
-#pragma warning disable CA1308 // Normalize strings to uppercase
-            AddAttributeIfNotNull(output, "notice-role", Type.ToString().ToLowerInvariant());
-#pragma warning restore CA1308 // Normalize strings to uppercase
+            AddAttributeIfNotNull(output, "notice-title", NoticeTitle);
+            AddAttributeIfNotNull(output, "notice-title-tag", NoticeTitleTag);
+            AddAttributeIfNotNull(output, "notice-role", NoticeRole);
 #pragma warning disable CA1308 // Normalize strings to uppercase
             AddAttributeIfNotNull(output, "lang", Lang.ToString().ToLowerInvariant());
 #pragma warning restore CA1308 // Normalize strings to uppercase

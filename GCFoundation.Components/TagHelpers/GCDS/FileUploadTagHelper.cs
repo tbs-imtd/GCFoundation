@@ -6,6 +6,12 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// Represents a custom tag helper for rendering a file upload input field.
     /// This tag helper generates a file input element with support for labels, file type filtering, multiple file uploads, and more.
     /// </summary>
+    /// <example>
+    /// <code>
+    /// &lt;gcds-file-uploader for=&quot;Documents&quot; label=&quot;Upload documents&quot; uploader-id=&quot;documents&quot; accept=&quot;application/pdf&quot;&gt;&lt;/gcds-file-uploader&gt;
+    /// </code>
+    /// </example>
+    [HtmlTargetElement("gcds-file-uploader")]
     public class FileUploadTagHelper : BaseFormComponentTagHelper
     {
         /// <summary>
