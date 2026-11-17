@@ -256,6 +256,115 @@ test.describe('FDCP autocomplete: demo data source (5,000 seeded records)', () =
   });
 });
 
+test.describe('FDCP autocomplete: bound to a model with for', () => {
+  test('takes name, id, value, label, hint and required from the model @core', async ({ page }) => {
+    await open(page);
+    const ac = autocomplete(page, 'SupervisorId');
+
+    await expect(ac.value).toHaveAttribute('name', 'SupervisorId');
+    await expect(ac.value).toHaveValue('E000042');
+    await expect(ac.input).toHaveValue('Samuel Leblanc');
+    await expect(page.locator('label[for="SupervisorId_input"]')).toContainText('Supervisor');
+    await expect(ac.root.locator('gcds-hint')).toContainText('approves this employee');
+    await expect(ac.input).toHaveAttribute('aria-required', 'true');
+
+    // Clearing the bound value then leaving the field shows the required error from [Required].
+    await ac.clear.click();
+    await expect(ac.value).toHaveValue('');
+    await tabOut(page, ac);
+    await expect(ac.error).toBeVisible();
+  });
+
+  test('French page uses the French [Display] resources', async ({ page }) => {
+    await open(page, FR);
+    await expect(page.locator('label[for="SupervisorId_input"]')).toContainText('Superviseur');
+    await expect(page.locator('#SupervisorId gcds-hint')).toContainText('approuve les congés');
+  });
+});
+
+test.describe('FDCP autocomplete: all properties sample', () => {
+  test('every property reaches the browser and changes behaviour @core', async ({ page }) => {
+    const requests: URL[] = [];
+    page.on('request', request => {
+      if (request.url().includes('/autocomplete/data')) requests.push(new URL(request.url()));
+    });
+
+    await open(page);
+    const ac = autocomplete(page, 'delegatedAuthority');
+
+    // Configuration passed through as written.
+    await expect(ac.root).toHaveAttribute('data-query-param', 'term');
+    await expect(ac.root).toHaveAttribute('data-min-length', '3');
+    await expect(ac.root).toHaveAttribute('data-debounce', '300');
+    await expect(ac.root).toHaveAttribute('data-page-size', '25');
+    await expect(ac.root).toHaveAttribute('data-max-results', '500');
+    await expect(ac.root).toHaveAttribute('data-cache', 'true');
+    await expect(ac.root).toHaveAttribute('data-cache-ttl', '120');
+    await expect(ac.root).toHaveAttribute('data-cache-size', '20');
+    await expect(ac.value).toHaveAttribute('name', 'delegatedAuthorityId');
+    await expect(ac.input).toHaveAttribute('placeholder', 'For example, Tremblay');
+    await expect(ac.input).toHaveAttribute('aria-required', 'true');
+    await expect(page.locator('label[for="delegatedAuthority_input"]')).toContainText('Delegated authority');
+    await expect(ac.root.locator('gcds-hint')).toContainText('Search by first or last name');
+    await expect(ac.clear).toHaveAttribute('aria-label', 'Clear the delegated authority');
+    await expect(page.locator('#delegatedAuthority_instructions')).toHaveText(/Use the up and down arrow keys to review employees/);
+
+    // min-length and min-length-text: two letters make no request.
+    await ac.input.fill('tr');
+    await expect(ac.message).toHaveText('Type 3 or more letters of a name');
+    expect(requests).toEqual([]);
+
+    // query-param and page-size reach the data source; multiple-results-text is used.
+    await ac.input.fill('trem');
+    await expect(ac.options.first()).toBeVisible();
+    expect(requests).toHaveLength(1);
+    expect(requests[0].searchParams.get('term')).toBe('trem');
+    expect(requests[0].searchParams.has('q')).toBe(false);
+    expect(requests[0].searchParams.get('take')).toBe('25');
+    await expect(ac.status).toHaveText(/^\d+ employees found$/);
+
+    // no-results-text.
+    await ac.input.fill('zzzqx');
+    await expect(ac.message).toHaveText('No employee matches that name');
+
+    // load-error-text.
+    await page.route('**/autocomplete/data?*term=fail*', route => route.fulfill({ status: 500, body: '' }));
+    await ac.input.fill('failing');
+    await expect(ac.message).toHaveText('The directory is not available. Try again in a moment.');
+
+    // cache: going back to a term already searched makes no new request.
+    const before = requests.length;
+    await ac.input.fill('trem');
+    await expect(ac.options.first()).toBeVisible();
+    expect(requests.length).toBe(before);
+
+    // required with no selection.
+    await ac.input.fill('');
+    await tabOut(page, ac);
+    await expect(ac.error).toBeVisible();
+  });
+
+  test('value, selected-text and disabled show a fixed choice @core', async ({ page }) => {
+    await open(page);
+    const ac = autocomplete(page, 'approvingManager');
+
+    await expect(ac.value).toHaveValue('E000042');
+    await expect(ac.input).not.toHaveValue('');
+    await expect(ac.input).toBeDisabled();
+    await expect(ac.value).toBeDisabled();
+    await expect(ac.clear).toBeDisabled();
+  });
+
+  test('French page uses the French overrides', async ({ page }) => {
+    await open(page, FR);
+    const ac = autocomplete(page, 'delegatedAuthority');
+
+    await expect(page.locator('label[for="delegatedAuthority_input"]')).toContainText('Délégation de pouvoirs');
+    await ac.input.fill('tr');
+    await expect(ac.message).toHaveText('Saisissez au moins 3 lettres d’un nom');
+  });
+});
+
 test.describe('FDCP autocomplete: mocked data source with thousands of random records', () => {
   test('renders a bounded number of rows for 5,000 results and pages on scroll @core', async ({ page }) => {
     await open(page);

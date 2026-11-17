@@ -2570,4 +2570,64 @@
   <data name="Autocomplete_Sample_Province_Hint" xml:space="preserve">
     <value>Type at least 1 character.</value>
   </data>
+  <data name="Autocomplete_AllProperties_Anchor" xml:space="preserve">
+    <value>all-properties</value>
+  </data>
+  <data name="Autocomplete_AllProperties_Title" xml:space="preserve">
+    <value>All properties</value>
+  </data>
+  <data name="Autocomplete_AllProperties_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The first field sets every property except &lt;code&gt;for&lt;/code&gt;, which replaces &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;label&lt;/code&gt; and &lt;code&gt;required&lt;/code&gt; when the field is bound to a model. It asks the data source with &lt;code&gt;term&lt;/code&gt; instead of &lt;code&gt;q&lt;/code&gt;, waits for 3 characters, requests 25 records at a time up to 500, keeps 20 pages in the cache for 2 minutes, and replaces every built-in message. The second field shows &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;selected-text&lt;/code&gt; and &lt;code&gt;disabled&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Label" xml:space="preserve">
+    <value>Delegated authority</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Hint" xml:space="preserve">
+    <value>Search by first or last name. The person must already work in the organization.</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Placeholder" xml:space="preserve">
+    <value>For example, Tremblay</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Loading" xml:space="preserve">
+    <value>Searching the directory...</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_NoResults" xml:space="preserve">
+    <value>No employee matches that name</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_OneResult" xml:space="preserve">
+    <value>1 employee found</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_MultipleResults" xml:space="preserve">
+    <value>{0} employees found</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_MinLength" xml:space="preserve">
+    <value>Type {0} or more letters of a name</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_LoadError" xml:space="preserve">
+    <value>The directory is not available. Try again in a moment.</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Clear" xml:space="preserve">
+    <value>Clear the delegated authority</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Instructions" xml:space="preserve">
+    <value>Type a name. Use the up and down arrow keys to review employees and Enter to choose one.</value>
+  </data>
+  <data name="Autocomplete_Sample_Disabled_Label" xml:space="preserve">
+    <value>Approving manager (set by the system)</value>
+  </data>
+  <data name="Autocomplete_Bound_Anchor" xml:space="preserve">
+    <value>bound-to-a-model</value>
+  </data>
+  <data name="Autocomplete_Bound_Title" xml:space="preserve">
+    <value>Bound to a model</value>
+  </data>
+  <data name="Autocomplete_Bound_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;With &lt;code&gt;for&lt;/code&gt;, the field takes its name, id and value from the model property, its label and hint from &lt;code&gt;[Display]&lt;/code&gt;, and its required state from &lt;code&gt;[Required]&lt;/code&gt;. A server validation error for the property is shown when the form is redisplayed. Pass the saved display text in &lt;code&gt;selected-text&lt;/code&gt; so the page does not need to call the data source to show it.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_Sample_Bound_Label" xml:space="preserve">
+    <value>Supervisor</value>
+  </data>
+  <data name="Autocomplete_Sample_Bound_Hint" xml:space="preserve">
+    <value>The person who approves this employee's leave and overtime.</value>
+  </data>
 </root>

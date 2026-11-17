@@ -2884,4 +2884,64 @@
   <data name="Autocomplete_Sample_Province_Hint" xml:space="preserve">
     <value>Saisissez au moins 1 caractère.</value>
   </data>
+  <data name="Autocomplete_AllProperties_Anchor" xml:space="preserve">
+    <value>toutes-les-proprietes</value>
+  </data>
+  <data name="Autocomplete_AllProperties_Title" xml:space="preserve">
+    <value>Toutes les propriétés</value>
+  </data>
+  <data name="Autocomplete_AllProperties_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Le premier champ définit toutes les propriétés sauf &lt;code&gt;for&lt;/code&gt;, qui remplace &lt;code&gt;name&lt;/code&gt;, &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;label&lt;/code&gt; et &lt;code&gt;required&lt;/code&gt; lorsque le champ est lié à un modèle. Il interroge la source de données avec &lt;code&gt;term&lt;/code&gt; au lieu de &lt;code&gt;q&lt;/code&gt;, attend 3 caractères, demande 25 enregistrements à la fois jusqu’à 500, garde 20 pages en cache pendant 2 minutes et remplace tous les messages intégrés. Le second champ montre &lt;code&gt;value&lt;/code&gt;, &lt;code&gt;selected-text&lt;/code&gt; et &lt;code&gt;disabled&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Label" xml:space="preserve">
+    <value>Délégation de pouvoirs</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Hint" xml:space="preserve">
+    <value>Recherchez par prénom ou par nom. La personne doit déjà travailler dans l’organisation.</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Placeholder" xml:space="preserve">
+    <value>Par exemple, Tremblay</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Loading" xml:space="preserve">
+    <value>Recherche dans le répertoire...</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_NoResults" xml:space="preserve">
+    <value>Aucun employé ne correspond à ce nom</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_OneResult" xml:space="preserve">
+    <value>1 employé trouvé</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_MultipleResults" xml:space="preserve">
+    <value>{0} employés trouvés</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_MinLength" xml:space="preserve">
+    <value>Saisissez au moins {0} lettres d’un nom</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_LoadError" xml:space="preserve">
+    <value>Le répertoire n’est pas disponible. Réessayez dans un moment.</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Clear" xml:space="preserve">
+    <value>Effacer la délégation de pouvoirs</value>
+  </data>
+  <data name="Autocomplete_Sample_AllProperties_Instructions" xml:space="preserve">
+    <value>Saisissez un nom. Utilisez les flèches vers le haut et vers le bas pour parcourir les employés et la touche Entrée pour en choisir un.</value>
+  </data>
+  <data name="Autocomplete_Sample_Disabled_Label" xml:space="preserve">
+    <value>Gestionnaire approbateur (défini par le système)</value>
+  </data>
+  <data name="Autocomplete_Bound_Anchor" xml:space="preserve">
+    <value>lie-a-un-modele</value>
+  </data>
+  <data name="Autocomplete_Bound_Title" xml:space="preserve">
+    <value>Lié à un modèle</value>
+  </data>
+  <data name="Autocomplete_Bound_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Avec &lt;code&gt;for&lt;/code&gt;, le champ prend son nom, son identifiant et sa valeur de la propriété du modèle, son libellé et son indice de &lt;code&gt;[Display]&lt;/code&gt;, et son caractère obligatoire de &lt;code&gt;[Required]&lt;/code&gt;. Une erreur de validation du serveur pour la propriété s’affiche lorsque le formulaire est réaffiché. Passez le texte enregistré dans &lt;code&gt;selected-text&lt;/code&gt; pour que la page n’ait pas à appeler la source de données pour l’afficher.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Autocomplete_Sample_Bound_Label" xml:space="preserve">
+    <value>Superviseur</value>
+  </data>
+  <data name="Autocomplete_Sample_Bound_Hint" xml:space="preserve">
+    <value>La personne qui approuve les congés et les heures supplémentaires de cet employé.</value>
+  </data>
 </root>

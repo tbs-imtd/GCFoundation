@@ -1,0 +1,73 @@
+@using GCFoundation.Common.Utilities
+@using GCFoundation.Web.Resources
+@inject GCFoundation.Web.Services.Interfaces.IAutocompleteSampleDirectory Directory
+
+@{
+    var current = Directory.Find("E000042", LanguageUtility.GetCurrentApplicationLanguage());
+}
+
+<div class="autocomplete-all-properties-example">
+    <fdcp-autocomplete id="delegatedAuthority"
+                       name="delegatedAuthorityId"
+                       src="@Url.Action("AutocompleteData", "Components")"
+                       label="@Components.Autocomplete_Sample_AllProperties_Label"
+                       hint="@Components.Autocomplete_Sample_AllProperties_Hint"
+                       placeholder="@Components.Autocomplete_Sample_AllProperties_Placeholder"
+                       required="true"
+                       query-param="term"
+                       min-length="3"
+                       debounce="300"
+                       page-size="25"
+                       max-results="500"
+                       cache="true"
+                       cache-ttl="120"
+                       cache-size="20"
+                       loading-text="@Components.Autocomplete_Sample_AllProperties_Loading"
+                       no-results-text="@Components.Autocomplete_Sample_AllProperties_NoResults"
+                       one-result-text="@Components.Autocomplete_Sample_AllProperties_OneResult"
+                       multiple-results-text="@Components.Autocomplete_Sample_AllProperties_MultipleResults"
+                       min-length-text="@Components.Autocomplete_Sample_AllProperties_MinLength"
+                       load-error-text="@Components.Autocomplete_Sample_AllProperties_LoadError"
+                       clear-text="@Components.Autocomplete_Sample_AllProperties_Clear"
+                       instructions-text="@Components.Autocomplete_Sample_AllProperties_Instructions"></fdcp-autocomplete>
+
+    <fdcp-autocomplete id="approvingManager"
+                       name="approvingManagerId"
+                       src="@Url.Action("AutocompleteData", "Components")"
+                       label="@Components.Autocomplete_Sample_Disabled_Label"
+                       value="@current?.Value"
+                       selected-text="@current?.Text"
+                       disabled="true"></fdcp-autocomplete>
+</div>
+
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-autocomplete id=""delegatedAuthority""
+                   name=""delegatedAuthorityId""
+                   src=""@Url.Action(""AutocompleteData"", ""Components"")""
+                   label=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_Label)}""
+                   hint=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_Hint)}""
+                   placeholder=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_Placeholder)}""
+                   required=""true""
+                   query-param=""term""
+                   min-length=""3""
+                   debounce=""300""
+                   page-size=""25""
+                   max-results=""500""
+                   cache=""true""
+                   cache-ttl=""120""
+                   cache-size=""20""
+                   loading-text=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_Loading)}""
+                   no-results-text=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_NoResults)}""
+                   one-result-text=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_OneResult)}""
+                   multiple-results-text=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_MultipleResults)}""
+                   min-length-text=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_MinLength)}""
+                   load-error-text=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_LoadError)}""
+                   clear-text=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_Clear)}""
+                   instructions-text=""{Html.Encode(Components.Autocomplete_Sample_AllProperties_Instructions)}""&gt;&lt;/fdcp-autocomplete&gt;
+
+&lt;fdcp-autocomplete id=""approvingManager""
+                   name=""approvingManagerId""
+                   src=""@Url.Action(""AutocompleteData"", ""Components"")""
+                   label=""{Html.Encode(Components.Autocomplete_Sample_Disabled_Label)}""
+                   value=""{Html.Encode(current?.Value)}""
+                   selected-text=""{Html.Encode(current?.Text)}""
+                   disabled=""true""&gt;&lt;/fdcp-autocomplete&gt;")</fdcp-code>

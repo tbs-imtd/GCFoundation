@@ -66,17 +66,18 @@ namespace GCFoundation.Web.Controllers
         /// <param name="skip">The number of matches to skip.</param>
         /// <param name="take">The number of matches to return.</param>
         /// <param name="lang">The language of the descriptions.</param>
+        /// <param name="term">Alternative name for <paramref name="q"/>, used by the sample that sets <c>query-param="term"</c>.</param>
         /// <returns>A JSON page of matches and the total number of matches.</returns>
         /// <remarks>
         /// A real data source must also require authorization, rate-limit callers and return only the fields the list displays.
         /// The directory enforces the minimum term length, the page size and the paging depth, whatever the client sends.
         /// </remarks>
         [HttpGet("autocomplete/data")]
-        public IActionResult AutocompleteData([FromServices] IAutocompleteSampleDirectory directory, [FromQuery] string? q, [FromQuery] int skip = 0, [FromQuery] int take = 50, [FromQuery] string? lang = null)
+        public IActionResult AutocompleteData([FromServices] IAutocompleteSampleDirectory directory, [FromQuery] string? q, [FromQuery] int skip = 0, [FromQuery] int take = 50, [FromQuery] string? lang = null, [FromQuery] string? term = null)
         {
             ArgumentNullException.ThrowIfNull(directory, nameof(directory));
 
-            return Json(directory.Search(q, skip, take, lang));
+            return Json(directory.Search(q ?? term, skip, take, lang));
         }
 
         /// <summary>
@@ -926,6 +927,8 @@ namespace GCFoundation.Web.Controllers
                 new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Autocomplete_Basic_Anchor, PartialViewName = "Autocomplete/_Basic", Title = Resources.Components.Autocomplete_Basic_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_Preselected_Text, Id = Resources.Components.Autocomplete_Preselected_Anchor, PartialViewName = "Autocomplete/_Preselected", Title = Resources.Components.Autocomplete_Preselected_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_Required_Text, Id = Resources.Components.Autocomplete_Required_Anchor, PartialViewName = "Autocomplete/_Required", Title = Resources.Components.Autocomplete_Required_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_Bound_Text, Id = Resources.Components.Autocomplete_Bound_Anchor, PartialViewName = "Autocomplete/_Bound", Title = Resources.Components.Autocomplete_Bound_Title },
+                new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_AllProperties_Text, Id = Resources.Components.Autocomplete_AllProperties_Anchor, PartialViewName = "Autocomplete/_AllProperties", Title = Resources.Components.Autocomplete_AllProperties_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_LargeDataset_Text, Id = Resources.Components.Autocomplete_LargeDataset_Anchor, PartialViewName = "Autocomplete/_LargeDataset", Title = Resources.Components.Autocomplete_LargeDataset_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_SourceDatabase_Text, Id = Resources.Components.Autocomplete_SourceDatabase_Anchor, PartialViewName = "Autocomplete/_SourceDatabase", Title = Resources.Components.Autocomplete_SourceDatabase_Title },
                 new ComponentSampleCodeSectionViewModel() { Description = Resources.Components.Autocomplete_SourceGraphQL_Text, Id = Resources.Components.Autocomplete_SourceGraphQL_Anchor, PartialViewName = "Autocomplete/_SourceGraphQL", Title = Resources.Components.Autocomplete_SourceGraphQL_Title },
