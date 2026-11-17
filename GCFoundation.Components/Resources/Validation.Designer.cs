@@ -86,5 +86,23 @@ namespace GCFoundation.Components.Resources {
                 return ResourceManager.GetString("Field_Required_Summary", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select an option from the list..
+        /// </summary>
+        internal static string Autocomplete_InvalidSelection {
+            get {
+                return ResourceManager.GetString("Autocomplete_InvalidSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}: Select an option from the list..
+        /// </summary>
+        internal static string Autocomplete_InvalidSelection_Summary {
+            get {
+                return ResourceManager.GetString("Autocomplete_InvalidSelection_Summary", resourceCulture);
+            }
+        }
     }
 }

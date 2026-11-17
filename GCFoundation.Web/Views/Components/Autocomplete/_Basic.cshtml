@@ -1,0 +1,13 @@
+@using GCFoundation.Web.Resources
+
+<div class="autocomplete-basic-example">
+    <fdcp-autocomplete name="employee"
+                       src="@Url.Action("AutocompleteData", "Components")"
+                       label="@Components.Autocomplete_Sample_Employee_Label"
+                       hint="@Components.Autocomplete_Sample_Employee_Hint"></fdcp-autocomplete>
+</div>
+
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-autocomplete name=""employee""
+                   src=""@Url.Action(""AutocompleteData"", ""Components"")""
+                   label=""{Html.Encode(Components.Autocomplete_Sample_Employee_Label)}""
+                   hint=""{Html.Encode(Components.Autocomplete_Sample_Employee_Hint)}""&gt;&lt;/fdcp-autocomplete&gt;")</fdcp-code>

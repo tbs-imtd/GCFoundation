@@ -1,0 +1,62 @@
+@using GCFoundation.Components.Helpers
+@using GCFoundation.Web.Resources
+
+@{
+    // This string is both run on the page and shown as the sample, so the two cannot drift apart.
+    var script = @"document.addEventListener('fdcp-autocomplete:ready', event => {
+    if (event.target.id !== 'localProvince') return;
+
+    const autocomplete = event.detail.instance;
+    const provinces = [
+        { value: 'AB', en: 'Alberta', fr: 'Alberta' },
+        { value: 'BC', en: 'British Columbia', fr: 'Colombie-Britannique' },
+        { value: 'MB', en: 'Manitoba', fr: 'Manitoba' },
+        { value: 'NB', en: 'New Brunswick', fr: 'Nouveau-Brunswick' },
+        { value: 'NL', en: 'Newfoundland and Labrador', fr: 'Terre-Neuve-et-Labrador' },
+        { value: 'NS', en: 'Nova Scotia', fr: 'Nouvelle-Écosse' },
+        { value: 'NT', en: 'Northwest Territories', fr: 'Territoires du Nord-Ouest' },
+        { value: 'NU', en: 'Nunavut', fr: 'Nunavut' },
+        { value: 'ON', en: 'Ontario', fr: 'Ontario' },
+        { value: 'PE', en: 'Prince Edward Island', fr: 'Île-du-Prince-Édouard' },
+        { value: 'QC', en: 'Quebec', fr: 'Québec' },
+        { value: 'SK', en: 'Saskatchewan', fr: 'Saskatchewan' },
+        { value: 'YT', en: 'Yukon', fr: 'Yukon' }
+    ];
+    const fold = text => text.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase()
+        .replace(/[œæøßł]/g, letter => ({ 'œ': 'oe', 'æ': 'ae', 'ø': 'o', 'ß': 'ss', 'ł': 'l' })[letter]);
+
+    // No request is made: the function filters data the page already has.
+    autocomplete.dataSource = ({ term, skip, take, lang }) => {
+        const matches = provinces
+            .map(province => ({ value: province.value, text: province[lang] || province.en }))
+            .filter(province => fold(province.text).includes(fold(term)));
+
+        return { total: matches.length, items: matches.slice(skip, skip + take) };
+    };
+});";
+    var nonce = CspNonceHelper.AddNonceToDirective(Context, DirectiveType.Script);
+}
+
+<div class="autocomplete-source-local-example">
+    <fdcp-autocomplete name="localProvince"
+                       src="#"
+                       label="@Components.Autocomplete_Sample_Province_Label"
+                       hint="@Components.Autocomplete_Sample_Province_Hint"
+                       min-length="1"
+                       debounce="0"
+                       cache="false"></fdcp-autocomplete>
+</div>
+
+<script nonce="@nonce">@Html.Raw(script)</script>
+
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-autocomplete name=""localProvince""
+                   src=""#""
+                   label=""{Html.Encode(Components.Autocomplete_Sample_Province_Label)}""
+                   hint=""{Html.Encode(Components.Autocomplete_Sample_Province_Hint)}""
+                   min-length=""1""
+                   debounce=""0""
+                   cache=""false""&gt;&lt;/fdcp-autocomplete&gt;
+
+&lt;script nonce=""@CspNonceHelper.AddNonceToDirective(Context, DirectiveType.Script)""&gt;
+{Html.Encode(script)}
+&lt;/script&gt;")</fdcp-code>

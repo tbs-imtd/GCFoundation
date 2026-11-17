@@ -1,0 +1,19 @@
+@using GCFoundation.Web.Resources
+
+<div class="autocomplete-large-dataset-example">
+    <fdcp-autocomplete name="directory"
+                       src="@Url.Action("AutocompleteData", "Components")"
+                       label="@Components.Autocomplete_Sample_Directory_Label"
+                       hint="@Components.Autocomplete_Sample_Directory_Hint"
+                       page-size="100"
+                       max-results="5000"
+                       cache-ttl="600"></fdcp-autocomplete>
+</div>
+
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-autocomplete name=""directory""
+                   src=""@Url.Action(""AutocompleteData"", ""Components"")""
+                   label=""{Html.Encode(Components.Autocomplete_Sample_Directory_Label)}""
+                   hint=""{Html.Encode(Components.Autocomplete_Sample_Directory_Hint)}""
+                   page-size=""100""
+                   max-results=""5000""
+                   cache-ttl=""600""&gt;&lt;/fdcp-autocomplete&gt;")</fdcp-code>

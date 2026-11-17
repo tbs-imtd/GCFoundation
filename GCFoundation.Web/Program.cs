@@ -46,6 +46,7 @@ builder.Services.AddLocalization();
 builder.Services.AddSingleton<IBreadcrumbsLocalizationService, BreadcrumbsLocalizationService<GCFoundation.Web.Resources.Navigation>>();
 builder.Services.AddSingleton<ITopNavigationLocalizationService, TopNavigationLocalizationService<GCFoundation.Web.Resources.Navigation>>();
 builder.Services.AddSingleton<ITagHelperCatalogService, TagHelperCatalogService<GCFoundation.Web.Resources.Components>>();
+builder.Services.AddSingleton<IAutocompleteSampleDirectory, AutocompleteSampleDirectory>();
 
 // Configure GCFoundation
 builder.Services.AddGCFoundationComponents(builder.Configuration);

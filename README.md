@@ -10,6 +10,7 @@
 
 - **GCFoundation.Common**: Shared utilities and models used across the foundation.
 - **GCFoundation.Components**: Pre-built UI components and helpers integrated with the Government of Canada Design System (GCDS).
+  - [fdcp-autocomplete](GCFoundation.Components/Documentation/fdcp-autocomplete/README.md): remote-data autocomplete, and when to use it instead of fdcp-searchable-select.
 - **GCFoundation.Security**: Security middleware, including Content Security Policy (CSP) and other headers tuned for GC web apps.
 - **GCFoundation.Web**: The main web application project demonstrating the implementation of the foundation.
 
@@ -124,6 +125,7 @@ dotnet run --project MyGCApp.Web
 
 - **GCFoundation.Common** : Utilitaires et modèles partagés utilisés dans toute la fondation.
 - **GCFoundation.Components** : Composants d'interface utilisateur préfabriqués et aides intégrés au Système de conception du gouvernement du Canada (SCGC).
+  - [fdcp-autocomplete](GCFoundation.Components/Documentation/fdcp-autocomplete/README.md) : saisie semi-automatique sur données distantes, et quand l'utiliser plutôt que fdcp-searchable-select (documentation en anglais).
 - **GCFoundation.Security** : Middleware de sécurité, incluant la politique de sécurité de contenu (CSP) et d'autres en-têtes optimisés pour les applications web du GC.
 - **GCFoundation.Web** : Le projet d'application web principal démontrant l'implémentation de la fondation.
 

@@ -1,0 +1,41 @@
+@using GCFoundation.Web.Resources
+
+@{
+    // Entity Framework version of ComponentsController.AutocompleteDatabase, which runs the same LINQ query over an in-memory set.
+    var serverCode = @"[Authorize]
+[HttpGet(""employees/search"")]
+public async Task<IActionResult> Search(string? q, int skip = 0, int take = 50, string? lang = null)
+{
+    // Limits are enforced here, whatever the browser sends.
+    string term = Normalize(q);                       // lower case, accents removed
+    if (term.Length < 2 || term.Length > 100) return Json(new FDCPAutocompleteResult(0, []));
+    take = Math.Clamp(take, 1, 100);
+    skip = Math.Clamp(skip, 0, 5000);
+
+    // SearchName is an indexed column holding the normalized name, so matching does not depend on collation.
+    IQueryable<Employee> matches = _db.Employees.Where(e => e.SearchName.Contains(term));
+
+    int total = await matches.CountAsync();           // SELECT COUNT(*)
+    var page = await matches                          // SELECT ... ORDER BY ... OFFSET ... FETCH
+        .OrderBy(e => e.SearchName).ThenBy(e => e.Id)
+        .Skip(skip).Take(take)
+        .Select(e => new FDCPAutocompleteItem(e.Id, e.Name, lang == ""fr"" ? e.TitleFr : e.TitleEn))
+        .ToListAsync();
+
+    return Json(new FDCPAutocompleteResult(total, page));
+}";
+}
+
+<div class="autocomplete-source-database-example">
+    <fdcp-autocomplete name="databaseEmployee"
+                       src="@Url.Action("AutocompleteDatabase", "Components")"
+                       label="@Components.Autocomplete_Sample_Employee_Label"
+                       hint="@Components.Autocomplete_Sample_Employee_Hint"></fdcp-autocomplete>
+</div>
+
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-autocomplete name=""databaseEmployee""
+                   src=""@Url.Action(""Search"", ""Employees"")""
+                   label=""{Html.Encode(Components.Autocomplete_Sample_Employee_Label)}""
+                   hint=""{Html.Encode(Components.Autocomplete_Sample_Employee_Hint)}""&gt;&lt;/fdcp-autocomplete&gt;")</fdcp-code>
+
+<fdcp-code code-language="csharp">@Html.Raw(Html.Encode(serverCode))</fdcp-code>

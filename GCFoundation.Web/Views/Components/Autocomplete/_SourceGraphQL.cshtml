@@ -1,0 +1,58 @@
+@using GCFoundation.Components.Helpers
+@using GCFoundation.Web.Resources
+
+@{
+    // This string is both run on the page and shown as the sample, so the two cannot drift apart.
+    var script = @"document.addEventListener('fdcp-autocomplete:ready', event => {
+    if (event.target.id !== 'graphqlEmployee') return;
+
+    const autocomplete = event.detail.instance;
+    const query = `
+        query Employees($term: String!, $skip: Int!, $take: Int!, $lang: String!) {
+            employees(term: $term, skip: $skip, take: $take, lang: $lang) {
+                total
+                items { value text description }
+            }
+        }`;
+
+    autocomplete.dataSource = async ({ term, skip, take, lang, signal }) => {
+        const response = await fetch(autocomplete.src, {
+            method: 'POST',
+            credentials: 'same-origin',
+            signal,
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest'
+            },
+            body: JSON.stringify({ query, variables: { term, skip, take, lang } })
+        });
+
+        if (!response.ok) throw new Error('Request failed: ' + response.status);
+
+        const result = await response.json();
+        if (result.errors) throw new Error(result.errors[0].message);
+
+        return result.data.employees;   // { total, items: [{ value, text, description }] }
+    };
+});";
+    var nonce = CspNonceHelper.AddNonceToDirective(Context, DirectiveType.Script);
+}
+
+<div class="autocomplete-source-graphql-example">
+    <fdcp-autocomplete name="graphqlEmployee"
+                       src="@Url.Action("AutocompleteGraphQL", "Components")"
+                       label="@Components.Autocomplete_Sample_Employee_Label"
+                       hint="@Components.Autocomplete_Sample_Employee_Hint"></fdcp-autocomplete>
+</div>
+
+<script nonce="@nonce">@Html.Raw(script)</script>
+
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-autocomplete name=""graphqlEmployee""
+                   src=""/graphql""
+                   label=""{Html.Encode(Components.Autocomplete_Sample_Employee_Label)}""
+                   hint=""{Html.Encode(Components.Autocomplete_Sample_Employee_Hint)}""&gt;&lt;/fdcp-autocomplete&gt;
+
+&lt;script nonce=""@CspNonceHelper.AddNonceToDirective(Context, DirectiveType.Script)""&gt;
+{Html.Encode(script)}
+&lt;/script&gt;")</fdcp-code>

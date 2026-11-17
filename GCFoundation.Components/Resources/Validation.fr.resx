@@ -67,4 +67,10 @@
   <data name="Field_Required_Summary" xml:space="preserve">
     <value>{0} : Ce champ est obligatoire.</value>
   </data>
+  <data name="Autocomplete_InvalidSelection" xml:space="preserve">
+    <value>Sélectionnez une option dans la liste.</value>
+  </data>
+  <data name="Autocomplete_InvalidSelection_Summary" xml:space="preserve">
+    <value>{0} : Sélectionnez une option dans la liste.</value>
+  </data>
 </root>
