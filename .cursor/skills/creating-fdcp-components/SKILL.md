@@ -44,6 +44,7 @@ Use a `.fdcp-{kebab-name}` BEM root and `data-fdcp-{kebab-name}[-part]` JS hooks
 ## 4. Match GCDS
 
 - Prefer GCDS components for primitives such as hints, error messages, icons, buttons, and error summaries.
+- GCDS wrapper Tag Helpers (`TagHelpers/GCDS`) must bind the exact GCDS attribute names (e.g. `NoticeRole` → `notice-role`), so GCDS documentation works unchanged. Keep renamed legacy names as `[Obsolete]` aliases; `GcdsAttributeParityTests` enforces this and must be refreshed on GCDS upgrades.
 - Use GCDS design tokens; avoid hard-coded colours, focus styles, fonts, spacing, and control dimensions when a token exists.
 - Match GCDS label, required marker, hint, error placement, border, focus, disabled, and form spacing behavior.
 - Keep component-specific styles under the component root.
