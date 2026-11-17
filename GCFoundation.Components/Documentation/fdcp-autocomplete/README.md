@@ -183,7 +183,7 @@ Focus stays in the text input the whole time; the active option is exposed with 
 
 **Caching.** Pages are kept in an in-memory LRU cache keyed by language, normalized term and offset. The term is normalized by trimming, collapsing spaces, ignoring case and accents, and spelling out `œ`, `æ`, `ø`, `ß` and `ł` (as `oe`, `ae`, `o`, `ss`, `l`), so "Côté", "cote" and "COTE" share one entry. This assumes the data source treats those as the same search; if yours is case- or accent-sensitive, set `cache="false"`. Identical requests in flight are shared. Failures are not cached. The cache belongs to one component instance and is cleared when the page is hidden.
 
-**Stale responses.** Each new term aborts the previous request, and a response for an older term is ignored even if it arrives late. Closing the list (Tab, Esc, focus leaving) cancels lookups in flight.
+**Stale responses.** Each new term aborts the previous request, and a response for an older term is ignored even if it arrives late. Closing the list (Tab, Esc, focus leaving) cancels lookups in flight. Aborted requests reach the server as a cancelled `CancellationToken`; endpoints should pass it to their database or downstream calls so abandoned searches stop there too (see [DATA-SOURCES.md](DATA-SOURCES.md#2-database)).
 
 Measured on a developer laptop (2026-11-17, Chrome, mocked source holding 10,000 records):
 

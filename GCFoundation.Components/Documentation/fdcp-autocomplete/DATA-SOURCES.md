@@ -74,7 +74,9 @@ Also nothing to write in the page: the action queries the database and returns t
 ```csharp
 [Authorize]
 [HttpGet("employees/search")]
-public async Task<IActionResult> Search(string? q, int skip = 0, int take = 50, string? lang = null)
+public async Task<IActionResult> Search(
+    string? q, int skip = 0, int take = 50, string? lang = null,
+    CancellationToken cancellationToken = default)   // fires when the browser aborts the request
 {
     // Limits are enforced here, whatever the browser sends.
     string term = Normalize(q);                       // lower case, accents removed
@@ -85,22 +87,24 @@ public async Task<IActionResult> Search(string? q, int skip = 0, int take = 50, 
     // SearchName is an indexed column holding the normalized name, so matching does not depend on collation.
     IQueryable<Employee> matches = _db.Employees.Where(e => e.SearchName.Contains(term));
 
-    int total = await matches.CountAsync();           // SELECT COUNT(*)
+    // Passing the token stops the queries when the user has already typed on or closed the list.
+    int total = await matches.CountAsync(cancellationToken);   // SELECT COUNT(*)
     var page = await matches                          // SELECT ... ORDER BY ... OFFSET ... FETCH
         .OrderBy(e => e.SearchName).ThenBy(e => e.Id)
         .Skip(skip).Take(take)
         .Select(e => new FDCPAutocompleteItem(e.Id, e.Name, lang == "fr" ? e.TitleFr : e.TitleEn))
-        .ToListAsync();
+        .ToListAsync(cancellationToken);
 
     return Json(new FDCPAutocompleteResult(total, page));
 }
 ```
 
-Three things make this hold up on a real database:
+Four things make this hold up on a real database:
 
 - **A normalized search column.** Accent- and case-insensitive matching differs between database engines and collations. Storing a lower-cased, accent-stripped copy of the name (`SearchName`) and normalizing the term the same way gives identical results everywhere. Stripping accents does not change letters that have no accented base form, so the sample's `NormalizeTerm` also spells out `œ`→`oe`, `æ`→`ae`, `ø`→`o`, `ß`→`ss` and `ł`→`l`: "coeur" finds "Cœur". The sample stores both name orders in it ("marie tremblay tremblay, marie") so "Tremblay, Marie" also matches.
 - **A stable sort.** `OrderBy(SearchName).ThenBy(Id)` gives every row a fixed position, so pages never overlap or skip a row. Without the tie-breaker, people with the same name can swap pages between requests.
 - **A parameterized query.** LINQ sends the term as a parameter. Never build SQL by concatenating it.
+- **Cancellation.** While the user types, the component aborts each request a newer term replaces, and closing the list aborts the one in flight. ASP.NET Core turns the disconnect into the `CancellationToken` parameter (bound to `HttpContext.RequestAborted`); passing it to `CountAsync` and `ToListAsync` stops queries nobody will read. Some reverse proxies and load balancers keep the upstream request open after the browser leaves, so the token may not fire there: keep a database command timeout as the backstop.
 
 `Contains` becomes `LIKE '%term%'`, which scans the table. That is fine for thousands of rows; for millions, use a full-text or trigram index.
 
@@ -154,7 +158,7 @@ Points worth copying:
 
 - **Variables, not string building.** The term goes in `variables`, never into the query text.
 - **GraphQL errors arrive with HTTP 200.** Check `result.errors` and throw; the component then shows its load error and recovers on the next keystroke.
-- **Pass `signal` through**, so a newer keystroke cancels the request.
+- **Pass `signal` through**, so a newer keystroke cancels the request. On the server, pass the action's `CancellationToken` to the resolver, as in the database sample.
 - A `POST` also keeps the search term out of the URL and so out of access logs.
 
 Demo endpoint: `ComponentsController.AutocompleteGraphQL` → `POST /en/components/autocomplete/sources/graphql`. Antiforgery validation is off on purpose there: the request only reads data. An endpoint that changes state must validate the token.
