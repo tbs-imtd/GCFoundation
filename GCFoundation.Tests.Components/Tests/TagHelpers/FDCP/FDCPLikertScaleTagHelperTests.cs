@@ -7,20 +7,20 @@ using System.ComponentModel.DataAnnotations;
 
 namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 {
-    public class FDCPHorizontalRadiosTagHelperTests
+    public class FDCPLikertScaleTagHelperTests
     {
-        private readonly FDCPHorizontalRadiosTagHelper _tagHelper = new();
+        private readonly FDCPLikertScaleTagHelper _tagHelper = new();
         private readonly TagHelperContext _context;
         private readonly TagHelperOutput _output;
 
-        public FDCPHorizontalRadiosTagHelperTests()
+        public FDCPLikertScaleTagHelperTests()
         {
             _context = new TagHelperContext(
                 new TagHelperAttributeList(),
                 new Dictionary<object, object>(),
-                "horizontal-radios-test");
+                "likert-scale-test");
             _output = new TagHelperOutput(
-                "fdcp-horizontal-radios",
+                "fdcp-likert-scale",
                 new TagHelperAttributeList(),
                 (_, _) => Task.FromResult<TagHelperContent>(
                     new DefaultTagHelperContent()));
@@ -44,14 +44,18 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             string content = _output.Content.GetContent();
             Assert.Equal("fieldset", _output.TagName);
             Assert.Equal("RequiredChoice", _output.Attributes["id"].Value);
-            Assert.True(_output.Attributes.ContainsName("data-fdcp-horizontal-radios"));
+            Assert.True(_output.Attributes.ContainsName("data-fdcp-likert-scale"));
             Assert.Contains("Required choice", content, StringComparison.Ordinal);
             Assert.Contains("name=\"RequiredChoice\"", content, StringComparison.Ordinal);
             Assert.Contains("value=\"guidance\" required checked", content, StringComparison.Ordinal);
-            Assert.Contains("fdcp-horizontal-radios__grid d-grid", content, StringComparison.Ordinal);
-            Assert.Contains("fdcp-horizontal-radios__card", content, StringComparison.Ordinal);
+            Assert.Contains("fdcp-likert-scale__grid d-grid", content, StringComparison.Ordinal);
+            Assert.Contains("fdcp-likert-scale__card", content, StringComparison.Ordinal);
+            Assert.Contains("Choose an option to continue.", content, StringComparison.Ordinal);
             Assert.Equal(
-                "fdcp-horizontal-radios",
+                "Choose an option to continue.",
+                _output.Attributes["data-required-message"].Value);
+            Assert.Equal(
+                "fdcp-likert-scale",
                 _output.Attributes["class"].Value.ToString());
         }
 
@@ -67,16 +71,16 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             string content = _output.Content.GetContent();
             Assert.Contains(
-                "<gcds-container class=\"fdcp-horizontal-radios__outer mt-400\"",
+                "<gcds-container class=\"fdcp-likert-scale__outer mt-400\"",
                 _output.PreElement.GetContent(),
                 StringComparison.Ordinal);
             Assert.DoesNotContain(" border", _output.PreElement.GetContent(), StringComparison.Ordinal);
             Assert.Contains("padding=\"300\"", _output.PreElement.GetContent(), StringComparison.Ordinal);
             Assert.Equal("</gcds-container>", _output.PostElement.GetContent());
-            Assert.Contains("fdcp-card fdcp-horizontal-radios__card", content, StringComparison.Ordinal);
+            Assert.Contains("fdcp-card fdcp-likert-scale__card", content, StringComparison.Ordinal);
             Assert.Contains("fdcp-card-body", content, StringComparison.Ordinal);
             Assert.Contains(
-                "<span class=\"fdcp-horizontal-radios__label-text\">Learning</span>",
+                "<span class=\"fdcp-likert-scale__label-text\">Learning</span>",
                 content,
                 StringComparison.Ordinal);
             Assert.DoesNotContain(
@@ -110,39 +114,36 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
-        public void Process_WithDisplayedIndex_RendersEncodedIndexAboveLegend()
+        public void Process_WithIndex_RendersEncodedIndexAboveLegend()
         {
             _tagHelper.Name = "skill";
             _tagHelper.Legend = "Skill level";
             _tagHelper.Index = "Question <1> of 7";
-            _tagHelper.DisplayIndex = true;
             _tagHelper.Items = [new() { Text = "Learning", Value = "learning" }];
 
             _tagHelper.Process(_context, _output);
 
             string content = _output.Content.GetContent();
             Assert.Contains(
-                "<span class=\"fdcp-horizontal-radios__index\">Question &lt;1&gt; of 7</span>",
+                "<span class=\"fdcp-likert-scale__index\">Question &lt;1&gt; of 7</span>",
                 content,
                 StringComparison.Ordinal);
             Assert.True(
-                content.IndexOf("fdcp-horizontal-radios__index", StringComparison.Ordinal) <
+                content.IndexOf("fdcp-likert-scale__index", StringComparison.Ordinal) <
                 content.IndexOf("Skill level", StringComparison.Ordinal));
         }
 
         [Fact]
-        public void Process_WithHiddenIndex_DoesNotRenderIndex()
+        public void Process_WithoutIndex_DoesNotRenderIndex()
         {
             _tagHelper.Name = "skill";
             _tagHelper.Legend = "Skill level";
-            _tagHelper.Index = "Question 1 of 7";
-            _tagHelper.DisplayIndex = false;
             _tagHelper.Items = [new() { Text = "Learning", Value = "learning" }];
 
             _tagHelper.Process(_context, _output);
 
             Assert.DoesNotContain(
-                "fdcp-horizontal-radios__index",
+                "fdcp-likert-scale__index",
                 _output.Content.GetContent(),
                 StringComparison.Ordinal);
         }
@@ -172,8 +173,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 
             string content = _output.Content.GetContent();
             Assert.True(_output.Attributes.ContainsName("disabled"));
-            Assert.DoesNotContain("fdcp-horizontal-radios__required", content, StringComparison.Ordinal);
-            Assert.DoesNotContain("fdcp-horizontal-radios__error", content, StringComparison.Ordinal);
+            Assert.DoesNotContain("fdcp-likert-scale__required", content, StringComparison.Ordinal);
+            Assert.DoesNotContain("fdcp-likert-scale__error", content, StringComparison.Ordinal);
             Assert.DoesNotContain(" required", content, StringComparison.Ordinal);
         }
 

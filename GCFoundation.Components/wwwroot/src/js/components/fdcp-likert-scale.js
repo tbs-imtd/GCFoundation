@@ -1,28 +1,28 @@
-class FDCPHorizontalRadios {
+class FDCPLikertScale {
     constructor(element) {
         this.element = element;
-        if (this.element.dataset.fdcpHorizontalRadiosInitialized === 'true') {
+        if (this.element.dataset.fdcpLikertScaleInitialized === 'true') {
             return;
         }
-        this.element.dataset.fdcpHorizontalRadiosInitialized = 'true';
+        this.element.dataset.fdcpLikertScaleInitialized = 'true';
 
         this.inputs = Array.from(
             this.element.querySelectorAll(
-                '.fdcp-horizontal-radios__input[type="radio"]'
+                '.fdcp-likert-scale__input[type="radio"]'
             )
         );
         this.cards = Array.from(
-            this.element.querySelectorAll('.fdcp-horizontal-radios__card')
+            this.element.querySelectorAll('.fdcp-likert-scale__card')
         );
         this.grid = this.element.querySelector(
-            '.fdcp-horizontal-radios__grid'
+            '.fdcp-likert-scale__grid'
         );
         this.error = this.element.querySelector(
-            '.fdcp-horizontal-radios__error'
+            '.fdcp-likert-scale__error'
         );
         this.labelTexts = Array.from(
             this.element.querySelectorAll(
-                '.fdcp-horizontal-radios__label-text'
+                '.fdcp-likert-scale__label-text'
             )
         );
         this.required = this.inputs.some(input => input.required);
@@ -45,9 +45,9 @@ class FDCPHorizontalRadios {
                 const usesWholeCardSelection = window.matchMedia(
                     '(width < 64em)'
                 ).matches || this.element.classList.contains(
-                    'fdcp-horizontal-radios--tablet-layout'
+                    'fdcp-likert-scale--tablet-layout'
                 ) || this.element.classList.contains(
-                    'fdcp-horizontal-radios--mobile-layout'
+                    'fdcp-likert-scale--mobile-layout'
                 );
 
                 if (!usesWholeCardSelection
@@ -56,7 +56,7 @@ class FDCPHorizontalRadios {
                 }
 
                 const input = card.querySelector(
-                    '.fdcp-horizontal-radios__input[type="radio"]'
+                    '.fdcp-likert-scale__input[type="radio"]'
                 );
 
                 if (!input?.disabled) {
@@ -105,9 +105,9 @@ class FDCPHorizontalRadios {
     }
 
     updateResponsiveLabelLayout() {
-        const stackedClass = 'fdcp-horizontal-radios--stacked-labels';
-        const tabletClass = 'fdcp-horizontal-radios--tablet-layout';
-        const mobileClass = 'fdcp-horizontal-radios--mobile-layout';
+        const stackedClass = 'fdcp-likert-scale--stacked-labels';
+        const tabletClass = 'fdcp-likert-scale--tablet-layout';
+        const mobileClass = 'fdcp-likert-scale--mobile-layout';
         this.element.classList.remove(
             stackedClass,
             tabletClass,
@@ -143,7 +143,7 @@ class FDCPHorizontalRadios {
 
     applyHorizontalCardLayout(stackedClass) {
         const anyLabelWrapped = this.labelTexts.some(text => {
-            const label = text.closest('.fdcp-horizontal-radios__label');
+            const label = text.closest('.fdcp-likert-scale__label');
             if (!label) {
                 return false;
             }
@@ -220,7 +220,7 @@ class FDCPHorizontalRadios {
         this.inputs.forEach(input => {
             input.addEventListener('change', () => {
                 if (this.element.classList.contains(
-                    'fdcp-horizontal-radios--error'
+                    'fdcp-likert-scale--error'
                 )) {
                     this.validate();
                 }
@@ -262,7 +262,7 @@ class FDCPHorizontalRadios {
             || enabledInputs.some(input => input.checked);
 
         this.element.classList.toggle(
-            'fdcp-horizontal-radios--error',
+            'fdcp-likert-scale--error',
             !isValid
         );
 
@@ -317,7 +317,7 @@ class FDCPHorizontalRadios {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('[data-fdcp-horizontal-radios]').forEach(element => {
-        new FDCPHorizontalRadios(element);
+    document.querySelectorAll('[data-fdcp-likert-scale]').forEach(element => {
+        new FDCPLikertScale(element);
     });
 });

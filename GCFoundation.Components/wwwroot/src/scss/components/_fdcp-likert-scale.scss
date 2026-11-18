@@ -1,4 +1,4 @@
-.fdcp-horizontal-radios {
+.fdcp-likert-scale {
     display: block;
     border: 0;
     padding: 0;
@@ -216,7 +216,7 @@
     &__option:has(&__input:disabled) {
         color: var(--gcds-radio-disabled-text);
 
-        .fdcp-horizontal-radios__label {
+        .fdcp-likert-scale__label {
             cursor: not-allowed;
 
             &::before,
@@ -233,7 +233,7 @@
 }
 
 @media only screen and (width < 64em) {
-    .fdcp-horizontal-radios {
+    .fdcp-likert-scale {
         &__card:not(:has(&__input:disabled)) {
             cursor: pointer;
         }
@@ -261,7 +261,7 @@
 }
 
 @media only screen and (width < 48em) {
-    .fdcp-horizontal-radios {
+    .fdcp-likert-scale {
         &__card .fdcp-card-body {
             align-items: center;
         }
@@ -285,7 +285,7 @@
 }
 
 @media only screen and (width >= 48em) {
-    .fdcp-horizontal-radios {
+    .fdcp-likert-scale {
         &__legend,
         &__hint {
             width: var(--gcds-container-size-full);
@@ -352,7 +352,7 @@
 }
 
 @media only screen and (width >= 64em) {
-    .fdcp-horizontal-radios {
+    .fdcp-likert-scale {
         &__input {
             z-index: 1;
             cursor: pointer;
@@ -372,42 +372,42 @@
     }
 }
 
-.fdcp-horizontal-radios--tablet-layout {
-    .fdcp-horizontal-radios__card:not(:has(.fdcp-horizontal-radios__input:disabled)) {
+.fdcp-likert-scale--tablet-layout {
+    .fdcp-likert-scale__card:not(:has(.fdcp-likert-scale__input:disabled)) {
         cursor: pointer;
     }
 
-    .fdcp-horizontal-radios__input,
-    .fdcp-horizontal-radios__label::before {
+    .fdcp-likert-scale__input,
+    .fdcp-likert-scale__label::before {
         width: 1.25rem;
         height: 1.25rem;
     }
 
-    .fdcp-horizontal-radios__label {
+    .fdcp-likert-scale__label {
         pointer-events: auto;
     }
 
-    .fdcp-horizontal-radios__label::before {
+    .fdcp-likert-scale__label::before {
         flex-basis: 1.25rem;
     }
 }
 
-.fdcp-horizontal-radios--mobile-layout {
-    .fdcp-horizontal-radios__grid {
+.fdcp-likert-scale--mobile-layout {
+    .fdcp-likert-scale__grid {
         display: grid !important;
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .fdcp-horizontal-radios__card .fdcp-card-body {
+    .fdcp-likert-scale__card .fdcp-card-body {
         align-items: center;
     }
 
-    .fdcp-horizontal-radios__option {
+    .fdcp-likert-scale__option {
         display: block;
         min-height: 1.25rem;
     }
 
-    .fdcp-horizontal-radios__label {
+    .fdcp-likert-scale__label {
         position: relative;
         display: block;
         height: auto;
@@ -419,21 +419,21 @@
         pointer-events: auto;
     }
 
-    .fdcp-horizontal-radios__input,
-    .fdcp-horizontal-radios__label::before {
+    .fdcp-likert-scale__input,
+    .fdcp-likert-scale__label::before {
         width: 1.25rem;
         height: 1.25rem;
         top: 50%;
         transform: translateY(-50%);
     }
 
-    .fdcp-horizontal-radios__label::before {
+    .fdcp-likert-scale__label::before {
         position: absolute;
         left: 0;
         flex: none;
     }
 
-    .fdcp-horizontal-radios__label::after {
+    .fdcp-likert-scale__label::after {
         top: 50%;
         left: 0.3125rem;
         width: 0.625rem;
@@ -441,44 +441,48 @@
         transform: translateY(-50%);
     }
 
-    .fdcp-horizontal-radios__label-text {
+    .fdcp-likert-scale__label-text {
         flex: none;
         width: 100%;
         min-width: 0;
     }
 }
 
-.fdcp-horizontal-radios--error {
-    .fdcp-horizontal-radios__card {
+.fdcp-likert-scale--error {
+    .fdcp-likert-scale__card {
         border-color: var(--gcds-radio-danger-border);
     }
 }
 
+.fdcp-likert-scale__outer:has(.fdcp-likert-scale--error) {
+    border-color: var(--gcds-radio-danger-border);
+}
+
 @media (forced-colors: active) {
-    .fdcp-horizontal-radios__label::before {
+    .fdcp-likert-scale__label::before {
         forced-color-adjust: none;
         background-color: Canvas;
         border-color: ButtonText;
     }
 
-    .fdcp-horizontal-radios__label::after {
+    .fdcp-likert-scale__label::after {
         forced-color-adjust: none;
         background-color: ButtonText;
     }
 
-    .fdcp-horizontal-radios__input:focus + .fdcp-horizontal-radios__label::before {
+    .fdcp-likert-scale__input:focus + .fdcp-likert-scale__label::before {
         outline-color: Highlight;
     }
 
-    .fdcp-horizontal-radios__input:disabled + .fdcp-horizontal-radios__label::before,
-    .fdcp-horizontal-radios__input:disabled + .fdcp-horizontal-radios__label::after {
+    .fdcp-likert-scale__input:disabled + .fdcp-likert-scale__label::before,
+    .fdcp-likert-scale__input:disabled + .fdcp-likert-scale__label::after {
         border-color: GrayText;
         background-color: Canvas;
     }
 }
 
 @media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
-    .fdcp-horizontal-radios__label::after {
+    .fdcp-likert-scale__label::after {
         background-color: buttonText;
     }
 }

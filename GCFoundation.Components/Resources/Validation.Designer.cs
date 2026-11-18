@@ -90,9 +90,9 @@ namespace GCFoundation.Components.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Choose an option to continue..
         /// </summary>
-        internal static string HorizontalRadios_Required {
+        internal static string LikertScale_Required {
             get {
-                return ResourceManager.GetString("HorizontalRadios_Required", resourceCulture);
+                return ResourceManager.GetString("LikertScale_Required", resourceCulture);
             }
         }
     }

@@ -9,20 +9,20 @@ using ValidationResources = GCFoundation.Components.Resources.Validation;
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
     /// <summary>
-    /// Renders a responsive horizontal radio group using cards around its options.
+    /// Renders a responsive Likert scale using radio options displayed in cards.
     /// </summary>
-    [HtmlTargetElement("fdcp-horizontal-radios", Attributes = "for, items")]
-    [HtmlTargetElement("fdcp-horizontal-radios", Attributes = "items, name")]
-    public class FDCPHorizontalRadiosTagHelper : FDCPBaseFormComponentTagHelper
+    [HtmlTargetElement("fdcp-likert-scale", Attributes = "for, items")]
+    [HtmlTargetElement("fdcp-likert-scale", Attributes = "items, name")]
+    public class FDCPLikertScaleTagHelper : FDCPBaseFormComponentTagHelper
     {
         /// <summary>
-        /// Gets or sets the options rendered by the radio group.
+        /// Gets or sets the options rendered by the Likert scale.
         /// </summary>
         [HtmlAttributeName("items")]
         public IEnumerable<SelectListItem> Items { get; set; } = [];
 
         /// <summary>
-        /// Gets or sets the radio group legend.
+        /// Gets or sets the Likert scale legend.
         /// </summary>
         [HtmlAttributeName("legend")]
         public string? Legend { get; set; }
@@ -50,7 +50,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string legendId = $"{componentId}_legend";
             string hintId = $"{componentId}_hint";
             string errorId = $"{componentId}_error";
-            string requiredMessage = ValidationResources.HorizontalRadios_Required;
+            string requiredMessage = ValidationResources.LikertScale_Required;
             string requiredSummaryMessage = ValidationResources.Field_Required_Summary.Replace(
                 "{0}",
                 field.Label,
@@ -63,16 +63,16 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.TagName = "fieldset";
             output.TagMode = TagMode.StartTagAndEndTag;
             output.Attributes.SetAttribute("id", componentId);
-            output.Attributes.SetAttribute("class", "fdcp-horizontal-radios");
+            output.Attributes.SetAttribute("class", "fdcp-likert-scale");
             output.Attributes.SetAttribute("aria-labelledby", legendId);
-            output.Attributes.SetAttribute("data-fdcp-horizontal-radios", string.Empty);
+            output.Attributes.SetAttribute("data-fdcp-likert-scale", string.Empty);
             output.Attributes.SetAttribute("data-required-message", requiredMessage);
             output.Attributes.SetAttribute("data-required-summary-message", requiredSummaryMessage);
             output.Attributes.SetAttribute("lang", Lang.ToString());
 
             string outerClasses = string.IsNullOrWhiteSpace(existingClasses)
-                ? "fdcp-horizontal-radios__outer"
-                : $"fdcp-horizontal-radios__outer {existingClasses}";
+                ? "fdcp-likert-scale__outer"
+                : $"fdcp-likert-scale__outer {existingClasses}";
 
             output.PreElement.SetHtmlContent($"""
                 <gcds-container class="{Encode(outerClasses)}"
@@ -97,7 +97,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 AppendError(html, requiredMessage, errorId);
             }
-            html.AppendLine("""<div class="fdcp-horizontal-radios__grid d-grid">""");
+            html.AppendLine("""<div class="fdcp-likert-scale__grid d-grid">""");
 
             int optionIndex = 0;
             foreach (SelectListItem item in items)
@@ -143,13 +143,13 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string? index)
         {
             html.Append(CultureInfo.InvariantCulture, $"""
-                <legend class="fdcp-horizontal-radios__legend" id="{Encode(legendId)}">
+                <legend class="fdcp-likert-scale__legend" id="{Encode(legendId)}">
                 """);
 
             if (!string.IsNullOrWhiteSpace(index))
             {
                 html.Append(CultureInfo.InvariantCulture, $"""
-                    <span class="fdcp-horizontal-radios__index">{Encode(index)}</span>
+                    <span class="fdcp-likert-scale__index">{Encode(index)}</span>
                     """);
             }
 
@@ -160,7 +160,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             if (isRequired)
             {
                 html.Append(CultureInfo.InvariantCulture, $"""
-                    <span class="fdcp-horizontal-radios__required"> ({Encode(Localization.Required)})</span>
+                    <span class="fdcp-likert-scale__required"> ({Encode(Localization.Required)})</span>
                     """);
             }
 
@@ -175,7 +175,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             }
 
             html.AppendLine(CultureInfo.InvariantCulture, $"""
-                <p class="fdcp-horizontal-radios__hint" id="{Encode(hintId)}">{Encode(hint)}</p>
+                <p class="fdcp-likert-scale__hint" id="{Encode(hintId)}">{Encode(hint)}</p>
                 """);
         }
 
@@ -185,10 +185,10 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string errorId)
         {
             html.AppendLine(CultureInfo.InvariantCulture, $"""
-                <gcds-error-message class="fdcp-horizontal-radios__error"
+                <gcds-error-message class="fdcp-likert-scale__error"
                                     id="{Encode(errorId)}"
                                     message-id="{Encode(errorId)}"
-                                    data-fdcp-horizontal-radios-error hidden>{Encode(message)}</gcds-error-message>
+                                    data-fdcp-likert-scale-error hidden>{Encode(message)}</gcds-error-message>
                 """);
         }
 
@@ -208,19 +208,19 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string checkedAttribute = selected ? " checked" : string.Empty;
 
             html.AppendLine("""
-                <div class="fdcp-card fdcp-horizontal-radios__card">
+                <div class="fdcp-card fdcp-likert-scale__card">
                     <div class="fdcp-card-body">
                 """);
 
             html.AppendLine(CultureInfo.InvariantCulture, $"""
-                <div class="fdcp-horizontal-radios__option">
-                    <input class="fdcp-horizontal-radios__input"
+                <div class="fdcp-likert-scale__option">
+                    <input class="fdcp-likert-scale__input"
                            type="radio"
                            id="{Encode(optionId)}"
                            name="{Encode(field.Name)}"
                            value="{Encode(item.Value)}"{requiredAttribute}{disabledAttribute}{checkedAttribute}>
-                    <label class="fdcp-horizontal-radios__label" for="{Encode(optionId)}">
-                        <span class="fdcp-horizontal-radios__label-text">{Encode(item.Text)}</span>
+                    <label class="fdcp-likert-scale__label" for="{Encode(optionId)}">
+                        <span class="fdcp-likert-scale__label-text">{Encode(item.Text)}</span>
                     </label>
                 </div>
                 """);

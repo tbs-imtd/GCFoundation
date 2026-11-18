@@ -1,4 +1,4 @@
-@model GCFoundation.Web.Models.Components.HorizontalRadioModel
+@model GCFoundation.Web.Models.Components.LikertScaleModel
 
 <gcds-grid columns="minmax(0, 1fr)"
            columns-desktop="320px minmax(0, 1fr)"
@@ -15,6 +15,8 @@
         <gcds-heading tag="h1">@Model.Name<br /><code>@Html.Raw(Html.Encode(Model.Tag))</code></gcds-heading>
 
         <partial name="_Overview" model="Model" />
+
+        <partial name="_Guidance" model="Model" />
 
         @foreach (var sample in Model.SampleCodeSections)
         {

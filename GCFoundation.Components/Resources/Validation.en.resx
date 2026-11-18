@@ -126,7 +126,7 @@
   <data name="Field_Required_Summary" xml:space="preserve">
     <value>{0}: This field is required.</value>
   </data>
-  <data name="HorizontalRadios_Required" xml:space="preserve">
+  <data name="LikertScale_Required" xml:space="preserve">
     <value>Choose an option to continue.</value>
   </data>
 </root>
