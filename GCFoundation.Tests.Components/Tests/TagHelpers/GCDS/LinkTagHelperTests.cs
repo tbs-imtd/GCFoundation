@@ -9,13 +9,13 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
         [Theory]
         [InlineData(LinkVariant.Default, "default")]
         [InlineData(LinkVariant.Light, "light")]
-        public void Process_SetsLinkRoleFromVariant(LinkVariant variant, string expectedRole)
+        public void Process_SetsLinkRole(LinkVariant role, string expectedRole)
         {
             var helper = new LinkTagHelper
             {
                 Href = "/path",
                 Target = "_self",
-                Variant = variant
+                LinkRole = role
             };
 
             var output = CreateOutput();
@@ -32,13 +32,27 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
             {
                 Href = "/x",
                 Target = "_blank",
-                Variant = LinkVariant.Light
+                LinkRole = LinkVariant.Light
             };
 
             var output = CreateOutput();
             helper.Process(CreateContext(), output);
 
             Assert.False(output.Attributes.ContainsName("variant"));
+        }
+
+        [Fact]
+        public void Process_LegacyVariantAlias_StillMapsToLinkRole()
+        {
+            var helper = new LinkTagHelper { Href = "/x", Target = "_self" };
+#pragma warning disable CS0618 // Type or member is obsolete
+            helper.Variant = LinkVariant.Light;
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.Equal("light", output.Attributes["link-role"].Value?.ToString());
         }
 
         private static TagHelperContext CreateContext() =>

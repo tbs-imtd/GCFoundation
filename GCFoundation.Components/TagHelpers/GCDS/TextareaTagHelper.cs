@@ -62,6 +62,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public int Rows { get; set; }
 
         /// <summary>
+        /// Gets or sets the visible width of the textarea in columns (GCDS <c>cols</c>).
+        /// </summary>
+        public int? Cols { get; set; }
+
+        /// <summary>
         /// Processes the tag helper by adding the relevant attributes to the output based on the properties.
         /// </summary>
         /// <param name="context">The context of the tag helper.</param>
@@ -81,6 +86,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 
             AddAttributeIfNotNull(output, "hide-label", HideLabel);
             AddAttributeIfNotNull(output, "rows", Rows);
+            AddAttributeIfNotNull(output, "cols", Cols);
 
             base.Process(context, output);
         }

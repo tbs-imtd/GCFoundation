@@ -15,15 +15,41 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     [HtmlTargetElement("gcds-grid")]
     public class GridTagHelper : BaseTagHelper
     {
+        private AlignItem? _alignItems;
+        private HorizontalAlignment? _alignment;
+
+        /// <summary>
+        /// Defines the grid alignment when the grid container is narrower than its parent (GCDS <c>alignment</c>). Not rendered unless set.
+        /// </summary>
+        public HorizontalAlignment Alignment
+        {
+            get => _alignment ?? default;
+            set => _alignment = value;
+        }
+
         /// <summary>
         /// Defines the alignment of content in the grid container.
         /// </summary>
         public AlignContent? AlignContent { get; set; }
 
         /// <summary>
-        /// Defines the alignment of items in the grid container.
+        /// Defines the alignment of items in the grid container (GCDS <c>align-items</c>). Not rendered unless set.
         /// </summary>
-        public AlignItem? AlignItem { get; set; }
+        public AlignItem AlignItems
+        {
+            get => _alignItems ?? default;
+            set => _alignItems = value;
+        }
+
+        /// <summary>
+        /// Defines the alignment of items in the grid container; use <see cref="AlignItems"/> (<c>align-items</c>) instead.
+        /// </summary>
+        [Obsolete("Use AlignItems (align-items) to match the GCDS gcds-grid attribute.")]
+        public AlignItem? AlignItem
+        {
+            get => _alignItems;
+            set => _alignItems = value;
+        }
 
         /// <summary>
         /// Specifies the number of columns for the grid.
@@ -98,13 +124,14 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            AddAttributeIfNotNull(output, "alignment", _alignment);
             AddAttributeIfNotNullWithCaseConversion(output, "align-content", AlignContent);
-            AddAttributeIfNotNullWithCaseConversion(output, "align-items", AlignItem);
+            AddAttributeIfNotNullWithCaseConversion(output, "align-items", _alignItems);
             AddAttributeIfNotNull(output, "columns", Columns);
             AddAttributeIfNotNull(output, "columns-desktop", ColumnsDesktop);
             AddAttributeIfNotNull(output, "columns-tablet", ColumnsTablet);
             AddAttributeIfNotNull(output, "container", Container);
-            AddAttributeIfNotNull(output, "display", Display);
+            AddAttributeIfNotNullWithCaseConversion(output, "display", Display);
             if (EqualRowHeight)
             {
                 output.Attributes.SetAttribute(new TagHelperAttribute("equal-row-height"));

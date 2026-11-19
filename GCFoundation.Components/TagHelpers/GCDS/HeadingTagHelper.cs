@@ -16,6 +16,17 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     [HtmlTargetElement("gcds-heading")]
     public class HeadingTagHelper : BaseTagHelper
     {
+        private HeadingRole? _headingRole;
+
+        /// <summary>
+        /// The heading colour role (GCDS <c>heading-role</c>). Not rendered unless set; GCDS defaults to <see cref="HeadingRole.primary"/>.
+        /// </summary>
+        public HeadingRole HeadingRole
+        {
+            get => _headingRole ?? HeadingRole.primary;
+            set => _headingRole = value;
+        }
+
         /// <summary>
         /// The HTML heading tag to be used (e.g., h1, h2, etc.).
         /// Default is <see cref="HeadingTag.h2"/>.
@@ -41,6 +52,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
             AddAttributeIfNotNull(output, "tag", Tag);
+            AddAttributeIfNotNull(output, "heading-role", _headingRole);
             if (CharacterLimit != null)
                 AddAttributeIfNotNull(output, "character-limit", CharacterLimit);
             AddAttributeIfNotNull(output, "margin-bottom", MarginBottom);
