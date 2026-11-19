@@ -56,7 +56,6 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             if (CharacterLimit != null)
                 AddAttributeIfNotNull(output, "character-limit", CharacterLimit);
             AddAttributeIfNotNullWithCaseConversion(output, "display", Display);
-            AddAttributeIfNotNull(output, "display", Display);
             AddAttributeIfNotNull(output, "margin-bottom", MarginBottom);
             AddAttributeIfNotNull(output, "margin-top", MarginTop);
             AddAttributeIfNotNull(output, "size", Size);

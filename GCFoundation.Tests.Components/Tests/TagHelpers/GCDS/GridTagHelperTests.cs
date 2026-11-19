@@ -13,7 +13,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
             var helper = new GridTagHelper
             {
                 AlignContent = AlignContent.spaceAround,
-                AlignItem = AlignItem.baseline,
+                AlignItems = AlignItem.baseline,
                 Columns = "3",
                 ColumnsDesktop = "4",
                 ColumnsTablet = "2",
@@ -58,7 +58,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
             Assert.Equal("4", output.Attributes["columns-desktop"].Value?.ToString());
             Assert.Equal("2", output.Attributes["columns-tablet"].Value?.ToString());
             Assert.Equal("full", output.Attributes["container"].Value?.ToString());
-            Assert.Equal("inlinegrid", output.Attributes["display"].Value?.ToString());
+            Assert.Equal("inline-grid", output.Attributes["display"].Value?.ToString());
             Assert.Equal("10", output.Attributes["gap"].Value?.ToString());
             Assert.Equal("20", output.Attributes["gap-desktop"].Value?.ToString());
             Assert.Equal("5", output.Attributes["gap-tablet"].Value?.ToString());

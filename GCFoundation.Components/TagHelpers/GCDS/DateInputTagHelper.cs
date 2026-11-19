@@ -15,6 +15,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     public class DateInputTagHelper : BaseFormComponentTagHelper
     {
         /// <summary>
+        /// Gets or sets the autocomplete hint for the date fields (GCDS <c>autocomplete</c>), e.g. <c>bday</c>, <c>cc-exp</c>, <c>on</c> or <c>off</c>.
+        /// </summary>
+        public string? Autocomplete { get; set; }
+
+        /// <summary>
         /// The date format to use for the input field.
         /// </summary>
         public required DateInputFormatType Format { get; set; }
@@ -39,6 +44,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         {
             ArgumentNullException.ThrowIfNull(output, nameof(output));
 
+            AddAttributeIfNotNull(output, "autocomplete", Autocomplete);
             AddAttributeIfNotNull(output, "format", Format);
             AddAttributeIfNotNull(output, "legend", Legend);
             AddAttributeIfNotNull(output, "min", Min);

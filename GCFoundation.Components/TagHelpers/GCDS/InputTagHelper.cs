@@ -14,6 +14,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     [HtmlTargetElement("gcds-input", Attributes = "for")]
     public class InputTagHelper : BaseFormComponentTagHelper
     {
+        private GcdsInputType? _type;
+
         /// <summary>
         /// Gets or sets the autocomplete behavior for the input element.
         /// Defaults to <see cref="AutocompleteType.off"/>.
@@ -60,9 +62,44 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public int? MinLength { get; set; }
 
         /// <summary>
+        /// Gets or sets the virtual keyboard hint (GCDS <c>inputmode</c>): none, text, decimal, numeric, tel, search, email or url.
+        /// </summary>
+        [HtmlAttributeName("inputmode")]
+        public string? InputMode { get; set; }
+
+        /// <summary>
+        /// Gets or sets a regular expression the value must match (GCDS <c>pattern</c>).
+        /// </summary>
+        public string? Pattern { get; set; }
+
+        /// <summary>
+        /// Gets or sets whether the input cannot be modified (GCDS <c>readonly</c>).
+        /// </summary>
+        public bool Readonly { get; set; }
+
+        /// <summary>
         /// Gets or sets the size of the input field in characters.
         /// </summary>
         public int? Size { get; set; }
+
+        /// <summary>
+        /// Gets or sets the value granularity for number inputs (GCDS <c>step</c>): a number or <c>any</c>.
+        /// </summary>
+        public string? Step { get; set; }
+
+        /// <summary>
+        /// Gets or sets the suggestion options rendered as a datalist, as a JSON array (GCDS <c>suggestions</c>).
+        /// </summary>
+        public string? Suggestions { get; set; }
+
+        /// <summary>
+        /// Gets or sets the input type (GCDS <c>type</c>). Not rendered unless set; GCDS defaults to <see cref="GcdsInputType.text"/>.
+        /// </summary>
+        public GcdsInputType Type
+        {
+            get => _type ?? GcdsInputType.text;
+            set => _type = value;
+        }
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -84,6 +121,12 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "max", Max);
             AddAttributeIfNotNull(output, "minlength", MinLength);
             AddAttributeIfNotNull(output, "maxlength", MaxLength);
+            AddAttributeIfNotNull(output, "inputmode", InputMode);
+            AddAttributeIfNotNull(output, "pattern", Pattern);
+            AddBooleanAttribute(output, "readonly", Readonly);
+            AddAttributeIfNotNull(output, "step", Step);
+            AddAttributeIfNotNull(output, "suggestions", Suggestions);
+            AddAttributeIfNotNull(output, "type", _type);
 
             base.Process(context, output);
         }

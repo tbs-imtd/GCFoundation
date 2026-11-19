@@ -41,6 +41,16 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public required string SearchId { get; set; } = "search";
 
         /// <summary>
+        /// Gets or sets predefined search term suggestions, as a JSON array (GCDS <c>suggested</c>).
+        /// </summary>
+        public string? Suggested { get; set; }
+
+        /// <summary>
+        /// Gets or sets the value of the search input (GCDS <c>value</c>).
+        /// </summary>
+        public string? Value { get; set; }
+
+        /// <summary>
         /// Processes the <c>gcds-search</c> element by adding the <c>action</c>, <c>lang</c>, <c>method</c>,
         /// <c>name</c>, <c>placeholder</c>, and <c>search-id</c> attributes to the rendered output.
         /// </summary>
@@ -54,6 +64,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "name", Name);
             AddAttributeIfNotNull(output, "placeholder", Placeholder);
             AddAttributeIfNotNull(output, "search-id", SearchId);
+            AddAttributeIfNotNull(output, "suggested", Suggested);
+            AddAttributeIfNotNull(output, "value", Value);
             base.Process(context, output);
         }
 
