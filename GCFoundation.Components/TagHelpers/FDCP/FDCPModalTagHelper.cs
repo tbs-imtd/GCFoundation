@@ -77,6 +77,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("aria-labelledby", $"{ModalId}Label");
             output.Attributes.SetAttribute("aria-describedby", $"{ModalId}Description");
             output.Attributes.SetAttribute("aria-modal", "true");
+            // Lets the dialog itself take focus when nothing focusable is inside
+            output.Attributes.SetAttribute("tabindex", "-1");
 
             if (StaticBackdrop)
             {

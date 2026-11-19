@@ -35,7 +35,6 @@
     },
   "dependencies": {
     "prismjs": "1.30.0",
-    "focus-trap": "^7.8.0",
     "quill": "^2.0.2"
   }
 }

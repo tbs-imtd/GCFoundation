@@ -39,10 +39,7 @@ const paths = {
     },
     js: {
         src: 'wwwroot/src/js/**/*.js',
-        vendor: [
-            'node_modules/tabbable/dist/index.umd.js',
-            'node_modules/focus-trap/dist/focus-trap.umd.js'
-        ],
+        vendor: [],
         dest: 'wwwroot/js'
     },
     vendor: {
