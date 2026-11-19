@@ -35,35 +35,7 @@ class FDCPLikertScale {
             this.bindValidation();
         }
 
-        this.bindCardSelection();
         this.bindResponsiveLabelLayout();
-    }
-
-    bindCardSelection() {
-        this.cards.forEach(card => {
-            card.addEventListener('click', event => {
-                const usesWholeCardSelection = window.matchMedia(
-                    '(width < 64em)'
-                ).matches || this.element.classList.contains(
-                    'fdcp-likert-scale--tablet-layout'
-                ) || this.element.classList.contains(
-                    'fdcp-likert-scale--mobile-layout'
-                );
-
-                if (!usesWholeCardSelection
-                    || event.target.closest('input, label')) {
-                    return;
-                }
-
-                const input = card.querySelector(
-                    '.fdcp-likert-scale__input[type="radio"]'
-                );
-
-                if (!input?.disabled) {
-                    input.click();
-                }
-            });
-        });
     }
 
     bindResponsiveLabelLayout() {
@@ -315,6 +287,8 @@ class FDCPLikertScale {
         }));
     }
 }
+
+window.FDCPLikertScale = FDCPLikertScale;
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-fdcp-likert-scale]').forEach(element => {

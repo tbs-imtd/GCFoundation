@@ -65,43 +65,18 @@
     }
 
     &__card {
-        display: flex !important;
-        box-sizing: border-box;
-        height: 100%;
-        border-color: var(--gcds-color-grayscale-100);
-
-        .fdcp-card-body {
-            display: flex !important;
-            min-width: 0;
-        }
-    }
-
-    &__card:has(&__input:checked) {
-        border-color: var(--gcds-radio-default-text);
-        box-shadow: inset 0 0 0 0.0625rem var(--gcds-radio-default-text);
-    }
-
-    &__card:has(&__input:focus) {
-        border-color: var(--gcds-radio-focus-color);
-        box-shadow: inset 0 0 0 0.0625rem var(--gcds-radio-focus-color);
-    }
-
-    &__option {
         position: relative;
-        display: block;
-        flex: 1;
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
         min-width: 0;
-        max-width: var(--gcds-radio-max-width);
-        min-height: calc(
-            var(--gcds-radio-input-height-and-width) - var(--gcds-radio-padding)
-        );
-        padding: 0;
-        border: 0;
-        color: var(--gcds-radio-default-text);
-        font: var(--gcds-radio-font);
-        margin: 0 !important;
-        transition: color ease-in-out 0.15s;
+        overflow-wrap: break-word;
+        height: 100%;
+        background-color: #ffffff;
+        border: 0.0625rem solid var(--gcds-color-grayscale-100);
+        border-radius: 0.5rem;
     }
+
 
     &__input,
     &__label::before,
@@ -123,15 +98,20 @@
 
     &__label {
         display: block;
+        flex: 1;
         box-sizing: border-box;
         width: 100%;
         min-width: 0;
         max-width: 100%;
-        padding: var(--gcds-radio-label-padding) !important;
-        color: currentcolor;
+        min-height: calc(
+            var(--gcds-radio-input-height-and-width) - var(--gcds-radio-padding)
+        );
+        padding: 1rem !important;
+        color: var(--gcds-radio-default-text);
         cursor: pointer;
         font: var(--gcds-radio-label-font-desktop);
-        margin: var(--gcds-label-margin) !important;
+        margin: 0 !important;
+        transition: color ease-in-out 0.15s;
         overflow-wrap: normal;
         word-break: normal;
 
@@ -189,7 +169,7 @@
         display: none;
     }
 
-    &--error &__option:not(:focus-within) &__label {
+    &--error &__card:not(:focus-within) &__label {
         &::before {
             border-color: var(--gcds-radio-danger-border);
         }
@@ -213,31 +193,34 @@
         }
     }
 
-    &__option:has(&__input:disabled) {
+    &__input:disabled + &__label {
         color: var(--gcds-radio-disabled-text);
+        cursor: not-allowed;
 
-        .fdcp-likert-scale__label {
+        &::before,
+        &::after {
             cursor: not-allowed;
+        }
 
-            &::before,
-            &::after {
-                cursor: not-allowed;
-            }
-
-            &::before {
-                border-color: var(--gcds-radio-disabled-border);
-                background-color: var(--gcds-radio-disabled-background);
-            }
+        &::before {
+            border-color: var(--gcds-radio-disabled-border);
+            background-color: var(--gcds-radio-disabled-background);
         }
     }
 }
 
+.fdcp-likert-scale__card:has(.fdcp-likert-scale__input:checked) {
+    border-color: var(--gcds-radio-default-text);
+    box-shadow: inset 0 0 0 0.0625rem var(--gcds-radio-default-text);
+}
+
+.fdcp-likert-scale__card:has(.fdcp-likert-scale__input:focus) {
+    border-color: var(--gcds-radio-focus-color);
+    box-shadow: inset 0 0 0 0.0625rem var(--gcds-radio-focus-color);
+}
+
 @media only screen and (width < 64em) {
     .fdcp-likert-scale {
-        &__card:not(:has(&__input:disabled)) {
-            cursor: pointer;
-        }
-
         &__input,
         &__label::before {
             width: 1.25rem;
@@ -246,14 +229,11 @@
 
         &__label {
             min-height: 1.25rem;
-            padding-inline-start: calc(
-                1.25rem + var(--gcds-spacing-150)
-            ) !important;
         }
 
         &__label::after {
-            top: 0.3125rem;
-            left: 0.3125rem;
+            top: calc(0.3125rem + 1rem);
+            left: calc(0.3125rem + 1rem);
             width: 0.625rem;
             height: 0.625rem;
         }
@@ -262,21 +242,21 @@
 
 @media only screen and (width < 48em) {
     .fdcp-likert-scale {
-        &__card .fdcp-card-body {
-            align-items: center;
-        }
-
-        &__option {
-            min-height: 1.25rem;
-        }
-
         &__label {
             position: relative;
+            padding-inline-start: calc(
+                1rem + 1.25rem + var(--gcds-spacing-150)
+            ) !important;
             margin: 0 !important;
         }
 
         &__input,
-        &__label::before,
+        &__label::before {
+            top: 50%;
+            left: 1rem;
+            transform: translateY(-50%);
+        }
+
         &__label::after {
             top: 50%;
             transform: translateY(-50%);
@@ -303,11 +283,6 @@
             min-inline-size: min-content;
         }
 
-        &__option {
-            display: flex;
-            align-items: flex-start;
-        }
-
         &__label {
             position: relative;
             display: flex;
@@ -317,12 +292,13 @@
             gap: var(--gcds-spacing-150);
             height: 100%;
             min-height: var(--gcds-radio-input-height-and-width);
-            padding: 0 !important;
+            padding: 1rem !important;
             margin: 0 !important;
         }
 
         &__input {
-            top: 0;
+            top: 1rem;
+            left: 1rem;
         }
 
         &__label::before {
@@ -331,6 +307,11 @@
             left: auto;
             display: block;
             flex: 0 0 1.25rem;
+        }
+
+        &__label::after {
+            top: calc(0.3125rem + 1rem);
+            left: calc(0.3125rem + 1rem);
         }
 
         &__label-text {
@@ -362,33 +343,33 @@
             cursor: not-allowed;
         }
 
-        &__label {
-            pointer-events: none;
-        }
-
         &__label::before {
             flex: 0 0 var(--gcds-radio-input-height-and-width);
+        }
+
+        &__label::after {
+            top: calc(var(--gcds-radio-check-top) + 1rem);
+            left: calc(var(--gcds-radio-check-left) + 1rem);
         }
     }
 }
 
 .fdcp-likert-scale--tablet-layout {
-    .fdcp-likert-scale__card:not(:has(.fdcp-likert-scale__input:disabled)) {
-        cursor: pointer;
-    }
-
     .fdcp-likert-scale__input,
     .fdcp-likert-scale__label::before {
         width: 1.25rem;
         height: 1.25rem;
     }
 
-    .fdcp-likert-scale__label {
-        pointer-events: auto;
-    }
-
     .fdcp-likert-scale__label::before {
         flex-basis: 1.25rem;
+    }
+
+    .fdcp-likert-scale__label::after {
+        top: calc(0.3125rem + 1rem);
+        left: calc(0.3125rem + 1rem);
+        width: 0.625rem;
+        height: 0.625rem;
     }
 }
 
@@ -398,25 +379,15 @@
         grid-template-columns: minmax(0, 1fr);
     }
 
-    .fdcp-likert-scale__card .fdcp-card-body {
-        align-items: center;
-    }
-
-    .fdcp-likert-scale__option {
-        display: block;
-        min-height: 1.25rem;
-    }
-
     .fdcp-likert-scale__label {
         position: relative;
         display: block;
         height: auto;
         min-height: 1.25rem;
         padding-inline-start: calc(
-            1.25rem + var(--gcds-spacing-150)
+            1rem + 1.25rem + var(--gcds-spacing-150)
         ) !important;
         margin: 0 !important;
-        pointer-events: auto;
     }
 
     .fdcp-likert-scale__input,
@@ -424,18 +395,18 @@
         width: 1.25rem;
         height: 1.25rem;
         top: 50%;
+        left: 1rem;
         transform: translateY(-50%);
     }
 
     .fdcp-likert-scale__label::before {
         position: absolute;
-        left: 0;
         flex: none;
     }
 
     .fdcp-likert-scale__label::after {
         top: 50%;
-        left: 0.3125rem;
+        left: calc(0.3125rem + 1rem);
         width: 0.625rem;
         height: 0.625rem;
         transform: translateY(-50%);
@@ -478,11 +449,5 @@
     .fdcp-likert-scale__input:disabled + .fdcp-likert-scale__label::after {
         border-color: GrayText;
         background-color: Canvas;
-    }
-}
-
-@media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
-    .fdcp-likert-scale__label::after {
-        background-color: buttonText;
     }
 }

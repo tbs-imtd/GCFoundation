@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -590,7 +590,7 @@
     <value>Détermine si une option est requise. Remplace l’annotation Required du modèle.</value>
   </data>
   <data name="LikertScale_Properties_Value" xml:space="preserve">
-    <value>Définit la valeur de l’option sélectionnée. ModelState et les valeurs liées au modèle ont priorité.</value>
+    <value>Définit la valeur de l’option sélectionnée. Remplace la valeur liée au modèle. Une valeur soumise par ModelState a priorité.</value>
   </data>
   <data name="LikertScale_ModelBinding_Title" xml:space="preserve">
     <value>Liaison de modèle</value>
@@ -628,30 +628,7 @@
   <data name="LikertScale_Basic_VerySatisfied" xml:space="preserve">
     <value>Très satisfait</value>
   </data>
-  <data name="LikertScale_Standalone_Legend" xml:space="preserve">
-    <value>À quelle fréquence utilisez-vous ce service?</value>
-  </data>
-  <data name="LikertScale_Standalone_Index" xml:space="preserve">
-    <value>Question 2 sur 4</value>
-  </data>
-  <data name="LikertScale_Standalone_Hint" xml:space="preserve">
-    <value>Sélectionnez une option.</value>
-  </data>
-  <data name="LikertScale_Standalone_Never" xml:space="preserve">
-    <value>Jamais</value>
-  </data>
-  <data name="LikertScale_Standalone_Rarely" xml:space="preserve">
-    <value>Rarement</value>
-  </data>
-  <data name="LikertScale_Standalone_Sometimes" xml:space="preserve">
-    <value>Parfois</value>
-  </data>
-  <data name="LikertScale_Standalone_Often" xml:space="preserve">
-    <value>Souvent</value>
-  </data>
-  <data name="LikertScale_Standalone_DoesNotApply" xml:space="preserve">
-    <value>Ne s’applique pas</value>
-  </data>
+
   <data name="Index_SearchableSelect_Title" xml:space="preserve">
     <value>Sélecteur avec recherche</value>
   </data>

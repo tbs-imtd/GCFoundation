@@ -77,8 +77,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.DoesNotContain(" border", _output.PreElement.GetContent(), StringComparison.Ordinal);
             Assert.Contains("padding=\"300\"", _output.PreElement.GetContent(), StringComparison.Ordinal);
             Assert.Equal("</gcds-container>", _output.PostElement.GetContent());
-            Assert.Contains("fdcp-card fdcp-likert-scale__card", content, StringComparison.Ordinal);
-            Assert.Contains("fdcp-card-body", content, StringComparison.Ordinal);
+            Assert.Contains("fdcp-likert-scale__card", content, StringComparison.Ordinal);
+            Assert.DoesNotContain("fdcp-card ", content, StringComparison.Ordinal);
+            Assert.DoesNotContain("fdcp-card-body", content, StringComparison.Ordinal);
             Assert.Contains(
                 "<span class=\"fdcp-likert-scale__label-text\">Learning</span>",
                 content,

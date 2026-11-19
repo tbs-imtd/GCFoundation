@@ -586,7 +586,7 @@
     <value>Controls whether an option is required. Overrides the model's Required annotation.</value>
   </data>
   <data name="LikertScale_Properties_Value" xml:space="preserve">
-    <value>Sets the selected option value. ModelState and model-bound values take precedence.</value>
+    <value>Sets the selected option value. Overrides the model-bound value. A value posted back in ModelState takes precedence.</value>
   </data>
   <data name="LikertScale_ModelBinding_Title" xml:space="preserve">
     <value>Model binding</value>
@@ -623,30 +623,6 @@
   </data>
   <data name="LikertScale_Basic_VerySatisfied" xml:space="preserve">
     <value>Very satisfied</value>
-  </data>
-  <data name="LikertScale_Standalone_Legend" xml:space="preserve">
-    <value>How often do you use this service?</value>
-  </data>
-  <data name="LikertScale_Standalone_Index" xml:space="preserve">
-    <value>Question 2 of 4</value>
-  </data>
-  <data name="LikertScale_Standalone_Hint" xml:space="preserve">
-    <value>Select one option.</value>
-  </data>
-  <data name="LikertScale_Standalone_Never" xml:space="preserve">
-    <value>Never</value>
-  </data>
-  <data name="LikertScale_Standalone_Rarely" xml:space="preserve">
-    <value>Rarely</value>
-  </data>
-  <data name="LikertScale_Standalone_Sometimes" xml:space="preserve">
-    <value>Sometimes</value>
-  </data>
-  <data name="LikertScale_Standalone_Often" xml:space="preserve">
-    <value>Often</value>
-  </data>
-  <data name="LikertScale_Standalone_DoesNotApply" xml:space="preserve">
-    <value>Does not apply</value>
   </data>
   <data name="Index_SearchableSelect_Title" xml:space="preserve">
     <value>Searchable Select</value>

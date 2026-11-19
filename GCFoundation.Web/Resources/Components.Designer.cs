@@ -3043,312 +3043,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dissatisfied.
-        /// </summary>
-        public static string LikertScale_Basic_Dissatisfied {
-            get {
-                return ResourceManager.GetString("LikertScale_Basic_Dissatisfied", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select the option that best describes your experience..
-        /// </summary>
-        public static string LikertScale_Basic_Hint {
-            get {
-                return ResourceManager.GetString("LikertScale_Basic_Hint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Question 1 of 4.
-        /// </summary>
-        public static string LikertScale_Basic_Index {
-            get {
-                return ResourceManager.GetString("LikertScale_Basic_Index", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to How satisfied are you with this service?.
-        /// </summary>
-        public static string LikertScale_Basic_Legend {
-            get {
-                return ResourceManager.GetString("LikertScale_Basic_Legend", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Satisfied.
-        /// </summary>
-        public static string LikertScale_Basic_Satisfied {
-            get {
-                return ResourceManager.GetString("LikertScale_Basic_Satisfied", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Very dissatisfied.
-        /// </summary>
-        public static string LikertScale_Basic_VeryDissatisfied {
-            get {
-                return ResourceManager.GetString("LikertScale_Basic_VeryDissatisfied", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Very satisfied.
-        /// </summary>
-        public static string LikertScale_Basic_VerySatisfied {
-            get {
-                return ResourceManager.GetString("LikertScale_Basic_VerySatisfied", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to manual-entry.
-        /// </summary>
-        public static string LikertScale_ManualEntry_Anchor {
-            get {
-                return ResourceManager.GetString("LikertScale_ManualEntry_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Provide the name, legend and hint directly when the radio group is not bound to a model property..
-        /// </summary>
-        public static string LikertScale_ManualEntry_Description {
-            get {
-                return ResourceManager.GetString("LikertScale_ManualEntry_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Manual entry.
-        /// </summary>
-        public static string LikertScale_ManualEntry_Title {
-            get {
-                return ResourceManager.GetString("LikertScale_ManualEntry_Title", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to model-binding.
-        /// </summary>
-        public static string LikertScale_ModelBinding_Anchor {
-            get {
-                return ResourceManager.GetString("LikertScale_ModelBinding_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use model binding to derive the name, legend, hint and validation from model metadata..
-        /// </summary>
-        public static string LikertScale_ModelBinding_Description {
-            get {
-                return ResourceManager.GetString("LikertScale_ModelBinding_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Model binding.
-        /// </summary>
-        public static string LikertScale_ModelBinding_Title {
-            get {
-                return ResourceManager.GetString("LikertScale_ModelBinding_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Use Likert scale for questionnaires that contain many repeated radio-button questions..
-        /// </summary>
-        public static string LikertScale_Overview {
-            get {
-                return ResourceManager.GetString("LikertScale_Overview", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to You have multiple related questions that use the same set of answer choices..
-        /// </summary>
-        public static string LikertScale_WhenToUse_MultipleQuestions {
-            get {
-                return ResourceManager.GetString("LikertScale_WhenToUse_MultipleQuestions", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to You have between 3 and 5 questions..
-        /// </summary>
-        public static string LikertScale_WhenToUse_QuestionCount {
-            get {
-                return ResourceManager.GetString("LikertScale_WhenToUse_QuestionCount", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Disables every radio option when set to true..
-        /// </summary>
-        public static string LikertScale_Properties_Disabled {
-            get {
-                return ResourceManager.GetString("LikertScale_Properties_Disabled", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Binds the radio group to a model property and derives its name, value, legend, hint and validation metadata..
-        /// </summary>
-        public static string LikertScale_Properties_For {
-            get {
-                return ResourceManager.GetString("LikertScale_Properties_For", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Provides supporting text displayed below the legend. Overrides the model metadata value..
-        /// </summary>
-        public static string LikertScale_Properties_Hint {
-            get {
-                return ResourceManager.GetString("LikertScale_Properties_Hint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sets the fieldset ID. Overrides the ID derived from model binding or name..
-        /// </summary>
-        public static string LikertScale_Properties_Id {
-            get {
-                return ResourceManager.GetString("LikertScale_Properties_Id", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Provides optional index text displayed above the legend..
-        /// </summary>
-        public static string LikertScale_Properties_Index {
-            get {
-                return ResourceManager.GetString("LikertScale_Properties_Index", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Provides the radio options, including their text, values, selected state and disabled state..
-        /// </summary>
-        public static string LikertScale_Properties_Items {
-            get {
-                return ResourceManager.GetString("LikertScale_Properties_Items", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sets the radio group legend. Overrides the legend derived from model metadata..
-        /// </summary>
-        public static string LikertScale_Properties_Legend {
-            get {
-                return ResourceManager.GetString("LikertScale_Properties_Legend", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sets the submitted field name for standalone usage. Use this when for is not provided..
-        /// </summary>
-        public static string LikertScale_Properties_Name {
-            get {
-                return ResourceManager.GetString("LikertScale_Properties_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Controls whether an option is required. Overrides the model&apos;s Required annotation..
-        /// </summary>
-        public static string LikertScale_Properties_Required {
-            get {
-                return ResourceManager.GetString("LikertScale_Properties_Required", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sets the selected option value. ModelState and model-bound values take precedence..
-        /// </summary>
-        public static string LikertScale_Properties_Value {
-            get {
-                return ResourceManager.GetString("LikertScale_Properties_Value", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Does not apply.
-        /// </summary>
-        public static string LikertScale_Standalone_DoesNotApply {
-            get {
-                return ResourceManager.GetString("LikertScale_Standalone_DoesNotApply", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Select one option..
-        /// </summary>
-        public static string LikertScale_Standalone_Hint {
-            get {
-                return ResourceManager.GetString("LikertScale_Standalone_Hint", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Question 2 of 4.
-        /// </summary>
-        public static string LikertScale_Standalone_Index {
-            get {
-                return ResourceManager.GetString("LikertScale_Standalone_Index", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to How often do you use this service?.
-        /// </summary>
-        public static string LikertScale_Standalone_Legend {
-            get {
-                return ResourceManager.GetString("LikertScale_Standalone_Legend", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Never.
-        /// </summary>
-        public static string LikertScale_Standalone_Never {
-            get {
-                return ResourceManager.GetString("LikertScale_Standalone_Never", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Often.
-        /// </summary>
-        public static string LikertScale_Standalone_Often {
-            get {
-                return ResourceManager.GetString("LikertScale_Standalone_Often", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Rarely.
-        /// </summary>
-        public static string LikertScale_Standalone_Rarely {
-            get {
-                return ResourceManager.GetString("LikertScale_Standalone_Rarely", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sometimes.
-        /// </summary>
-        public static string LikertScale_Standalone_Sometimes {
-            get {
-                return ResourceManager.GetString("LikertScale_Standalone_Sometimes", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Organize related content into expandable sections..
         /// </summary>
         public static string Index_Accordion_Description {
@@ -3717,6 +3411,240 @@ namespace GCFoundation.Web.Resources {
         public static string Index_TagHelpers_Usage_Label {
             get {
                 return ResourceManager.GetString("Index_TagHelpers_Usage_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dissatisfied.
+        /// </summary>
+        public static string LikertScale_Basic_Dissatisfied {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_Dissatisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the option that best describes your experience..
+        /// </summary>
+        public static string LikertScale_Basic_Hint {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question 1 of 4.
+        /// </summary>
+        public static string LikertScale_Basic_Index {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How satisfied are you with this service?.
+        /// </summary>
+        public static string LikertScale_Basic_Legend {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_Legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Satisfied.
+        /// </summary>
+        public static string LikertScale_Basic_Satisfied {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_Satisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very dissatisfied.
+        /// </summary>
+        public static string LikertScale_Basic_VeryDissatisfied {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_VeryDissatisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very satisfied.
+        /// </summary>
+        public static string LikertScale_Basic_VerySatisfied {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_VerySatisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to manual-entry.
+        /// </summary>
+        public static string LikertScale_ManualEntry_Anchor {
+            get {
+                return ResourceManager.GetString("LikertScale_ManualEntry_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide the name, legend and hint directly when the radio group is not bound to a model property..
+        /// </summary>
+        public static string LikertScale_ManualEntry_Description {
+            get {
+                return ResourceManager.GetString("LikertScale_ManualEntry_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manual entry.
+        /// </summary>
+        public static string LikertScale_ManualEntry_Title {
+            get {
+                return ResourceManager.GetString("LikertScale_ManualEntry_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to model-binding.
+        /// </summary>
+        public static string LikertScale_ModelBinding_Anchor {
+            get {
+                return ResourceManager.GetString("LikertScale_ModelBinding_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use model binding to derive the name, legend, hint and validation from model metadata..
+        /// </summary>
+        public static string LikertScale_ModelBinding_Description {
+            get {
+                return ResourceManager.GetString("LikertScale_ModelBinding_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model binding.
+        /// </summary>
+        public static string LikertScale_ModelBinding_Title {
+            get {
+                return ResourceManager.GetString("LikertScale_ModelBinding_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Likert scale for questionnaires that contain many repeated radio-button questions..
+        /// </summary>
+        public static string LikertScale_Overview {
+            get {
+                return ResourceManager.GetString("LikertScale_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disables every radio option when set to true..
+        /// </summary>
+        public static string LikertScale_Properties_Disabled {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Binds the radio group to a model property and derives its name, value, legend, hint and validation metadata..
+        /// </summary>
+        public static string LikertScale_Properties_For {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides supporting text displayed below the legend. Overrides the model metadata value..
+        /// </summary>
+        public static string LikertScale_Properties_Hint {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the fieldset ID. Overrides the ID derived from model binding or name..
+        /// </summary>
+        public static string LikertScale_Properties_Id {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides optional index text displayed above the legend..
+        /// </summary>
+        public static string LikertScale_Properties_Index {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides the radio options, including their text, values, selected state and disabled state..
+        /// </summary>
+        public static string LikertScale_Properties_Items {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the radio group legend. Overrides the legend derived from model metadata..
+        /// </summary>
+        public static string LikertScale_Properties_Legend {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the submitted field name for standalone usage. Use this when for is not provided..
+        /// </summary>
+        public static string LikertScale_Properties_Name {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controls whether an option is required. Overrides the model&apos;s Required annotation..
+        /// </summary>
+        public static string LikertScale_Properties_Required {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the selected option value. Overrides the model-bound value. A value posted back in ModelState takes precedence..
+        /// </summary>
+        public static string LikertScale_Properties_Value {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have multiple related questions that use the same set of answer choices..
+        /// </summary>
+        public static string LikertScale_WhenToUse_MultipleQuestions {
+            get {
+                return ResourceManager.GetString("LikertScale_WhenToUse_MultipleQuestions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have between 3 and 5 questions..
+        /// </summary>
+        public static string LikertScale_WhenToUse_QuestionCount {
+            get {
+                return ResourceManager.GetString("LikertScale_WhenToUse_QuestionCount", resourceCulture);
             }
         }
         
