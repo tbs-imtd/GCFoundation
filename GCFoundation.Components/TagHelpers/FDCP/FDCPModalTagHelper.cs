@@ -102,10 +102,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var cleanedContent = RemoveSlotElements(childContentRaw);
 
             var bodyClasses = "modal__body" + (Scrollable ? " modal__body--scrollable" : "");
+            // A scrollable body must be keyboard-focusable so text-only content can be scrolled
+            var bodyScrollAttributes = Scrollable
+                ? $" tabindex=\"0\" role=\"region\" aria-labelledby=\"{ModalId}Label\""
+                : string.Empty;
 
             var sb = new StringBuilder();
             sb.Append(BuildHeader(variant));
-            sb.AppendLine(CultureInfo.InvariantCulture, $"<div id=\"{ModalId}Description\" class=\"{bodyClasses}\">");
+            sb.AppendLine(CultureInfo.InvariantCulture, $"<div id=\"{ModalId}Description\" class=\"{bodyClasses}\"{bodyScrollAttributes}>");
             sb.AppendLine(!string.IsNullOrWhiteSpace(bodySlot) ? bodySlot : cleanedContent.Trim());
             sb.AppendLine("</div>");
             if (!string.IsNullOrWhiteSpace(footerSlot))
