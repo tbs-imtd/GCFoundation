@@ -87,7 +87,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var variant = State.ToString().ToLowerInvariant();
 
-            // dialog + modal + scrollable/size/variant modifiers now live on one element
             var classes = new List<string> { "modal" };
             if (Scrollable) classes.Add("modal--scrollable");
             if (Size == ModalSize.small) classes.Add("container-sm");

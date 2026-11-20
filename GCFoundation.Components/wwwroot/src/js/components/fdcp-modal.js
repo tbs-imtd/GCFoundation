@@ -11,7 +11,6 @@
 
     // Collect every focusable element inside root (in DOM order), descending
     // into shadow roots so GCDS buttons expose their inner <button>/<a>.
-    // Uses the tabIndex property rather than a list of element types.
     getFocusableElements(root = this.modal) {
         const result = [];
         const walk = (node) => {
@@ -142,7 +141,6 @@
 
     hide() {
         this.modal.close();
-        // onExit() fires automatically via the 'close' event
     }
 }
 function bindModalTrigger(trigger) {

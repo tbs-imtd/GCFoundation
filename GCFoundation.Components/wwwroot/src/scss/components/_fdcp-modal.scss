@@ -36,8 +36,7 @@
         transform: translate(0, 0);
     }
 
-    // The dialog has tabindex="-1" only so script can focus it as a fallback;
-    // it is not an interactive control, so no focus ring on the container.
+    // Focusable only as a script fallback (tabindex="-1"); no focus ring
     &:focus {
         outline: none;
     }
