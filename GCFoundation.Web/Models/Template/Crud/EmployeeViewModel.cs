@@ -53,7 +53,7 @@ namespace GCFoundation.Web.Models.Template.Crud
         /// Gets or sets the employee's unique identifier.
         /// </summary>
         [Display(Name = "Crud_Demo_EmployeeId_Label", ResourceType = typeof(Resources.Template), Order = 2)]
-        [TableColumnDefinition(Sort = true, Order = 1)]
+        [TableColumnDefinition(RowHeader = true, Sort = true, Order = 1)]
         public string Id { get; set; } = string.Empty;
 
         /// <summary>
