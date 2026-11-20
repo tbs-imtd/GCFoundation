@@ -355,10 +355,7 @@ namespace GCFoundation.Web.Controllers
         public IActionResult CrudDemo()
         {
             SetPageTitle(Resources.Template.Crud_Demo_PageTitle);
-            var vm = new DemoViewModel()
-            {
-                EmployeeModels = MockEmployeeList()
-            };
+            var vm = new DemoViewModel(MockEmployeeList());
 
             return View("crud/demo", vm);
         }
@@ -368,13 +365,10 @@ namespace GCFoundation.Web.Controllers
         /// </summary>
         /// <param name="id">The identifier of the employee to remove.</param>
         /// <returns>The updated CRUD demonstration view.</returns>
-        public IActionResult CrudDemo(string id)
+        private ViewResult CrudDemo(string id)
         {
             SetPageTitle(Resources.Template.Crud_Demo_PageTitle);
-            var vm = new DemoViewModel()
-            {
-                EmployeeModels = MockEmployeeList()
-            };
+            var vm = new DemoViewModel(MockEmployeeList());
             vm.DeleteEmployee(id);
             return View("crud/demo", vm);
         }
@@ -384,24 +378,21 @@ namespace GCFoundation.Web.Controllers
         /// </summary>
         /// <param name="evm">The employee record to add or update.</param>
         /// <returns>The updated CRUD demonstration view.</returns>
-        public IActionResult CrudDemo(EmployeeViewModel evm)
+        private ViewResult CrudDemo(EmployeeViewModel evm)
         {
             SetPageTitle(Resources.Template.Crud_Demo_PageTitle);
             var employees = MockEmployeeList();
 
             if (evm != null)
             {
-                var index = employees.ToList().FindIndex(e => e.Id == evm.Id);
+                var index = employees.FindIndex(e => e.Id == evm.Id);
                 if (index >= 0)
                     employees[index] = evm;  
                 else
                     employees.Add(evm);       
             }
 
-            var vm = new DemoViewModel
-            {
-                EmployeeModels = employees
-            };
+            var vm = new DemoViewModel(employees);
 
             return View("crud/demo", vm);
         }
@@ -469,7 +460,7 @@ namespace GCFoundation.Web.Controllers
         /// Creates the sample employee records used by the CRUD demonstration.
         /// </summary>
         /// <returns>The sample employee records.</returns>
-        private static IList<EmployeeViewModel> MockEmployeeList()
+        private static List<EmployeeViewModel> MockEmployeeList()
         {
             return new List<EmployeeViewModel>
             {

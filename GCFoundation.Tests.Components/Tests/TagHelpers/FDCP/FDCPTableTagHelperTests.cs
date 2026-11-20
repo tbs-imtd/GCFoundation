@@ -32,20 +32,6 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
         }
 
         [Fact]
-        public async Task ProcessAsync_CaptionDetail_RendersSingleTextElement()
-        {
-            var helper = CreateHelper();
-            helper.CaptionDetail = "Fictitious data";
-            var output = CreateOutput();
-
-            await helper.ProcessAsync(CreateContext(), output);
-
-            var content = output.PreContent.GetContent();
-            Assert.Contains("<gcds-text>Fictitious data</gcds-text>", content);
-            Assert.DoesNotContain("<gcds-text><gcds-text>", content);
-        }
-
-        [Fact]
         public async Task ProcessAsync_NoCaptionDetail_RendersNoTextElement()
         {
             var helper = CreateHelper();

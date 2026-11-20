@@ -8,9 +8,18 @@ namespace GCFoundation.Web.Models.Template.Crud
     public class DemoViewModel : BaseViewModel
     {
         /// <summary>
-        /// Gets or sets the employee records displayed in the demonstration table.
+        /// Initializes a new instance of the <see cref="DemoViewModel"/> class.
         /// </summary>
-        public required IList<EmployeeViewModel> EmployeeModels { get; set; }
+        /// <param name="employeeModels">The employee records displayed in the demonstration table.</param>
+        public DemoViewModel(IList<EmployeeViewModel> employeeModels)
+        {
+            EmployeeModels = employeeModels;
+        }
+
+        /// <summary>
+        /// Gets the employee records displayed in the demonstration table.
+        /// </summary>
+        public IList<EmployeeViewModel> EmployeeModels { get; }
 
         /// <summary>
         /// Removes the employee with the specified identifier from the demonstration data.
