@@ -31,6 +31,31 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("<gcds-heading tag=\"h3\">Employee list</gcds-heading>", output.PreContent.GetContent());
         }
 
+        [Fact]
+        public async Task ProcessAsync_CaptionDetail_RendersSingleTextElement()
+        {
+            var helper = CreateHelper();
+            helper.CaptionDetail = "Fictitious data";
+            var output = CreateOutput();
+
+            await helper.ProcessAsync(CreateContext(), output);
+
+            var content = output.PreContent.GetContent();
+            Assert.Contains("<gcds-text>Fictitious data</gcds-text>", content);
+            Assert.DoesNotContain("<gcds-text><gcds-text>", content);
+        }
+
+        [Fact]
+        public async Task ProcessAsync_NoCaptionDetail_RendersNoTextElement()
+        {
+            var helper = CreateHelper();
+            var output = CreateOutput();
+
+            await helper.ProcessAsync(CreateContext(), output);
+
+            Assert.DoesNotContain("<gcds-text>", output.PreContent.GetContent());
+        }
+
         private static FDCPTableTagHelper CreateHelper()
         {
             return new FDCPTableTagHelper(new Mock<IStringLocalizerFactory>().Object)

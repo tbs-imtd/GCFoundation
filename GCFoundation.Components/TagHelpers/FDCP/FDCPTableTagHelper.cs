@@ -120,7 +120,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string captionDetailHtml = string.IsNullOrEmpty(CaptionDetail) ? string.Empty : $"<gcds-text>{CaptionDetail}</gcds-text>";
             string html = $"""
                 <gcds-heading tag="{CaptionTag}">{Caption}</gcds-heading>
-                <gcds-text>{captionDetailHtml}</gcds-text>
+                {captionDetailHtml}
                 """;
             return html;
         }

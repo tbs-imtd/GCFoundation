@@ -33,8 +33,8 @@
         "gulp-uglify": "^3.0.2",
         "sass": "^1.87.0"
     },
-  "dependencies": {
-    "prismjs": "1.30.0",
-    "quill": "^2.0.2"
-  }
+    "dependencies": {
+        "prismjs": "1.30.0",
+        "quill": "^2.0.2"
+    }
 }
