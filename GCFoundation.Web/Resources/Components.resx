@@ -1720,6 +1720,9 @@
   <data name="Table_Properties_FdcpTable_Caption" xml:space="preserve">
     <value>Accessible name for the table, announced by assistive technologies. Required for WCAG compliance.</value>
   </data>
+  <data name="Table_Properties_FdcpTable_CaptionTag" xml:space="preserve">
+    <value>HTML heading tag used for the visible caption heading.</value>
+  </data>
   <data name="Table_Properties_FdcpTable_CaptionDetail" xml:space="preserve">
     <value>Additional descriptive text displayed below the caption.</value>
   </data>

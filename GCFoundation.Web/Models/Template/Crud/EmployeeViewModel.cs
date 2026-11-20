@@ -73,7 +73,7 @@ namespace GCFoundation.Web.Models.Template.Crud
         /// Gets or sets the employee's full name.
         /// </summary>
         [Display(Name = "Crud_Demo_EmployeeName_Label", ResourceType = typeof(Resources.Template), Order = 2)]
-        [TableColumnDefinition(Sort = true, Order = 2)]
+        [TableColumnDefinition(Sort = true, Order = 2, RowHeader = true)]
         public string Name { get; set; } = string.Empty;
 
         /// <summary>

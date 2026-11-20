@@ -591,7 +591,7 @@
     <value>Employee records</value>
   </data>
   <data name="Crud_Demo_DeleteEmployee_Title" xml:space="preserve">
-    <value>Delete employee</value>
+    <value>Delete</value>
   </data>
   <data name="Crud_Demo_DeleteModal_Instruction" xml:space="preserve">
     <value>Select Delete to continue, or Cancel to return to the employee list.</value>
@@ -603,7 +603,7 @@
     <value>Delete employee?</value>
   </data>
   <data name="Crud_Demo_EditProfile_Title" xml:space="preserve">
-    <value>Edit employee information</value>
+    <value>Edit</value>
   </data>
   <data name="Crud_Demo_PageTitle" xml:space="preserve">
     <value>Demo of the CRUD page template</value>
@@ -615,7 +615,7 @@
     <value>This table is provided for demonstration purposes only. Data shown is fictitious.</value>
   </data>
   <data name="Crud_Demo_ViewProfile_Title" xml:space="preserve">
-    <value>View employee information</value>
+    <value>View</value>
   </data>
   <data name="Crud_Edit_Department_AdministrativeServices" xml:space="preserve">
     <value>Administrative Services</value>

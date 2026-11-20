@@ -36,6 +36,11 @@
         transform: translate(0, 0);
     }
 
+    // Focusable only as a script fallback (tabindex="-1"); no focus ring
+    &:focus {
+        outline: none;
+    }
+
     &::backdrop {
         background-color: var(--gcds-table-modal-backdrop-background);
     }

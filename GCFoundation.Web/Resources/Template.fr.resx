@@ -590,7 +590,7 @@
     <value>Dossiers d'employés</value>
   </data>
   <data name="Crud_Demo_DeleteEmployee_Title" xml:space="preserve">
-    <value>Supprimer l’employé</value>
+    <value>Supprimer</value>
   </data>
   <data name="Crud_Demo_DeleteModal_Instruction" xml:space="preserve">
     <value>Sélectionnez Supprimer pour continuer ou Annuler pour retourner à la liste des employés.</value>
@@ -602,7 +602,7 @@
     <value>Supprimer l’employé?</value>
   </data>
   <data name="Crud_Demo_EditProfile_Title" xml:space="preserve">
-    <value>Modifier les renseignements sur l’employé</value>
+    <value>Modifier</value>
   </data>
   <data name="Crud_Demo_PageTitle" xml:space="preserve">
     <value>Démonstration du modèle de page CRUD</value>
@@ -614,7 +614,7 @@
     <value>Ce tableau est fourni à des fins de démonstration seulement. Les données affichées sont fictives.</value>
   </data>
   <data name="Crud_Demo_ViewProfile_Title" xml:space="preserve">
-    <value>Consulter les renseignements sur l’employé</value>
+    <value>Consulter</value>
   </data>
   <data name="Crud_Edit_Department_AdministrativeServices" xml:space="preserve">
     <value>Services administratifs</value>
