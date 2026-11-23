@@ -534,12 +534,6 @@
   <data name="Index_Modal_Description" xml:space="preserve">
     <value>A way to display information in a popup box (modal)</value>
   </data>
-  <data name="Index_FilteredSearch_Title" xml:space="preserve">
-    <value>Filtered Search</value>
-  </data>
-  <data name="Index_FilteredSearch_Description" xml:space="preserve">
-    <value>A way to display search with filtered result</value>
-  </data>
   <data name="Index_SearchableSelect_Title" xml:space="preserve">
     <value>Searchable Select</value>
   </data>
@@ -1140,24 +1134,6 @@
   </data>
   <data name="Modal_Properties_LogoutUrl" xml:space="preserve">
     <value>Endpoint to log out the user</value>
-  </data>
-  <data name="FilteredSearch_Name" xml:space="preserve">
-    <value>Filtered Search</value>
-  </data>
-  <data name="FilteredSearch_Overview" xml:space="preserve">
-    <value>The &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; component provides a way to display a filtering panel to help users narrow down their search results.</value>
-  </data>
-  <data name="FilteredSearch_Properties_Title" xml:space="preserve">
-    <value>Title displayed at the top of the filter panel</value>
-  </data>
-  <data name="FilteredSearch_Properties_Filters" xml:space="preserve">
-    <value>A collection of filter categories to render in the filter panel; each category can contain multiple filter options.</value>
-  </data>
-  <data name="FilteredSearch_Basic_Anchor" xml:space="preserve">
-    <value>basic</value>
-  </data>
-  <data name="FilteredSearch_Basic_Title" xml:space="preserve">
-    <value>Basic Usage</value>
   </data>
   <data name="SearchableSelect_Name" xml:space="preserve">
     <value>Searchable Select</value>

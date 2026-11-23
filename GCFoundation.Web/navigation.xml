@@ -65,7 +65,6 @@
 						<NavNode key="components-badge" controller="Components" action="Badge" area="" preservedRouteParameters="culture" text="Nav_Components_Badge" componentVisibility="breadcrumbs" />
 						<NavNode key="components-card" controller="Components" action="Card" area="" preservedRouteParameters="culture" text="Nav_Components_Card" componentVisibility="breadcrumbs" />
 						<NavNode key="components-code" controller="Components" action="Code" area="" preservedRouteParameters="culture" text="Nav_Components_Code" componentVisibility="breadcrumbs" />
-						<NavNode key="components-filtered-search" controller="Components" action="FilteredSearch" area="" preservedRouteParameters="culture" text="Nav_Components_FilteredSearch" componentVisibility="breadcrumbs" />
             <NavNode key="components-form" controller="Components" action="Form" area="" preservedRouteParameters="culture" text="Nav_Components_Form" componentVisibility="breadcrumbs" />
             <NavNode key="components-modal" controller="Components" action="Modal" area="" preservedRouteParameters="culture" text="Nav_Components_Modal" componentVisibility="breadcrumbs" />
 						<NavNode key="components-page-heading" controller="Components" action="PageHeading" area="" preservedRouteParameters="culture" text="Nav_Components_PageHeading" componentVisibility="breadcrumbs" />

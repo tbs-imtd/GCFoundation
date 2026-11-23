@@ -63,11 +63,6 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.FilteredSearch))
-                .TranslateAction("recherche-filtree");
-
-                setup.UseCulture("fr")
-                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.Table))
                 .TranslateAction("tableau");
 

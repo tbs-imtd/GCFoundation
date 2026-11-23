@@ -538,12 +538,6 @@
   <data name="Index_Modal_Description" xml:space="preserve">
     <value>Un moyen d'afficher des informations dans une boîte de dialogue (modale)</value>
   </data>
-  <data name="Index_FilteredSearch_Title" xml:space="preserve">
-    <value>Recherche filtrée</value>
-  </data>
-  <data name="Index_FilteredSearch_Description" xml:space="preserve">
-    <value>Un moyen d'afficher une recherche avec des résultats filtrés</value>
-  </data>
   <data name="Index_SearchableSelect_Title" xml:space="preserve">
     <value>Sélecteur avec recherche</value>
   </data>
@@ -1139,24 +1133,6 @@
   </data>
   <data name="Modal_Properties_LogoutUrl" xml:space="preserve">
     <value>"Endpoint" pour terminer la session de l'utilisateur</value>
-  </data>
-  <data name="FilteredSearch_Name" xml:space="preserve">
-    <value>Recherche filtrée</value>
-  </data>
-  <data name="FilteredSearch_Overview" xml:space="preserve">
-    <value>Le composant &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; offre un moyen aux développeurs d'afficher un panneau de filtres qui permettra aux utilisateurs de restreindre leurs résultats de recherche.</value>
-  </data>
-  <data name="FilteredSearch_Properties_Title" xml:space="preserve">
-    <value>Le titre affiché dans l'en-tête du panneau de filtres</value>
-  </data>
-  <data name="FilteredSearch_Properties_Filters" xml:space="preserve">
-    <value>Une collection de catégories de filtres à être affichées dans le panneau de filtre; chaque catégorie peut contenir plusieurs options de filtres</value>
-  </data>
-  <data name="FilteredSearch_Basic_Anchor" xml:space="preserve">
-    <value>base</value>
-  </data>
-  <data name="FilteredSearch_Basic_Title" xml:space="preserve">
-    <value>Utilisation de base</value>
   </data>
   <data name="SearchableSelect_Name" xml:space="preserve">
     <value>Sélecteur avec recherche</value>
@@ -2661,9 +2637,6 @@
   </data>
   <data name="Index_TagHelpers_Description_FDCP_Card" xml:space="preserve">
     <value>Affiche une carte flexible avec en-tête, corps, pied, images et mises en page inspirées de Bootstrap.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_FDCP_FiltersBox" xml:space="preserve">
-    <value>Affiche un panneau de filtres avec catégories repliables pour le filtrage de données.</value>
   </data>
   <data name="Index_TagHelpers_Description_FDCP_Form" xml:space="preserve">
     <value>Affiche un formulaire lié à un modèle, avec méthode, action et résumé des erreurs de validation.</value>

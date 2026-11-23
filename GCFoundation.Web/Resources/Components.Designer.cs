@@ -2212,60 +2212,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to basic.
-        /// </summary>
-        public static string FilteredSearch_Basic_Anchor {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Basic_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Basic Usage.
-        /// </summary>
-        public static string FilteredSearch_Basic_Title {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Basic_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Filtered Search.
-        /// </summary>
-        public static string FilteredSearch_Name {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; component provides a way to display a filtering panel to help users narrow down their search results..
-        /// </summary>
-        public static string FilteredSearch_Overview {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Overview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A collection of filter categories to render in the filter panel; each category can contain multiple filter options..
-        /// </summary>
-        public static string FilteredSearch_Properties_Filters {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Properties_Filters", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Title displayed at the top of the filter panel.
-        /// </summary>
-        public static string FilteredSearch_Properties_Title {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Properties_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Enter your age (must be 18 or older)..
         /// </summary>
         public static string Form_Age_Hint {
@@ -3096,24 +3042,6 @@ namespace GCFoundation.Web.Resources {
         public static string Index_FeaturedComponents_Title {
             get {
                 return ResourceManager.GetString("Index_FeaturedComponents_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A way to display search with filtered result.
-        /// </summary>
-        public static string Index_FilteredSearch_Description {
-            get {
-                return ResourceManager.GetString("Index_FilteredSearch_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Filtered Search.
-        /// </summary>
-        public static string Index_FilteredSearch_Title {
-            get {
-                return ResourceManager.GetString("Index_FilteredSearch_Title", resourceCulture);
             }
         }
         

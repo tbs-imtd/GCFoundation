@@ -82,21 +82,6 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
-        /// Displays the Filtered Search component demo page.
-        /// </summary>
-        /// <returns>
-        /// The Filtered Search component view.
-        /// </returns>
-        [HttpGet("filtered-search")]
-        public IActionResult FilteredSearch()
-        {
-            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_FilteredSearch_Title}");
-
-            var vm = BuildFilteredSearchComponentViewModel();
-            return View("Component", vm);
-        }
-
-        /// <summary>
         /// Displays a sample form linked to properties of a class.
         /// </summary>
         /// <returns>
@@ -461,25 +446,6 @@ namespace GCFoundation.Web.Controllers
                 ]
             };
         }
-        private static ComponentViewModel BuildFilteredSearchComponentViewModel()
-        {
-            var vm = new ComponentViewModel();
-
-            vm.Name = Resources.Components.FilteredSearch_Name;
-            vm.Overview = Resources.Components.FilteredSearch_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new ComponentPropertyViewModel() { Name = "title", DataType = "string", Description = Resources.Components.FilteredSearch_Properties_Title },
-                new ComponentPropertyViewModel() { Name = "filters", DataType = "IEnumerable<SearchFilterCategory>", Description = Resources.Components.FilteredSearch_Properties_Filters }
-            };
-            vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
-            {
-                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.FilteredSearch_Basic_Anchor, PartialViewName = "FilteredSearch/_Basic", Title = Resources.Components.FilteredSearch_Basic_Title }
-            };
-            vm.Tag = "<fdcp-filters-box>";
-
-            return vm;
-        }
         private static FormTestViewModel BuildFormComponentViewModel(FormTestViewModel? vm = null)
         {
             if (vm == null)
@@ -511,7 +477,6 @@ namespace GCFoundation.Web.Controllers
                     new () { Name = Resources.Components.Index_Badge_Title, Description = Resources.Components.Index_Badge_Description, Href = Url.Action("Badge", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-badge.svg") },
                     new () { Name = Resources.Components.Index_Card_Title, Description = Resources.Components.Index_Card_Description, Href = Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg") },
                     new () { Name = Resources.Components.Index_Code_Title, Description = Resources.Components.Index_Code_Description, Href = Url.Action("Code", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-code.svg"), IsNew = true },
-                    new () { Name = Resources.Components.Index_FilteredSearch_Title, ShortDescription = Resources.Components.Index_FilteredSearch_Description, Href = Url.Action("FilteredSearch", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-filtered-search.svg") },
                     new () { Name = Resources.Components.Index_Form_Title, ShortDescription = Resources.Components.Index_Form_Description, Href = Url.Action("Form", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form.svg") },
                     new () { Name = Resources.Components.Index_Modal_Title, ShortDescription = Resources.Components.Index_Modal_Description, Href = Url.Action("Modal", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-modal.svg") },
                     new () { Name = Resources.Components.Index_PageHeading_Title, ShortDescription = Resources.Components.Index_PageHeading_Description, Href = Url.Action("PageHeading", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-page-heading.svg") },

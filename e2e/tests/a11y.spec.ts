@@ -10,7 +10,6 @@ const routes: Array<{ path: string; name: string }> = [
   { path: '/components', name: 'Components index' },
   { path: '/components/card', name: 'Components Card' },
   { path: '/components/badge', name: 'Components Badge' },
-  { path: '/components/filtered-search', name: 'Components Filtered Search' },
   { path: '/components/form', name: 'Components Form' },
   { path: '/components/modal', name: 'Components Modal' },
   { path: '/components/page-heading', name: 'Components Page Heading' },
