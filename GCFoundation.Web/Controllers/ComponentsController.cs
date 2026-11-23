@@ -466,12 +466,6 @@ namespace GCFoundation.Web.Controllers
             var vm = new ComponentViewModel();
 
             vm.Name = Resources.Components.FilteredSearch_Name;
-            //vm.Notes = new List<string>()
-            //{
-            //    Resources.Components.FilteredSearch_Notes_1,
-            //    Resources.Components.FilteredSearch_Notes_2,
-            //    Resources.Components.FilteredSearch_Notes_3
-            //};
             vm.Overview = Resources.Components.FilteredSearch_Overview;
             vm.Properties = new List<ComponentPropertyViewModel>()
             {
@@ -492,12 +486,6 @@ namespace GCFoundation.Web.Controllers
                 vm = new FormTestViewModel();
 
             vm.Name = Resources.Components.Form_Name;
-            //vm.Notes = new List<string>()
-            //{
-            //    Resources.Components.Form_Notes_1,
-            //    Resources.Components.Form_Notes_2,
-            //    Resources.Components.Form_Notes_3
-            //};
             vm.Overview = Resources.Components.Form_Overview;
             vm.Properties = new List<ComponentPropertyViewModel>()
             {
