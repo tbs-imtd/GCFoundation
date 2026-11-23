@@ -30,29 +30,29 @@
 <fdcp-filters-box filters="@searchFilterCategories"
                   title="@Components.FilteredSearch_Name"></fdcp-filters-box>
 
-<pre><code class="language-cshtml">var searchFilterCategories = new List&lt;SearchFilterCategory&gt;
+<fdcp-code code-language="cshtml">var searchFilterCategories = new List&lt;SearchFilterCategory&gt;
+{
+    new SearchFilterCategory
+    {
+        Title = "Funding type",
+        SearchFilterCategoryId = "funding",
+        Filters = new List&lt;SearchFilterOption&gt;
         {
-            new SearchFilterCategory
-            {
-                Title = ""Funding type"",
-                SearchFilterCategoryId = ""funding"",
-                Filters = new List&lt;SearchFilterOption&gt;
-                {
-                    new SearchFilterOption { Title = ""Grants"", Count = 45, Name = ""grants"" },
-                    new SearchFilterOption { Title = ""Contributions"", Count = 4, Name = ""contributions"" }
-                }
-            },
-            new SearchFilterCategory
-            {
-                Title = ""Amounts"",
-                SearchFilterCategoryId = ""amounts"",
-                Filters = new List&lt;SearchFilterOption&gt;
-                {
-                    new SearchFilterOption { Title = ""Less than $10,000"", Count = 26, Name = ""less10000"" },
-                    new SearchFilterOption { Title = ""$10,000 to $24,999"", Count = 5, Name = ""between10000and24999"" }
-                }
-            }
-        };
+            new SearchFilterOption { Title = "Grants", Count = 45, Name = "grants" },
+            new SearchFilterOption { Title = "Contributions", Count = 4, Name = "contributions" }
+        }
+    },
+    new SearchFilterCategory
+    {
+        Title = "Amounts",
+        SearchFilterCategoryId = "amounts",
+        Filters = new List&lt;SearchFilterOption&gt;
+        {
+            new SearchFilterOption { Title = "Less than $10,000", Count = 26, Name = "less10000" },
+            new SearchFilterOption { Title = "$10,000 to $24,999", Count = 5, Name = "between10000and24999" }
+        }
+    }
+};
 
-&lt;fdcp-filters-box filters=""&commat;searchFilterCategories""
-                  title=""@Components.FilteredSearch_Name""&gt;&lt;/fdcp-filters-box&gt;</code></pre>
+&lt;fdcp-filters-box filters="@@searchFilterCategories"
+                  title="@Components.FilteredSearch_Name"&gt;&lt;/fdcp-filters-box&gt;</fdcp-code>

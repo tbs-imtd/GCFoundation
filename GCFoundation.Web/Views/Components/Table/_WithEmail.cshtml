@@ -16,17 +16,13 @@
     </template>
 </fdcp-table>
 
-<div class="code-container">
-    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithEmail_Caption)}"" rows=""@Model.Rows""&gt;
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-table caption=""{Html.Encode(Components.Table_WithEmail_Caption)}"" rows=""@Model.Rows""&gt;
     &lt;template slot=""cell:email""&gt;
         &lt;gcds-link data-bind=""email"" data-bind-template-href=""mailto:{{email}}""&gt;&lt;/gcds-link&gt;
     &lt;/template&gt;
-&lt;/fdcp-table&gt;")</code></pre>
-</div>
-<div class="code-container">
-    <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[TableColumnDefinition(Name = ""Table_Email_Header"",
+&lt;/fdcp-table&gt;")</fdcp-code>
+<fdcp-code code-language="csharp">@Html.Raw(Html.Encode(@"[TableColumnDefinition(Name = ""Table_Email_Header"",
                        ResourceType = typeof(Resources.Components),
                        Slotted = true)]
 public string Email { get; set; }
-"))</code></pre>
-</div>
+"))</fdcp-code>

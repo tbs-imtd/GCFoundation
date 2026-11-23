@@ -27,20 +27,20 @@ else
 
     <fdcp-form-builder form="@Model.SampleFormBuilder.Form"></fdcp-form-builder>
 
-    <pre><code class="language-cshtml">var form = new FormDefinition
+    <fdcp-code code-language="cshtml">var form = new FormDefinition
 {
     Id = "demo-form",
     Title = "Dynamic Form Demo",
     Action = Url.Action("FormBuilder", "Components") ?? "",
     Method = "post",
     SubmitButtonText = "Submit Form",
-    Sections = new List<FormSection>
+    Sections = new List&lt;FormSection&gt;
     {
         new FormSection
         {
             Title = "Personal Information",
             Hint = "Please provide your basic information",
-            Questions = new List<FormQuestion>
+            Questions = new List&lt;FormQuestion&gt;
             {
                 new FormQuestion
                 {
@@ -56,5 +56,5 @@ else
     }
 }
 
-&lt;fdcp-form-builder form=""@Model.SampleFormBuilder.Form""&gt;&gl;/fdcp-form-builder&gt;</code></pre>
+&lt;fdcp-form-builder form="@@Model.SampleFormBuilder.Form"&gt;&lt;/fdcp-form-builder&gt;</fdcp-code>
 }

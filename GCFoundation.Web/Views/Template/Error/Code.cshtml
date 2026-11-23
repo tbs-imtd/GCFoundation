@@ -4,7 +4,7 @@
 @Html.Raw(string.Format(Template.Error_Code_Intro, string.Concat(Url.Action("Error"), $"#{Template.HowToImplement_Anchor}")))
 
 <div class="documentation-content">
-<pre><code class="language-cshtml">@@using GCFoundation.Common.Utilities
+<fdcp-code code-language="cshtml">@@using GCFoundation.Common.Utilities
 @@using GCFoundation.Components.Enums
 @@using GCFoundation.Web.Resources
 @@{
@@ -21,5 +21,5 @@
 	&lt;li&gt;Mauris ex neque, pellentesque eget elementum a: &lt;gcds-link href="mailto:no-reply@tbs-sct.canada.ca"&gt;no-reply@tbs-sct.canada.ca&lt;/gcds-link&gt;.&lt;/li&gt;
 	&lt;/ul&gt;
 	&lt;gcds-text&gt;Curabitur lobortis, ex tempor posuere dictum, dolor augue sodales sem, vehicula dapibus &lt;gcds-link href="@Url.Action("Index", "Home")"&gt;dui dolor at magna&lt;/gcds-link&gt;.&lt;/gcds-text&gt;
-&lt;/gcds-notice&gt;</code></pre>
+&lt;/gcds-notice&gt;</fdcp-code>
 </div>

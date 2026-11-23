@@ -29,7 +29,7 @@
 
 		<gcds-heading tag="h2" id="how-it-works">@Installation.Metadata_HowItWorks_Heading</gcds-heading>
 		<p>@Installation.Metadata_HowItWorks_Intro</p>
-		<pre><code class="language-csharp">// Add or replace a meta tag
+		<fdcp-code code-language="csharp">// Add or replace a meta tag
 protected void AddMetaTag(MetaTag tag)
 {
 	if (tag != null)
@@ -47,13 +47,13 @@ public override void OnActionExecuted(ActionExecutedContext context)
 {
 	ViewData["MetaTags"] = MetaTags;
 	base.OnActionExecuted(context);
-}</code></pre>
+}</fdcp-code>
 
 		<hr />
 
 		<gcds-heading tag="h2" id="usage">@Installation.Metadata_Usage_Heading</gcds-heading>
 		<p>@Installation.Metadata_Usage_Intro</p>
-		<pre><code class="language-csharp">using GCFoundation.Common.Models;
+		<fdcp-code code-language="csharp">using GCFoundation.Common.Models;
 using GCFoundation.Components.Controllers;
 
 public class ArticlesController : GCFoundationBaseController
@@ -67,14 +67,13 @@ public class ArticlesController : GCFoundationBaseController
 		AddMetaTag(new MetaTag { Property = "og:type", Content = "article" });
 		return View();
 	}
-}</code></pre>
+}</fdcp-code>
 
 		<hr />
 
 		<gcds-heading tag="h2" id="layout-merge">@Installation.Metadata_LayoutMerge_Heading</gcds-heading>
 		<p>@Installation.Metadata_LayoutMerge_Intro</p>
-		<div class="language-csharp">
-			<pre><code>@@{
+		<fdcp-code code-language="cshtml">@@{
 	var globalMetaTags = settings.Value.GlobalMetaTags;
 	var controllerMetaTags = ViewData["MetaTags"] as IEnumerable&lt;MetaTag&gt;;
 	var metaTags = new List&lt;MetaTag&gt;();
@@ -90,28 +89,27 @@ public class ArticlesController : GCFoundationBaseController
 	{
 		@@Html.Raw(tag.Render());
 	}
-}</code></pre>
-		</div>
+}</fdcp-code>
 
 		<hr />
 
 		<gcds-heading tag="h2" id="configuration">@Installation.Metadata_Configuration_Heading</gcds-heading>
 		<p>@Installation.Metadata_Configuration_Intro</p>
-		<pre><code class="language-json">{
+		<fdcp-code code-language="json">{
 	"FoundationComponentsSettings": {
 		"GlobalMetaTags": [
 			{
 				"name": "description",
 				"content": "Fallback when a locale-specific string is omitted",
-				"contentEn": "GCFoundation — English description",
-				"contentFr": "GCFoundation — description en français"
+				"contentEn": "GCFoundation ï¿½ English description",
+				"contentFr": "GCFoundation ï¿½ description en franï¿½ais"
 			},
 			{ "name": "robots", "content": "index, follow" },
 			{ "property": "og:title", "content": "GCFoundation" },
 			{ "property": "og:type", "content": "website" }
 		]
 	}
-}</code></pre>
+}</fdcp-code>
 
 		<hr />
 
@@ -128,7 +126,7 @@ public class ArticlesController : GCFoundationBaseController
 		<hr />
 
 		<gcds-heading tag="h2" id="examples">@Installation.Metadata_Examples_Heading</gcds-heading>
-		<pre><code class="language-csharp">// Open Graph + description (optional bilingual body)
+		<fdcp-code code-language="csharp">// Open Graph + description (optional bilingual body)
 AddMetaTag(new MetaTag { Property = "og:title", Content = "Welcome" });
 AddMetaTag(new MetaTag {
 	Name = "description",
@@ -139,7 +137,7 @@ AddMetaTag(new MetaTag {
 
 // http-equiv and charset
 AddMetaTag(new MetaTag { HttpEquiv = "refresh", Content = "30" });
-AddMetaTag(new MetaTag { Charset = "UTF-8" });</code></pre>
+AddMetaTag(new MetaTag { Charset = "UTF-8" });</fdcp-code>
 
 		<hr />
 

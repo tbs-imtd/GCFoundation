@@ -34,7 +34,7 @@
     </div>
 </fdcp-searchable-select>
 
-<pre><code class="language-cshtml">@Html.Raw($@"@using GCFoundation.Components.TagHelpers.FDCP
+<fdcp-code code-language="cshtml">@Html.Raw($@"@using GCFoundation.Components.TagHelpers.FDCP
 @using Microsoft.AspNetCore.Mvc.Rendering
 
 @{{
@@ -66,4 +66,4 @@
         &lt;span&gt;&lt;strong data-fdcp-searchable-select-selected-count&gt;0&lt;/strong&gt; {Html.Encode(Components.SearchableSelect_Sample_Classification_SelectedCountText)}&lt;/span&gt;
         &lt;gcds-button type=""button"" button-role=""secondary"" data-fdcp-searchable-select-clear&gt;{Html.Encode(Components.SearchableSelect_Sample_Classification_ClearText)}&lt;/gcds-button&gt;
     &lt;/div&gt;
-&lt;/fdcp-searchable-select&gt;")</code></pre>
+&lt;/fdcp-searchable-select&gt;")</fdcp-code>

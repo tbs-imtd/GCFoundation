@@ -69,7 +69,7 @@
             </gcds-text>
             
             <gcds-details details-title="Configuration Settings" class="mt-200">
-                <pre class="language-json"><code>{
+                <fdcp-code code-language="json">{
   "AccountSettings": {
     "ShowUserName": true,
     "ShowUserEmail": false,
@@ -85,11 +85,11 @@
     "CustomGreetingKey": "WelcomeMessage",
     "Position": "header"
   }
-}</code></pre>
+}</fdcp-code>
             </gcds-details>
 
             <gcds-details details-title="Usage in Controllers" class="mt-200">
-                <pre class="language-csharp"><code>// In your controller
+                <fdcp-code code-language="csharp">// In your controller
 public IActionResult Index()
 {
     // Set the account partial to be used in the layout
@@ -112,19 +112,19 @@ public IActionResult CustomLogin()
     );
     
     return View(userModel);
-}</code></pre>
+}</fdcp-code>
             </gcds-details>
 
             <gcds-details details-title="Usage in Views" class="mt-200">
-                <pre class="language-cshtml"><code>@using GCFoundation.Components.Models
-@using GCFoundation.Components.Services
-@inject AccountService AccountService
+                <fdcp-code code-language="cshtml">@@using GCFoundation.Components.Models
+@@using GCFoundation.Components.Services
+@@inject AccountService AccountService
 
-@{
+@@{
     var loginModel = AccountService.CreateViewModelFromContext();
 }
 
-&lt;partial name="_AccountPartial" model="loginModel" /&gt;</code></pre>
+&lt;partial name="_AccountPartial" model="loginModel" /&gt;</fdcp-code>
             </gcds-details>
         </div>
     </gcds-grid>

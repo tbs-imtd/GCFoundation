@@ -130,7 +130,7 @@
     <gcds-heading tag="h2">@Installation.GlobalResources_HowToConfigure_Title</gcds-heading>
     <gcds-text>@Html.Raw(Installation.GlobalResources_HowToConfigure_Description)</gcds-text>
 
-<pre><code class="language-json">{
+<fdcp-code code-language="json">{
   "FoundationComponentsSettings": {
     "GlobalCssFiles": [
       "/css/custom-styles.css",
@@ -153,14 +153,14 @@
       "&lt;link rel=\"preconnect\" href=\"https://fonts.googleapis.com\"&gt;"
     ]
   }
-}</code></pre>
+}</fdcp-code>
 </section>
 
 <section>
     <gcds-heading tag="h2">@Installation.GlobalResources_UsingHelper_Title</gcds-heading>
     <gcds-text>@Html.Raw(Installation.GlobalResources_UsingHelper_Description)</gcds-text>
 
-<pre><code class="language-cshtml">@@inject GlobalResourceHelper ResourceHelper
+<fdcp-code code-language="cshtml">@@inject GlobalResourceHelper ResourceHelper
 
 @@* Render all global CSS files *@@
 @@Html.Raw(ResourceHelper.RenderGlobalCssFiles())
@@ -172,7 +172,7 @@
 @@if (ResourceHelper.ShouldIncludeGCDSResources())
 {
     &lt;link rel="stylesheet" href="/css/gcds-override.css" /&gt;
-}</code></pre>
+}</fdcp-code>
 </section>
 
 @section Scripts {

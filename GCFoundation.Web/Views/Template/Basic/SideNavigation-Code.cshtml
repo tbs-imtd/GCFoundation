@@ -4,9 +4,9 @@
 @Html.Raw(string.Format(Template.Basic_Design_SideNav_Code_Intro, string.Concat(Url.Action("Basic"), $"#{Template.HowToImplement_Anchor}")))
 
 <div class="documentation-content">
-<pre><code class="language-cshtml">@@using GCFoundation.Web.Resources
+<fdcp-code code-language="cshtml">@@using GCFoundation.Web.Resources
 
-&lt;!-- <span class="text-uppercase">@Template.Basic_Demo_YourContentStartsHere</span> --&gt;
+&lt;!-- @Template.Basic_Demo_YourContentStartsHere.ToUpper(System.Globalization.CultureInfo.CurrentCulture) --&gt;
 &lt;gcds-heading tag="h1"&gt;@Template.Basic_Design_SideNav_Demo_Name&lt;/gcds-heading&gt;
 &lt;gcds-text character-limit="false"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis. Nulla blandit fringilla dui, quis viverra mauris ullamcorper at.&lt;/gcds-text&gt;
 
@@ -35,5 +35,5 @@
 	&lt;gcds-text&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec condimentum congue leo id aliquet. Nunc venenatis dignissim est, in varius turpis dictum sagittis. Integer ullamcorper in diam eget convallis. Sed tristique mauris eget lobortis sagittis. Nulla blandit fringilla dui, quis viverra mauris ullamcorper at.&lt;/gcds-text&gt;
 	&lt;/div&gt;
 &lt;/gcds-grid&gt;
-&lt;!-- <span class="text-uppercase">@Template.Basic_Demo_YourContentEndsHere</span> --&gt;</code></pre>
+&lt;!-- @Template.Basic_Demo_YourContentEndsHere.ToUpper(System.Globalization.CultureInfo.CurrentCulture) --&gt;</fdcp-code>
 </div>

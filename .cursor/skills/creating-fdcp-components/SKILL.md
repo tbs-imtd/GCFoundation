@@ -44,6 +44,7 @@ Use a `.fdcp-{kebab-name}` BEM root and `data-fdcp-{kebab-name}[-part]` JS hooks
 ## 4. Match GCDS
 
 - Prefer GCDS components for primitives such as hints, error messages, icons, buttons, and error summaries.
+- GCDS wrapper Tag Helpers (`TagHelpers/GCDS`) must expose every GCDS attribute under its exact GCDS name (e.g. `NoticeRole` → `notice-role`), so GCDS documentation works unchanged. Optional attributes must only render when set. Keep renamed legacy names as `[Obsolete]` aliases; `GcdsAttributeParityTests` enforces this and must be refreshed on GCDS upgrades.
 - Use GCDS design tokens; avoid hard-coded colours, focus styles, fonts, spacing, and control dimensions when a token exists.
 - Match GCDS label, required marker, hint, error placement, border, focus, disabled, and form spacing behavior.
 - Keep component-specific styles under the component root.
@@ -88,7 +89,7 @@ For custom form controls:
 - Add the component route/action and component view model in `ComponentsController`.
 - Add the component to the documentation index.
 - Add localized name, overview, property descriptions, sample headings, and sample strings.
-- Provide a live sample and matching escaped `<pre><code>` output.
+- Provide a live sample and the same source in `<fdcp-code>`, with tags encoded in the child content.
 - Include representative modes and optional content.
 - Add a required form example when the component participates in forms.
 

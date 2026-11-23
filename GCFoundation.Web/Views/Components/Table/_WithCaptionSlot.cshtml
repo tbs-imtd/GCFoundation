@@ -20,19 +20,15 @@
 
 <gcds-text class="mt-200">@Html.Raw(@Components.Table_WithCaptionSlot_Note)</gcds-text>
 
-<div class="code-container">
-    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table filter sort caption=""{Html.Encode(Components.Table_WithCaptionSlot_Caption)}""
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-table filter sort caption=""{Html.Encode(Components.Table_WithCaptionSlot_Caption)}""
             caption-detail=""{Html.Encode(Components.Table_WithCaptionSlot_CaptionDetail)}""
             rows=""@Model.Rows""&gt;
     &lt;div slot=""caption""&gt;
         &lt;gcds-button size=""small"" class=""mb-200""&gt;{Html.Encode(Components.Table_WithCaptionSlot_ButtonLabel)}&lt;/gcds-button&gt;
     &lt;/div&gt;
-&lt;/fdcp-table&gt;")</code></pre>
-</div>
-<div class="code-container">
-    <pre><code class="language-javascript">@Html.Raw(Html.Encode(@"const addBtn = e.target.closest('.add-submission');
+&lt;/fdcp-table&gt;")</fdcp-code>
+<fdcp-code code-language="javascript">@Html.Raw(Html.Encode(@"const addBtn = e.target.closest('.add-submission');
 if (addBtn) {
     e.preventDefault();
     console.log(""Add submission clicked"");
-}"))</code></pre>
-</div>
+}"))</fdcp-code>

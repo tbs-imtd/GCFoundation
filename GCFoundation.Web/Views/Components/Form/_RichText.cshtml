@@ -16,20 +16,20 @@
 </ul>
 
 <gcds-heading tag="h3">@Components.Form_RichText_Usage_Title</gcds-heading>
-<pre><code class="language-cshtml">@Html.Raw(Html.Encode(@"<fdcp-rich-text for=""@Model.Bio""
+<fdcp-code code-language="cshtml">@Html.Raw(Html.Encode(@"<fdcp-rich-text for=""@Model.Bio""
                 toolbar=""Standard""
                 height=""240px""
-                placeholder=""@Components.Form_Bio_Placeholder"" />"))</code></pre>
+                placeholder=""@Components.Form_Bio_Placeholder"" />"))</fdcp-code>
 
 <gcds-heading tag="h3">@Components.Form_RichText_Model_Title</gcds-heading>
 @Html.Raw(Components.Form_RichText_Model_Description)
 
-<pre><code class="language-csharp">@Html.Raw(Html.Encode(@"[Required]
+<fdcp-code code-language="csharp">@Html.Raw(Html.Encode(@"[Required]
 [MinLength(10)]
 [MaxLength(2000)]
 [DataType(DataType.MultilineText)]
 [Display(Name = ""Form_Bio_Label"", Description = ""Form_Bio_Hint"", ResourceType = typeof(Resources.Components))]
-public string Bio { get; set; } = string.Empty;"))</code></pre>
+public string Bio { get; set; } = string.Empty;"))</fdcp-code>
 
 <gcds-heading tag="h3">@Components.Properties</gcds-heading>
 <div class="fdcp-table-responsive">

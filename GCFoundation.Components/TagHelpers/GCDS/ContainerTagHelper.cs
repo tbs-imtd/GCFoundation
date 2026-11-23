@@ -5,11 +5,11 @@ namespace GCFoundation.Components.TagHelpers.GCDS
 {
     /// <summary>
     /// A tag helper for rendering a container component with optional styling and layout properties.
-    /// This component can be customized with attributes like border, centering, margin, padding, and size.
+    /// This component can be customized with attributes like border, alignment, layout, margin, padding, and size.
     /// </summary>
     /// <example>
     /// <code>
-    /// &lt;gcds-container size=&quot;lg&quot; tag=&quot;div&quot;&gt;
+    /// &lt;gcds-container layout=&quot;page&quot; alignment=&quot;center&quot; tag=&quot;main&quot;&gt;
     ///     Page content
     /// &lt;/gcds-container&gt;
     /// </code>
@@ -17,20 +17,52 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     [HtmlTargetElement("gcds-container")]
     public class ContainerTagHelper : BaseTagHelper
     {
+        private HorizontalAlignment? _alignment;
+        private ContainerLayout? _layout;
+
+        /// <summary>
+        /// Gets or sets the container alignment (GCDS <c>alignment</c>). Not rendered unless set.
+        /// Ignored by GCDS when <see cref="Layout"/> is <see cref="ContainerLayout.page"/>.
+        /// </summary>
+        public HorizontalAlignment Alignment
+        {
+            get => _alignment ?? default;
+            set => _alignment = value;
+        }
+
         /// <summary>
         /// If set to true, adds a border around the container.
         /// </summary>
         public bool Border { get; set; }
 
         /// <summary>
-        /// If set to true, centers the content (GCDS v1: emitted as <c>alignment="center"</c>).
+        /// Gets or sets how the container aligns with the page layout (GCDS <c>layout</c>). Not rendered unless set.
         /// </summary>
-        public bool Centered { get; set; }
+        public ContainerLayout Layout
+        {
+            get => _layout ?? default;
+            set => _layout = value;
+        }
 
         /// <summary>
-        /// If set to true, marks the container as the main page layout (GCDS v1: emitted as <c>layout="page"</c>).
+        /// If set to true, centers the container; use <see cref="Alignment"/> (<c>alignment="center"</c>) instead.
         /// </summary>
-        public bool MainContainer { get; set; }
+        [Obsolete("Use Alignment (alignment=\"center\") to match the GCDS gcds-container attribute.")]
+        public bool Centered
+        {
+            get => _alignment == HorizontalAlignment.center;
+            set => _alignment = value ? HorizontalAlignment.center : null;
+        }
+
+        /// <summary>
+        /// If set to true, uses the page layout; use <see cref="Layout"/> (<c>layout="page"</c>) instead.
+        /// </summary>
+        [Obsolete("Use Layout (layout=\"page\") to match the GCDS gcds-container attribute.")]
+        public bool MainContainer
+        {
+            get => _layout == ContainerLayout.page;
+            set => _layout = value ? ContainerLayout.page : null;
+        }
 
         /// <summary>
         /// Defines the margin of the container (can be a CSS unit like "px", "em", etc.).
@@ -43,7 +75,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public string? Padding { get; set; }
 
         /// <summary>
-        /// Defines the size of the container. Default is <see cref="SizeTypeEmum.lg"/>. Use with <see cref="MainContainer"/> / <c>layout="page"</c> per current GCDS guidance.
+        /// Defines the size of the container. Default is <see cref="SizeTypeEmum.lg"/>.
         /// </summary>
         public SizeTypeEmum Size { get; set; } = SizeTypeEmum.lg;
 
@@ -55,13 +87,9 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
         {
+            AddAttributeIfNotNull(output, "alignment", _alignment);
             AddAttributeIfNotNull(output, "border", Border);
-            if (Centered)
-                AddAttributeIfNotNull(output, "alignment", "center");
-
-            if (MainContainer)
-                AddAttributeIfNotNull(output, "layout", "page");
-
+            AddAttributeIfNotNull(output, "layout", _layout);
             AddAttributeIfNotNull(output, "margin", Margin);
             AddAttributeIfNotNull(output, "padding", Padding);
             AddAttributeIfNotNull(output, "size", Size);

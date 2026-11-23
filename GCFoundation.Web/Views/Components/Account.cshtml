@@ -136,7 +136,7 @@
     </gcds-grid>
 
         <gcds-details details-title="appsettings.json Configuration">
-            <pre class="language-json"><code>{
+            <fdcp-code code-language="json">{
   "AccountSettings": {
     "ShowUserName": true,
     "ShowUserEmail": false,
@@ -161,11 +161,11 @@
       }
     ]
   }
-}</code></pre>
+}</fdcp-code>
         </gcds-details>
 
         <gcds-details details-title="Controller Usage">
-            <pre class="language-csharp"><code>public class HomeController : GCFoundationBaseController
+            <fdcp-code code-language="csharp">public class HomeController : GCFoundationBaseController
 {
     public IActionResult Index()
     {
@@ -173,22 +173,22 @@
         ViewData["AccountPartialViewName"] = "_AccountPartial";
         return View();
     }
-}</code></pre>
+}</fdcp-code>
         </gcds-details>
 
         <gcds-details details-title="Custom View Usage">
-            <pre class="language-cshtml"><code>@@using GCFoundation.Components.Services
+            <fdcp-code code-language="cshtml">@@using GCFoundation.Components.Services
 @@inject AccountService AccountService
 
 @@{
     var userModel = AccountService.CreateViewModelFromContext();
 }
 
-&lt;partial name="_AccountPartial" model="userModel" /&gt;</code></pre>
+&lt;partial name="_AccountPartial" model="userModel" /&gt;</fdcp-code>
         </gcds-details>
 
         <gcds-details details-title="Programmatic Configuration">
-            <pre class="language-csharp"><code>var customSettings = new GCFoundationAccountSettings
+            <fdcp-code code-language="csharp">var customSettings = new GCFoundationAccountSettings
 {
     ShowUserEmail = true,
     ShowUserAvatar = true,
@@ -196,7 +196,7 @@
 };
 
 var userModel = _accountService.CreateViewModel(/* user info */);
-userModel.Settings = customSettings;</code></pre>
+userModel.Settings = customSettings;</fdcp-code>
         </gcds-details>
 
     <!-- Authentication Methods -->

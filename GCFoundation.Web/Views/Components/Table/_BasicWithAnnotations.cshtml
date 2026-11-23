@@ -12,11 +12,8 @@
 
 <fdcp-table sort filter caption="@Components.Table_WithAnnotations_Caption" rows="@rows"></fdcp-table>
 
-<div class="code-container">
-    <pre><code class="language-cshtml">@Html.Raw($@"&lt;fdcp-table sort filter caption=""{Html.Encode(Components.Table_WithAnnotations_Caption)}"" rows=""@Model.Rows""&gt;&lt;/fdcp-table&gt;")</code></pre>
-</div>
-<div class="code-container">
-    <pre><code class="language-csharp">@Html.Raw(Html.Encode(@"public class MyRowViewModel
+<fdcp-code code-language="cshtml">@Html.Raw($@"&lt;fdcp-table sort filter caption=""{Html.Encode(Components.Table_WithAnnotations_Caption)}"" rows=""@Model.Rows""&gt;&lt;/fdcp-table&gt;")</fdcp-code>
+<fdcp-code code-language="csharp">@Html.Raw(Html.Encode(@"public class MyRowViewModel
         {
             public string SubmissionId { get; set; }
 
@@ -35,5 +32,4 @@
                                    ResourceType = typeof(Resources.Components))]
             public string AssignedReviewer { get; set; }
         }
-        "))</code></pre>
-</div>
+        "))</fdcp-code>
