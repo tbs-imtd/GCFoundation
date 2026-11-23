@@ -86,5 +86,14 @@ namespace GCFoundation.Components.Resources {
                 return ResourceManager.GetString("Field_Required_Summary", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Choose an option to continue..
+        /// </summary>
+        internal static string LikertScale_Required {
+            get {
+                return ResourceManager.GetString("LikertScale_Required", resourceCulture);
+            }
+        }
     }
 }

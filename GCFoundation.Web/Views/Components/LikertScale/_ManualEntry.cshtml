@@ -1,0 +1,39 @@
+@using GCFoundation.Web.Resources
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{
+    var satisfactionOptions = new List<SelectListItem>
+    {
+        new() { Text = Components.LikertScale_Basic_VeryDissatisfied, Value = "very-dissatisfied" },
+        new() { Text = Components.LikertScale_Basic_Dissatisfied, Value = "dissatisfied" },
+        new() { Text = Components.LikertScale_Basic_Satisfied, Value = "satisfied" },
+        new() { Text = Components.LikertScale_Basic_VerySatisfied, Value = "very-satisfied" }
+    };
+}
+
+<fdcp-likert-scale items="@satisfactionOptions"
+                        name="service-satisfaction"
+                        index="@Components.LikertScale_Basic_Index"
+                        legend="@Components.LikertScale_Basic_Legend"
+                        hint="@Components.LikertScale_Basic_Hint"
+                        required="true" />
+
+<fdcp-code code-language="cshtml">@Html.Raw($@"@using Microsoft.AspNetCore.Mvc.Rendering
+
+@{{
+    var satisfactionOptions = new List&lt;SelectListItem&gt;
+    {{
+        new() {{ Text = ""{Html.Encode(Components.LikertScale_Basic_VeryDissatisfied)}"", Value = ""very-dissatisfied"" }},
+        new() {{ Text = ""{Html.Encode(Components.LikertScale_Basic_Dissatisfied)}"", Value = ""dissatisfied"" }},
+        new() {{ Text = ""{Html.Encode(Components.LikertScale_Basic_Satisfied)}"", Value = ""satisfied"" }},
+        new() {{ Text = ""{Html.Encode(Components.LikertScale_Basic_VerySatisfied)}"", Value = ""very-satisfied"" }}
+
+    }};
+}}
+
+&lt;fdcp-likert-scale items=""@satisfactionOptions""
+                        name=""service-satisfaction""
+                        index=""{Html.Encode(Components.LikertScale_Basic_Index)}""
+                        legend=""{Html.Encode(Components.LikertScale_Basic_Legend)}""
+                        hint=""{Html.Encode(Components.LikertScale_Basic_Hint)}""
+                        required=""true"" /&gt;")</fdcp-code>
