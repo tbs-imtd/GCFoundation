@@ -69,7 +69,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             string componentClass = "fdcp-likert-scale";
             if (hasServerError) componentClass += " fdcp-likert-scale--error";
             output.Attributes.SetAttribute("class", componentClass);
-            output.Attributes.SetAttribute("aria-labelledby", legendId);
+            output.Attributes.SetAttribute(
+                "aria-labelledby",
+                string.IsNullOrWhiteSpace(field.Hint) ? legendId : $"{legendId} {hintId}");
             output.Attributes.SetAttribute("data-fdcp-likert-scale", string.Empty);
             output.Attributes.SetAttribute("data-required-message", requiredMessage);
             output.Attributes.SetAttribute("data-required-summary-message", requiredSummaryMessage);
@@ -84,20 +86,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                                 padding="300">
                 """);
             output.PostElement.SetHtmlContent("</gcds-container>");
-
-            var describedByIds = new List<string>();
-            if (!string.IsNullOrWhiteSpace(field.Hint))
-            {
-                describedByIds.Add(hintId);
-            }
-            if (hasServerError)
-            {
-                describedByIds.Add(errorId);
-            }
-            if (describedByIds.Count > 0)
-            {
-                output.Attributes.SetAttribute("aria-describedby", string.Join(" ", describedByIds));
-            }
 
             if (field.Disabled)
             {
@@ -129,7 +117,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     optionIndex,
                     disabled,
                     selected,
-                    isRequired);
+                    isRequired,
+                    hasServerError ? errorMessage : null);
 
                 optionIndex++;
             }
@@ -216,12 +205,16 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             int optionIndex,
             bool disabled,
             bool selected,
-            bool isRequired)
+            bool isRequired,
+            string? errorMessage)
         {
             string optionId = TagBuilder.CreateSanitizedId( $"{componentId}_{optionIndex}_{item.Value}", "_");
             string requiredAttribute = isRequired ? " required" : string.Empty;
             string disabledAttribute = disabled ? " disabled" : string.Empty;
             string checkedAttribute = selected ? " checked" : string.Empty;
+            string errorAttributes = string.IsNullOrWhiteSpace(errorMessage)
+                ? string.Empty
+                : $" aria-invalid=\"true\" aria-description=\"{Encode(errorMessage)}\"";
 
             html.AppendLine(CultureInfo.InvariantCulture, $"""
                 <div class="fdcp-likert-scale__card">
@@ -229,7 +222,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                            type="radio"
                            id="{Encode(optionId)}"
                            name="{Encode(field.Name)}"
-                           value="{Encode(item.Value)}"{requiredAttribute}{disabledAttribute}{checkedAttribute}>
+                           value="{Encode(item.Value)}"{requiredAttribute}{disabledAttribute}{checkedAttribute}{errorAttributes}>
                     <label class="fdcp-likert-scale__label" for="{Encode(optionId)}">
                         <span class="fdcp-likert-scale__label-text">{Encode(item.Text)}</span>
                     </label>

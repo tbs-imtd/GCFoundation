@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.ComponentModel.DataAnnotations;
+using System.Text.RegularExpressions;
 
 namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
 {
@@ -47,7 +48,9 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.True(_output.Attributes.ContainsName("data-fdcp-likert-scale"));
             Assert.Contains("Required choice", content, StringComparison.Ordinal);
             Assert.Contains("name=\"RequiredChoice\"", content, StringComparison.Ordinal);
-            Assert.Contains("value=\"guidance\" required checked", content, StringComparison.Ordinal);
+            string guidanceInput = GetInputTag(content, "guidance");
+            Assert.True(HasAttribute(guidanceInput, "required"));
+            Assert.True(HasAttribute(guidanceInput, "checked"));
             Assert.Contains("<div class=\"fdcp-likert-scale__grid\">", content, StringComparison.Ordinal);
             Assert.Contains("fdcp-likert-scale__card", content, StringComparison.Ordinal);
             Assert.Contains("Choose an option to continue.", content, StringComparison.Ordinal);
@@ -110,8 +113,89 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             string content = _output.Content.GetContent();
             Assert.Equal("skill-level", _output.Attributes["id"].Value);
             Assert.Contains("Choose one", content, StringComparison.Ordinal);
-            Assert.Contains("value=\"learning\" required checked", content, StringComparison.Ordinal);
-            Assert.Contains("value=\"guidance\" required disabled", content, StringComparison.Ordinal);
+            string learningInput = GetInputTag(content, "learning");
+            Assert.True(HasAttribute(learningInput, "required"));
+            Assert.True(HasAttribute(learningInput, "checked"));
+            string guidanceInput = GetInputTag(content, "guidance");
+            Assert.True(HasAttribute(guidanceInput, "required"));
+            Assert.True(HasAttribute(guidanceInput, "disabled"));
+            Assert.False(HasAttribute(guidanceInput, "checked"));
+            Assert.Equal(
+                "skill-level_legend skill-level_hint",
+                _output.Attributes["aria-labelledby"].Value);
+        }
+
+        [Fact]
+        public void Process_WithModelStateError_RendersVisibleErrorOnFieldsetAndInputs()
+        {
+            var viewContext = new ViewContext();
+            viewContext.ModelState.AddModelError("skill", "Select your skill level.");
+            _tagHelper.ViewContext = viewContext;
+            _tagHelper.Name = "skill";
+            _tagHelper.Legend = "Skill level";
+            _tagHelper.Items =
+            [
+                new() { Text = "Learning", Value = "learning" },
+                new() { Text = "Guidance", Value = "guidance" }
+            ];
+
+            _tagHelper.Process(_context, _output);
+
+            string content = _output.Content.GetContent();
+            Assert.Equal(
+                "fdcp-likert-scale fdcp-likert-scale--error",
+                _output.Attributes["class"].Value.ToString());
+            string errorTag = Regex.Match(content, "<gcds-error-message[^>]*>").Value;
+            Assert.False(string.IsNullOrEmpty(errorTag));
+            Assert.False(HasAttribute(errorTag, "hidden"));
+            Assert.Contains("Select your skill level.", content, StringComparison.Ordinal);
+            Assert.False(_output.Attributes.ContainsName("aria-describedby"));
+
+            foreach (string value in new[] { "learning", "guidance" })
+            {
+                string input = GetInputTag(content, value);
+                Assert.Contains("aria-invalid=\"true\"", input, StringComparison.Ordinal);
+                Assert.Contains("aria-description=\"Select your skill level.\"", input, StringComparison.Ordinal);
+                Assert.False(HasAttribute(input, "title"));
+            }
+        }
+
+        [Fact]
+        public void Process_WithoutModelStateError_DoesNotMarkInputsInvalid()
+        {
+            _tagHelper.Name = "skill";
+            _tagHelper.Legend = "Skill level";
+            _tagHelper.Required = true;
+            _tagHelper.Items = [new() { Text = "Learning", Value = "learning" }];
+
+            _tagHelper.Process(_context, _output);
+
+            string input = GetInputTag(_output.Content.GetContent(), "learning");
+            Assert.False(HasAttribute(input, "aria-invalid"));
+            Assert.False(HasAttribute(input, "aria-description"));
+            Assert.Equal("skill_legend", _output.Attributes["aria-labelledby"].Value);
+        }
+
+        [Fact]
+        public void Process_WithPostedModelStateValue_OverridesValue()
+        {
+            var viewContext = new ViewContext();
+            viewContext.ModelState.SetModelValue("skill", "guidance", "guidance");
+            _tagHelper.ViewContext = viewContext;
+            _tagHelper.Name = "skill";
+            _tagHelper.Legend = "Skill level";
+            _tagHelper.Value = "learning";
+            _tagHelper.Items =
+            [
+                new() { Text = "Learning", Value = "learning" },
+                new() { Text = "Guidance", Value = "guidance" }
+            ];
+
+            _tagHelper.Process(_context, _output);
+
+            string content = _output.Content.GetContent();
+            Assert.True(HasAttribute(GetInputTag(content, "guidance"), "checked"));
+            Assert.False(HasAttribute(GetInputTag(content, "learning"), "checked"));
         }
 
         [Fact]
@@ -208,6 +292,21 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                 () => _tagHelper.Process(_context, _output));
 
             Assert.Contains("Either 'for' or 'name' must be specified", exception.Message, StringComparison.Ordinal);
+        }
+
+        private static string GetInputTag(string content, string value)
+        {
+            Match match = Regex.Match(
+                content,
+                $"<input[^>]*value=\"{Regex.Escape(value)}\"[^>]*>",
+                RegexOptions.Singleline);
+            Assert.True(match.Success, $"No input found for value '{value}'.");
+            return match.Value;
+        }
+
+        private static bool HasAttribute(string tag, string attributeName)
+        {
+            return Regex.IsMatch(tag, $@"\s{Regex.Escape(attributeName)}(?=[\s=>])");
         }
 
         private void SetupModelExpression(string propertyName, TestModel model)

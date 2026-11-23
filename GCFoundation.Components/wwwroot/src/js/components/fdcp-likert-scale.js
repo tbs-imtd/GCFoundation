@@ -242,17 +242,17 @@ class FDCPLikertScale {
             this.error.hidden = isValid;
         }
 
+        const errorMessage = this.error?.textContent.trim()
+            || this.element.dataset.requiredMessage
+            || '';
+
         this.inputs.forEach(input => {
             if (isValid) {
                 input.removeAttribute('aria-invalid');
-                if (input.getAttribute('aria-describedby') === this.error?.id) {
-                    input.removeAttribute('aria-describedby');
-                }
+                input.removeAttribute('aria-description');
             } else {
                 input.setAttribute('aria-invalid', 'true');
-                if (this.error?.id) {
-                    input.setAttribute('aria-describedby', this.error.id);
-                }
+                input.setAttribute('aria-description', errorMessage);
             }
         });
 

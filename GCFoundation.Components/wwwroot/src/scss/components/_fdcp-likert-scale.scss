@@ -73,7 +73,7 @@
         min-width: 0;
         overflow-wrap: break-word;
         height: 100%;
-        background-color: #ffffff;
+        background-color: var(--gcds-bg-white);
         border: 0.0625rem solid var(--gcds-color-grayscale-100);
         border-radius: 0.5rem;
     }
@@ -450,5 +450,11 @@
     .fdcp-likert-scale__input:disabled + .fdcp-likert-scale__label::after {
         border-color: GrayText;
         background-color: Canvas;
+    }
+}
+
+@media (prefers-color-scheme: light), (prefers-color-scheme: dark) {
+    .fdcp-likert-scale__label::after {
+        background-color: buttonText;
     }
 }
