@@ -1,4 +1,9 @@
-﻿        <img src="~/images/PageHeadingExample.png" alt="" class="img-responsive" />
+﻿@using GCFoundation.Web.Resources
+
+<p>
+    <gcds-button button-role="secondary" type="link" target="_blank" rel="noopener noreferrer" href="@Url.Action("PageHeadingDemo", "Components")">@Template.Demo_Button <i class="ms-100 fa-solid fa-desktop"></i></gcds-button>
+</p>
+        <img src="~/images/PageHeadingExample.png" alt="" class="img-responsive" />
 <fdcp-code code-language="html">&lt;fdcp-page-heading
     title="Funding Opportunities"
     description="Discover and apply for funding opportunities to support your projects and initiatives."

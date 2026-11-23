@@ -150,6 +150,9 @@
   <data name="Nav_Components_PageHeading" xml:space="preserve">
     <value>Page Heading</value>
   </data>
+  <data name="Nav_Components_PageHeading_Demo" xml:space="preserve">
+    <value>Page Heading Demo</value>
+  </data>
   <data name="Nav_Components_Stepper" xml:space="preserve">
     <value>Stepper</value>
   </data>

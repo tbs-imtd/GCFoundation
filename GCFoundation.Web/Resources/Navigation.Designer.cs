@@ -196,6 +196,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Page Heading Demo.
+        /// </summary>
+        public static string Nav_Components_PageHeading_Demo {
+            get {
+                return ResourceManager.GetString("Nav_Components_PageHeading_Demo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Stepper.
         /// </summary>
         public static string Nav_Components_Stepper {

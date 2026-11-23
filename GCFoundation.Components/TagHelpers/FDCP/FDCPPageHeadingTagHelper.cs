@@ -33,7 +33,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string Description { get; set; } = string.Empty;
 
         /// <summary>
-        /// Sets the size of the page header. Default, or Large.
+        /// Sets the size of the page header. Compact, regular, or large.
         /// </summary>
         public PageHeadingSize Size { get; set; } = PageHeadingSize.regular;
 
@@ -48,7 +48,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public TextColour TextColour { get; set; } = TextColour.light;
 
         /// <summary>
-        /// Adds a light background and a border around the text container to emphasize the content.
+        /// Adds the <see cref="BackgroundColour"/> to the text container to emphasize the content.
         /// </summary>
         public bool TextEmphasis { get; set; }
 
@@ -74,18 +74,18 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             switch (Size)
             {
                 case PageHeadingSize.compact:
-                    articleClass += " sm:py-350 py-200 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-450";
+                    articleClass += " sm:py-350 py-200 sm:pe-750 pe-450";
                     containerClass += " fdcp-page-heading-compact";
                     pageHeadingBgClass += " md:py-500 py-250";
                     break;
                 case PageHeadingSize.large:
-                    articleClass += " sm:py-750 py-450 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-450";
+                    articleClass += " sm:py-750 py-450 sm:pe-750 pe-450";
                     containerClass += " fdcp-page-heading-large";
                     pageHeadingBgClass += " md:py-1250 py-900";
                     break;
                 case PageHeadingSize.regular:
                 default:
-                    articleClass += " sm:py-600 py-300 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-450";
+                    articleClass += " sm:py-600 py-300 sm:pe-750 pe-450";
                     pageHeadingBgClass += " md:py-900 py-600";
                     break;
             }
@@ -95,7 +95,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var content = new StringBuilder();
 
             content.AppendLine(CultureInfo.InvariantCulture, $"<div class='{pageHeadingBgClass}'>");
-            content.AppendLine(CultureInfo.InvariantCulture, $"<div class='container-xl mx-auto'>");
 
             if (TextEmphasis)
             {
@@ -153,7 +152,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             }
 
             content.AppendLine("</article>");
-            content.AppendLine("</div>");
             content.AppendLine("</div>");
 
             output.Content.SetHtmlContent(content.ToString());

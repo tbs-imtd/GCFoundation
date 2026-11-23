@@ -1325,7 +1325,16 @@
     <value>Style overrides can be applied via &lt;code&gt;fdcp-page-heading-container&lt;/code&gt; and related classes in your SCSS</value>
   </data>
   <data name="PageHeading_Notes_2" xml:space="preserve">
-    <value>Component is responsive and accessible</value>
+    <value>Component is responsive and accessible. On mobile screens, the background image and the text container background are removed, and light text switches to the regular text colour</value>
+  </data>
+  <data name="PageHeading_Demo_Title" xml:space="preserve">
+    <value>Funding opportunities</value>
+  </data>
+  <data name="PageHeading_Demo_Description" xml:space="preserve">
+    <value>Discover and apply for funding opportunities to support your projects and initiatives.</value>
+  </data>
+  <data name="PageHeading_Notes_4" xml:space="preserve">
+    <value>Text must meet a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text in all views (desktop, tablet and mobile). The matching &lt;code&gt;background-colour&lt;/code&gt; and &lt;code&gt;text-colour&lt;/code&gt; pairs meet this ratio, but the component does not enforce it. When &lt;code&gt;text-emphasis&lt;/code&gt; is off, check the contrast of the text against the background image. A gradient background can be applied through style overrides as long as it meets the same minimum contrast in all views</value>
   </data>
   <data name="PageHeading_Notes_1" xml:space="preserve">
     <value>The background image is set using a &lt;code&gt;data-bg-src&lt;/code&gt; attribute and JavaScript for CSP compliance</value>
@@ -1340,13 +1349,19 @@
     <value>Optional. Additional descriptive text below the title.</value>
   </data>
   <data name="PageHeading_Properties_Size" xml:space="preserve">
-    <value>Optional. Sets the size of the height of page header (Default, or Large). A Large page heading will add more padding above and below the text container.</value>
+    <value>Optional. Sets the height of the page header (&lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; or &lt;code&gt;large&lt;/code&gt;). A compact page heading uses less padding above and below the text container, and a large page heading uses more.</value>
+  </data>
+  <data name="PageHeading_Properties_BackgroundColour" xml:space="preserve">
+    <value>Optional. Sets the background colour of the text container when &lt;code&gt;text-emphasis&lt;/code&gt; is enabled (&lt;code&gt;primary&lt;/code&gt;, &lt;code&gt;dark&lt;/code&gt;, &lt;code&gt;light&lt;/code&gt; or &lt;code&gt;white&lt;/code&gt;). Use &lt;code&gt;primary&lt;/code&gt; or &lt;code&gt;dark&lt;/code&gt; with light text, and &lt;code&gt;light&lt;/code&gt; or &lt;code&gt;white&lt;/code&gt; with primary or secondary text.</value>
+  </data>
+  <data name="PageHeading_Properties_TextColour" xml:space="preserve">
+    <value>Optional. Sets the colour of the title and description (&lt;code&gt;light&lt;/code&gt;, &lt;code&gt;primary&lt;/code&gt; or &lt;code&gt;secondary&lt;/code&gt;). On mobile screens, light text switches to the regular text colour.</value>
   </data>
   <data name="PageHeading_Properties_Src" xml:space="preserve">
     <value>Optional. URL for the background image.</value>
   </data>
   <data name="PageHeading_Properties_TextEmphasis" xml:space="preserve">
-    <value>Optional. Adds a light background and a border around the text container to emphasize the content.</value>
+    <value>Optional. Adds a background colour to the text container to emphasize the content. The colour is set with &lt;code&gt;background-colour&lt;/code&gt;.</value>
   </data>
   <data name="Stepper_Basic_Anchor" xml:space="preserve">
     <value>basic</value>

@@ -235,6 +235,20 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Displays a full page demo of the PageHeading component.
+        /// </summary>
+        /// <returns>
+        /// The PageHeading demo view.
+        /// </returns>
+        [HttpGet("page-heading/demo")]
+        public IActionResult PageHeadingDemo()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Navigation.Nav_Components_PageHeading_Demo}");
+
+            return View("PageHeading/Demo");
+        }
+
+        /// <summary>
         /// Displays the Searchable Select component demo page.
         /// </summary>
         /// <returns>
@@ -708,20 +722,14 @@ namespace GCFoundation.Web.Controllers
             {
                 Resources.Components.PageHeading_Notes_1,
                 Resources.Components.PageHeading_Notes_2,
-                Resources.Components.PageHeading_Notes_3
+                Resources.Components.PageHeading_Notes_3,
+                Resources.Components.PageHeading_Notes_4
             };
             vm.Overview = Resources.Components.PageHeading_Overview;
-            vm.Properties = new List<ComponentPropertyViewModel>()
-            {
-                new ComponentPropertyViewModel() { Name = "title", DataType = "string", Description = Resources.Components.PageHeading_Properties_Title },
-                new ComponentPropertyViewModel() { Name = "description", DataType = "string", Description = Resources.Components.PageHeading_Properties_Description },
-                new ComponentPropertyViewModel() { Name = "size", DataType = "PageHeadingSize", DefaultValue = "PageHeadingSize.Default", Description = Resources.Components.PageHeading_Properties_Size },
-                new ComponentPropertyViewModel() { Name = "src", DataType = "string", Description = Resources.Components.PageHeading_Properties_Src },
-                new ComponentPropertyViewModel() { Name = "text-emphasis", DataType = "bool", DefaultValue = "false", Description = Resources.Components.PageHeading_Properties_TextEmphasis }
-            };
             vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
             {
-                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.PageHeading_Basic_Anchor, PartialViewName = "PageHeading/_Basic", Title = Resources.Components.PageHeading_Basic_Title }
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.PageHeading_Basic_Anchor, PartialViewName = "PageHeading/_Basic", Title = Resources.Components.PageHeading_Basic_Title },
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Properties_Anchor, PartialViewName = "PageHeading/_Properties", Title = Resources.Components.Properties }
             };
             vm.Tag = "<fdcp-page-heading>";
 

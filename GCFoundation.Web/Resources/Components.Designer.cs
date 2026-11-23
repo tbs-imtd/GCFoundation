@@ -4383,6 +4383,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discover and apply for funding opportunities to support your projects and initiatives..
+        /// </summary>
+        public static string PageHeading_Demo_Description {
+            get {
+                return ResourceManager.GetString("PageHeading_Demo_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Funding opportunities.
+        /// </summary>
+        public static string PageHeading_Demo_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Demo_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page Heading.
         /// </summary>
         public static string PageHeading_Name {
@@ -4401,7 +4419,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Component is responsive and accessible.
+        ///   Looks up a localized string similar to Component is responsive and accessible. On mobile screens, the background image and the text container background are removed, and light text switches to the regular text colour.
         /// </summary>
         public static string PageHeading_Notes_2 {
             get {
@@ -4419,11 +4437,29 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Text must meet a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text in all views (desktop, tablet and mobile). The matching &lt;code&gt;background-colour&lt;/code&gt; and &lt;code&gt;text-colour&lt;/code&gt; pairs meet this ratio, but the component does not enforce it. When &lt;code&gt;text-emphasis&lt;/code&gt; is off, check the contrast of the text against the background image. A gradient background can be applied through style overrides as long as it meets the same minimum contrast in all views.
+        /// </summary>
+        public static string PageHeading_Notes_4 {
+            get {
+                return ResourceManager.GetString("PageHeading_Notes_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-page-heading&amp;gt;&lt;/code&gt; component displays a prominent page header with a title, description, and optional background image. It is designed for use in Razor Pages projects..
         /// </summary>
         public static string PageHeading_Overview {
             get {
                 return ResourceManager.GetString("PageHeading_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Sets the background colour of the text container when &lt;code&gt;text-emphasis&lt;/code&gt; is enabled (&lt;code&gt;primary&lt;/code&gt;, &lt;code&gt;dark&lt;/code&gt;, &lt;code&gt;light&lt;/code&gt; or &lt;code&gt;white&lt;/code&gt;). Use &lt;code&gt;primary&lt;/code&gt; or &lt;code&gt;dark&lt;/code&gt; with light text, and &lt;code&gt;light&lt;/code&gt; or &lt;code&gt;white&lt;/code&gt; with primary or secondary text..
+        /// </summary>
+        public static string PageHeading_Properties_BackgroundColour {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_BackgroundColour", resourceCulture);
             }
         }
         
@@ -4437,7 +4473,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional. Sets the size of the height of page header (Default, or Large). A Large page heading will add more padding above and below the text container..
+        ///   Looks up a localized string similar to Optional. Sets the height of the page header (&lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; or &lt;code&gt;large&lt;/code&gt;). A compact page heading uses less padding above and below the text container, and a large page heading uses more..
         /// </summary>
         public static string PageHeading_Properties_Size {
             get {
@@ -4455,7 +4491,16 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional. Adds a light background and a border around the text container to emphasize the content..
+        ///   Looks up a localized string similar to Optional. Sets the colour of the title and description (&lt;code&gt;light&lt;/code&gt;, &lt;code&gt;primary&lt;/code&gt; or &lt;code&gt;secondary&lt;/code&gt;). On mobile screens, light text switches to the regular text colour..
+        /// </summary>
+        public static string PageHeading_Properties_TextColour {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_TextColour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Adds a background colour to the text container to emphasize the content. The colour is set with &lt;code&gt;background-colour&lt;/code&gt;..
         /// </summary>
         public static string PageHeading_Properties_TextEmphasis {
             get {

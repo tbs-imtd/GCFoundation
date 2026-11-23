@@ -136,7 +136,7 @@ public class FDCPPageHeadingTagHelperTests
 
         // Assert
         Assert.Equal("fdcp-page-heading-container fdcp-page-heading-compact", output.Attributes["class"].Value);
-        Assert.Contains("<article class='text-container sm:py-350 py-200 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-450 bg-primary text-light'>", output.Content.GetContent());
+        Assert.Contains("<article class='text-container sm:py-350 py-200 sm:pe-750 pe-450 bg-primary text-light'>", output.Content.GetContent());
         Assert.Contains("<gcds-heading tag='h1' heading-role='light'>Test Title</gcds-heading>", output.Content.GetContent());
         Assert.Contains("<gcds-text text-role='light'>Test Description</gcds-text>", output.Content.GetContent());
     }
@@ -170,7 +170,7 @@ public class FDCPPageHeadingTagHelperTests
 
         // Assert
         Assert.Equal("fdcp-page-heading-container fdcp-page-heading-compact", output.Attributes["class"].Value);
-        Assert.Contains("<article class='text-container sm:py-350 py-200 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-450 bg-light text-primary'>", output.Content.GetContent());
+        Assert.Contains("<article class='text-container sm:py-350 py-200 sm:pe-750 pe-450 bg-light text-primary'>", output.Content.GetContent());
         Assert.Contains("<gcds-heading tag='h1' heading-role='primary'>Test Title</gcds-heading>", output.Content.GetContent());
         Assert.Contains("<gcds-text text-role='primary'>Test Description</gcds-text>", output.Content.GetContent());
     }
@@ -233,7 +233,7 @@ public class FDCPPageHeadingTagHelperTests
         // Assert
         Assert.Equal("fdcp-page-heading-container fdcp-page-heading-large", output.Attributes["class"].Value);
         Assert.Contains("<gcds-heading tag='h1' heading-role='light'>Test Title</gcds-heading>", output.Content.GetContent());
-        Assert.Contains("<article class='text-container sm:py-750 py-450 xl:ps-0 sm:ps-600 ps-450 sm:pe-750 pe-450 bg-primary text-light'>", output.Content.GetContent());
+        Assert.Contains("<article class='text-container sm:py-750 py-450 sm:pe-750 pe-450 bg-primary text-light'>", output.Content.GetContent());
         Assert.Contains("<gcds-text text-role='light'>Test Description</gcds-text>", output.Content.GetContent());
     }
 }
