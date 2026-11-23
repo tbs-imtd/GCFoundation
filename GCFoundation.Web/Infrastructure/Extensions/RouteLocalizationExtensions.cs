@@ -236,13 +236,6 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereAction(nameof(LanguageController.Index))
                 .TranslateAction("");
 
-                // Styles Controller
-                setup.UseCulture("fr")
-                .WhereController(nameof(StylesController))
-                .TranslateController("styles")
-                .WhereAction(nameof(StylesController.Index))
-                .TranslateAction("");
-
                 // Ensure untranslated routes exist for controllers with attribute routes only
                 setup.UseCultures(SupportedCultures)
                     .WhereUntranslated()

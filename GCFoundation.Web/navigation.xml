@@ -14,8 +14,6 @@
 
 		<NavNode key="accessibility-statement" controller="Home" action="AccessibilityStatement" area="" preservedRouteParameters="culture" text="Nav_AccessibilityStatement" componentVisibility="breadcrumbs" />
 
-		<NavNode key="styles" controller="Styles" action="Index" area="" preservedRouteParameters="culture" text="Nav_Styles" />
-
 		<NavNode key="template" controller="Template" action="Index" area="" preservedRouteParameters="culture" text="Nav_Template">
 			<Children>
 				<NavNode key="template-basic" controller="Template" action="Basic" area="" preservedRouteParameters="culture" text="Nav_Template_Basic" componentVisibility="breadcrumbs">

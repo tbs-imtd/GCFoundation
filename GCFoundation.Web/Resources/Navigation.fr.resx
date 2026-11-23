@@ -159,9 +159,6 @@
   <data name="Nav_Template" xml:space="preserve">
     <value>Modèles de page</value>
   </data>
-  <data name="Nav_Styles" xml:space="preserve">
-    <value>Styles</value>
-  </data>
   <data name="Nav_Components_FilteredSearch" xml:space="preserve">
     <value>Recherche filtrée</value>
   </data>

@@ -2,7 +2,6 @@
 @use './_overwrite' as overwrite;
 @use './components' as components;
 @use './_table' as table;
-@use './_utilities' as utilities;
 
 body {
     overflow-x: hidden;
@@ -30,52 +29,6 @@ code:not([class*=language-]) {
 // Headings
 //=========================================
 // Match the heading styles that are applied in the GCDS.
-@mixin all-headings($headings) {
-    @each $spacing in $spacings {
-        .#{$screenSizePrefix}fdcp-m-#{$spacing} {
-            margin: var(--gcds-spacing-#{$spacing}) !important;
-        }
-    }
-
-    @each $spacing in $spacings {
-        .#{$screenSizePrefix}fdcp-mt-#{$spacing} {
-            margin-block-start: var(--gcds-spacing-#{$spacing}) !important;
-        }
-    }
-
-    @each $spacing in $spacings {
-        .#{$screenSizePrefix}fdcp-me-#{$spacing} {
-            margin-inline-end: var(--gcds-spacing-#{$spacing}) !important;
-            -webkit-margin-end: var(--gcds-spacing-#{$spacing}) !important;
-        }
-    }
-
-    @each $spacing in $spacings {
-        .#{$screenSizePrefix}fdcp-mb-#{$spacing} {
-            margin-block-end: var(--gcds-spacing-#{$spacing}) !important;
-        }
-    }
-
-    @each $spacing in $spacings {
-        .#{$screenSizePrefix}fdcp-ms-#{$spacing} {
-            margin-inline-start: var(--gcds-spacing-#{$spacing}) !important;
-            -webkit-margin-start: var(--gcds-spacing-#{$spacing}) !important;
-        }
-    }
-
-    @each $spacing in $spacings {
-        .#{$screenSizePrefix}fdcp-mx-#{$spacing} {
-            margin-inline: var(--gcds-spacing-#{$spacing}) !important;
-        }
-    }
-
-    @each $spacing in $spacings {
-        .#{$screenSizePrefix}fdcp-my-#{$spacing} {
-            margin-block: var(--gcds-spacing-#{$spacing}) !important;
-        }
-    }
-}
-
 @each $heading in vars.$headings {
     gcds-heading[tag=#{$heading}] {
         max-width: var(--gcds-heading-character-limit-#{$heading});
