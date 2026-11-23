@@ -48,7 +48,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Contains("Required choice", content, StringComparison.Ordinal);
             Assert.Contains("name=\"RequiredChoice\"", content, StringComparison.Ordinal);
             Assert.Contains("value=\"guidance\" required checked", content, StringComparison.Ordinal);
-            Assert.Contains("fdcp-likert-scale__grid d-grid", content, StringComparison.Ordinal);
+            Assert.Contains("<div class=\"fdcp-likert-scale__grid\">", content, StringComparison.Ordinal);
             Assert.Contains("fdcp-likert-scale__card", content, StringComparison.Ordinal);
             Assert.Contains("Choose an option to continue.", content, StringComparison.Ordinal);
             Assert.Equal(

@@ -51,6 +51,7 @@
 
     &__grid {
         clear: both;
+        display: grid;
         grid-template-columns: minmax(0, 1fr);
         gap: var(--gcds-grid-gap-200);
     }
@@ -274,7 +275,7 @@
 
         &__grid {
             align-items: stretch;
-            display: flex !important;
+            display: flex;
             flex-wrap: wrap;
         }
 
@@ -375,7 +376,7 @@
 
 .fdcp-likert-scale--mobile-layout {
     .fdcp-likert-scale__grid {
-        display: grid !important;
+        display: grid;
         grid-template-columns: minmax(0, 1fr);
     }
 

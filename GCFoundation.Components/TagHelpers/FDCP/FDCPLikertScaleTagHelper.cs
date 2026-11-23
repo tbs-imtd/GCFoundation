@@ -111,7 +111,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 AppendError(html, resolvedErrorMessage, errorId, hidden: !hasServerError);
             }
-            html.AppendLine("""<div class="fdcp-likert-scale__grid d-grid">""");
+            html.AppendLine("""<div class="fdcp-likert-scale__grid">""");
 
             int optionIndex = 0;
             foreach (SelectListItem item in items)
