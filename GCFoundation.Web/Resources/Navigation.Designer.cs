@@ -151,15 +151,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Form Builder.
-        /// </summary>
-        public static string Nav_Components_FormBuilder {
-            get {
-                return ResourceManager.GetString("Nav_Components_FormBuilder", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to GC Design System Components.
         /// </summary>
         public static string Nav_Components_GCDesign {

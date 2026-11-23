@@ -73,11 +73,6 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.FormBuilder))
-                .TranslateAction("constructeur-formulaires");
-
-                setup.UseCulture("fr")
-                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.Badge))
                 .TranslateAction("badge");
 

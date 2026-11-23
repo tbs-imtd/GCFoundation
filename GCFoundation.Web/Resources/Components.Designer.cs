@@ -2824,60 +2824,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Form Builder.
-        /// </summary>
-        public static string FormBuilder_Name {
-            get {
-                return ResourceManager.GetString("FormBuilder_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gets or sets the form definition used to generate the form UI..
-        /// </summary>
-        public static string FormBuilder_Properties_Form {
-            get {
-                return ResourceManager.GetString("FormBuilder_Properties_Form", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to sample-form.
-        /// </summary>
-        public static string FormBuilder_SampleForm_Anchor {
-            get {
-                return ResourceManager.GetString("FormBuilder_SampleForm_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This example demonstrates a dynamic form with dependencies using the GC Design System components..
-        /// </summary>
-        public static string FormBuilder_SampleForm_Description {
-            get {
-                return ResourceManager.GetString("FormBuilder_SampleForm_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Form submitted successfully!.
-        /// </summary>
-        public static string FormBuilder_SampleForm_SubmittedSuccessfully {
-            get {
-                return ResourceManager.GetString("FormBuilder_SampleForm_SubmittedSuccessfully", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sample form.
-        /// </summary>
-        public static string FormBuilder_SampleForm_Title {
-            get {
-                return ResourceManager.GetString("FormBuilder_SampleForm_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to GC Design System Components.
         /// </summary>
         public static string GcdsHeading {
@@ -3186,24 +3132,6 @@ namespace GCFoundation.Web.Resources {
         public static string Index_Form_Title {
             get {
                 return ResourceManager.GetString("Index_Form_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A way to build form automatically from a structure.
-        /// </summary>
-        public static string Index_FormBuilder_Description {
-            get {
-                return ResourceManager.GetString("Index_FormBuilder_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Form Builder.
-        /// </summary>
-        public static string Index_FormBuilder_Title {
-            get {
-                return ResourceManager.GetString("Index_FormBuilder_Title", resourceCulture);
             }
         }
         
