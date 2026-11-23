@@ -16,6 +16,7 @@ const routes: Array<{ path: string; name: string }> = [
   { path: '/components/stepper', name: 'Components Stepper' },
   { path: '/components/tabs', name: 'Components Tabs' },
   { path: '/components/account', name: 'Components Account' },
+  { path: '/components/likert-scale', name: 'Components Likert Scale' },
   { path: '/template', name: 'Template' },
   { path: '/installation/global-resources', name: 'Global Resources' }
 ];

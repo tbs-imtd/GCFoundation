@@ -134,6 +134,19 @@ namespace GCFoundation.Web.Controllers
         }
 
         /// <summary>
+        /// Displays the Likert Scale component documentation page.
+        /// </summary>
+        /// <returns>The Likert Scale component view.</returns>
+        [HttpGet("likert-scale")]
+        public IActionResult LikertScale()
+        {
+            SetPageTitle($"{Menu.Menu_Components} : {Resources.Components.Index_LikertScale_Title}");
+
+            var vm = BuildLikertScaleComponentViewModel();
+            return View("LikertScale/Index", vm);
+        }
+
+        /// <summary>
         /// Displays the Modal component demo page.
         /// </summary>
         /// <returns>
@@ -467,6 +480,50 @@ namespace GCFoundation.Web.Controllers
 
             return vm;
         }
+        private static LikertScaleModel BuildLikertScaleComponentViewModel()
+        {
+            return new LikertScaleModel
+            {
+                Name = Resources.Components.Index_LikertScale_Title,
+                Overview = Resources.Components.LikertScale_Overview,
+                Tag = "<fdcp-likert-scale>",
+                WhenToUse =
+                [
+                    Resources.Components.LikertScale_WhenToUse_MultipleQuestions,
+                    Resources.Components.LikertScale_WhenToUse_QuestionCount
+                ],
+                Properties =
+                [
+                    new() { Name = "disabled", DataType = "bool", DefaultValue = "false", Description = Resources.Components.LikertScale_Properties_Disabled },
+                    new() { Name = "for", DataType = "ModelExpression", Description = Resources.Components.LikertScale_Properties_For },
+                    new() { Name = "hint", DataType = "string", Description = Resources.Components.LikertScale_Properties_Hint },
+                    new() { Name = "id", DataType = "string", Description = Resources.Components.LikertScale_Properties_Id },
+                    new() { Name = "index", DataType = "string", Description = Resources.Components.LikertScale_Properties_Index },
+                    new() { Name = "items", DataType = "IEnumerable<SelectListItem>", Description = Resources.Components.LikertScale_Properties_Items },
+                    new() { Name = "legend", DataType = "string", Description = Resources.Components.LikertScale_Properties_Legend },
+                    new() { Name = "name", DataType = "string", Description = Resources.Components.LikertScale_Properties_Name },
+                    new() { Name = "required", DataType = "bool", Description = Resources.Components.LikertScale_Properties_Required },
+                    new() { Name = "value", DataType = "string", Description = Resources.Components.LikertScale_Properties_Value }
+                ],
+                SampleCodeSections =
+                [
+                    new ComponentSampleCodeSectionViewModel
+                    {
+                        Id = Resources.Components.LikertScale_ModelBinding_Anchor,
+                        PartialViewName = "LikertScale/_Basic",
+                        Title = Resources.Components.LikertScale_ModelBinding_Title,
+                        Description = Resources.Components.LikertScale_ModelBinding_Description
+                    },
+                    new ComponentSampleCodeSectionViewModel
+                    {
+                        Id = Resources.Components.LikertScale_ManualEntry_Anchor,
+                        PartialViewName = "LikertScale/_ManualEntry",
+                        Title = Resources.Components.LikertScale_ManualEntry_Title,
+                        Description = Resources.Components.LikertScale_ManualEntry_Description
+                    }
+                ]
+            };
+        }
         private ComponentsIndexPageViewModel BuildIndexComponentsPageViewModel()
         {
             return new ComponentsIndexPageViewModel()
@@ -478,6 +535,7 @@ namespace GCFoundation.Web.Controllers
                     new () { Name = Resources.Components.Index_Card_Title, Description = Resources.Components.Index_Card_Description, Href = Url.Action("Card", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-card.svg") },
                     new () { Name = Resources.Components.Index_Code_Title, Description = Resources.Components.Index_Code_Description, Href = Url.Action("Code", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-code.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Form_Title, ShortDescription = Resources.Components.Index_Form_Description, Href = Url.Action("Form", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-form.svg") },
+                    new () { Name = Resources.Components.Index_LikertScale_Title, ShortDescription = Resources.Components.Index_LikertScale_Description, Href = Url.Action("LikertScale", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-radio.svg"), IsNew = true },
                     new () { Name = Resources.Components.Index_Modal_Title, ShortDescription = Resources.Components.Index_Modal_Description, Href = Url.Action("Modal", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-modal.svg") },
                     new () { Name = Resources.Components.Index_PageHeading_Title, ShortDescription = Resources.Components.Index_PageHeading_Description, Href = Url.Action("PageHeading", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-page-heading.svg") },
                     new () { Name = Resources.Components.Index_SearchableSelect_Title, ShortDescription = Resources.Components.Index_SearchableSelect_Description, Href = Url.Action("SearchableSelect", "Components") ?? string.Empty, ImgSrc = Url.Content("~/images/preview-select.svg"), IsNew = true },
