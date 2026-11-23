@@ -285,4 +285,7 @@
   <data name="Nav_Components_Code" xml:space="preserve">
     <value>Code</value>
   </data>
+  <data name="Nav_Components_Toggle" xml:space="preserve">
+    <value>Toggle</value>
+  </data>
 </root>

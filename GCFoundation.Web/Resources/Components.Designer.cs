@@ -6852,5 +6852,500 @@ namespace GCFoundation.Web.Resources {
                 return ResourceManager.GetString("Tabs_WhenToUse_2", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle.
+        /// </summary>
+        public static string Index_Toggle_Title {
+            get {
+                return ResourceManager.GetString("Index_Toggle_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An on/off switch for a single setting, styled with GC Design System colours..
+        /// </summary>
+        public static string Index_Toggle_Description {
+            get {
+                return ResourceManager.GetString("Index_Toggle_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Toggle.
+        /// </summary>
+        public static string Toggle_Name {
+            get {
+                return ResourceManager.GetString("Toggle_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Let people turn a single setting on or off..
+        /// </summary>
+        public static string Toggle_Overview {
+            get {
+                return ResourceManager.GetString("Toggle_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A setting has exactly two states, such as on and off..
+        /// </summary>
+        public static string Toggle_WhenToUse_1 {
+            get {
+                return ResourceManager.GetString("Toggle_WhenToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The change takes effect as soon as the toggle changes..
+        /// </summary>
+        public static string Toggle_WhenToUse_2 {
+            get {
+                return ResourceManager.GetString("Toggle_WhenToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to People must agree to something, such as terms and conditions. Use a checkbox instead..
+        /// </summary>
+        public static string Toggle_WhenNotToUse_1 {
+            get {
+                return ResourceManager.GetString("Toggle_WhenNotToUse_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are more than two options, or the options are not opposites. Use radio buttons instead..
+        /// </summary>
+        public static string Toggle_WhenNotToUse_2 {
+            get {
+                return ResourceManager.GetString("Toggle_WhenNotToUse_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The choice only applies when the form is submitted. Use a checkbox instead..
+        /// </summary>
+        public static string Toggle_WhenNotToUse_3 {
+            get {
+                return ResourceManager.GetString("Toggle_WhenNotToUse_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The control applies a command or a tool state, such as Bold in a toolbar. Use a button with aria-pressed instead..
+        /// </summary>
+        public static string Toggle_WhenNotToUse_4 {
+            get {
+                return ResourceManager.GetString("Toggle_WhenNotToUse_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Write the label as the name of the setting..
+        /// </summary>
+        public static string Toggle_Accessibility_1 {
+            get {
+                return ResourceManager.GetString("Toggle_Accessibility_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep the visible state text..
+        /// </summary>
+        public static string Toggle_Accessibility_2 {
+            get {
+                return ResourceManager.GetString("Toggle_Accessibility_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group related toggles in a gcds-fieldset whose legend names the group..
+        /// </summary>
+        public static string Toggle_Accessibility_3 {
+            get {
+                return ResourceManager.GetString("Toggle_Accessibility_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Apply the change in place as soon as the toggle changes, and announce the result..
+        /// </summary>
+        public static string Toggle_Accessibility_4 {
+            get {
+                return ResourceManager.GetString("Toggle_Accessibility_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If you override the --fdcp-toggle-* colours, keep a contrast ratio of at least 3:1..
+        /// </summary>
+        public static string Toggle_Accessibility_5 {
+            get {
+                return ResourceManager.GetString("Toggle_Accessibility_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Change the label when the state changes..
+        /// </summary>
+        public static string Toggle_AccessibilityDoNot_1 {
+            get {
+                return ResourceManager.GetString("Toggle_AccessibilityDoNot_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Submit the form, reload the page, navigate or move focus when the toggle changes (WCAG 3.2.2)..
+        /// </summary>
+        public static string Toggle_AccessibilityDoNot_2 {
+            get {
+                return ResourceManager.GetString("Toggle_AccessibilityDoNot_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show the state by colour alone..
+        /// </summary>
+        public static string Toggle_AccessibilityDoNot_3 {
+            get {
+                return ResourceManager.GetString("Toggle_AccessibilityDoNot_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add aria-checked, aria-pressed or aria-label to the switch..
+        /// </summary>
+        public static string Toggle_AccessibilityDoNot_4 {
+            get {
+                return ResourceManager.GetString("Toggle_AccessibilityDoNot_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Space toggles the switch..
+        /// </summary>
+        public static string Toggle_Notes_6 {
+            get {
+                return ResourceManager.GetString("Toggle_Notes_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Test manually before release..
+        /// </summary>
+        public static string Toggle_Notes_7 {
+            get {
+                return ResourceManager.GetString("Toggle_Notes_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Group of toggles.
+        /// </summary>
+        public static string Toggle_Group_Title {
+            get {
+                return ResourceManager.GetString("Toggle_Group_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrap related toggles in gcds-fieldset..
+        /// </summary>
+        public static string Toggle_Group_Text {
+            get {
+                return ResourceManager.GetString("Toggle_Group_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Notification preferences.
+        /// </summary>
+        public static string Toggle_Sample_Group_Legend {
+            get {
+                return ResourceManager.GetString("Toggle_Sample_Group_Legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text message notifications.
+        /// </summary>
+        public static string Toggle_Sample_Group_Sms_Label {
+            get {
+                return ResourceManager.GetString("Toggle_Sample_Group_Sms_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The toggle posts true when on..
+        /// </summary>
+        public static string Toggle_Notes_1 {
+            get {
+                return ResourceManager.GetString("Toggle_Notes_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A disabled toggle does not post a value..
+        /// </summary>
+        public static string Toggle_Notes_2 {
+            get {
+                return ResourceManager.GetString("Toggle_Notes_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The required attribute is not supported..
+        /// </summary>
+        public static string Toggle_Notes_3 {
+            get {
+                return ResourceManager.GetString("Toggle_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Colours come from GC Design System tokens..
+        /// </summary>
+        public static string Toggle_Notes_4 {
+            get {
+                return ResourceManager.GetString("Toggle_Notes_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To apply a setting immediately, listen for the native change event on the switch..
+        /// </summary>
+        public static string Toggle_Notes_5 {
+            get {
+                return ResourceManager.GetString("Toggle_Notes_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Binds the toggle to a bool model property..
+        /// </summary>
+        public static string Toggle_Properties_For {
+            get {
+                return ResourceManager.GetString("Toggle_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field name when for is not used..
+        /// </summary>
+        public static string Toggle_Properties_Name {
+            get {
+                return ResourceManager.GetString("Toggle_Properties_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Identifier of the switch. Derived from the name when omitted..
+        /// </summary>
+        public static string Toggle_Properties_Id {
+            get {
+                return ResourceManager.GetString("Toggle_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visible label. Overrides the Display name when for is used..
+        /// </summary>
+        public static string Toggle_Properties_Label {
+            get {
+                return ResourceManager.GetString("Toggle_Properties_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additional information shown under the label..
+        /// </summary>
+        public static string Toggle_Properties_Hint {
+            get {
+                return ResourceManager.GetString("Toggle_Properties_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turns the toggle on or off. Overrides the bound model value..
+        /// </summary>
+        public static string Toggle_Properties_Checked {
+            get {
+                return ResourceManager.GetString("Toggle_Properties_Checked", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visible state text when the toggle is on..
+        /// </summary>
+        public static string Toggle_Properties_OnText {
+            get {
+                return ResourceManager.GetString("Toggle_Properties_OnText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Visible state text when the toggle is off..
+        /// </summary>
+        public static string Toggle_Properties_OffText {
+            get {
+                return ResourceManager.GetString("Toggle_Properties_OffText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prevents changes. A disabled toggle is not submitted..
+        /// </summary>
+        public static string Toggle_Properties_Disabled {
+            get {
+                return ResourceManager.GetString("Toggle_Properties_Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Basic toggle.
+        /// </summary>
+        public static string Toggle_Basic_Title {
+            get {
+                return ResourceManager.GetString("Toggle_Basic_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use name and label for a standalone toggle..
+        /// </summary>
+        public static string Toggle_Basic_Text {
+            get {
+                return ResourceManager.GetString("Toggle_Basic_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to States.
+        /// </summary>
+        public static string Toggle_States_Title {
+            get {
+                return ResourceManager.GetString("Toggle_States_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use checked to start in the on state and disabled to prevent changes..
+        /// </summary>
+        public static string Toggle_States_Text {
+            get {
+                return ResourceManager.GetString("Toggle_States_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Custom state text.
+        /// </summary>
+        public static string Toggle_StateText_Title {
+            get {
+                return ResourceManager.GetString("Toggle_StateText_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use on-text and off-text when On and Off do not describe the setting clearly..
+        /// </summary>
+        public static string Toggle_StateText_Text {
+            get {
+                return ResourceManager.GetString("Toggle_StateText_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email notifications.
+        /// </summary>
+        public static string Toggle_Sample_Notifications_Label {
+            get {
+                return ResourceManager.GetString("Toggle_Sample_Notifications_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get an email when the status of your application changes..
+        /// </summary>
+        public static string Toggle_Sample_Notifications_Hint {
+            get {
+                return ResourceManager.GetString("Toggle_Sample_Notifications_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deadline reminders.
+        /// </summary>
+        public static string Toggle_Sample_Reminders_Label {
+            get {
+                return ResourceManager.GetString("Toggle_Sample_Reminders_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Two-step verification.
+        /// </summary>
+        public static string Toggle_Sample_Locked_Label {
+            get {
+                return ResourceManager.GetString("Toggle_Sample_Locked_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your organization manages this setting..
+        /// </summary>
+        public static string Toggle_Sample_Locked_Hint {
+            get {
+                return ResourceManager.GetString("Toggle_Sample_Locked_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Profile visibility.
+        /// </summary>
+        public static string Toggle_Sample_Visibility_Label {
+            get {
+                return ResourceManager.GetString("Toggle_Sample_Visibility_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Public.
+        /// </summary>
+        public static string Toggle_Sample_Visibility_On {
+            get {
+                return ResourceManager.GetString("Toggle_Sample_Visibility_On", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Private.
+        /// </summary>
+        public static string Toggle_Sample_Visibility_Off {
+            get {
+                return ResourceManager.GetString("Toggle_Sample_Visibility_Off", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Monthly newsletter.
+        /// </summary>
+        public static string Form_Newsletter_Label {
+            get {
+                return ResourceManager.GetString("Form_Newsletter_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Receive our newsletter by email once a month..
+        /// </summary>
+        public static string Form_Newsletter_Hint {
+            get {
+                return ResourceManager.GetString("Form_Newsletter_Hint", resourceCulture);
+            }
+        }
     }
 }

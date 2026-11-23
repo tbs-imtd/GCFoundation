@@ -76,6 +76,7 @@
             <NavNode key="components-stepper" controller="Components" action="Stepper" area="" preservedRouteParameters="culture" text="Nav_Components_Stepper" componentVisibility="breadcrumbs" />
             <NavNode key="components-table" controller="Components" action="Table" area="" preservedRouteParameters="culture" text="Nav_Components_Table" componentVisibility="breadcrumbs" />
             <NavNode key="components-tabs" controller="Components" action="Tabs" area="" preservedRouteParameters="culture" text="Nav_Components_Tabs" componentVisibility="breadcrumbs" />
+            <NavNode key="components-toggle" controller="Components" action="Toggle" area="" preservedRouteParameters="culture" text="Nav_Components_Toggle" componentVisibility="breadcrumbs" />
             <NavNode key="components-account" controller="Components" action="Account" area="" preservedRouteParameters="culture" text="Nav_Components_Account" componentVisibility="breadcrumbs">
 							<Children>
 								<NavNode key="account-examples" controller="AccountExample" action="Index" area="" preservedRouteParameters="culture" text="Nav_Account_Examples" />

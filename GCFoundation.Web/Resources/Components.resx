@@ -2408,4 +2408,170 @@
   <data name="Index_Code_Title" xml:space="preserve">
     <value>Code</value>
   </data>
+  <data name="Index_Toggle_Title" xml:space="preserve">
+    <value>Toggle</value>
+  </data>
+  <data name="Index_Toggle_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;An on/off switch for a single setting, styled with GC Design System colours.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Other names: switch, toggle switch&lt;/em&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Toggle_Name" xml:space="preserve">
+    <value>Toggle</value>
+  </data>
+  <data name="Toggle_Overview" xml:space="preserve">
+    <value>Let people turn a single setting on or off. The toggle is a native checkbox with the switch role, so it works with the keyboard, screen readers and model binding without JavaScript. Visible state text shows On or Off, so the state is never conveyed by colour alone.</value>
+  </data>
+  <data name="Toggle_WhenToUse_1" xml:space="preserve">
+    <value>A setting has exactly two states, such as on and off.</value>
+  </data>
+  <data name="Toggle_WhenToUse_2" xml:space="preserve">
+    <value>The change takes effect as soon as the toggle changes, such as turning notifications or a display option on or off.</value>
+  </data>
+  <data name="Toggle_WhenNotToUse_1" xml:space="preserve">
+    <value>People must agree to something, such as terms and conditions. Use a checkbox instead.</value>
+  </data>
+  <data name="Toggle_WhenNotToUse_2" xml:space="preserve">
+    <value>There are more than two options, or the options are not opposites. Use radio buttons instead.</value>
+  </data>
+  <data name="Toggle_WhenNotToUse_3" xml:space="preserve">
+    <value>The choice only applies when the form is submitted, such as with a Save button. Use a checkbox instead.</value>
+  </data>
+  <data name="Toggle_WhenNotToUse_4" xml:space="preserve">
+    <value>The control applies a command or a tool state, such as Bold in a toolbar. Use a button with &lt;code&gt;aria-pressed&lt;/code&gt; instead.</value>
+  </data>
+  <data name="Toggle_Accessibility_1" xml:space="preserve">
+    <value>Write the label as the name of the setting, such as Email notifications, not as a question or an action.</value>
+  </data>
+  <data name="Toggle_Accessibility_2" xml:space="preserve">
+    <value>Keep the visible state text. Screen readers already announce on or off, so the state text is hidden from them to avoid repetition.</value>
+  </data>
+  <data name="Toggle_Accessibility_3" xml:space="preserve">
+    <value>Group related toggles in a &lt;code&gt;gcds-fieldset&lt;/code&gt; whose legend names the group.</value>
+  </data>
+  <data name="Toggle_Accessibility_4" xml:space="preserve">
+    <value>Apply the change in place as soon as the toggle changes, and announce the result in a polite live region (WCAG 4.1.3).</value>
+  </data>
+  <data name="Toggle_Accessibility_5" xml:space="preserve">
+    <value>If you override the &lt;code&gt;--fdcp-toggle-*&lt;/code&gt; colours, keep a contrast ratio of at least 3:1 for the track edge against the page and for the thumb against the track (WCAG 1.4.11).</value>
+  </data>
+  <data name="Toggle_AccessibilityDoNot_1" xml:space="preserve">
+    <value>Change the label when the state changes. The label names the setting; screen readers announce on or off separately.</value>
+  </data>
+  <data name="Toggle_AccessibilityDoNot_2" xml:space="preserve">
+    <value>Submit the form, reload the page, navigate or move focus when the toggle changes (WCAG 3.2.2).</value>
+  </data>
+  <data name="Toggle_AccessibilityDoNot_3" xml:space="preserve">
+    <value>Show the state by colour alone. Keep the visible state text; the thumb position is the second cue (WCAG 1.4.1).</value>
+  </data>
+  <data name="Toggle_AccessibilityDoNot_4" xml:space="preserve">
+    <value>Add &lt;code&gt;aria-checked&lt;/code&gt;, &lt;code&gt;aria-pressed&lt;/code&gt; or &lt;code&gt;aria-label&lt;/code&gt; to the switch. The native checkbox exposes the state, and the visible label provides the name.</value>
+  </data>
+  <data name="Toggle_Notes_6" xml:space="preserve">
+    <value>Space toggles the switch. As with any checkbox, Enter does not toggle it, and inside a form Enter submits the form. The WAI-ARIA switch pattern lists Enter as optional.</value>
+  </data>
+  <data name="Toggle_Notes_7" xml:space="preserve">
+    <value>Test manually before release: Tab to each toggle and check the focus ring; press Space and check that the thumb and state text change; with a screen reader, check that you hear the label, "switch" and on or off; view the page in greyscale and in Windows high contrast mode; zoom to 200% and check that nothing overlaps.</value>
+  </data>
+  <data name="Toggle_Group_Title" xml:space="preserve">
+    <value>Group of toggles</value>
+  </data>
+  <data name="Toggle_Group_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Wrap related toggles in &lt;code&gt;gcds-fieldset&lt;/code&gt;. The legend names the group, and each toggle keeps its own label.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Toggle_Sample_Group_Legend" xml:space="preserve">
+    <value>Notification preferences</value>
+  </data>
+  <data name="Toggle_Sample_Group_Sms_Label" xml:space="preserve">
+    <value>Text message notifications</value>
+  </data>
+  <data name="Toggle_Notes_1" xml:space="preserve">
+    <value>The toggle posts &lt;code&gt;true&lt;/code&gt; when on. A hidden input posts &lt;code&gt;false&lt;/code&gt; when off, so a bound &lt;code&gt;bool&lt;/code&gt; is always updated.</value>
+  </data>
+  <data name="Toggle_Notes_2" xml:space="preserve">
+    <value>A disabled toggle does not post a value. The bound property keeps its default value.</value>
+  </data>
+  <data name="Toggle_Notes_3" xml:space="preserve">
+    <value>The &lt;code&gt;required&lt;/code&gt; attribute is not supported. A toggle that must be on is a confirmation: use &lt;code&gt;fdcp-checkbox&lt;/code&gt; instead.</value>
+  </data>
+  <data name="Toggle_Notes_4" xml:space="preserve">
+    <value>Colours come from GC Design System tokens such as &lt;code&gt;--gcds-bg-primary&lt;/code&gt;, &lt;code&gt;--gcds-focus-border&lt;/code&gt;, &lt;code&gt;--gcds-danger-border&lt;/code&gt; and &lt;code&gt;--gcds-disabled-background&lt;/code&gt;. Override the &lt;code&gt;--fdcp-toggle-*&lt;/code&gt; custom properties to adjust one instance.</value>
+  </data>
+  <data name="Toggle_Notes_5" xml:space="preserve">
+    <value>To apply a setting immediately, listen for the native &lt;code&gt;change&lt;/code&gt; event on the switch.</value>
+  </data>
+  <data name="Toggle_Properties_For" xml:space="preserve">
+    <value>Binds the toggle to a bool model property. The name, id, label and hint come from the property and its Display attribute.</value>
+  </data>
+  <data name="Toggle_Properties_Name" xml:space="preserve">
+    <value>Field name when for is not used.</value>
+  </data>
+  <data name="Toggle_Properties_Id" xml:space="preserve">
+    <value>Identifier of the switch. Derived from the name when omitted.</value>
+  </data>
+  <data name="Toggle_Properties_Label" xml:space="preserve">
+    <value>Visible label. Overrides the Display name when for is used.</value>
+  </data>
+  <data name="Toggle_Properties_Hint" xml:space="preserve">
+    <value>Additional information shown under the label.</value>
+  </data>
+  <data name="Toggle_Properties_Checked" xml:space="preserve">
+    <value>Turns the toggle on or off. Overrides the bound model value.</value>
+  </data>
+  <data name="Toggle_Properties_OnText" xml:space="preserve">
+    <value>Visible state text when the toggle is on.</value>
+  </data>
+  <data name="Toggle_Properties_OffText" xml:space="preserve">
+    <value>Visible state text when the toggle is off.</value>
+  </data>
+  <data name="Toggle_Properties_Disabled" xml:space="preserve">
+    <value>Prevents changes. A disabled toggle is not submitted.</value>
+  </data>
+  <data name="Toggle_Basic_Title" xml:space="preserve">
+    <value>Basic toggle</value>
+  </data>
+  <data name="Toggle_Basic_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use &lt;code&gt;name&lt;/code&gt; and &lt;code&gt;label&lt;/code&gt; for a standalone toggle, or &lt;code&gt;for&lt;/code&gt; to bind it to a bool property. Add a &lt;code&gt;hint&lt;/code&gt; for extra context.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Toggle_States_Title" xml:space="preserve">
+    <value>States</value>
+  </data>
+  <data name="Toggle_States_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use &lt;code&gt;checked&lt;/code&gt; to start in the on state and &lt;code&gt;disabled&lt;/code&gt; to prevent changes.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Toggle_StateText_Title" xml:space="preserve">
+    <value>Custom state text</value>
+  </data>
+  <data name="Toggle_StateText_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use &lt;code&gt;on-text&lt;/code&gt; and &lt;code&gt;off-text&lt;/code&gt; when On and Off do not describe the setting clearly.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Toggle_Sample_Notifications_Label" xml:space="preserve">
+    <value>Email notifications</value>
+  </data>
+  <data name="Toggle_Sample_Notifications_Hint" xml:space="preserve">
+    <value>Get an email when the status of your application changes.</value>
+  </data>
+  <data name="Toggle_Sample_Reminders_Label" xml:space="preserve">
+    <value>Deadline reminders</value>
+  </data>
+  <data name="Toggle_Sample_Locked_Label" xml:space="preserve">
+    <value>Two-step verification</value>
+  </data>
+  <data name="Toggle_Sample_Locked_Hint" xml:space="preserve">
+    <value>Your organization manages this setting.</value>
+  </data>
+  <data name="Toggle_Sample_Visibility_Label" xml:space="preserve">
+    <value>Profile visibility</value>
+  </data>
+  <data name="Toggle_Sample_Visibility_On" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Toggle_Sample_Visibility_Off" xml:space="preserve">
+    <value>Private</value>
+  </data>
+  <data name="Form_Newsletter_Label" xml:space="preserve">
+    <value>Monthly newsletter</value>
+  </data>
+  <data name="Form_Newsletter_Hint" xml:space="preserve">
+    <value>Receive our newsletter by email once a month.</value>
+  </data>
 </root>

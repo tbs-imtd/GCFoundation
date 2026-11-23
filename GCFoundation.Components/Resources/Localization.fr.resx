@@ -289,4 +289,10 @@
     <value>Code {0}</value>
     <comment>{0} est le nom du langage, par exemple C#.</comment>
   </data>
+  <data name="On" xml:space="preserve">
+    <value>Activé</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Désactivé</value>
+  </data>
 </root>

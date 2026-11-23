@@ -2719,4 +2719,170 @@
   <data name="Index_Code_Title" xml:space="preserve">
     <value>Code</value>
   </data>
+  <data name="Index_Toggle_Title" xml:space="preserve">
+    <value>Interrupteur</value>
+  </data>
+  <data name="Index_Toggle_Description" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Un interrupteur activé/désactivé pour un seul paramètre, aux couleurs du Système de design GC.&lt;/gcds-text&gt;
+&lt;gcds-text&gt;&lt;em&gt;Autres noms : commutateur, bouton bascule&lt;/em&gt;&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Toggle_Name" xml:space="preserve">
+    <value>Interrupteur</value>
+  </data>
+  <data name="Toggle_Overview" xml:space="preserve">
+    <value>Permet d'activer ou de désactiver un seul paramètre. L'interrupteur est une case à cocher native avec le rôle switch : il fonctionne au clavier, avec les lecteurs d'écran et avec la liaison de modèle, sans JavaScript. Un texte d'état visible affiche Activé ou Désactivé, afin que l'état ne soit jamais transmis uniquement par la couleur.</value>
+  </data>
+  <data name="Toggle_WhenToUse_1" xml:space="preserve">
+    <value>Un paramètre a exactement deux états, comme activé et désactivé.</value>
+  </data>
+  <data name="Toggle_WhenToUse_2" xml:space="preserve">
+    <value>Le changement prend effet dès que l'interrupteur change, par exemple pour activer ou désactiver les notifications ou une option d'affichage.</value>
+  </data>
+  <data name="Toggle_WhenNotToUse_1" xml:space="preserve">
+    <value>Les personnes doivent accepter quelque chose, comme des conditions d'utilisation. Utilisez plutôt une case à cocher.</value>
+  </data>
+  <data name="Toggle_WhenNotToUse_2" xml:space="preserve">
+    <value>Il y a plus de deux options, ou les options ne sont pas contraires. Utilisez plutôt des boutons radio.</value>
+  </data>
+  <data name="Toggle_WhenNotToUse_3" xml:space="preserve">
+    <value>Le choix ne s'applique qu'à l'envoi du formulaire, par exemple avec un bouton Enregistrer. Utilisez plutôt une case à cocher.</value>
+  </data>
+  <data name="Toggle_WhenNotToUse_4" xml:space="preserve">
+    <value>Le contrôle applique une commande ou l'état d'un outil, comme Gras dans une barre d'outils. Utilisez plutôt un bouton avec &lt;code&gt;aria-pressed&lt;/code&gt;.</value>
+  </data>
+  <data name="Toggle_Accessibility_1" xml:space="preserve">
+    <value>Rédigez l'étiquette comme le nom du paramètre, par exemple Notifications par courriel, et non comme une question ou une action.</value>
+  </data>
+  <data name="Toggle_Accessibility_2" xml:space="preserve">
+    <value>Conservez le texte d'état visible. Les lecteurs d'écran annoncent déjà l'état activé ou désactivé; le texte d'état leur est donc masqué pour éviter les répétitions.</value>
+  </data>
+  <data name="Toggle_Accessibility_3" xml:space="preserve">
+    <value>Regroupez les interrupteurs liés dans un &lt;code&gt;gcds-fieldset&lt;/code&gt; dont la légende nomme le groupe.</value>
+  </data>
+  <data name="Toggle_Accessibility_4" xml:space="preserve">
+    <value>Appliquez le changement sur place dès que l'interrupteur change, et annoncez le résultat dans une région active polie (WCAG 4.1.3).</value>
+  </data>
+  <data name="Toggle_Accessibility_5" xml:space="preserve">
+    <value>Si vous remplacez les couleurs &lt;code&gt;--fdcp-toggle-*&lt;/code&gt;, conservez un rapport de contraste d'au moins 3:1 pour le contour du rail par rapport à la page et pour le curseur par rapport au rail (WCAG 1.4.11).</value>
+  </data>
+  <data name="Toggle_AccessibilityDoNot_1" xml:space="preserve">
+    <value>Changer l'étiquette lorsque l'état change. L'étiquette nomme le paramètre; les lecteurs d'écran annoncent l'état activé ou désactivé séparément.</value>
+  </data>
+  <data name="Toggle_AccessibilityDoNot_2" xml:space="preserve">
+    <value>Envoyer le formulaire, recharger la page, naviguer ou déplacer le focus lorsque l'interrupteur change (WCAG 3.2.2).</value>
+  </data>
+  <data name="Toggle_AccessibilityDoNot_3" xml:space="preserve">
+    <value>Indiquer l'état uniquement par la couleur. Conservez le texte d'état visible; la position du curseur est le deuxième indice (WCAG 1.4.1).</value>
+  </data>
+  <data name="Toggle_AccessibilityDoNot_4" xml:space="preserve">
+    <value>Ajouter &lt;code&gt;aria-checked&lt;/code&gt;, &lt;code&gt;aria-pressed&lt;/code&gt; ou &lt;code&gt;aria-label&lt;/code&gt; à l'interrupteur. La case à cocher native expose l'état, et l'étiquette visible fournit le nom.</value>
+  </data>
+  <data name="Toggle_Notes_6" xml:space="preserve">
+    <value>La barre d'espacement change l'état de l'interrupteur. Comme pour toute case à cocher, la touche Entrée ne le change pas et, dans un formulaire, elle envoie le formulaire. Le modèle d'interrupteur WAI-ARIA indique que la touche Entrée est facultative.</value>
+  </data>
+  <data name="Toggle_Notes_7" xml:space="preserve">
+    <value>Testez manuellement avant la mise en production : atteignez chaque interrupteur avec Tab et vérifiez l'indicateur de focus; appuyez sur la barre d'espacement et vérifiez que le curseur et le texte d'état changent; avec un lecteur d'écran, vérifiez que vous entendez l'étiquette, « commutateur » et l'état activé ou désactivé; affichez la page en niveaux de gris et en mode de contraste élevé de Windows; agrandissez à 200 % et vérifiez que rien ne se chevauche.</value>
+  </data>
+  <data name="Toggle_Group_Title" xml:space="preserve">
+    <value>Groupe d'interrupteurs</value>
+  </data>
+  <data name="Toggle_Group_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Regroupez les interrupteurs liés dans &lt;code&gt;gcds-fieldset&lt;/code&gt;. La légende nomme le groupe, et chaque interrupteur conserve sa propre étiquette.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Toggle_Sample_Group_Legend" xml:space="preserve">
+    <value>Préférences de notification</value>
+  </data>
+  <data name="Toggle_Sample_Group_Sms_Label" xml:space="preserve">
+    <value>Notifications par message texte</value>
+  </data>
+  <data name="Toggle_Notes_1" xml:space="preserve">
+    <value>L'interrupteur envoie &lt;code&gt;true&lt;/code&gt; lorsqu'il est activé. Un champ caché envoie &lt;code&gt;false&lt;/code&gt; lorsqu'il est désactivé, de sorte qu'une propriété &lt;code&gt;bool&lt;/code&gt; liée est toujours mise à jour.</value>
+  </data>
+  <data name="Toggle_Notes_2" xml:space="preserve">
+    <value>Un interrupteur désactivé n'envoie aucune valeur. La propriété liée conserve sa valeur par défaut.</value>
+  </data>
+  <data name="Toggle_Notes_3" xml:space="preserve">
+    <value>L'attribut &lt;code&gt;required&lt;/code&gt; n'est pas pris en charge. Un interrupteur qui doit être activé est une confirmation : utilisez plutôt &lt;code&gt;fdcp-checkbox&lt;/code&gt;.</value>
+  </data>
+  <data name="Toggle_Notes_4" xml:space="preserve">
+    <value>Les couleurs proviennent des jetons du Système de design GC, comme &lt;code&gt;--gcds-bg-primary&lt;/code&gt;, &lt;code&gt;--gcds-focus-border&lt;/code&gt;, &lt;code&gt;--gcds-danger-border&lt;/code&gt; et &lt;code&gt;--gcds-disabled-background&lt;/code&gt;. Remplacez les propriétés personnalisées &lt;code&gt;--fdcp-toggle-*&lt;/code&gt; pour ajuster une seule instance.</value>
+  </data>
+  <data name="Toggle_Notes_5" xml:space="preserve">
+    <value>Pour appliquer un paramètre immédiatement, écoutez l'événement natif &lt;code&gt;change&lt;/code&gt; de l'interrupteur.</value>
+  </data>
+  <data name="Toggle_Properties_For" xml:space="preserve">
+    <value>Lie l'interrupteur à une propriété bool du modèle. Le nom, l'identifiant, l'étiquette et l'indice proviennent de la propriété et de son attribut Display.</value>
+  </data>
+  <data name="Toggle_Properties_Name" xml:space="preserve">
+    <value>Nom du champ lorsque for n'est pas utilisé.</value>
+  </data>
+  <data name="Toggle_Properties_Id" xml:space="preserve">
+    <value>Identifiant de l'interrupteur. Dérivé du nom lorsqu'il est omis.</value>
+  </data>
+  <data name="Toggle_Properties_Label" xml:space="preserve">
+    <value>Étiquette visible. Remplace le nom Display lorsque for est utilisé.</value>
+  </data>
+  <data name="Toggle_Properties_Hint" xml:space="preserve">
+    <value>Renseignements supplémentaires affichés sous l'étiquette.</value>
+  </data>
+  <data name="Toggle_Properties_Checked" xml:space="preserve">
+    <value>Active ou désactive l'interrupteur. Remplace la valeur du modèle lié.</value>
+  </data>
+  <data name="Toggle_Properties_OnText" xml:space="preserve">
+    <value>Texte d'état visible lorsque l'interrupteur est activé.</value>
+  </data>
+  <data name="Toggle_Properties_OffText" xml:space="preserve">
+    <value>Texte d'état visible lorsque l'interrupteur est désactivé.</value>
+  </data>
+  <data name="Toggle_Properties_Disabled" xml:space="preserve">
+    <value>Empêche les changements. Un interrupteur désactivé n'est pas envoyé.</value>
+  </data>
+  <data name="Toggle_Basic_Title" xml:space="preserve">
+    <value>Interrupteur de base</value>
+  </data>
+  <data name="Toggle_Basic_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Utilisez &lt;code&gt;name&lt;/code&gt; et &lt;code&gt;label&lt;/code&gt; pour un interrupteur autonome, ou &lt;code&gt;for&lt;/code&gt; pour le lier à une propriété bool. Ajoutez un &lt;code&gt;hint&lt;/code&gt; pour donner plus de contexte.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Toggle_States_Title" xml:space="preserve">
+    <value>États</value>
+  </data>
+  <data name="Toggle_States_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Utilisez &lt;code&gt;checked&lt;/code&gt; pour commencer à l'état activé et &lt;code&gt;disabled&lt;/code&gt; pour empêcher les changements.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Toggle_StateText_Title" xml:space="preserve">
+    <value>Texte d'état personnalisé</value>
+  </data>
+  <data name="Toggle_StateText_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Utilisez &lt;code&gt;on-text&lt;/code&gt; et &lt;code&gt;off-text&lt;/code&gt; lorsque Activé et Désactivé ne décrivent pas clairement le paramètre.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="Toggle_Sample_Notifications_Label" xml:space="preserve">
+    <value>Notifications par courriel</value>
+  </data>
+  <data name="Toggle_Sample_Notifications_Hint" xml:space="preserve">
+    <value>Recevez un courriel lorsque l'état de votre demande change.</value>
+  </data>
+  <data name="Toggle_Sample_Reminders_Label" xml:space="preserve">
+    <value>Rappels d'échéance</value>
+  </data>
+  <data name="Toggle_Sample_Locked_Label" xml:space="preserve">
+    <value>Vérification en deux étapes</value>
+  </data>
+  <data name="Toggle_Sample_Locked_Hint" xml:space="preserve">
+    <value>Votre organisation gère ce paramètre.</value>
+  </data>
+  <data name="Toggle_Sample_Visibility_Label" xml:space="preserve">
+    <value>Visibilité du profil</value>
+  </data>
+  <data name="Toggle_Sample_Visibility_On" xml:space="preserve">
+    <value>Public</value>
+  </data>
+  <data name="Toggle_Sample_Visibility_Off" xml:space="preserve">
+    <value>Privé</value>
+  </data>
+  <data name="Form_Newsletter_Label" xml:space="preserve">
+    <value>Bulletin mensuel</value>
+  </data>
+  <data name="Form_Newsletter_Hint" xml:space="preserve">
+    <value>Recevez notre bulletin par courriel une fois par mois.</value>
+  </data>
 </root>

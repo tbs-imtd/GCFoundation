@@ -117,6 +117,12 @@ namespace GCFoundation.Web.Models
         [Display(Name = "Form_AgreeToTerms_Label", Description = "Form_AgreeToTerms_Hint", ResourceType = typeof(Resources.Components))]
         public bool AgreeToTerms { get; set; }
 
+        /// <summary>
+        /// Indicates whether the user wants to receive the newsletter.
+        /// </summary>
+        [Display(Name = "Form_Newsletter_Label", Description = "Form_Newsletter_Hint", ResourceType = typeof(Resources.Components))]
+        public bool ReceiveNewsletter { get; set; }
+
 
         /// <summary>
         /// The list of interests selected by the user.
