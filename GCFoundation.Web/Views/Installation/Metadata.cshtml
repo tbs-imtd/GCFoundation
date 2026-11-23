@@ -1,5 +1,4 @@
 @using GCFoundation.Web.Resources
-@using System.Web
 
 <gcds-heading tag="h1">@Installation.Metadata_Page_Title</gcds-heading>
 <gcds-text>@Html.Raw(Installation.Metadata_Description)</gcds-text>
@@ -7,9 +6,7 @@
 <gcds-grid columns="minmax(200px, 300px) minmax(0, 1fr)">
 	<gcds-side-nav label="@Installation.Metadata_SideNav_OnThisPage">
 		<gcds-nav-link href="#overview">@Installation.Metadata_Overview_Heading</gcds-nav-link>
-		<gcds-nav-link href="#how-it-works">@Installation.Metadata_HowItWorks_Heading</gcds-nav-link>
 		<gcds-nav-link href="#usage">@Installation.Metadata_Usage_Heading</gcds-nav-link>
-		<gcds-nav-link href="#layout-merge">@Installation.Metadata_LayoutMerge_Heading</gcds-nav-link>
 		<gcds-nav-link href="#configuration">@Installation.Metadata_Configuration_Heading</gcds-nav-link>
 		<gcds-nav-link href="#behavior">@Installation.Metadata_Behavior_Heading</gcds-nav-link>
 		<gcds-nav-link href="#examples">@Installation.Metadata_Examples_Heading</gcds-nav-link>
@@ -18,36 +15,12 @@
 
 	<div class="documentation-content">
 		<gcds-heading tag="h2" id="overview">@Installation.Metadata_Overview_Heading</gcds-heading>
-		<ul>
+		<ul class="list-square">
 			<li>@Html.Raw(Installation.Metadata_Overview_Item_BaseController)</li>
 			<li>@Html.Raw(Installation.Metadata_Overview_Item_TypedModel)</li>
 			<li>@Html.Raw(Installation.Metadata_Overview_Item_LayoutMerge)</li>
 			<li>@Html.Raw(Installation.Metadata_Overview_Item_Configuration)</li>
 		</ul>
-
-		<hr />
-
-		<gcds-heading tag="h2" id="how-it-works">@Installation.Metadata_HowItWorks_Heading</gcds-heading>
-		<p>@Installation.Metadata_HowItWorks_Intro</p>
-		<fdcp-code code-language="csharp">// Add or replace a meta tag
-protected void AddMetaTag(MetaTag tag)
-{
-	if (tag != null)
-	{
-		if (!string.IsNullOrEmpty(tag.Name) &amp;&amp; MetaTags.Any(t =&gt; t.Name == tag.Name))
-			MetaTags.Remove(MetaTags.First(t =&gt; t.Name == tag.Name));
-		if (!string.IsNullOrEmpty(tag.Property) &amp;&amp; MetaTags.Any(t =&gt; t.Property == tag.Property))
-			MetaTags.Remove(MetaTags.First(t =&gt; t.Property == tag.Property));
-		MetaTags.Add(tag);
-	}
-}
-
-// After action, expose to the view
-public override void OnActionExecuted(ActionExecutedContext context)
-{
-	ViewData["MetaTags"] = MetaTags;
-	base.OnActionExecuted(context);
-}</fdcp-code>
 
 		<hr />
 
@@ -71,28 +44,6 @@ public class ArticlesController : GCFoundationBaseController
 
 		<hr />
 
-		<gcds-heading tag="h2" id="layout-merge">@Installation.Metadata_LayoutMerge_Heading</gcds-heading>
-		<p>@Installation.Metadata_LayoutMerge_Intro</p>
-		<fdcp-code code-language="cshtml">@@{
-	var globalMetaTags = settings.Value.GlobalMetaTags;
-	var controllerMetaTags = ViewData["MetaTags"] as IEnumerable&lt;MetaTag&gt;;
-	var metaTags = new List&lt;MetaTag&gt;();
-	if (controllerMetaTags != null &amp;&amp; controllerMetaTags.Any())
-	{
-		metaTags.AddRange(controllerMetaTags);
-	}
-	if (globalMetaTags != null &amp;&amp; globalMetaTags.Any())
-	{
-		metaTags.AddRange(globalMetaTags.Where(gmt =&gt; !metaTags.Any(mt =&gt; (!string.IsNullOrEmpty(gmt.Name) &amp;&amp; mt.Name == gmt.Name) || (!string.IsNullOrEmpty(gmt.Property) &amp;&amp; mt.Property == gmt.Property))).ToList());
-	}
-	foreach (var tag in metaTags)
-	{
-		@@Html.Raw(tag.Render());
-	}
-}</fdcp-code>
-
-		<hr />
-
 		<gcds-heading tag="h2" id="configuration">@Installation.Metadata_Configuration_Heading</gcds-heading>
 		<p>@Installation.Metadata_Configuration_Intro</p>
 		<fdcp-code code-language="json">{
@@ -101,8 +52,8 @@ public class ArticlesController : GCFoundationBaseController
 			{
 				"name": "description",
 				"content": "Fallback when a locale-specific string is omitted",
-				"contentEn": "GCFoundation � English description",
-				"contentFr": "GCFoundation � description en fran�ais"
+				"contentEn": "GCFoundation – English description",
+				"contentFr": "GCFoundation – description en français"
 			},
 			{ "name": "robots", "content": "index, follow" },
 			{ "property": "og:title", "content": "GCFoundation" },
@@ -114,7 +65,7 @@ public class ArticlesController : GCFoundationBaseController
 		<hr />
 
 		<gcds-heading tag="h2" id="behavior">@Installation.Metadata_Behavior_Heading</gcds-heading>
-		<ul>
+		<ul class="list-square">
 			<li>@Html.Raw(Installation.Metadata_Behavior_Item_Dedup)</li>
 			<li>@Html.Raw(Installation.Metadata_Behavior_Item_Encoding)</li>
 			<li>@Html.Raw(Installation.Metadata_Behavior_Item_LocalizedContent)</li>
@@ -142,7 +93,7 @@ AddMetaTag(new MetaTag { Charset = "UTF-8" });</fdcp-code>
 		<hr />
 
 		<gcds-heading tag="h2" id="notes">@Installation.Metadata_Notes_Heading</gcds-heading>
-		<ul>
+		<ul class="list-square">
 			<li>@Html.Raw(Installation.Metadata_Notes_Item_BaseClass)</li>
 			<li>@Html.Raw(Installation.Metadata_Notes_Item_OptionalSection)</li>
 		</ul>

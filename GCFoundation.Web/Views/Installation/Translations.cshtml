@@ -1,24 +1,22 @@
-﻿@using GCFoundation.Components.Helpers
-@using GCFoundation.Components.Resources
+﻿@using GCFoundation.Components.Resources
 @using GCFoundation.Web.Resources
 @using System.Collections
 @using System.Globalization
-@using System.Linq
-@inject GlobalResourceHelper ResourceHelper
 
 <gcds-heading tag="h1">@Installation.Translations_Page_Title</gcds-heading>
 <gcds-text>@Html.Raw(Installation.Translations_Description)</gcds-text>
 
 <hr />
 
-<gcds-heading tag="h2" id="how-it-works">@Installation.Translations_HowToUse_Heading</gcds-heading>
-<p>@Installation.Translations_HowToUse_Intro</p>
+<gcds-heading tag="h2" id="how-to-use">@Installation.Translations_HowToUse_Heading</gcds-heading>
+<p>@Html.Raw(Installation.Translations_HowToUse_Intro)</p>
 <fdcp-code code-language="csharp">@@using GCFoundation.Components.Resources
 &hellip;
 @@Localization.ThreeLetterLanguage: @Localization.ThreeLetterLanguage
 </fdcp-code>
 
 <section>
+    <gcds-heading tag="h2" id="available-translations">@Installation.Translations_List_Heading</gcds-heading>
     @* Display the list of standardized translations *@
     @{
         var resourceManager = Localization.ResourceManager;

@@ -13,7 +13,7 @@
     <gcds-details details-title="@Installation.GlobalResources_GlobalCssFiles_Title">
         @if (ResourceHelper.GetGlobalCssFiles().Any())
         {
-            <ul>
+            <ul class="list-square">
                 @foreach (var cssFile in ResourceHelper.GetGlobalCssFiles())
                 {
                     <li><code>@cssFile</code></li>
@@ -29,7 +29,7 @@
     <gcds-details details-title="@Installation.GlobalResources_GlobalJavaScriptFiles_Title">
         @if (ResourceHelper.GetGlobalJavaScriptFiles().Any())
         {
-            <ul>
+            <ul class="list-square">
                 @foreach (var jsFile in ResourceHelper.GetGlobalJavaScriptFiles())
                 {
                     <li><code>@jsFile</code></li>
@@ -45,7 +45,7 @@
     <gcds-details details-title="@Installation.GlobalResources_GlobalMetaTags_Title">
         @if (ResourceHelper.GetGlobalMetaTags().Any())
         {
-            <ul>
+            <ul class="list-square">
                 @foreach (var metaTag in ResourceHelper.GetGlobalMetaTags())
                 {
                     <li>
@@ -63,7 +63,7 @@
     <gcds-details details-title="@Installation.GlobalResources_GlobalLinkTags_Title">
         @if (ResourceHelper.GetGlobalLinkTags().Any())
         {
-            <ul>
+            <ul class="list-square">
                 @foreach (var linkTag in ResourceHelper.GetGlobalLinkTags())
                 {
                     <li><code>@linkTag</code></li>
@@ -81,9 +81,9 @@
     <gcds-heading tag="h2">@Installation.GlobalResources_ResourceInclusion_Title</gcds-heading>
     <gcds-text>@Installation.GlobalResources_ResourceInclusion_Description</gcds-text>
 
-    <ul>
-        <li><strong>@Installation.GlobalResources_DefaultCss_Label</strong> <span class="status-enabled">@Installation.GlobalResources_AlwaysEnabled</span> (foundation.min.css, grid.js, prism)</li>
-        <li><strong>@Installation.GlobalResources_DefaultJavaScript_Label</strong> <span class="status-enabled">@Installation.GlobalResources_AlwaysEnabled</span> (foundation.min.js, grid.js, prism)</li>
+    <ul class="list-square">
+        <li><strong>@Installation.GlobalResources_DefaultCss_Label</strong> @Installation.GlobalResources_AlwaysEnabled (<code>foundation.min.css</code>, <code>prism.css</code>, <code>quill.snow.css</code>)</li>
+        <li><strong>@Installation.GlobalResources_DefaultJavaScript_Label</strong> @Installation.GlobalResources_AlwaysEnabled (<code>foundation.min.js</code>, <code>prism.js</code>, <code>quill.js</code>)</li>
         <li><strong>@Installation.GlobalResources_GCDSResources_Label</strong> @(ResourceHelper.ShouldIncludeGCDSResources() ? Localization.Enabled : Localization.Disabled)</li>
         <li><strong>@Installation.GlobalResources_FontAwesome_Label</strong> @(ResourceHelper.ShouldIncludeFontAwesome() ? Localization.Enabled : Localization.Disabled)</li>
     </ul>
@@ -97,31 +97,33 @@
     <gcds-text>@Installation.GlobalResources_LoadingOrder_Description</gcds-text>
 
     <gcds-details details-title="@Installation.GlobalResources_CssLoadingOrder_Title">
-        <ol>
-            <li><strong>Default foundation CSS</strong> (always included):
-                <ul>
+        <ol class="list-decimal">
+            <li>@Html.Raw(Installation.GlobalResources_CssOrder_Item_Gcds)</li>
+            <li>@Html.Raw(Installation.GlobalResources_CssOrder_Item_FontAwesome)</li>
+            <li>@Html.Raw(Installation.GlobalResources_CssOrder_Item_Default)
+                <ul class="list-square">
+                    <li><code>prism.css</code></li>
+                    <li><code>quill.snow.css</code></li>
                     <li><code>foundation.min.css</code></li>
-                    <li><code>prism/css/prism.css</code></li>
                 </ul>
             </li>
-            <li>GCDS CSS from CDN (if enabled)</li>
-            <li>Font Awesome CSS from CDN (if enabled)</li>
-            <li>Global CSS files from configuration</li>
-            <li>Page-specific styles</li>
+            <li>@Html.Raw(Installation.GlobalResources_CssOrder_Item_Global)</li>
+            <li>@Html.Raw(Installation.GlobalResources_CssOrder_Item_Page)</li>
         </ol>
     </gcds-details>
 
     <gcds-details details-title="@Installation.GlobalResources_JavaScriptLoadingOrder_Title">
-        <ol>
-            <li>GCDS JavaScript from CDN (if enabled)</li>
-            <li><strong>Default foundation JavaScript</strong> (always included):
-                <ul>
-                    <li><code>prism/js/prism.js</code></li>
+        <ol class="list-decimal">
+            <li>@Html.Raw(Installation.GlobalResources_JsOrder_Item_Gcds)</li>
+            <li>@Html.Raw(Installation.GlobalResources_JsOrder_Item_Default)
+                <ul class="list-square">
+                    <li><code>prism.js</code></li>
+                    <li><code>quill.js</code></li>
                     <li><code>foundation.min.js</code></li>
                 </ul>
             </li>
-            <li>Global JavaScript files from configuration</li>
-            <li>Page-specific scripts</li>
+            <li>@Html.Raw(Installation.GlobalResources_JsOrder_Item_Global)</li>
+            <li>@Html.Raw(Installation.GlobalResources_JsOrder_Item_Page)</li>
         </ol>
     </gcds-details>
 </section>
@@ -154,6 +156,7 @@
     ]
   }
 }</fdcp-code>
+    <gcds-text>@Html.Raw(Installation.GlobalResources_HowToConfigure_Note)</gcds-text>
 </section>
 
 <section>
@@ -174,21 +177,3 @@
     &lt;link rel="stylesheet" href="/css/gcds-override.css" /&gt;
 }</fdcp-code>
 </section>
-
-@section Scripts {
-    @{
-        var nonce = CspNonceHelper.AddNonceToDirective(Context, GCFoundation.Components.Helpers.DirectiveType.Script);
-    }
-    <script nonce="@nonce">
-        // This script will be loaded on this page only
-        console.log('Global Resources Demo Page Loaded');
-        
-        // You can also check if global resources are available
-        if (typeof someOtherLibrary !== 'undefined') {
-            console.log('Some other library is available from global configuration');
-        }
-        
-        // Default foundation resources are always available
-        console.log('Default GCFoundation resources are always loaded');
-    </script>
-} 
