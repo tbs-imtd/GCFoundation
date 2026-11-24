@@ -1333,7 +1333,10 @@
     <value>Découvrez les possibilités de financement et présentez une demande pour soutenir vos projets et initiatives.</value>
   </data>
   <data name="PageHeading_Notes_4" xml:space="preserve">
-    <value>Le texte doit respecter un rapport de contraste minimal de 4,5:1 pour le texte normal et de 3:1 pour le grand texte dans tous les affichages (ordinateur, tablette et mobile). Les paires correspondantes de &lt;code&gt;background-colour&lt;/code&gt; et &lt;code&gt;text-colour&lt;/code&gt; respectent ce rapport, mais le composant ne l'impose pas. Lorsque &lt;code&gt;text-emphasis&lt;/code&gt; est désactivé, vérifiez le contraste du texte par rapport à l'image d'arrière-plan. Un arrière-plan en dégradé peut être appliqué au moyen de changements aux styles, à condition de respecter le même contraste minimal dans tous les affichages</value>
+    <value>Le titre et la description doivent respecter un rapport de contraste minimal de 4,5:1 dans tous les affichages (ordinateur, tablette et mobile). Les paires correspondantes de &lt;code&gt;background-colour&lt;/code&gt; et &lt;code&gt;text-colour&lt;/code&gt; respectent ce rapport, mais le composant ne l'impose pas. Lorsque &lt;code&gt;text-emphasis&lt;/code&gt; est désactivé, vérifiez le contraste du texte par rapport à l'image d'arrière-plan. Un arrière-plan en dégradé peut être appliqué au moyen de changements aux styles, à condition de respecter le même contraste minimal dans tous les affichages</value>
+  </data>
+  <data name="PageHeading_Notes_5" xml:space="preserve">
+    <value>Le titre est affiché comme le &lt;code&gt;h1&lt;/code&gt; de la page. Utilisez un seul titre de page par page et placez-le au début du contenu principal, à l'intérieur du conteneur de la page. L'arrière-plan s'étend sur toute la largeur de la fenêtre, tandis que le texte reste aligné avec le contenu de la page</value>
   </data>
   <data name="PageHeading_Notes_1" xml:space="preserve">
     <value>L'image de l'arrière-plan est déterminé en utilisant l'attribut &lt;code&gt;data-bg-src&lt;/code&gt; et du code JavaScript pour conforme au CSP</value>
@@ -1357,10 +1360,10 @@
     <value>Optionnel. Détermine la couleur du titre et de la description (&lt;code&gt;light&lt;/code&gt;, &lt;code&gt;primary&lt;/code&gt; ou &lt;code&gt;secondary&lt;/code&gt;). Sur les écrans mobiles, le texte pâle prend la couleur de texte régulière.</value>
   </data>
   <data name="PageHeading_Properties_Src" xml:space="preserve">
-    <value>Optionnel. URL pour l'image en arrière-plan.</value>
+    <value>Optionnel. URL pour l'image en arrière-plan. Si l'image est absente ou ne se charge pas, le texte pâle est affiché sur le même arrière-plan que &lt;code&gt;text-emphasis&lt;/code&gt; afin de rester lisible.</value>
   </data>
   <data name="PageHeading_Properties_TextEmphasis" xml:space="preserve">
-    <value>Optionnel. Ajoute une couleur d'arrière-plan à l'espace réservé au texte pour mettre de l'emphase sur le contenu. La couleur est déterminée par &lt;code&gt;background-colour&lt;/code&gt;.</value>
+    <value>Optionnel. Ajoute un arrière-plan à contraste plus élevé derrière le titre et la description afin de distinguer le texte de l'image d'arrière-plan. La couleur est déterminée par &lt;code&gt;background-colour&lt;/code&gt;.</value>
   </data>
   <data name="Stepper_Basic_Anchor" xml:space="preserve">
     <value>base</value>

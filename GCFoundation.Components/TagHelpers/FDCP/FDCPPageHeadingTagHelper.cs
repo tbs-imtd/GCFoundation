@@ -2,6 +2,7 @@ using GCFoundation.Components.Enums;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using System.Globalization;
 using System.Text;
+using System.Text.Encodings.Web;
 
 namespace GCFoundation.Components.TagHelpers.FDCP
 {
@@ -10,7 +11,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
     /// </summary>
     /// <example>
     /// <code>
-    /// &lt;fdcp-page-heading title=&quot;Funding Opportunities&quot; description=&quot;Discover and apply for funding opportunities to support your projects and initiatives.&quot; src=&quot;/images/founding-opportunity-heading-bg.jpg&quot;&gt;
+    /// &lt;fdcp-page-heading title=&quot;Funding Opportunities&quot; description=&quot;Discover and apply for funding opportunities to support your projects and initiatives.&quot; src=&quot;/images/page-heading-bg.jpg&quot;&gt;
     /// &lt;/fdcp-page-heading&gt;
     /// </code>
     /// </example>
@@ -48,7 +49,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public TextColour TextColour { get; set; } = TextColour.light;
 
         /// <summary>
-        /// Adds the <see cref="BackgroundColour"/> to the text container to emphasize the content.
+        /// Adds a higher-contrast <see cref="BackgroundColour"/> behind the title and description to distinguish the text from the background image.
         /// </summary>
         public bool TextEmphasis { get; set; }
 
@@ -130,7 +131,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     break;
             }
             content.AppendLine(CultureInfo.InvariantCulture, $"<article class='{articleClass}'>");
-            content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='h1' heading-role='{TextColour}'>{Title}</gcds-heading>");
+            content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-heading tag='h1' heading-role='{TextColour}'>{HtmlEncoder.Default.Encode(Title)}</gcds-heading>");
 
             if (!string.IsNullOrWhiteSpace(Description))
             {
@@ -148,7 +149,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                         descriptionTextRole = " text-role='light'";
                         break;
                 }
-                content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-text{descriptionTextRole}>{Description}</gcds-text>");
+                content.AppendLine(CultureInfo.InvariantCulture, $"<gcds-text{descriptionTextRole}>{HtmlEncoder.Default.Encode(Description)}</gcds-text>");
             }
 
             content.AppendLine("</article>");

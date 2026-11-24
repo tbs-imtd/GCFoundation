@@ -5,12 +5,21 @@
     z-index: 0;
 
     .fdcp-page-heading-bg {
+        isolation: isolate;
+        margin-inline: calc(50% - 50vw);
+        padding-inline: calc(50vw - 50%);
+        position: relative;
+    }
+
+    .fdcp-page-heading-bg:before {
         background-image: var(--fdcp-page-heading-bg-image, none);
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        margin-inline: calc(50% - 50vw);
-        padding-inline: calc(50vw - 50%);
+        content: "";
+        inset: 0;
+        position: absolute;
+        z-index: -1;
     }
 
     article.text-container {
@@ -29,10 +38,24 @@
         width: 100vw;
     }
 
+    // Sits below the image layer, so it only shows when the image is missing or fails to load.
+    @media only screen and (width >= 48em) {
+        article.text-container.text-light:not(.bg-primary, .bg-dark, .bg-light, .bg-white):after {
+            background-color: var(--gcds-bg-primary);
+            content: "";
+            inset: 0 0 0 calc(-100vw + 0.01px);
+            position: absolute;
+            z-index: -2;
+        }
+    }
+
     @media only screen and (width < 48em) {
         .fdcp-page-heading-bg {
-            background-image: none;
             padding-block: 0;
+        }
+
+        .fdcp-page-heading-bg:before {
+            content: none;
         }
 
         article.text-container {
@@ -48,17 +71,4 @@
             color: var(--gcds-text-primary);
         }
     }
-}
-
-.full-width-section {
-    width: 100vw;
-    position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    /* Remove max-width and padding if inherited from container */
-    max-width: none;
-    padding-left: 0;
-    padding-right: 0;
 }

@@ -4437,11 +4437,20 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Text must meet a minimum contrast ratio of 4.5:1 for normal text and 3:1 for large text in all views (desktop, tablet and mobile). The matching &lt;code&gt;background-colour&lt;/code&gt; and &lt;code&gt;text-colour&lt;/code&gt; pairs meet this ratio, but the component does not enforce it. When &lt;code&gt;text-emphasis&lt;/code&gt; is off, check the contrast of the text against the background image. A gradient background can be applied through style overrides as long as it meets the same minimum contrast in all views.
+        ///   Looks up a localized string similar to The title and description must meet a minimum contrast ratio of 4.5:1 in all views (desktop, tablet and mobile). The matching &lt;code&gt;background-colour&lt;/code&gt; and &lt;code&gt;text-colour&lt;/code&gt; pairs meet this ratio, but the component does not enforce it. When &lt;code&gt;text-emphasis&lt;/code&gt; is off, check the contrast of the text against the background image. A gradient background can be applied through style overrides as long as it meets the same minimum contrast in all views.
         /// </summary>
         public static string PageHeading_Notes_4 {
             get {
                 return ResourceManager.GetString("PageHeading_Notes_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The title is rendered as the page&apos;s &lt;code&gt;h1&lt;/code&gt;. Use only one page heading per page and place it at the start of the main content, inside the page container. The background extends to the full width of the window while the text stays aligned with the page content.
+        /// </summary>
+        public static string PageHeading_Notes_5 {
+            get {
+                return ResourceManager.GetString("PageHeading_Notes_5", resourceCulture);
             }
         }
         
@@ -4482,7 +4491,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional. URL for the background image..
+        ///   Looks up a localized string similar to Optional. URL for the background image. If the image is missing or does not load, light text is shown on the same background as &lt;code&gt;text-emphasis&lt;/code&gt; so it stays readable..
         /// </summary>
         public static string PageHeading_Properties_Src {
             get {
@@ -4500,7 +4509,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional. Adds a background colour to the text container to emphasize the content. The colour is set with &lt;code&gt;background-colour&lt;/code&gt;..
+        ///   Looks up a localized string similar to Optional. Adds a higher-contrast background behind the title and description to distinguish the text from the background image. The colour is set with &lt;code&gt;background-colour&lt;/code&gt;..
         /// </summary>
         public static string PageHeading_Properties_TextEmphasis {
             get {

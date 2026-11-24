@@ -34,6 +34,37 @@ public class FDCPPageHeadingTagHelperTests
     }
 
     [Fact]
+    public void Process_WithMarkupInTitleAndDescription_EncodesText()
+    {
+        // Arrange
+        var tagHelper = new FDCPPageHeadingTagHelper
+        {
+            Title = "<script>alert('x')</script>",
+            Description = "Grants & <b>loans</b>"
+        };
+
+        var context = new TagHelperContext(
+            new TagHelperAttributeList(),
+            new Dictionary<object, object>(),
+            "test"
+        );
+
+        var output = new TagHelperOutput("fdcp-page-heading",
+            new TagHelperAttributeList(),
+            (_, _) => Task.FromResult<TagHelperContent>(new DefaultTagHelperContent()));
+
+        // Act
+        tagHelper.Process(context, output);
+
+        // Assert
+        var content = output.Content.GetContent();
+        Assert.DoesNotContain("<script>", content);
+        Assert.DoesNotContain("<b>", content);
+        Assert.Contains("&lt;script&gt;", content);
+        Assert.Contains("Grants &amp; &lt;b&gt;loans&lt;/b&gt;", content);
+    }
+
+    [Fact]
     public void Process_WithTitleAndDescription_RendersExpectedOutput()
     {
         // Arrange

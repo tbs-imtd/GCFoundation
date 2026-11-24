@@ -723,7 +723,8 @@ namespace GCFoundation.Web.Controllers
                 Resources.Components.PageHeading_Notes_1,
                 Resources.Components.PageHeading_Notes_2,
                 Resources.Components.PageHeading_Notes_3,
-                Resources.Components.PageHeading_Notes_4
+                Resources.Components.PageHeading_Notes_4,
+                Resources.Components.PageHeading_Notes_5
             };
             vm.Overview = Resources.Components.PageHeading_Overview;
             vm.SampleCodeSections = new List<ComponentSampleCodeSectionViewModel>()
