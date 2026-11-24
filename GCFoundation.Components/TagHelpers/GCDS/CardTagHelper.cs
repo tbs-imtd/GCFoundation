@@ -51,6 +51,16 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public string? ImgSrc { get; set; }
 
         /// <summary>
+        /// Gets or sets the relationship between the current document and the linked document (GCDS <c>rel</c>).
+        /// </summary>
+        public string? Rel { get; set; }
+
+        /// <summary>
+        /// Gets or sets where to open the linked document (GCDS <c>target</c>).
+        /// </summary>
+        public string? Target { get; set; }
+
+        /// <summary>
         /// Processes the <c>gcds-card</c> element by adding the <c>card-title</c>, <c>card-title-tag</c>, <c>href</c>, <c>badge</c>, 
         /// <c>description</c>, <c>img-alt</c>, <c>img-src</c>, and <c>lang</c> attributes to the rendered output.
         /// </summary>
@@ -65,6 +75,8 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "description", Description);
             AddAttributeIfNotNull(output, "img-alt", ImgAlt);
             AddAttributeIfNotNull(output, "img-src", ImgSrc);
+            AddAttributeIfNotNull(output, "rel", Rel);
+            AddAttributeIfNotNull(output, "target", Target);
             AddAttributeIfNotNull(output, "lang", Lang);
 
             base.Process(context, output);

@@ -6,26 +6,31 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
 {
     public class ContainerTagHelperTests
     {
-        [Fact]
-        public void Process_WhenCentered_EmitsAlignmentCenter()
+        [Theory]
+        [InlineData(HorizontalAlignment.start, "start")]
+        [InlineData(HorizontalAlignment.center, "center")]
+        [InlineData(HorizontalAlignment.end, "end")]
+        public void Process_EmitsAlignment(HorizontalAlignment alignment, string expected)
         {
-            var helper = new ContainerTagHelper { Centered = true };
+            var helper = new ContainerTagHelper { Alignment = alignment };
 
             var output = CreateOutput();
             helper.Process(CreateContext(), output);
 
-            Assert.Equal("center", output.Attributes["alignment"].Value?.ToString());
+            Assert.Equal(expected, output.Attributes["alignment"].Value?.ToString());
         }
 
-        [Fact]
-        public void Process_WhenMainContainer_EmitsLayoutPage()
+        [Theory]
+        [InlineData(ContainerLayout.full, "full")]
+        [InlineData(ContainerLayout.page, "page")]
+        public void Process_EmitsLayout(ContainerLayout layout, string expected)
         {
-            var helper = new ContainerTagHelper { MainContainer = true };
+            var helper = new ContainerTagHelper { Layout = layout };
 
             var output = CreateOutput();
             helper.Process(CreateContext(), output);
 
-            Assert.Equal("page", output.Attributes["layout"].Value?.ToString());
+            Assert.Equal(expected, output.Attributes["layout"].Value?.ToString());
         }
 
         [Fact]
@@ -33,8 +38,8 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
         {
             var helper = new ContainerTagHelper
             {
-                Centered = true,
-                MainContainer = true,
+                Alignment = HorizontalAlignment.center,
+                Layout = ContainerLayout.page,
                 Tag = "main",
                 Size = SizeTypeEmum.lg
             };
@@ -49,13 +54,31 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.GCDS
         }
 
         [Fact]
-        public void Process_DoesNotEmitLegacyCenteredOrMainContainerAttributes()
+        public void Process_WithoutAlignmentOrLayout_DoesNotEmitThem()
         {
-            var helper = new ContainerTagHelper { Centered = true, MainContainer = true };
+            var helper = new ContainerTagHelper();
 
             var output = CreateOutput();
             helper.Process(CreateContext(), output);
 
+            Assert.False(output.Attributes.ContainsName("alignment"));
+            Assert.False(output.Attributes.ContainsName("layout"));
+        }
+
+        [Fact]
+        public void Process_LegacyAliases_MapToAlignmentAndLayout()
+        {
+            var helper = new ContainerTagHelper();
+#pragma warning disable CS0618 // Type or member is obsolete
+            helper.Centered = true;
+            helper.MainContainer = true;
+#pragma warning restore CS0618 // Type or member is obsolete
+
+            var output = CreateOutput();
+            helper.Process(CreateContext(), output);
+
+            Assert.Equal("center", output.Attributes["alignment"].Value?.ToString());
+            Assert.Equal("page", output.Attributes["layout"].Value?.ToString());
             Assert.False(output.Attributes.ContainsName("centered"));
             Assert.False(output.Attributes.ContainsName("main-container"));
         }

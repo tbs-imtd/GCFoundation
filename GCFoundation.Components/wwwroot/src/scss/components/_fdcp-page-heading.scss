@@ -40,7 +40,7 @@
 
     // Sits below the image layer, so it only shows when the image is missing or fails to load.
     @media only screen and (width >= 48em) {
-        article.text-container.text-light:not(.bg-primary, .bg-dark, .bg-light, .bg-white):after {
+        article.text-container.text-light:not(.bg-primary, .bg-light):after {
             background-color: var(--gcds-bg-primary);
             content: "";
             inset: 0 0 0 calc(-100vw + 0.01px);

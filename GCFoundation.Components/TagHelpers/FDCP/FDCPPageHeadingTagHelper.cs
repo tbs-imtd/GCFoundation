@@ -102,14 +102,8 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 // Using GCDS CSS Shortcuts for background colours
                 switch (BackgroundColour)
                 {
-                    case BackgroundColour.dark:
-                        articleClass += " bg-dark";
-                        break;
                     case BackgroundColour.light:
                         articleClass += " bg-light";
-                        break;
-                    case BackgroundColour.white:
-                        articleClass += " bg-white";
                         break;
                     case BackgroundColour.primary:
                     default:
@@ -121,9 +115,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             {
                 case TextColour.primary:
                     articleClass += " text-primary";
-                    break;
-                case TextColour.secondary:
-                    articleClass += " text-secondary";
                     break;
                 case TextColour.light:
                 default:
@@ -140,9 +131,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                 {
                     case TextColour.primary:
                         descriptionTextRole = " text-role='primary'";
-                        break;
-                    case TextColour.secondary:
-                        descriptionTextRole = " text-role='secondary'";
                         break;
                     case TextColour.light:
                     default:

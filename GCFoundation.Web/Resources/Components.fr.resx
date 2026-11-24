@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -544,6 +544,91 @@
   <data name="Index_FilteredSearch_Description" xml:space="preserve">
     <value>Un moyen d'afficher une recherche avec des résultats filtrés</value>
   </data>
+  <data name="Index_LikertScale_Title" xml:space="preserve">
+    <value>Boutons radio horizontaux</value>
+  </data>
+  <data name="Index_LikertScale_Description" xml:space="preserve">
+    <value>Présentez les options de bouton radio horizontalement dans des cartes adaptatives</value>
+  </data>
+  <data name="LikertScale_Basic_Index" xml:space="preserve">
+    <value>Question 1 sur 4</value>
+  </data>
+  <data name="LikertScale_Overview" xml:space="preserve">
+    <value>Utilisez les boutons radio horizontaux pour les questionnaires qui contiennent de nombreuses questions répétées à choix unique.</value>
+  </data>
+  <data name="LikertScale_WhenToUse_MultipleQuestions" xml:space="preserve">
+    <value>Vous avez plusieurs questions connexes qui utilisent le même ensemble de choix de réponse.</value>
+  </data>
+  <data name="LikertScale_WhenToUse_QuestionCount" xml:space="preserve">
+    <value>Vous avez entre 3 et 5 questions.</value>
+  </data>
+  <data name="LikertScale_Properties_Disabled" xml:space="preserve">
+    <value>Désactive toutes les options lorsque la valeur est true.</value>
+  </data>
+  <data name="LikertScale_Properties_For" xml:space="preserve">
+    <value>Lie le groupe de boutons radio à une propriété du modèle et en déduit le nom, la valeur, la légende, l’indice et les métadonnées de validation.</value>
+  </data>
+  <data name="LikertScale_Properties_Hint" xml:space="preserve">
+    <value>Fournit le texte d’aide affiché sous la légende. Remplace la valeur des métadonnées du modèle.</value>
+  </data>
+  <data name="LikertScale_Properties_Id" xml:space="preserve">
+    <value>Définit l’identifiant du groupe. Remplace l’identifiant dérivé de la liaison de modèle ou du nom.</value>
+  </data>
+  <data name="LikertScale_Properties_Index" xml:space="preserve">
+    <value>Fournit le texte d’index facultatif affiché au-dessus de la légende.</value>
+  </data>
+  <data name="LikertScale_Properties_Items" xml:space="preserve">
+    <value>Fournit les options radio, y compris leur texte, leur valeur et leurs états sélectionné et désactivé.</value>
+  </data>
+  <data name="LikertScale_Properties_Legend" xml:space="preserve">
+    <value>Définit la légende du groupe de boutons radio. Remplace la légende dérivée des métadonnées du modèle.</value>
+  </data>
+  <data name="LikertScale_Properties_Name" xml:space="preserve">
+    <value>Définit le nom du champ soumis pour une utilisation autonome. Utilisez-le lorsque for n’est pas fourni.</value>
+  </data>
+  <data name="LikertScale_Properties_Required" xml:space="preserve">
+    <value>Détermine si une option est requise. Remplace l’annotation Required du modèle.</value>
+  </data>
+  <data name="LikertScale_Properties_Value" xml:space="preserve">
+    <value>Définit la valeur de l’option sélectionnée. Remplace la valeur liée au modèle. Une valeur soumise par ModelState a priorité.</value>
+  </data>
+  <data name="LikertScale_ModelBinding_Title" xml:space="preserve">
+    <value>Liaison de modèle</value>
+  </data>
+  <data name="LikertScale_ModelBinding_Anchor" xml:space="preserve">
+    <value>liaison-de-modele</value>
+  </data>
+  <data name="LikertScale_ModelBinding_Description" xml:space="preserve">
+    <value>Utilisez la liaison de modèle pour obtenir le nom, la légende, l’indice et la validation à partir des métadonnées du modèle.</value>
+  </data>
+  <data name="LikertScale_ManualEntry_Title" xml:space="preserve">
+    <value>Saisie manuelle</value>
+  </data>
+  <data name="LikertScale_ManualEntry_Anchor" xml:space="preserve">
+    <value>saisie-manuelle</value>
+  </data>
+  <data name="LikertScale_ManualEntry_Description" xml:space="preserve">
+    <value>Fournissez directement le nom, la légende et l’indice lorsque le groupe de boutons radio n’est pas lié à une propriété du modèle.</value>
+  </data>
+  <data name="LikertScale_Basic_Legend" xml:space="preserve">
+    <value>Dans quelle mesure êtes-vous satisfait de ce service?</value>
+  </data>
+  <data name="LikertScale_Basic_Hint" xml:space="preserve">
+    <value>Sélectionnez l'option qui décrit le mieux votre expérience.</value>
+  </data>
+  <data name="LikertScale_Basic_VeryDissatisfied" xml:space="preserve">
+    <value>Très insatisfait</value>
+  </data>
+  <data name="LikertScale_Basic_Dissatisfied" xml:space="preserve">
+    <value>Insatisfait</value>
+  </data>
+  <data name="LikertScale_Basic_Satisfied" xml:space="preserve">
+    <value>Satisfait</value>
+  </data>
+  <data name="LikertScale_Basic_VerySatisfied" xml:space="preserve">
+    <value>Très satisfait</value>
+  </data>
+
   <data name="Index_SearchableSelect_Title" xml:space="preserve">
     <value>Sélecteur avec recherche</value>
   </data>
@@ -1335,6 +1420,105 @@
   <data name="PageHeading_Notes_4" xml:space="preserve">
     <value>Le titre et la description doivent respecter un rapport de contraste minimal de 4,5:1 dans tous les affichages (ordinateur, tablette et mobile). Les paires correspondantes de &lt;code&gt;background-colour&lt;/code&gt; et &lt;code&gt;text-colour&lt;/code&gt; respectent ce rapport, mais le composant ne l'impose pas. Lorsque &lt;code&gt;text-emphasis&lt;/code&gt; est désactivé, vérifiez le contraste du texte par rapport à l'image d'arrière-plan. Un arrière-plan en dégradé peut être appliqué au moyen de changements aux styles, à condition de respecter le même contraste minimal dans tous les affichages</value>
   </data>
+  <data name="PageHeading_TextEmphasis_Anchor" xml:space="preserve">
+    <value>mise-en-evidence-du-texte</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Title" xml:space="preserve">
+    <value>Mise en évidence du texte</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Utilisez &lt;code&gt;text-emphasis&lt;/code&gt; pour placer une boîte à contraste plus élevé derrière le titre et la description, afin que le texte reste lisible sur n'importe quelle partie de l'image d'arrière-plan. La couleur de la boîte est déterminée par &lt;code&gt;background-colour&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Label" xml:space="preserve">
+    <value>Exemples de mise en évidence du texte du titre de page</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Primary_Title" xml:space="preserve">
+    <value>Principale</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Primary_Text" xml:space="preserve">
+    <value>La valeur par défaut. Une boîte bleu foncé (&lt;code&gt;background-colour="primary"&lt;/code&gt;), utilisée avec du texte pâle. Recommandée lorsque le texte est placé sur une image détaillée ou chargée.</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Light_Title" xml:space="preserve">
+    <value>Pâle</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Light_Text" xml:space="preserve">
+    <value>Une boîte gris pâle (&lt;code&gt;background-colour="light"&lt;/code&gt;), utilisée avec du texte principal.</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Off_Title" xml:space="preserve">
+    <value>Sans</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Off_Text" xml:space="preserve">
+    <value>Le texte est placé directement sur l'image. Vérifiez que le texte respecte un rapport de contraste de 4,5:1 sur toutes les parties de l'image qu'il recouvre. Si l'image ne se charge pas, le texte pâle s'affiche sur l'arrière-plan de mise en évidence.</value>
+  </data>
+  <data name="PageHeading_Size_Anchor" xml:space="preserve">
+    <value>tailles</value>
+  </data>
+  <data name="PageHeading_Size_Title" xml:space="preserve">
+    <value>Tailles</value>
+  </data>
+  <data name="PageHeading_Size_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Le titre de page offre trois tailles — &lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; et &lt;code&gt;large&lt;/code&gt; — déterminées par la propriété &lt;code&gt;size&lt;/code&gt;. La taille modifie l'espace au-dessus et en dessous du texte, et non la taille du texte.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_Size_Label" xml:space="preserve">
+    <value>Exemples de tailles du titre de page</value>
+  </data>
+  <data name="PageHeading_Size_Compact_Title" xml:space="preserve">
+    <value>Compacte</value>
+  </data>
+  <data name="PageHeading_Size_Compact_Text" xml:space="preserve">
+    <value>Utilise moins d'espace au-dessus et en dessous du texte. Convient aux pages où les utilisateurs doivent accéder rapidement au contenu.</value>
+  </data>
+  <data name="PageHeading_Size_Regular_Title" xml:space="preserve">
+    <value>Régulière</value>
+  </data>
+  <data name="PageHeading_Size_Regular_Text" xml:space="preserve">
+    <value>Convient à la plupart des pages et s'applique automatiquement lorsqu'aucune propriété &lt;code&gt;size&lt;/code&gt; n'est indiquée.</value>
+  </data>
+  <data name="PageHeading_Size_Large_Title" xml:space="preserve">
+    <value>Grande</value>
+  </data>
+  <data name="PageHeading_Size_Large_Text" xml:space="preserve">
+    <value>Donne plus de place à l'image d'arrière-plan. Convient aux pages d'accueil qui présentent un programme ou un service.</value>
+  </data>
+  <data name="PageHeading_Colour_Anchor" xml:space="preserve">
+    <value>couleurs-du-texte</value>
+  </data>
+  <data name="PageHeading_Colour_Title" xml:space="preserve">
+    <value>Couleurs du texte</value>
+  </data>
+  <data name="PageHeading_Colour_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Utilisez &lt;code&gt;text-colour&lt;/code&gt; pour déterminer la couleur du titre et de la description. Associez toujours chaque couleur de texte à la &lt;code&gt;background-colour&lt;/code&gt; correspondante afin que le texte respecte un rapport de contraste de 4,5:1. Sur les écrans mobiles, l'image d'arrière-plan et la boîte sont retirées et le texte prend la couleur de texte régulière.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_Colour_Label" xml:space="preserve">
+    <value>Exemples de couleurs du texte du titre de page</value>
+  </data>
+  <data name="PageHeading_Colour_Light_Title" xml:space="preserve">
+    <value>Pâle</value>
+  </data>
+  <data name="PageHeading_Colour_Light_Text" xml:space="preserve">
+    <value>La valeur par défaut. Texte blanc, utilisé avec la couleur d'arrière-plan &lt;code&gt;primary&lt;/code&gt;.</value>
+  </data>
+  <data name="PageHeading_Colour_Primary_Title" xml:space="preserve">
+    <value>Principale</value>
+  </data>
+  <data name="PageHeading_Colour_Primary_Text" xml:space="preserve">
+    <value>Texte gris foncé, utilisé avec la couleur d'arrière-plan &lt;code&gt;light&lt;/code&gt;.</value>
+  </data>
+  <data name="PageHeading_Image_Regular_AltText" xml:space="preserve">
+    <value>Titre de page avec un titre et une description en blanc dans une boîte bleu foncé, sur une photo d'un lac de montagne.</value>
+  </data>
+  <data name="PageHeading_Image_NoEmphasis_AltText" xml:space="preserve">
+    <value>Titre de page avec un titre et une description en blanc placés directement sur une photo d'un lac de montagne, sans boîte derrière le texte.</value>
+  </data>
+  <data name="PageHeading_Image_Compact_AltText" xml:space="preserve">
+    <value>Titre de page compact où l'on voit peu de la photo au-dessus et en dessous de la boîte de texte bleu foncé.</value>
+  </data>
+  <data name="PageHeading_Image_Large_AltText" xml:space="preserve">
+    <value>Grand titre de page où l'on voit davantage la photo au-dessus et en dessous de la boîte de texte bleu foncé.</value>
+  </data>
+  <data name="PageHeading_Image_Light_AltText" xml:space="preserve">
+    <value>Titre de page avec un titre et une description en gris foncé dans une boîte gris pâle, sur une photo d'un lac de montagne.</value>
+  </data>
   <data name="PageHeading_Notes_5" xml:space="preserve">
     <value>Le titre est affiché comme le &lt;code&gt;h1&lt;/code&gt; de la page. Utilisez un seul titre de page par page et placez-le au début du contenu principal, à l'intérieur du conteneur de la page. L'arrière-plan s'étend sur toute la largeur de la fenêtre, tandis que le texte reste aligné avec le contenu de la page</value>
   </data>
@@ -1354,10 +1538,10 @@
     <value>Optionnel. Détermine la hauteur de l'en-tête de page (&lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; ou &lt;code&gt;large&lt;/code&gt;). Un en-tête compact utilise moins de coussin au-dessus et en-dessous de l'espace réservé au texte, et un en-tête large en utilise davantage.</value>
   </data>
   <data name="PageHeading_Properties_BackgroundColour" xml:space="preserve">
-    <value>Optionnel. Détermine la couleur d'arrière-plan de l'espace réservé au texte lorsque &lt;code&gt;text-emphasis&lt;/code&gt; est activé (&lt;code&gt;primary&lt;/code&gt;, &lt;code&gt;dark&lt;/code&gt;, &lt;code&gt;light&lt;/code&gt; ou &lt;code&gt;white&lt;/code&gt;). Utilisez &lt;code&gt;primary&lt;/code&gt; ou &lt;code&gt;dark&lt;/code&gt; avec du texte pâle, et &lt;code&gt;light&lt;/code&gt; ou &lt;code&gt;white&lt;/code&gt; avec du texte principal ou secondaire.</value>
+    <value>Optionnel. Détermine la couleur d'arrière-plan de l'espace réservé au texte lorsque &lt;code&gt;text-emphasis&lt;/code&gt; est activé (&lt;code&gt;primary&lt;/code&gt; ou &lt;code&gt;light&lt;/code&gt;). Utilisez &lt;code&gt;primary&lt;/code&gt; avec du texte pâle, et &lt;code&gt;light&lt;/code&gt; avec du texte principal.</value>
   </data>
   <data name="PageHeading_Properties_TextColour" xml:space="preserve">
-    <value>Optionnel. Détermine la couleur du titre et de la description (&lt;code&gt;light&lt;/code&gt;, &lt;code&gt;primary&lt;/code&gt; ou &lt;code&gt;secondary&lt;/code&gt;). Sur les écrans mobiles, le texte pâle prend la couleur de texte régulière.</value>
+    <value>Optionnel. Détermine la couleur du titre et de la description (&lt;code&gt;light&lt;/code&gt; ou &lt;code&gt;primary&lt;/code&gt;). Sur les écrans mobiles, le texte pâle prend la couleur de texte régulière.</value>
   </data>
   <data name="PageHeading_Properties_Src" xml:space="preserve">
     <value>Optionnel. URL pour l'image en arrière-plan. Si l'image est absente ou ne se charge pas, le texte pâle est affiché sur le même arrière-plan que &lt;code&gt;text-emphasis&lt;/code&gt; afin de rester lisible.</value>

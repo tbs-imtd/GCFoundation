@@ -6,18 +6,13 @@
     public enum TextColour
     {
         /// <summary>
-        /// Main light text colour. Use on a background shade of 700 or darker (like --gcds-bg-dark).
+        /// Main light text colour. Use on a background shade of 700 or darker (like --gcds-bg-primary).
         /// </summary>
         light,
 
         /// <summary>
-        /// Main text colour. Use on a background shade of 50 or lighter (like --gcds-bg-white).
+        /// Main text colour. Use on a background shade of 50 or lighter (like --gcds-bg-light).
         /// </summary>
-        primary,
-
-        /// <summary>
-        /// Contrast text colour (alternative to primary). Use on a background shade of 50 or lighter (like --gcds-bg-white).
-        /// </summary>
-        secondary
+        primary
     }
 }

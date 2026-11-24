@@ -8,7 +8,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     /// </summary>
     /// <example>
     /// <code>
-    /// &lt;gcds-link href=&quot;/help&quot; variant=&quot;default&quot;&gt;
+    /// &lt;gcds-link href=&quot;/help&quot; link-role=&quot;default&quot;&gt;
     ///     Help
     /// &lt;/gcds-link&gt;
     /// </code>
@@ -57,9 +57,19 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public string? Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the link role for styling (GCDS v1 <c>link-role</c>: default or light).
+        /// Gets or sets the link role for styling (GCDS <c>link-role</c>: default or light).
         /// </summary>
-        public LinkVariant Variant { get; set; } = LinkVariant.Default;
+        public LinkVariant LinkRole { get; set; } = LinkVariant.Default;
+
+        /// <summary>
+        /// Gets or sets the link role for styling; use <see cref="LinkRole"/> (<c>link-role</c>) instead.
+        /// </summary>
+        [Obsolete("Use LinkRole (link-role) to match the GCDS gcds-link attribute.")]
+        public LinkVariant Variant
+        {
+            get => LinkRole;
+            set => LinkRole = value;
+        }
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -72,7 +82,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddAttributeIfNotNull(output, "size", Size);
             AddAttributeIfNotNull(output, "target", Target);
             AddAttributeIfNotNull(output, "type", Type);
-            AddAttributeIfNotNull(output, "link-role", Variant);
+            AddAttributeIfNotNull(output, "link-role", LinkRole);
 
             base.Process(context, output);
         }

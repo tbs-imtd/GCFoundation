@@ -3208,6 +3208,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Present radio options horizontally in responsive cards.
+        /// </summary>
+        public static string Index_LikertScale_Description {
+            get {
+                return ResourceManager.GetString("Index_LikertScale_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Likert scale.
+        /// </summary>
+        public static string Index_LikertScale_Title {
+            get {
+                return ResourceManager.GetString("Index_LikertScale_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to A way to display information in a popup box (modal).
         /// </summary>
         public static string Index_Modal_Description {
@@ -3393,6 +3411,240 @@ namespace GCFoundation.Web.Resources {
         public static string Index_TagHelpers_Usage_Label {
             get {
                 return ResourceManager.GetString("Index_TagHelpers_Usage_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dissatisfied.
+        /// </summary>
+        public static string LikertScale_Basic_Dissatisfied {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_Dissatisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select the option that best describes your experience..
+        /// </summary>
+        public static string LikertScale_Basic_Hint {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Question 1 of 4.
+        /// </summary>
+        public static string LikertScale_Basic_Index {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to How satisfied are you with this service?.
+        /// </summary>
+        public static string LikertScale_Basic_Legend {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_Legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Satisfied.
+        /// </summary>
+        public static string LikertScale_Basic_Satisfied {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_Satisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very dissatisfied.
+        /// </summary>
+        public static string LikertScale_Basic_VeryDissatisfied {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_VeryDissatisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Very satisfied.
+        /// </summary>
+        public static string LikertScale_Basic_VerySatisfied {
+            get {
+                return ResourceManager.GetString("LikertScale_Basic_VerySatisfied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to manual-entry.
+        /// </summary>
+        public static string LikertScale_ManualEntry_Anchor {
+            get {
+                return ResourceManager.GetString("LikertScale_ManualEntry_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provide the name, legend and hint directly when the radio group is not bound to a model property..
+        /// </summary>
+        public static string LikertScale_ManualEntry_Description {
+            get {
+                return ResourceManager.GetString("LikertScale_ManualEntry_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manual entry.
+        /// </summary>
+        public static string LikertScale_ManualEntry_Title {
+            get {
+                return ResourceManager.GetString("LikertScale_ManualEntry_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to model-binding.
+        /// </summary>
+        public static string LikertScale_ModelBinding_Anchor {
+            get {
+                return ResourceManager.GetString("LikertScale_ModelBinding_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use model binding to derive the name, legend, hint and validation from model metadata..
+        /// </summary>
+        public static string LikertScale_ModelBinding_Description {
+            get {
+                return ResourceManager.GetString("LikertScale_ModelBinding_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Model binding.
+        /// </summary>
+        public static string LikertScale_ModelBinding_Title {
+            get {
+                return ResourceManager.GetString("LikertScale_ModelBinding_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use Likert scale for questionnaires that contain many repeated radio-button questions..
+        /// </summary>
+        public static string LikertScale_Overview {
+            get {
+                return ResourceManager.GetString("LikertScale_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Disables every radio option when set to true..
+        /// </summary>
+        public static string LikertScale_Properties_Disabled {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Disabled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Binds the radio group to a model property and derives its name, value, legend, hint and validation metadata..
+        /// </summary>
+        public static string LikertScale_Properties_For {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_For", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides supporting text displayed below the legend. Overrides the model metadata value..
+        /// </summary>
+        public static string LikertScale_Properties_Hint {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Hint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the fieldset ID. Overrides the ID derived from model binding or name..
+        /// </summary>
+        public static string LikertScale_Properties_Id {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides optional index text displayed above the legend..
+        /// </summary>
+        public static string LikertScale_Properties_Index {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Index", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Provides the radio options, including their text, values, selected state and disabled state..
+        /// </summary>
+        public static string LikertScale_Properties_Items {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Items", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the radio group legend. Overrides the legend derived from model metadata..
+        /// </summary>
+        public static string LikertScale_Properties_Legend {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Legend", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the submitted field name for standalone usage. Use this when for is not provided..
+        /// </summary>
+        public static string LikertScale_Properties_Name {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Controls whether an option is required. Overrides the model&apos;s Required annotation..
+        /// </summary>
+        public static string LikertScale_Properties_Required {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Required", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sets the selected option value. Overrides the model-bound value. A value posted back in ModelState takes precedence..
+        /// </summary>
+        public static string LikertScale_Properties_Value {
+            get {
+                return ResourceManager.GetString("LikertScale_Properties_Value", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have multiple related questions that use the same set of answer choices..
+        /// </summary>
+        public static string LikertScale_WhenToUse_MultipleQuestions {
+            get {
+                return ResourceManager.GetString("LikertScale_WhenToUse_MultipleQuestions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have between 3 and 5 questions..
+        /// </summary>
+        public static string LikertScale_WhenToUse_QuestionCount {
+            get {
+                return ResourceManager.GetString("LikertScale_WhenToUse_QuestionCount", resourceCulture);
             }
         }
         
@@ -4523,6 +4775,303 @@ namespace GCFoundation.Web.Resources {
         public static string PageHeading_Properties_Title {
             get {
                 return ResourceManager.GetString("PageHeading_Properties_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to text-colours.
+        /// </summary>
+        public static string PageHeading_Colour_Anchor {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading text colour examples.
+        /// </summary>
+        public static string PageHeading_Colour_Label {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The default. White text, used with the &lt;code&gt;primary&lt;/code&gt; background colour..
+        /// </summary>
+        public static string PageHeading_Colour_Light_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Light_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string PageHeading_Colour_Light_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Light_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark grey text, used with the &lt;code&gt;light&lt;/code&gt; background colour..
+        /// </summary>
+        public static string PageHeading_Colour_Primary_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Primary_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primary.
+        /// </summary>
+        public static string PageHeading_Colour_Primary_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Primary_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use &lt;code&gt;text-colour&lt;/code&gt; to set the colour of the title and description. Always pair each text colour with its matching &lt;code&gt;background-colour&lt;/code&gt; so the text meets a 4.5:1 contrast ratio. On mobile screens, the background image and box are removed and the text uses the regular text colour.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string PageHeading_Colour_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text colours.
+        /// </summary>
+        public static string PageHeading_Colour_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compact page heading with little photo visible above and below the dark blue text box..
+        /// </summary>
+        public static string PageHeading_Image_Compact_AltText {
+            get {
+                return ResourceManager.GetString("PageHeading_Image_Compact_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Large page heading with more of the photo visible above and below the dark blue text box..
+        /// </summary>
+        public static string PageHeading_Image_Large_AltText {
+            get {
+                return ResourceManager.GetString("PageHeading_Image_Large_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading with a dark grey title and description on a light grey box, over a photo of a mountain lake..
+        /// </summary>
+        public static string PageHeading_Image_Light_AltText {
+            get {
+                return ResourceManager.GetString("PageHeading_Image_Light_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading with a white title and description placed directly on a photo of a mountain lake, without a box behind the text..
+        /// </summary>
+        public static string PageHeading_Image_NoEmphasis_AltText {
+            get {
+                return ResourceManager.GetString("PageHeading_Image_NoEmphasis_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading with a white title and description on a dark blue box, over a photo of a mountain lake..
+        /// </summary>
+        public static string PageHeading_Image_Regular_AltText {
+            get {
+                return ResourceManager.GetString("PageHeading_Image_Regular_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sizes.
+        /// </summary>
+        public static string PageHeading_Size_Anchor {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uses less space above and below the text. Suits pages where users need to reach the content quickly..
+        /// </summary>
+        public static string PageHeading_Size_Compact_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Compact_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compact.
+        /// </summary>
+        public static string PageHeading_Size_Compact_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Compact_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading size examples.
+        /// </summary>
+        public static string PageHeading_Size_Label {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gives the background image more room. Suits landing pages that introduce a program or service..
+        /// </summary>
+        public static string PageHeading_Size_Large_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Large_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Large.
+        /// </summary>
+        public static string PageHeading_Size_Large_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Large_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suits most pages and is applied automatically when no &lt;code&gt;size&lt;/code&gt; property is specified..
+        /// </summary>
+        public static string PageHeading_Size_Regular_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Regular_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular.
+        /// </summary>
+        public static string PageHeading_Size_Regular_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Regular_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The page heading supports three sizes — &lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; and &lt;code&gt;large&lt;/code&gt; — set with the &lt;code&gt;size&lt;/code&gt; property. The size changes the space above and below the text, not the size of the text.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string PageHeading_Size_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizes.
+        /// </summary>
+        public static string PageHeading_Size_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to text-emphasis.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Anchor {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading text emphasis examples.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Label {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The text is placed directly on the image. Check that the text meets a 4.5:1 contrast ratio against every part of the image it covers. If the image does not load, light text falls back to the text emphasis background..
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Off_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Off_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Without.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Off_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Off_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The default. A dark blue box (&lt;code&gt;background-colour=&quot;primary&quot;&lt;/code&gt;), used with light text. Recommended when the text sits over a detailed or busy image..
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Primary_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Primary_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primary.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Primary_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Primary_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A light grey box (&lt;code&gt;background-colour=&quot;light&quot;&lt;/code&gt;), used with primary text..
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Light_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Light_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Light_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Light_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use &lt;code&gt;text-emphasis&lt;/code&gt; to place a higher-contrast box behind the title and description, so the text stays readable over any part of the background image. Set the colour of the box with &lt;code&gt;background-colour&lt;/code&gt;.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text emphasis.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Title", resourceCulture);
             }
         }
         

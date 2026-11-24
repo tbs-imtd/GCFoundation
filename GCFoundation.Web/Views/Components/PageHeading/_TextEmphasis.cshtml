@@ -1,0 +1,37 @@
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+
+<fdcp-tabs id="page-heading-emphasis-tabs" label="@Components.PageHeading_TextEmphasis_Label">
+    <fdcp-tab id="page-heading-tab-emphasis-primary" title="@Components.PageHeading_TextEmphasis_Primary_Title" active="true">
+        <gcds-text>@Html.Raw(Components.PageHeading_TextEmphasis_Primary_Text)</gcds-text>
+        <img src="@Url.Content($"~/images/page-heading/regular-{Localization.ThreeLetterLanguage}.jpg")" alt="@Components.PageHeading_Image_Regular_AltText" class="img-responsive" />
+        <fdcp-code code-language="html">@Html.Raw($@"&lt;fdcp-page-heading
+    title=""{Html.Encode(Components.PageHeading_Demo_Title)}""
+    description=""{Html.Encode(Components.PageHeading_Demo_Description)}""
+    src=""/images/page-heading-bg.jpg""
+    text-emphasis=""true""
+    background-colour=""primary""
+    text-colour=""light"" /&gt;")</fdcp-code>
+    </fdcp-tab>
+
+    <fdcp-tab id="page-heading-tab-emphasis-light" title="@Components.PageHeading_TextEmphasis_Light_Title">
+        <gcds-text>@Html.Raw(Components.PageHeading_TextEmphasis_Light_Text)</gcds-text>
+        <img src="@Url.Content($"~/images/page-heading/light-{Localization.ThreeLetterLanguage}.jpg")" alt="@Components.PageHeading_Image_Light_AltText" class="img-responsive" />
+        <fdcp-code code-language="html">@Html.Raw($@"&lt;fdcp-page-heading
+    title=""{Html.Encode(Components.PageHeading_Demo_Title)}""
+    description=""{Html.Encode(Components.PageHeading_Demo_Description)}""
+    src=""/images/page-heading-bg.jpg""
+    text-emphasis=""true""
+    background-colour=""light""
+    text-colour=""primary"" /&gt;")</fdcp-code>
+    </fdcp-tab>
+
+    <fdcp-tab id="page-heading-tab-emphasis-off" title="@Components.PageHeading_TextEmphasis_Off_Title">
+        <gcds-text>@Html.Raw(Components.PageHeading_TextEmphasis_Off_Text)</gcds-text>
+        <img src="@Url.Content($"~/images/page-heading/no-emphasis-{Localization.ThreeLetterLanguage}.jpg")" alt="@Components.PageHeading_Image_NoEmphasis_AltText" class="img-responsive" />
+        <fdcp-code code-language="html">@Html.Raw($@"&lt;fdcp-page-heading
+    title=""{Html.Encode(Components.PageHeading_Demo_Title)}""
+    description=""{Html.Encode(Components.PageHeading_Demo_Description)}""
+    src=""/images/page-heading-bg.jpg"" /&gt;")</fdcp-code>
+    </fdcp-tab>
+</fdcp-tabs>

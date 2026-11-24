@@ -540,6 +540,90 @@
   <data name="Index_FilteredSearch_Description" xml:space="preserve">
     <value>A way to display search with filtered result</value>
   </data>
+  <data name="Index_LikertScale_Title" xml:space="preserve">
+    <value>Likert scale</value>
+  </data>
+  <data name="Index_LikertScale_Description" xml:space="preserve">
+    <value>Present radio options horizontally in responsive cards</value>
+  </data>
+  <data name="LikertScale_Basic_Index" xml:space="preserve">
+    <value>Question 1 of 4</value>
+  </data>
+  <data name="LikertScale_Overview" xml:space="preserve">
+    <value>Use Likert scale for questionnaires that contain many repeated radio-button questions.</value>
+  </data>
+  <data name="LikertScale_WhenToUse_MultipleQuestions" xml:space="preserve">
+    <value>You have multiple related questions that use the same set of answer choices.</value>
+  </data>
+  <data name="LikertScale_WhenToUse_QuestionCount" xml:space="preserve">
+    <value>You have between 3 and 5 questions.</value>
+  </data>
+  <data name="LikertScale_Properties_Disabled" xml:space="preserve">
+    <value>Disables every radio option when set to true.</value>
+  </data>
+  <data name="LikertScale_Properties_For" xml:space="preserve">
+    <value>Binds the radio group to a model property and derives its name, value, legend, hint and validation metadata.</value>
+  </data>
+  <data name="LikertScale_Properties_Hint" xml:space="preserve">
+    <value>Provides supporting text displayed below the legend. Overrides the model metadata value.</value>
+  </data>
+  <data name="LikertScale_Properties_Id" xml:space="preserve">
+    <value>Sets the fieldset ID. Overrides the ID derived from model binding or name.</value>
+  </data>
+  <data name="LikertScale_Properties_Index" xml:space="preserve">
+    <value>Provides optional index text displayed above the legend.</value>
+  </data>
+  <data name="LikertScale_Properties_Items" xml:space="preserve">
+    <value>Provides the radio options, including their text, values, selected state and disabled state.</value>
+  </data>
+  <data name="LikertScale_Properties_Legend" xml:space="preserve">
+    <value>Sets the radio group legend. Overrides the legend derived from model metadata.</value>
+  </data>
+  <data name="LikertScale_Properties_Name" xml:space="preserve">
+    <value>Sets the submitted field name for standalone usage. Use this when for is not provided.</value>
+  </data>
+  <data name="LikertScale_Properties_Required" xml:space="preserve">
+    <value>Controls whether an option is required. Overrides the model's Required annotation.</value>
+  </data>
+  <data name="LikertScale_Properties_Value" xml:space="preserve">
+    <value>Sets the selected option value. Overrides the model-bound value. A value posted back in ModelState takes precedence.</value>
+  </data>
+  <data name="LikertScale_ModelBinding_Title" xml:space="preserve">
+    <value>Model binding</value>
+  </data>
+  <data name="LikertScale_ModelBinding_Anchor" xml:space="preserve">
+    <value>model-binding</value>
+  </data>
+  <data name="LikertScale_ModelBinding_Description" xml:space="preserve">
+    <value>Use model binding to derive the name, legend, hint and validation from model metadata.</value>
+  </data>
+  <data name="LikertScale_ManualEntry_Title" xml:space="preserve">
+    <value>Manual entry</value>
+  </data>
+  <data name="LikertScale_ManualEntry_Anchor" xml:space="preserve">
+    <value>manual-entry</value>
+  </data>
+  <data name="LikertScale_ManualEntry_Description" xml:space="preserve">
+    <value>Provide the name, legend and hint directly when the radio group is not bound to a model property.</value>
+  </data>
+  <data name="LikertScale_Basic_Legend" xml:space="preserve">
+    <value>How satisfied are you with this service?</value>
+  </data>
+  <data name="LikertScale_Basic_Hint" xml:space="preserve">
+    <value>Select the option that best describes your experience.</value>
+  </data>
+  <data name="LikertScale_Basic_VeryDissatisfied" xml:space="preserve">
+    <value>Very dissatisfied</value>
+  </data>
+  <data name="LikertScale_Basic_Dissatisfied" xml:space="preserve">
+    <value>Dissatisfied</value>
+  </data>
+  <data name="LikertScale_Basic_Satisfied" xml:space="preserve">
+    <value>Satisfied</value>
+  </data>
+  <data name="LikertScale_Basic_VerySatisfied" xml:space="preserve">
+    <value>Very satisfied</value>
+  </data>
   <data name="Index_SearchableSelect_Title" xml:space="preserve">
     <value>Searchable Select</value>
   </data>
@@ -1336,6 +1420,105 @@
   <data name="PageHeading_Notes_4" xml:space="preserve">
     <value>The title and description must meet a minimum contrast ratio of 4.5:1 in all views (desktop, tablet and mobile). The matching &lt;code&gt;background-colour&lt;/code&gt; and &lt;code&gt;text-colour&lt;/code&gt; pairs meet this ratio, but the component does not enforce it. When &lt;code&gt;text-emphasis&lt;/code&gt; is off, check the contrast of the text against the background image. A gradient background can be applied through style overrides as long as it meets the same minimum contrast in all views</value>
   </data>
+  <data name="PageHeading_TextEmphasis_Anchor" xml:space="preserve">
+    <value>text-emphasis</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Title" xml:space="preserve">
+    <value>Text emphasis</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use &lt;code&gt;text-emphasis&lt;/code&gt; to place a higher-contrast box behind the title and description, so the text stays readable over any part of the background image. Set the colour of the box with &lt;code&gt;background-colour&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Label" xml:space="preserve">
+    <value>Page heading text emphasis examples</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Primary_Title" xml:space="preserve">
+    <value>Primary</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Primary_Text" xml:space="preserve">
+    <value>The default. A dark blue box (&lt;code&gt;background-colour="primary"&lt;/code&gt;), used with light text. Recommended when the text sits over a detailed or busy image.</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Light_Title" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Light_Text" xml:space="preserve">
+    <value>A light grey box (&lt;code&gt;background-colour="light"&lt;/code&gt;), used with primary text.</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Off_Title" xml:space="preserve">
+    <value>Without</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Off_Text" xml:space="preserve">
+    <value>The text is placed directly on the image. Check that the text meets a 4.5:1 contrast ratio against every part of the image it covers. If the image does not load, light text falls back to the text emphasis background.</value>
+  </data>
+  <data name="PageHeading_Size_Anchor" xml:space="preserve">
+    <value>sizes</value>
+  </data>
+  <data name="PageHeading_Size_Title" xml:space="preserve">
+    <value>Sizes</value>
+  </data>
+  <data name="PageHeading_Size_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The page heading supports three sizes — &lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; and &lt;code&gt;large&lt;/code&gt; — set with the &lt;code&gt;size&lt;/code&gt; property. The size changes the space above and below the text, not the size of the text.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_Size_Label" xml:space="preserve">
+    <value>Page heading size examples</value>
+  </data>
+  <data name="PageHeading_Size_Compact_Title" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="PageHeading_Size_Compact_Text" xml:space="preserve">
+    <value>Uses less space above and below the text. Suits pages where users need to reach the content quickly.</value>
+  </data>
+  <data name="PageHeading_Size_Regular_Title" xml:space="preserve">
+    <value>Regular</value>
+  </data>
+  <data name="PageHeading_Size_Regular_Text" xml:space="preserve">
+    <value>Suits most pages and is applied automatically when no &lt;code&gt;size&lt;/code&gt; property is specified.</value>
+  </data>
+  <data name="PageHeading_Size_Large_Title" xml:space="preserve">
+    <value>Large</value>
+  </data>
+  <data name="PageHeading_Size_Large_Text" xml:space="preserve">
+    <value>Gives the background image more room. Suits landing pages that introduce a program or service.</value>
+  </data>
+  <data name="PageHeading_Colour_Anchor" xml:space="preserve">
+    <value>text-colours</value>
+  </data>
+  <data name="PageHeading_Colour_Title" xml:space="preserve">
+    <value>Text colours</value>
+  </data>
+  <data name="PageHeading_Colour_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use &lt;code&gt;text-colour&lt;/code&gt; to set the colour of the title and description. Always pair each text colour with its matching &lt;code&gt;background-colour&lt;/code&gt; so the text meets a 4.5:1 contrast ratio. On mobile screens, the background image and box are removed and the text uses the regular text colour.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_Colour_Label" xml:space="preserve">
+    <value>Page heading text colour examples</value>
+  </data>
+  <data name="PageHeading_Colour_Light_Title" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="PageHeading_Colour_Light_Text" xml:space="preserve">
+    <value>The default. White text, used with the &lt;code&gt;primary&lt;/code&gt; background colour.</value>
+  </data>
+  <data name="PageHeading_Colour_Primary_Title" xml:space="preserve">
+    <value>Primary</value>
+  </data>
+  <data name="PageHeading_Colour_Primary_Text" xml:space="preserve">
+    <value>Dark grey text, used with the &lt;code&gt;light&lt;/code&gt; background colour.</value>
+  </data>
+  <data name="PageHeading_Image_Regular_AltText" xml:space="preserve">
+    <value>Page heading with a white title and description on a dark blue box, over a photo of a mountain lake.</value>
+  </data>
+  <data name="PageHeading_Image_NoEmphasis_AltText" xml:space="preserve">
+    <value>Page heading with a white title and description placed directly on a photo of a mountain lake, without a box behind the text.</value>
+  </data>
+  <data name="PageHeading_Image_Compact_AltText" xml:space="preserve">
+    <value>Compact page heading with little photo visible above and below the dark blue text box.</value>
+  </data>
+  <data name="PageHeading_Image_Large_AltText" xml:space="preserve">
+    <value>Large page heading with more of the photo visible above and below the dark blue text box.</value>
+  </data>
+  <data name="PageHeading_Image_Light_AltText" xml:space="preserve">
+    <value>Page heading with a dark grey title and description on a light grey box, over a photo of a mountain lake.</value>
+  </data>
   <data name="PageHeading_Notes_5" xml:space="preserve">
     <value>The title is rendered as the page's &lt;code&gt;h1&lt;/code&gt;. Use only one page heading per page and place it at the start of the main content, inside the page container. The background extends to the full width of the window while the text stays aligned with the page content</value>
   </data>
@@ -1355,10 +1538,10 @@
     <value>Optional. Sets the height of the page header (&lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; or &lt;code&gt;large&lt;/code&gt;). A compact page heading uses less padding above and below the text container, and a large page heading uses more.</value>
   </data>
   <data name="PageHeading_Properties_BackgroundColour" xml:space="preserve">
-    <value>Optional. Sets the background colour of the text container when &lt;code&gt;text-emphasis&lt;/code&gt; is enabled (&lt;code&gt;primary&lt;/code&gt;, &lt;code&gt;dark&lt;/code&gt;, &lt;code&gt;light&lt;/code&gt; or &lt;code&gt;white&lt;/code&gt;). Use &lt;code&gt;primary&lt;/code&gt; or &lt;code&gt;dark&lt;/code&gt; with light text, and &lt;code&gt;light&lt;/code&gt; or &lt;code&gt;white&lt;/code&gt; with primary or secondary text.</value>
+    <value>Optional. Sets the background colour of the text container when &lt;code&gt;text-emphasis&lt;/code&gt; is enabled (&lt;code&gt;primary&lt;/code&gt; or &lt;code&gt;light&lt;/code&gt;). Use &lt;code&gt;primary&lt;/code&gt; with light text, and &lt;code&gt;light&lt;/code&gt; with primary text.</value>
   </data>
   <data name="PageHeading_Properties_TextColour" xml:space="preserve">
-    <value>Optional. Sets the colour of the title and description (&lt;code&gt;light&lt;/code&gt;, &lt;code&gt;primary&lt;/code&gt; or &lt;code&gt;secondary&lt;/code&gt;). On mobile screens, light text switches to the regular text colour.</value>
+    <value>Optional. Sets the colour of the title and description (&lt;code&gt;light&lt;/code&gt; or &lt;code&gt;primary&lt;/code&gt;). On mobile screens, light text switches to the regular text colour.</value>
   </data>
   <data name="PageHeading_Properties_Src" xml:space="preserve">
     <value>Optional. URL for the background image. If the image is missing or does not load, light text is shown on the same background as &lt;code&gt;text-emphasis&lt;/code&gt; so it stays readable.</value>
