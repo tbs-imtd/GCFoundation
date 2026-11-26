@@ -31,7 +31,7 @@
         info,
 
         /// <summary>
-        /// Warning state (typically yellow).
+        /// Warning state (typically orange).
         /// </summary>
         warning,
 

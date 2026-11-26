@@ -31,13 +31,15 @@
     font-weight: var(--gcds-font-weights-medium);
     vertical-align: middle;
     gap: .25rem;
+    align-items: center;
 
     .fdcp-badge-start,
     .fdcp-badge-end {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-
+        --gcds-icon-line-height-text-small: 1;
+        --gcds-icon-line-height-text-small-mobile: 1;
         > * {
             display: inline-flex;
             align-items: center;

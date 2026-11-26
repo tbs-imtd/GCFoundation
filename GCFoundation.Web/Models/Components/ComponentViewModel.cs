@@ -18,6 +18,16 @@ namespace GCFoundation.Web.Models.Components
         public IEnumerable<string> AccessibilityDoNot { get; set; } = new List<string>();
 
         /// <summary>
+        /// (Optional) Other names the component is known by.
+        /// </summary>
+        public string AlsoCalled { get; set; } = string.Empty;
+
+        /// <summary>
+        /// (Optional) Additional guidance sections (e.g. anatomy, colour meaning) rendered after the standard guidance.
+        /// </summary>
+        public IEnumerable<ComponentSampleCodeSectionViewModel> GuidanceSections { get; set; } = new List<ComponentSampleCodeSectionViewModel>();
+
+        /// <summary>
         /// Name of the component.
         /// </summary>
         public string Name { get; set; } = string.Empty;
@@ -87,9 +97,19 @@ namespace GCFoundation.Web.Models.Components
         public IEnumerable<string> WhenNotToUse { get; set; } = new List<string>();
 
         /// <summary>
+        /// (Optional) Note displayed after the list of scenarios when NOT to use this component.
+        /// </summary>
+        public string WhenNotToUseNote { get; set; } = string.Empty;
+
+        /// <summary>
         /// List of scenarios when to use this component.
         /// </summary>
         public IEnumerable<string> WhenToUse { get; set; } = new List<string>();
+
+        /// <summary>
+        /// (Optional) Common examples displayed after the list of scenarios when to use this component.
+        /// </summary>
+        public IEnumerable<string> WhenToUseExamples { get; set; } = new List<string>();
 
 
         /// <summary>
@@ -112,6 +132,8 @@ namespace GCFoundation.Web.Models.Components
                 items.Add(new NavLink() { Href = Resources.Components.Guidance_Accessibility_Anchor, Label = Resources.Components.Guidance_Accessibility });
             if (UxBestPractices != null && UxBestPractices.Any())
                 items.Add(new NavLink() { Href = Resources.Components.Guidance_UxBestPractices_Anchor, Label = Resources.Components.Guidance_UxBestPractices });
+            if (GuidanceSections != null && GuidanceSections.Any())
+                items.AddRange(GuidanceSections.Select(s => new NavLink() { Href = s.Id, Label = s.Title }).ToList());
             if (SampleCodeSections != null && SampleCodeSections.Any())
                 items.AddRange(SampleCodeSections.Select(s => new NavLink() { Href = s.Id, Label = s.Title }).ToList());
             if (Properties != null && Properties.Any())

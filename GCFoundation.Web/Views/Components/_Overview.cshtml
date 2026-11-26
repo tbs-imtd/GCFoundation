@@ -6,4 +6,8 @@
 {
     <gcds-heading tag="h2" id="@Components.Overview_Anchor">@Components.Overview</gcds-heading>
     <gcds-text>@Html.Raw(Model.Overview)</gcds-text>
+    @if (!string.IsNullOrEmpty(Model.AlsoCalled))
+    {
+        <gcds-text><em>@Components.Guidance_AlsoCalled @Model.AlsoCalled</em></gcds-text>
+    }
 }

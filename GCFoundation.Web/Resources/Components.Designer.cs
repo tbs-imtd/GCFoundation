@@ -1150,65 +1150,398 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use text or iconography in addition to colour to convey meaning..
+        ///   Looks up a localized string similar to Keep badges brief and close to the information they describe..
         /// </summary>
-        public static string Badge_Accessibility_Do_1 {
+        public static string Badge_Accessibility_Content_1 {
             get {
-                return ResourceManager.GetString("Badge_Accessibility_Do_1", resourceCulture);
+                return ResourceManager.GetString("Badge_Accessibility_Content_1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Meet WCAG 2.1 AA contrast requirements for text and background..
+        ///   Looks up a localized string similar to Use clear labels; avoid generic text such as “Important” or “More.”.
         /// </summary>
-        public static string Badge_Accessibility_Do_2 {
+        public static string Badge_Accessibility_Content_2 {
             get {
-                return ResourceManager.GetString("Badge_Accessibility_Do_2", resourceCulture);
+                return ResourceManager.GetString("Badge_Accessibility_Content_2", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use consistent colour semantics aligned to system tokens (e.g., green for success, red for warnings, grey for neutral metadata)..
+        ///   Looks up a localized string similar to Do not use a badge as the only location for critical instructions, errors or required actions..
         /// </summary>
-        public static string Badge_Accessibility_Do_3 {
+        public static string Badge_Accessibility_Content_3 {
             get {
-                return ResourceManager.GetString("Badge_Accessibility_Do_3", resourceCulture);
+                return ResourceManager.GetString("Badge_Accessibility_Content_3", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remain readable and operable at 200% zoom and on small screens..
+        ///   Looks up a localized string similar to Avoid stacking several badges unless each communicates a distinct and necessary piece of information..
         /// </summary>
-        public static string Badge_Accessibility_Do_4 {
+        public static string Badge_Accessibility_Content_4 {
             get {
-                return ResourceManager.GetString("Badge_Accessibility_Do_4", resourceCulture);
+                return ResourceManager.GetString("Badge_Accessibility_Content_4", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use coloured variants only when colour supports a clear distinction— e.g., green for success, red for warnings, grey for neutral metadata. But ALWAYS pair it with a meaningful icon or shape..
+        ///   Looks up a localized string similar to Ensure the relationship between a badge and its associated content is clear in the visual and programmatic reading order..
         /// </summary>
-        public static string Badge_Accessibility_Do_5 {
+        public static string Badge_Accessibility_Content_5 {
             get {
-                return ResourceManager.GetString("Badge_Accessibility_Do_5", resourceCulture);
+                return ResourceManager.GetString("Badge_Accessibility_Content_5", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use a red badge with the label &quot;Error&quot; and a grey badge with the label &quot;Error&quot; interchangeably if colour is the only difference..
+        ///   Looks up a localized string similar to Content and placement.
         /// </summary>
-        public static string Badge_Accessibility_DoNot_1 {
+        public static string Badge_Accessibility_Content_Title {
             get {
-                return ResourceManager.GetString("Badge_Accessibility_DoNot_1", resourceCulture);
+                return ResourceManager.GetString("Badge_Accessibility_Content_Title", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use colour alone to communicate categories such as priority levels..
+        ///   Looks up a localized string similar to 1.3.1 Info and Relationships; 2.4.6 Headings and Labels..
         /// </summary>
-        public static string Badge_Accessibility_DoNot_2 {
+        public static string Badge_Accessibility_Content_Wcag {
             get {
-                return ResourceManager.GetString("Badge_Accessibility_DoNot_2", resourceCulture);
+                return ResourceManager.GetString("Badge_Accessibility_Content_Wcag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Badge text must meet the WCAG 2.1 AA text-contrast requirement against its background..
+        /// </summary>
+        public static string Badge_Accessibility_Contrast_1 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Contrast_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If a badge boundary, icon or other non-text visual is needed to identify the badge or communicate its state, it must meet the applicable non-text contrast requirement..
+        /// </summary>
+        public static string Badge_Accessibility_Contrast_2 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Contrast_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Confirm contrast for every approved solid and inverted variant—not only the default appearance..
+        /// </summary>
+        public static string Badge_Accessibility_Contrast_3 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Contrast_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not assume a colour token is accessible in every context; test it against the actual badge background and text size..
+        /// </summary>
+        public static string Badge_Accessibility_Contrast_4 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Contrast_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contrast and visual treatment.
+        /// </summary>
+        public static string Badge_Accessibility_Contrast_Title {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Contrast_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.4.3 Contrast (Minimum); 1.4.11 Non-text Contrast..
+        /// </summary>
+        public static string Badge_Accessibility_Contrast_Wcag {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Contrast_Wcag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The badge component must be accessible to all users, including people who use keyboards, screen readers, magnification, custom text spacing or touch devices..
+        /// </summary>
+        public static string Badge_Accessibility_Intro {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use a meaningful text label to communicate the badge’s status, category or priority..
+        /// </summary>
+        public static string Badge_Accessibility_Meaning_1 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Meaning_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not rely on colour alone to distinguish badge meaning..
+        /// </summary>
+        public static string Badge_Accessibility_Meaning_2 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Meaning_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use the same semantic colour meaning consistently throughout the product..
+        /// </summary>
+        public static string Badge_Accessibility_Meaning_3 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Meaning_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If an icon conveys information that is not already available in the text, ensure the implemented component provides an equivalent accessible name or description..
+        /// </summary>
+        public static string Badge_Accessibility_Meaning_4 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Meaning_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Meaning and colour.
+        /// </summary>
+        public static string Badge_Accessibility_Meaning_Title {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Meaning_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.1.1 Non-text Content; 1.4.1 Use of Color; 1.3.1 Info and Relationships..
+        /// </summary>
+        public static string Badge_Accessibility_Meaning_Wcag {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Meaning_Wcag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A badge is informational by default..
+        /// </summary>
+        public static string Badge_Accessibility_NonInteractive_1 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_NonInteractive_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not style it so it is mistaken for a button, link, filter or other interactive control..
+        /// </summary>
+        public static string Badge_Accessibility_NonInteractive_2 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_NonInteractive_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If a badge is embedded in or associated with an interactive component, ensure that the interactive element—not the badge alone—has the required keyboard behaviour, accessible name and focus indicator..
+        /// </summary>
+        public static string Badge_Accessibility_NonInteractive_3 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_NonInteractive_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not add keyboard focus to a static badge..
+        /// </summary>
+        public static string Badge_Accessibility_NonInteractive_4 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_NonInteractive_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non-interactive behaviour.
+        /// </summary>
+        public static string Badge_Accessibility_NonInteractive_Title {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_NonInteractive_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2.1.1 Keyboard; 2.4.3 Focus Order; 2.4.7 Focus Visible..
+        /// </summary>
+        public static string Badge_Accessibility_NonInteractive_Wcag {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_NonInteractive_Wcag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Relevant WCAG 2.1 requirements:.
+        /// </summary>
+        public static string Badge_Accessibility_Wcag_Label {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Wcag_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Badge labels must remain readable at 200% text zoom..
+        /// </summary>
+        public static string Badge_Accessibility_Zoom_1 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Zoom_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The badge must reflow without clipping, overlap or loss of content at narrow widths..
+        /// </summary>
+        public static string Badge_Accessibility_Zoom_2 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Zoom_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text, icons and any supporting content must remain usable when users apply custom text spacing..
+        /// </summary>
+        public static string Badge_Accessibility_Zoom_3 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Zoom_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not truncate a badge label if truncation hides its meaning..
+        /// </summary>
+        public static string Badge_Accessibility_Zoom_4 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Zoom_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If the badge appears in a dense layout, make sure it does not force unnecessary horizontal scrolling..
+        /// </summary>
+        public static string Badge_Accessibility_Zoom_5 {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Zoom_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zoom, reflow and text spacing.
+        /// </summary>
+        public static string Badge_Accessibility_Zoom_Title {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Zoom_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.4.4 Resize Text; 1.4.10 Reflow; 1.4.12 Text Spacing..
+        /// </summary>
+        public static string Badge_Accessibility_Zoom_Wcag {
+            get {
+                return ResourceManager.GetString("Badge_Accessibility_Zoom_Wcag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to label, tag, status indicator.
+        /// </summary>
+        public static string Badge_AlsoCalled {
+            get {
+                return ResourceManager.GetString("Badge_AlsoCalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error, failure or urgent issue.
+        /// </summary>
+        public static string Badge_ColourMeaning_Danger {
+            get {
+                return ResourceManager.GetString("Badge_ColourMeaning_Danger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Neutral supporting information.
+        /// </summary>
+        public static string Badge_ColourMeaning_Info {
+            get {
+                return ResourceManager.GetString("Badge_ColourMeaning_Info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Contextual or neutral visual treatments.
+        /// </summary>
+        public static string Badge_ColourMeaning_LightDark {
+            get {
+                return ResourceManager.GetString("Badge_ColourMeaning_LightDark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Intended meaning.
+        /// </summary>
+        public static string Badge_ColourMeaning_Meaning {
+            get {
+                return ResourceManager.GetString("Badge_ColourMeaning_Meaning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Non-semantic category or emphasis.
+        /// </summary>
+        public static string Badge_ColourMeaning_PrimarySecondary {
+            get {
+                return ResourceManager.GetString("Badge_ColourMeaning_PrimarySecondary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Completed, confirmed or successful.
+        /// </summary>
+        public static string Badge_ColourMeaning_Success {
+            get {
+                return ResourceManager.GetString("Badge_ColourMeaning_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Colour meaning.
+        /// </summary>
+        public static string Badge_ColourMeaning_Title {
+            get {
+                return ResourceManager.GetString("Badge_ColourMeaning_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Variant.
+        /// </summary>
+        public static string Badge_ColourMeaning_Variant {
+            get {
+                return ResourceManager.GetString("Badge_ColourMeaning_Variant", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Caution or action may be needed.
+        /// </summary>
+        public static string Badge_ColourMeaning_Warning {
+            get {
+                return ResourceManager.GetString("Badge_ColourMeaning_Warning", resourceCulture);
             }
         }
         
@@ -1231,7 +1564,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use the &lt;code&gt;inverted=&quot;true&quot;&lt;/code&gt; attribute to render badges with transparent backgrounds..
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the &lt;code&gt;inverted="true"&lt;/code&gt; attribute to render badges with transparent backgrounds.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Badge_Inverted_Text {
             get {
@@ -1267,7 +1600,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to For font icons, use libraries like Font Awesome or Bootstrap Icons..
+        ///   Looks up a localized string similar to Use GC Design System icons (&lt;code&gt;&amp;lt;gcds-icon size="text-small"&amp;gt;&lt;/code&gt;) for start and end content..
         /// </summary>
         public static string Badge_Notes_2 {
             get {
@@ -1285,7 +1618,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; component is used to highlight small pieces of information....
+        ///   Looks up a localized string similar to Badges highlight small pieces of information, such as status, priority or metadata. They help users scan content quickly and distinguish key details..
         /// </summary>
         public static string Badge_Overview {
             get {
@@ -1339,15 +1672,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Badges highlight short, categorical pieces of information such as status, priority, or metadata. They help users quickly scan and differentiate key details..
-        /// </summary>
-        public static string Badge_Purpose {
-            get {
-                return ResourceManager.GetString("Badge_Purpose", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to start-end.
         /// </summary>
         public static string Badge_Slot_Anchor {
@@ -1375,7 +1699,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can insert an icon or button at the start or end using either the &lt;code&gt;slot&lt;/code&gt; attribute or the &lt;code&gt;StartContent&lt;/code&gt;/&lt;code&gt;EndContent&lt;/code&gt; properties..
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;You can insert an icon or button at the start or end using either the &lt;code&gt;slot&lt;/code&gt; attribute or the &lt;code&gt;StartContent&lt;/code&gt;/&lt;code&gt;EndContent&lt;/code&gt; properties.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Badge_Slot_Text {
             get {
@@ -1402,7 +1726,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to These badges use a solid background..
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;These badges use a solid background.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Badge_Solid_Text {
             get {
@@ -1420,43 +1744,79 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Keep badges brief (one–two words) and place them close to the element they describe..
+        ///   Looks up a localized string similar to Danger.
         /// </summary>
-        public static string Badge_UxBestPractices_1 {
+        public static string Badge_Variant_Danger {
             get {
-                return ResourceManager.GetString("Badge_UxBestPractices_1", resourceCulture);
+                return ResourceManager.GetString("Badge_Variant_Danger", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use consistently across the product for the same meaning or category..
+        ///   Looks up a localized string similar to Dark.
         /// </summary>
-        public static string Badge_UxBestPractices_2 {
+        public static string Badge_Variant_Dark {
             get {
-                return ResourceManager.GetString("Badge_UxBestPractices_2", resourceCulture);
+                return ResourceManager.GetString("Badge_Variant_Dark", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Avoid stacking multiple badges unless each communicates clearly distinct information..
+        ///   Looks up a localized string similar to Info.
         /// </summary>
-        public static string Badge_UxBestPractices_3 {
+        public static string Badge_Variant_Info {
             get {
-                return ResourceManager.GetString("Badge_UxBestPractices_3", resourceCulture);
+                return ResourceManager.GetString("Badge_Variant_Info", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Follow system spacing, sizing, and colour guidance to maintain visual harmony..
+        ///   Looks up a localized string similar to Light.
         /// </summary>
-        public static string Badge_UxBestPractices_4 {
+        public static string Badge_Variant_Light {
             get {
-                return ResourceManager.GetString("Badge_UxBestPractices_4", resourceCulture);
+                return ResourceManager.GetString("Badge_Variant_Light", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The information requires explanation or is longer than a short phrase..
+        ///   Looks up a localized string similar to Primary.
+        /// </summary>
+        public static string Badge_Variant_Primary {
+            get {
+                return ResourceManager.GetString("Badge_Variant_Primary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Secondary.
+        /// </summary>
+        public static string Badge_Variant_Secondary {
+            get {
+                return ResourceManager.GetString("Badge_Variant_Secondary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        public static string Badge_Variant_Success {
+            get {
+                return ResourceManager.GetString("Badge_Variant_Success", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning.
+        /// </summary>
+        public static string Badge_Variant_Warning {
+            get {
+                return ResourceManager.GetString("Badge_Variant_Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to the information requires explanation or is longer than a short phrase;.
         /// </summary>
         public static string Badge_WhenNotToUse_1 {
             get {
@@ -1465,7 +1825,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The badge is the only way a user can understand critical information..
+        ///   Looks up a localized string similar to the badge is the only way a user can understand critical information;.
         /// </summary>
         public static string Badge_WhenNotToUse_2 {
             get {
@@ -1474,7 +1834,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Too many badges together create cognitive overload or visual clutter..
+        ///   Looks up a localized string similar to users need to compare detailed statuses or categories;.
         /// </summary>
         public static string Badge_WhenNotToUse_3 {
             get {
@@ -1483,7 +1843,43 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You need to call out a small piece of status- or category-based information..
+        ///   Looks up a localized string similar to multiple badges would create visual clutter or cognitive overload;.
+        /// </summary>
+        public static string Badge_WhenNotToUse_4 {
+            get {
+                return ResourceManager.GetString("Badge_WhenNotToUse_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to the content is an action, navigation control or filter—use the appropriate GCDS control instead;.
+        /// </summary>
+        public static string Badge_WhenNotToUse_5 {
+            get {
+                return ResourceManager.GetString("Badge_WhenNotToUse_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to the same information can be communicated more clearly in plain text..
+        /// </summary>
+        public static string Badge_WhenNotToUse_6 {
+            get {
+                return ResourceManager.GetString("Badge_WhenNotToUse_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do not use badges as buttons, links, filters or navigation controls unless the production component explicitly supports that behaviour..
+        /// </summary>
+        public static string Badge_WhenNotToUse_Note {
+            get {
+                return ResourceManager.GetString("Badge_WhenNotToUse_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to users need to identify a short status or category at a glance;.
         /// </summary>
         public static string Badge_WhenToUse_1 {
             get {
@@ -1492,7 +1888,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You want to add supplemental context to headings, labels, lists, cards, or tables..
+        ///   Looks up a localized string similar to a heading, list item, card, table row or label needs brief supporting information;.
         /// </summary>
         public static string Badge_WhenToUse_2 {
             get {
@@ -1501,11 +1897,110 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Users need to distinguish between types or states at a glance..
+        ///   Looks up a localized string similar to users need to distinguish between types of status, priority or metadata;.
         /// </summary>
         public static string Badge_WhenToUse_3 {
             get {
                 return ResourceManager.GetString("Badge_WhenToUse_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to the badge adds useful context without interrupting the main content;.
+        /// </summary>
+        public static string Badge_WhenToUse_4 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to a leading icon can reinforce the badge’s meaning and improve scannability;.
+        /// </summary>
+        public static string Badge_WhenToUse_5 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to a trailing icon is needed to indicate an available action related to the badge..
+        /// </summary>
+        public static string Badge_WhenToUse_6 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New;.
+        /// </summary>
+        public static string Badge_WhenToUse_Example_1 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_Example_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success;.
+        /// </summary>
+        public static string Badge_WhenToUse_Example_2 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_Example_2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Warning;.
+        /// </summary>
+        public static string Badge_WhenToUse_Example_3 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_Example_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error;.
+        /// </summary>
+        public static string Badge_WhenToUse_Example_4 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_Example_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Draft;.
+        /// </summary>
+        public static string Badge_WhenToUse_Example_5 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_Example_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Priority: high;.
+        /// </summary>
+        public static string Badge_WhenToUse_Example_6 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_Example_6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Archived;.
+        /// </summary>
+        public static string Badge_WhenToUse_Example_7 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_Example_7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Required..
+        /// </summary>
+        public static string Badge_WhenToUse_Example_8 {
+            get {
+                return ResourceManager.GetString("Badge_WhenToUse_Example_8", resourceCulture);
             }
         }
         
@@ -2971,6 +3466,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Also called:.
+        /// </summary>
+        public static string Guidance_AlsoCalled {
+            get {
+                return ResourceManager.GetString("Guidance_AlsoCalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Purpose.
         /// </summary>
         public static string Guidance_Purpose {
@@ -3048,6 +3552,15 @@ namespace GCFoundation.Web.Resources {
         public static string Guidance_WhenToUse_Anchor {
             get {
                 return ResourceManager.GetString("Guidance_WhenToUse_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Common examples include:.
+        /// </summary>
+        public static string Guidance_WhenToUse_ExamplesIntro {
+            get {
+                return ResourceManager.GetString("Guidance_WhenToUse_ExamplesIntro", resourceCulture);
             }
         }
         

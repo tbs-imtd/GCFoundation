@@ -1,0 +1,46 @@
+@using GCFoundation.Components.TagHelpers.FDCP
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Components.ComponentSampleCodeSectionViewModel
+
+<div class="fdcp-table-responsive">
+    <table class="fdcp-table fdcp-table-striped fdcp-table-condensed">
+        <thead>
+            <tr>
+                <th scope="col">@Components.Badge_ColourMeaning_Variant</th>
+                <th scope="col">@Components.Badge_ColourMeaning_Meaning</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"><fdcp-badge style="success">@Components.Badge_Variant_Success</fdcp-badge></th>
+                <td>@Components.Badge_ColourMeaning_Success</td>
+            </tr>
+            <tr>
+                <th scope="row"><fdcp-badge style="danger">@Components.Badge_Variant_Danger</fdcp-badge></th>
+                <td>@Components.Badge_ColourMeaning_Danger</td>
+            </tr>
+            <tr>
+                <th scope="row"><fdcp-badge style="warning">@Components.Badge_Variant_Warning</fdcp-badge></th>
+                <td>@Components.Badge_ColourMeaning_Warning</td>
+            </tr>
+            <tr>
+                <th scope="row"><fdcp-badge style="info">@Components.Badge_Variant_Info</fdcp-badge></th>
+                <td>@Components.Badge_ColourMeaning_Info</td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <fdcp-badge style="primary">@Components.Badge_Variant_Primary</fdcp-badge>
+                    <fdcp-badge style="secondary">@Components.Badge_Variant_Secondary</fdcp-badge>
+                </th>
+                <td>@Components.Badge_ColourMeaning_PrimarySecondary</td>
+            </tr>
+            <tr>
+                <th scope="row">
+                    <fdcp-badge style="light">@Components.Badge_Variant_Light</fdcp-badge>
+                    <fdcp-badge style="dark">@Components.Badge_Variant_Dark</fdcp-badge>
+                </th>
+                <td>@Components.Badge_ColourMeaning_LightDark</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -675,25 +675,25 @@
     <value>Badge</value>
   </data>
   <data name="Badge_Overview" xml:space="preserve">
-    <value>The &lt;code&gt;&amp;lt;fdcp-badge&amp;gt;&lt;/code&gt; component is used to highlight small pieces of information...</value>
+    <value>Badges highlight small pieces of information, such as status, priority or metadata. They help users scan content quickly and distinguish key details.</value>
   </data>
   <data name="Badge_Solid_Title" xml:space="preserve">
     <value>Solid Variants</value>
   </data>
   <data name="Badge_Solid_Text" xml:space="preserve">
-    <value>These badges use a solid background.</value>
+    <value>&lt;gcds-text&gt;These badges use a solid background.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Badge_Inverted_Title" xml:space="preserve">
     <value>Inverted Variants</value>
   </data>
   <data name="Badge_Inverted_Text" xml:space="preserve">
-    <value>Use the &lt;code&gt;inverted="true"&lt;/code&gt; attribute to render badges with transparent backgrounds.</value>
+    <value>&lt;gcds-text&gt;Use the &lt;code&gt;inverted="true"&lt;/code&gt; attribute to render badges with transparent backgrounds.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Badge_Slot_Title" xml:space="preserve">
     <value>Start and End</value>
   </data>
   <data name="Badge_Slot_Text" xml:space="preserve">
-    <value>You can insert an icon or button at the start or end using either the &lt;code&gt;slot&lt;/code&gt; attribute or the &lt;code&gt;StartContent&lt;/code&gt;/&lt;code&gt;EndContent&lt;/code&gt; properties.</value>
+    <value>&lt;gcds-text&gt;You can insert an icon or button at the start or end using either the &lt;code&gt;slot&lt;/code&gt; attribute or the &lt;code&gt;StartContent&lt;/code&gt;/&lt;code&gt;EndContent&lt;/code&gt; properties.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Badge_Dismissible_Title" xml:space="preserve">
     <value>Dismissible Badge</value>
@@ -717,7 +717,7 @@
     <value>Use &lt;code&gt;slot="start-content"&lt;/code&gt; and &lt;code&gt;slot="end-content"&lt;/code&gt; when embedding HTML.</value>
   </data>
   <data name="Badge_Notes_2" xml:space="preserve">
-    <value>For font icons, use libraries like Font Awesome or Bootstrap Icons.</value>
+    <value>Use GC Design System icons (&lt;code&gt;&amp;lt;gcds-icon size="text-small"&amp;gt;&lt;/code&gt;) for start and end content.</value>
   </data>
   <data name="Badge_Notes_3" xml:space="preserve">
     <value>All badges are rendered as &lt;code&gt;&amp;lt;span&amp;gt;&lt;/code&gt; elements with class &lt;code&gt;fdcp-badge&lt;/code&gt;.</value>
@@ -1579,59 +1579,23 @@
   <data name="Guidance_UxBestPractices_Anchor" xml:space="preserve">
     <value>ux-best-practices</value>
   </data>
-  <data name="Badge_Purpose" xml:space="preserve">
-    <value>Badges highlight short, categorical pieces of information such as status, priority, or metadata. They help users quickly scan and differentiate key details.</value>
-  </data>
   <data name="Badge_WhenToUse_1" xml:space="preserve">
-    <value>You need to call out a small piece of status- or category-based information.</value>
+    <value>users need to identify a short status or category at a glance;</value>
   </data>
   <data name="Badge_WhenToUse_2" xml:space="preserve">
-    <value>You want to add supplemental context to headings, labels, lists, cards, or tables.</value>
+    <value>a heading, list item, card, table row or label needs brief supporting information;</value>
   </data>
   <data name="Badge_WhenToUse_3" xml:space="preserve">
-    <value>Users need to distinguish between types or states at a glance.</value>
+    <value>users need to distinguish between types of status, priority or metadata;</value>
   </data>
   <data name="Badge_WhenNotToUse_1" xml:space="preserve">
-    <value>The information requires explanation or is longer than a short phrase.</value>
+    <value>the information requires explanation or is longer than a short phrase;</value>
   </data>
   <data name="Badge_WhenNotToUse_2" xml:space="preserve">
-    <value>The badge is the only way a user can understand critical information.</value>
+    <value>the badge is the only way a user can understand critical information;</value>
   </data>
   <data name="Badge_WhenNotToUse_3" xml:space="preserve">
-    <value>Too many badges together create cognitive overload or visual clutter.</value>
-  </data>
-  <data name="Badge_Accessibility_Do_1" xml:space="preserve">
-    <value>Use text or iconography in addition to colour to convey meaning.</value>
-  </data>
-  <data name="Badge_Accessibility_Do_2" xml:space="preserve">
-    <value>Meet WCAG 2.1 AA contrast requirements for text and background.</value>
-  </data>
-  <data name="Badge_Accessibility_Do_3" xml:space="preserve">
-    <value>Use consistent colour semantics aligned to system tokens (e.g., green for success, red for warnings, grey for neutral metadata).</value>
-  </data>
-  <data name="Badge_Accessibility_Do_4" xml:space="preserve">
-    <value>Remain readable and operable at 200% zoom and on small screens.</value>
-  </data>
-  <data name="Badge_Accessibility_Do_5" xml:space="preserve">
-    <value>Use coloured variants only when colour supports a clear distinction— e.g., green for success, red for warnings, grey for neutral metadata. But ALWAYS pair it with a meaningful icon or shape.</value>
-  </data>
-  <data name="Badge_Accessibility_DoNot_1" xml:space="preserve">
-    <value>Use a red badge with the label "Error" and a grey badge with the label "Error" interchangeably if colour is the only difference.</value>
-  </data>
-  <data name="Badge_Accessibility_DoNot_2" xml:space="preserve">
-    <value>Use colour alone to communicate categories such as priority levels.</value>
-  </data>
-  <data name="Badge_UxBestPractices_1" xml:space="preserve">
-    <value>Keep badges brief (one–two words) and place them close to the element they describe.</value>
-  </data>
-  <data name="Badge_UxBestPractices_2" xml:space="preserve">
-    <value>Use consistently across the product for the same meaning or category.</value>
-  </data>
-  <data name="Badge_UxBestPractices_3" xml:space="preserve">
-    <value>Avoid stacking multiple badges unless each communicates clearly distinct information.</value>
-  </data>
-  <data name="Badge_UxBestPractices_4" xml:space="preserve">
-    <value>Follow system spacing, sizing, and colour guidance to maintain visual harmony.</value>
+    <value>users need to compare detailed statuses or categories;</value>
   </data>
   <data name="Stepper_WithStatus_Title" xml:space="preserve">
     <value>With Status</value>
@@ -2497,5 +2461,212 @@
   </data>
   <data name="Index_Code_Title" xml:space="preserve">
     <value>Code</value>
+  </data>
+  <data name="Guidance_AlsoCalled" xml:space="preserve">
+    <value>Also called:</value>
+  </data>
+  <data name="Guidance_WhenToUse_ExamplesIntro" xml:space="preserve">
+    <value>Common examples include:</value>
+  </data>
+  <data name="Badge_AlsoCalled" xml:space="preserve">
+    <value>label, tag, status indicator</value>
+  </data>
+  <data name="Badge_WhenToUse_4" xml:space="preserve">
+    <value>the badge adds useful context without interrupting the main content;</value>
+  </data>
+  <data name="Badge_WhenToUse_5" xml:space="preserve">
+    <value>a leading icon can reinforce the badge’s meaning and improve scannability;</value>
+  </data>
+  <data name="Badge_WhenToUse_6" xml:space="preserve">
+    <value>a trailing icon is needed to indicate an available action related to the badge.</value>
+  </data>
+  <data name="Badge_WhenToUse_Example_1" xml:space="preserve">
+    <value>New;</value>
+  </data>
+  <data name="Badge_WhenToUse_Example_2" xml:space="preserve">
+    <value>Success;</value>
+  </data>
+  <data name="Badge_WhenToUse_Example_3" xml:space="preserve">
+    <value>Warning;</value>
+  </data>
+  <data name="Badge_WhenToUse_Example_4" xml:space="preserve">
+    <value>Error;</value>
+  </data>
+  <data name="Badge_WhenToUse_Example_5" xml:space="preserve">
+    <value>Draft;</value>
+  </data>
+  <data name="Badge_WhenToUse_Example_6" xml:space="preserve">
+    <value>Priority: high;</value>
+  </data>
+  <data name="Badge_WhenToUse_Example_7" xml:space="preserve">
+    <value>Archived;</value>
+  </data>
+  <data name="Badge_WhenToUse_Example_8" xml:space="preserve">
+    <value>Required.</value>
+  </data>
+  <data name="Badge_WhenNotToUse_4" xml:space="preserve">
+    <value>multiple badges would create visual clutter or cognitive overload;</value>
+  </data>
+  <data name="Badge_WhenNotToUse_5" xml:space="preserve">
+    <value>the content is an action, navigation control or filter—use the appropriate GCDS control instead;</value>
+  </data>
+  <data name="Badge_WhenNotToUse_6" xml:space="preserve">
+    <value>the same information can be communicated more clearly in plain text.</value>
+  </data>
+  <data name="Badge_WhenNotToUse_Note" xml:space="preserve">
+    <value>Do not use badges as buttons, links, filters or navigation controls unless the production component explicitly supports that behaviour.</value>
+  </data>
+  <data name="Badge_ColourMeaning_Title" xml:space="preserve">
+    <value>Colour meaning</value>
+  </data>
+  <data name="Badge_ColourMeaning_Variant" xml:space="preserve">
+    <value>Variant</value>
+  </data>
+  <data name="Badge_ColourMeaning_Meaning" xml:space="preserve">
+    <value>Intended meaning</value>
+  </data>
+  <data name="Badge_ColourMeaning_Success" xml:space="preserve">
+    <value>Completed, confirmed or successful</value>
+  </data>
+  <data name="Badge_ColourMeaning_Danger" xml:space="preserve">
+    <value>Error, failure or urgent issue</value>
+  </data>
+  <data name="Badge_ColourMeaning_Warning" xml:space="preserve">
+    <value>Caution or action may be needed</value>
+  </data>
+  <data name="Badge_ColourMeaning_Info" xml:space="preserve">
+    <value>Neutral supporting information</value>
+  </data>
+  <data name="Badge_ColourMeaning_PrimarySecondary" xml:space="preserve">
+    <value>Non-semantic category or emphasis</value>
+  </data>
+  <data name="Badge_ColourMeaning_LightDark" xml:space="preserve">
+    <value>Contextual or neutral visual treatments</value>
+  </data>
+  <data name="Badge_Variant_Primary" xml:space="preserve">
+    <value>Primary</value>
+  </data>
+  <data name="Badge_Variant_Secondary" xml:space="preserve">
+    <value>Secondary</value>
+  </data>
+  <data name="Badge_Variant_Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Badge_Variant_Danger" xml:space="preserve">
+    <value>Danger</value>
+  </data>
+  <data name="Badge_Variant_Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Badge_Variant_Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Badge_Variant_Light" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="Badge_Variant_Dark" xml:space="preserve">
+    <value>Dark</value>
+  </data>
+  <data name="Badge_Accessibility_Intro" xml:space="preserve">
+    <value>The badge component must be accessible to all users, including people who use keyboards, screen readers, magnification, custom text spacing or touch devices.</value>
+  </data>
+  <data name="Badge_Accessibility_Wcag_Label" xml:space="preserve">
+    <value>Relevant WCAG 2.1 requirements:</value>
+  </data>
+  <data name="Badge_Accessibility_Meaning_Title" xml:space="preserve">
+    <value>Meaning and colour</value>
+  </data>
+  <data name="Badge_Accessibility_Meaning_1" xml:space="preserve">
+    <value>Use a meaningful text label to communicate the badge’s status, category or priority.</value>
+  </data>
+  <data name="Badge_Accessibility_Meaning_2" xml:space="preserve">
+    <value>Do not rely on colour alone to distinguish badge meaning.</value>
+  </data>
+  <data name="Badge_Accessibility_Meaning_3" xml:space="preserve">
+    <value>Use the same semantic colour meaning consistently throughout the product.</value>
+  </data>
+  <data name="Badge_Accessibility_Meaning_4" xml:space="preserve">
+    <value>If an icon conveys information that is not already available in the text, ensure the implemented component provides an equivalent accessible name or description.</value>
+  </data>
+  <data name="Badge_Accessibility_Meaning_Wcag" xml:space="preserve">
+    <value>1.1.1 Non-text Content; 1.4.1 Use of Color; 1.3.1 Info and Relationships.</value>
+  </data>
+  <data name="Badge_Accessibility_Contrast_Title" xml:space="preserve">
+    <value>Contrast and visual treatment</value>
+  </data>
+  <data name="Badge_Accessibility_Contrast_1" xml:space="preserve">
+    <value>Badge text must meet the WCAG 2.1 AA text-contrast requirement against its background.</value>
+  </data>
+  <data name="Badge_Accessibility_Contrast_2" xml:space="preserve">
+    <value>If a badge boundary, icon or other non-text visual is needed to identify the badge or communicate its state, it must meet the applicable non-text contrast requirement.</value>
+  </data>
+  <data name="Badge_Accessibility_Contrast_3" xml:space="preserve">
+    <value>Confirm contrast for every approved solid and inverted variant—not only the default appearance.</value>
+  </data>
+  <data name="Badge_Accessibility_Contrast_4" xml:space="preserve">
+    <value>Do not assume a colour token is accessible in every context; test it against the actual badge background and text size.</value>
+  </data>
+  <data name="Badge_Accessibility_Contrast_Wcag" xml:space="preserve">
+    <value>1.4.3 Contrast (Minimum); 1.4.11 Non-text Contrast.</value>
+  </data>
+  <data name="Badge_Accessibility_Zoom_Title" xml:space="preserve">
+    <value>Zoom, reflow and text spacing</value>
+  </data>
+  <data name="Badge_Accessibility_Zoom_1" xml:space="preserve">
+    <value>Badge labels must remain readable at 200% text zoom.</value>
+  </data>
+  <data name="Badge_Accessibility_Zoom_2" xml:space="preserve">
+    <value>The badge must reflow without clipping, overlap or loss of content at narrow widths.</value>
+  </data>
+  <data name="Badge_Accessibility_Zoom_3" xml:space="preserve">
+    <value>Text, icons and any supporting content must remain usable when users apply custom text spacing.</value>
+  </data>
+  <data name="Badge_Accessibility_Zoom_4" xml:space="preserve">
+    <value>Do not truncate a badge label if truncation hides its meaning.</value>
+  </data>
+  <data name="Badge_Accessibility_Zoom_5" xml:space="preserve">
+    <value>If the badge appears in a dense layout, make sure it does not force unnecessary horizontal scrolling.</value>
+  </data>
+  <data name="Badge_Accessibility_Zoom_Wcag" xml:space="preserve">
+    <value>1.4.4 Resize Text; 1.4.10 Reflow; 1.4.12 Text Spacing.</value>
+  </data>
+  <data name="Badge_Accessibility_NonInteractive_Title" xml:space="preserve">
+    <value>Non-interactive behaviour</value>
+  </data>
+  <data name="Badge_Accessibility_NonInteractive_1" xml:space="preserve">
+    <value>A badge is informational by default.</value>
+  </data>
+  <data name="Badge_Accessibility_NonInteractive_2" xml:space="preserve">
+    <value>Do not style it so it is mistaken for a button, link, filter or other interactive control.</value>
+  </data>
+  <data name="Badge_Accessibility_NonInteractive_3" xml:space="preserve">
+    <value>If a badge is embedded in or associated with an interactive component, ensure that the interactive element—not the badge alone—has the required keyboard behaviour, accessible name and focus indicator.</value>
+  </data>
+  <data name="Badge_Accessibility_NonInteractive_4" xml:space="preserve">
+    <value>Do not add keyboard focus to a static badge.</value>
+  </data>
+  <data name="Badge_Accessibility_NonInteractive_Wcag" xml:space="preserve">
+    <value>2.1.1 Keyboard; 2.4.3 Focus Order; 2.4.7 Focus Visible.</value>
+  </data>
+  <data name="Badge_Accessibility_Content_Title" xml:space="preserve">
+    <value>Content and placement</value>
+  </data>
+  <data name="Badge_Accessibility_Content_1" xml:space="preserve">
+    <value>Keep badges brief and close to the information they describe.</value>
+  </data>
+  <data name="Badge_Accessibility_Content_2" xml:space="preserve">
+    <value>Use clear labels; avoid generic text such as “Important” or “More.”</value>
+  </data>
+  <data name="Badge_Accessibility_Content_3" xml:space="preserve">
+    <value>Do not use a badge as the only location for critical instructions, errors or required actions.</value>
+  </data>
+  <data name="Badge_Accessibility_Content_4" xml:space="preserve">
+    <value>Avoid stacking several badges unless each communicates a distinct and necessary piece of information.</value>
+  </data>
+  <data name="Badge_Accessibility_Content_5" xml:space="preserve">
+    <value>Ensure the relationship between a badge and its associated content is clear in the visual and programmatic reading order.</value>
+  </data>
+  <data name="Badge_Accessibility_Content_Wcag" xml:space="preserve">
+    <value>1.3.1 Info and Relationships; 2.4.6 Headings and Labels.</value>
   </data>
 </root>

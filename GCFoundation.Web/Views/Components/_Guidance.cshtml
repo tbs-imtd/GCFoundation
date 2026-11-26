@@ -19,6 +19,17 @@
             <li>@Html.Raw(item)</li>
         }
     </ul>
+
+    @if (Model.WhenToUseExamples != null && Model.WhenToUseExamples.Any())
+    {
+        <gcds-text margin-top="300">@Components.Guidance_WhenToUse_ExamplesIntro</gcds-text>
+        <ul class="list-square">
+            @foreach (var item in Model.WhenToUseExamples)
+            {
+                <li>@Html.Raw(item)</li>
+            }
+        </ul>
+    }
 }
 
 @* When Not to Use *@
@@ -32,6 +43,11 @@
             <li>@Html.Raw(item)</li>
         }
     </ul>
+
+    @if (!string.IsNullOrEmpty(Model.WhenNotToUseNote))
+    {
+        <gcds-text margin-top="300"><em>@Html.Raw(Model.WhenNotToUseNote)</em></gcds-text>
+    }
 }
 
 @* Accessibility Requirements *@

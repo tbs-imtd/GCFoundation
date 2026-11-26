@@ -388,38 +388,40 @@ namespace GCFoundation.Web.Controllers
                 Resources.Components.Badge_Notes_3
             };
             vm.Overview = Resources.Components.Badge_Overview;
-            vm.Purpose = Resources.Components.Badge_Purpose;
+            vm.AlsoCalled = Resources.Components.Badge_AlsoCalled;
             vm.WhenToUse = new List<string>()
             {
                 Resources.Components.Badge_WhenToUse_1,
                 Resources.Components.Badge_WhenToUse_2,
-                Resources.Components.Badge_WhenToUse_3
+                Resources.Components.Badge_WhenToUse_3,
+                Resources.Components.Badge_WhenToUse_4,
+                Resources.Components.Badge_WhenToUse_5,
+                Resources.Components.Badge_WhenToUse_6
+            };
+            vm.WhenToUseExamples = new List<string>()
+            {
+                Resources.Components.Badge_WhenToUse_Example_1,
+                Resources.Components.Badge_WhenToUse_Example_2,
+                Resources.Components.Badge_WhenToUse_Example_3,
+                Resources.Components.Badge_WhenToUse_Example_4,
+                Resources.Components.Badge_WhenToUse_Example_5,
+                Resources.Components.Badge_WhenToUse_Example_6,
+                Resources.Components.Badge_WhenToUse_Example_7,
+                Resources.Components.Badge_WhenToUse_Example_8
             };
             vm.WhenNotToUse = new List<string>()
             {
                 Resources.Components.Badge_WhenNotToUse_1,
                 Resources.Components.Badge_WhenNotToUse_2,
-                Resources.Components.Badge_WhenNotToUse_3
+                Resources.Components.Badge_WhenNotToUse_3,
+                Resources.Components.Badge_WhenNotToUse_4,
+                Resources.Components.Badge_WhenNotToUse_5,
+                Resources.Components.Badge_WhenNotToUse_6
             };
-            vm.AccessibilityDo = new List<string>()
+            vm.WhenNotToUseNote = Resources.Components.Badge_WhenNotToUse_Note;
+            vm.GuidanceSections = new List<ComponentSampleCodeSectionViewModel>()
             {
-                Resources.Components.Badge_Accessibility_Do_1,
-                Resources.Components.Badge_Accessibility_Do_2,
-                Resources.Components.Badge_Accessibility_Do_3,
-                Resources.Components.Badge_Accessibility_Do_4,
-                Resources.Components.Badge_Accessibility_Do_5
-            };
-            vm.AccessibilityDoNot = new List<string>()
-            {
-                Resources.Components.Badge_Accessibility_DoNot_1,
-                Resources.Components.Badge_Accessibility_DoNot_2
-            };
-            vm.UxBestPractices = new List<string>()
-            {
-                Resources.Components.Badge_UxBestPractices_1,
-                Resources.Components.Badge_UxBestPractices_2,
-                Resources.Components.Badge_UxBestPractices_3,
-                Resources.Components.Badge_UxBestPractices_4
+                new ComponentSampleCodeSectionViewModel() { Id = Resources.Components.Guidance_Accessibility_Anchor, PartialViewName = "Badge/_Accessibility", Title = Resources.Components.Guidance_Accessibility }
             };
             vm.Properties = new List<ComponentPropertyViewModel>()
             {

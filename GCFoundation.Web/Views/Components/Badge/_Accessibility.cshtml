@@ -1,0 +1,42 @@
+@using GCFoundation.Web.Resources
+@model GCFoundation.Web.Models.Components.ComponentSampleCodeSectionViewModel
+
+@{
+    var sections = new[]
+    {
+        (Title: Components.Badge_Accessibility_Meaning_Title,
+            Items: new[] { Components.Badge_Accessibility_Meaning_1, Components.Badge_Accessibility_Meaning_2, Components.Badge_Accessibility_Meaning_3, Components.Badge_Accessibility_Meaning_4 },
+            Wcag: Components.Badge_Accessibility_Meaning_Wcag),
+        (Title: Components.Badge_Accessibility_Contrast_Title,
+            Items: new[] { Components.Badge_Accessibility_Contrast_1, Components.Badge_Accessibility_Contrast_2, Components.Badge_Accessibility_Contrast_3, Components.Badge_Accessibility_Contrast_4 },
+            Wcag: Components.Badge_Accessibility_Contrast_Wcag),
+        (Title: Components.Badge_Accessibility_Zoom_Title,
+            Items: new[] { Components.Badge_Accessibility_Zoom_1, Components.Badge_Accessibility_Zoom_2, Components.Badge_Accessibility_Zoom_3, Components.Badge_Accessibility_Zoom_4, Components.Badge_Accessibility_Zoom_5 },
+            Wcag: Components.Badge_Accessibility_Zoom_Wcag),
+        (Title: Components.Badge_Accessibility_NonInteractive_Title,
+            Items: new[] { Components.Badge_Accessibility_NonInteractive_1, Components.Badge_Accessibility_NonInteractive_2, Components.Badge_Accessibility_NonInteractive_3, Components.Badge_Accessibility_NonInteractive_4 },
+            Wcag: Components.Badge_Accessibility_NonInteractive_Wcag),
+        (Title: Components.Badge_Accessibility_Content_Title,
+            Items: new[] { Components.Badge_Accessibility_Content_1, Components.Badge_Accessibility_Content_2, Components.Badge_Accessibility_Content_3, Components.Badge_Accessibility_Content_4, Components.Badge_Accessibility_Content_5 },
+            Wcag: Components.Badge_Accessibility_Content_Wcag)
+    };
+}
+
+<gcds-text>@Components.Badge_Accessibility_Intro</gcds-text>
+
+@foreach (var guidanceSection in sections)
+{
+    <gcds-heading tag="h3">@guidanceSection.Title</gcds-heading>
+    <ul class="list-square">
+        @foreach (var item in guidanceSection.Items)
+        {
+            <li>@item</li>
+        }
+    </ul>
+    @if (guidanceSection.Title == Components.Badge_Accessibility_Meaning_Title)
+    {
+        <gcds-heading tag="h4">@Components.Badge_ColourMeaning_Title</gcds-heading>
+        <partial name="Badge/_ColourMeaning" model="Model" />
+    }
+    <gcds-text margin-top="300"><strong>@Components.Badge_Accessibility_Wcag_Label</strong> @guidanceSection.Wcag</gcds-text>
+}
