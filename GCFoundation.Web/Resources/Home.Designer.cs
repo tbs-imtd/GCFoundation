@@ -230,24 +230,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use the available layout, spacing, colour and responsive utility classes..
-        /// </summary>
-        public static string Index_Explore_Styles_Description {
-            get {
-                return ResourceManager.GetString("Index_Explore_Styles_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Styles.
-        /// </summary>
-        public static string Index_Explore_Styles_Title {
-            get {
-                return ResourceManager.GetString("Index_Explore_Styles_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Start from working layouts for common application pages and workflows..
         /// </summary>
         public static string Index_Explore_Templates_Description {

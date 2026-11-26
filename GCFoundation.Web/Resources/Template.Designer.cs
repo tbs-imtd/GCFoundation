@@ -1287,119 +1287,11 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The Foundation includes two error templates:.
-        /// </summary>
-        public static string Section_ErrorTemplates_Description {
-            get {
-                return ResourceManager.GetString("Section_ErrorTemplates_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error templates.
-        /// </summary>
-        public static string Section_ErrorTemplates_Title {
-            get {
-                return ResourceManager.GetString("Section_ErrorTemplates_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A bilingual splash page similar to the one used on Canada.ca..
-        /// </summary>
-        public static string Section_LanguageChooser_Description {
-            get {
-                return ResourceManager.GetString("Section_LanguageChooser_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Language chooser template.
-        /// </summary>
-        public static string Section_LanguageChooser_Title {
-            get {
-                return ResourceManager.GetString("Section_LanguageChooser_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The main layout template provides the base structure used across pages..
-        /// </summary>
-        public static string Section_MainTemplate_Description {
-            get {
-                return ResourceManager.GetString("Section_MainTemplate_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Main template.
-        /// </summary>
-        public static string Section_MainTemplate_Title {
-            get {
-                return ResourceManager.GetString("Section_MainTemplate_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A configurable, bilingual component for displaying user authentication information. Supports stateless authentication systems perfect for Azure cloud deployments..
-        /// </summary>
-        public static string Section_AccountPartial_Description {
-            get {
-                return ResourceManager.GetString("Section_AccountPartial_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Account partial template.
-        /// </summary>
-        public static string Section_AccountPartial_Title {
-            get {
-                return ResourceManager.GetString("Section_AccountPartial_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error templates.
-        /// </summary>
-        public static string SideNav_ErrorTemplates {
-            get {
-                return ResourceManager.GetString("SideNav_ErrorTemplates", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to On this page.
         /// </summary>
         public static string SideNav_Label {
             get {
                 return ResourceManager.GetString("SideNav_Label", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Language chooser template.
-        /// </summary>
-        public static string SideNav_LanguageChooser {
-            get {
-                return ResourceManager.GetString("SideNav_LanguageChooser", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Main template.
-        /// </summary>
-        public static string SideNav_MainTemplate {
-            get {
-                return ResourceManager.GetString("SideNav_MainTemplate", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Account partial.
-        /// </summary>
-        public static string SideNav_AccountPartial {
-            get {
-                return ResourceManager.GetString("SideNav_AccountPartial", resourceCulture);
             }
         }
         

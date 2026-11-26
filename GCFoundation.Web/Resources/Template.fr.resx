@@ -123,44 +123,8 @@
   <data name="Index_PageTitle" xml:space="preserve">
     <value>Modèles de page</value>
   </data>
-  <data name="Section_ErrorTemplates_Description" xml:space="preserve">
-    <value>Foundation comprend deux modèles d’erreur :</value>
-  </data>
-  <data name="Section_ErrorTemplates_Title" xml:space="preserve">
-    <value>Modèles d’erreur</value>
-  </data>
-  <data name="Section_LanguageChooser_Description" xml:space="preserve">
-    <value>Une page d’accueil bilingue semblable à celle utilisée sur Canada.ca.</value>
-  </data>
-  <data name="Section_LanguageChooser_Title" xml:space="preserve">
-    <value>Modèle de sélection de langue</value>
-  </data>
-  <data name="Section_MainTemplate_Description" xml:space="preserve">
-    <value>Le modèle principal fournit la structure de base utilisée sur les pages.</value>
-  </data>
-  <data name="Section_MainTemplate_Title" xml:space="preserve">
-    <value>Modèle principal</value>
-  </data>
-  <data name="SideNav_ErrorTemplates" xml:space="preserve">
-    <value>Modèles d’erreur</value>
-  </data>
   <data name="SideNav_Label" xml:space="preserve">
     <value>Sur cette page</value>
-  </data>
-  <data name="SideNav_LanguageChooser" xml:space="preserve">
-    <value>Modèle de sélection de langue</value>
-  </data>
-  <data name="SideNav_MainTemplate" xml:space="preserve">
-    <value>Modèle principal</value>
-  </data>
-  <data name="SideNav_AccountPartial" xml:space="preserve">
-    <value>Partiel de compte</value>
-  </data>
-  <data name="Section_AccountPartial_Title" xml:space="preserve">
-    <value>Modèle partiel de compte</value>
-  </data>
-  <data name="Section_AccountPartial_Description" xml:space="preserve">
-    <value>Un composant bilingue configurable pour afficher les informations d'authentification des utilisateurs. Prend en charge les systèmes d'authentification sans état parfaits pour les déploiements cloud Azure.</value>
   </data>
   <data name="Index_Basic_Title" xml:space="preserve">
     <value>Page de base</value>

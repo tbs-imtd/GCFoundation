@@ -123,44 +123,8 @@
   <data name="Index_PageTitle" xml:space="preserve">
     <value>Page Templates</value>
   </data>
-  <data name="Section_ErrorTemplates_Description" xml:space="preserve">
-    <value>The Foundation includes two error templates:</value>
-  </data>
-  <data name="Section_ErrorTemplates_Title" xml:space="preserve">
-    <value>Error templates</value>
-  </data>
-  <data name="Section_LanguageChooser_Description" xml:space="preserve">
-    <value>A bilingual splash page similar to the one used on Canada.ca.</value>
-  </data>
-  <data name="Section_LanguageChooser_Title" xml:space="preserve">
-    <value>Language chooser template</value>
-  </data>
-  <data name="Section_MainTemplate_Description" xml:space="preserve">
-    <value>The main layout template provides the base structure used across pages.</value>
-  </data>
-  <data name="Section_MainTemplate_Title" xml:space="preserve">
-    <value>Main template</value>
-  </data>
-  <data name="SideNav_ErrorTemplates" xml:space="preserve">
-    <value>Error templates</value>
-  </data>
   <data name="SideNav_Label" xml:space="preserve">
     <value>On this page</value>
-  </data>
-  <data name="SideNav_LanguageChooser" xml:space="preserve">
-    <value>Language chooser template</value>
-  </data>
-  <data name="SideNav_MainTemplate" xml:space="preserve">
-    <value>Main template</value>
-  </data>
-  <data name="SideNav_AccountPartial" xml:space="preserve">
-    <value>Account partial</value>
-  </data>
-  <data name="Section_AccountPartial_Title" xml:space="preserve">
-    <value>Account partial template</value>
-  </data>
-  <data name="Section_AccountPartial_Description" xml:space="preserve">
-    <value>A configurable, bilingual component for displaying user authentication information. Supports stateless authentication systems perfect for Azure cloud deployments.</value>
   </data>
   <data name="Index_Basic_Title" xml:space="preserve">
     <value>Basic Page</value>

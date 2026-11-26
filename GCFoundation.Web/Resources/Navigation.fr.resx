@@ -132,9 +132,6 @@
   <data name="Nav_Components_Form" xml:space="preserve">
     <value>Formulaire</value>
   </data>
-  <data name="Nav_Components_FormBuilder" xml:space="preserve">
-    <value>Générateur de formulaires</value>
-  </data>
   <data name="Nav_Components_Accordion" xml:space="preserve">
     <value>Accordéon</value>
   </data>
@@ -161,12 +158,6 @@
   </data>
   <data name="Nav_Template" xml:space="preserve">
     <value>Modèles de page</value>
-  </data>
-  <data name="Nav_Styles" xml:space="preserve">
-    <value>Styles</value>
-  </data>
-  <data name="Nav_Components_FilteredSearch" xml:space="preserve">
-    <value>Recherche filtrée</value>
   </data>
   <data name="Nav_Language" xml:space="preserve">
     <value>Langue</value>
