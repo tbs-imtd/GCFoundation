@@ -540,6 +540,90 @@
   <data name="Index_FilteredSearch_Description" xml:space="preserve">
     <value>A way to display search with filtered result</value>
   </data>
+  <data name="Index_LikertScale_Title" xml:space="preserve">
+    <value>Likert scale</value>
+  </data>
+  <data name="Index_LikertScale_Description" xml:space="preserve">
+    <value>Present radio options horizontally in responsive cards</value>
+  </data>
+  <data name="LikertScale_Basic_Index" xml:space="preserve">
+    <value>Question 1 of 4</value>
+  </data>
+  <data name="LikertScale_Overview" xml:space="preserve">
+    <value>Use Likert scale for questionnaires that contain many repeated radio-button questions.</value>
+  </data>
+  <data name="LikertScale_WhenToUse_MultipleQuestions" xml:space="preserve">
+    <value>You have multiple related questions that use the same set of answer choices.</value>
+  </data>
+  <data name="LikertScale_WhenToUse_QuestionCount" xml:space="preserve">
+    <value>You have between 3 and 5 questions.</value>
+  </data>
+  <data name="LikertScale_Properties_Disabled" xml:space="preserve">
+    <value>Disables every radio option when set to true.</value>
+  </data>
+  <data name="LikertScale_Properties_For" xml:space="preserve">
+    <value>Binds the radio group to a model property and derives its name, value, legend, hint and validation metadata.</value>
+  </data>
+  <data name="LikertScale_Properties_Hint" xml:space="preserve">
+    <value>Provides supporting text displayed below the legend. Overrides the model metadata value.</value>
+  </data>
+  <data name="LikertScale_Properties_Id" xml:space="preserve">
+    <value>Sets the fieldset ID. Overrides the ID derived from model binding or name.</value>
+  </data>
+  <data name="LikertScale_Properties_Index" xml:space="preserve">
+    <value>Provides optional index text displayed above the legend.</value>
+  </data>
+  <data name="LikertScale_Properties_Items" xml:space="preserve">
+    <value>Provides the radio options, including their text, values, selected state and disabled state.</value>
+  </data>
+  <data name="LikertScale_Properties_Legend" xml:space="preserve">
+    <value>Sets the radio group legend. Overrides the legend derived from model metadata.</value>
+  </data>
+  <data name="LikertScale_Properties_Name" xml:space="preserve">
+    <value>Sets the submitted field name for standalone usage. Use this when for is not provided.</value>
+  </data>
+  <data name="LikertScale_Properties_Required" xml:space="preserve">
+    <value>Controls whether an option is required. Overrides the model's Required annotation.</value>
+  </data>
+  <data name="LikertScale_Properties_Value" xml:space="preserve">
+    <value>Sets the selected option value. Overrides the model-bound value. A value posted back in ModelState takes precedence.</value>
+  </data>
+  <data name="LikertScale_ModelBinding_Title" xml:space="preserve">
+    <value>Model binding</value>
+  </data>
+  <data name="LikertScale_ModelBinding_Anchor" xml:space="preserve">
+    <value>model-binding</value>
+  </data>
+  <data name="LikertScale_ModelBinding_Description" xml:space="preserve">
+    <value>Use model binding to derive the name, legend, hint and validation from model metadata.</value>
+  </data>
+  <data name="LikertScale_ManualEntry_Title" xml:space="preserve">
+    <value>Manual entry</value>
+  </data>
+  <data name="LikertScale_ManualEntry_Anchor" xml:space="preserve">
+    <value>manual-entry</value>
+  </data>
+  <data name="LikertScale_ManualEntry_Description" xml:space="preserve">
+    <value>Provide the name, legend and hint directly when the radio group is not bound to a model property.</value>
+  </data>
+  <data name="LikertScale_Basic_Legend" xml:space="preserve">
+    <value>How satisfied are you with this service?</value>
+  </data>
+  <data name="LikertScale_Basic_Hint" xml:space="preserve">
+    <value>Select the option that best describes your experience.</value>
+  </data>
+  <data name="LikertScale_Basic_VeryDissatisfied" xml:space="preserve">
+    <value>Very dissatisfied</value>
+  </data>
+  <data name="LikertScale_Basic_Dissatisfied" xml:space="preserve">
+    <value>Dissatisfied</value>
+  </data>
+  <data name="LikertScale_Basic_Satisfied" xml:space="preserve">
+    <value>Satisfied</value>
+  </data>
+  <data name="LikertScale_Basic_VerySatisfied" xml:space="preserve">
+    <value>Very satisfied</value>
+  </data>
   <data name="Index_SearchableSelect_Title" xml:space="preserve">
     <value>Searchable Select</value>
   </data>
