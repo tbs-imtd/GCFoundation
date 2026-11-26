@@ -45,6 +45,7 @@ Use a `.fdcp-{kebab-name}` BEM root and `data-fdcp-{kebab-name}[-part]` JS hooks
 
 - Prefer GCDS components for primitives such as hints, error messages, icons, buttons, and error summaries.
 - GCDS wrapper Tag Helpers (`TagHelpers/GCDS`) must expose every GCDS attribute under its exact GCDS name (e.g. `NoticeRole` → `notice-role`), so GCDS documentation works unchanged. Optional attributes must only render when set. Keep renamed legacy names as `[Obsolete]` aliases; `GcdsAttributeParityTests` enforces this and must be refreshed on GCDS upgrades.
+- Declare attributes as auto-properties. When GCDS documents a default, initialize the property with it (`public HeadingRole HeadingRole { get; set; } = HeadingRole.primary;`) rather than a private nullable backing field with a fallback getter. Keep enum attributes non-nullable: Razor only accepts bare enum names such as `heading-role="light"` for non-nullable enum properties, and treats them as C# expressions on `Enum?` properties. Only when GCDS has no default for an enum attribute, keep a private nullable backing field behind a non-nullable property and render the field, so the attribute is omitted until set (e.g. `ContainerTagHelper.Layout`, `GridTagHelper.AlignItems`, `FieldsetTagHelper.LegendSize`).
 - Use GCDS design tokens; avoid hard-coded colours, focus styles, fonts, spacing, and control dimensions when a token exists.
 - Match GCDS label, required marker, hint, error placement, border, focus, disabled, and form spacing behavior.
 - Keep component-specific styles under the component root.
