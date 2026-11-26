@@ -1,15 +1,20 @@
 ﻿@use '../variables' as vars;
 
-@mixin badge-variant($name, $bg, $text, $invertedText: $bg, $invertedBg: vars.$gcds-text-light) {
+@mixin badge-variant($name, $bg, $text, $border: $bg, $invertedText: $bg, $invertedIcon: $invertedText, $invertedBg: transparent) {
     &.fdcp-badge-#{$name} {
         background-color: $bg;
         color: $text;
-        border: 1px solid $bg;
+        border: var(--gcds-border-width-sm) solid $border;
 
         &.inverted {
             background-color: $invertedBg;
             color: $invertedText;
-            border-color: $bg;
+            border-color: $border;
+
+            .fdcp-badge-start,
+            .fdcp-badge-end {
+                color: $invertedIcon;
+            }
         }
     }
 }
@@ -45,6 +50,10 @@
             height: 1rem;
         }
 
+        svg {
+            fill: currentColor;
+        }
+
         button {
             all: unset;
             cursor: pointer;
@@ -58,13 +67,12 @@
         display: inline-block;
     }
     // Include all color variants
-    @include badge-variant(primary, vars.$primary-color, vars.$primary-text-color);
-    @include badge-variant(secondary, vars.$secondary-color, vars.$secondary-text-color);
-    @include badge-variant(success, vars.$success-color, vars.$success-text-color);
-    @include badge-variant(danger, vars.$danger-color, vars.$danger-text-color);
-    // Ensure inverted warning meets WCAG 2.1 AAA: use dark text on light background
-    @include badge-variant(warning, vars.$warning-color, vars.$warning-text-color, vars.$gcds-color-grayscale-1000);
-    @include badge-variant(info, vars.$info-color, vars.$info-text-color);
-    @include badge-variant(light, vars.$light-color, vars.$light-text-color);
-    @include badge-variant(dark, vars.$dark-color, vars.$dark-text-color);
+    @include badge-variant(primary, var(--gcds-color-blue-muted), var(--gcds-color-white));
+    @include badge-variant(secondary, vars.$gcds-text-secondary, var(--gcds-color-white));
+    @include badge-variant(success, vars.$badge-success-color, var(--gcds-color-white));
+    @include badge-variant(danger, vars.$badge-danger-color, var(--gcds-color-white));
+    @include badge-variant(warning, vars.$badge-warning-color, var(--gcds-color-white));
+    @include badge-variant(info, vars.$badge-info-color, var(--gcds-color-white), $invertedText: vars.$badge-info-inverted-text-color, $invertedIcon: vars.$badge-info-color);
+    @include badge-variant(light, vars.$badge-light-color, var(--gcds-color-grayscale-800), $border: vars.$badge-light-border-color, $invertedText: var(--gcds-color-grayscale-800));
+    @include badge-variant(dark, var(--gcds-color-grayscale-800), var(--gcds-color-white));
 }

@@ -1,4 +1,5 @@
 ﻿@using GCFoundation.Components.TagHelpers.FDCP
+@using GCFoundation.Web.Resources
 @model GCFoundation.Web.Models.Components.ComponentSampleCodeSectionViewModel
 
 <fdcp-badge style="info">
@@ -6,11 +7,21 @@
     Info badge
     <span slot="end-content"><button class="btn">X</button></span>
 </fdcp-badge>
+<fdcp-badge style="info" inverted="true">
+    <span slot="start-content"><span class="fa fa-info-circle" aria-hidden="true"></span></span>
+    @Components.Badge_Slot_Inverted_Label
+    <span slot="end-content"><button type="button" aria-label="@Components.Badge_Slot_Close_Label"><span class="fa fa-xmark" aria-hidden="true"></span></button></span>
+</fdcp-badge>
 
 <fdcp-code code-language="html">
 &lt;fdcp-badge style="info"&gt;
     &lt;span slot="start-content"&gt;&lt;span class="fa fa-info-circle"&gt;&lt;/span&gt;&lt;/span&gt;
     Info badge
     &lt;span slot="end-content"&gt;&lt;button class="btn"&gt;X&lt;/button&gt;&lt;/span&gt;
+&lt;/fdcp-badge&gt;
+&lt;fdcp-badge style="info" inverted="true"&gt;
+    &lt;span slot="start-content"&gt;&lt;span class="fa fa-info-circle" aria-hidden="true"&gt;&lt;/span&gt;&lt;/span&gt;
+    @Components.Badge_Slot_Inverted_Label
+    &lt;span slot="end-content"&gt;&lt;button type="button" aria-label="@Components.Badge_Slot_Close_Label"&gt;&lt;span class="fa fa-xmark" aria-hidden="true"&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
 &lt;/fdcp-badge&gt;
 </fdcp-code>

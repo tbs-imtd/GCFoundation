@@ -736,6 +736,12 @@
   <data name="Badge_Slot_Anchor" xml:space="preserve">
     <value>debut-fin</value>
   </data>
+  <data name="Badge_Slot_Inverted_Label" xml:space="preserve">
+    <value>Badge info inversé</value>
+  </data>
+  <data name="Badge_Slot_Close_Label" xml:space="preserve">
+    <value>Retirer</value>
+  </data>
   <data name="Card_Name" xml:space="preserve">
     <value>Carte</value>
   </data>

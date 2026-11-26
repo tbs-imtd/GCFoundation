@@ -1357,6 +1357,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Remove.
+        /// </summary>
+        public static string Badge_Slot_Close_Label {
+            get {
+                return ResourceManager.GetString("Badge_Slot_Close_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Inverted info badge.
+        /// </summary>
+        public static string Badge_Slot_Inverted_Label {
+            get {
+                return ResourceManager.GetString("Badge_Slot_Inverted_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You can insert an icon or button at the start or end using either the &lt;code&gt;slot&lt;/code&gt; attribute or the &lt;code&gt;StartContent&lt;/code&gt;/&lt;code&gt;EndContent&lt;/code&gt; properties..
         /// </summary>
         public static string Badge_Slot_Text {

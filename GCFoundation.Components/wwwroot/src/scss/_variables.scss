@@ -87,37 +87,14 @@ $badge-padding-x: 0.5rem;
 $badge-radius: 1.875rem;
 $badge-font-size: 1rem;
 
-// Primary Colors
-$primary-color: $gcds-text-primary;
-$primary-text-color: $gcds-color-grayscale-0;
-
-// Secondary
-$secondary-color: $gcds-text-secondary;
-$secondary-text-color: $gcds-color-grayscale-0;
-
-// Success
-$success-color: $gcds-color-green-700;
-$success-text-color: $gcds-color-grayscale-0;
-
-// Danger
-$danger-color: $gcds-color-red-500;
-$danger-text-color: $gcds-color-grayscale-0;
-
-// Warning
-$warning-color: $gcds-color-yellow-500;
-$warning-text-color: $gcds-color-grayscale-1000; // Darker text for contrast
-
-// Info
-$info-color: $gcds-color-blue-750;
-$info-text-color: $gcds-color-grayscale-0;
-
-// Light
-$light-color: $gcds-color-grayscale-700;
-$light-text-color: $gcds-text-light;
-
-// Dark
-$dark-color: $gcds-color-grayscale-900;
-$dark-text-color: $gcds-color-grayscale-0;
+// Badge colours with no matching token in the shipped GCDS palette
+$badge-success-color: $gcds-color-green-700;
+$badge-danger-color: $gcds-color-red-700;
+$badge-warning-color: #be5a00;
+$badge-info-color: $gcds-color-blue-750;
+$badge-info-inverted-text-color: #284162;
+$badge-light-color: $gcds-color-grayscale-50;
+$badge-light-border-color: $gcds-color-grayscale-500;
 
 // Headings
 $headings: (h1, h2, h3, h4, h5, h6);
