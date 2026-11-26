@@ -14,8 +14,6 @@ namespace GCFoundation.Components.TagHelpers.GCDS
     [HtmlTargetElement("gcds-input", Attributes = "for")]
     public class InputTagHelper : BaseFormComponentTagHelper
     {
-        private GcdsInputType? _type;
-
         /// <summary>
         /// Gets or sets the autocomplete behavior for the input element.
         /// Defaults to <see cref="AutocompleteType.off"/>.
@@ -93,13 +91,9 @@ namespace GCFoundation.Components.TagHelpers.GCDS
         public string? Suggestions { get; set; }
 
         /// <summary>
-        /// Gets or sets the input type (GCDS <c>type</c>). Not rendered unless set; GCDS defaults to <see cref="GcdsInputType.text"/>.
+        /// Gets or sets the input type (GCDS <c>type</c>). Defaults to <see cref="GcdsInputType.text"/>.
         /// </summary>
-        public GcdsInputType Type
-        {
-            get => _type ?? GcdsInputType.text;
-            set => _type = value;
-        }
+        public GcdsInputType Type { get; set; } = GcdsInputType.text;
 
         /// <inheritdoc/>
         public override void Process(TagHelperContext context, TagHelperOutput output)
@@ -126,7 +120,7 @@ namespace GCFoundation.Components.TagHelpers.GCDS
             AddBooleanAttribute(output, "readonly", Readonly);
             AddAttributeIfNotNull(output, "step", Step);
             AddAttributeIfNotNull(output, "suggestions", Suggestions);
-            AddAttributeIfNotNull(output, "type", _type);
+            AddAttributeIfNotNull(output, "type", Type);
 
             base.Process(context, output);
         }

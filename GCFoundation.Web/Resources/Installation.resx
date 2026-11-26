@@ -138,9 +138,6 @@
   <data name="GlobalResources_DefaultJavaScript_Label" xml:space="preserve">
     <value>Default JavaScript:</value>
   </data>
-  <data name="GlobalResources_Description" xml:space="preserve">
-    <value>This page demonstrates how to use the new global resources configuration feature in GCFoundation. You can configure CSS, JavaScript, meta tags, and link tags globally through the appsettings.json file.</value>
-  </data>
   <data name="GlobalResources_FontAwesome_Label" xml:space="preserve">
     <value>Font Awesome:</value>
   </data>
@@ -167,9 +164,6 @@
   </data>
   <data name="GlobalResources_JavaScriptLoadingOrder_Title" xml:space="preserve">
     <value>JavaScript Loading Order</value>
-  </data>
-  <data name="GlobalResources_LoadingOrder_Description" xml:space="preserve">
-    <value>Resources are loaded in the following order:</value>
   </data>
   <data name="GlobalResources_LoadingOrder_Title" xml:space="preserve">
     <value>Resource Loading Order</value>
@@ -201,228 +195,6 @@
   <data name="GlobalResources_UsingHelper_Title" xml:space="preserve">
     <value>Using GlobalResourceHelper in Views</value>
   </data>
-  <data name="Index_Page_Title" xml:space="preserve">
-    <value>Installation</value>
-  </data>
-  <data name="Index_SideNav_OnThisPage" xml:space="preserve">
-    <value>On this page</value>
-  </data>
-  <data name="Index_Prerequisites_Heading" xml:space="preserve">
-    <value>Prerequisites</value>
-  </data>
-  <data name="Index_Prerequisites_Item_AspNetCore" xml:space="preserve">
-    <value>ASP.NET Core 10.0 or later</value>
-  </data>
-  <data name="Index_Prerequisites_Item_VisualStudio" xml:space="preserve">
-    <value>Visual Studio 2022 or later</value>
-  </data>
-  <data name="Index_NuGetConfiguration_Heading" xml:space="preserve">
-    <value>NuGet Configuration</value>
-  </data>
-  <data name="Index_NuGetConfiguration_Intro" xml:space="preserve">
-    <value>GCFoundation packages are published on nuget.org and can be installed directly using the &lt;code&gt;dotnet&lt;/code&gt; CLI or the Visual Studio Package Manager Console.</value>
-  </data>
-  <data name="Index_PackageInstallation_Heading" xml:space="preserve">
-    <value>Package Installation</value>
-  </data>
-  <data name="Index_PackageInstallation_CorePackages_Intro" xml:space="preserve">
-    <value>Install the following core NuGet packages (using the &lt;code&gt;dotnet&lt;/code&gt; CLI):</value>
-  </data>
-  <data name="Index_PackageInstallation_NavigationPackages_Intro" xml:space="preserve">
-    <value>For navigation, breadcrumbs, and URL translation support, install:</value>
-  </data>
-  <data name="Index_PackageInstallation_PackageManager_Intro" xml:space="preserve">
-    <value>If you prefer the Visual Studio Package Manager Console, you can use:</value>
-  </data>
-  <data name="Index_BasicSetup_Heading" xml:space="preserve">
-    <value>Basic Setup</value>
-  </data>
-  <data name="Index_BasicSetup_Intro" xml:space="preserve">
-    <value>Add the following services in your &lt;code&gt;Program.cs&lt;/code&gt;:</value>
-  </data>
-  <data name="Index_ComponentsSetup_Heading" xml:space="preserve">
-    <value>Components Setup</value>
-  </data>
-  <data name="Index_ComponentsSetup_Intro" xml:space="preserve">
-    <value>Enable GCFoundation components and session middleware in &lt;code&gt;Program.cs&lt;/code&gt;:</value>
-  </data>
-  <data name="Index_SecuritySetup_Heading" xml:space="preserve">
-    <value>Security Setup</value>
-  </data>
-  <data name="Index_SecuritySetup_Intro" xml:space="preserve">
-    <value>Add GCFoundation security policies and secure cookie configuration:</value>
-  </data>
-  <data name="Index_LanguageSetup_Heading" xml:space="preserve">
-    <value>Language Setup</value>
-  </data>
-  <data name="Index_LanguageSetup_Configuration_Intro" xml:space="preserve">
-    <value>Configure localization, global resources, and culture selection in &lt;code&gt;Program.cs&lt;/code&gt;:</value>
-  </data>
-  <data name="Index_LanguageSetup_Middleware_Intro" xml:space="preserve">
-    <value>Enable language and localization middleware:</value>
-  </data>
-  <data name="Index_BreadcrumbsSetup_Heading" xml:space="preserve">
-    <value>Breadcrumbs Setup</value>
-  </data>
-  <data name="Index_BreadcrumbsSetup_Intro" xml:space="preserve">
-    <value>Configure navigation and breadcrumbs services in &lt;code&gt;Program.cs&lt;/code&gt;:</value>
-  </data>
-  <data name="Index_Optional_Badge" xml:space="preserve">
-    <value>Optional</value>
-  </data>
-  <data name="Index_MenuSetup_Heading" xml:space="preserve">
-    <value>Menu Setup</value>
-  </data>
-  <data name="Index_MenuSetup_Intro" xml:space="preserve">
-    <value>If you want the top navigation to display localized labels dynamically, register the top navigation localization service in &lt;code&gt;Program.cs&lt;/code&gt;:</value>
-  </data>
-  <data name="Index_MenuComponentVisibility_Heading" xml:space="preserve">
-    <value>Node Visibility</value>
-  </data>
-  <data name="Index_MenuComponentVisibility_Intro" xml:space="preserve">
-    <value>Each node in &lt;code&gt;navigation.xml&lt;/code&gt; can declare which navigation surfaces it appears on using the &lt;code&gt;componentVisibility&lt;/code&gt; attribute. Omitting it entirely means the node is shown in all surfaces by default.</value>
-  </data>
-  <data name="Index_MenuRestrictions_Heading" xml:space="preserve">
-    <value>Customizable Visibility Restrictions</value>
-  </data>
-  <data name="Index_MenuRestrictions_Rules_Intro" xml:space="preserve">
-    <value>Navigation nodes can be conditionally shown or hidden based on cookies, session values, or claims. Define rules in &lt;code&gt;appsettings.json&lt;/code&gt; using the nav node key as the rule key:</value>
-  </data>
-  <data name="Index_MenuRestrictions_Program_Intro" xml:space="preserve">
-    <value>Then register the rules and the permission resolver in &lt;code&gt;Program.cs&lt;/code&gt;:</value>
-  </data>
-  <data name="Index_UrlTranslation_Heading" xml:space="preserve">
-    <value>URL Translation</value>
-  </data>
-  <data name="Index_UrlTranslation_Routing_Intro" xml:space="preserve">
-    <value>Configure routing with a culture parameter and translated URLs:</value>
-  </data>
-  <data name="Index_UrlTranslation_AppSettings_Intro" xml:space="preserve">
-    <value>Configure &lt;code&gt;appsettings.json&lt;/code&gt; for navigation and global resources:</value>
-  </data>
-  <data name="Index_UrlTranslation_KeyFeatures_Heading" xml:space="preserve">
-    <value>Key features:</value>
-  </data>
-  <data name="Index_UrlTranslation_KeyFeatures_Item_CultureSegment" xml:space="preserve">
-    <value>URL-based culture selection using the first segment (e.g., &lt;code&gt;/fr/home&lt;/code&gt;)</value>
-  </data>
-  <data name="Index_UrlTranslation_KeyFeatures_Item_DefaultCulture" xml:space="preserve">
-    <value>Default culture is &lt;code&gt;en-CA&lt;/code&gt;</value>
-  </data>
-  <data name="Index_UrlTranslation_KeyFeatures_Item_BreadcrumbLocalization" xml:space="preserve">
-    <value>Automatic breadcrumb localization using resource files</value>
-  </data>
-  <data name="Index_UrlTranslation_KeyFeatures_Item_RouteLocalization" xml:space="preserve">
-    <value>Support for culture-specific routing and translated routes using &lt;code&gt;RouteLocalization.AspNetCore&lt;/code&gt;</value>
-  </data>
-  <data name="Index_CompleteExample_Heading" xml:space="preserve">
-    <value>Complete Program.cs Example</value>
-  </data>
-  <data name="Index_CompleteExample_Intro" xml:space="preserve">
-    <value>Here's a complete &lt;code&gt;Program.cs&lt;/code&gt; configuration that ties all of the above together for a typical MVC application:</value>
-  </data>
-  <data name="Index_CompleteExample_AppSettings_Intro" xml:space="preserve">
-    <value>Required &lt;code&gt;appsettings.json&lt;/code&gt; configuration:</value>
-  </data>
-  <data name="Index_CompleteExample_ProjectStructure_Intro" xml:space="preserve">
-    <value>Example project structure for navigation resources:</value>
-  </data>
-  <data name="Index_CodeComment_MvcLocalization" xml:space="preserve">
-    <value>MVC with localization support</value>
-  </data>
-  <data name="Index_CodeComment_RegisterGCFoundationServices" xml:space="preserve">
-    <value>Register GCFoundation services</value>
-  </data>
-  <data name="Index_CodeComment_LoadComponents" xml:space="preserve">
-    <value>Load GCFoundation components and GCDS dependencies</value>
-  </data>
-  <data name="Index_CodeComment_AddContentSecurityPolicy" xml:space="preserve">
-    <value>Add GCFoundation Content Security Policy (CSP)</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureSecureCookies" xml:space="preserve">
-    <value>Configure secure cookies</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureGlobalResources" xml:space="preserve">
-    <value>Configure global resources (resx)</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureSupportedCultures" xml:space="preserve">
-    <value>Configure supported cultures (e.g., en-CA, fr-CA)</value>
-  </data>
-  <data name="Index_CodeComment_AddRouteLocalization" xml:space="preserve">
-    <value>Add route localization (translated URLs)</value>
-  </data>
-  <data name="Index_CodeComment_AddLanguageMiddleware" xml:space="preserve">
-    <value>Add GCFoundation language middleware</value>
-  </data>
-  <data name="Index_CodeComment_EnableRequestLocalization" xml:space="preserve">
-    <value>Enable ASP.NET Core request localization</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureNavigationServices" xml:space="preserve">
-    <value>Configure navigation services</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureBreadcrumbsLocalization" xml:space="preserve">
-    <value>Configure breadcrumbs localization service</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureTopNavigationLocalization" xml:space="preserve">
-    <value>Configure top navigation localization service</value>
-  </data>
-  <data name="Index_CodeComment_ShownEverywhere" xml:space="preserve">
-    <value>Shown everywhere (topnav, breadcrumbs, sidenav)</value>
-  </data>
-  <data name="Index_CodeComment_TopNavigationOnly" xml:space="preserve">
-    <value>Top nav only</value>
-  </data>
-  <data name="Index_CodeComment_BindNavigationRules" xml:space="preserve">
-    <value>Bind navigation visibility rules from configuration</value>
-  </data>
-  <data name="Index_CodeComment_EvaluateNavigationRules" xml:space="preserve">
-    <value>Evaluate rules against the current request (cookie, session, or claim)</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureDefaultRoute" xml:space="preserve">
-    <value>Configure default route with culture parameter</value>
-  </data>
-  <data name="Index_CodeComment_AddCustomRouteLocalization" xml:space="preserve">
-    <value>AddCustomRouteLocalization</value>
-  </data>
-  <data name="Index_CodeComment_NavigationAndBreadcrumbs" xml:space="preserve">
-    <value>Navigation and breadcrumbs</value>
-  </data>
-  <data name="Index_CodeComment_OptionalLocalizedTopNavigation" xml:space="preserve">
-    <value>Optional: localized top navigation labels</value>
-  </data>
-  <data name="Index_CodeComment_GlobalResourcesAndLocalization" xml:space="preserve">
-    <value>Global resources and localization</value>
-  </data>
-  <data name="Index_CodeComment_GCFoundationServices" xml:space="preserve">
-    <value>GCFoundation services</value>
-  </data>
-  <data name="Index_CodeComment_CultureAndUrlLocalization" xml:space="preserve">
-    <value>Culture and URL-based localization</value>
-  </data>
-  <data name="Index_CodeComment_AddRouteLocalizationExtensions" xml:space="preserve">
-    <value>Add route localization extensions (translated routes)</value>
-  </data>
-  <data name="Index_CodeComment_ErrorHandlingProduction" xml:space="preserve">
-    <value>Error handling (production)</value>
-  </data>
-  <data name="Index_CodeComment_SecurityAndStaticFiles" xml:space="preserve">
-    <value>Security and static files</value>
-  </data>
-  <data name="Index_CodeComment_RequestLocalization" xml:space="preserve">
-    <value>Request localization</value>
-  </data>
-  <data name="Index_CodeComment_GCFoundationComponentsAndSecurity" xml:space="preserve">
-    <value>GCFoundation components and security</value>
-  </data>
-  <data name="Index_CodeComment_AuthorizationAndRouting" xml:space="preserve">
-    <value>Authorization and routing</value>
-  </data>
-  <data name="Index_CopyButton_Text" xml:space="preserve">
-    <value>Copy</value>
-  </data>
-  <data name="Index_CopyButton_SuccessText" xml:space="preserve">
-    <value>Copied!</value>
-  </data>
   <data name="Translations_Page_Title" xml:space="preserve">
     <value>Standard Translations</value>
   </data>
@@ -432,23 +204,14 @@
   <data name="Metadata_Page_Title" xml:space="preserve">
     <value>Metadata</value>
   </data>
-  <data name="Metadata_Description" xml:space="preserve">
-    <value>This page demonstrates how metadata can be configured with GCFoundation. In addition to globally-defined metadata information, your application's metadata can be fully-customized on each page to allow for your application to be fully-optimized for search engines (i.e. SEO).</value>
-  </data>
   <data name="Metadata_SideNav_OnThisPage" xml:space="preserve">
     <value>On this page</value>
   </data>
   <data name="Metadata_Overview_Heading" xml:space="preserve">
     <value>Overview</value>
   </data>
-  <data name="Metadata_HowItWorks_Heading" xml:space="preserve">
-    <value>How it works</value>
-  </data>
   <data name="Metadata_Usage_Heading" xml:space="preserve">
     <value>Usage in controllers</value>
-  </data>
-  <data name="Metadata_LayoutMerge_Heading" xml:space="preserve">
-    <value>Layout rendering and merge</value>
   </data>
   <data name="Metadata_Configuration_Heading" xml:space="preserve">
     <value>Configuration</value>
@@ -473,12 +236,6 @@
   </data>
   <data name="Metadata_Overview_Item_Configuration" xml:space="preserve">
     <value>&lt;strong&gt;Configuration&lt;/strong&gt;: GlobalMetaTags in GCFoundationComponentsSettings is a collection of typed MetaTag objects (appsettings.json).</value>
-  </data>
-  <data name="Metadata_HowItWorks_Intro" xml:space="preserve">
-    <value>Controllers inheriting GCFoundationBaseController can add tags during action execution. The base class exposes them to the view post-action.</value>
-  </data>
-  <data name="Metadata_LayoutMerge_Intro" xml:space="preserve">
-    <value>The foundation layout merges controller tags with global tags, avoiding duplicates by name or property. Controller tags are rendered first.</value>
   </data>
   <data name="Metadata_Configuration_Intro" xml:space="preserve">
     <value>Set global, always-on meta tags in appsettings.json using the typed MetaTag structure:</value>
@@ -525,10 +282,244 @@
   <data name="DateModified_Link" xml:space="preserve">
     <value>For more information about the &lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt; tag, please take a look at the &lt;gcds-link href="https://design-system.alpha.canada.ca/en/components/date-modified/" target="_blank" external&gt;GC Design System documentation&lt;/gcds-link&gt;.</value>
   </data>
-  <data name="Translations_HowToUse_Intro" xml:space="preserve">
-    <value>Using GCFoundation standard translations is pretty simple. Just make sure that Localization has been configured in your project and, to declare the proper @using statements on your Razor views and you'll be able to start using standardized translations in your content.</value>
+  <data name="Index_Page_Title" xml:space="preserve">
+    <value>Installation</value>
+  </data>
+  <data name="Index_Intro" xml:space="preserve">
+    <value>This guide adds GCFoundation to an ASP.NET Core MVC application. The quick start gives you the Canada.ca layout (header, footer, menu, breadcrumbs and language toggle), the components and the default security policies. The optional sections then cover features you can add when you need them.</value>
+  </data>
+  <data name="Index_SideNav_OnThisPage" xml:space="preserve">
+    <value>On this page</value>
+  </data>
+  <data name="Index_Prerequisites_Heading" xml:space="preserve">
+    <value>Prerequisites</value>
+  </data>
+  <data name="Index_Prerequisites_Item_Sdk" xml:space="preserve">
+    <value>The &lt;a href="https://dotnet.microsoft.com/download/dotnet/10.0"&gt;.NET 10 SDK&lt;/a&gt;</value>
+  </data>
+  <data name="Index_Prerequisites_Item_Ide" xml:space="preserve">
+    <value>Visual Studio 2026 (version 18.0 or later), Visual Studio Code with the C# Dev Kit, or another editor that supports .NET 10</value>
+  </data>
+  <data name="Index_Prerequisites_Item_Project" xml:space="preserve">
+    <value>An ASP.NET Core MVC project that targets &lt;code&gt;net10.0&lt;/code&gt;. To start from scratch, run &lt;code&gt;dotnet new mvc -n MyApp&lt;/code&gt;.</value>
+  </data>
+  <data name="Index_Prerequisites_NuGet" xml:space="preserve">
+    <value>GCFoundation packages are published on nuget.org, so you don't need to add a package source.</value>
+  </data>
+  <data name="Index_QuickStart_Heading" xml:space="preserve">
+    <value>Quick start</value>
+  </data>
+  <data name="Index_QuickStart_Intro" xml:space="preserve">
+    <value>Follow these steps in order. The examples use &lt;code&gt;MyApp&lt;/code&gt; as the project name and root namespace: replace it with your own.</value>
+  </data>
+  <data name="Index_Step1_Heading" xml:space="preserve">
+    <value>1. Install the packages</value>
+  </data>
+  <data name="Index_Step1_Intro" xml:space="preserve">
+    <value>From your project folder, add the two GCFoundation packages and the cloudscribe localization package. &lt;code&gt;GCFoundation.Common&lt;/code&gt; and &lt;code&gt;cloudscribe.Web.Navigation&lt;/code&gt; are installed automatically as dependencies.</value>
+  </data>
+  <data name="Index_Step1_PackageManager" xml:space="preserve">
+    <value>In the Visual Studio Package Manager Console, run &lt;code&gt;Install-Package&lt;/code&gt; with the same package names instead.</value>
+  </data>
+  <data name="Index_Step2_Heading" xml:space="preserve">
+    <value>2. Configure Program.cs</value>
+  </data>
+  <data name="Index_Step2_Intro" xml:space="preserve">
+    <value>Replace the contents of &lt;code&gt;Program.cs&lt;/code&gt; with the following. It registers the GCFoundation services, the navigation used by the menu and breadcrumbs, and English and French request localization based on the first segment of the URL (&lt;code&gt;/en/...&lt;/code&gt; or &lt;code&gt;/fr/...&lt;/code&gt;).</value>
+  </data>
+  <data name="Index_Step3_Heading" xml:space="preserve">
+    <value>3. Add your settings</value>
+  </data>
+  <data name="Index_Step3_Intro" xml:space="preserve">
+    <value>Add a &lt;code&gt;FoundationComponentsSettings&lt;/code&gt; section to &lt;code&gt;appsettings.json&lt;/code&gt;. To start, you only need the application name in both languages. It appears in the header, the menu and the page title.</value>
+  </data>
+  <data name="Index_Step3_Note" xml:space="preserve">
+    <value>Every other setting has a working default. You can add them later: the application version and footer links in this section, global files and meta tags (see the next steps), and the &lt;code&gt;ContentPolicySettings&lt;/code&gt;, &lt;code&gt;FoundationSession&lt;/code&gt; and &lt;code&gt;AccountSettings&lt;/code&gt; sections.</value>
+  </data>
+  <data name="Index_Step4_Heading" xml:space="preserve">
+    <value>4. Describe your navigation</value>
+  </data>
+  <data name="Index_Step4_Intro" xml:space="preserve">
+    <value>The layout builds the menu and the breadcrumbs from a &lt;code&gt;navigation.xml&lt;/code&gt; file at the root of your project. Each node points to a controller action, and its &lt;code&gt;text&lt;/code&gt; attribute is a resource key, not a label.</value>
+  </data>
+  <data name="Index_Step4_PreservedRoute" xml:space="preserve">
+    <value>Keep &lt;code&gt;preservedRouteParameters="culture"&lt;/code&gt; on every node so that links stay in the current language.</value>
+  </data>
+  <data name="Index_Step4_Resources" xml:space="preserve">
+    <value>Then add the labels. In a &lt;code&gt;Resources&lt;/code&gt; folder, create an empty &lt;code&gt;Navigation&lt;/code&gt; class, a &lt;code&gt;Navigation.resx&lt;/code&gt; file for English and a &lt;code&gt;Navigation.fr.resx&lt;/code&gt; file for French, with the keys used in &lt;code&gt;navigation.xml&lt;/code&gt;.</value>
+  </data>
+  <data name="Index_Step4_ResourcesNote" xml:space="preserve">
+    <value>The class and the files must have the same name and folder so that .NET can find the translations. If Visual Studio generated a &lt;code&gt;Navigation.Designer.cs&lt;/code&gt; file for the English file, that generated class already does the job: don't create &lt;code&gt;Navigation.cs&lt;/code&gt;.</value>
+  </data>
+  <data name="Index_Step5_Heading" xml:space="preserve">
+    <value>5. Use the GCFoundation layout</value>
+  </data>
+  <data name="Index_Step5_Intro" xml:space="preserve">
+    <value>Make the GCFoundation tag helpers available to every view in &lt;code&gt;Views/_ViewImports.cshtml&lt;/code&gt;:</value>
+  </data>
+  <data name="Index_Step5_Layout" xml:space="preserve">
+    <value>Then use the shared layout in &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt;. It provides the header, footer, menu, breadcrumbs, language toggle and all the GCDS and GCFoundation styles and scripts, so you no longer need the template's &lt;code&gt;Views/Shared/_Layout.cshtml&lt;/code&gt;.</value>
+  </data>
+  <data name="Index_Step5_Content" xml:space="preserve">
+    <value>Your views now contain only the page content. For example, in &lt;code&gt;Views/Home/Index.cshtml&lt;/code&gt;:</value>
+  </data>
+  <data name="Index_Step6_Heading" xml:space="preserve">
+    <value>6. Run the application</value>
+  </data>
+  <data name="Index_Step6_Intro" xml:space="preserve">
+    <value>Start the application and open &lt;code&gt;/en&lt;/code&gt; or &lt;code&gt;/fr&lt;/code&gt;. You should see the Canada.ca header with your application name, a menu built from &lt;code&gt;navigation.xml&lt;/code&gt;, and a language toggle that switches between the English and French versions of the page.</value>
+  </data>
+  <data name="Index_Step6_Troubleshooting" xml:space="preserve">
+    <value>If the page has no styles, check that &lt;code&gt;app.UseStaticFiles()&lt;/code&gt; is called. If the menu shows keys such as &lt;code&gt;Nav_Home&lt;/code&gt; instead of labels, check that the resource files are in the same folder as the &lt;code&gt;Navigation&lt;/code&gt; class and have the same name.</value>
+  </data>
+  <data name="Index_Optional_Heading" xml:space="preserve">
+    <value>Optional configuration</value>
+  </data>
+  <data name="Index_Optional_Intro" xml:space="preserve">
+    <value>Add these features only when your application needs them.</value>
+  </data>
+  <data name="Index_NodeVisibility_Heading" xml:space="preserve">
+    <value>Show a node in the menu or the breadcrumbs only</value>
+  </data>
+  <data name="Index_NodeVisibility_Intro" xml:space="preserve">
+    <value>By default, a node appears in both the menu and the breadcrumbs. Use the &lt;code&gt;componentVisibility&lt;/code&gt; attribute to limit it to one of them: &lt;code&gt;topnav&lt;/code&gt; for the menu, &lt;code&gt;breadcrumbs&lt;/code&gt; for the breadcrumbs. In the menu, a node without a controller that has children is displayed as a drop-down group.</value>
+  </data>
+  <data name="Index_NavRules_Heading" xml:space="preserve">
+    <value>Show or hide nodes based on the user</value>
+  </data>
+  <data name="Index_NavRules_Intro" xml:space="preserve">
+    <value>You can hide a node unless the current request has a given claim, cookie or session value. Add a rule under the node's &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;appsettings.json&lt;/code&gt;. Nodes without a rule are always shown.</value>
+  </data>
+  <data name="Index_NavRules_Program" xml:space="preserve">
+    <value>Then register the rules and the permission resolver in &lt;code&gt;Program.cs&lt;/code&gt;, before &lt;code&gt;builder.Build()&lt;/code&gt;:</value>
+  </data>
+  <data name="Index_NavRules_Note" xml:space="preserve">
+    <value>Rules only hide links. They don't protect the pages: also add &lt;code&gt;[Authorize]&lt;/code&gt; to the controllers or actions that require it.</value>
+  </data>
+  <data name="Index_SecureCookies_Heading" xml:space="preserve">
+    <value>Harden cookies</value>
+  </data>
+  <data name="Index_SecureCookies_Intro" xml:space="preserve">
+    <value>To make every cookie set by your application &lt;code&gt;Secure&lt;/code&gt;, &lt;code&gt;HttpOnly&lt;/code&gt; and &lt;code&gt;SameSite=Strict&lt;/code&gt;, add a cookie policy right after the language middleware:</value>
+  </data>
+  <data name="Index_SecureCookies_Note" xml:space="preserve">
+    <value>&lt;code&gt;Secure&lt;/code&gt; cookies are only sent over HTTPS, so run the application with the &lt;code&gt;https&lt;/code&gt; launch profile, including during development.</value>
+  </data>
+  <data name="Index_ContentPolicy_Heading" xml:space="preserve">
+    <value>Allow other content sources</value>
+  </data>
+  <data name="Index_ContentPolicy_Intro" xml:space="preserve">
+    <value>&lt;code&gt;UseGCFoundationContentPolicies()&lt;/code&gt; sends a strict Content Security Policy that already allows GCFoundation, GCDS and Font Awesome. If you load scripts, styles, fonts, images, frames or API calls from other domains, list them in a &lt;code&gt;ContentPolicySettings&lt;/code&gt; section of &lt;code&gt;appsettings.json&lt;/code&gt;:</value>
+  </data>
+  <data name="Index_ContentPolicy_Nonce" xml:space="preserve">
+    <value>Inline scripts are blocked unless they carry the nonce of the current request. Add it with &lt;code&gt;CspNonceHelper&lt;/code&gt;:</value>
+  </data>
+  <data name="Index_UrlTranslation_Heading" xml:space="preserve">
+    <value>Translate URLs</value>
+  </data>
+  <data name="Index_UrlTranslation_Intro" xml:space="preserve">
+    <value>By default, French pages use the same path as English pages (&lt;code&gt;/fr/home/privacy&lt;/code&gt;). To give them French paths (&lt;code&gt;/fr/accueil/confidentialite&lt;/code&gt;), install &lt;code&gt;RouteLocalization.AspNetCore&lt;/code&gt;:</value>
+  </data>
+  <data name="Index_UrlTranslation_AttributeRoutes" xml:space="preserve">
+    <value>RouteLocalization works with attribute routes. Give each controller and action a route without the language: the &lt;code&gt;/en&lt;/code&gt; and &lt;code&gt;/fr&lt;/code&gt; prefixes are added for you.</value>
+  </data>
+  <data name="Index_UrlTranslation_Extension" xml:space="preserve">
+    <value>Then declare the French paths in an extension method. Routes that you don't translate keep their English path in both languages.</value>
+  </data>
+  <data name="Index_UrlTranslation_Register" xml:space="preserve">
+    <value>Register the extension in &lt;code&gt;Program.cs&lt;/code&gt; before &lt;code&gt;builder.Build()&lt;/code&gt;. Attribute-routed controllers no longer answer the site root (&lt;code&gt;/&lt;/code&gt;), so also map it, for example to the English home page:</value>
+  </data>
+  <data name="Index_UrlTranslation_Result" xml:space="preserve">
+    <value>The menu, the breadcrumbs and the language toggle use the translated paths automatically.</value>
+  </data>
+  <data name="Index_NextSteps_Heading" xml:space="preserve">
+    <value>Next steps</value>
+  </data>
+  <data name="Index_NextSteps_GlobalResources" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Global resources&lt;/a&gt;: add your own CSS, JavaScript, meta tags and link tags to every page.</value>
+  </data>
+  <data name="Index_NextSteps_Metadata" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Metadata&lt;/a&gt;: set meta tags for each page, for search engines and social media.</value>
+  </data>
+  <data name="Index_NextSteps_DateModified" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Date modified and version number&lt;/a&gt;: show the date modified or the version number at the bottom of each page.</value>
+  </data>
+  <data name="Index_NextSteps_Translations" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Standard translations&lt;/a&gt;: reuse common terms in English and French.</value>
+  </data>
+  <data name="Index_NextSteps_Components" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Components&lt;/a&gt;: browse the GCDS and FDCP components and their tag helpers.</value>
+  </data>
+  <data name="Index_NextSteps_Templates" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Page templates&lt;/a&gt;: start from a complete page.</value>
+  </data>
+  <data name="Index_CodeComment_Navigation" xml:space="preserve">
+    <value>Menu and breadcrumbs: read navigation.xml and translate its labels</value>
+  </data>
+  <data name="Index_CodeComment_GCFoundationServices" xml:space="preserve">
+    <value>GCFoundation: layout and components, content security policy, session</value>
+  </data>
+  <data name="Index_CodeComment_Cultures" xml:space="preserve">
+    <value>English and French, selected from the first segment of the URL</value>
+  </data>
+  <data name="Index_CodeComment_ErrorPages" xml:space="preserve">
+    <value>Bilingual error pages provided by GCFoundation</value>
+  </data>
+  <data name="Index_CodeComment_TopNavigationOnly" xml:space="preserve">
+    <value>Menu only: a drop-down group with no page of its own</value>
+  </data>
+  <data name="Index_CodeComment_BreadcrumbsOnly" xml:space="preserve">
+    <value>Breadcrumbs only: a page linked from the footer</value>
+  </data>
+  <data name="Index_CodeComment_DefaultTranslation" xml:space="preserve">
+    <value>Add an /en and /fr route for everything not translated above</value>
+  </data>
+  <data name="GlobalResources_Description" xml:space="preserve">
+    <value>Use the &lt;code&gt;FoundationComponentsSettings&lt;/code&gt; section of &lt;code&gt;appsettings.json&lt;/code&gt; to add CSS files, JavaScript files, meta tags and link tags to every page that uses &lt;code&gt;_FoundationLayout&lt;/code&gt;.</value>
+  </data>
+  <data name="GlobalResources_LoadingOrder_Description" xml:space="preserve">
+    <value>The layout loads resources in this order, so your own files can override the defaults.</value>
+  </data>
+  <data name="GlobalResources_CssOrder_Item_Gcds" xml:space="preserve">
+    <value>GCDS CSS from the CDN, if &lt;code&gt;IncludeGCDSResources&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;</value>
+  </data>
+  <data name="GlobalResources_CssOrder_Item_FontAwesome" xml:space="preserve">
+    <value>Font Awesome CSS from the CDN, if &lt;code&gt;IncludeFontAwesome&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;</value>
+  </data>
+  <data name="GlobalResources_CssOrder_Item_Default" xml:space="preserve">
+    <value>Default GCFoundation CSS, always included:</value>
+  </data>
+  <data name="GlobalResources_CssOrder_Item_Global" xml:space="preserve">
+    <value>Files listed in &lt;code&gt;GlobalCssFiles&lt;/code&gt;</value>
+  </data>
+  <data name="GlobalResources_CssOrder_Item_Page" xml:space="preserve">
+    <value>The page's &lt;code&gt;Styles&lt;/code&gt; section</value>
+  </data>
+  <data name="GlobalResources_JsOrder_Item_Gcds" xml:space="preserve">
+    <value>GCDS JavaScript from the CDN, if &lt;code&gt;IncludeGCDSResources&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;</value>
+  </data>
+  <data name="GlobalResources_JsOrder_Item_Default" xml:space="preserve">
+    <value>Default GCFoundation JavaScript, always included:</value>
+  </data>
+  <data name="GlobalResources_JsOrder_Item_Global" xml:space="preserve">
+    <value>Files listed in &lt;code&gt;GlobalJavaScriptFiles&lt;/code&gt;</value>
+  </data>
+  <data name="GlobalResources_JsOrder_Item_Page" xml:space="preserve">
+    <value>The page's &lt;code&gt;Scripts&lt;/code&gt; section</value>
+  </data>
+  <data name="GlobalResources_HowToConfigure_Note" xml:space="preserve">
+    <value>Local paths can start with &lt;code&gt;/&lt;/code&gt; or &lt;code&gt;~/&lt;/code&gt;. Addresses that start with &lt;code&gt;http&lt;/code&gt; are used as is: add their domain to &lt;code&gt;ContentPolicySettings&lt;/code&gt; (&lt;code&gt;StyleSrc&lt;/code&gt; or &lt;code&gt;ScriptSrc&lt;/code&gt;), otherwise the browser blocks them.</value>
+  </data>
+  <data name="Metadata_Description" xml:space="preserve">
+    <value>This page explains how to configure metadata with GCFoundation. In addition to global metadata, you can customize the metadata of each page to optimize your application for search engines (SEO).</value>
   </data>
   <data name="Translations_HowToUse_Heading" xml:space="preserve">
     <value>How to use</value>
+  </data>
+  <data name="Translations_HowToUse_Intro" xml:space="preserve">
+    <value>Add &lt;code&gt;@using GCFoundation.Components.Resources&lt;/code&gt; to a view, or to &lt;code&gt;_ViewImports.cshtml&lt;/code&gt; for every view, then use the properties of the &lt;code&gt;Localization&lt;/code&gt; class. Each property returns the term in the current language, so request localization must be configured as described in the installation quick start.</value>
+  </data>
+  <data name="Translations_List_Heading" xml:space="preserve">
+    <value>Available translations</value>
   </data>
 </root>

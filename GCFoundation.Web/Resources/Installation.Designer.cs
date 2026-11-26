@@ -124,6 +124,51 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Default GCFoundation CSS, always included:.
+        /// </summary>
+        public static string GlobalResources_CssOrder_Item_Default {
+            get {
+                return ResourceManager.GetString("GlobalResources_CssOrder_Item_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Font Awesome CSS from the CDN, if &lt;code&gt;IncludeFontAwesome&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        public static string GlobalResources_CssOrder_Item_FontAwesome {
+            get {
+                return ResourceManager.GetString("GlobalResources_CssOrder_Item_FontAwesome", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GCDS CSS from the CDN, if &lt;code&gt;IncludeGCDSResources&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        public static string GlobalResources_CssOrder_Item_Gcds {
+            get {
+                return ResourceManager.GetString("GlobalResources_CssOrder_Item_Gcds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Files listed in &lt;code&gt;GlobalCssFiles&lt;/code&gt;.
+        /// </summary>
+        public static string GlobalResources_CssOrder_Item_Global {
+            get {
+                return ResourceManager.GetString("GlobalResources_CssOrder_Item_Global", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The page&apos;s &lt;code&gt;Styles&lt;/code&gt; section.
+        /// </summary>
+        public static string GlobalResources_CssOrder_Item_Page {
+            get {
+                return ResourceManager.GetString("GlobalResources_CssOrder_Item_Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The following resources are currently configured to be loaded globally:.
         /// </summary>
         public static string GlobalResources_CurrentConfiguration_Description {
@@ -169,7 +214,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This page demonstrates how to use the new global resources configuration feature in GCFoundation. You can configure CSS, JavaScript, meta tags, and link tags globally through the appsettings.json file..
+        ///   Looks up a localized string similar to Use the &lt;code&gt;FoundationComponentsSettings&lt;/code&gt; section of &lt;code&gt;appsettings.json&lt;/code&gt; to add CSS files, JavaScript files, meta tags and link tags to every page that uses &lt;code&gt;_FoundationLayout&lt;/code&gt;..
         /// </summary>
         public static string GlobalResources_Description {
             get {
@@ -241,6 +286,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Local paths can start with &lt;code&gt;/&lt;/code&gt; or &lt;code&gt;~/&lt;/code&gt;. Addresses that start with &lt;code&gt;http&lt;/code&gt; are used as is: add their domain to &lt;code&gt;ContentPolicySettings&lt;/code&gt; (&lt;code&gt;StyleSrc&lt;/code&gt; or &lt;code&gt;ScriptSrc&lt;/code&gt;), otherwise the browser blocks them..
+        /// </summary>
+        public static string GlobalResources_HowToConfigure_Note {
+            get {
+                return ResourceManager.GetString("GlobalResources_HowToConfigure_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to How to Configure.
         /// </summary>
         public static string GlobalResources_HowToConfigure_Title {
@@ -259,7 +313,43 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Resources are loaded in the following order:.
+        ///   Looks up a localized string similar to Default GCFoundation JavaScript, always included:.
+        /// </summary>
+        public static string GlobalResources_JsOrder_Item_Default {
+            get {
+                return ResourceManager.GetString("GlobalResources_JsOrder_Item_Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GCDS JavaScript from the CDN, if &lt;code&gt;IncludeGCDSResources&lt;/code&gt; is &lt;code&gt;true&lt;/code&gt;.
+        /// </summary>
+        public static string GlobalResources_JsOrder_Item_Gcds {
+            get {
+                return ResourceManager.GetString("GlobalResources_JsOrder_Item_Gcds", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Files listed in &lt;code&gt;GlobalJavaScriptFiles&lt;/code&gt;.
+        /// </summary>
+        public static string GlobalResources_JsOrder_Item_Global {
+            get {
+                return ResourceManager.GetString("GlobalResources_JsOrder_Item_Global", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The page&apos;s &lt;code&gt;Scripts&lt;/code&gt; section.
+        /// </summary>
+        public static string GlobalResources_JsOrder_Item_Page {
+            get {
+                return ResourceManager.GetString("GlobalResources_JsOrder_Item_Page", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The layout loads resources in this order, so your own files can override the defaults..
         /// </summary>
         public static string GlobalResources_LoadingOrder_Description {
             get {
@@ -358,214 +448,43 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Basic Setup.
+        ///   Looks up a localized string similar to Breadcrumbs only: a page linked from the footer.
         /// </summary>
-        public static string Index_BasicSetup_Heading {
+        public static string Index_CodeComment_BreadcrumbsOnly {
             get {
-                return ResourceManager.GetString("Index_BasicSetup_Heading", resourceCulture);
+                return ResourceManager.GetString("Index_CodeComment_BreadcrumbsOnly", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add the following services in your &lt;code&gt;Program.cs&lt;/code&gt;:.
+        ///   Looks up a localized string similar to English and French, selected from the first segment of the URL.
         /// </summary>
-        public static string Index_BasicSetup_Intro {
+        public static string Index_CodeComment_Cultures {
             get {
-                return ResourceManager.GetString("Index_BasicSetup_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_CodeComment_Cultures", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Breadcrumbs Setup.
+        ///   Looks up a localized string similar to Add an /en and /fr route for everything not translated above.
         /// </summary>
-        public static string Index_BreadcrumbsSetup_Heading {
+        public static string Index_CodeComment_DefaultTranslation {
             get {
-                return ResourceManager.GetString("Index_BreadcrumbsSetup_Heading", resourceCulture);
+                return ResourceManager.GetString("Index_CodeComment_DefaultTranslation", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure navigation and breadcrumbs services in &lt;code&gt;Program.cs&lt;/code&gt;:.
+        ///   Looks up a localized string similar to Bilingual error pages provided by GCFoundation.
         /// </summary>
-        public static string Index_BreadcrumbsSetup_Intro {
+        public static string Index_CodeComment_ErrorPages {
             get {
-                return ResourceManager.GetString("Index_BreadcrumbsSetup_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_CodeComment_ErrorPages", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add GCFoundation Content Security Policy (CSP).
-        /// </summary>
-        public static string Index_CodeComment_AddContentSecurityPolicy {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_AddContentSecurityPolicy", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to AddCustomRouteLocalization.
-        /// </summary>
-        public static string Index_CodeComment_AddCustomRouteLocalization {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_AddCustomRouteLocalization", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add GCFoundation language middleware.
-        /// </summary>
-        public static string Index_CodeComment_AddLanguageMiddleware {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_AddLanguageMiddleware", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add route localization (translated URLs).
-        /// </summary>
-        public static string Index_CodeComment_AddRouteLocalization {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_AddRouteLocalization", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Add route localization extensions (translated routes).
-        /// </summary>
-        public static string Index_CodeComment_AddRouteLocalizationExtensions {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_AddRouteLocalizationExtensions", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Authorization and routing.
-        /// </summary>
-        public static string Index_CodeComment_AuthorizationAndRouting {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_AuthorizationAndRouting", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Bind navigation visibility rules from configuration.
-        /// </summary>
-        public static string Index_CodeComment_BindNavigationRules {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_BindNavigationRules", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure breadcrumbs localization service.
-        /// </summary>
-        public static string Index_CodeComment_ConfigureBreadcrumbsLocalization {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_ConfigureBreadcrumbsLocalization", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure default route with culture parameter.
-        /// </summary>
-        public static string Index_CodeComment_ConfigureDefaultRoute {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_ConfigureDefaultRoute", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure global resources (resx).
-        /// </summary>
-        public static string Index_CodeComment_ConfigureGlobalResources {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_ConfigureGlobalResources", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure navigation services.
-        /// </summary>
-        public static string Index_CodeComment_ConfigureNavigationServices {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_ConfigureNavigationServices", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure secure cookies.
-        /// </summary>
-        public static string Index_CodeComment_ConfigureSecureCookies {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_ConfigureSecureCookies", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure supported cultures (e.g., en-CA, fr-CA).
-        /// </summary>
-        public static string Index_CodeComment_ConfigureSupportedCultures {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_ConfigureSupportedCultures", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure top navigation localization service.
-        /// </summary>
-        public static string Index_CodeComment_ConfigureTopNavigationLocalization {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_ConfigureTopNavigationLocalization", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Culture and URL-based localization.
-        /// </summary>
-        public static string Index_CodeComment_CultureAndUrlLocalization {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_CultureAndUrlLocalization", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Enable ASP.NET Core request localization.
-        /// </summary>
-        public static string Index_CodeComment_EnableRequestLocalization {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_EnableRequestLocalization", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Error handling (production).
-        /// </summary>
-        public static string Index_CodeComment_ErrorHandlingProduction {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_ErrorHandlingProduction", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Evaluate rules against the current request (cookie, session, or claim).
-        /// </summary>
-        public static string Index_CodeComment_EvaluateNavigationRules {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_EvaluateNavigationRules", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to GCFoundation components and security.
-        /// </summary>
-        public static string Index_CodeComment_GCFoundationComponentsAndSecurity {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_GCFoundationComponentsAndSecurity", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to GCFoundation services.
+        ///   Looks up a localized string similar to GCFoundation: layout and components, content security policy, session.
         /// </summary>
         public static string Index_CodeComment_GCFoundationServices {
             get {
@@ -574,88 +493,16 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Global resources and localization.
+        ///   Looks up a localized string similar to Menu and breadcrumbs: read navigation.xml and translate its labels.
         /// </summary>
-        public static string Index_CodeComment_GlobalResourcesAndLocalization {
+        public static string Index_CodeComment_Navigation {
             get {
-                return ResourceManager.GetString("Index_CodeComment_GlobalResourcesAndLocalization", resourceCulture);
+                return ResourceManager.GetString("Index_CodeComment_Navigation", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Load GCFoundation components and GCDS dependencies.
-        /// </summary>
-        public static string Index_CodeComment_LoadComponents {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_LoadComponents", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to MVC with localization support.
-        /// </summary>
-        public static string Index_CodeComment_MvcLocalization {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_MvcLocalization", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Navigation and breadcrumbs.
-        /// </summary>
-        public static string Index_CodeComment_NavigationAndBreadcrumbs {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_NavigationAndBreadcrumbs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Optional: localized top navigation labels.
-        /// </summary>
-        public static string Index_CodeComment_OptionalLocalizedTopNavigation {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_OptionalLocalizedTopNavigation", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Register GCFoundation services.
-        /// </summary>
-        public static string Index_CodeComment_RegisterGCFoundationServices {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_RegisterGCFoundationServices", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Request localization.
-        /// </summary>
-        public static string Index_CodeComment_RequestLocalization {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_RequestLocalization", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Security and static files.
-        /// </summary>
-        public static string Index_CodeComment_SecurityAndStaticFiles {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_SecurityAndStaticFiles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Shown everywhere (topnav, breadcrumbs, sidenav).
-        /// </summary>
-        public static string Index_CodeComment_ShownEverywhere {
-            get {
-                return ResourceManager.GetString("Index_CodeComment_ShownEverywhere", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Top nav only.
+        ///   Looks up a localized string similar to Menu only: a drop-down group with no page of its own.
         /// </summary>
         public static string Index_CodeComment_TopNavigationOnly {
             get {
@@ -664,227 +511,173 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Required &lt;code&gt;appsettings.json&lt;/code&gt; configuration:.
+        ///   Looks up a localized string similar to Allow other content sources.
         /// </summary>
-        public static string Index_CompleteExample_AppSettings_Intro {
+        public static string Index_ContentPolicy_Heading {
             get {
-                return ResourceManager.GetString("Index_CompleteExample_AppSettings_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_ContentPolicy_Heading", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Complete Program.cs Example.
+        ///   Looks up a localized string similar to &lt;code&gt;UseGCFoundationContentPolicies()&lt;/code&gt; sends a strict Content Security Policy that already allows GCFoundation, GCDS and Font Awesome. If you load scripts, styles, fonts, images, frames or API calls from other domains, list them in a &lt;code&gt;ContentPolicySettings&lt;/code&gt; section of &lt;code&gt;appsettings.json&lt;/code&gt;:.
         /// </summary>
-        public static string Index_CompleteExample_Heading {
+        public static string Index_ContentPolicy_Intro {
             get {
-                return ResourceManager.GetString("Index_CompleteExample_Heading", resourceCulture);
+                return ResourceManager.GetString("Index_ContentPolicy_Intro", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Here&apos;s a complete &lt;code&gt;Program.cs&lt;/code&gt; configuration that ties all of the above together for a typical MVC application:.
+        ///   Looks up a localized string similar to Inline scripts are blocked unless they carry the nonce of the current request. Add it with &lt;code&gt;CspNonceHelper&lt;/code&gt;:.
         /// </summary>
-        public static string Index_CompleteExample_Intro {
+        public static string Index_ContentPolicy_Nonce {
             get {
-                return ResourceManager.GetString("Index_CompleteExample_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_ContentPolicy_Nonce", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Example project structure for navigation resources:.
+        ///   Looks up a localized string similar to This guide adds GCFoundation to an ASP.NET Core MVC application. The quick start gives you the Canada.ca layout (header, footer, menu, breadcrumbs and language toggle), the components and the default security policies. The optional sections then cover features you can add when you need them..
         /// </summary>
-        public static string Index_CompleteExample_ProjectStructure_Intro {
+        public static string Index_Intro {
             get {
-                return ResourceManager.GetString("Index_CompleteExample_ProjectStructure_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_Intro", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Components Setup.
+        ///   Looks up a localized string similar to Show or hide nodes based on the user.
         /// </summary>
-        public static string Index_ComponentsSetup_Heading {
+        public static string Index_NavRules_Heading {
             get {
-                return ResourceManager.GetString("Index_ComponentsSetup_Heading", resourceCulture);
+                return ResourceManager.GetString("Index_NavRules_Heading", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable GCFoundation components and session middleware in &lt;code&gt;Program.cs&lt;/code&gt;:.
+        ///   Looks up a localized string similar to You can hide a node unless the current request has a given claim, cookie or session value. Add a rule under the node&apos;s &lt;code&gt;key&lt;/code&gt; in &lt;code&gt;appsettings.json&lt;/code&gt;. Nodes without a rule are always shown..
         /// </summary>
-        public static string Index_ComponentsSetup_Intro {
+        public static string Index_NavRules_Intro {
             get {
-                return ResourceManager.GetString("Index_ComponentsSetup_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_NavRules_Intro", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copied!.
+        ///   Looks up a localized string similar to Rules only hide links. They don&apos;t protect the pages: also add &lt;code&gt;[Authorize]&lt;/code&gt; to the controllers or actions that require it..
         /// </summary>
-        public static string Index_CopyButton_SuccessText {
+        public static string Index_NavRules_Note {
             get {
-                return ResourceManager.GetString("Index_CopyButton_SuccessText", resourceCulture);
+                return ResourceManager.GetString("Index_NavRules_Note", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Copy.
+        ///   Looks up a localized string similar to Then register the rules and the permission resolver in &lt;code&gt;Program.cs&lt;/code&gt;, before &lt;code&gt;builder.Build()&lt;/code&gt;:.
         /// </summary>
-        public static string Index_CopyButton_Text {
+        public static string Index_NavRules_Program {
             get {
-                return ResourceManager.GetString("Index_CopyButton_Text", resourceCulture);
+                return ResourceManager.GetString("Index_NavRules_Program", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure localization, global resources, and culture selection in &lt;code&gt;Program.cs&lt;/code&gt;:.
+        ///   Looks up a localized string similar to &lt;a href=&quot;{0}&quot;&gt;Components&lt;/a&gt;: browse the GCDS and FDCP components and their tag helpers..
         /// </summary>
-        public static string Index_LanguageSetup_Configuration_Intro {
+        public static string Index_NextSteps_Components {
             get {
-                return ResourceManager.GetString("Index_LanguageSetup_Configuration_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_NextSteps_Components", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Language Setup.
+        ///   Looks up a localized string similar to &lt;a href=&quot;{0}&quot;&gt;Date modified and version number&lt;/a&gt;: show the date modified or the version number at the bottom of each page..
         /// </summary>
-        public static string Index_LanguageSetup_Heading {
+        public static string Index_NextSteps_DateModified {
             get {
-                return ResourceManager.GetString("Index_LanguageSetup_Heading", resourceCulture);
+                return ResourceManager.GetString("Index_NextSteps_DateModified", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Enable language and localization middleware:.
+        ///   Looks up a localized string similar to &lt;a href=&quot;{0}&quot;&gt;Global resources&lt;/a&gt;: add your own CSS, JavaScript, meta tags and link tags to every page..
         /// </summary>
-        public static string Index_LanguageSetup_Middleware_Intro {
+        public static string Index_NextSteps_GlobalResources {
             get {
-                return ResourceManager.GetString("Index_LanguageSetup_Middleware_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_NextSteps_GlobalResources", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Node Visibility.
+        ///   Looks up a localized string similar to Next steps.
         /// </summary>
-        public static string Index_MenuComponentVisibility_Heading {
+        public static string Index_NextSteps_Heading {
             get {
-                return ResourceManager.GetString("Index_MenuComponentVisibility_Heading", resourceCulture);
+                return ResourceManager.GetString("Index_NextSteps_Heading", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Each node in &lt;code&gt;navigation.xml&lt;/code&gt; can declare which navigation surfaces it appears on using the &lt;code&gt;componentVisibility&lt;/code&gt; attribute. Omitting it entirely means the node is shown in all surfaces by default..
+        ///   Looks up a localized string similar to &lt;a href=&quot;{0}&quot;&gt;Metadata&lt;/a&gt;: set meta tags for each page, for search engines and social media..
         /// </summary>
-        public static string Index_MenuComponentVisibility_Intro {
+        public static string Index_NextSteps_Metadata {
             get {
-                return ResourceManager.GetString("Index_MenuComponentVisibility_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_NextSteps_Metadata", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Customizable Visibility Restrictions.
+        ///   Looks up a localized string similar to &lt;a href=&quot;{0}&quot;&gt;Page templates&lt;/a&gt;: start from a complete page..
         /// </summary>
-        public static string Index_MenuRestrictions_Heading {
+        public static string Index_NextSteps_Templates {
             get {
-                return ResourceManager.GetString("Index_MenuRestrictions_Heading", resourceCulture);
+                return ResourceManager.GetString("Index_NextSteps_Templates", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Then register the rules and the permission resolver in &lt;code&gt;Program.cs&lt;/code&gt;:.
+        ///   Looks up a localized string similar to &lt;a href=&quot;{0}&quot;&gt;Standard translations&lt;/a&gt;: reuse common terms in English and French..
         /// </summary>
-        public static string Index_MenuRestrictions_Program_Intro {
+        public static string Index_NextSteps_Translations {
             get {
-                return ResourceManager.GetString("Index_MenuRestrictions_Program_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_NextSteps_Translations", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Navigation nodes can be conditionally shown or hidden based on cookies, session values, or claims. Define rules in &lt;code&gt;appsettings.json&lt;/code&gt; using the nav node key as the rule key:.
+        ///   Looks up a localized string similar to Show a node in the menu or the breadcrumbs only.
         /// </summary>
-        public static string Index_MenuRestrictions_Rules_Intro {
+        public static string Index_NodeVisibility_Heading {
             get {
-                return ResourceManager.GetString("Index_MenuRestrictions_Rules_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_NodeVisibility_Heading", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Menu Setup.
+        ///   Looks up a localized string similar to By default, a node appears in both the menu and the breadcrumbs. Use the &lt;code&gt;componentVisibility&lt;/code&gt; attribute to limit it to one of them: &lt;code&gt;topnav&lt;/code&gt; for the menu, &lt;code&gt;breadcrumbs&lt;/code&gt; for the breadcrumbs. In the menu, a node without a controller that has children is displayed as a drop-down group..
         /// </summary>
-        public static string Index_MenuSetup_Heading {
+        public static string Index_NodeVisibility_Intro {
             get {
-                return ResourceManager.GetString("Index_MenuSetup_Heading", resourceCulture);
+                return ResourceManager.GetString("Index_NodeVisibility_Intro", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If you want the top navigation to display localized labels dynamically, register the top navigation localization service in &lt;code&gt;Program.cs&lt;/code&gt;:.
+        ///   Looks up a localized string similar to Optional configuration.
         /// </summary>
-        public static string Index_MenuSetup_Intro {
+        public static string Index_Optional_Heading {
             get {
-                return ResourceManager.GetString("Index_MenuSetup_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_Optional_Heading", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to NuGet Configuration.
+        ///   Looks up a localized string similar to Add these features only when your application needs them..
         /// </summary>
-        public static string Index_NuGetConfiguration_Heading {
+        public static string Index_Optional_Intro {
             get {
-                return ResourceManager.GetString("Index_NuGetConfiguration_Heading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to GCFoundation packages are published on nuget.org and can be installed directly using the &lt;code&gt;dotnet&lt;/code&gt; CLI or the Visual Studio Package Manager Console..
-        /// </summary>
-        public static string Index_NuGetConfiguration_Intro {
-            get {
-                return ResourceManager.GetString("Index_NuGetConfiguration_Intro", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Optional.
-        /// </summary>
-        public static string Index_Optional_Badge {
-            get {
-                return ResourceManager.GetString("Index_Optional_Badge", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Install the following core NuGet packages (using the &lt;code&gt;dotnet&lt;/code&gt; CLI):.
-        /// </summary>
-        public static string Index_PackageInstallation_CorePackages_Intro {
-            get {
-                return ResourceManager.GetString("Index_PackageInstallation_CorePackages_Intro", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Package Installation.
-        /// </summary>
-        public static string Index_PackageInstallation_Heading {
-            get {
-                return ResourceManager.GetString("Index_PackageInstallation_Heading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to For navigation, breadcrumbs, and URL translation support, install:.
-        /// </summary>
-        public static string Index_PackageInstallation_NavigationPackages_Intro {
-            get {
-                return ResourceManager.GetString("Index_PackageInstallation_NavigationPackages_Intro", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to If you prefer the Visual Studio Package Manager Console, you can use:.
-        /// </summary>
-        public static string Index_PackageInstallation_PackageManager_Intro {
-            get {
-                return ResourceManager.GetString("Index_PackageInstallation_PackageManager_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_Optional_Intro", resourceCulture);
             }
         }
         
@@ -907,38 +700,83 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ASP.NET Core 10.0 or later.
+        ///   Looks up a localized string similar to Visual Studio 2026 (version 18.0 or later), Visual Studio Code with the C# Dev Kit, or another editor that supports .NET 10.
         /// </summary>
-        public static string Index_Prerequisites_Item_AspNetCore {
+        public static string Index_Prerequisites_Item_Ide {
             get {
-                return ResourceManager.GetString("Index_Prerequisites_Item_AspNetCore", resourceCulture);
+                return ResourceManager.GetString("Index_Prerequisites_Item_Ide", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Visual Studio 2022 or later.
+        ///   Looks up a localized string similar to An ASP.NET Core MVC project that targets &lt;code&gt;net10.0&lt;/code&gt;. To start from scratch, run &lt;code&gt;dotnet new mvc -n MyApp&lt;/code&gt;..
         /// </summary>
-        public static string Index_Prerequisites_Item_VisualStudio {
+        public static string Index_Prerequisites_Item_Project {
             get {
-                return ResourceManager.GetString("Index_Prerequisites_Item_VisualStudio", resourceCulture);
+                return ResourceManager.GetString("Index_Prerequisites_Item_Project", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Security Setup.
+        ///   Looks up a localized string similar to The &lt;a href=&quot;https://dotnet.microsoft.com/download/dotnet/10.0&quot;&gt;.NET 10 SDK&lt;/a&gt;.
         /// </summary>
-        public static string Index_SecuritySetup_Heading {
+        public static string Index_Prerequisites_Item_Sdk {
             get {
-                return ResourceManager.GetString("Index_SecuritySetup_Heading", resourceCulture);
+                return ResourceManager.GetString("Index_Prerequisites_Item_Sdk", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add GCFoundation security policies and secure cookie configuration:.
+        ///   Looks up a localized string similar to GCFoundation packages are published on nuget.org, so you don&apos;t need to add a package source..
         /// </summary>
-        public static string Index_SecuritySetup_Intro {
+        public static string Index_Prerequisites_NuGet {
             get {
-                return ResourceManager.GetString("Index_SecuritySetup_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_Prerequisites_NuGet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Quick start.
+        /// </summary>
+        public static string Index_QuickStart_Heading {
+            get {
+                return ResourceManager.GetString("Index_QuickStart_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Follow these steps in order. The examples use &lt;code&gt;MyApp&lt;/code&gt; as the project name and root namespace: replace it with your own..
+        /// </summary>
+        public static string Index_QuickStart_Intro {
+            get {
+                return ResourceManager.GetString("Index_QuickStart_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Harden cookies.
+        /// </summary>
+        public static string Index_SecureCookies_Heading {
+            get {
+                return ResourceManager.GetString("Index_SecureCookies_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To make every cookie set by your application &lt;code&gt;Secure&lt;/code&gt;, &lt;code&gt;HttpOnly&lt;/code&gt; and &lt;code&gt;SameSite=Strict&lt;/code&gt;, add a cookie policy right after the language middleware:.
+        /// </summary>
+        public static string Index_SecureCookies_Intro {
+            get {
+                return ResourceManager.GetString("Index_SecureCookies_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;code&gt;Secure&lt;/code&gt; cookies are only sent over HTTPS, so run the application with the &lt;code&gt;https&lt;/code&gt; launch profile, including during development..
+        /// </summary>
+        public static string Index_SecureCookies_Note {
+            get {
+                return ResourceManager.GetString("Index_SecureCookies_Note", resourceCulture);
             }
         }
         
@@ -952,16 +790,205 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Configure &lt;code&gt;appsettings.json&lt;/code&gt; for navigation and global resources:.
+        ///   Looks up a localized string similar to 1. Install the packages.
         /// </summary>
-        public static string Index_UrlTranslation_AppSettings_Intro {
+        public static string Index_Step1_Heading {
             get {
-                return ResourceManager.GetString("Index_UrlTranslation_AppSettings_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_Step1_Heading", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL Translation.
+        ///   Looks up a localized string similar to From your project folder, add the two GCFoundation packages and the cloudscribe localization package. &lt;code&gt;GCFoundation.Common&lt;/code&gt; and &lt;code&gt;cloudscribe.Web.Navigation&lt;/code&gt; are installed automatically as dependencies..
+        /// </summary>
+        public static string Index_Step1_Intro {
+            get {
+                return ResourceManager.GetString("Index_Step1_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to In the Visual Studio Package Manager Console, run &lt;code&gt;Install-Package&lt;/code&gt; with the same package names instead..
+        /// </summary>
+        public static string Index_Step1_PackageManager {
+            get {
+                return ResourceManager.GetString("Index_Step1_PackageManager", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2. Configure Program.cs.
+        /// </summary>
+        public static string Index_Step2_Heading {
+            get {
+                return ResourceManager.GetString("Index_Step2_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Replace the contents of &lt;code&gt;Program.cs&lt;/code&gt; with the following. It registers the GCFoundation services, the navigation used by the menu and breadcrumbs, and English and French request localization based on the first segment of the URL (&lt;code&gt;/en/...&lt;/code&gt; or &lt;code&gt;/fr/...&lt;/code&gt;)..
+        /// </summary>
+        public static string Index_Step2_Intro {
+            get {
+                return ResourceManager.GetString("Index_Step2_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3. Add your settings.
+        /// </summary>
+        public static string Index_Step3_Heading {
+            get {
+                return ResourceManager.GetString("Index_Step3_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a &lt;code&gt;FoundationComponentsSettings&lt;/code&gt; section to &lt;code&gt;appsettings.json&lt;/code&gt;. To start, you only need the application name in both languages. It appears in the header, the menu and the page title..
+        /// </summary>
+        public static string Index_Step3_Intro {
+            get {
+                return ResourceManager.GetString("Index_Step3_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Every other setting has a working default. You can add them later: the application version and footer links in this section, global files and meta tags (see the next steps), and the &lt;code&gt;ContentPolicySettings&lt;/code&gt;, &lt;code&gt;FoundationSession&lt;/code&gt; and &lt;code&gt;AccountSettings&lt;/code&gt; sections..
+        /// </summary>
+        public static string Index_Step3_Note {
+            get {
+                return ResourceManager.GetString("Index_Step3_Note", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4. Describe your navigation.
+        /// </summary>
+        public static string Index_Step4_Heading {
+            get {
+                return ResourceManager.GetString("Index_Step4_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The layout builds the menu and the breadcrumbs from a &lt;code&gt;navigation.xml&lt;/code&gt; file at the root of your project. Each node points to a controller action, and its &lt;code&gt;text&lt;/code&gt; attribute is a resource key, not a label..
+        /// </summary>
+        public static string Index_Step4_Intro {
+            get {
+                return ResourceManager.GetString("Index_Step4_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Keep &lt;code&gt;preservedRouteParameters=&quot;culture&quot;&lt;/code&gt; on every node so that links stay in the current language..
+        /// </summary>
+        public static string Index_Step4_PreservedRoute {
+            get {
+                return ResourceManager.GetString("Index_Step4_PreservedRoute", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Then add the labels. In a &lt;code&gt;Resources&lt;/code&gt; folder, create an empty &lt;code&gt;Navigation&lt;/code&gt; class, a &lt;code&gt;Navigation.resx&lt;/code&gt; file for English and a &lt;code&gt;Navigation.fr.resx&lt;/code&gt; file for French, with the keys used in &lt;code&gt;navigation.xml&lt;/code&gt;..
+        /// </summary>
+        public static string Index_Step4_Resources {
+            get {
+                return ResourceManager.GetString("Index_Step4_Resources", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The class and the files must have the same name and folder so that .NET can find the translations. If Visual Studio generated a &lt;code&gt;Navigation.Designer.cs&lt;/code&gt; file for the English file, that generated class already does the job: don&apos;t create &lt;code&gt;Navigation.cs&lt;/code&gt;..
+        /// </summary>
+        public static string Index_Step4_ResourcesNote {
+            get {
+                return ResourceManager.GetString("Index_Step4_ResourcesNote", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Your views now contain only the page content. For example, in &lt;code&gt;Views/Home/Index.cshtml&lt;/code&gt;:.
+        /// </summary>
+        public static string Index_Step5_Content {
+            get {
+                return ResourceManager.GetString("Index_Step5_Content", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5. Use the GCFoundation layout.
+        /// </summary>
+        public static string Index_Step5_Heading {
+            get {
+                return ResourceManager.GetString("Index_Step5_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Make the GCFoundation tag helpers available to every view in &lt;code&gt;Views/_ViewImports.cshtml&lt;/code&gt;:.
+        /// </summary>
+        public static string Index_Step5_Intro {
+            get {
+                return ResourceManager.GetString("Index_Step5_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Then use the shared layout in &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt;. It provides the header, footer, menu, breadcrumbs, language toggle and all the GCDS and GCFoundation styles and scripts, so you no longer need the template&apos;s &lt;code&gt;Views/Shared/_Layout.cshtml&lt;/code&gt;..
+        /// </summary>
+        public static string Index_Step5_Layout {
+            get {
+                return ResourceManager.GetString("Index_Step5_Layout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6. Run the application.
+        /// </summary>
+        public static string Index_Step6_Heading {
+            get {
+                return ResourceManager.GetString("Index_Step6_Heading", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Start the application and open &lt;code&gt;/en&lt;/code&gt; or &lt;code&gt;/fr&lt;/code&gt;. You should see the Canada.ca header with your application name, a menu built from &lt;code&gt;navigation.xml&lt;/code&gt;, and a language toggle that switches between the English and French versions of the page..
+        /// </summary>
+        public static string Index_Step6_Intro {
+            get {
+                return ResourceManager.GetString("Index_Step6_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If the page has no styles, check that &lt;code&gt;app.UseStaticFiles()&lt;/code&gt; is called. If the menu shows keys such as &lt;code&gt;Nav_Home&lt;/code&gt; instead of labels, check that the resource files are in the same folder as the &lt;code&gt;Navigation&lt;/code&gt; class and have the same name..
+        /// </summary>
+        public static string Index_Step6_Troubleshooting {
+            get {
+                return ResourceManager.GetString("Index_Step6_Troubleshooting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RouteLocalization works with attribute routes. Give each controller and action a route without the language: the &lt;code&gt;/en&lt;/code&gt; and &lt;code&gt;/fr&lt;/code&gt; prefixes are added for you..
+        /// </summary>
+        public static string Index_UrlTranslation_AttributeRoutes {
+            get {
+                return ResourceManager.GetString("Index_UrlTranslation_AttributeRoutes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Then declare the French paths in an extension method. Routes that you don&apos;t translate keep their English path in both languages..
+        /// </summary>
+        public static string Index_UrlTranslation_Extension {
+            get {
+                return ResourceManager.GetString("Index_UrlTranslation_Extension", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Translate URLs.
         /// </summary>
         public static string Index_UrlTranslation_Heading {
             get {
@@ -970,56 +997,29 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Key features:.
+        ///   Looks up a localized string similar to By default, French pages use the same path as English pages (&lt;code&gt;/fr/home/privacy&lt;/code&gt;). To give them French paths (&lt;code&gt;/fr/accueil/confidentialite&lt;/code&gt;), install &lt;code&gt;RouteLocalization.AspNetCore&lt;/code&gt;:.
         /// </summary>
-        public static string Index_UrlTranslation_KeyFeatures_Heading {
+        public static string Index_UrlTranslation_Intro {
             get {
-                return ResourceManager.GetString("Index_UrlTranslation_KeyFeatures_Heading", resourceCulture);
+                return ResourceManager.GetString("Index_UrlTranslation_Intro", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Automatic breadcrumb localization using resource files.
+        ///   Looks up a localized string similar to Register the extension in &lt;code&gt;Program.cs&lt;/code&gt; before &lt;code&gt;builder.Build()&lt;/code&gt;. Attribute-routed controllers no longer answer the site root (&lt;code&gt;/&lt;/code&gt;), so also map it, for example to the English home page:.
         /// </summary>
-        public static string Index_UrlTranslation_KeyFeatures_Item_BreadcrumbLocalization {
+        public static string Index_UrlTranslation_Register {
             get {
-                return ResourceManager.GetString("Index_UrlTranslation_KeyFeatures_Item_BreadcrumbLocalization", resourceCulture);
+                return ResourceManager.GetString("Index_UrlTranslation_Register", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to URL-based culture selection using the first segment (e.g., &lt;code&gt;/fr/home&lt;/code&gt;).
+        ///   Looks up a localized string similar to The menu, the breadcrumbs and the language toggle use the translated paths automatically..
         /// </summary>
-        public static string Index_UrlTranslation_KeyFeatures_Item_CultureSegment {
+        public static string Index_UrlTranslation_Result {
             get {
-                return ResourceManager.GetString("Index_UrlTranslation_KeyFeatures_Item_CultureSegment", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Default culture is &lt;code&gt;en-CA&lt;/code&gt;.
-        /// </summary>
-        public static string Index_UrlTranslation_KeyFeatures_Item_DefaultCulture {
-            get {
-                return ResourceManager.GetString("Index_UrlTranslation_KeyFeatures_Item_DefaultCulture", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Support for culture-specific routing and translated routes using &lt;code&gt;RouteLocalization.AspNetCore&lt;/code&gt;.
-        /// </summary>
-        public static string Index_UrlTranslation_KeyFeatures_Item_RouteLocalization {
-            get {
-                return ResourceManager.GetString("Index_UrlTranslation_KeyFeatures_Item_RouteLocalization", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Configure routing with a culture parameter and translated URLs:.
-        /// </summary>
-        public static string Index_UrlTranslation_Routing_Intro {
-            get {
-                return ResourceManager.GetString("Index_UrlTranslation_Routing_Intro", resourceCulture);
+                return ResourceManager.GetString("Index_UrlTranslation_Result", resourceCulture);
             }
         }
         
@@ -1105,7 +1105,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This page demonstrates how metadata can be configured with GCFoundation. In addition to globally-defined metadata information, your application&apos;s metadata can be fully-customized on each page to allow for your application to be fully-optimized for search engines (i.e. SEO)..
+        ///   Looks up a localized string similar to This page explains how to configure metadata with GCFoundation. In addition to global metadata, you can customize the metadata of each page to optimize your application for search engines (SEO)..
         /// </summary>
         public static string Metadata_Description {
             get {
@@ -1119,42 +1119,6 @@ namespace GCFoundation.Web.Resources {
         public static string Metadata_Examples_Heading {
             get {
                 return ResourceManager.GetString("Metadata_Examples_Heading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to How it works.
-        /// </summary>
-        public static string Metadata_HowItWorks_Heading {
-            get {
-                return ResourceManager.GetString("Metadata_HowItWorks_Heading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Controllers inheriting GCFoundationBaseController can add tags during action execution. The base class exposes them to the view post-action..
-        /// </summary>
-        public static string Metadata_HowItWorks_Intro {
-            get {
-                return ResourceManager.GetString("Metadata_HowItWorks_Intro", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Layout rendering and merge.
-        /// </summary>
-        public static string Metadata_LayoutMerge_Heading {
-            get {
-                return ResourceManager.GetString("Metadata_LayoutMerge_Heading", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The foundation layout merges controller tags with global tags, avoiding duplicates by name or property. Controller tags are rendered first..
-        /// </summary>
-        public static string Metadata_LayoutMerge_Intro {
-            get {
-                return ResourceManager.GetString("Metadata_LayoutMerge_Intro", resourceCulture);
             }
         }
         
@@ -1285,11 +1249,20 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Using GCFoundation standard translations is pretty simple. Just make sure that Localization has been configured in your project and, to declare the proper @using statements on your Razor views and you&apos;ll be able to start using standardized translations in your content..
+        ///   Looks up a localized string similar to Add &lt;code&gt;@using GCFoundation.Components.Resources&lt;/code&gt; to a view, or to &lt;code&gt;_ViewImports.cshtml&lt;/code&gt; for every view, then use the properties of the &lt;code&gt;Localization&lt;/code&gt; class. Each property returns the term in the current language, so request localization must be configured as described in the installation quick start..
         /// </summary>
         public static string Translations_HowToUse_Intro {
             get {
                 return ResourceManager.GetString("Translations_HowToUse_Intro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Available translations.
+        /// </summary>
+        public static string Translations_List_Heading {
+            get {
+                return ResourceManager.GetString("Translations_List_Heading", resourceCulture);
             }
         }
         

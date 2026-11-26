@@ -230,12 +230,6 @@
   <data name="Index_Explore_Components_Description" xml:space="preserve">
     <value>Explore form controls, navigation patterns and other reusable interface components.</value>
   </data>
-  <data name="Index_Explore_Styles_Title" xml:space="preserve">
-    <value>Styles</value>
-  </data>
-  <data name="Index_Explore_Styles_Description" xml:space="preserve">
-    <value>Use the available layout, spacing, colour and responsive utility classes.</value>
-  </data>
   <data name="Index_Feedback_Title" xml:space="preserve">
     <value>Help improve GCFoundation</value>
   </data>

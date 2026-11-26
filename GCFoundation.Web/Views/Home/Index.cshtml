@@ -4,7 +4,6 @@
     var installationUrl = Url.Action("Index", "Installation") ?? string.Empty;
     var templatesUrl = Url.Action("Index", "Template") ?? string.Empty;
     var componentsUrl = Url.Action("Index", "Components") ?? string.Empty;
-    var stylesUrl = Url.Action("Index", "Styles") ?? string.Empty;
     var accessibilityUrl = Url.Action("AccessibilityStatement", "Home") ?? string.Empty;
 }
 
@@ -69,10 +68,6 @@
         <gcds-card card-title="@Home.Index_Explore_Components_Title"
                    description="@Home.Index_Explore_Components_Description"
                    href="@componentsUrl">
-        </gcds-card>
-        <gcds-card card-title="@Home.Index_Explore_Styles_Title"
-                   description="@Home.Index_Explore_Styles_Description"
-                   href="@stylesUrl">
         </gcds-card>
     </gcds-grid>
 </section>

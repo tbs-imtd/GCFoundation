@@ -534,12 +534,6 @@
   <data name="Index_Modal_Description" xml:space="preserve">
     <value>A way to display information in a popup box (modal)</value>
   </data>
-  <data name="Index_FilteredSearch_Title" xml:space="preserve">
-    <value>Filtered Search</value>
-  </data>
-  <data name="Index_FilteredSearch_Description" xml:space="preserve">
-    <value>A way to display search with filtered result</value>
-  </data>
   <data name="Index_LikertScale_Title" xml:space="preserve">
     <value>Likert scale</value>
   </data>
@@ -649,12 +643,6 @@
   </data>
   <data name="Index_PageHeading_Description" xml:space="preserve">
     <value>A way to add main heading at the top of the page</value>
-  </data>
-  <data name="Index_FormBuilder_Title" xml:space="preserve">
-    <value>Form Builder</value>
-  </data>
-  <data name="Index_FormBuilder_Description" xml:space="preserve">
-    <value>A way to build form automatically from a structure</value>
   </data>
   <data name="Index_Stepper_Title" xml:space="preserve">
     <value>Stepper</value>
@@ -1231,24 +1219,6 @@
   <data name="Modal_Properties_LogoutUrl" xml:space="preserve">
     <value>Endpoint to log out the user</value>
   </data>
-  <data name="FilteredSearch_Name" xml:space="preserve">
-    <value>Filtered Search</value>
-  </data>
-  <data name="FilteredSearch_Overview" xml:space="preserve">
-    <value>The &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; component provides a way to display a filtering panel to help users narrow down their search results.</value>
-  </data>
-  <data name="FilteredSearch_Properties_Title" xml:space="preserve">
-    <value>Title displayed at the top of the filter panel</value>
-  </data>
-  <data name="FilteredSearch_Properties_Filters" xml:space="preserve">
-    <value>A collection of filter categories to render in the filter panel; each category can contain multiple filter options.</value>
-  </data>
-  <data name="FilteredSearch_Basic_Anchor" xml:space="preserve">
-    <value>basic</value>
-  </data>
-  <data name="FilteredSearch_Basic_Title" xml:space="preserve">
-    <value>Basic Usage</value>
-  </data>
   <data name="SearchableSelect_Name" xml:space="preserve">
     <value>Searchable Select</value>
   </data>
@@ -1626,24 +1596,6 @@
   <data name="Stepper_WithLinks_Text" xml:space="preserve">
     <value>&lt;gcds-text&gt;This implementation makes a step clickable by setting &lt;code&gt;IsLink = true&lt;/code&gt; and providing a &lt;code&gt;LinkUrl&lt;/code&gt; (for example, an anchor link or a route to an earlier step).&lt;/gcds-text&gt;
 &lt;gcds-text&gt;Use links thoughtfully: steps typically link back to completed steps so users can review or edit previous inputs without losing context.&lt;/gcds-text&gt;</value>
-  </data>
-  <data name="FormBuilder_Name" xml:space="preserve">
-    <value>Form Builder</value>
-  </data>
-  <data name="FormBuilder_SampleForm_Anchor" xml:space="preserve">
-    <value>sample-form</value>
-  </data>
-  <data name="FormBuilder_SampleForm_SubmittedSuccessfully" xml:space="preserve">
-    <value>Form submitted successfully!</value>
-  </data>
-  <data name="FormBuilder_SampleForm_Title" xml:space="preserve">
-    <value>Sample form</value>
-  </data>
-  <data name="FormBuilder_SampleForm_Description" xml:space="preserve">
-    <value>This example demonstrates a dynamic form with dependencies using the GC Design System components.</value>
-  </data>
-  <data name="FormBuilder_Properties_Form" xml:space="preserve">
-    <value>Gets or sets the form definition used to generate the form UI.</value>
   </data>
   <data name="Index_Card_ImgAlt_Template" xml:space="preserve">
     <value>Graphical representation of the GCFoundation "{0}" component.</value>
