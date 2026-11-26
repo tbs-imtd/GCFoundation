@@ -3,25 +3,25 @@
 @model GCFoundation.Web.Models.Components.ComponentSampleCodeSectionViewModel
 
 <fdcp-badge style="info">
-    <span slot="start-content"><span class="fa fa-info-circle"></span></span>
+    <span slot="start-content"><gcds-icon name="info-circle" size="inherit"></gcds-icon></span>
     Info badge
-    <span slot="end-content"><button class="btn">X</button></span>
+    <span slot="end-content"><button type="button" aria-label="@Components.Badge_Slot_Close_Label"><gcds-icon name="close" size="inherit"></gcds-icon></button></span>
 </fdcp-badge>
 <fdcp-badge style="info" inverted="true">
-    <span slot="start-content"><span class="fa fa-info-circle" aria-hidden="true"></span></span>
+    <span slot="start-content"><gcds-icon name="info-circle" size="inherit"></gcds-icon></span>
     @Components.Badge_Slot_Inverted_Label
-    <span slot="end-content"><button type="button" aria-label="@Components.Badge_Slot_Close_Label"><span class="fa fa-xmark" aria-hidden="true"></span></button></span>
+    <span slot="end-content"><button type="button" aria-label="@Components.Badge_Slot_Close_Label"><gcds-icon name="close" size="inherit"></gcds-icon></button></span>
 </fdcp-badge>
 
 <fdcp-code code-language="html">
 &lt;fdcp-badge style="info"&gt;
-    &lt;span slot="start-content"&gt;&lt;span class="fa fa-info-circle"&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span slot="start-content"&gt;&lt;gcds-icon name="info-circle" size="inherit"&gt;&lt;/gcds-icon&gt;&lt;/span&gt;
     Info badge
-    &lt;span slot="end-content"&gt;&lt;button class="btn"&gt;X&lt;/button&gt;&lt;/span&gt;
+    &lt;span slot="end-content"&gt;&lt;button type="button" aria-label="@Components.Badge_Slot_Close_Label"&gt;&lt;gcds-icon name="close" size="inherit"&gt;&lt;/gcds-icon&gt;&lt;/button&gt;&lt;/span&gt;
 &lt;/fdcp-badge&gt;
 &lt;fdcp-badge style="info" inverted="true"&gt;
-    &lt;span slot="start-content"&gt;&lt;span class="fa fa-info-circle" aria-hidden="true"&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span slot="start-content"&gt;&lt;gcds-icon name="info-circle" size="inherit"&gt;&lt;/gcds-icon&gt;&lt;/span&gt;
     @Components.Badge_Slot_Inverted_Label
-    &lt;span slot="end-content"&gt;&lt;button type="button" aria-label="@Components.Badge_Slot_Close_Label"&gt;&lt;span class="fa fa-xmark" aria-hidden="true"&gt;&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
+    &lt;span slot="end-content"&gt;&lt;button type="button" aria-label="@Components.Badge_Slot_Close_Label"&gt;&lt;gcds-icon name="close" size="inherit"&gt;&lt;/gcds-icon&gt;&lt;/button&gt;&lt;/span&gt;
 &lt;/fdcp-badge&gt;
 </fdcp-code>

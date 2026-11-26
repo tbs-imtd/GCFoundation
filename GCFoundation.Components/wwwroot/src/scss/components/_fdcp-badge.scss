@@ -25,9 +25,10 @@
     padding: 0.25rem 0.75rem;
     border-radius: 1.875rem;
     white-space: nowrap;
+    font-family: var(--gcds-font-families-body);
     font-size: 0.875rem;
     line-height: 1.25rem;
-    font-weight: 500;
+    font-weight: var(--gcds-font-weights-medium);
     vertical-align: middle;
     gap: .25rem;
 
