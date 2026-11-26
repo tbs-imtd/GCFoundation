@@ -63,18 +63,8 @@ namespace GCFoundation.Web.Infrastructure.Extensions
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.FilteredSearch))
-                .TranslateAction("recherche-filtree");
-
-                setup.UseCulture("fr")
-                .WhereController(nameof(ComponentsController))
                 .WhereAction(nameof(ComponentsController.Table))
                 .TranslateAction("tableau");
-
-                setup.UseCulture("fr")
-                .WhereController(nameof(ComponentsController))
-                .WhereAction(nameof(ComponentsController.FormBuilder))
-                .TranslateAction("constructeur-formulaires");
 
                 setup.UseCulture("fr")
                 .WhereController(nameof(ComponentsController))
@@ -239,13 +229,6 @@ namespace GCFoundation.Web.Infrastructure.Extensions
                 .WhereController(nameof(LanguageController))
                 .TranslateController("langue")
                 .WhereAction(nameof(LanguageController.Index))
-                .TranslateAction("");
-
-                // Styles Controller
-                setup.UseCulture("fr")
-                .WhereController(nameof(StylesController))
-                .TranslateController("styles")
-                .WhereAction(nameof(StylesController.Index))
                 .TranslateAction("");
 
                 // Ensure untranslated routes exist for controllers with attribute routes only

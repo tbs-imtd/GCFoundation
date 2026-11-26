@@ -135,9 +135,6 @@
   <data name="Menu_Template" xml:space="preserve">
     <value>Modèles de page</value>
   </data>
-  <data name="Menu_Styles" xml:space="preserve">
-    <value>Styles</value>
-  </data>
   <data name="Menu_Installation_GlobalResources" xml:space="preserve">
     <value>Ressources globales</value>
   </data>

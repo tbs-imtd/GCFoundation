@@ -538,12 +538,6 @@
   <data name="Index_Modal_Description" xml:space="preserve">
     <value>Un moyen d'afficher des informations dans une boîte de dialogue (modale)</value>
   </data>
-  <data name="Index_FilteredSearch_Title" xml:space="preserve">
-    <value>Recherche filtrée</value>
-  </data>
-  <data name="Index_FilteredSearch_Description" xml:space="preserve">
-    <value>Un moyen d'afficher une recherche avec des résultats filtrés</value>
-  </data>
   <data name="Index_LikertScale_Title" xml:space="preserve">
     <value>Boutons radio horizontaux</value>
   </data>
@@ -654,12 +648,6 @@
   </data>
   <data name="Index_PageHeading_Description" xml:space="preserve">
     <value>Un moyen d'ajouter un titre principal en haut de la page</value>
-  </data>
-  <data name="Index_FormBuilder_Title" xml:space="preserve">
-    <value>Constructeur de formulaires</value>
-  </data>
-  <data name="Index_FormBuilder_Description" xml:space="preserve">
-    <value>Un moyen de construire automatiquement un formulaire à partir d'une structure</value>
   </data>
   <data name="Index_Stepper_Title" xml:space="preserve">
     <value>Étapes</value>
@@ -1237,24 +1225,6 @@
   <data name="Modal_Properties_LogoutUrl" xml:space="preserve">
     <value>"Endpoint" pour terminer la session de l'utilisateur</value>
   </data>
-  <data name="FilteredSearch_Name" xml:space="preserve">
-    <value>Recherche filtrée</value>
-  </data>
-  <data name="FilteredSearch_Overview" xml:space="preserve">
-    <value>Le composant &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; offre un moyen aux développeurs d'afficher un panneau de filtres qui permettra aux utilisateurs de restreindre leurs résultats de recherche.</value>
-  </data>
-  <data name="FilteredSearch_Properties_Title" xml:space="preserve">
-    <value>Le titre affiché dans l'en-tête du panneau de filtres</value>
-  </data>
-  <data name="FilteredSearch_Properties_Filters" xml:space="preserve">
-    <value>Une collection de catégories de filtres à être affichées dans le panneau de filtre; chaque catégorie peut contenir plusieurs options de filtres</value>
-  </data>
-  <data name="FilteredSearch_Basic_Anchor" xml:space="preserve">
-    <value>base</value>
-  </data>
-  <data name="FilteredSearch_Basic_Title" xml:space="preserve">
-    <value>Utilisation de base</value>
-  </data>
   <data name="SearchableSelect_Name" xml:space="preserve">
     <value>Sélecteur avec recherche</value>
   </data>
@@ -1515,24 +1485,6 @@
   <data name="Stepper_WithLinks_Text" xml:space="preserve">
     <value>&lt;gcds-text&gt;Cette implémentation rend une étape cliquable en définissant &lt;code&gt;IsLink = true&lt;/code&gt; et en fournissant &lt;code&gt;LinkUrl&lt;/code&gt; (par exemple, une ancre ou une route vers une étape précédente).&lt;/gcds-text&gt;
 &lt;gcds-text&gt;Utilisez les liens de façon réfléchie : on relie généralement les étapes déjà complétées pour permettre aux utilisateurs de revoir ou de modifier leurs réponses sans perdre le contexte.&lt;/gcds-text&gt;</value>
-  </data>
-  <data name="FormBuilder_Name" xml:space="preserve">
-    <value>Constructeur de formulaire</value>
-  </data>
-  <data name="FormBuilder_SampleForm_Anchor" xml:space="preserve">
-    <value>exemple-de-formulaire</value>
-  </data>
-  <data name="FormBuilder_SampleForm_SubmittedSuccessfully" xml:space="preserve">
-    <value>Formulaire envoyé avec succès !</value>
-  </data>
-  <data name="FormBuilder_SampleForm_Title" xml:space="preserve">
-    <value>Exemple d'un formulaire</value>
-  </data>
-  <data name="FormBuilder_SampleForm_Description" xml:space="preserve">
-    <value>Cette page vous présente un exemple de formulaire généré dynamiquement, construit uniquement à l'aide de code et des composants du GC Design System.</value>
-  </data>
-  <data name="FormBuilder_Properties_Form" xml:space="preserve">
-    <value>Obtient ou définit la définition de formulaire utilisée pour générer l'interface utilisateur du formulaire.</value>
   </data>
   <data name="Index_Card_ImgAlt_Template" xml:space="preserve">
     <value>Image représentant le composant "{0}" de GCFoundation</value>
@@ -2740,12 +2692,6 @@
   </data>
   <data name="Index_TagHelpers_Description_FDCP_Card" xml:space="preserve">
     <value>Affiche une carte flexible avec en-tête, corps, pied, images et mises en page inspirées de Bootstrap.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_FDCP_FiltersBox" xml:space="preserve">
-    <value>Affiche un panneau de filtres avec catégories repliables pour le filtrage de données.</value>
-  </data>
-  <data name="Index_TagHelpers_Description_FDCP_FormBuilder" xml:space="preserve">
-    <value>Affiche un générateur de formulaire dynamique à partir d'une définition de formulaire.</value>
   </data>
   <data name="Index_TagHelpers_Description_FDCP_Form" xml:space="preserve">
     <value>Affiche un formulaire lié à un modèle, avec méthode, action et résumé des erreurs de validation.</value>

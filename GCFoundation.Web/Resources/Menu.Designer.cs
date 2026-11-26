@@ -151,15 +151,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Styles.
-        /// </summary>
-        public static string Menu_Styles {
-            get {
-                return ResourceManager.GetString("Menu_Styles", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Page Templates.
         /// </summary>
         public static string Menu_Template {

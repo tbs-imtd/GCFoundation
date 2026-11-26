@@ -230,12 +230,6 @@
   <data name="Index_Explore_Components_Description" xml:space="preserve">
     <value>Explorez les champs de formulaire, les modèles de navigation et d'autres composants d'interface réutilisables.</value>
   </data>
-  <data name="Index_Explore_Styles_Title" xml:space="preserve">
-    <value>Styles</value>
-  </data>
-  <data name="Index_Explore_Styles_Description" xml:space="preserve">
-    <value>Utilisez les classes utilitaires de mise en page, d'espacement, de couleur et d'adaptation.</value>
-  </data>
   <data name="Index_Feedback_Title" xml:space="preserve">
     <value>Aidez-nous à améliorer GCFoundation</value>
   </data>

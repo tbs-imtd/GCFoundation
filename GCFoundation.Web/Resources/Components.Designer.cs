@@ -2725,60 +2725,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to basic.
-        /// </summary>
-        public static string FilteredSearch_Basic_Anchor {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Basic_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Basic Usage.
-        /// </summary>
-        public static string FilteredSearch_Basic_Title {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Basic_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Filtered Search.
-        /// </summary>
-        public static string FilteredSearch_Name {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-filters-box&amp;gt;&lt;/code&gt; component provides a way to display a filtering panel to help users narrow down their search results..
-        /// </summary>
-        public static string FilteredSearch_Overview {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Overview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A collection of filter categories to render in the filter panel; each category can contain multiple filter options..
-        /// </summary>
-        public static string FilteredSearch_Properties_Filters {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Properties_Filters", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Title displayed at the top of the filter panel.
-        /// </summary>
-        public static string FilteredSearch_Properties_Title {
-            get {
-                return ResourceManager.GetString("FilteredSearch_Properties_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Enter your age (must be 18 or older)..
         /// </summary>
         public static string Form_Age_Hint {
@@ -3337,60 +3283,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Form Builder.
-        /// </summary>
-        public static string FormBuilder_Name {
-            get {
-                return ResourceManager.GetString("FormBuilder_Name", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Gets or sets the form definition used to generate the form UI..
-        /// </summary>
-        public static string FormBuilder_Properties_Form {
-            get {
-                return ResourceManager.GetString("FormBuilder_Properties_Form", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to sample-form.
-        /// </summary>
-        public static string FormBuilder_SampleForm_Anchor {
-            get {
-                return ResourceManager.GetString("FormBuilder_SampleForm_Anchor", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to This example demonstrates a dynamic form with dependencies using the GC Design System components..
-        /// </summary>
-        public static string FormBuilder_SampleForm_Description {
-            get {
-                return ResourceManager.GetString("FormBuilder_SampleForm_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Form submitted successfully!.
-        /// </summary>
-        public static string FormBuilder_SampleForm_SubmittedSuccessfully {
-            get {
-                return ResourceManager.GetString("FormBuilder_SampleForm_SubmittedSuccessfully", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Sample form.
-        /// </summary>
-        public static string FormBuilder_SampleForm_Title {
-            get {
-                return ResourceManager.GetString("FormBuilder_SampleForm_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to GC Design System Components.
         /// </summary>
         public static string GcdsHeading {
@@ -3685,24 +3577,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to A way to display search with filtered result.
-        /// </summary>
-        public static string Index_FilteredSearch_Description {
-            get {
-                return ResourceManager.GetString("Index_FilteredSearch_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Filtered Search.
-        /// </summary>
-        public static string Index_FilteredSearch_Title {
-            get {
-                return ResourceManager.GetString("Index_FilteredSearch_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to A way to create forms.
         /// </summary>
         public static string Index_Form_Description {
@@ -3717,24 +3591,6 @@ namespace GCFoundation.Web.Resources {
         public static string Index_Form_Title {
             get {
                 return ResourceManager.GetString("Index_Form_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to A way to build form automatically from a structure.
-        /// </summary>
-        public static string Index_FormBuilder_Description {
-            get {
-                return ResourceManager.GetString("Index_FormBuilder_Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Form Builder.
-        /// </summary>
-        public static string Index_FormBuilder_Title {
-            get {
-                return ResourceManager.GetString("Index_FormBuilder_Title", resourceCulture);
             }
         }
         

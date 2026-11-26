@@ -138,9 +138,6 @@
   <data name="GlobalResources_DefaultJavaScript_Label" xml:space="preserve">
     <value>JavaScript par défaut :</value>
   </data>
-  <data name="GlobalResources_Description" xml:space="preserve">
-    <value>Cette page démontre comment utiliser la nouvelle fonctionnalité de configuration des ressources globales dans GCFoundation. Vous pouvez configurer les fichiers CSS, JavaScript, les balises meta et les balises link globalement via le fichier appsettings.json.</value>
-  </data>
   <data name="GlobalResources_FontAwesome_Label" xml:space="preserve">
     <value>Font Awesome :</value>
   </data>
@@ -167,9 +164,6 @@
   </data>
   <data name="GlobalResources_JavaScriptLoadingOrder_Title" xml:space="preserve">
     <value>Ordre de chargement JavaScript</value>
-  </data>
-  <data name="GlobalResources_LoadingOrder_Description" xml:space="preserve">
-    <value>Les ressources sont chargées dans l'ordre suivant :</value>
   </data>
   <data name="GlobalResources_LoadingOrder_Title" xml:space="preserve">
     <value>Ordre de chargement des ressources</value>
@@ -201,228 +195,6 @@
   <data name="GlobalResources_UsingHelper_Title" xml:space="preserve">
     <value>Utilisation de GlobalResourceHelper dans les vues</value>
   </data>
-  <data name="Index_Page_Title" xml:space="preserve">
-    <value>Installation</value>
-  </data>
-  <data name="Index_SideNav_OnThisPage" xml:space="preserve">
-    <value>Sur cette page</value>
-  </data>
-  <data name="Index_Prerequisites_Heading" xml:space="preserve">
-    <value>Conditions préalables</value>
-  </data>
-  <data name="Index_Prerequisites_Item_AspNetCore" xml:space="preserve">
-    <value>ASP.NET Core 10.0 ou une version ultérieure</value>
-  </data>
-  <data name="Index_Prerequisites_Item_VisualStudio" xml:space="preserve">
-    <value>Visual Studio 2022 ou une version ultérieure</value>
-  </data>
-  <data name="Index_NuGetConfiguration_Heading" xml:space="preserve">
-    <value>Configuration de NuGet</value>
-  </data>
-  <data name="Index_NuGetConfiguration_Intro" xml:space="preserve">
-    <value>Les paquets GCFoundation sont publiés sur nuget.org et peuvent être installés directement au moyen de l’interface de ligne de commande &lt;code&gt;dotnet&lt;/code&gt; ou de la console du Gestionnaire de package Visual Studio.</value>
-  </data>
-  <data name="Index_PackageInstallation_Heading" xml:space="preserve">
-    <value>Installation des paquets</value>
-  </data>
-  <data name="Index_PackageInstallation_CorePackages_Intro" xml:space="preserve">
-    <value>Installez les paquets NuGet principaux suivants au moyen de l’interface de ligne de commande &lt;code&gt;dotnet&lt;/code&gt; :</value>
-  </data>
-  <data name="Index_PackageInstallation_NavigationPackages_Intro" xml:space="preserve">
-    <value>Pour prendre en charge la navigation, le fil d’Ariane et la traduction des URL, installez les paquets suivants :</value>
-  </data>
-  <data name="Index_PackageInstallation_PackageManager_Intro" xml:space="preserve">
-    <value>Si vous préférez utiliser la console du Gestionnaire de package Visual Studio, exécutez les commandes suivantes :</value>
-  </data>
-  <data name="Index_BasicSetup_Heading" xml:space="preserve">
-    <value>Configuration de base</value>
-  </data>
-  <data name="Index_BasicSetup_Intro" xml:space="preserve">
-    <value>Ajoutez les services suivants dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
-  </data>
-  <data name="Index_ComponentsSetup_Heading" xml:space="preserve">
-    <value>Configuration des composants</value>
-  </data>
-  <data name="Index_ComponentsSetup_Intro" xml:space="preserve">
-    <value>Activez les composants GCFoundation et l’intergiciel de session dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
-  </data>
-  <data name="Index_SecuritySetup_Heading" xml:space="preserve">
-    <value>Configuration de la sécurité</value>
-  </data>
-  <data name="Index_SecuritySetup_Intro" xml:space="preserve">
-    <value>Ajoutez les politiques de sécurité de GCFoundation et la configuration sécurisée des témoins :</value>
-  </data>
-  <data name="Index_LanguageSetup_Heading" xml:space="preserve">
-    <value>Configuration de la langue</value>
-  </data>
-  <data name="Index_LanguageSetup_Configuration_Intro" xml:space="preserve">
-    <value>Configurez la localisation, les ressources globales et la sélection de la culture dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
-  </data>
-  <data name="Index_LanguageSetup_Middleware_Intro" xml:space="preserve">
-    <value>Activez les intergiciels de langue et de localisation :</value>
-  </data>
-  <data name="Index_BreadcrumbsSetup_Heading" xml:space="preserve">
-    <value>Configuration du fil d’Ariane</value>
-  </data>
-  <data name="Index_BreadcrumbsSetup_Intro" xml:space="preserve">
-    <value>Configurez les services de navigation et de fil d’Ariane dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
-  </data>
-  <data name="Index_Optional_Badge" xml:space="preserve">
-    <value>Facultatif</value>
-  </data>
-  <data name="Index_MenuSetup_Heading" xml:space="preserve">
-    <value>Configuration du menu</value>
-  </data>
-  <data name="Index_MenuSetup_Intro" xml:space="preserve">
-    <value>Si vous voulez que la barre de navigation supérieure affiche dynamiquement des libellés localisés, inscrivez le service de localisation de la barre de navigation supérieure dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
-  </data>
-  <data name="Index_MenuComponentVisibility_Heading" xml:space="preserve">
-    <value>Visibilité des nœuds</value>
-  </data>
-  <data name="Index_MenuComponentVisibility_Intro" xml:space="preserve">
-    <value>Chaque nœud dans &lt;code&gt;navigation.xml&lt;/code&gt; peut préciser les surfaces de navigation sur lesquelles il apparaît au moyen de l’attribut &lt;code&gt;componentVisibility&lt;/code&gt;. Lorsque cet attribut est omis, le nœud apparaît par défaut sur toutes les surfaces.</value>
-  </data>
-  <data name="Index_MenuRestrictions_Heading" xml:space="preserve">
-    <value>Restrictions de visibilité personnalisables</value>
-  </data>
-  <data name="Index_MenuRestrictions_Rules_Intro" xml:space="preserve">
-    <value>Les nœuds de navigation peuvent être affichés ou masqués de façon conditionnelle selon des témoins, des valeurs de session ou des revendications. Définissez les règles dans &lt;code&gt;appsettings.json&lt;/code&gt; en utilisant la clé du nœud de navigation comme clé de règle :</value>
-  </data>
-  <data name="Index_MenuRestrictions_Program_Intro" xml:space="preserve">
-    <value>Inscrivez ensuite les règles et le résolveur d’autorisations dans &lt;code&gt;Program.cs&lt;/code&gt; :</value>
-  </data>
-  <data name="Index_UrlTranslation_Heading" xml:space="preserve">
-    <value>Traduction des URL</value>
-  </data>
-  <data name="Index_UrlTranslation_Routing_Intro" xml:space="preserve">
-    <value>Configurez le routage avec un paramètre de culture et des URL traduites :</value>
-  </data>
-  <data name="Index_UrlTranslation_AppSettings_Intro" xml:space="preserve">
-    <value>Configurez &lt;code&gt;appsettings.json&lt;/code&gt; pour la navigation et les ressources globales :</value>
-  </data>
-  <data name="Index_UrlTranslation_KeyFeatures_Heading" xml:space="preserve">
-    <value>Principales caractéristiques :</value>
-  </data>
-  <data name="Index_UrlTranslation_KeyFeatures_Item_CultureSegment" xml:space="preserve">
-    <value>Sélection de la culture selon le premier segment de l’URL (p. ex. &lt;code&gt;/fr/home&lt;/code&gt;)</value>
-  </data>
-  <data name="Index_UrlTranslation_KeyFeatures_Item_DefaultCulture" xml:space="preserve">
-    <value>La culture par défaut est &lt;code&gt;en-CA&lt;/code&gt;</value>
-  </data>
-  <data name="Index_UrlTranslation_KeyFeatures_Item_BreadcrumbLocalization" xml:space="preserve">
-    <value>Localisation automatique du fil d’Ariane au moyen de fichiers de ressources</value>
-  </data>
-  <data name="Index_UrlTranslation_KeyFeatures_Item_RouteLocalization" xml:space="preserve">
-    <value>Prise en charge du routage propre à la culture et des routes traduites au moyen de &lt;code&gt;RouteLocalization.AspNetCore&lt;/code&gt;</value>
-  </data>
-  <data name="Index_CompleteExample_Heading" xml:space="preserve">
-    <value>Exemple complet de Program.cs</value>
-  </data>
-  <data name="Index_CompleteExample_Intro" xml:space="preserve">
-    <value>Voici une configuration complète de &lt;code&gt;Program.cs&lt;/code&gt; qui regroupe tous les éléments précédents pour une application MVC type :</value>
-  </data>
-  <data name="Index_CompleteExample_AppSettings_Intro" xml:space="preserve">
-    <value>Configuration requise dans &lt;code&gt;appsettings.json&lt;/code&gt; :</value>
-  </data>
-  <data name="Index_CompleteExample_ProjectStructure_Intro" xml:space="preserve">
-    <value>Exemple de structure de projet pour les ressources de navigation :</value>
-  </data>
-  <data name="Index_CodeComment_MvcLocalization" xml:space="preserve">
-    <value>MVC avec prise en charge de la localisation</value>
-  </data>
-  <data name="Index_CodeComment_RegisterGCFoundationServices" xml:space="preserve">
-    <value>Inscrire les services GCFoundation</value>
-  </data>
-  <data name="Index_CodeComment_LoadComponents" xml:space="preserve">
-    <value>Charger les composants GCFoundation et les dépendances GCDS</value>
-  </data>
-  <data name="Index_CodeComment_AddContentSecurityPolicy" xml:space="preserve">
-    <value>Ajouter la politique de sécurité du contenu (CSP) de GCFoundation</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureSecureCookies" xml:space="preserve">
-    <value>Configurer des témoins sécurisés</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureGlobalResources" xml:space="preserve">
-    <value>Configurer les ressources globales (resx)</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureSupportedCultures" xml:space="preserve">
-    <value>Configurer les cultures prises en charge (p. ex. en-CA, fr-CA)</value>
-  </data>
-  <data name="Index_CodeComment_AddRouteLocalization" xml:space="preserve">
-    <value>Ajouter la localisation des routes (URL traduites)</value>
-  </data>
-  <data name="Index_CodeComment_AddLanguageMiddleware" xml:space="preserve">
-    <value>Ajouter l’intergiciel de langue de GCFoundation</value>
-  </data>
-  <data name="Index_CodeComment_EnableRequestLocalization" xml:space="preserve">
-    <value>Activer la localisation des requêtes ASP.NET Core</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureNavigationServices" xml:space="preserve">
-    <value>Configurer les services de navigation</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureBreadcrumbsLocalization" xml:space="preserve">
-    <value>Configurer le service de localisation du fil d’Ariane</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureTopNavigationLocalization" xml:space="preserve">
-    <value>Configurer le service de localisation de la barre de navigation supérieure</value>
-  </data>
-  <data name="Index_CodeComment_ShownEverywhere" xml:space="preserve">
-    <value>Affiché partout (topnav, breadcrumbs, sidenav)</value>
-  </data>
-  <data name="Index_CodeComment_TopNavigationOnly" xml:space="preserve">
-    <value>Barre de navigation supérieure seulement</value>
-  </data>
-  <data name="Index_CodeComment_BindNavigationRules" xml:space="preserve">
-    <value>Lier les règles de visibilité de la navigation à la configuration</value>
-  </data>
-  <data name="Index_CodeComment_EvaluateNavigationRules" xml:space="preserve">
-    <value>Évaluer les règles selon la requête actuelle (témoin, session ou revendication)</value>
-  </data>
-  <data name="Index_CodeComment_ConfigureDefaultRoute" xml:space="preserve">
-    <value>Configurer la route par défaut avec un paramètre de culture</value>
-  </data>
-  <data name="Index_CodeComment_AddCustomRouteLocalization" xml:space="preserve">
-    <value>AddCustomRouteLocalization</value>
-  </data>
-  <data name="Index_CodeComment_NavigationAndBreadcrumbs" xml:space="preserve">
-    <value>Navigation et fil d’Ariane</value>
-  </data>
-  <data name="Index_CodeComment_OptionalLocalizedTopNavigation" xml:space="preserve">
-    <value>Facultatif : libellés localisés de la barre de navigation supérieure</value>
-  </data>
-  <data name="Index_CodeComment_GlobalResourcesAndLocalization" xml:space="preserve">
-    <value>Ressources globales et localisation</value>
-  </data>
-  <data name="Index_CodeComment_GCFoundationServices" xml:space="preserve">
-    <value>Services GCFoundation</value>
-  </data>
-  <data name="Index_CodeComment_CultureAndUrlLocalization" xml:space="preserve">
-    <value>Culture et localisation selon l’URL</value>
-  </data>
-  <data name="Index_CodeComment_AddRouteLocalizationExtensions" xml:space="preserve">
-    <value>Ajouter les extensions de localisation des routes (routes traduites)</value>
-  </data>
-  <data name="Index_CodeComment_ErrorHandlingProduction" xml:space="preserve">
-    <value>Gestion des erreurs (production)</value>
-  </data>
-  <data name="Index_CodeComment_SecurityAndStaticFiles" xml:space="preserve">
-    <value>Sécurité et fichiers statiques</value>
-  </data>
-  <data name="Index_CodeComment_RequestLocalization" xml:space="preserve">
-    <value>Localisation des requêtes</value>
-  </data>
-  <data name="Index_CodeComment_GCFoundationComponentsAndSecurity" xml:space="preserve">
-    <value>Composants GCFoundation et sécurité</value>
-  </data>
-  <data name="Index_CodeComment_AuthorizationAndRouting" xml:space="preserve">
-    <value>Autorisation et routage</value>
-  </data>
-  <data name="Index_CopyButton_Text" xml:space="preserve">
-    <value>Copier</value>
-  </data>
-  <data name="Index_CopyButton_SuccessText" xml:space="preserve">
-    <value>Copié!</value>
-  </data>
   <data name="Translations_Page_Title" xml:space="preserve">
     <value>Traductions standardisées</value>
   </data>
@@ -432,23 +204,14 @@
   <data name="Metadata_Page_Title" xml:space="preserve">
     <value>Métadonnées</value>
   </data>
-  <data name="Metadata_Description" xml:space="preserve">
-    <value>Cette page vous démontrera comment vos métadonnées peuvent être configurées avec GCFoundation. En plus des informations globales pouvant être configurées, les métadonnées peuvent aussi être complètement personnalisées sur chacune de vos pages pour vous donner le plein contrôle dans l'optimisation du référencement pour les engins de recherche (i.e. &lt;span lang="en-CA"&gt;SEO&lt;/span&gt;).</value>
-  </data>
   <data name="Metadata_SideNav_OnThisPage" xml:space="preserve">
     <value>Sur cette page</value>
   </data>
   <data name="Metadata_Overview_Heading" xml:space="preserve">
     <value>Vue d'ensemble</value>
   </data>
-  <data name="Metadata_HowItWorks_Heading" xml:space="preserve">
-    <value>Fonctionnement</value>
-  </data>
   <data name="Metadata_Usage_Heading" xml:space="preserve">
     <value>Utilisation dans les contrôleurs</value>
-  </data>
-  <data name="Metadata_LayoutMerge_Heading" xml:space="preserve">
-    <value>Rendu et fusion dans la mise en page</value>
   </data>
   <data name="Metadata_Configuration_Heading" xml:space="preserve">
     <value>Configuration</value>
@@ -473,12 +236,6 @@
   </data>
   <data name="Metadata_Overview_Item_Configuration" xml:space="preserve">
     <value>&lt;strong&gt;Configuration&lt;/strong&gt; : GlobalMetaTags dans GCFoundationComponentsSettings est une collection d'objets MetaTag typés (appsettings.json).</value>
-  </data>
-  <data name="Metadata_HowItWorks_Intro" xml:space="preserve">
-    <value>Les contrôleurs héritant de GCFoundationBaseController peuvent ajouter des balises pendant l'exécution de l'action. La classe de base les expose à la vue après l'action.</value>
-  </data>
-  <data name="Metadata_LayoutMerge_Intro" xml:space="preserve">
-    <value>La mise en page fusionne les balises du contrôleur avec les balises globales, en évitant les doublons par nom ou propriété. Les balises du contrôleur sont rendues en premier.</value>
   </data>
   <data name="Metadata_Configuration_Intro" xml:space="preserve">
     <value>Définissez des balises meta globales dans appsettings.json en utilisant la structure typée MetaTag :</value>
@@ -525,10 +282,244 @@
   <data name="DateModified_Link" xml:space="preserve">
     <value>Pour plus d'information sur la balise &lt;code&gt;&amp;lt;gcds-date-modified&amp;gt;&lt;/code&gt;, veuillez consulter la &lt;gcds-link href="https://design-system.alpha.canada.ca/fr/composants/date-de-modification/" target="_blank" external&gt;documentation du Système de conception du GC&lt;/gcds-link&gt;.</value>
   </data>
-  <data name="Translations_HowToUse_Intro" xml:space="preserve">
-    <value>Utiliser les traductions standardisées de GCFoundation est un jeu d'enfant. Veuillez simplement vous assurer que la traduction a été configurée pour votre projet et que vous utilisez les déclarations @using dans vos vues Razor et vous pourrez utiliser les traductions standardisées dans votre contenu.</value>
+  <data name="Index_Page_Title" xml:space="preserve">
+    <value>Installation</value>
+  </data>
+  <data name="Index_Intro" xml:space="preserve">
+    <value>Ce guide explique comment ajouter GCFoundation à une application ASP.NET Core MVC. Le démarrage rapide vous donne la mise en page de Canada.ca (en-tête, pied de page, menu, fil d'Ariane et bouton de langue), les composants et les politiques de sécurité par défaut. Les sections facultatives présentent ensuite les fonctionnalités que vous pouvez ajouter au besoin.</value>
+  </data>
+  <data name="Index_SideNav_OnThisPage" xml:space="preserve">
+    <value>Sur cette page</value>
+  </data>
+  <data name="Index_Prerequisites_Heading" xml:space="preserve">
+    <value>Prérequis</value>
+  </data>
+  <data name="Index_Prerequisites_Item_Sdk" xml:space="preserve">
+    <value>Le &lt;a href="https://dotnet.microsoft.com/download/dotnet/10.0" lang="en"&gt;.NET 10 SDK&lt;/a&gt;</value>
+  </data>
+  <data name="Index_Prerequisites_Item_Ide" xml:space="preserve">
+    <value>Visual Studio 2026 (version 18.0 ou ultérieure), Visual Studio Code avec le C# Dev Kit, ou un autre éditeur compatible avec .NET 10</value>
+  </data>
+  <data name="Index_Prerequisites_Item_Project" xml:space="preserve">
+    <value>Un projet ASP.NET Core MVC qui cible &lt;code&gt;net10.0&lt;/code&gt;. Pour partir de zéro, exécutez &lt;code&gt;dotnet new mvc -n MyApp&lt;/code&gt;.</value>
+  </data>
+  <data name="Index_Prerequisites_NuGet" xml:space="preserve">
+    <value>Les paquets GCFoundation sont publiés sur nuget.org; vous n'avez pas besoin d'ajouter de source de paquets.</value>
+  </data>
+  <data name="Index_QuickStart_Heading" xml:space="preserve">
+    <value>Démarrage rapide</value>
+  </data>
+  <data name="Index_QuickStart_Intro" xml:space="preserve">
+    <value>Suivez ces étapes dans l'ordre. Les exemples utilisent &lt;code&gt;MyApp&lt;/code&gt; comme nom de projet et espace de noms racine&amp;nbsp;: remplacez-le par le vôtre.</value>
+  </data>
+  <data name="Index_Step1_Heading" xml:space="preserve">
+    <value>1. Installer les paquets</value>
+  </data>
+  <data name="Index_Step1_Intro" xml:space="preserve">
+    <value>Dans le dossier de votre projet, ajoutez les deux paquets GCFoundation et le paquet de localisation cloudscribe. &lt;code&gt;GCFoundation.Common&lt;/code&gt; et &lt;code&gt;cloudscribe.Web.Navigation&lt;/code&gt; sont installés automatiquement comme dépendances.</value>
+  </data>
+  <data name="Index_Step1_PackageManager" xml:space="preserve">
+    <value>Dans la console du Gestionnaire de package de Visual Studio, exécutez plutôt &lt;code&gt;Install-Package&lt;/code&gt; avec les mêmes noms de paquets.</value>
+  </data>
+  <data name="Index_Step2_Heading" xml:space="preserve">
+    <value>2. Configurer Program.cs</value>
+  </data>
+  <data name="Index_Step2_Intro" xml:space="preserve">
+    <value>Remplacez le contenu de &lt;code&gt;Program.cs&lt;/code&gt; par ce qui suit. Ce code enregistre les services GCFoundation, la navigation utilisée par le menu et le fil d'Ariane, ainsi que la localisation des requêtes en anglais et en français selon le premier segment de l'URL (&lt;code&gt;/en/...&lt;/code&gt; ou &lt;code&gt;/fr/...&lt;/code&gt;).</value>
+  </data>
+  <data name="Index_Step3_Heading" xml:space="preserve">
+    <value>3. Ajouter vos paramètres</value>
+  </data>
+  <data name="Index_Step3_Intro" xml:space="preserve">
+    <value>Ajoutez une section &lt;code&gt;FoundationComponentsSettings&lt;/code&gt; au fichier &lt;code&gt;appsettings.json&lt;/code&gt;. Pour commencer, seul le nom de l'application dans les deux langues est nécessaire. Il s'affiche dans l'en-tête, le menu et le titre de la page.</value>
+  </data>
+  <data name="Index_Step3_Note" xml:space="preserve">
+    <value>Tous les autres paramètres ont une valeur par défaut fonctionnelle. Vous pourrez les ajouter plus tard&amp;nbsp;: la version de l'application et les liens du pied de page dans cette section, les fichiers globaux et les balises meta (voir les prochaines étapes), ainsi que les sections &lt;code&gt;ContentPolicySettings&lt;/code&gt;, &lt;code&gt;FoundationSession&lt;/code&gt; et &lt;code&gt;AccountSettings&lt;/code&gt;.</value>
+  </data>
+  <data name="Index_Step4_Heading" xml:space="preserve">
+    <value>4. Décrire votre navigation</value>
+  </data>
+  <data name="Index_Step4_Intro" xml:space="preserve">
+    <value>La mise en page construit le menu et le fil d'Ariane à partir d'un fichier &lt;code&gt;navigation.xml&lt;/code&gt; à la racine de votre projet. Chaque nœud pointe vers une action de contrôleur, et son attribut &lt;code&gt;text&lt;/code&gt; est une clé de ressource, et non un libellé.</value>
+  </data>
+  <data name="Index_Step4_PreservedRoute" xml:space="preserve">
+    <value>Conservez &lt;code&gt;preservedRouteParameters="culture"&lt;/code&gt; sur chaque nœud pour que les liens restent dans la langue courante.</value>
+  </data>
+  <data name="Index_Step4_Resources" xml:space="preserve">
+    <value>Ajoutez ensuite les libellés. Dans un dossier &lt;code&gt;Resources&lt;/code&gt;, créez une classe &lt;code&gt;Navigation&lt;/code&gt; vide, un fichier &lt;code&gt;Navigation.resx&lt;/code&gt; pour l'anglais et un fichier &lt;code&gt;Navigation.fr.resx&lt;/code&gt; pour le français, avec les clés utilisées dans &lt;code&gt;navigation.xml&lt;/code&gt;.</value>
+  </data>
+  <data name="Index_Step4_ResourcesNote" xml:space="preserve">
+    <value>La classe et les fichiers doivent avoir le même nom et se trouver dans le même dossier pour que .NET trouve les traductions. Si Visual Studio a généré un fichier &lt;code&gt;Navigation.Designer.cs&lt;/code&gt; pour le fichier anglais, cette classe générée fait déjà le travail&amp;nbsp;: ne créez pas &lt;code&gt;Navigation.cs&lt;/code&gt;.</value>
+  </data>
+  <data name="Index_Step5_Heading" xml:space="preserve">
+    <value>5. Utiliser la mise en page GCFoundation</value>
+  </data>
+  <data name="Index_Step5_Intro" xml:space="preserve">
+    <value>Rendez les assistants de balise (&lt;span lang="en"&gt;tag helpers&lt;/span&gt;) de GCFoundation accessibles à toutes les vues dans &lt;code&gt;Views/_ViewImports.cshtml&lt;/code&gt;&amp;nbsp;:</value>
+  </data>
+  <data name="Index_Step5_Layout" xml:space="preserve">
+    <value>Utilisez ensuite la mise en page partagée dans &lt;code&gt;Views/_ViewStart.cshtml&lt;/code&gt;. Elle fournit l'en-tête, le pied de page, le menu, le fil d'Ariane, le bouton de langue ainsi que tous les styles et scripts de GCDS et de GCFoundation; vous n'avez donc plus besoin du fichier &lt;code&gt;Views/Shared/_Layout.cshtml&lt;/code&gt; du modèle.</value>
+  </data>
+  <data name="Index_Step5_Content" xml:space="preserve">
+    <value>Vos vues ne contiennent plus que le contenu de la page. Par exemple, dans &lt;code&gt;Views/Home/Index.cshtml&lt;/code&gt;&amp;nbsp;:</value>
+  </data>
+  <data name="Index_Step6_Heading" xml:space="preserve">
+    <value>6. Exécuter l'application</value>
+  </data>
+  <data name="Index_Step6_Intro" xml:space="preserve">
+    <value>Démarrez l'application et ouvrez &lt;code&gt;/en&lt;/code&gt; ou &lt;code&gt;/fr&lt;/code&gt;. Vous devriez voir l'en-tête de Canada.ca avec le nom de votre application, un menu construit à partir de &lt;code&gt;navigation.xml&lt;/code&gt; et un bouton de langue qui passe de la version anglaise à la version française de la page.</value>
+  </data>
+  <data name="Index_Step6_Troubleshooting" xml:space="preserve">
+    <value>Si la page n'a aucun style, vérifiez que &lt;code&gt;app.UseStaticFiles()&lt;/code&gt; est appelé. Si le menu affiche des clés comme &lt;code&gt;Nav_Home&lt;/code&gt; au lieu des libellés, vérifiez que les fichiers de ressources se trouvent dans le même dossier que la classe &lt;code&gt;Navigation&lt;/code&gt; et portent le même nom.</value>
+  </data>
+  <data name="Index_Optional_Heading" xml:space="preserve">
+    <value>Configuration facultative</value>
+  </data>
+  <data name="Index_Optional_Intro" xml:space="preserve">
+    <value>Ajoutez ces fonctionnalités seulement si votre application en a besoin.</value>
+  </data>
+  <data name="Index_NodeVisibility_Heading" xml:space="preserve">
+    <value>Afficher un nœud seulement dans le menu ou le fil d'Ariane</value>
+  </data>
+  <data name="Index_NodeVisibility_Intro" xml:space="preserve">
+    <value>Par défaut, un nœud s'affiche à la fois dans le menu et dans le fil d'Ariane. Utilisez l'attribut &lt;code&gt;componentVisibility&lt;/code&gt; pour le limiter à l'un des deux&amp;nbsp;: &lt;code&gt;topnav&lt;/code&gt; pour le menu, &lt;code&gt;breadcrumbs&lt;/code&gt; pour le fil d'Ariane. Dans le menu, un nœud sans contrôleur qui a des enfants s'affiche comme un groupe déroulant.</value>
+  </data>
+  <data name="Index_NavRules_Heading" xml:space="preserve">
+    <value>Afficher ou masquer des nœuds selon l'utilisateur</value>
+  </data>
+  <data name="Index_NavRules_Intro" xml:space="preserve">
+    <value>Vous pouvez masquer un nœud sauf si la requête courante contient une revendication (&lt;span lang="en"&gt;claim&lt;/span&gt;), un témoin ou une valeur de session donnés. Ajoutez une règle sous la clé (&lt;code&gt;key&lt;/code&gt;) du nœud dans &lt;code&gt;appsettings.json&lt;/code&gt;. Les nœuds sans règle sont toujours affichés.</value>
+  </data>
+  <data name="Index_NavRules_Program" xml:space="preserve">
+    <value>Enregistrez ensuite les règles et le résolveur d'autorisations dans &lt;code&gt;Program.cs&lt;/code&gt;, avant &lt;code&gt;builder.Build()&lt;/code&gt;&amp;nbsp;:</value>
+  </data>
+  <data name="Index_NavRules_Note" xml:space="preserve">
+    <value>Les règles ne font que masquer les liens. Elles ne protègent pas les pages&amp;nbsp;: ajoutez aussi &lt;code&gt;[Authorize]&lt;/code&gt; aux contrôleurs ou aux actions qui l'exigent.</value>
+  </data>
+  <data name="Index_SecureCookies_Heading" xml:space="preserve">
+    <value>Renforcer la sécurité des témoins</value>
+  </data>
+  <data name="Index_SecureCookies_Intro" xml:space="preserve">
+    <value>Pour que tous les témoins (&lt;span lang="en"&gt;cookies&lt;/span&gt;) de votre application soient &lt;code&gt;Secure&lt;/code&gt;, &lt;code&gt;HttpOnly&lt;/code&gt; et &lt;code&gt;SameSite=Strict&lt;/code&gt;, ajoutez une politique de témoins juste après l'intergiciel de langue&amp;nbsp;:</value>
+  </data>
+  <data name="Index_SecureCookies_Note" xml:space="preserve">
+    <value>Les témoins &lt;code&gt;Secure&lt;/code&gt; ne sont envoyés qu'en HTTPS; exécutez donc l'application avec le profil de lancement &lt;code&gt;https&lt;/code&gt;, y compris pendant le développement.</value>
+  </data>
+  <data name="Index_ContentPolicy_Heading" xml:space="preserve">
+    <value>Autoriser d'autres sources de contenu</value>
+  </data>
+  <data name="Index_ContentPolicy_Intro" xml:space="preserve">
+    <value>&lt;code&gt;UseGCFoundationContentPolicies()&lt;/code&gt; envoie une politique de sécurité du contenu (CSP) stricte qui autorise déjà GCFoundation, GCDS et Font Awesome. Si vous chargez des scripts, des styles, des polices, des images, des cadres ou des appels d'API à partir d'autres domaines, énumérez-les dans une section &lt;code&gt;ContentPolicySettings&lt;/code&gt; du fichier &lt;code&gt;appsettings.json&lt;/code&gt;&amp;nbsp;:</value>
+  </data>
+  <data name="Index_ContentPolicy_Nonce" xml:space="preserve">
+    <value>Les scripts en ligne sont bloqués à moins de porter le &lt;span lang="en"&gt;nonce&lt;/span&gt; de la requête courante. Ajoutez-le avec &lt;code&gt;CspNonceHelper&lt;/code&gt;&amp;nbsp;:</value>
+  </data>
+  <data name="Index_UrlTranslation_Heading" xml:space="preserve">
+    <value>Traduire les URL</value>
+  </data>
+  <data name="Index_UrlTranslation_Intro" xml:space="preserve">
+    <value>Par défaut, les pages françaises utilisent le même chemin que les pages anglaises (&lt;code&gt;/fr/home/privacy&lt;/code&gt;). Pour leur donner des chemins en français (&lt;code&gt;/fr/accueil/confidentialite&lt;/code&gt;), installez &lt;code&gt;RouteLocalization.AspNetCore&lt;/code&gt;&amp;nbsp;:</value>
+  </data>
+  <data name="Index_UrlTranslation_AttributeRoutes" xml:space="preserve">
+    <value>RouteLocalization fonctionne avec les routes par attribut. Donnez à chaque contrôleur et à chaque action une route sans la langue&amp;nbsp;: les préfixes &lt;code&gt;/en&lt;/code&gt; et &lt;code&gt;/fr&lt;/code&gt; sont ajoutés pour vous.</value>
+  </data>
+  <data name="Index_UrlTranslation_Extension" xml:space="preserve">
+    <value>Déclarez ensuite les chemins français dans une méthode d'extension. Les routes que vous ne traduisez pas conservent leur chemin anglais dans les deux langues.</value>
+  </data>
+  <data name="Index_UrlTranslation_Register" xml:space="preserve">
+    <value>Enregistrez l'extension dans &lt;code&gt;Program.cs&lt;/code&gt; avant &lt;code&gt;builder.Build()&lt;/code&gt;. Les contrôleurs à routes par attribut ne répondent plus à la racine du site (&lt;code&gt;/&lt;/code&gt;); associez-la donc aussi à une page, par exemple la page d'accueil anglaise&amp;nbsp;:</value>
+  </data>
+  <data name="Index_UrlTranslation_Result" xml:space="preserve">
+    <value>Le menu, le fil d'Ariane et le bouton de langue utilisent automatiquement les chemins traduits.</value>
+  </data>
+  <data name="Index_NextSteps_Heading" xml:space="preserve">
+    <value>Prochaines étapes</value>
+  </data>
+  <data name="Index_NextSteps_GlobalResources" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Ressources globales&lt;/a&gt;&amp;nbsp;: ajoutez vos propres fichiers CSS et JavaScript, balises meta et balises link à toutes les pages.</value>
+  </data>
+  <data name="Index_NextSteps_Metadata" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Métadonnées&lt;/a&gt;&amp;nbsp;: définissez les balises meta de chaque page pour les moteurs de recherche et les médias sociaux.</value>
+  </data>
+  <data name="Index_NextSteps_DateModified" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Date de modification et numéro de version&lt;/a&gt;&amp;nbsp;: affichez la date de modification ou le numéro de version au bas de chaque page.</value>
+  </data>
+  <data name="Index_NextSteps_Translations" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Traductions standardisées&lt;/a&gt;&amp;nbsp;: réutilisez des termes courants en anglais et en français.</value>
+  </data>
+  <data name="Index_NextSteps_Components" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Composants&lt;/a&gt;&amp;nbsp;: parcourez les composants GCDS et FDCP et leurs assistants de balise.</value>
+  </data>
+  <data name="Index_NextSteps_Templates" xml:space="preserve">
+    <value>&lt;a href="{0}"&gt;Modèles de page&lt;/a&gt;&amp;nbsp;: partez d'une page complète.</value>
+  </data>
+  <data name="Index_CodeComment_Navigation" xml:space="preserve">
+    <value>Menu et fil d'Ariane : lire navigation.xml et traduire ses libellés</value>
+  </data>
+  <data name="Index_CodeComment_GCFoundationServices" xml:space="preserve">
+    <value>GCFoundation : mise en page et composants, politique de sécurité du contenu, session</value>
+  </data>
+  <data name="Index_CodeComment_Cultures" xml:space="preserve">
+    <value>Anglais et français, selon le premier segment de l'URL</value>
+  </data>
+  <data name="Index_CodeComment_ErrorPages" xml:space="preserve">
+    <value>Pages d'erreur bilingues fournies par GCFoundation</value>
+  </data>
+  <data name="Index_CodeComment_TopNavigationOnly" xml:space="preserve">
+    <value>Menu seulement : un groupe déroulant sans page propre</value>
+  </data>
+  <data name="Index_CodeComment_BreadcrumbsOnly" xml:space="preserve">
+    <value>Fil d'Ariane seulement : une page accessible depuis le pied de page</value>
+  </data>
+  <data name="Index_CodeComment_DefaultTranslation" xml:space="preserve">
+    <value>Ajouter une route /en et /fr pour tout ce qui n'est pas traduit ci-dessus</value>
+  </data>
+  <data name="GlobalResources_Description" xml:space="preserve">
+    <value>Utilisez la section &lt;code&gt;FoundationComponentsSettings&lt;/code&gt; du fichier &lt;code&gt;appsettings.json&lt;/code&gt; pour ajouter des fichiers CSS, des fichiers JavaScript, des balises meta et des balises link à toutes les pages qui utilisent &lt;code&gt;_FoundationLayout&lt;/code&gt;.</value>
+  </data>
+  <data name="GlobalResources_LoadingOrder_Description" xml:space="preserve">
+    <value>La mise en page charge les ressources dans cet ordre; vos propres fichiers peuvent donc remplacer les styles par défaut.</value>
+  </data>
+  <data name="GlobalResources_CssOrder_Item_Gcds" xml:space="preserve">
+    <value>CSS de GCDS à partir du CDN, si &lt;code&gt;IncludeGCDSResources&lt;/code&gt; vaut &lt;code&gt;true&lt;/code&gt;</value>
+  </data>
+  <data name="GlobalResources_CssOrder_Item_FontAwesome" xml:space="preserve">
+    <value>CSS de Font Awesome à partir du CDN, si &lt;code&gt;IncludeFontAwesome&lt;/code&gt; vaut &lt;code&gt;true&lt;/code&gt;</value>
+  </data>
+  <data name="GlobalResources_CssOrder_Item_Default" xml:space="preserve">
+    <value>CSS par défaut de GCFoundation, toujours inclus&amp;nbsp;:</value>
+  </data>
+  <data name="GlobalResources_CssOrder_Item_Global" xml:space="preserve">
+    <value>Fichiers énumérés dans &lt;code&gt;GlobalCssFiles&lt;/code&gt;</value>
+  </data>
+  <data name="GlobalResources_CssOrder_Item_Page" xml:space="preserve">
+    <value>La section &lt;code&gt;Styles&lt;/code&gt; de la page</value>
+  </data>
+  <data name="GlobalResources_JsOrder_Item_Gcds" xml:space="preserve">
+    <value>JavaScript de GCDS à partir du CDN, si &lt;code&gt;IncludeGCDSResources&lt;/code&gt; vaut &lt;code&gt;true&lt;/code&gt;</value>
+  </data>
+  <data name="GlobalResources_JsOrder_Item_Default" xml:space="preserve">
+    <value>JavaScript par défaut de GCFoundation, toujours inclus&amp;nbsp;:</value>
+  </data>
+  <data name="GlobalResources_JsOrder_Item_Global" xml:space="preserve">
+    <value>Fichiers énumérés dans &lt;code&gt;GlobalJavaScriptFiles&lt;/code&gt;</value>
+  </data>
+  <data name="GlobalResources_JsOrder_Item_Page" xml:space="preserve">
+    <value>La section &lt;code&gt;Scripts&lt;/code&gt; de la page</value>
+  </data>
+  <data name="GlobalResources_HowToConfigure_Note" xml:space="preserve">
+    <value>Les chemins locaux peuvent commencer par &lt;code&gt;/&lt;/code&gt; ou &lt;code&gt;~/&lt;/code&gt;. Les adresses qui commencent par &lt;code&gt;http&lt;/code&gt; sont utilisées telles quelles&amp;nbsp;: ajoutez leur domaine à &lt;code&gt;ContentPolicySettings&lt;/code&gt; (&lt;code&gt;StyleSrc&lt;/code&gt; ou &lt;code&gt;ScriptSrc&lt;/code&gt;), sinon le navigateur les bloque.</value>
+  </data>
+  <data name="Metadata_Description" xml:space="preserve">
+    <value>Cette page explique comment configurer les métadonnées avec GCFoundation. En plus des métadonnées globales, vous pouvez personnaliser les métadonnées de chaque page afin d'optimiser votre application pour les moteurs de recherche (&lt;span lang="en"&gt;SEO&lt;/span&gt;).</value>
   </data>
   <data name="Translations_HowToUse_Heading" xml:space="preserve">
-    <value>Comment les utiliser ?</value>
+    <value>Comment les utiliser</value>
+  </data>
+  <data name="Translations_HowToUse_Intro" xml:space="preserve">
+    <value>Ajoutez &lt;code&gt;@using GCFoundation.Components.Resources&lt;/code&gt; à une vue, ou au fichier &lt;code&gt;_ViewImports.cshtml&lt;/code&gt; pour toutes les vues, puis utilisez les propriétés de la classe &lt;code&gt;Localization&lt;/code&gt;. Chaque propriété renvoie le terme dans la langue courante; la localisation des requêtes doit donc être configurée comme décrit dans le démarrage rapide de l'installation.</value>
+  </data>
+  <data name="Translations_List_Heading" xml:space="preserve">
+    <value>Traductions disponibles</value>
   </data>
 </root>

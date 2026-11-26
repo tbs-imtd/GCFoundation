@@ -29,22 +29,6 @@ namespace GCFoundation.Web.Controllers
             return View();
         }
 
-
-        /// <summary>
-        /// Displays the old template view (deprecated).
-        /// </summary>
-        /// <returns>
-        /// The old template view result.
-        /// </returns>
-        [HttpGet("old-index")]
-        public IActionResult OldIndex()
-        {
-            SetPageTitle($"{Menu.Menu_Template}");
-
-            return View("_OldIndex");
-        }
-
-
         /// <summary>
         /// Displays the Basic page template demo page.
         /// </summary>
