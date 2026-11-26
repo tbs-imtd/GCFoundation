@@ -553,9 +553,6 @@
   <data name="Crud_Demo_TableSectionTitle" xml:space="preserve">
     <value>Dossiers d'employés</value>
   </data>
-  <data name="Crud_Demo_DeleteEmployee_Title" xml:space="preserve">
-    <value>Supprimer</value>
-  </data>
   <data name="Crud_Demo_DeleteModal_Instruction" xml:space="preserve">
     <value>Sélectionnez Supprimer pour continuer ou Annuler pour retourner à la liste des employés.</value>
   </data>
@@ -565,9 +562,6 @@
   <data name="Crud_Demo_DeleteModal_Title" xml:space="preserve">
     <value>Supprimer l’employé?</value>
   </data>
-  <data name="Crud_Demo_EditProfile_Title" xml:space="preserve">
-    <value>Modifier</value>
-  </data>
   <data name="Crud_Demo_PageTitle" xml:space="preserve">
     <value>Démonstration du modèle de page CRUD</value>
   </data>
@@ -576,9 +570,6 @@
   </data>
   <data name="Crud_Demo_TableCaptionDetail" xml:space="preserve">
     <value>Ce tableau est fourni à des fins de démonstration seulement. Les données affichées sont fictives.</value>
-  </data>
-  <data name="Crud_Demo_ViewProfile_Title" xml:space="preserve">
-    <value>Consulter</value>
   </data>
   <data name="Crud_Edit_Department_AdministrativeServices" xml:space="preserve">
     <value>Services administratifs</value>
@@ -633,6 +624,12 @@
   </data>
   <data name="Crud_Code_Profile_Text" xml:space="preserve">
     <value>Cet exemple montre à quoi peut ressembler une page de consultation pour une page CRUD.</value>
+  </data>
+  <data name="Crud_Code_DeleteScript_Title" xml:space="preserve">
+    <value>Script de la fenêtre modale de suppression</value>
+  </data>
+  <data name="Crud_Code_DeleteScript_Text" xml:space="preserve">
+    <value>La page de démonstration utilise ce script pour transmettre l’employé sélectionné à la fenêtre modale de suppression. Il définit l’identifiant soumis par le formulaire, affiche le nom de l’employé dans la fenêtre modale et donne au bouton Supprimer un nom accessible qui comprend le nom de l’employé.</value>
   </data>
   <data name="Crud_Code_EmployeeViewModel_Title" xml:space="preserve">
     <value>Modèle de vue d’employé de démonstration</value>

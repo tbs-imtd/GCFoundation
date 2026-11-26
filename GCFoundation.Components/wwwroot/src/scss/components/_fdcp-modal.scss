@@ -62,6 +62,14 @@
     }
 }
 
+/* ===== Focus guards (see fdcp-modal.js) ===== */
+.modal__focus-guard {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+}
+
 /* ===== Header (shared layout only) ===== */
 .modal__header {
     display: flex;

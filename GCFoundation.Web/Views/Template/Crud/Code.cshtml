@@ -28,9 +28,9 @@
                 rows=""@Model.EmployeeModels""&gt;
         &lt;template slot=""cell:actions""&gt;
             &lt;div class=""fdcp-bind-group""&gt;
-                &lt;gcds-button data-bind-template-button-id=""view-button-{{id}}"" data-bind-template-aria-label=""{Html.Encode(Template.Crud_Demo_ViewProfile_Title)} {{name}}"" button-role=""primary"" type=""link"" data-bind-template-href=""view/{{id}}"" size=""small""&gt;{Html.Encode(Localization.View)}&lt;/gcds-button&gt;
-                &lt;gcds-button data-bind-template-button-id=""edit-button-{{id}}"" data-bind-template-aria-label=""{Html.Encode(Template.Crud_Demo_EditProfile_Title)} {{name}}"" button-role=""secondary"" type=""link"" data-bind-template-href=""edit/{{id}}"" size=""small""&gt;{Html.Encode(Localization.Edit)}&lt;/gcds-button&gt;
-                &lt;gcds-button data-bind-template-button-id=""delete-button-{{id}}"" data-bind-data-employee-id=""id"" data-bind-data-employee-name=""name"" data-bind-template-aria-label=""{Html.Encode(Template.Crud_Demo_DeleteEmployee_Title)} {{name}}"" modal-id=""delete-employee-modal"" button-role=""danger"" class=""fdcp-modal-open"" size=""small""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""view-button-{{id}}"" data-bind-template-aria-label=""{Html.Encode(Localization.View)} {{name}}"" button-role=""primary"" type=""link"" data-bind-template-href=""view/{{id}}"" size=""small""&gt;{Html.Encode(Localization.View)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""edit-button-{{id}}"" data-bind-template-aria-label=""{Html.Encode(Localization.Edit)} {{name}}"" button-role=""secondary"" type=""link"" data-bind-template-href=""edit/{{id}}"" size=""small""&gt;{Html.Encode(Localization.Edit)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""delete-button-{{id}}"" data-bind-data-employee-id=""id"" data-bind-data-employee-name=""name"" data-bind-template-aria-label=""{Html.Encode(Localization.Delete)} {{name}}"" modal-id=""delete-employee-modal"" button-role=""danger"" class=""fdcp-modal-open"" size=""small""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
             &lt;/div&gt;
         &lt;/template&gt;
     &lt;/fdcp-table&gt;
@@ -43,11 +43,40 @@
     &lt;div slot=""footer""&gt;
         &lt;fdcp-form for=""@Model"" method=""post"" action=""@Url.Action(""CrudDelete"", ""Template"")""&gt;
             @Html.AntiForgeryToken()
-            &lt;gcds-button button-id=""delete-employee"" type=""submit"" name=""id"" value="""" button-role=""danger"" data-aria-label-template=""{Html.Encode(Template.Crud_Demo_DeleteEmployee_Title)} {{name}}""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
+            &lt;gcds-button button-id=""delete-employee"" type=""submit"" name=""id"" value="""" button-role=""danger"" data-aria-label-template=""{Html.Encode(Localization.Delete)} {{name}}""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
             &lt;gcds-button button-id=""delete-employee-cancel"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Localization.Cancel)}&lt;/gcds-button&gt;
         &lt;/fdcp-form&gt;
     &lt;/div&gt;
 &lt;/fdcp-modal&gt;")</fdcp-code>
+
+<gcds-heading tag="h2">@Template.Crud_Code_DeleteScript_Title</gcds-heading>
+<gcds-text>@Template.Crud_Code_DeleteScript_Text</gcds-text>
+<fdcp-code code-language="javascript">@Html.Raw(Html.Encode(@"document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.fdcp-modal-open');
+    if (!trigger) return;
+
+    const employeeId = trigger.getAttribute('data-employee-id');
+    const employeeName = trigger.getAttribute('data-employee-name');
+    const modal = document.querySelector(`dialog[modal-id=""${trigger.getAttribute('modal-id')}""]`);
+    if (!modal) return;
+
+    const submitBtn = modal.querySelector('gcds-button[button-id=delete-employee]');
+    if (submitBtn) {
+        submitBtn.value = employeeId;
+        // gcds-button only copies aria-* attributes to its inner <button> on first render,
+        // so set the accessible name on the inner button directly.
+        const ariaLabelTemplate = submitBtn.getAttribute('data-aria-label-template');
+        const innerBtn = submitBtn.shadowRoot?.querySelector('button');
+        if (ariaLabelTemplate && innerBtn) {
+            innerBtn.setAttribute('aria-label', ariaLabelTemplate.replace('{name}', employeeName || ''));
+        }
+    }
+
+    const nameTarget = modal.querySelector('strong[data-employee-name-display]');
+    if (nameTarget) {
+        nameTarget.textContent = employeeName;
+    }
+});"))</fdcp-code>
 
 <gcds-heading tag="h2">@Template.Crud_Code_Edit_Title</gcds-heading>
 <gcds-text>@Template.Crud_Code_Edit_Text</gcds-text>

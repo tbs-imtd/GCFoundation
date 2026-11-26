@@ -39,7 +39,6 @@ const paths = {
     },
     js: {
         src: 'wwwroot/src/js/**/*.js',
-        vendor: [],
         dest: 'wwwroot/js'
     },
     vendor: {
@@ -115,7 +114,7 @@ function styles() {
 
 // Bundle and minify JS
 function scripts() {
-    return src([...paths.js.vendor, paths.js.src])
+    return src(paths.js.src)
         .pipe(plumber(errorHandler))
         .pipe(sourcemaps.init())
         .pipe(babel({

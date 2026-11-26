@@ -46,8 +46,9 @@ const GCFoundationWeb = {
             if (submitBtn) {
                 submitBtn['value'] = employeeId;
                 const ariaLabelTemplate = submitBtn.getAttribute('data-aria-label-template');
-                if (ariaLabelTemplate) {
-                    submitBtn.setAttribute('aria-label', ariaLabelTemplate.replace('{name}', employeeName || ''));
+                const innerBtn = submitBtn.shadowRoot?.querySelector('button');
+                if (ariaLabelTemplate && innerBtn) {
+                    innerBtn.setAttribute('aria-label', ariaLabelTemplate.replace('{name}', employeeName || ''));
                 }
             }
 

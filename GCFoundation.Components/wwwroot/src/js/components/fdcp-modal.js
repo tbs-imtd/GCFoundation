@@ -6,7 +6,45 @@
         this.triggerElement = null;
         this.table = document.querySelector('gcds-table');
         this.keydownHandler = (e) => this.onKeydown(e);
+        this.scrollableBody = element.querySelector('.modal__body--scrollable');
+        this.bodyResizeObserver = this.scrollableBody && typeof ResizeObserver === 'function'
+            ? new ResizeObserver(() => this.updateScrollableBody())
+            : null;
+        this.addFocusGuards();
         this.bindEvents();
+    }
+
+    // Key presses inside an iframe never reach the modal's keydown handler,
+    // so Tab out of an iframe at either end would leave the modal. These
+    // guards catch that focus and wrap it to the other end.
+    addFocusGuards() {
+        const createGuard = (onFocus) => {
+            const guard = document.createElement('span');
+            guard.tabIndex = 0;
+            guard.className = 'modal__focus-guard';
+            guard.addEventListener('focus', onFocus);
+            return guard;
+        };
+        this.modal.prepend(createGuard(() => this.focusEdge('last')));
+        this.modal.append(createGuard(() => this.focusEdge('first')));
+    }
+
+    focusEdge(edge) {
+        const focusable = this.getFocusableElements();
+        const target = edge === 'first' ? focusable[0] : focusable[focusable.length - 1];
+        (target || this.modal).focus();
+    }
+
+    // The tag helper renders a scrollable body as a tab stop so keyboard users
+    // can scroll it; drop that tab stop when the content doesn't overflow.
+    updateScrollableBody() {
+        const body = this.scrollableBody;
+        if (!body) return;
+        if (body.scrollHeight > body.clientHeight) {
+            body.setAttribute('tabindex', '0');
+        } else {
+            body.removeAttribute('tabindex');
+        }
     }
 
     // Collect every focusable element inside root (in DOM order), descending
@@ -30,6 +68,7 @@
         // reaches it, so treat that case as focusable.
         const editableHost = !el.hasAttribute('tabindex') &&
             ['', 'true', 'plaintext-only'].includes(el.getAttribute('contenteditable'));
+        if (el.classList.contains('modal__focus-guard')) return false;
         if ((el.tabIndex < 0 && !editableHost) || el.disabled || el.hidden) return false;
         if (el.closest?.('[inert]')) return false;
         const visible = typeof el.checkVisibility === 'function'
@@ -67,7 +106,14 @@
         let active = document.activeElement;
         while (active?.shadowRoot?.activeElement) active = active.shadowRoot.activeElement;
 
-        const isFirst = active === first || active === this.modal;
+        // From the dialog itself, Tab would land on the leading focus guard
+        if (active === this.modal) {
+            e.preventDefault();
+            (e.shiftKey ? last : first).focus();
+            return;
+        }
+
+        const isFirst = active === first;
         const isLast = active === last;
 
         if (e.shiftKey && isFirst) {
@@ -112,6 +158,11 @@
     onEnter() {
         document.body.style.overflow = 'hidden';
         this.modal.addEventListener('keydown', this.keydownHandler);
+        this.updateScrollableBody();
+        if (this.bodyResizeObserver) {
+            this.bodyResizeObserver.observe(this.scrollableBody);
+            Array.from(this.scrollableBody.children).forEach(child => this.bodyResizeObserver.observe(child));
+        }
         this.getInitialFocusTarget().focus();
     }
 
@@ -125,6 +176,7 @@
 
     onExit() {
         this.modal.removeEventListener('keydown', this.keydownHandler);
+        this.bodyResizeObserver?.disconnect();
         document.body.style.overflow = '';
 
         if (this.triggerElement && typeof this.triggerElement.focus === 'function') {
@@ -143,6 +195,8 @@
         this.modal.close();
     }
 }
+window.FDCPModal = FDCPModal;
+
 function bindModalTrigger(trigger) {
     if (trigger.dataset.fdcpBound) return;
     trigger.addEventListener('click', () => {
