@@ -233,6 +233,7 @@ class FDCPAutocomplete {
             multipleResults: data.multipleResultsText || '{0} results available',
             minLength: data.minLengthText || '',
             loadError: data.loadErrorText || 'Unable to load results. Please try again.',
+            selected: data.selectedAnnouncementText || '{0} selected',
             required: data.requiredMessage || 'This field is required.',
             requiredSummary: data.requiredSummaryMessage || data.requiredMessage || 'This field is required.',
             invalid: data.invalidMessage || 'Select an option from the list.',
@@ -935,6 +936,8 @@ class FDCPAutocomplete {
         this.close();
         this.updateClearButton();
         this.validate();
+        // Screen readers do not reliably read a value set by script, so confirm the choice.
+        this.announce(this.text.selected.replace('{0}', item.text));
     }
 
     setValue(item) {

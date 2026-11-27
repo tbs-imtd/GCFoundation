@@ -116,6 +116,7 @@ test.describe('FDCP autocomplete: demo data source (5,000 seeded records)', () =
     await expect(ac.input).toHaveValue(activeText);
     await expect(ac.value).toHaveValue(/^E\d{6}$/);
     await expect(ac.input).toHaveAttribute('aria-expanded', 'false');
+    await expect(ac.status).toHaveText(`${activeText} selected`);
     await expect(ac.input).not.toHaveAttribute('aria-activedescendant', /.+/);
     await expect(ac.clear).toBeVisible();
 

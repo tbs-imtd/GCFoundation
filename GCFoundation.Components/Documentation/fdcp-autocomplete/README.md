@@ -94,7 +94,7 @@ await window.FDCPLazy.load('autocomplete');
 | `cache` | `bool` | `true` | Cache pages of results in memory. |
 | `cache-ttl` | `int` | `300` | Seconds a cached page stays valid. |
 | `cache-size` | `int` | `50` | Most pages kept (least recently used is dropped). |
-| `loading-text`, `no-results-text`, `one-result-text`, `multiple-results-text`, `min-length-text`, `load-error-text`, `clear-text`, `instructions-text` | `string` | localized | Overrides for built-in English and French text. `multiple-results-text` and `min-length-text` take `{0}`. |
+| `loading-text`, `no-results-text`, `one-result-text`, `multiple-results-text`, `min-length-text`, `load-error-text`, `selected-announcement-text`, `clear-text`, `instructions-text` | `string` | localized | Overrides for built-in English and French text. `multiple-results-text`, `min-length-text` and `selected-announcement-text` take `{0}`. |
 
 ## Data source contract
 
@@ -267,7 +267,7 @@ WCAG conformance is claimed for a whole page, not a component. This component is
 | 3.3.1, 3.3.3 Error identification and suggestion | A / AA | Inline message naming the fix, plus an error-summary entry naming the field | e2e |
 | 3.3.5 Help | AAA | Hint text and keyboard instructions via `aria-describedby` | Tag helper tests |
 | 3.3.6 Error Prevention (All) | AAA | A selection can always be reviewed, changed or cleared before submit | e2e |
-| 4.1.3 Status Messages | AA | Loading, result counts, no results and errors go to a polite live region | e2e |
+| 4.1.3 Status Messages | AA | Loading, result counts, no results, the chosen option and errors go to a polite live region | e2e |
 
 Checked automatically: axe with the `wcag2a`, `wcag2aa`, `wcag21a`, `wcag21aa`, `wcag22aa` and `wcag2aaa` rule sets, in English and French, with the list closed, open with an active option, showing no results, invalid, and with a selection. Zero violations.
 

@@ -307,6 +307,10 @@
   <data name="Autocomplete_LoadError" xml:space="preserve">
     <value>Unable to load results. Please try again.</value>
   </data>
+  <data name="Autocomplete_Selected" xml:space="preserve">
+    <value>{0} selected</value>
+    <comment>{0} is the text of the option just chosen.</comment>
+  </data>
   <data name="Autocomplete_Clear" xml:space="preserve">
     <value>Clear selection</value>
   </data>
