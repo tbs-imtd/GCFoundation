@@ -120,6 +120,9 @@
   <data name="GlobalResources_AlwaysEnabled" xml:space="preserve">
     <value>Always Enabled</value>
   </data>
+  <data name="GlobalResources_LazyAutocompleteScript" xml:space="preserve">
+    <value>loaded by &lt;code&gt;foundation.min.js&lt;/code&gt; only on pages that contain an &lt;code&gt;fdcp-autocomplete&lt;/code&gt;</value>
+  </data>
   <data name="GlobalResources_CssLoadingOrder_Title" xml:space="preserve">
     <value>CSS Loading Order</value>
   </data>

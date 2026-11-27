@@ -115,6 +115,15 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to loaded by &lt;code&gt;foundation.min.js&lt;/code&gt; only on pages that contain an &lt;code&gt;fdcp-autocomplete&lt;/code&gt;.
+        /// </summary>
+        public static string GlobalResources_LazyAutocompleteScript {
+            get {
+                return ResourceManager.GetString("GlobalResources_LazyAutocompleteScript", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to CSS Loading Order.
         /// </summary>
         public static string GlobalResources_CssLoadingOrder_Title {

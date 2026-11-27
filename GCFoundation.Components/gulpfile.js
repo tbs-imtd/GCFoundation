@@ -39,7 +39,12 @@ const paths = {
     },
     js: {
         src: 'wwwroot/src/js/**/*.js',
-        dest: 'wwwroot/js'
+        dest: 'wwwroot/js',
+        // Large components built to their own <name>.min.js and loaded by fdcp-lazy-loader.js only on pages that
+        // use them. The loader's '__FDCP_LAZY_VERSION_<name>__' placeholder is replaced with a hash of the built file.
+        lazy: [
+            'wwwroot/src/js/components/fdcp-autocomplete.js'
+        ]
     },
     vendor: {
         quill: {
@@ -112,20 +117,54 @@ function styles() {
         .pipe(dest(paths.scss.dest));
 }
 
-// Bundle and minify JS
+// Bundle and minify JS (everything except paths.js.lazy)
 function scripts() {
-    return src(paths.js.src)
+    return src([paths.js.src, ...paths.js.lazy.map(file => '!' + file)])
         .pipe(plumber(errorHandler))
-        .pipe(newer({ dest: paths.js.dest, ext: '.min.js' }))
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['@babel/preset-env']
         }))
         .pipe(concat('foundation.js'))
+        .pipe(stampLazyVersions())
         .pipe(uglify())
         .pipe(rename({ suffix: '.min' }))
         .pipe(sourcemaps.write('.'))
         .pipe(dest(paths.js.dest));
+}
+
+// Build each lazy-loaded component to its own minified file
+function lazyScripts() {
+    return src(paths.js.lazy)
+        .pipe(plumber(errorHandler))
+        .pipe(sourcemaps.init())
+        .pipe(babel({
+            presets: ['@babel/preset-env']
+        }))
+        .pipe(uglify())
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest(paths.js.dest));
+}
+
+// Replace each '__FDCP_LAZY_VERSION_<name>__' placeholder with a short hash of the built <name>.min.js,
+// so foundation.min.js changes (and caches refresh) whenever a lazy component changes.
+function stampLazyVersions() {
+    return through2.obj(async function (file, _encoding, callback) {
+        try {
+            let contents = file.contents.toString();
+            for (const lazyFile of paths.js.lazy) {
+                const name = lazyFile.split('/').pop().replace(/\.js$/, '');
+                const built = await readFile(join(paths.js.dest, `${name}.min.js`));
+                const version = createHash('sha256').update(built).digest('hex').slice(0, 16);
+                contents = contents.split(`__FDCP_LAZY_VERSION_${name}__`).join(version);
+            }
+            file.contents = Buffer.from(contents);
+            callback(null, file);
+        } catch (error) {
+            callback(error);
+        }
+    });
 }
 
 // Copy Quill vendor assets
@@ -206,7 +245,7 @@ export async function checkCdnIntegrity() {
 // Build tasks
 export const build = series(
     clean,
-    parallel(styles, scripts, copyQuillJs, copyQuillCss)
+    parallel(styles, series(lazyScripts, scripts), copyQuillJs, copyQuillCss)
 );
 
 // Watch task (run separately with 'gulp watch')
@@ -216,7 +255,7 @@ export const watchTask = function() {
     
     // Then watch for changes
     watch(paths.scss.watch, styles);
-    watch(paths.js.src, scripts);
+    watch(paths.js.src, series(lazyScripts, scripts));
 };
 
 // Default task
