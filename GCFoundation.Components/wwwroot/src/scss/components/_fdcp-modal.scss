@@ -36,6 +36,11 @@
         transform: translate(0, 0);
     }
 
+    // Focusable only as a script fallback (tabindex="-1"); no focus ring
+    &:focus {
+        outline: none;
+    }
+
     &::backdrop {
         background-color: var(--gcds-table-modal-backdrop-background);
     }
@@ -55,6 +60,14 @@
             transform: translate(0, 0);
         }
     }
+}
+
+/* ===== Focus guards (see fdcp-modal.js) ===== */
+.modal__focus-guard {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
 }
 
 /* ===== Header (shared layout only) ===== */

@@ -45,6 +45,11 @@ const GCFoundationWeb = {
             const submitBtn = modalFooter.querySelector('gcds-button[button-id=delete-employee]');
             if (submitBtn) {
                 submitBtn['value'] = employeeId;
+                const ariaLabelTemplate = submitBtn.getAttribute('data-aria-label-template');
+                const innerBtn = submitBtn.shadowRoot?.querySelector('button');
+                if (ariaLabelTemplate && innerBtn) {
+                    innerBtn.setAttribute('aria-label', ariaLabelTemplate.replace('{name}', employeeName || ''));
+                }
             }
 
             const nameTarget = modalContent.querySelector('strong[data-employee-name-display]');
