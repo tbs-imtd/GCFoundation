@@ -58,6 +58,12 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? Caption { get; set; }
 
         /// <summary>
+        /// Gets or sets the HTML heading tag used for the visible caption heading.
+        /// Default is <see cref="HeadingTag.h5"/>.
+        /// </summary>
+        public HeadingTag CaptionTag { get; set; } = HeadingTag.h5;
+
+        /// <summary>
         /// Additional detail text shown under the caption heading, providing further context about the table.
         /// </summary>
         public string? CaptionDetail { get; set; }
@@ -113,7 +119,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         {
             string captionDetailHtml = string.IsNullOrEmpty(CaptionDetail) ? string.Empty : $"<gcds-text>{CaptionDetail}</gcds-text>";
             string html = $"""
-                <gcds-heading tag="h5">{Caption}</gcds-heading>
+                <gcds-heading tag="{CaptionTag}">{Caption}</gcds-heading>
                 {captionDetailHtml}
                 """;
             return html;

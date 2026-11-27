@@ -14,22 +14,23 @@
 
 &lt;gcds-heading tag=""h2""&gt;{Html.Encode(Template.Crud_Demo_TableSectionTitle)}&lt;/gcds-heading&gt;
 &lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_TableSectionDescription)}&lt;/gcds-text&gt;
-&lt;gcds-notice notice-title=""{Html.Encode(Template.Crud_Demo_Notice_Title)}""&gt;&lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_Notice_Text)}&lt;/gcds-text&gt;&lt;/gcds-notice&gt;
+&lt;gcds-notice notice-title-tag=""h3"" notice-title=""{Html.Encode(Template.Crud_Demo_Notice_Title)}""&gt;&lt;gcds-text&gt;{Html.Encode(Template.Crud_Demo_Notice_Text)}&lt;/gcds-text&gt;&lt;/gcds-notice&gt;
 
 &lt;section class=""mt-400""&gt;
-    &lt;gcds-button type=""link"" href=""@Url.Action(""CrudEdit"", ""Template"")""&gt;{Html.Encode(Template.Crud_Demo_AddEmployee_Button)}&lt;/gcds-button&gt;
+    &lt;gcds-button button-id=""add-employee-button"" type=""link"" href=""@Url.Action(""CrudEdit"", ""Template"")""&gt;{Html.Encode(Template.Crud_Demo_AddEmployee_Button)}&lt;/gcds-button&gt;
 &lt;/section&gt;
 
 &lt;gcds-container size=""lg""&gt;
     &lt;fdcp-table filter sort pagination-size=""10""
                 caption=""{Html.Encode(Template.Crud_Demo_TableCaption)}""
+                caption-tag=""h3""
                 caption-detail=""{Html.Encode(Template.Crud_Demo_TableCaptionDetail)}""
                 rows=""@Model.EmployeeModels""&gt;
         &lt;template slot=""cell:actions""&gt;
             &lt;div class=""fdcp-bind-group""&gt;
-                &lt;gcds-button data-bind-template-button-id=""view-button-{{id}}"" title=""{Html.Encode(Template.Crud_Demo_ViewProfile_Title)}"" button-role=""primary"" type=""link"" data-bind-template-href=""profile/{{id}}"" size=""small""&gt;{Html.Encode(Localization.View)}&lt;/gcds-button&gt;
-                &lt;gcds-button data-bind-template-button-id=""edit-button-{{id}}"" title=""{Html.Encode(Template.Crud_Demo_EditProfile_Title)}"" button-role=""secondary"" type=""link"" data-bind-template-href=""edit/{{id}}"" size=""small""&gt;{Html.Encode(Localization.Edit)}&lt;/gcds-button&gt;
-                &lt;gcds-button data-bind-template-button-id=""delete-button-{{id}}"" data-bind-data-employee-id=""id"" data-bind-data-employee-name=""name"" modal-id=""delete-employee-modal"" title=""{Html.Encode(Template.Crud_Demo_DeleteEmployee_Title)}"" button-role=""danger"" class=""fdcp-modal-open"" size=""small""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""view-button-{{id}}"" data-bind-template-aria-label=""{Html.Encode(Localization.View)} {{name}}"" button-role=""primary"" type=""link"" data-bind-template-href=""view/{{id}}"" size=""small""&gt;{Html.Encode(Localization.View)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""edit-button-{{id}}"" data-bind-template-aria-label=""{Html.Encode(Localization.Edit)} {{name}}"" button-role=""secondary"" type=""link"" data-bind-template-href=""edit/{{id}}"" size=""small""&gt;{Html.Encode(Localization.Edit)}&lt;/gcds-button&gt;
+                &lt;gcds-button data-bind-template-button-id=""delete-button-{{id}}"" data-bind-data-employee-id=""id"" data-bind-data-employee-name=""name"" data-bind-template-aria-label=""{Html.Encode(Localization.Delete)} {{name}}"" modal-id=""delete-employee-modal"" button-role=""danger"" class=""fdcp-modal-open"" size=""small""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
             &lt;/div&gt;
         &lt;/template&gt;
     &lt;/fdcp-table&gt;
@@ -42,11 +43,40 @@
     &lt;div slot=""footer""&gt;
         &lt;fdcp-form for=""@Model"" method=""post"" action=""@Url.Action(""CrudDelete"", ""Template"")""&gt;
             @Html.AntiForgeryToken()
-            &lt;gcds-button button-id=""delete-employee"" type=""submit"" name=""id"" value="""" button-role=""danger""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
+            &lt;gcds-button button-id=""delete-employee"" type=""submit"" name=""id"" value="""" button-role=""danger"" data-aria-label-template=""{Html.Encode(Localization.Delete)} {{name}}""&gt;{Html.Encode(Localization.Delete)}&lt;/gcds-button&gt;
             &lt;gcds-button button-id=""delete-employee-cancel"" button-role=""secondary"" class=""fdcp-modal-close""&gt;{Html.Encode(Localization.Cancel)}&lt;/gcds-button&gt;
         &lt;/fdcp-form&gt;
     &lt;/div&gt;
 &lt;/fdcp-modal&gt;")</fdcp-code>
+
+<gcds-heading tag="h2">@Template.Crud_Code_DeleteScript_Title</gcds-heading>
+<gcds-text>@Template.Crud_Code_DeleteScript_Text</gcds-text>
+<fdcp-code code-language="javascript">@Html.Raw(Html.Encode(@"document.addEventListener('click', (e) => {
+    const trigger = e.target.closest('.fdcp-modal-open');
+    if (!trigger) return;
+
+    const employeeId = trigger.getAttribute('data-employee-id');
+    const employeeName = trigger.getAttribute('data-employee-name');
+    const modal = document.querySelector(`dialog[modal-id=""${trigger.getAttribute('modal-id')}""]`);
+    if (!modal) return;
+
+    const submitBtn = modal.querySelector('gcds-button[button-id=delete-employee]');
+    if (submitBtn) {
+        submitBtn.value = employeeId;
+        // gcds-button only copies aria-* attributes to its inner <button> on first render,
+        // so set the accessible name on the inner button directly.
+        const ariaLabelTemplate = submitBtn.getAttribute('data-aria-label-template');
+        const innerBtn = submitBtn.shadowRoot?.querySelector('button');
+        if (ariaLabelTemplate && innerBtn) {
+            innerBtn.setAttribute('aria-label', ariaLabelTemplate.replace('{name}', employeeName || ''));
+        }
+    }
+
+    const nameTarget = modal.querySelector('strong[data-employee-name-display]');
+    if (nameTarget) {
+        nameTarget.textContent = employeeName;
+    }
+});"))</fdcp-code>
 
 <gcds-heading tag="h2">@Template.Crud_Code_Edit_Title</gcds-heading>
 <gcds-text>@Template.Crud_Code_Edit_Text</gcds-text>
@@ -109,7 +139,7 @@
 }}
 
 &lt;section class=""mt-400""&gt;
-    &lt;gcds-button button-role=""secondary"" type=""link"" href=""@Url.Action(""CrudDemo"", ""Template"")""&gt;&lt;gcds-icon name=""chevron-left"" margin-right=""50""&gt;&lt;/gcds-icon&gt;{Html.Encode(Template.Crud_Back_Button)}&lt;/gcds-button&gt;
+    &lt;gcds-button button-role=""secondary"" type=""link"" href=""@Url.Action(""CrudDemo"", ""Template"")""&gt;&lt;gcds-icon name=""chevron-left"" margin-right=""50""&gt;&lt;/gcds-icon&gt;{Html.Encode(Template.Crud_BackToEmployeeList_Button)}&lt;/gcds-button&gt;
 &lt;/section&gt;")</fdcp-code>
 
 <gcds-heading tag="h2">@Template.Crud_Code_EmployeeViewModel_Title</gcds-heading>
@@ -131,7 +161,7 @@ namespace GCFoundation.Web.Models.Template.Crud
         public string Address { get; set; } = string.Empty;
 
         [DataType(DataType.Date)]
-        [DateFormat(""yyyy-mm-dd"")]
+        [DateFormat(""yyyy-MM-dd"")]
         [Display(Name = ""Crud_Demo_DateOfBirth_Label"", ResourceType = typeof(Resources.Template), Order = 8)]
         public DateTime DateOfBirth { get; set; } = DateTime.Now;
 
@@ -153,14 +183,14 @@ namespace GCFoundation.Web.Models.Template.Crud
         public string ManagerName { get; set; } = string.Empty;
 
         [Display(Name = ""Crud_Demo_EmployeeName_Label"", ResourceType = typeof(Resources.Template), Order = 2)]
-        [TableColumnDefinition(Sort = true, Order = 2)]
+        [TableColumnDefinition(Sort = true, Order = 2, RowHeader = true)]
         public string Name { get; set; } = string.Empty;
 
         [Display(Name = ""Crud_Demo_Salary_Label"", ResourceType = typeof(Resources.Template), Order = 4)]
         public double Salary { get; set; }
 
         [DataType(DataType.Date)]
-        [DateFormat(""yyyy-mm-dd"")]
+        [DateFormat(""yyyy-MM-dd"")]
         [Display(Name = ""Crud_Demo_StartDate_Label"", ResourceType = typeof(Resources.Template), Order = 7)]
         public DateTime StartDate { get; set; } = DateTime.Now;
     }

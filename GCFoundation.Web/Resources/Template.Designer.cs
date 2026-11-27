@@ -320,6 +320,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The demo page uses this script to pass the selected employee to the delete modal. It sets the ID submitted by the form, shows the employee&apos;s name in the modal, and gives the Delete button an accessible name that includes the employee&apos;s name..
+        /// </summary>
+        public static string Crud_Code_DeleteScript_Text {
+            get {
+                return ResourceManager.GetString("Crud_Code_DeleteScript_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Delete modal script.
+        /// </summary>
+        public static string Crud_Code_DeleteScript_Title {
+            get {
+                return ResourceManager.GetString("Crud_Code_DeleteScript_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Demo page.
         /// </summary>
         public static string Crud_Code_Demo_Title {
@@ -428,15 +446,6 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Delete employee.
-        /// </summary>
-        public static string Crud_Demo_DeleteEmployee_Title {
-            get {
-                return ResourceManager.GetString("Crud_Demo_DeleteEmployee_Title", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Select Delete to continue, or Cancel to return to the employee list..
         /// </summary>
         public static string Crud_Demo_DeleteModal_Instruction {
@@ -469,15 +478,6 @@ namespace GCFoundation.Web.Resources {
         public static string Crud_Demo_Department_Label {
             get {
                 return ResourceManager.GetString("Crud_Demo_Department_Label", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Edit employee information.
-        /// </summary>
-        public static string Crud_Demo_EditProfile_Title {
-            get {
-                return ResourceManager.GetString("Crud_Demo_EditProfile_Title", resourceCulture);
             }
         }
         
@@ -613,15 +613,6 @@ namespace GCFoundation.Web.Resources {
         public static string Crud_Demo_TableSectionTitle {
             get {
                 return ResourceManager.GetString("Crud_Demo_TableSectionTitle", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to View employee information.
-        /// </summary>
-        public static string Crud_Demo_ViewProfile_Title {
-            get {
-                return ResourceManager.GetString("Crud_Demo_ViewProfile_Title", resourceCulture);
             }
         }
         

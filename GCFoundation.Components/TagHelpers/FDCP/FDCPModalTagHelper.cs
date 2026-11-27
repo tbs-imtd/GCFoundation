@@ -76,6 +76,9 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("modal-id", ModalId);
             output.Attributes.SetAttribute("aria-labelledby", $"{ModalId}Label");
             output.Attributes.SetAttribute("aria-describedby", $"{ModalId}Description");
+            output.Attributes.SetAttribute("aria-modal", "true");
+            // Lets the dialog itself take focus when nothing focusable is inside
+            output.Attributes.SetAttribute("tabindex", "-1");
 
             if (StaticBackdrop)
             {
@@ -84,7 +87,6 @@ namespace GCFoundation.Components.TagHelpers.FDCP
 
             var variant = State.ToString().ToLowerInvariant();
 
-            // dialog + modal + scrollable/size/variant modifiers now live on one element
             var classes = new List<string> { "modal" };
             if (Scrollable) classes.Add("modal--scrollable");
             if (Size == ModalSize.small) classes.Add("container-sm");
@@ -99,10 +101,14 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             var cleanedContent = RemoveSlotElements(childContentRaw);
 
             var bodyClasses = "modal__body" + (Scrollable ? " modal__body--scrollable" : "");
+            // A scrollable body must be keyboard-focusable so text-only content can be scrolled
+            var bodyScrollAttributes = Scrollable
+                ? $" tabindex=\"0\" role=\"region\" aria-labelledby=\"{ModalId}Label\""
+                : string.Empty;
 
             var sb = new StringBuilder();
             sb.Append(BuildHeader(variant));
-            sb.AppendLine(CultureInfo.InvariantCulture, $"<div id=\"{ModalId}Description\" class=\"{bodyClasses}\" tabindex=\"0\">");
+            sb.AppendLine(CultureInfo.InvariantCulture, $"<div id=\"{ModalId}Description\" class=\"{bodyClasses}\"{bodyScrollAttributes}>");
             sb.AppendLine(!string.IsNullOrWhiteSpace(bodySlot) ? bodySlot : cleanedContent.Trim());
             sb.AppendLine("</div>");
             if (!string.IsNullOrWhiteSpace(footerSlot))
@@ -130,7 +136,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     return $@"
                         <div class=""modal__header bg-warning"">
                             <div class=""modal__title-group"">
-                                <gcds-icon name=""warning-triangle""></gcds-icon>
+                                <gcds-icon name=""warning-triangle"" aria-hidden=""true""></gcds-icon>
                                 <p class=""font-h5 mb-0"" id=""{ModalId}Label"">{Title}</p>
                             </div>
                             {CloseButton()}
@@ -141,7 +147,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
                     return $@"
                         <div class=""modal__header bg-info"">
                             <div class=""modal__title-group text-light"">
-                                <gcds-icon name=""info-circle"" class=""text-current""></gcds-icon>
+                                <gcds-icon name=""info-circle"" class=""text-current"" aria-hidden=""true""></gcds-icon>
                                 <p class=""font-h5 text-current mb-0"" id=""{ModalId}Label"">{Title}</p>
                             </div>
                             {CloseButton()}

@@ -116,7 +116,6 @@ function styles() {
 function scripts() {
     return src(paths.js.src)
         .pipe(plumber(errorHandler))
-        .pipe(newer({ dest: paths.js.dest, ext: '.min.js' }))
         .pipe(sourcemaps.init())
         .pipe(babel({
             presets: ['@babel/preset-env']
