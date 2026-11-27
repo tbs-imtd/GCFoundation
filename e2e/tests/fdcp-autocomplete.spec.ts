@@ -46,12 +46,42 @@ async function tabOut(page: Page, ac: Autocomplete) {
   if (await ac.clear.isVisible()) await page.keyboard.press('Tab');
 }
 
-/** The element aria-activedescendant points at must exist and be an option. */
-async function expectActiveDescendantResolves(ac: Autocomplete) {
-  const id = await ac.input.getAttribute('aria-activedescendant');
-  expect(id).toBeTruthy();
-  await expect(ac.root.locator(`[id="${id}"]`)).toHaveAttribute('role', 'option');
-  await expect(ac.root.locator(`[id="${id}"]`)).toHaveAttribute('aria-selected', 'true');
+interface ActiveOption {
+  problem: string;
+  posinset: number;
+  text: string;
+}
+
+/** Reads the option aria-activedescendant points at, in one round trip to the page. */
+function readActiveOption(ac: Autocomplete): Promise<ActiveOption> {
+  return ac.root.evaluate(root => {
+    const input = root.querySelector('[data-fdcp-autocomplete-input]')!;
+    const id = input.getAttribute('aria-activedescendant');
+    const option = id ? root.querySelector(`[id="${CSS.escape(id)}"]`) : null;
+    const problem = !id ? 'no aria-activedescendant'
+      : !option ? `#${id} is not in the component`
+      : option.getAttribute('role') !== 'option' ? `#${id} is not an option`
+      : option.getAttribute('aria-selected') !== 'true' ? `#${id} is not aria-selected`
+      : root.querySelectorAll('[role="option"][aria-selected="true"]').length !== 1 ? 'more than one option is aria-selected'
+      : '';
+
+    return {
+      problem,
+      posinset: Number(option?.getAttribute('aria-posinset') ?? 0),
+      text: option?.textContent ?? ''
+    };
+  });
+}
+
+/**
+ * The element aria-activedescendant points at must exist, be an option, and be the only selected option.
+ * Checked in one page evaluation per poll (usually the first), not one round trip per attribute, so long
+ * keyboard tests stay fast when a full parallel run loads the machine.
+ */
+async function expectActiveDescendantResolves(ac: Autocomplete): Promise<ActiveOption> {
+  let active: ActiveOption = { problem: 'not read', posinset: 0, text: '' };
+  await expect.poll(async () => (active = await readActiveOption(ac)).problem).toBe('');
+  return active;
 }
 
 test.describe('FDCP autocomplete: demo data source (5,000 seeded records)', () => {
@@ -399,6 +429,8 @@ test.describe('FDCP autocomplete: mocked data source with thousands of random re
     expect(new Set(ids).size).toBe(ids.length);
   });
 
+  // Each key press is followed by a single in-page check, and the reopen case is its own test, so the number of
+  // round trips to the browser stays small: under a full parallel run each one can take a second or more.
   test('keyboard reaches deep rows and aria-activedescendant always resolves @core', async ({ page }) => {
     await open(page);
     const records = generateRecords(5000);
@@ -409,32 +441,51 @@ test.describe('FDCP autocomplete: mocked data source with thousands of random re
     await expect(ac.options.first()).toBeVisible();
 
     await ac.input.press('ArrowDown');
-    await expectActiveDescendantResolves(ac);
+    expect((await expectActiveDescendantResolves(ac)).posinset).toBe(1);
 
+    let active = { posinset: 1, text: '' };
     for (let step = 0; step < 12; step++) {
       await ac.input.press('PageDown');
-      await expectActiveDescendantResolves(ac);
+      const previous = active.posinset;
+      active = await expectActiveDescendantResolves(ac);
+      expect(active.posinset).toBeGreaterThan(previous);
     }
 
-    const position = Number(await ac.root.locator('[role="option"][aria-selected="true"]').getAttribute('aria-posinset'));
-    expect(position).toBeGreaterThan(60);
-    await expect(ac.root.locator('[role="option"][aria-selected="true"]')).toContainText(records[position - 1].text);
+    expect(active.posinset).toBeGreaterThan(60);
+    // The first page holds 100 rows, so this row is already loaded.
+    expect(active.text).toContain(records[active.posinset - 1].text);
 
     await ac.input.press('Control+End');
-    await expectActiveDescendantResolves(ac);
-    await expect(ac.root.locator('[role="option"][aria-selected="true"]')).toHaveAttribute('aria-posinset', '5000');
+    expect((await expectActiveDescendantResolves(ac)).posinset).toBe(5000);
+    // The last row's page loads after the jump.
     await expect(ac.root.locator('[role="option"][aria-selected="true"]')).toContainText(records[4999].text);
 
     await ac.input.press('Enter');
     await expect(ac.value).toHaveValue(records[4999].value);
     await expect(ac.input).toHaveValue(records[4999].text);
+  });
+
+  test('Control+Home returns to the first row after reopening the list @core', async ({ page }) => {
+    await open(page);
+    const records = generateRecords(5000);
+    await mockDataSource(page, 'directory', records, { matchAll: true });
+    const ac = autocomplete(page, 'directory');
 
     await ac.input.fill('an');
     await expect(ac.options.first()).toBeVisible();
     await ac.input.press('ArrowDown');
     await ac.input.press('Control+End');
+    await expect(ac.root.locator('[role="option"][aria-selected="true"]')).toContainText(records[4999].text);
+    await ac.input.press('Enter');
+    await expect(ac.value).toHaveValue(records[4999].value);
+
+    // The same term again is served from the cache, starting at the top of the list.
+    await ac.input.fill('an');
+    await expect(ac.options.first()).toBeVisible();
+    await ac.input.press('ArrowDown');
+    await ac.input.press('Control+End');
     await ac.input.press('Control+Home');
-    await expect(ac.root.locator('[role="option"][aria-selected="true"]')).toHaveAttribute('aria-posinset', '1');
+    expect((await expectActiveDescendantResolves(ac)).posinset).toBe(1);
     expect(await ac.options.count()).toBeLessThanOrEqual(MAX_RENDERED_ROWS);
   });
 
