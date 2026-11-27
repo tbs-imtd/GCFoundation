@@ -1,6 +1,6 @@
 ﻿@use '../variables' as vars;
 
-@mixin badge-variant($name, $bg, $text, $border: $bg, $invertedText: $bg, $invertedIcon: $invertedText, $invertedBg: transparent) {
+@mixin badge-variant($name, $bg, $text, $border: $bg, $invertedText: $bg, $invertedIcon: $invertedText, $invertedBg: var(--gcds-color-white)) {
     &.fdcp-badge-#{$name} {
         background-color: $bg;
         color: $text;
@@ -63,6 +63,13 @@
             border-radius: 50%;
             padding: 0.25rem;
             line-height: 0;
+            outline: var(--gcds-border-width-md) solid transparent;
+            outline-offset: var(--gcds-border-width-md);
+
+            &:focus {
+                outline-color: var(--gcds-focus-border);
+                box-shadow: 0 0 0 var(--gcds-border-width-md) var(--gcds-color-white);
+            }
         }
     }
 

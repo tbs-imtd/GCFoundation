@@ -314,7 +314,8 @@ namespace GCFoundation.Web.Controllers
             {
                 Resources.Components.Badge_Notes_1,
                 Resources.Components.Badge_Notes_2,
-                Resources.Components.Badge_Notes_3
+                Resources.Components.Badge_Notes_3,
+                Resources.Components.Badge_Notes_4
             };
             vm.Overview = Resources.Components.Badge_Overview;
             vm.AlsoCalled = Resources.Components.Badge_AlsoCalled;

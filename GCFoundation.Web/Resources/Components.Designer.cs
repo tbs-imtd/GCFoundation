@@ -1564,7 +1564,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the &lt;code&gt;inverted="true"&lt;/code&gt; attribute to render badges with transparent backgrounds.&lt;/gcds-text&gt;.
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use the &lt;code&gt;inverted="true"&lt;/code&gt; attribute to render badges with white backgrounds.&lt;/gcds-text&gt;.
         /// </summary>
         public static string Badge_Inverted_Text {
             get {
@@ -1614,6 +1614,15 @@ namespace GCFoundation.Web.Resources {
         public static string Badge_Notes_3 {
             get {
                 return ResourceManager.GetString("Badge_Notes_3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt; placed in the start or end content automatically receives the GC Design System focus ring. No extra class or script is needed..
+        /// </summary>
+        public static string Badge_Notes_4 {
+            get {
+                return ResourceManager.GetString("Badge_Notes_4", resourceCulture);
             }
         }
         
@@ -1681,11 +1690,20 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Remove.
+        ///   Looks up a localized string similar to Remove Info badge.
         /// </summary>
         public static string Badge_Slot_Close_Label {
             get {
                 return ResourceManager.GetString("Badge_Slot_Close_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Remove inverted info badge.
+        /// </summary>
+        public static string Badge_Slot_Inverted_Close_Label {
+            get {
+                return ResourceManager.GetString("Badge_Slot_Inverted_Close_Label", resourceCulture);
             }
         }
         
@@ -1695,6 +1713,15 @@ namespace GCFoundation.Web.Resources {
         public static string Badge_Slot_Inverted_Label {
             get {
                 return ResourceManager.GetString("Badge_Slot_Inverted_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Info badge.
+        /// </summary>
+        public static string Badge_Slot_Label {
+            get {
+                return ResourceManager.GetString("Badge_Slot_Label", resourceCulture);
             }
         }
         

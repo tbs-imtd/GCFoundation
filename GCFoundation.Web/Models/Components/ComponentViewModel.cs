@@ -23,7 +23,7 @@ namespace GCFoundation.Web.Models.Components
         public string AlsoCalled { get; set; } = string.Empty;
 
         /// <summary>
-        /// (Optional) Additional guidance sections (e.g. anatomy, colour meaning) rendered after the standard guidance.
+        /// (Optional) Additional guidance sections (e.g. component-specific accessibility) rendered after the standard guidance.
         /// </summary>
         public IEnumerable<ComponentSampleCodeSectionViewModel> GuidanceSections { get; set; } = new List<ComponentSampleCodeSectionViewModel>();
 

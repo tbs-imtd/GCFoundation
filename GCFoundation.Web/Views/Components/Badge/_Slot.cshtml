@@ -4,24 +4,24 @@
 
 <fdcp-badge style="info">
     <span slot="start-content"><gcds-icon name="info-circle" size="text-small"></gcds-icon></span>
-    Info badge
+    @Components.Badge_Slot_Label
     <span slot="end-content"><button type="button" aria-label="@Components.Badge_Slot_Close_Label"><gcds-icon name="close" size="text-small"></gcds-icon></button></span>
 </fdcp-badge>
 <fdcp-badge style="info" inverted="true">
     <span slot="start-content"><gcds-icon name="info-circle" size="text-small"></gcds-icon></span>
     @Components.Badge_Slot_Inverted_Label
-    <span slot="end-content"><button type="button" aria-label="@Components.Badge_Slot_Close_Label"><gcds-icon name="close" size="text-small"></gcds-icon></button></span>
+    <span slot="end-content"><button type="button" aria-label="@Components.Badge_Slot_Inverted_Close_Label"><gcds-icon name="close" size="text-small"></gcds-icon></button></span>
 </fdcp-badge>
 
 <fdcp-code code-language="html">
 &lt;fdcp-badge style="info"&gt;
     &lt;span slot="start-content"&gt;&lt;gcds-icon name="info-circle" size="text-small"&gt;&lt;/gcds-icon&gt;&lt;/span&gt;
-    Info badge
+    @Components.Badge_Slot_Label
     &lt;span slot="end-content"&gt;&lt;button type="button" aria-label="@Components.Badge_Slot_Close_Label"&gt;&lt;gcds-icon name="close" size="text-small"&gt;&lt;/gcds-icon&gt;&lt;/button&gt;&lt;/span&gt;
 &lt;/fdcp-badge&gt;
 &lt;fdcp-badge style="info" inverted="true"&gt;
     &lt;span slot="start-content"&gt;&lt;gcds-icon name="info-circle" size="text-small"&gt;&lt;/gcds-icon&gt;&lt;/span&gt;
     @Components.Badge_Slot_Inverted_Label
-    &lt;span slot="end-content"&gt;&lt;button type="button" aria-label="@Components.Badge_Slot_Close_Label"&gt;&lt;gcds-icon name="close" size="text-small"&gt;&lt;/gcds-icon&gt;&lt;/button&gt;&lt;/span&gt;
+    &lt;span slot="end-content"&gt;&lt;button type="button" aria-label="@Components.Badge_Slot_Inverted_Close_Label"&gt;&lt;gcds-icon name="close" size="text-small"&gt;&lt;/gcds-icon&gt;&lt;/button&gt;&lt;/span&gt;
 &lt;/fdcp-badge&gt;
 </fdcp-code>

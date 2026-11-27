@@ -675,7 +675,7 @@
     <value>Inverted Variants</value>
   </data>
   <data name="Badge_Inverted_Text" xml:space="preserve">
-    <value>&lt;gcds-text&gt;Use the &lt;code&gt;inverted="true"&lt;/code&gt; attribute to render badges with transparent backgrounds.&lt;/gcds-text&gt;</value>
+    <value>&lt;gcds-text&gt;Use the &lt;code&gt;inverted="true"&lt;/code&gt; attribute to render badges with white backgrounds.&lt;/gcds-text&gt;</value>
   </data>
   <data name="Badge_Slot_Title" xml:space="preserve">
     <value>Start and End</value>
@@ -723,7 +723,7 @@
     <value>Inverted info badge</value>
   </data>
   <data name="Badge_Slot_Close_Label" xml:space="preserve">
-    <value>Remove</value>
+    <value>Remove Info badge</value>
   </data>
   <data name="Card_Name" xml:space="preserve">
     <value>Card</value>
@@ -2620,5 +2620,14 @@
   </data>
   <data name="Badge_Accessibility_Content_Wcag" xml:space="preserve">
     <value>1.3.1 Info and Relationships; 2.4.6 Headings and Labels.</value>
+  </data>
+  <data name="Badge_Notes_4" xml:space="preserve">
+    <value>A &lt;code&gt;&amp;lt;button&amp;gt;&lt;/code&gt; placed in the start or end content automatically receives the GC Design System focus ring. No extra class or script is needed.</value>
+  </data>
+  <data name="Badge_Slot_Inverted_Close_Label" xml:space="preserve">
+    <value>Remove inverted info badge</value>
+  </data>
+  <data name="Badge_Slot_Label" xml:space="preserve">
+    <value>Info badge</value>
   </data>
 </root>
