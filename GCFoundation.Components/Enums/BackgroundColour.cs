@@ -6,23 +6,13 @@
     public enum BackgroundColour
     {
         /// <summary>
-        /// Dark background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).
-        /// </summary>
-        dark,
-
-        /// <summary>
-        /// Light background colour (alternative to white). Use with a text shade of 700 or darker (like --gcds-text-primary).
+        /// Light grey background colour (--gcds-bg-light). Use with a text shade of 700 or darker (like --gcds-text-primary).
         /// </summary>
         light,
 
         /// <summary>
-        /// Primary background colour. Use with a text shade of 100 or lighter (like --gcds-text-light).
+        /// Primary background colour (--gcds-bg-primary). Use with a text shade of 100 or lighter (like --gcds-text-light).
         /// </summary>
-        primary,
-
-        /// <summary>
-        /// White background colour. Use with a text shade of 700 or darker (like --gcds-text-primary).
-        /// </summary>
-        white
+        primary
     }
 }

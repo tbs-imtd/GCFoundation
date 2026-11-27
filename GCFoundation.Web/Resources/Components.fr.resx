@@ -1379,7 +1379,118 @@
     <value>Des changements aux styles peuvent appliqués sur la classe &lt;code&gt;fdcp-page-heading-container&lt;/code&gt; et autres dans votre fichier SCSS</value>
   </data>
   <data name="PageHeading_Notes_2" xml:space="preserve">
-    <value>Ce composant est réactif et accessible</value>
+    <value>Ce composant est réactif et accessible. Sur les écrans mobiles, l'image d'arrière-plan et l'arrière-plan de l'espace réservé au texte sont retirés, et le texte pâle prend la couleur de texte régulière</value>
+  </data>
+  <data name="PageHeading_Demo_Title" xml:space="preserve">
+    <value>Possibilités de financement</value>
+  </data>
+  <data name="PageHeading_Demo_Description" xml:space="preserve">
+    <value>Découvrez les possibilités de financement et présentez une demande pour soutenir vos projets et initiatives.</value>
+  </data>
+  <data name="PageHeading_Notes_4" xml:space="preserve">
+    <value>Le titre et la description doivent respecter un rapport de contraste minimal de 4,5:1 dans tous les affichages (ordinateur, tablette et mobile). Les paires correspondantes de &lt;code&gt;background-colour&lt;/code&gt; et &lt;code&gt;text-colour&lt;/code&gt; respectent ce rapport, mais le composant ne l'impose pas. Lorsque &lt;code&gt;text-emphasis&lt;/code&gt; est désactivé, vérifiez le contraste du texte par rapport à l'image d'arrière-plan. Un arrière-plan en dégradé peut être appliqué au moyen de changements aux styles, à condition de respecter le même contraste minimal dans tous les affichages</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Anchor" xml:space="preserve">
+    <value>mise-en-evidence-du-texte</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Title" xml:space="preserve">
+    <value>Mise en évidence du texte</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Utilisez &lt;code&gt;text-emphasis&lt;/code&gt; pour placer une boîte à contraste plus élevé derrière le titre et la description, afin que le texte reste lisible sur n'importe quelle partie de l'image d'arrière-plan. La couleur de la boîte est déterminée par &lt;code&gt;background-colour&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Label" xml:space="preserve">
+    <value>Exemples de mise en évidence du texte de l'en-tête de page</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Primary_Title" xml:space="preserve">
+    <value>Principale</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Primary_Text" xml:space="preserve">
+    <value>La valeur par défaut. Une boîte bleu foncé (&lt;code&gt;background-colour="primary"&lt;/code&gt;), utilisée avec du texte pâle. Recommandée lorsque le texte est placé sur une image détaillée ou chargée.</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Light_Title" xml:space="preserve">
+    <value>Pâle</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Light_Text" xml:space="preserve">
+    <value>Une boîte gris pâle (&lt;code&gt;background-colour="light"&lt;/code&gt;), utilisée avec du texte principal.</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Off_Title" xml:space="preserve">
+    <value>Sans</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Off_Text" xml:space="preserve">
+    <value>Le texte est placé directement sur l'image. Vérifiez que le texte respecte un rapport de contraste de 4,5:1 sur toutes les parties de l'image qu'il recouvre. Si l'image ne se charge pas, le texte pâle s'affiche sur l'arrière-plan de mise en évidence.</value>
+  </data>
+  <data name="PageHeading_Size_Anchor" xml:space="preserve">
+    <value>tailles</value>
+  </data>
+  <data name="PageHeading_Size_Title" xml:space="preserve">
+    <value>Tailles</value>
+  </data>
+  <data name="PageHeading_Size_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;L'en-tête de page offre trois tailles — &lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; et &lt;code&gt;large&lt;/code&gt; — déterminées par la propriété &lt;code&gt;size&lt;/code&gt;. La taille modifie l'espace au-dessus et en dessous du texte, et non la taille du texte.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_Size_Label" xml:space="preserve">
+    <value>Exemples de tailles de l'en-tête de page</value>
+  </data>
+  <data name="PageHeading_Size_Compact_Title" xml:space="preserve">
+    <value>Compacte</value>
+  </data>
+  <data name="PageHeading_Size_Compact_Text" xml:space="preserve">
+    <value>Utilise moins d'espace au-dessus et en dessous du texte. Convient aux pages où les utilisateurs doivent accéder rapidement au contenu.</value>
+  </data>
+  <data name="PageHeading_Size_Regular_Title" xml:space="preserve">
+    <value>Régulière</value>
+  </data>
+  <data name="PageHeading_Size_Regular_Text" xml:space="preserve">
+    <value>Convient à la plupart des pages et s'applique automatiquement lorsqu'aucune propriété &lt;code&gt;size&lt;/code&gt; n'est indiquée.</value>
+  </data>
+  <data name="PageHeading_Size_Large_Title" xml:space="preserve">
+    <value>Grande</value>
+  </data>
+  <data name="PageHeading_Size_Large_Text" xml:space="preserve">
+    <value>Donne plus de place à l'image d'arrière-plan. Convient aux pages d'accueil qui présentent un programme ou un service.</value>
+  </data>
+  <data name="PageHeading_Colour_Anchor" xml:space="preserve">
+    <value>couleurs-du-texte</value>
+  </data>
+  <data name="PageHeading_Colour_Title" xml:space="preserve">
+    <value>Couleurs du texte</value>
+  </data>
+  <data name="PageHeading_Colour_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Utilisez &lt;code&gt;text-colour&lt;/code&gt; pour déterminer la couleur du titre et de la description. Associez toujours chaque couleur de texte à la &lt;code&gt;background-colour&lt;/code&gt; correspondante afin que le texte respecte un rapport de contraste de 4,5:1. Sur les écrans mobiles, l'image d'arrière-plan et la boîte sont retirées et le texte prend la couleur de texte régulière.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_Colour_Label" xml:space="preserve">
+    <value>Exemples de couleurs du texte de l'en-tête de page</value>
+  </data>
+  <data name="PageHeading_Colour_Light_Title" xml:space="preserve">
+    <value>Pâle</value>
+  </data>
+  <data name="PageHeading_Colour_Light_Text" xml:space="preserve">
+    <value>La valeur par défaut. Texte blanc, utilisé avec la couleur d'arrière-plan &lt;code&gt;primary&lt;/code&gt;.</value>
+  </data>
+  <data name="PageHeading_Colour_Primary_Title" xml:space="preserve">
+    <value>Principale</value>
+  </data>
+  <data name="PageHeading_Colour_Primary_Text" xml:space="preserve">
+    <value>Texte gris foncé, utilisé avec la couleur d'arrière-plan &lt;code&gt;light&lt;/code&gt;.</value>
+  </data>
+  <data name="PageHeading_Image_Regular_AltText" xml:space="preserve">
+    <value>En-tête de page avec un titre et une description en blanc dans une boîte bleu foncé, sur une photo d'un lac de montagne.</value>
+  </data>
+  <data name="PageHeading_Image_NoEmphasis_AltText" xml:space="preserve">
+    <value>En-tête de page avec un titre et une description en blanc placés directement sur une photo d'un lac de montagne, sans boîte derrière le texte.</value>
+  </data>
+  <data name="PageHeading_Image_Compact_AltText" xml:space="preserve">
+    <value>En-tête de page compact où l'on voit peu de la photo au-dessus et en dessous de la boîte de texte bleu foncé.</value>
+  </data>
+  <data name="PageHeading_Image_Large_AltText" xml:space="preserve">
+    <value>Grand en-tête de page où l'on voit davantage la photo au-dessus et en dessous de la boîte de texte bleu foncé.</value>
+  </data>
+  <data name="PageHeading_Image_Light_AltText" xml:space="preserve">
+    <value>En-tête de page avec un titre et une description en gris foncé dans une boîte gris pâle, sur une photo d'un lac de montagne.</value>
+  </data>
+  <data name="PageHeading_Notes_5" xml:space="preserve">
+    <value>Le titre est affiché comme le &lt;code&gt;h1&lt;/code&gt; de la page. Utilisez un seul en-tête de page par page et placez-le au début du contenu principal, à l'intérieur du conteneur de la page. L'arrière-plan s'étend sur toute la largeur de la fenêtre, tandis que le texte reste aligné avec le contenu de la page</value>
   </data>
   <data name="PageHeading_Notes_1" xml:space="preserve">
     <value>L'image de l'arrière-plan est déterminé en utilisant l'attribut &lt;code&gt;data-bg-src&lt;/code&gt; et du code JavaScript pour conforme au CSP</value>
@@ -1394,13 +1505,19 @@
     <value>Optionnel. Texte descriptif additionel affiché sous le titre de l'en-tête.</value>
   </data>
   <data name="PageHeading_Properties_Size" xml:space="preserve">
-    <value>Optionnel. Détermine la hauteur de l'en-tête de page (par défaut ou large). Un large en-tête de page ajoutera plus de coussin au-dessus et en-dessous de l'espace réservé au texte.</value>
+    <value>Optionnel. Détermine la hauteur de l'en-tête de page (&lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; ou &lt;code&gt;large&lt;/code&gt;). Un en-tête compact utilise moins de coussin au-dessus et en-dessous de l'espace réservé au texte, et un en-tête large en utilise davantage.</value>
+  </data>
+  <data name="PageHeading_Properties_BackgroundColour" xml:space="preserve">
+    <value>Optionnel. Détermine la couleur d'arrière-plan de l'espace réservé au texte lorsque &lt;code&gt;text-emphasis&lt;/code&gt; est activé (&lt;code&gt;primary&lt;/code&gt; ou &lt;code&gt;light&lt;/code&gt;). Utilisez &lt;code&gt;primary&lt;/code&gt; avec du texte pâle, et &lt;code&gt;light&lt;/code&gt; avec du texte principal.</value>
+  </data>
+  <data name="PageHeading_Properties_TextColour" xml:space="preserve">
+    <value>Optionnel. Détermine la couleur du titre et de la description (&lt;code&gt;light&lt;/code&gt; ou &lt;code&gt;primary&lt;/code&gt;). Sur les écrans mobiles, le texte pâle prend la couleur de texte régulière.</value>
   </data>
   <data name="PageHeading_Properties_Src" xml:space="preserve">
-    <value>Optionnel. URL pour l'image en arrière-plan.</value>
+    <value>Optionnel. URL pour l'image en arrière-plan. Si l'image est absente ou ne se charge pas, le texte pâle est affiché sur le même arrière-plan que &lt;code&gt;text-emphasis&lt;/code&gt; afin de rester lisible.</value>
   </data>
   <data name="PageHeading_Properties_TextEmphasis" xml:space="preserve">
-    <value>Optionnel. Ajout un léger arrière-plan semi-transparent ainsi qu'une bordure autour de l'espace réservé au texte pour mettre de l'emphase sur le contenu.</value>
+    <value>Optionnel. Ajoute un arrière-plan à contraste plus élevé derrière le titre et la description afin de distinguer le texte de l'image d'arrière-plan. La couleur est déterminée par &lt;code&gt;background-colour&lt;/code&gt;.</value>
   </data>
   <data name="Stepper_Basic_Anchor" xml:space="preserve">
     <value>base</value>

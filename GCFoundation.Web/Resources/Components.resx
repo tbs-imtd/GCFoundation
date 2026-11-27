@@ -1379,7 +1379,118 @@
     <value>Style overrides can be applied via &lt;code&gt;fdcp-page-heading-container&lt;/code&gt; and related classes in your SCSS</value>
   </data>
   <data name="PageHeading_Notes_2" xml:space="preserve">
-    <value>Component is responsive and accessible</value>
+    <value>Component is responsive and accessible. On mobile screens, the background image and the text container background are removed, and light text switches to the regular text colour</value>
+  </data>
+  <data name="PageHeading_Demo_Title" xml:space="preserve">
+    <value>Funding opportunities</value>
+  </data>
+  <data name="PageHeading_Demo_Description" xml:space="preserve">
+    <value>Discover and apply for funding opportunities to support your projects and initiatives.</value>
+  </data>
+  <data name="PageHeading_Notes_4" xml:space="preserve">
+    <value>The title and description must meet a minimum contrast ratio of 4.5:1 in all views (desktop, tablet and mobile). The matching &lt;code&gt;background-colour&lt;/code&gt; and &lt;code&gt;text-colour&lt;/code&gt; pairs meet this ratio, but the component does not enforce it. When &lt;code&gt;text-emphasis&lt;/code&gt; is off, check the contrast of the text against the background image. A gradient background can be applied through style overrides as long as it meets the same minimum contrast in all views</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Anchor" xml:space="preserve">
+    <value>text-emphasis</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Title" xml:space="preserve">
+    <value>Text emphasis</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use &lt;code&gt;text-emphasis&lt;/code&gt; to place a higher-contrast box behind the title and description, so the text stays readable over any part of the background image. Set the colour of the box with &lt;code&gt;background-colour&lt;/code&gt;.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Label" xml:space="preserve">
+    <value>Page heading text emphasis examples</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Primary_Title" xml:space="preserve">
+    <value>Primary</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Primary_Text" xml:space="preserve">
+    <value>The default. A dark blue box (&lt;code&gt;background-colour="primary"&lt;/code&gt;), used with light text. Recommended when the text sits over a detailed or busy image.</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Light_Title" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Light_Text" xml:space="preserve">
+    <value>A light grey box (&lt;code&gt;background-colour="light"&lt;/code&gt;), used with primary text.</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Off_Title" xml:space="preserve">
+    <value>Without</value>
+  </data>
+  <data name="PageHeading_TextEmphasis_Off_Text" xml:space="preserve">
+    <value>The text is placed directly on the image. Check that the text meets a 4.5:1 contrast ratio against every part of the image it covers. If the image does not load, light text falls back to the text emphasis background.</value>
+  </data>
+  <data name="PageHeading_Size_Anchor" xml:space="preserve">
+    <value>sizes</value>
+  </data>
+  <data name="PageHeading_Size_Title" xml:space="preserve">
+    <value>Sizes</value>
+  </data>
+  <data name="PageHeading_Size_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;The page heading supports three sizes — &lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; and &lt;code&gt;large&lt;/code&gt; — set with the &lt;code&gt;size&lt;/code&gt; property. The size changes the space above and below the text, not the size of the text.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_Size_Label" xml:space="preserve">
+    <value>Page heading size examples</value>
+  </data>
+  <data name="PageHeading_Size_Compact_Title" xml:space="preserve">
+    <value>Compact</value>
+  </data>
+  <data name="PageHeading_Size_Compact_Text" xml:space="preserve">
+    <value>Uses less space above and below the text. Suits pages where users need to reach the content quickly.</value>
+  </data>
+  <data name="PageHeading_Size_Regular_Title" xml:space="preserve">
+    <value>Regular</value>
+  </data>
+  <data name="PageHeading_Size_Regular_Text" xml:space="preserve">
+    <value>Suits most pages and is applied automatically when no &lt;code&gt;size&lt;/code&gt; property is specified.</value>
+  </data>
+  <data name="PageHeading_Size_Large_Title" xml:space="preserve">
+    <value>Large</value>
+  </data>
+  <data name="PageHeading_Size_Large_Text" xml:space="preserve">
+    <value>Gives the background image more room. Suits landing pages that introduce a program or service.</value>
+  </data>
+  <data name="PageHeading_Colour_Anchor" xml:space="preserve">
+    <value>text-colours</value>
+  </data>
+  <data name="PageHeading_Colour_Title" xml:space="preserve">
+    <value>Text colours</value>
+  </data>
+  <data name="PageHeading_Colour_Text" xml:space="preserve">
+    <value>&lt;gcds-text&gt;Use &lt;code&gt;text-colour&lt;/code&gt; to set the colour of the title and description. Always pair each text colour with its matching &lt;code&gt;background-colour&lt;/code&gt; so the text meets a 4.5:1 contrast ratio. On mobile screens, the background image and box are removed and the text uses the regular text colour.&lt;/gcds-text&gt;</value>
+  </data>
+  <data name="PageHeading_Colour_Label" xml:space="preserve">
+    <value>Page heading text colour examples</value>
+  </data>
+  <data name="PageHeading_Colour_Light_Title" xml:space="preserve">
+    <value>Light</value>
+  </data>
+  <data name="PageHeading_Colour_Light_Text" xml:space="preserve">
+    <value>The default. White text, used with the &lt;code&gt;primary&lt;/code&gt; background colour.</value>
+  </data>
+  <data name="PageHeading_Colour_Primary_Title" xml:space="preserve">
+    <value>Primary</value>
+  </data>
+  <data name="PageHeading_Colour_Primary_Text" xml:space="preserve">
+    <value>Dark grey text, used with the &lt;code&gt;light&lt;/code&gt; background colour.</value>
+  </data>
+  <data name="PageHeading_Image_Regular_AltText" xml:space="preserve">
+    <value>Page heading with a white title and description on a dark blue box, over a photo of a mountain lake.</value>
+  </data>
+  <data name="PageHeading_Image_NoEmphasis_AltText" xml:space="preserve">
+    <value>Page heading with a white title and description placed directly on a photo of a mountain lake, without a box behind the text.</value>
+  </data>
+  <data name="PageHeading_Image_Compact_AltText" xml:space="preserve">
+    <value>Compact page heading with little photo visible above and below the dark blue text box.</value>
+  </data>
+  <data name="PageHeading_Image_Large_AltText" xml:space="preserve">
+    <value>Large page heading with more of the photo visible above and below the dark blue text box.</value>
+  </data>
+  <data name="PageHeading_Image_Light_AltText" xml:space="preserve">
+    <value>Page heading with a dark grey title and description on a light grey box, over a photo of a mountain lake.</value>
+  </data>
+  <data name="PageHeading_Notes_5" xml:space="preserve">
+    <value>The title is rendered as the page's &lt;code&gt;h1&lt;/code&gt;. Use only one page heading per page and place it at the start of the main content, inside the page container. The background extends to the full width of the window while the text stays aligned with the page content</value>
   </data>
   <data name="PageHeading_Notes_1" xml:space="preserve">
     <value>The background image is set using a &lt;code&gt;data-bg-src&lt;/code&gt; attribute and JavaScript for CSP compliance</value>
@@ -1394,13 +1505,19 @@
     <value>Optional. Additional descriptive text below the title.</value>
   </data>
   <data name="PageHeading_Properties_Size" xml:space="preserve">
-    <value>Optional. Sets the size of the height of page header (Default, or Large). A Large page heading will add more padding above and below the text container.</value>
+    <value>Optional. Sets the height of the page header (&lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; or &lt;code&gt;large&lt;/code&gt;). A compact page heading uses less padding above and below the text container, and a large page heading uses more.</value>
+  </data>
+  <data name="PageHeading_Properties_BackgroundColour" xml:space="preserve">
+    <value>Optional. Sets the background colour of the text container when &lt;code&gt;text-emphasis&lt;/code&gt; is enabled (&lt;code&gt;primary&lt;/code&gt; or &lt;code&gt;light&lt;/code&gt;). Use &lt;code&gt;primary&lt;/code&gt; with light text, and &lt;code&gt;light&lt;/code&gt; with primary text.</value>
+  </data>
+  <data name="PageHeading_Properties_TextColour" xml:space="preserve">
+    <value>Optional. Sets the colour of the title and description (&lt;code&gt;light&lt;/code&gt; or &lt;code&gt;primary&lt;/code&gt;). On mobile screens, light text switches to the regular text colour.</value>
   </data>
   <data name="PageHeading_Properties_Src" xml:space="preserve">
-    <value>Optional. URL for the background image.</value>
+    <value>Optional. URL for the background image. If the image is missing or does not load, light text is shown on the same background as &lt;code&gt;text-emphasis&lt;/code&gt; so it stays readable.</value>
   </data>
   <data name="PageHeading_Properties_TextEmphasis" xml:space="preserve">
-    <value>Optional. Adds a light background and a border around the text container to emphasize the content.</value>
+    <value>Optional. Adds a higher-contrast background behind the title and description to distinguish the text from the background image. The colour is set with &lt;code&gt;background-colour&lt;/code&gt;.</value>
   </data>
   <data name="Stepper_Basic_Anchor" xml:space="preserve">
     <value>basic</value>

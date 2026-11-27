@@ -4491,6 +4491,24 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Discover and apply for funding opportunities to support your projects and initiatives..
+        /// </summary>
+        public static string PageHeading_Demo_Description {
+            get {
+                return ResourceManager.GetString("PageHeading_Demo_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Funding opportunities.
+        /// </summary>
+        public static string PageHeading_Demo_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Demo_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Page Heading.
         /// </summary>
         public static string PageHeading_Name {
@@ -4509,7 +4527,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Component is responsive and accessible.
+        ///   Looks up a localized string similar to Component is responsive and accessible. On mobile screens, the background image and the text container background are removed, and light text switches to the regular text colour.
         /// </summary>
         public static string PageHeading_Notes_2 {
             get {
@@ -4527,11 +4545,38 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The title and description must meet a minimum contrast ratio of 4.5:1 in all views (desktop, tablet and mobile). The matching &lt;code&gt;background-colour&lt;/code&gt; and &lt;code&gt;text-colour&lt;/code&gt; pairs meet this ratio, but the component does not enforce it. When &lt;code&gt;text-emphasis&lt;/code&gt; is off, check the contrast of the text against the background image. A gradient background can be applied through style overrides as long as it meets the same minimum contrast in all views.
+        /// </summary>
+        public static string PageHeading_Notes_4 {
+            get {
+                return ResourceManager.GetString("PageHeading_Notes_4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The title is rendered as the page&apos;s &lt;code&gt;h1&lt;/code&gt;. Use only one page heading per page and place it at the start of the main content, inside the page container. The background extends to the full width of the window while the text stays aligned with the page content.
+        /// </summary>
+        public static string PageHeading_Notes_5 {
+            get {
+                return ResourceManager.GetString("PageHeading_Notes_5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The &lt;code&gt;&amp;lt;fdcp-page-heading&amp;gt;&lt;/code&gt; component displays a prominent page header with a title, description, and optional background image. It is designed for use in Razor Pages projects..
         /// </summary>
         public static string PageHeading_Overview {
             get {
                 return ResourceManager.GetString("PageHeading_Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Sets the background colour of the text container when &lt;code&gt;text-emphasis&lt;/code&gt; is enabled (&lt;code&gt;primary&lt;/code&gt;, &lt;code&gt;dark&lt;/code&gt;, &lt;code&gt;light&lt;/code&gt; or &lt;code&gt;white&lt;/code&gt;). Use &lt;code&gt;primary&lt;/code&gt; or &lt;code&gt;dark&lt;/code&gt; with light text, and &lt;code&gt;light&lt;/code&gt; or &lt;code&gt;white&lt;/code&gt; with primary or secondary text..
+        /// </summary>
+        public static string PageHeading_Properties_BackgroundColour {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_BackgroundColour", resourceCulture);
             }
         }
         
@@ -4545,7 +4590,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional. Sets the size of the height of page header (Default, or Large). A Large page heading will add more padding above and below the text container..
+        ///   Looks up a localized string similar to Optional. Sets the height of the page header (&lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; or &lt;code&gt;large&lt;/code&gt;). A compact page heading uses less padding above and below the text container, and a large page heading uses more..
         /// </summary>
         public static string PageHeading_Properties_Size {
             get {
@@ -4554,7 +4599,7 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional. URL for the background image..
+        ///   Looks up a localized string similar to Optional. URL for the background image. If the image is missing or does not load, light text is shown on the same background as &lt;code&gt;text-emphasis&lt;/code&gt; so it stays readable..
         /// </summary>
         public static string PageHeading_Properties_Src {
             get {
@@ -4563,7 +4608,16 @@ namespace GCFoundation.Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Optional. Adds a light background and a border around the text container to emphasize the content..
+        ///   Looks up a localized string similar to Optional. Sets the colour of the title and description (&lt;code&gt;light&lt;/code&gt;, &lt;code&gt;primary&lt;/code&gt; or &lt;code&gt;secondary&lt;/code&gt;). On mobile screens, light text switches to the regular text colour..
+        /// </summary>
+        public static string PageHeading_Properties_TextColour {
+            get {
+                return ResourceManager.GetString("PageHeading_Properties_TextColour", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Optional. Adds a higher-contrast background behind the title and description to distinguish the text from the background image. The colour is set with &lt;code&gt;background-colour&lt;/code&gt;..
         /// </summary>
         public static string PageHeading_Properties_TextEmphasis {
             get {
@@ -4577,6 +4631,303 @@ namespace GCFoundation.Web.Resources {
         public static string PageHeading_Properties_Title {
             get {
                 return ResourceManager.GetString("PageHeading_Properties_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to text-colours.
+        /// </summary>
+        public static string PageHeading_Colour_Anchor {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading text colour examples.
+        /// </summary>
+        public static string PageHeading_Colour_Label {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The default. White text, used with the &lt;code&gt;primary&lt;/code&gt; background colour..
+        /// </summary>
+        public static string PageHeading_Colour_Light_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Light_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string PageHeading_Colour_Light_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Light_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dark grey text, used with the &lt;code&gt;light&lt;/code&gt; background colour..
+        /// </summary>
+        public static string PageHeading_Colour_Primary_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Primary_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primary.
+        /// </summary>
+        public static string PageHeading_Colour_Primary_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Primary_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use &lt;code&gt;text-colour&lt;/code&gt; to set the colour of the title and description. Always pair each text colour with its matching &lt;code&gt;background-colour&lt;/code&gt; so the text meets a 4.5:1 contrast ratio. On mobile screens, the background image and box are removed and the text uses the regular text colour.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string PageHeading_Colour_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text colours.
+        /// </summary>
+        public static string PageHeading_Colour_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Colour_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compact page heading with little photo visible above and below the dark blue text box..
+        /// </summary>
+        public static string PageHeading_Image_Compact_AltText {
+            get {
+                return ResourceManager.GetString("PageHeading_Image_Compact_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Large page heading with more of the photo visible above and below the dark blue text box..
+        /// </summary>
+        public static string PageHeading_Image_Large_AltText {
+            get {
+                return ResourceManager.GetString("PageHeading_Image_Large_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading with a dark grey title and description on a light grey box, over a photo of a mountain lake..
+        /// </summary>
+        public static string PageHeading_Image_Light_AltText {
+            get {
+                return ResourceManager.GetString("PageHeading_Image_Light_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading with a white title and description placed directly on a photo of a mountain lake, without a box behind the text..
+        /// </summary>
+        public static string PageHeading_Image_NoEmphasis_AltText {
+            get {
+                return ResourceManager.GetString("PageHeading_Image_NoEmphasis_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading with a white title and description on a dark blue box, over a photo of a mountain lake..
+        /// </summary>
+        public static string PageHeading_Image_Regular_AltText {
+            get {
+                return ResourceManager.GetString("PageHeading_Image_Regular_AltText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to sizes.
+        /// </summary>
+        public static string PageHeading_Size_Anchor {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Uses less space above and below the text. Suits pages where users need to reach the content quickly..
+        /// </summary>
+        public static string PageHeading_Size_Compact_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Compact_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compact.
+        /// </summary>
+        public static string PageHeading_Size_Compact_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Compact_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading size examples.
+        /// </summary>
+        public static string PageHeading_Size_Label {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gives the background image more room. Suits landing pages that introduce a program or service..
+        /// </summary>
+        public static string PageHeading_Size_Large_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Large_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Large.
+        /// </summary>
+        public static string PageHeading_Size_Large_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Large_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Suits most pages and is applied automatically when no &lt;code&gt;size&lt;/code&gt; property is specified..
+        /// </summary>
+        public static string PageHeading_Size_Regular_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Regular_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Regular.
+        /// </summary>
+        public static string PageHeading_Size_Regular_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Regular_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;The page heading supports three sizes — &lt;code&gt;compact&lt;/code&gt;, &lt;code&gt;regular&lt;/code&gt; and &lt;code&gt;large&lt;/code&gt; — set with the &lt;code&gt;size&lt;/code&gt; property. The size changes the space above and below the text, not the size of the text.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string PageHeading_Size_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sizes.
+        /// </summary>
+        public static string PageHeading_Size_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_Size_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to text-emphasis.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Anchor {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Anchor", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Page heading text emphasis examples.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Label {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The text is placed directly on the image. Check that the text meets a 4.5:1 contrast ratio against every part of the image it covers. If the image does not load, light text falls back to the text emphasis background..
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Off_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Off_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Without.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Off_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Off_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The default. A dark blue box (&lt;code&gt;background-colour=&quot;primary&quot;&lt;/code&gt;), used with light text. Recommended when the text sits over a detailed or busy image..
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Primary_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Primary_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primary.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Primary_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Primary_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to A light grey box (&lt;code&gt;background-colour=&quot;light&quot;&lt;/code&gt;), used with primary text..
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Light_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Light_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Light.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Light_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Light_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;gcds-text&gt;Use &lt;code&gt;text-emphasis&lt;/code&gt; to place a higher-contrast box behind the title and description, so the text stays readable over any part of the background image. Set the colour of the box with &lt;code&gt;background-colour&lt;/code&gt;.&lt;/gcds-text&gt;.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Text {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text emphasis.
+        /// </summary>
+        public static string PageHeading_TextEmphasis_Title {
+            get {
+                return ResourceManager.GetString("PageHeading_TextEmphasis_Title", resourceCulture);
             }
         }
         

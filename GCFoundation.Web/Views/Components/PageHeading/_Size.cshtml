@@ -1,0 +1,36 @@
+@using GCFoundation.Components.Resources
+@using GCFoundation.Web.Resources
+
+<fdcp-tabs id="page-heading-size-tabs" label="@Components.PageHeading_Size_Label">
+    <fdcp-tab id="page-heading-tab-size-compact" title="@Components.PageHeading_Size_Compact_Title" active="true">
+        <gcds-text>@Html.Raw(Components.PageHeading_Size_Compact_Text)</gcds-text>
+        <img src="@Url.Content($"~/images/page-heading/compact-{Localization.ThreeLetterLanguage}.jpg")" alt="@Components.PageHeading_Image_Compact_AltText" class="img-responsive" />
+        <fdcp-code code-language="html">@Html.Raw($@"&lt;fdcp-page-heading
+    title=""{Html.Encode(Components.PageHeading_Demo_Title)}""
+    description=""{Html.Encode(Components.PageHeading_Demo_Description)}""
+    src=""/images/page-heading-bg.jpg""
+    text-emphasis=""true""
+    size=""compact"" /&gt;")</fdcp-code>
+    </fdcp-tab>
+
+    <fdcp-tab id="page-heading-tab-size-regular" title="@Components.PageHeading_Size_Regular_Title">
+        <gcds-text>@Html.Raw(Components.PageHeading_Size_Regular_Text)</gcds-text>
+        <img src="@Url.Content($"~/images/page-heading/regular-{Localization.ThreeLetterLanguage}.jpg")" alt="@Components.PageHeading_Image_Regular_AltText" class="img-responsive" />
+        <fdcp-code code-language="html">@Html.Raw($@"&lt;fdcp-page-heading
+    title=""{Html.Encode(Components.PageHeading_Demo_Title)}""
+    description=""{Html.Encode(Components.PageHeading_Demo_Description)}""
+    src=""/images/page-heading-bg.jpg""
+    text-emphasis=""true"" /&gt;")</fdcp-code>
+    </fdcp-tab>
+
+    <fdcp-tab id="page-heading-tab-size-large" title="@Components.PageHeading_Size_Large_Title">
+        <gcds-text>@Html.Raw(Components.PageHeading_Size_Large_Text)</gcds-text>
+        <img src="@Url.Content($"~/images/page-heading/large-{Localization.ThreeLetterLanguage}.jpg")" alt="@Components.PageHeading_Image_Large_AltText" class="img-responsive" />
+        <fdcp-code code-language="html">@Html.Raw($@"&lt;fdcp-page-heading
+    title=""{Html.Encode(Components.PageHeading_Demo_Title)}""
+    description=""{Html.Encode(Components.PageHeading_Demo_Description)}""
+    src=""/images/page-heading-bg.jpg""
+    text-emphasis=""true""
+    size=""large"" /&gt;")</fdcp-code>
+    </fdcp-tab>
+</fdcp-tabs>

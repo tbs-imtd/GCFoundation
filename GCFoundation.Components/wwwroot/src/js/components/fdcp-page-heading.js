@@ -4,7 +4,7 @@
         var bgEl = el.querySelector('.fdcp-page-heading-bg');
         var src = el.getAttribute('data-bg-src');
         if (src && bgEl) {
-            bgEl.style.backgroundImage = 'url(' + src + ')';
+            bgEl.style.setProperty('--fdcp-page-heading-bg-image', 'url("' + src.replace(/["\\]/g, '\\$&') + '")');
         }
     });
 });

@@ -1,0 +1,58 @@
+@using GCFoundation.Web.Resources
+
+<div class="fdcp-table-responsive">
+    <table class="fdcp-table fdcp-table-striped fdcp-table-hover fdcp-table-condensed">
+        <thead>
+            <tr>
+                <th scope="col">@Components.Properties_Property</th>
+                <th scope="col">@Components.Properties_DataType</th>
+                <th scope="col">@Components.Properties_DefaultValue</th>
+                <th scope="col">@Components.Properties_Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row"><code>background-colour</code></th>
+                <td><code>BackgroundColour</code></td>
+                <td>BackgroundColour.primary</td>
+                <td>@Html.Raw(Components.PageHeading_Properties_BackgroundColour)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>description</code></th>
+                <td><code>string</code></td>
+                <td>—</td>
+                <td>@Components.PageHeading_Properties_Description</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>size</code></th>
+                <td><code>PageHeadingSize</code></td>
+                <td>PageHeadingSize.regular</td>
+                <td>@Html.Raw(Components.PageHeading_Properties_Size)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>src</code></th>
+                <td><code>string</code></td>
+                <td>—</td>
+                <td>@Html.Raw(Components.PageHeading_Properties_Src)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>text-colour</code></th>
+                <td><code>TextColour</code></td>
+                <td>TextColour.light</td>
+                <td>@Html.Raw(Components.PageHeading_Properties_TextColour)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>text-emphasis</code></th>
+                <td><code>bool</code></td>
+                <td>false</td>
+                <td>@Html.Raw(Components.PageHeading_Properties_TextEmphasis)</td>
+            </tr>
+            <tr>
+                <th scope="row"><code>title</code></th>
+                <td><code>string</code></td>
+                <td>—</td>
+                <td>@Html.Raw(Components.PageHeading_Properties_Title)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

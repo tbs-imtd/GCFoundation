@@ -145,7 +145,10 @@
     <value>Tableau</value>
   </data>
   <data name="Nav_Components_PageHeading" xml:space="preserve">
-    <value>Titre de page</value>
+    <value>En-tête de page</value>
+  </data>
+  <data name="Nav_Components_PageHeading_Demo" xml:space="preserve">
+    <value>Démo de l'en-tête de page</value>
   </data>
   <data name="Nav_Components_Stepper" xml:space="preserve">
     <value>Étape</value>
