@@ -117,7 +117,11 @@
             <li><strong>Default foundation JavaScript</strong> (always included):
                 <ul>
                     <li><code>prism/js/prism.js</code></li>
-                    <li><code>foundation.min.js</code></li>
+                    <li><code>foundation.min.js</code>
+                        <ul>
+                            <li><code>fdcp-autocomplete.min.js</code>: @Html.Raw(Installation.GlobalResources_LazyAutocompleteScript)</li>
+                        </ul>
+                    </li>
                 </ul>
             </li>
             <li>Global JavaScript files from configuration</li>

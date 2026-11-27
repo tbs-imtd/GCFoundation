@@ -120,6 +120,9 @@
   <data name="GlobalResources_AlwaysEnabled" xml:space="preserve">
     <value>Toujours activé</value>
   </data>
+  <data name="GlobalResources_LazyAutocompleteScript" xml:space="preserve">
+    <value>chargé par &lt;code&gt;foundation.min.js&lt;/code&gt; seulement dans les pages qui contiennent un &lt;code&gt;fdcp-autocomplete&lt;/code&gt;</value>
+  </data>
   <data name="GlobalResources_CssLoadingOrder_Title" xml:space="preserve">
     <value>Ordre de chargement CSS</value>
   </data>

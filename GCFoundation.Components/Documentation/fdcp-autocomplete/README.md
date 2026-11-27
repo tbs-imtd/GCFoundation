@@ -5,7 +5,7 @@ A text input that looks up suggestions from a data source (a web API by default)
 It is built for lists that are too large to send to the browser: results are requested a page at a time, only the visible rows are rendered, and repeated searches are answered from an in-memory cache.
 
 - Tag helper: `GCFoundation.Components/TagHelpers/FDCP/FDCPAutocompleteTagHelper.cs`
-- Script: `GCFoundation.Components/wwwroot/src/js/components/fdcp-autocomplete.js`
+- Script: `GCFoundation.Components/wwwroot/src/js/components/fdcp-autocomplete.js`, built to its own `wwwroot/js/fdcp-autocomplete.min.js` and loaded only on pages that use it (see [Loading](#loading))
 - Styles: `GCFoundation.Components/wwwroot/src/scss/components/_fdcp-autocomplete.scss`
 - Live samples: `/en/components/autocomplete` and `/fr/composants/saisie-semi-automatique` in `GCFoundation.Web`
 - Data source samples (Web API, database, GraphQL, existing API, local data) with evidence: [DATA-SOURCES.md](DATA-SOURCES.md)
@@ -53,6 +53,24 @@ Without a model:
 The posted form field is `EmployeeId` (or `employee`) and holds the selected item's `value`. The visible text is not submitted.
 
 The field is **strict**: text that was typed but not picked from the list is a validation error ("Select an option from the list."), and editing the text of an existing selection clears the value.
+
+## Loading
+
+Nothing to add to the layout. The script is not in `foundation.min.js`; instead `foundation.min.js` checks the page once the HTML has been parsed and, if there is an `fdcp-autocomplete`, adds `fdcp-autocomplete.min.js` from the same folder. Pages without one download nothing extra (about 19 KB of minified script is saved on each of them).
+
+- The file is requested from the folder `foundation.min.js` came from, so virtual directories work.
+- Its URL carries a hash of its content (`?v=...`), so browsers fetch it again only after it changes.
+- It is a same-origin script, so the default `script-src 'self'` policy allows it. No nonce or CSP change is needed.
+- The styles stay in `foundation.min.css` (about 5 KB), so the field never renders unstyled while the script loads.
+
+Because the script now arrives after `foundation.min.js`, page code must not use `window.FDCPAutocomplete` straight away. Listen for `fdcp-autocomplete:ready` (see [Events](#events)), which works whatever order the scripts load in, or wait for the loader:
+
+```js
+await window.FDCPLazy.load('autocomplete');
+// window.FDCPAutocomplete is defined from here.
+```
+
+`FDCPLazy.load` is also how to bring the script in for markup added to the page later, for example a partial fetched with `fetch()`. Components already on the page when the script arrives are set up automatically; for markup added after that, call `new FDCPAutocomplete(element)` yourself. Calling `load` again returns the same promise; after a network failure it tries again.
 
 ## Properties
 
@@ -271,6 +289,7 @@ The root element gets `lang="en"` or `lang="fr"`, and the same value is sent to 
 | Demo endpoints with a mocked directory (Moq) and Faker data; all data sources agree | `Tests/Controllers/Autocomplete*EndpointTests.cs` | same |
 | Server performance budgets | `Tests/Performance/AutocompletePerformanceTests.cs` | `dotnet test --filter "Category=Performance"` |
 | Script logic: cache, virtual window, response validation, request building (Faker data, mocked `fetch` and clock) | `GCFoundation.Components/tests/js/fdcp-autocomplete.test.js` | `npm test` in `GCFoundation.Components` |
+| Lazy loader: loads only when needed, URL next to the bundle, retries; `foundation.min.js` no longer contains the component and carries its version | `GCFoundation.Components/tests/js/fdcp-lazy-loader.test.js` | `npm test` in `GCFoundation.Components` |
 | Script performance budgets | `GCFoundation.Components/tests/js/perf/` | `npm run test:perf` in `GCFoundation.Components` |
 | Browser behaviour, real endpoint and mocked source with 5,000 and 10,000 random records, accessibility | `e2e/tests/fdcp-autocomplete.spec.ts` | `npx playwright test fdcp-autocomplete.spec` in `e2e`, with `GCFoundation.Web` running on port 5215 |
 | Every data source sample, end to end | `e2e/tests/fdcp-autocomplete.sources.spec.ts` | `npx playwright test fdcp-autocomplete.sources` |

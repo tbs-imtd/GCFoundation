@@ -2418,7 +2418,7 @@
     <value>Autocomplete</value>
   </data>
   <data name="Autocomplete_Overview" xml:space="preserve">
-    <value>The &lt;code&gt;&amp;lt;fdcp-autocomplete&amp;gt;&lt;/code&gt; component is a text input that looks up suggestions from a data source, such as a web API, as the user types, and submits the value of the selected suggestion. It pages, virtualizes and caches results, so it stays fast with thousands of matches. Use it for large or remote lists with a single selection, such as people, organizations or codes. For a short, fixed list, grouped options or multiple selections, use &lt;code&gt;&amp;lt;fdcp-searchable-select&amp;gt;&lt;/code&gt; instead. All records in these samples are fictional.</value>
+    <value>The &lt;code&gt;&amp;lt;fdcp-autocomplete&amp;gt;&lt;/code&gt; component is a text input that looks up suggestions from a data source, such as a web API, as the user types, and submits the value of the selected suggestion. It pages, virtualizes and caches results, so it stays fast with thousands of matches. Use it for large or remote lists with a single selection, such as people, organizations or codes. For a short, fixed list, grouped options or multiple selections, use &lt;code&gt;&amp;lt;fdcp-searchable-select&amp;gt;&lt;/code&gt; instead. Its script is not part of &lt;code&gt;foundation.min.js&lt;/code&gt;: it is loaded automatically, only on pages that contain an autocomplete. All records in these samples are fictional.</value>
   </data>
   <data name="Autocomplete_Properties_For" xml:space="preserve">
     <value>Model expression the component is bound to. The label, hint, required state and value come from the model.</value>

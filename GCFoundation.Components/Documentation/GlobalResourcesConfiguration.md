@@ -244,6 +244,7 @@ The resources are loaded in the following order:
 2. **Default foundation JavaScript** (always included):
    - `prism/js/prism.js`
    - `foundation.min.js`
+     - `fdcp-autocomplete.min.js` is added by `foundation.min.js`, only on pages that contain an `fdcp-autocomplete`
 3. Global JavaScript files from configuration
 4. Page-specific scripts (`@RenderSectionAsync("Scripts")`)
 
