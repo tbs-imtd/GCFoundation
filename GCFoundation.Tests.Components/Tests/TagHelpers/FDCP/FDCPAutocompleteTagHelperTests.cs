@@ -243,6 +243,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("{0} results available", output.Attributes["data-multiple-results-text"].Value?.ToString());
             Assert.Equal("Type 3 or more characters to search", output.Attributes["data-min-length-text"].Value?.ToString());
             Assert.Equal("Unable to load results. Please try again.", output.Attributes["data-load-error-text"].Value?.ToString());
+            Assert.Equal("{0} selected", output.Attributes["data-selected-announcement-text"].Value?.ToString());
         }
 
         [Fact]
@@ -254,6 +255,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("fr", output.Attributes["lang"].Value?.ToString());
             Assert.Equal("Chargement des résultats...", output.Attributes["data-loading-text"].Value?.ToString());
             Assert.Equal("Aucun résultat trouvé", output.Attributes["data-no-results-text"].Value?.ToString());
+            Assert.Equal("Sélection : {0}", output.Attributes["data-selected-announcement-text"].Value?.ToString());
             Assert.Equal("{0} résultats disponibles", output.Attributes["data-multiple-results-text"].Value?.ToString());
             Assert.Equal("Saisissez au moins 3 caractères pour lancer la recherche", output.Attributes["data-min-length-text"].Value?.ToString());
             Assert.Equal("Ce champ est obligatoire.", output.Attributes["data-required-message"].Value?.ToString());
@@ -277,6 +279,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
                 MultipleResultsText = "{0} people",
                 MinLengthText = "Need {0}",
                 LoadErrorText = "Broken",
+                SelectedAnnouncementText = "Picked {0}",
                 ClearText = "Remove",
                 InstructionsText = "How to"
             };
@@ -291,6 +294,7 @@ namespace GCFoundation.Tests.Components.Tests.TagHelpers.FDCP
             Assert.Equal("{0} people", output.Attributes["data-multiple-results-text"].Value?.ToString());
             Assert.Equal("Need 2", output.Attributes["data-min-length-text"].Value?.ToString());
             Assert.Equal("Broken", output.Attributes["data-load-error-text"].Value?.ToString());
+            Assert.Equal("Picked {0}", output.Attributes["data-selected-announcement-text"].Value?.ToString());
             Assert.Contains("aria-label=\"Remove\"", content);
             Assert.Contains(">How to</span>", content);
         }

@@ -113,6 +113,11 @@ namespace GCFoundation.Components.TagHelpers.FDCP
         public string? LoadErrorText { get; set; }
 
         /// <summary>
+        /// Overrides the localized text announced to screen readers when an option is chosen. Use <c>{0}</c> for the option text.
+        /// </summary>
+        public string? SelectedAnnouncementText { get; set; }
+
+        /// <summary>
         /// Overrides the localized accessible name of the clear button.
         /// </summary>
         public string? ClearText { get; set; }
@@ -182,6 +187,7 @@ namespace GCFoundation.Components.TagHelpers.FDCP
             output.Attributes.SetAttribute("data-multiple-results-text", MultipleResultsText ?? Localization.Autocomplete_MultipleResults);
             output.Attributes.SetAttribute("data-min-length-text", minLengthText);
             output.Attributes.SetAttribute("data-load-error-text", LoadErrorText ?? Localization.Autocomplete_LoadError);
+            output.Attributes.SetAttribute("data-selected-announcement-text", SelectedAnnouncementText ?? Localization.Autocomplete_Selected);
             output.Attributes.SetAttribute("data-required-message", GCFoundation.Components.Resources.Validation.Field_Required_Generic);
             output.Attributes.SetAttribute("data-required-summary-message", requiredSummary);
             output.Attributes.SetAttribute("data-invalid-message", GCFoundation.Components.Resources.Validation.Autocomplete_InvalidSelection);

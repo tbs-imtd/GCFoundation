@@ -583,6 +583,15 @@ namespace GCFoundation.Components.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} selected.
+        /// </summary>
+        public static string Autocomplete_Selected {
+            get {
+                return ResourceManager.GetString("Autocomplete_Selected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No results found.
         /// </summary>
         public static string Autocomplete_NoResults {

@@ -48,6 +48,8 @@ export interface MockOptions {
   matchAll?: boolean;
   /** Milliseconds to wait before answering, per search term. */
   delays?: Record<string, number>;
+  /** Milliseconds to wait before answering any page after the first, so rows stay loading for a while. */
+  laterPageDelay?: number;
   /** HTTP status to answer with instead of data. */
   failWith?: number;
 }
@@ -81,7 +83,7 @@ export async function mockDataSource(
 
     mock.requests.push({ term, skip, take, lang: params.get('lang') ?? '' });
 
-    const delay = mock.options.delays?.[term] ?? 0;
+    const delay = (mock.options.delays?.[term] ?? 0) + (skip > 0 ? mock.options.laterPageDelay ?? 0 : 0);
     if (delay > 0) await new Promise(resolve => setTimeout(resolve, delay));
 
     try {
