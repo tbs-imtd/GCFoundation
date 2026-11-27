@@ -157,6 +157,30 @@ test.describe('FDCP autocomplete: demo data source (5,000 seeded records)', () =
     await expect(ac.input).toHaveValue('');
   });
 
+  test('reopening the list with the same term announces the result count again @core', async ({ page }) => {
+    await open(page);
+    const ac = autocomplete(page, 'employee');
+
+    await ac.input.fill('roy');
+    await expect(ac.status).toHaveText(/^\d+ results available$/);
+    const count = await ac.status.innerText();
+
+    await ac.input.press('Escape');
+    await expect(ac.listbox).toBeHidden();
+
+    // The status already holds the count, so watch for it being written again.
+    const announced = ac.status.evaluate(element => new Promise<string>(resolve => {
+      new MutationObserver(() => {
+        if (element.textContent) resolve(element.textContent);
+      }).observe(element, { childList: true, characterData: true, subtree: true });
+    }));
+
+    await ac.input.press('ArrowDown');
+    await expect(ac.listbox).toBeVisible();
+    await expect(ac.input).toHaveAttribute('aria-expanded', 'true');
+    expect(await announced).toBe(count);
+  });
+
   test('Tab closes the list without selecting @core', async ({ page }) => {
     await open(page);
     const ac = autocomplete(page, 'employee');
@@ -175,6 +199,9 @@ test.describe('FDCP autocomplete: demo data source (5,000 seeded records)', () =
 
     await ac.input.fill('zzzzzz');
     await expect(ac.message).toHaveText('No results found');
+    // Only a message shows, so there is no list to expand into.
+    await expect(ac.input).toHaveAttribute('aria-expanded', 'false');
+    await expect(ac.input).not.toHaveAttribute('aria-activedescendant');
 
     await tabOut(page, ac);
 
@@ -463,6 +490,30 @@ test.describe('FDCP autocomplete: mocked data source with thousands of random re
     await ac.input.press('Enter');
     await expect(ac.value).toHaveValue(records[4999].value);
     await expect(ac.input).toHaveValue(records[4999].text);
+  });
+
+  test('a row that finishes loading while active keeps its element and is announced @core', async ({ page }) => {
+    await open(page);
+    const records = generateRecords(5000);
+    await mockDataSource(page, 'directory', records, { matchAll: true, laterPageDelay: 1500 });
+    const ac = autocomplete(page, 'directory');
+    const active = ac.root.locator('[role="option"][aria-selected="true"]');
+
+    await ac.input.fill('an');
+    await expect(ac.options.first()).toBeVisible();
+    await ac.input.press('ArrowDown');
+    await ac.input.press('Control+End');
+
+    // Mark the placeholder so a replacement element would show up as a missing mark.
+    await expect(active).toHaveAttribute('data-loaded', 'false');
+    await expect(active).toHaveAttribute('aria-disabled', 'true');
+    await active.evaluate(element => element.setAttribute('data-test-placeholder', ''));
+
+    await expect(active).toContainText(records[4999].text);
+    await expect(active).toHaveAttribute('data-test-placeholder', '');
+    await expect(active).not.toHaveAttribute('aria-disabled');
+    await expect(ac.status).toHaveText(`${records[4999].text}, ${records[4999].description}`);
+    expect((await expectActiveDescendantResolves(ac)).posinset).toBe(5000);
   });
 
   test('Control+Home returns to the first row after reopening the list @core', async ({ page }) => {

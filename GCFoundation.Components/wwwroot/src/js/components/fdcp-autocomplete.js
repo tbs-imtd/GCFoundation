@@ -483,9 +483,7 @@ class FDCPAutocomplete {
             }
 
             if (skip === 0) {
-                this.announce(total === 1
-                    ? this.text.oneResult
-                    : this.text.multipleResults.replace('{0}', String(total)));
+                this.announce(this.resultCountText());
             }
         }
 
@@ -571,6 +569,9 @@ class FDCPAutocomplete {
         }
 
         this.open();
+        // Only a message is showing, so there is no list to expand into.
+        this.input.setAttribute('aria-expanded', 'false');
+        this.input.removeAttribute('aria-activedescendant');
         this.updatePlacement();
 
         if (announce) {
@@ -586,6 +587,7 @@ class FDCPAutocomplete {
 
         this.listbox.hidden = false;
         this.open();
+        this.input.setAttribute('aria-expanded', 'true');
         this.render();
         this.updatePlacement();
     }
@@ -684,9 +686,17 @@ class FDCPAutocomplete {
         this.rendered.forEach((option, index) => {
             const isLoaded = option.dataset.loaded === 'true';
 
-            if (!wanted.has(index) || (!isLoaded && this.items[index])) {
+            if (!wanted.has(index)) {
                 this.sizer.removeChild(option);
                 this.rendered.delete(index);
+            } else if (!isLoaded && this.items[index]) {
+                // Filled in place: replacing the node would leave aria-activedescendant on a new element
+                // with the same id, which screen readers do not re-announce.
+                this.fillOption(option, this.items[index]);
+
+                if (index === this.activeIndex) {
+                    this.announce(this.optionLabel(this.items[index]));
+                }
             }
         });
 
@@ -725,22 +735,12 @@ class FDCPAutocomplete {
         // CSSOM property writes are permitted by the nonce-based CSP; style attributes are not.
         option.style.transform = `translateY(${index * this.rowHeight}px)`;
 
-        // Data source text is only ever inserted as text, never as HTML.
-        const text = document.createElement('span');
-        text.className = 'fdcp-autocomplete__option-text';
-
         if (item) {
-            option.dataset.loaded = 'true';
-            text.textContent = item.text;
-            option.appendChild(text);
-
-            if (item.description) {
-                const description = document.createElement('span');
-                description.className = 'fdcp-autocomplete__option-description';
-                description.textContent = item.description;
-                option.appendChild(description);
-            }
+            this.fillOption(option, item);
         } else {
+            // Data source text is only ever inserted as text, never as HTML.
+            const text = document.createElement('span');
+            text.className = 'fdcp-autocomplete__option-text';
             option.dataset.loaded = 'false';
             option.classList.add('fdcp-autocomplete__option--loading');
             option.setAttribute('aria-disabled', 'true');
@@ -749,6 +749,36 @@ class FDCPAutocomplete {
         }
 
         return option;
+    }
+
+    /** Puts an item's text into an option, replacing a loading placeholder if there is one. */
+    fillOption(option, item) {
+        // Data source text is only ever inserted as text, never as HTML.
+        const text = document.createElement('span');
+        text.className = 'fdcp-autocomplete__option-text';
+        text.textContent = item.text;
+
+        option.dataset.loaded = 'true';
+        option.classList.remove('fdcp-autocomplete__option--loading');
+        option.removeAttribute('aria-disabled');
+        option.replaceChildren(text);
+
+        if (item.description) {
+            const description = document.createElement('span');
+            description.className = 'fdcp-autocomplete__option-description';
+            description.textContent = item.description;
+            option.appendChild(description);
+        }
+    }
+
+    optionLabel(item) {
+        return item.description ? `${item.text}, ${item.description}` : item.text;
+    }
+
+    resultCountText() {
+        return this.total === 1
+            ? this.text.oneResult
+            : this.text.multipleResults.replace('{0}', String(this.total));
     }
 
     clearRendered() {
@@ -867,7 +897,13 @@ class FDCPAutocomplete {
         }
 
         if (this.total > 0 && term === this.term) {
+            const wasShowing = this.isOpen() && !this.listbox.hidden;
+
             this.showResults();
+
+            if (!wasShowing) {
+                this.announce(this.resultCountText());
+            }
 
             if (activeIndex >= 0) {
                 this.setActive(activeIndex);
